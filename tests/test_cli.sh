@@ -32,6 +32,11 @@ for implementation in reference vulnerable; do
     if "$program" decapsulate-test 42 "$test_directory/long" 2>/dev/null; then
         exit 1
     fi
+    if "$program" decapsulate-test 42 "$test_directory" 2>/dev/null; then
+        exit 1
+    else
+        test "$?" -eq 1
+    fi
 done
 for category in valid bit-flipped random message-zero message-ones; do
     cmp "$test_directory/reference-$category" "$test_directory/vulnerable-$category"

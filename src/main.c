@@ -41,7 +41,7 @@ static int read_ciphertext_file(const char *file_path, uint8_t *ciphertext)
     operation_status =
         fread(ciphertext, 1, MLKEM_CIPHERTEXT_BYTES, ciphertext_file) == MLKEM_CIPHERTEXT_BYTES ? 0
                                                                                                 : 1;
-    if (fgetc(ciphertext_file) != EOF || ferror(ciphertext_file)) {
+    if (operation_status == 0 && (fgetc(ciphertext_file) != EOF || ferror(ciphertext_file))) {
         operation_status = 1;
     }
     if (fclose(ciphertext_file) != 0) {
