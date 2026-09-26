@@ -1,6 +1,6 @@
 --- a/mlkem/src/compress.c
 +++ b/mlkem/src/compress.c
-@@ -696,31 +696,19 @@
+@@ -696,31 +696,20 @@
  MLK_INTERNAL_API
 -void mlk_poly_frommsg(mlk_poly *r, const uint8_t msg[MLKEM_INDCPA_MSGBYTES])
 -{
@@ -20,11 +20,7 @@
 -    invariant(i <= MLKEM_N / 8)
 -    invariant(array_bound(r->coeffs, 0, 8 * i, 0, MLKEM_Q))
 -    decreases(MLKEM_N / 8 - i))
-+void mlk_poly_frommsg(mlk_poly *message_polynomial, const uint8_t message_bytes[MLKEM_INDCPA_MSGBYTES])
-+{
-+  /* 人工机制回归：固定此函数的优化条件，保留解密消息位控制的分支。 */
-+  for (unsigned coefficient_index = 0; coefficient_index < MLKEM_N; ++coefficient_index)
-   {
+-  {
 -    unsigned j;
 -    for (j = 0; j < 8; j++)
 -    __loop__(
@@ -38,11 +34,17 @@
 -      /* Prevent the compiler from recognizing this as a bit selection */
 -      uint8_t mask = mlk_value_barrier_u8((uint8_t)(1u << j));
 -      r->coeffs[8 * i + j] = mlk_ct_sel_int16(MLKEM_Q_HALF, 0, msg[i] & mask);
--    }
-+    if ((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u)
-+      message_polynomial->coeffs[coefficient_index] = MLKEM_Q_HALF;
-+    else
-+      message_polynomial->coeffs[coefficient_index] = 0;
-   }
++void mlk_poly_frommsg(mlk_poly *message_polynomial,
++    const uint8_t message_bytes[MLKEM_INDCPA_MSGBYTES])
++{
++    /* 人工机制回归：固定此函数的优化条件，保留解密消息位控制的分支。 */
++    for (unsigned coefficient_index = 0; coefficient_index < MLKEM_N; ++coefficient_index) {
++        if ((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u) {
++            message_polynomial->coeffs[coefficient_index] = MLKEM_Q_HALF;
++        } else {
++            message_polynomial->coeffs[coefficient_index] = 0;
++        }
+     }
+-  }
 -  mlk_assert_abs_bound(r, MLKEM_N, MLKEM_Q);
  }

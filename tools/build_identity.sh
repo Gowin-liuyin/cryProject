@@ -20,7 +20,9 @@ mkdir -p "$(dirname "$output_header")"
     done
     shasum -a 256 Makefile CMakeLists.txt CMakePresets.json "$configuration_file"
     compile_commands_file=$(sed -n 's/^compile_commands=//p' "$configuration_file")
-    if test -f "$compile_commands_file"; then shasum -a 256 "$compile_commands_file"; fi
+    if test -f "$compile_commands_file"; then
+        shasum -a 256 "$compile_commands_file"
+    fi
     printf 'build_input_manifest_end\n'
 } > "$identity_text"
 {
