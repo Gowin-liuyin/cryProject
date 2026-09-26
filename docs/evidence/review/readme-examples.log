@@ -1,0 +1,8 @@
+reference ML-KEM-768 FIPS203
+reference: system-random keygen/encaps/decaps roundtrip passed
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+reference: saved 5000 raw decapsulation times in ns; no statistical conclusion
+vulnerable: saved 5000 raw decapsulation times in ns; no statistical conclusion
+CSV counts, units, values, run IDs and category order passed: 5000 rows per version

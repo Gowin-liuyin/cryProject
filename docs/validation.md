@@ -90,3 +90,11 @@ CMake ≥3.21，C11 严格警告，两个库和两个版本的程序完全分离
 证据位于 [evidence/cmake](evidence/cmake/README.md)。这些结果不扩大为统计时序结论；
 历史 evidence/final 的 5000 次数据继续绑定原 Make 构建，不冒称当前 CMake 构建结果。
 当前仍未进行真实 x86_64 Linux 验证。
+
+## 用户要求的全面代码审查与风格统一
+
+后续审查见 [review.md](review.md)：已修正 CSV/KAT 校验器的宽松解析和密文读取失败后的后续读取，
+统一全部自有 C/CMake 格式并加入可复现风格检查。CTest 从 8 项增加到 9 项，新增
+vector_parser；两版 KAT 仍各覆盖 80 组独立答案。
+整理后的源码通过干净构建、9 项 CTest、ASan/UBSan 和自有运行代码静态分析。
+新产物独立证据见 evidence/review，原有 evidence/completion 等目录继续只证明各自历史提交。

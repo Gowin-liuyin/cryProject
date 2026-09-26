@@ -1,0 +1,6 @@
+Apple Clang 21.0.0
+Checked src/main.c src/mlkem.c src/random.c src/inputs.c src/measure.c.
+clang --analyze -std=c11 -Wall -Wextra -Iinclude -Ivendor/mlkem-native/mlkem -Ibuild/cmake/generated/RelWithDebInfo -DMLK_CONFIG_FILE='"baseline_config.h"' -Xanalyzer -analyzer-output=text [sources]
+Repeated with -DBASELINE_VULNERABLE=1.
+Both commands exited 0 and emitted no diagnostics after the stream-read fix.
+This is a scoped wrapper/runtime analysis, not a proof or a full vendor audit.

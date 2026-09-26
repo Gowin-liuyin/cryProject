@@ -1,102 +1,221 @@
-# A1-13：ML-KEM-768 C 时间侧信道实验基线
+# A1-13 · ML-KEM-768 时间侧信道实验基线
 
-本仓库交付第一阶段单机软件基线：FIPS 203 口径的参考功能、明确标注的人工时序缺陷变体、
-可复现测试输入、命令行和 C 内部逐次计时。没有扩展统计检测平台或密钥恢复系统。
+用 **C11** 搭建的单机实验系统：包含 ML-KEM 参考实现、保持密码输出语义的时序缺陷变体、
+命令行自检、可复现测试密文，以及在 C 内部计时的原始数据采集程序。使用 CMake 构建、CTest 验证。
 
-## 构建与检查
+这是竞赛第一阶段的软件基线。缺陷版是**公开标注的人工机制回归**，用于研究消息编码中的
+秘密相关分支；不是新发现的部署漏洞，也不用于保护真实业务秘密。
 
-需要 CMake ≥ 3.21、C11 编译器（Clang/GCC）、Make 或 Ninja、Git、patch、awk、shasum。
-普通构建离线完成；重新转换已保存的 NIST JSON 才需要 jq。
-Linux 可安装 `build-essential cmake git patch perl`，使用 Ninja 时另装 ninja-build。
+## 1. 构建并运行
+
+以下命令均在本仓库根目录执行。源码需要保留 Git 历史，构建程序会读取提交号和工作区状态。
+
+依赖：CMake **3.21 或更新版本**、Clang/GCC、Make 或 Ninja，以及 Git、patch、sh、awk、shasum。
+macOS 可使用 Xcode Command Line Tools 提供的编译器；Linux 需安装对应编译工具和 CMake。
+默认 preset 使用 Unix Makefiles；普通构建不联网、不下载密码库，也不需要 Python 或 jq。
 
 ```sh
 cmake --preset baseline
 cmake --build --preset baseline --parallel
 ctest --preset baseline
 
+build/cmake/reference/baseline version
+build/cmake/reference/baseline selftest
+build/cmake/vulnerable/baseline demo
+```
+
+默认配置是 `RelWithDebInfo`，本机对应 `-O2 -g -DNDEBUG`，启用 C11 和严格编译警告。
+两个版本的产物分别位于：
+
+| 路径 | 用途 |
+|---|---|
+| `build/cmake/reference/baseline` | 参考版命令行 |
+| `build/cmake/vulnerable/baseline` | 缺陷版命令行 |
+| `build/cmake/reference/measure` | 参考版逐次计时 |
+| `build/cmake/vulnerable/measure` | 缺陷版逐次计时 |
+
+`selftest` 和 `demo` 都使用系统安全随机源，执行一次密钥生成、封装、解封装，并检查共享密钥一致。
+成功只输出操作结果，不显示私钥、共享密钥或内部重加密验证结果。
+**完整的独立已知答案验证需要运行 CTest；一次往返自检不等于完整标准验证。**
+
+## 2. 生成和解封装测试密文
+
+`generate-test` 与 `decapsulate-test` 使用公开种子重建同一测试密钥。
+输出文件只有密文；解封装时必须使用相同种子。所有输出路径都必须是新路径。
+
+```sh
+mkdir -p runs
+run_directory=$(mktemp -d runs/input.XXXXXX)
+
+build/cmake/reference/baseline generate-test bit-flipped 42 "$run_directory/input.bin"
+build/cmake/vulnerable/baseline decapsulate-test 42 "$run_directory/input.bin"
+```
+
+命令格式：
+
+```text
+baseline version
+baseline selftest
+baseline demo
+baseline generate-test CATEGORY SEED CIPHERTEXT_FILE
+baseline decapsulate-test SEED CIPHERTEXT_FILE
+```
+
+| CATEGORY | 生成方式 | 标签的含义 |
+|---|---|---|
+| `valid` | 使用派生测试消息正常封装 | 生成器产生的有效密文 |
+| `bit-flipped` | 在有效密文上翻转一位，长度不变 | 表示修改方式，不来自内部验证标志 |
+| `random` | 生成 1088 字节确定性伪随机输入 | 不预先假定它显著触发目标分支 |
+| `message-zero` | 用全零消息执行内部封装 | 已知消息位为 0 的机制审计输入 |
+| `message-ones` | 用全 1 消息执行内部封装 | 已知消息位为 1 的机制审计输入 |
+
+SEED 是十进制无符号 64 位整数。相同类别和种子产生相同测试文件；CLI 生成的是索引为 0 的样本。
+采集程序还会使用样本索引派生输入。固定密钥下，两个固定消息类别会重复相同密文。
+
+测试种子是公开实验材料，**不能用于真实密钥生成**。正确长度的无效密文仍按规范执行隐式拒绝，
+CLI 不会额外告诉调用者重加密比较是否通过。短文件、超长文件或读取错误在调用内核前被拒绝。
+
+## 3. 采集逐次时间
+
+```sh
+mkdir -p runs
+run_directory=$(mktemp -d runs/timing.XXXXXX)
+
+build/cmake/reference/measure reference-run 42 1000 \
+    "$run_directory/reference.csv" "$run_directory/reference.meta"
+build/cmake/vulnerable/measure vulnerable-run 42 1000 \
+    "$run_directory/vulnerable.csv" "$run_directory/vulnerable.meta"
+```
+
+参数顺序为：
+
+```text
+measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE
+```
+
+- RUN_ID 为 1–64 个 ASCII 字母、数字、下划线或连字符。
+- 每类次数为 1–20000；共有五类，因此上例每版保存 **5000 条记录**。
+- 全部输入提前生成，类别顺序按种子随机化；同种子、同次数的两版顺序相同。
+- 先运行 100 次预热；每条正式记录围绕完整解封装调用计时。
+- 输入生成、内存申请、结果消费和文件 I/O 都在单次计时窗口外。
+
+CSV 固定包含以下列，保存每次原始值，不只保存均值，不删除普通长尾：
+
+```text
+run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
+```
+
+时钟为 `CLOCK_MONOTONIC`，单位是纳秒。**单位不代表精度**：本次 Apple M5 的时钟报告分辨率为
+1000ns。没有使用 TSC，也没有把数值称为 CPU 周期。默认不固定 CPU 亲和性或频率。
+
+配套 `.meta` 记录源码提交与未提交改动摘要、构建输入摘要、编译器、配置和选项、实际 OS/CPU、
+种子、时钟、样本数，以及正在运行的可执行文件的 SHA3-256。准确编译命令见构建目录的
+`compile_commands.json`。仅使用退出码为 0 的完整运行；写入失败可能留下部分文件，不能用于分析。
+
+详细的计时边界、标签依据和解释限制见 [计时说明](docs/timing.md) 与 [缺陷说明](docs/defect.md)。
+
+## 4. 参考版和缺陷版的关系
+
+参考实现固定自 [mlkem-native](https://github.com/pq-code-package/mlkem-native) 提交：
+
+```text
+b3ba7b32773e657dd37f6f87bce82528459ad8a4
+```
+
+采用 FIPS 203 的 ML-KEM-768 和便携 C 后端。封装公钥为 1184 字节、解封装私钥为 2400 字节、
+密文为 1088 字节、共享密钥为 32 字节。第三方源码和许可证原样保存在 `vendor/`；
+许可与规范出处见 [来源记录](docs/sources.md)。功能测试通过不表示获得 FIPS 模块认证。
+
+缺陷版在构建目录的副本上应用 [消息编码补丁](docs/patches/message-branch.patch)，
+将 `mlk_poly_frommsg` 的常数时间选择改为按消息位执行的 `if/else`。
+解封装重加密使用的消息来自私钥参与的解密，因此分支条件具有秘密依赖。
+Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinline`，以明确保留机制。
+其余代码仍按所选构建配置编译，两个版本不在同一进程混合链接。
+
+补丁保持数学输出、重加密验证和隐式拒绝，不添加延迟或空转。
+由于编码函数优化条件不同，**两版本整体速度差本身不能证明秘密泄露**；
+已知消息类别的时序也不能直接推广为未知密钥攻击。
+
+## 5. 验证结果与证据边界
+
+当前有 **9 项 CTest**，覆盖：
+
+| 检查 | 实际覆盖 |
+|---|---|
+| 两版 NIST 检查 | 每版 25 keygen、25 encaps、10 decaps、20 密钥校验；解封装含 5 组隐式拒绝 |
+| 两版随机源失败 | 系统随机源打开失败的传播，以及恢复后的往返验证 |
+| 两版差分 | 64 个种子 × 有效、位翻转、随机三类；拒绝样本另核对 J(z∥c) |
+| CLI | 五类输入、参数错误、长度边界、目录读取错误及拒绝覆盖 |
+| 采集与记录 | 行数、类别顺序、单位、运行编号一致性；拒绝负数、溢出和尾随字段 |
+| 向量读取 | 拒绝截断用例、非法编号和非法十六进制 |
+| 向量完整性 | 原始 NIST JSON 与转换文件的固定 SHA-256 |
+
+NIST 原件、固定版本和转换方式保存在 `tests/vectors/` 与 [验证记录](docs/validation.md)。
+预期答案不由被测实现生成；只有重新转换已保存的 JSON 时才需要 jq。
+
+已执行的平台是 **Apple M5 / ARM64 macOS、Apple Clang 21**：干净构建、9 项 CTest、
+独立 ASan/UBSan、格式检查和自有运行代码静态分析均已通过。
+最近一次审查及对应产物证据见 [代码审查记录](docs/review.md)。
+历史数据在 `docs/evidence/` 中按构建分别保存；每组绑定自己的源码版本和二进制摘要。
+修改代码或编译条件后，必须重新定位机器码和重新采集，不能拿旧数据为新产物背书。
+
+**已确认目标机制并采集原始数据，时间差异尚未正式统计确认。**
+尚未执行真实 x86_64 Linux/GCC 验证；没有宣称参考版完全恒时，也没有完成密钥恢复或最终防护。
+下一阶段可以从 CSV/元数据接入统计检测，从独立编码补丁接入防护，并继续运行现有功能检查。
+
+## 6. 开发和代码风格
+
+独立的内存及未定义行为检查：
+
+```sh
 cmake --preset sanitize
 cmake --build --preset sanitize --parallel
 ctest --preset sanitize
 ```
 
-默认 RelWithDebInfo（本机 `-O2 -g -DNDEBUG`）、C11、严格警告、便携 C 后端，无 LTO。
-构建目录为 build/cmake；sanitizer 使用独立 build/cmake-sanitize，产生的时间不用作性能证据。
-所有构建和测试规则只在 CMake 中维护，`make` / `make test` / `make sanitize` 仅兼容转发。
-原 Make 构建产物仍在原目录，不会自动删除或作为 CMake 构建复用。
+该配置输出到 `build/cmake-sanitize`。它的计时仅用于接口检查，不能作为正式性能数据。
 
-也可以不用 preset，例如 Ninja、指定编译器或关闭测试程序：
+自有 C 代码采用固定的 clang-format 21 规则；正常构建不依赖格式工具：
+
+```sh
+cmake --build --preset baseline --target format-check
+cmake --build --preset baseline --target format
+```
+
+格式工具不在 PATH 时可在配置时指定 `CLANG_FORMAT_EXECUTABLE`。CMake 风格、命名、注释和脚本
+约定见 [代码风格](docs/style.md)。格式化仅覆盖自有代码，不改动上游源码、固定向量或封存证据。
+
+其他常用配置：
 
 ```sh
 cmake -S . -B build/ninja -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=RelWithDebInfo
 cmake --build build/ninja --parallel
 ctest --test-dir build/ninja --output-on-failure
-cmake --build build/ninja --target reference   # 只构建参考版 CLI 和采集程序
-cmake --build build/ninja --target vulnerable  # 只构建缺陷版 CLI 和采集程序
+
+cmake --build build/ninja --target reference
+cmake --build build/ninja --target vulnerable
 ```
 
-`-DBUILD_TESTING=OFF` 关闭测试程序及 CTest 注册；`-DBASELINE_SANITIZERS=ON` 开启 ASan/UBSan。
-多配置生成器用 `--config Debug` 构建、`ctest -C Debug` 测试，程序位于构建目录的 Debug/ 下。
-禁止源码内构建。变更源码、头文件或缺陷补丁会触发相应重建；未变的构建身份不触发重复编译。
-准确编译命令见构建目录的 compile_commands.json（Make/Ninja），运行元数据包含其摘要及配置。
+`BUILD_TESTING=OFF` 可关闭测试程序；`BASELINE_SANITIZERS=ON` 可开启动态检查。
+多配置生成器需要 `cmake --build <目录> --config Debug` 与 `ctest --test-dir <目录> -C Debug`，
+程序位于该构建目录的 `Debug/` 下。根 Makefile 只是 CMake/CTest 的兼容入口。
 
-## 运行和生成输入
+## 7. 文件职责与常见问题
 
-```sh
-build/cmake/reference/baseline version
-build/cmake/reference/baseline selftest
-build/cmake/vulnerable/baseline demo
-mkdir -p runs/example
-build/cmake/reference/baseline generate-test bit-flipped 42 runs/example/input.bin
-build/cmake/vulnerable/baseline decapsulate-test 42 runs/example/input.bin
-```
+| 目录/文件 | 职责 |
+|---|---|
+| `src/`、`include/` | C 接口封装、随机源、测试输入、CLI 和计时 |
+| `tests/` | 功能与边界检查、命令编排、NIST 原件 |
+| `CMakeLists.txt`、`CMakePresets.json`、`cmake/` | 唯一构建配置、测试注册、补丁副本及格式检查 |
+| `tools/build_identity.sh` | 生成并嵌入构建追溯信息 |
+| `vendor/` | 未修改的第三方源码与许可证 |
+| `docs/` | 来源、机制、计时、验收、审查和原始证据 |
 
-selftest/demo 使用系统安全随机源运行完整 keygen/encaps/decaps，不显示秘密；
-完整 NIST 已知答案和边界检查用 `ctest --preset baseline`。
-`generate-test` 支持 `valid`、`bit-flipped`、`random`、`message-zero`、`message-ones`。
-两个 test 命令显式使用相同的公开种子重建测试密钥；输出文件只有 1088 字节密文。
-测试种子不用于真实秘密，程序不打印私钥、共享密钥或内部重加密验证标志。
-现有文件不覆盖。成功返回 0，公开命令参数错误返回 2，运行/文件错误返回 1。
-正确长度无效密文仍完成隐式拒绝；不会以额外状态暴露内部验证结果。
+- **输出文件已存在**：程序有意拒绝覆盖，换用新的运行目录或文件名。
+- **密文读取失败**：输入必须是恰好 1088 字节的可读文件；先检查路径及长度。
+- **解封装显示完成**：只表示操作完成，不表示内部重加密比较通过。
+- **不知道测的是哪一版**：运行该目录下的 `baseline version`，并核对采集 `.meta` 中的实现名和文件摘要。
+- **更改编译器后配置报错**：使用新的构建目录，不在已有 CMake 缓存中切换工具链。
 
-## 原始计时
-
-```sh
-build/cmake/reference/measure example-reference 42 1000 runs/example/reference.csv runs/example/reference.meta
-build/cmake/vulnerable/measure example-vulnerable 42 1000 runs/example/vulnerable.csv runs/example/vulnerable.meta
-```
-
-每版输出 5 类各 1000 条，总计 5000 条原始记录。所有密文预先生成，类别顺序可复现随机化；
-C 内部 CLOCK_MONOTONIC 计时完整解封装，单位 ns。保存普通长尾，不做自动统计结论。
-元数据绑定实际二进制 SHA3-256、源码提交/改动摘要、编译选项及实际环境。
-详细边界见 [计时说明](docs/timing.md)。输出路径必须不存在。
-
-## 来源、缺陷和验证状态
-
-参考源码为 mlkem-native `b3ba7b32773e657dd37f6f87bce82528459ad8a4`，
-参数 ML-KEM-768（公钥 1184、私钥 2400、密文 1088、共享密钥 32 字节）。
-vendor 保留原始快照及许可证；[来源](docs/sources.md) 包含标准与外部案例链接。
-人工回归仅替换消息编码 `mlk_poly_frommsg`：解封装重加密时按秘密相关消息位分支。
-为在实际编译器下保留该机制，回归编码函数单独禁用优化；不是原样复现历史 clangover。
-重加密验证、隐式拒绝和密码输出保持，详见 [补丁及机制](docs/defect.md)。
-上游的证明或认证不自动覆盖本项目改动；参考版也不被宣称绝对无泄露。
-
-本次真实平台为 Apple M5 / ARM64 macOS、Apple Clang 21，已经执行：
-
-- 两版各 80 组 NIST 检查：25 keygen、25 encaps、10 decaps、20 密钥校验；解封装含 5 组隐式拒绝。
-- 64 个固定种子 × 3 类密文的差分检查、公开长度/空指针边界、随机源失败传播和恢复。
-- 两版 CLI、五类输入复现、CSV 行数/单位/类别顺序、干净构建及 ASan/UBSan。
-- ARM64 实际编码分支确认与原始时序采集，最终证据见 [验证记录](docs/validation.md)。
-
-**已确认目标机制并采集原始数据，时间差异尚未正式统计确认。**
-未作“已观察显著差异”或“参考版无泄露”的结论。真实 x86_64 Linux、GCC 分支、
-固定核心/频率下的正式测量仍待执行；没有将交叉编译或模拟器冒充目标实测。
-
-后续检测读取 CSV 和运行元数据；后续防护从独立编码补丁入手，先保持 KAT/差分测试，
-再检查修复产物和重新采样。本阶段不实现自适应输入、完整统计框架或最终防护。
-
-## 文件职责
-
-`src/` 是封装、系统随机源、输入、CLI 和计时；`include/` 是少量接口；
-`tests/` 保存 C 测试和原始 NIST 向量；`docs/` 保存机制、补丁和实测证据；
-`vendor/` 是未经修改的第三方快照；`tools/build_identity.sh` 仅生成构建追溯信息。
-普通封装接口接受精确长度且要求调用方提供互不重叠的有效缓冲区。
+CLI 退出码：0 为成功，2 为公开命令参数错误，1 为运行或文件操作失败。
+C API 的精确长度和返回值定义见 [mlkem.h](include/mlkem.h)；调用方需提供互不重叠的有效缓冲区。
