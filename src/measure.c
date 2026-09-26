@@ -179,10 +179,16 @@ int main(int argument_count, char **argument_values)
         fputs("Usage: measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE (count 1..20000)\n", stderr);
         return 2;
     }
-    if (strlen(argument_values[1]) == 0 || strlen(argument_values[1]) > 64u) return 2;
+    if (strlen(argument_values[1]) == 0 || strlen(argument_values[1]) > 64u) {
+        fputs("invalid RUN_ID: length must be 1..64 characters\n", stderr);
+        return 2;
+    }
     for (const char *character = argument_values[1]; *character != '\0'; ++character) {
         if (!((*character >= 'a' && *character <= 'z') || (*character >= 'A' && *character <= 'Z') ||
-            (*character >= '0' && *character <= '9') || *character == '_' || *character == '-')) return 2;
+            (*character >= '0' && *character <= '9') || *character == '_' || *character == '-')) {
+            fputs("invalid RUN_ID: use only ASCII letters, digits, underscore or hyphen\n", stderr);
+            return 2;
+        }
     }
     if (check_timer(&resolution_nanoseconds) != 0 || hash_running_executable(executable_digest) != 0) {
         fputs("timer/executable identity check failed\n", stderr); return 1;
