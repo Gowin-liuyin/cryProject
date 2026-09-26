@@ -1,11 +1,11 @@
 # 最小原始时间采集
 
-两个独立入口为 `build/reference/measure` 和 `build/vulnerable/measure`：
+当前 CMake 默认构建的两个入口为 `build/cmake/reference/measure` 和 `build/cmake/vulnerable/measure`：
 
 ```sh
 mkdir -p runs/example
-build/reference/measure example-reference 42 1000 runs/example/reference.csv runs/example/reference.meta
-build/vulnerable/measure example-vulnerable 42 1000 runs/example/vulnerable.csv runs/example/vulnerable.meta
+build/cmake/reference/measure example-reference 42 1000 runs/example/reference.csv runs/example/reference.meta
+build/cmake/vulnerable/measure example-vulnerable 42 1000 runs/example/vulnerable.csv runs/example/vulnerable.meta
 ```
 
 参数依次为 run_id、公开测试种子、每类次数、CSV 路径、元数据路径。
@@ -26,7 +26,9 @@ CLOCK_MONOTONIC 围绕完整包装层解封装调用计时，单位为纳秒；�
 以及程序自行读取运行文件计算的 SHA3-256。构建时嵌入 Git HEAD、工作区状态、
 tracked diff SHA-256、各实际构建输入的 SHA-256、编译器和选项。
 未跟踪源码也列入构建输入摘要，不能仅凭旧 HEAD 代表未提交构建。
-构建信息改变会使内核和应用重建，避免编译选项改变后混用旧对象。
+CMake 根据源码和编译选项更新对象，构建身份改变会更新采集程序，避免元数据仍指向旧源码。
+配置、CMake 文件和 compile_commands.json 的摘要也进入构建清单。历史 final/ 证据属于原 Make
+构建的 e519d94 提交，不能用其中的二进制地址为当前 CMake 产物作证。
 默认未固定 CPU 亲和性、频率或后台负载，相关状态如实记录。
 
 普通长尾全部保留。不做离群值删除、均值代替逐次数据、自动安全判定或统计泄露判断。

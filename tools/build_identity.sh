@@ -2,25 +2,25 @@
 set -eu
 output_header=$1
 compiler_command=$2
-compiler_flags=$3
+configuration_file=$3
 identity_text="$output_header.txt"
 mkdir -p "$(dirname "$output_header")"
 {
     printf 'source_commit=%s\n' "$(git rev-parse HEAD)"
-    printf 'compiler_command=%s\ncompiler_flags=%s\n' "$compiler_command" "$compiler_flags"
-    printf 'measure_additional_flags=-I%s\n' "$(dirname "$output_header")"
-    printf 'vulnerable_additional_flags=-DBASELINE_VULNERABLE=1\n'
-    printf 'vulnerable_kernel_include=-I%s/vulnerable/mlkem\n' "$(dirname "$output_header")"
+    printf 'compiler_command=%s\n' "$compiler_command"
+    cat "$configuration_file"
     "$compiler_command" --version | head -n 1
     printf 'git_worktree_status_begin\n'
     git status --porcelain
     printf 'git_worktree_status_end\ntracked_delta_sha256='
     git diff HEAD --binary | shasum -a 256 | cut -d ' ' -f 1
     printf 'build_input_manifest_begin\n'
-    find src include vendor docs/patches tools -type f | LC_ALL=C sort | while IFS= read -r source_file; do
+    find src include vendor docs/patches tools cmake -type f | LC_ALL=C sort | while IFS= read -r source_file; do
         shasum -a 256 "$source_file"
     done
-    shasum -a 256 Makefile
+    shasum -a 256 Makefile CMakeLists.txt CMakePresets.json "$configuration_file"
+    compile_commands_file=$(sed -n 's/^compile_commands=//p' "$configuration_file")
+    if test -f "$compile_commands_file"; then shasum -a 256 "$compile_commands_file"; fi
     printf 'build_input_manifest_end\n'
 } > "$identity_text"
 {

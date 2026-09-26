@@ -69,3 +69,24 @@ C 检查确认条数、各类数量、单位和类别顺序；独立 OpenSSL SHA
 参考编码该位置为无分支算术选择；不由局部检查推导整库恒时性。
 正式采集与 sanitizer 的构建输入清单逐项一致；动态检查时间未进入最终 CSV。
 所有原始时间保留，未计算显著性、未确认时间差异或未知密钥攻击能力。
+
+## CMake 构建迁移
+
+按用户后续要求，CMake/CTest 成为唯一构建和测试规则来源；原 Makefile 只转发命令。
+CMake ≥3.21，C11 严格警告，两个库和两个版本的程序完全分离；缺陷补丁只作用于构建目录。
+默认 preset 使用 RelWithDebInfo，sanitizer preset 使用独立目录和 ASan/UBSan。
+构建身份包含配置、实际编译命令文件摘要、CMake 配置源码及所有原有构建输入。
+
+本机 CMake 4.3.2 / Apple Clang 21 上实际执行并通过：
+- Unix Makefiles 默认 preset 的 8 项 CTest，以及根 Makefile 兼容入口。
+- Ninja 单配置的 8 项 CTest。
+- Ninja Multi-Config 的 Debug 构建及 8 项 CTest。
+- sanitizer preset 的 8 项 CTest，无 ASan/UBSan 报告。
+- BUILD_TESTING=OFF 构建成功，CTest 注册数为 0。
+- 无改动增量构建只检查/刷新元数据，不重编译；触碰补丁后，仅缺陷内核及其关联程序重建。
+
+新的 CMake/Ninja 正式配置采集程序各运行 50 次，作为构建迁移的采集冒烟检查，
+并核对两版记录数和顺序、运行文件 SHA3-256。缺陷编码仍保留消息位控制的 tbz。
+证据位于 [evidence/cmake](evidence/cmake/README.md)。这些结果不扩大为统计时序结论；
+历史 evidence/final 的 5000 次数据继续绑定原 Make 构建，不冒称当前 CMake 构建结果。
+当前仍未进行真实 x86_64 Linux 验证。

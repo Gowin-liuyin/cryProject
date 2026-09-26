@@ -5,34 +5,53 @@
 
 ## 构建与检查
 
-需要 C11 编译器（Clang/GCC）、Make、Git、patch、awk、shasum。普通构建离线完成；
-重新转换已保存的 NIST JSON 才需要 jq。Linux 可安装 `build-essential git patch perl`，
-使用 Clang 时另装 clang。CC 接受一个编译器可执行文件名或路径。
+需要 CMake ≥ 3.21、C11 编译器（Clang/GCC）、Make 或 Ninja、Git、patch、awk、shasum。
+普通构建离线完成；重新转换已保存的 NIST JSON 才需要 jq。
+Linux 可安装 `build-essential cmake git patch perl`，使用 Ninja 时另装 ninja-build。
 
 ```sh
-make
-make test
-make sanitize
+cmake --preset baseline
+cmake --build --preset baseline --parallel
+ctest --preset baseline
+
+cmake --preset sanitize
+cmake --build --preset sanitize --parallel
+ctest --preset sanitize
 ```
 
-默认 `-O2 -g`、严格警告、便携 C 后端，无 LTO。`make reference` / `make vulnerable`
-分别构建对应版本；每版独立静态库和可执行文件，目录不混用。
-`make BUILD_DIR=build-fresh test` 从新目录完整重建；`make clean` 只清默认 build。
-`make sanitize` 在 build-sanitize 单独运行 ASan/UBSan，产生的试运行时间不用作正式性能。
+默认 RelWithDebInfo（本机 `-O2 -g -DNDEBUG`）、C11、严格警告、便携 C 后端，无 LTO。
+构建目录为 build/cmake；sanitizer 使用独立 build/cmake-sanitize，产生的时间不用作性能证据。
+所有构建和测试规则只在 CMake 中维护，`make` / `make test` / `make sanitize` 仅兼容转发。
+原 Make 构建产物仍在原目录，不会自动删除或作为 CMake 构建复用。
+
+也可以不用 preset，例如 Ninja、指定编译器或关闭测试程序：
+
+```sh
+cmake -S . -B build/ninja -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=RelWithDebInfo
+cmake --build build/ninja --parallel
+ctest --test-dir build/ninja --output-on-failure
+cmake --build build/ninja --target reference   # 只构建参考版 CLI 和采集程序
+cmake --build build/ninja --target vulnerable  # 只构建缺陷版 CLI 和采集程序
+```
+
+`-DBUILD_TESTING=OFF` 关闭测试程序及 CTest 注册；`-DBASELINE_SANITIZERS=ON` 开启 ASan/UBSan。
+多配置生成器用 `--config Debug` 构建、`ctest -C Debug` 测试，程序位于构建目录的 Debug/ 下。
+禁止源码内构建。变更源码、头文件或缺陷补丁会触发相应重建；未变的构建身份不触发重复编译。
+准确编译命令见构建目录的 compile_commands.json（Make/Ninja），运行元数据包含其摘要及配置。
 
 ## 运行和生成输入
 
 ```sh
-build/reference/baseline version
-build/reference/baseline selftest
-build/vulnerable/baseline demo
+build/cmake/reference/baseline version
+build/cmake/reference/baseline selftest
+build/cmake/vulnerable/baseline demo
 mkdir -p runs/example
-build/reference/baseline generate-test bit-flipped 42 runs/example/input.bin
-build/vulnerable/baseline decapsulate-test 42 runs/example/input.bin
+build/cmake/reference/baseline generate-test bit-flipped 42 runs/example/input.bin
+build/cmake/vulnerable/baseline decapsulate-test 42 runs/example/input.bin
 ```
 
 selftest/demo 使用系统安全随机源运行完整 keygen/encaps/decaps，不显示秘密；
-完整 NIST 已知答案和边界检查用 `make test`。
+完整 NIST 已知答案和边界检查用 `ctest --preset baseline`。
 `generate-test` 支持 `valid`、`bit-flipped`、`random`、`message-zero`、`message-ones`。
 两个 test 命令显式使用相同的公开种子重建测试密钥；输出文件只有 1088 字节密文。
 测试种子不用于真实秘密，程序不打印私钥、共享密钥或内部重加密验证标志。
@@ -42,8 +61,8 @@ selftest/demo 使用系统安全随机源运行完整 keygen/encaps/decaps，不
 ## 原始计时
 
 ```sh
-build/reference/measure example-reference 42 1000 runs/example/reference.csv runs/example/reference.meta
-build/vulnerable/measure example-vulnerable 42 1000 runs/example/vulnerable.csv runs/example/vulnerable.meta
+build/cmake/reference/measure example-reference 42 1000 runs/example/reference.csv runs/example/reference.meta
+build/cmake/vulnerable/measure example-vulnerable 42 1000 runs/example/vulnerable.csv runs/example/vulnerable.meta
 ```
 
 每版输出 5 类各 1000 条，总计 5000 条原始记录。所有密文预先生成，类别顺序可复现随机化；

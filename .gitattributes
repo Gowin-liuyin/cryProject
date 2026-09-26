@@ -1,0 +1,3 @@
+# 保留机器生成的原始日志和元数据，源码仍使用默认空白检查。
+/docs/evidence/cmake/*.log whitespace=-blank-at-eol
+/docs/evidence/cmake/*.meta whitespace=-blank-at-eol

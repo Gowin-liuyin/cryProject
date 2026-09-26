@@ -1,0 +1,52 @@
+cmake -S . -B "build/cmake" 
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/cmake
+cmake --build "build/cmake" --parallel
+[  3%] Built target prepare_vulnerable
+[  3%] Built target build_identity
+[  6%] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[ 21%] Built target mlkem_reference
+[ 27%] Built target reference_baseline
+[ 39%] Built target reference_test_equivalence
+[ 39%] Built target test_measurement
+[ 45%] Built target reference_test_random_failure
+[ 51%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[ 54%] Built target reference_test_mlkem
+[ 57%] Linking C executable reference/measure
+[ 57%] Built target reference_measure
+[ 60%] Linking C static library vulnerable/libmlkem.a
+[ 69%] Built target mlkem_vulnerable
+[ 81%] Linking C executable vulnerable/test_random_failure
+[ 81%] Linking C executable vulnerable/test_mlkem
+[ 81%] Linking C executable vulnerable/baseline
+[ 81%] Linking C executable vulnerable/test_equivalence
+[ 84%] Building C object CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+[ 90%] Built target vulnerable_test_mlkem
+[ 90%] Built target vulnerable_test_equivalence
+[ 93%] Built target vulnerable_test_random_failure
+[ 96%] Built target vulnerable_baseline
+[100%] Linking C executable vulnerable/measure
+[100%] Built target vulnerable_measure
+ctest --test-dir "build/cmake" --output-on-failure
+Test project /Users/yin/code/cryProject/build/cmake
+    Start 1: reference_kat
+1/8 Test #1: reference_kat ....................   Passed    0.02 sec
+    Start 2: reference_random_failure
+2/8 Test #2: reference_random_failure .........   Passed    0.00 sec
+    Start 3: vulnerable_kat
+3/8 Test #3: vulnerable_kat ...................   Passed    0.40 sec
+    Start 4: vulnerable_random_failure
+4/8 Test #4: vulnerable_random_failure ........   Passed    0.37 sec
+    Start 5: equivalence
+5/8 Test #5: equivalence ......................   Passed    0.43 sec
+    Start 6: cli
+6/8 Test #6: cli ..............................   Passed    0.48 sec
+    Start 7: measurement
+7/8 Test #7: measurement ......................   Passed    1.05 sec
+    Start 8: vector_integrity
+8/8 Test #8: vector_integrity .................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 8
+
+Total Test time (real) =   2.76 sec

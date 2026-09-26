@@ -1,0 +1,11 @@
+[0/2] Re-checking globbed directories...
+[1/13] Generating vulnerable-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[2/13] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/cmake-ninja/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/cmake-ninja/generated/RelWithDebInfo/configuration.txt
+[3/10] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[4/10] Linking C static library vulnerable/libmlkem.a
+[5/10] Linking C executable vulnerable/test_equivalence
+[6/10] Linking C executable vulnerable/test_mlkem
+[7/10] Linking C executable vulnerable/measure
+[8/10] Linking C executable vulnerable/baseline
+[9/10] Linking C executable vulnerable/test_random_failure
