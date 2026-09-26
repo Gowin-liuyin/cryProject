@@ -1,0 +1,7 @@
+CSV row counts, units, positive raw values and reproducible category order passed: 5000 rows per version
+SHA3-256(build-release/reference/measure)= 8f51bfdee1350b0d0fa3dfcafc06a0a45111346449330320c9bebe5c66f47d40
+SHA3-256(build-release/vulnerable/measure)= 91c454ffc68fe1892392b20b36e6bced0fb3da34bb52a93a553a85101c41bb5d
+build-release/reference/measure: OK
+build-release/vulnerable/measure: OK
+build-release/reference/baseline: OK
+build-release/vulnerable/baseline: OK

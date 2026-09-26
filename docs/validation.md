@@ -56,3 +56,16 @@ AddressSanitizer + UndefinedBehaviorSanitizer（-O1 -g -fno-omit-frame-pointer�
 
 待目标环境执行：真实 x86_64 Linux 的同组测试、最终产物分支确认及同机新采样。
 当前没有 GNU GCC 的实际运行证据，没有正式统计检验，也没有未知密钥攻击或常数时间证明。
+
+### 最终采集与产物复核
+
+最终功能提交 `e519d941ddcf8a4dfb9e92f5b9343db53fc36064` 的干净源码已在 build-release 重建并通过全套测试。
+两版本各采集 5000 次（5 类各 1000），公开 seed=20260926；数据保存在
+[evidence/final](evidence/final/README.md)，包含原始 CSV、完整元数据、构建日志、反汇编与摘要。
+C 检查确认条数、各类数量、单位和类别顺序；独立 OpenSSL SHA3-256 与运行元数据一致。
+
+实际 vulnerable/measure 中，在两次读钟之间存在完整解封装调用，输出消费和整批 I/O 在其后。
+解封装到重加密到消息编码的实际调用链仍在，编码入口 +0x48 为消息位控制的 tbz。
+参考编码该位置为无分支算术选择；不由局部检查推导整库恒时性。
+正式采集与 sanitizer 的构建输入清单逐项一致；动态检查时间未进入最终 CSV。
+所有原始时间保留，未计算显著性、未确认时间差异或未知密钥攻击能力。

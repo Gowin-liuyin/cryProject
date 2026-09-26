@@ -1,0 +1,62 @@
+
+build-release/reference/measure:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000100002c10 <_baseline_native_poly_frommsg>:
+100002c10: d2800008    	mov	x8, #0x0                ; =0
+100002c14: 91002009    	add	x9, x0, #0x8
+100002c18: 5280d02a    	mov	w10, #0x681             ; =1665
+100002c1c: 5280002b    	mov	w11, #0x1               ; =1
+100002c20: 3868682c    	ldrb	w12, [x1, x8]
+100002c24: 0a0c016b    	and	w11, w11, w12
+100002c28: 4b0b03eb    	neg	w11, w11
+100002c2c: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002c30: 781f812b    	sturh	w11, [x9, #-0x8]
+100002c34: 5280004b    	mov	w11, #0x2               ; =2
+100002c38: 3868682c    	ldrb	w12, [x1, x8]
+100002c3c: 0a0c016b    	and	w11, w11, w12
+100002c40: 4b0b03eb    	neg	w11, w11
+100002c44: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002c48: 781fa12b    	sturh	w11, [x9, #-0x6]
+100002c4c: 5280008b    	mov	w11, #0x4               ; =4
+100002c50: 3868682c    	ldrb	w12, [x1, x8]
+100002c54: 0a0c016b    	and	w11, w11, w12
+100002c58: 4b0b03eb    	neg	w11, w11
+100002c5c: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002c60: 781fc12b    	sturh	w11, [x9, #-0x4]
+100002c64: 5280010b    	mov	w11, #0x8               ; =8
+100002c68: 3868682c    	ldrb	w12, [x1, x8]
+100002c6c: 0a0c016b    	and	w11, w11, w12
+100002c70: 4b0b03eb    	neg	w11, w11
+100002c74: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002c78: 781fe12b    	sturh	w11, [x9, #-0x2]
+100002c7c: 5280020b    	mov	w11, #0x10              ; =16
+100002c80: 3868682c    	ldrb	w12, [x1, x8]
+100002c84: 0a0c016b    	and	w11, w11, w12
+100002c88: 4b0b03eb    	neg	w11, w11
+100002c8c: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002c90: 7900012b    	strh	w11, [x9]
+100002c94: 5280040b    	mov	w11, #0x20              ; =32
+100002c98: 3868682c    	ldrb	w12, [x1, x8]
+100002c9c: 0a0c016b    	and	w11, w11, w12
+100002ca0: 4b0b03eb    	neg	w11, w11
+100002ca4: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002ca8: 7900052b    	strh	w11, [x9, #0x2]
+100002cac: 5280080b    	mov	w11, #0x40              ; =64
+100002cb0: 3868682c    	ldrb	w12, [x1, x8]
+100002cb4: 0a0c016b    	and	w11, w11, w12
+100002cb8: 4b0b03eb    	neg	w11, w11
+100002cbc: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002cc0: 7900092b    	strh	w11, [x9, #0x4]
+100002cc4: 5280100b    	mov	w11, #0x80              ; =128
+100002cc8: 3868682c    	ldrb	w12, [x1, x8]
+100002ccc: 0a0c016b    	and	w11, w11, w12
+100002cd0: 4b0b03eb    	neg	w11, w11
+100002cd4: 0a4b414b    	and	w11, w10, w11, lsr #16
+100002cd8: 79000d2b    	strh	w11, [x9, #0x6]
+100002cdc: 91000508    	add	x8, x8, #0x1
+100002ce0: 91004129    	add	x9, x9, #0x10
+100002ce4: f100811f    	cmp	x8, #0x20
+100002ce8: 54fff9a1    	b.ne	0x100002c1c <_baseline_native_poly_frommsg+0xc>
+100002cec: d65f03c0    	ret

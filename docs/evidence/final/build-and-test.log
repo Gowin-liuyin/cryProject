@@ -1,0 +1,77 @@
+sh tools/build_identity.sh build-release/build_identity.h 'cc' '-Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"'"'"baseline_config.h"'"'"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g; vulnerable encoder: optnone+noinline (Clang); O0+noinline (GCC); no LTO by default'
+mkdir -p build-release/reference
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -c src/kernel.c -o build-release/reference/kernel.o
+ar rcs build-release/reference/libmlkem.a build-release/reference/kernel.o
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g tests/test_mlkem.c src/mlkem.c src/random.c build-release/reference/libmlkem.a -o build-release/reference/test_mlkem
+build-release/reference/test_mlkem tests/vectors/mlkem768.txt
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+mkdir -p build-release/vulnerable
+cp -R vendor/mlkem-native/mlkem build-release/vulnerable/
+patch -d build-release/vulnerable -p1 < docs/patches/message-branch.patch
+patching file 'mlkem/src/compress.c'
+touch build-release/vulnerable/patched.stamp
+mkdir -p build-release/vulnerable
+cc -Ibuild-release/vulnerable/mlkem -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -DBASELINE_VULNERABLE=1 -c src/kernel.c -o build-release/vulnerable/kernel.o
+ar rcs build-release/vulnerable/libmlkem.a build-release/vulnerable/kernel.o
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -DBASELINE_VULNERABLE=1 tests/test_mlkem.c src/mlkem.c src/random.c build-release/vulnerable/libmlkem.a -o build-release/vulnerable/test_mlkem
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g tests/test_equivalence.c src/mlkem.c src/random.c build-release/reference/libmlkem.a -o build-release/reference/test_equivalence
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -DBASELINE_VULNERABLE=1 tests/test_equivalence.c src/mlkem.c src/random.c build-release/vulnerable/libmlkem.a -o build-release/vulnerable/test_equivalence
+build-release/reference/test_equivalence > build-release/reference/equivalence.txt
+build-release/vulnerable/test_equivalence > build-release/vulnerable/equivalence.txt
+cmp build-release/reference/equivalence.txt build-release/vulnerable/equivalence.txt
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g src/main.c src/inputs.c src/mlkem.c src/random.c build-release/reference/libmlkem.a -o build-release/reference/baseline
+cc -Ibuild-release -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g src/measure.c src/inputs.c src/mlkem.c src/random.c build-release/reference/libmlkem.a -o build-release/reference/measure
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -DBASELINE_VULNERABLE=1 src/main.c src/inputs.c src/mlkem.c src/random.c build-release/vulnerable/libmlkem.a -o build-release/vulnerable/baseline
+cc -Ibuild-release -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -DBASELINE_VULNERABLE=1 src/measure.c src/inputs.c src/mlkem.c src/random.c build-release/vulnerable/libmlkem.a -o build-release/vulnerable/measure
+sh tests/test_cli.sh build-release
+reference ML-KEM-768 FIPS203
+reference: system-random keygen/encaps/decaps roundtrip passed
+reference: system-random keygen/encaps/decaps roundtrip passed
+reference: generated valid test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated random test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated message-zero test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated message-ones test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+vulnerable ML-KEM-768 FIPS203
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+vulnerable: generated valid test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated random test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated message-zero test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated message-ones test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g tests/test_measurement.c src/inputs.c src/mlkem.c src/random.c build-release/reference/libmlkem.a -o build-release/test_measurement
+sh tests/test_measurement.sh build-release
+reference: saved 50 raw decapsulation times in ns; no statistical conclusion
+vulnerable: saved 50 raw decapsulation times in ns; no statistical conclusion
+CSV row counts, units, positive raw values and reproducible category order passed: 50 rows per version
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g tests/test_random_failure.c src/mlkem.c src/random.c build-release/reference/libmlkem.a -o build-release/reference/test_random_failure
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O2 -g -DBASELINE_VULNERABLE=1 tests/test_random_failure.c src/mlkem.c src/random.c build-release/vulnerable/libmlkem.a -o build-release/vulnerable/test_random_failure
+build-release/reference/test_random_failure
+system RNG open failure propagates; normal operation recovers
+build-release/vulnerable/test_random_failure
+system RNG open failure propagates; normal operation recovers
+shasum -a 256 -c tests/vectors/SHA256SUMS
+tests/vectors/encdec-expected.json: OK
+tests/vectors/encdec-prompt.json: OK
+tests/vectors/keygen-expected.json: OK
+tests/vectors/keygen-prompt.json: OK
+tests/vectors/mlkem768.txt: OK
+build-release/vulnerable/test_mlkem tests/vectors/mlkem768.txt
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+vulnerable: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed

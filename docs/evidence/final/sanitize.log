@@ -1,0 +1,73 @@
+/Applications/Xcode.app/Contents/Developer/usr/bin/make BUILD_DIR=build-sanitize CFLAGS='-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer' test
+sh tools/build_identity.sh build-sanitize/build_identity.h 'cc' '-Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"'"'"baseline_config.h"'"'"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer; vulnerable encoder: optnone+noinline (Clang); O0+noinline (GCC); no LTO by default'
+mkdir -p build-sanitize/reference
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -c src/kernel.c -o build-sanitize/reference/kernel.o
+ar rcs build-sanitize/reference/libmlkem.a build-sanitize/reference/kernel.o
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer tests/test_mlkem.c src/mlkem.c src/random.c build-sanitize/reference/libmlkem.a -o build-sanitize/reference/test_mlkem
+build-sanitize/reference/test_mlkem tests/vectors/mlkem768.txt
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+mkdir -p build-sanitize/vulnerable
+cc -Ibuild-sanitize/vulnerable/mlkem -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -DBASELINE_VULNERABLE=1 -c src/kernel.c -o build-sanitize/vulnerable/kernel.o
+ar rcs build-sanitize/vulnerable/libmlkem.a build-sanitize/vulnerable/kernel.o
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -DBASELINE_VULNERABLE=1 tests/test_mlkem.c src/mlkem.c src/random.c build-sanitize/vulnerable/libmlkem.a -o build-sanitize/vulnerable/test_mlkem
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer tests/test_equivalence.c src/mlkem.c src/random.c build-sanitize/reference/libmlkem.a -o build-sanitize/reference/test_equivalence
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -DBASELINE_VULNERABLE=1 tests/test_equivalence.c src/mlkem.c src/random.c build-sanitize/vulnerable/libmlkem.a -o build-sanitize/vulnerable/test_equivalence
+build-sanitize/reference/test_equivalence > build-sanitize/reference/equivalence.txt
+build-sanitize/vulnerable/test_equivalence > build-sanitize/vulnerable/equivalence.txt
+cmp build-sanitize/reference/equivalence.txt build-sanitize/vulnerable/equivalence.txt
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer src/main.c src/inputs.c src/mlkem.c src/random.c build-sanitize/reference/libmlkem.a -o build-sanitize/reference/baseline
+cc -Ibuild-sanitize -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer src/measure.c src/inputs.c src/mlkem.c src/random.c build-sanitize/reference/libmlkem.a -o build-sanitize/reference/measure
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -DBASELINE_VULNERABLE=1 src/main.c src/inputs.c src/mlkem.c src/random.c build-sanitize/vulnerable/libmlkem.a -o build-sanitize/vulnerable/baseline
+cc -Ibuild-sanitize -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -DBASELINE_VULNERABLE=1 src/measure.c src/inputs.c src/mlkem.c src/random.c build-sanitize/vulnerable/libmlkem.a -o build-sanitize/vulnerable/measure
+sh tests/test_cli.sh build-sanitize
+reference ML-KEM-768 FIPS203
+reference: system-random keygen/encaps/decaps roundtrip passed
+reference: system-random keygen/encaps/decaps roundtrip passed
+reference: generated valid test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated random test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated message-zero test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated message-ones test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+vulnerable ML-KEM-768 FIPS203
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+vulnerable: generated valid test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated random test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated message-zero test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+vulnerable: generated message-ones test ciphertext, 1088 bytes; label comes from generator
+vulnerable: decapsulation completed
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer tests/test_measurement.c src/inputs.c src/mlkem.c src/random.c build-sanitize/reference/libmlkem.a -o build-sanitize/test_measurement
+sh tests/test_measurement.sh build-sanitize
+reference: saved 50 raw decapsulation times in ns; no statistical conclusion
+vulnerable: saved 50 raw decapsulation times in ns; no statistical conclusion
+CSV row counts, units, positive raw values and reproducible category order passed: 50 rows per version
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer tests/test_random_failure.c src/mlkem.c src/random.c build-sanitize/reference/libmlkem.a -o build-sanitize/reference/test_random_failure
+cc -Iinclude -Ivendor/mlkem-native/mlkem -DMLK_CONFIG_FILE='"baseline_config.h"' -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -DBASELINE_VULNERABLE=1 tests/test_random_failure.c src/mlkem.c src/random.c build-sanitize/vulnerable/libmlkem.a -o build-sanitize/vulnerable/test_random_failure
+build-sanitize/reference/test_random_failure
+system RNG open failure propagates; normal operation recovers
+build-sanitize/vulnerable/test_random_failure
+system RNG open failure propagates; normal operation recovers
+shasum -a 256 -c tests/vectors/SHA256SUMS
+tests/vectors/encdec-expected.json: OK
+tests/vectors/encdec-prompt.json: OK
+tests/vectors/keygen-expected.json: OK
+tests/vectors/keygen-prompt.json: OK
+tests/vectors/mlkem768.txt: OK
+build-sanitize/vulnerable/test_mlkem tests/vectors/mlkem768.txt
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+vulnerable: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
