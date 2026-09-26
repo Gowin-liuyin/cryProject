@@ -1,8 +1,6 @@
 --- a/mlkem/src/compress.c
 +++ b/mlkem/src/compress.c
-@@ -694,35 +694,23 @@
-  *              `(msg[i] >> j) & 1` which the compiler can reason must
-  *              be either 0 or 1. */
+@@ -696,31 +696,19 @@
  MLK_INTERNAL_API
 -void mlk_poly_frommsg(mlk_poly *r, const uint8_t msg[MLKEM_INDCPA_MSGBYTES])
 -{
@@ -48,5 +46,3 @@
    }
 -  mlk_assert_abs_bound(r, MLKEM_N, MLKEM_Q);
  }
- #endif /* !MLK_CONFIG_NO_ENCAPS_API || !MLK_CONFIG_NO_DECAPS_API */
- 
