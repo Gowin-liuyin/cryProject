@@ -46,3 +46,15 @@ test-equivalence: $(BUILD_DIR)/reference/test_equivalence $(BUILD_DIR)/vulnerabl
 	$(BUILD_DIR)/vulnerable/test_equivalence > $(BUILD_DIR)/vulnerable/equivalence.txt
 	cmp $(BUILD_DIR)/reference/equivalence.txt $(BUILD_DIR)/vulnerable/equivalence.txt
 test: test-equivalence
+
+CLI_SOURCES = src/main.c src/inputs.c $(APP_SOURCES)
+$(BUILD_DIR)/reference/baseline: $(CLI_SOURCES) include/inputs.h include/mlkem.h $(BUILD_DIR)/reference/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) $(CLI_SOURCES) $(BUILD_DIR)/reference/libmlkem.a -o $@
+$(BUILD_DIR)/vulnerable/baseline: $(CLI_SOURCES) include/inputs.h include/mlkem.h $(BUILD_DIR)/vulnerable/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 $(CLI_SOURCES) $(BUILD_DIR)/vulnerable/libmlkem.a -o $@
+reference: $(BUILD_DIR)/reference/baseline
+vulnerable: $(BUILD_DIR)/vulnerable/baseline
+.PHONY: test-cli
+test-cli: all
+	sh tests/test_cli.sh $(BUILD_DIR)
+test: test-cli
