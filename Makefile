@@ -58,3 +58,24 @@ vulnerable: $(BUILD_DIR)/vulnerable/baseline
 test-cli: all
 	sh tests/test_cli.sh $(BUILD_DIR)
 test: test-cli
+
+.PHONY: FORCE
+FORCE:
+shell_quote = '$(subst ','"'"',$(1))'
+$(BUILD_DIR)/build_identity.h: FORCE
+	sh tools/build_identity.sh $@ $(call shell_quote,$(CC)) $(call shell_quote,$(CPPFLAGS) $(WARNINGS) $(CFLAGS); vulnerable encoder: optnone+noinline (Clang); O0+noinline (GCC); no LTO by default)
+$(BUILD_DIR)/reference/kernel.o $(BUILD_DIR)/vulnerable/kernel.o: $(BUILD_DIR)/build_identity.h
+MEASURE_SOURCES = src/measure.c src/inputs.c $(APP_SOURCES)
+$(BUILD_DIR)/reference/measure: $(MEASURE_SOURCES) include/inputs.h include/mlkem.h $(BUILD_DIR)/build_identity.h $(BUILD_DIR)/reference/libmlkem.a
+	$(CC) -I$(BUILD_DIR) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) $(MEASURE_SOURCES) $(BUILD_DIR)/reference/libmlkem.a -o $@
+$(BUILD_DIR)/vulnerable/measure: $(MEASURE_SOURCES) include/inputs.h include/mlkem.h $(BUILD_DIR)/build_identity.h $(BUILD_DIR)/vulnerable/libmlkem.a
+	$(CC) -I$(BUILD_DIR) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 $(MEASURE_SOURCES) $(BUILD_DIR)/vulnerable/libmlkem.a -o $@
+reference: $(BUILD_DIR)/reference/measure
+vulnerable: $(BUILD_DIR)/vulnerable/measure
+
+$(BUILD_DIR)/test_measurement: tests/test_measurement.c src/inputs.c $(APP_SOURCES) include/inputs.h $(BUILD_DIR)/reference/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) tests/test_measurement.c src/inputs.c $(APP_SOURCES) $(BUILD_DIR)/reference/libmlkem.a -o $@
+.PHONY: test-measurement
+test-measurement: all $(BUILD_DIR)/test_measurement
+	sh tests/test_measurement.sh $(BUILD_DIR)
+test: test-measurement
