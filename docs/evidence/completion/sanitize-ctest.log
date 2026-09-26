@@ -1,0 +1,21 @@
+Test project /Users/yin/code/cryProject/build/cmake-sanitize
+    Start 1: reference_kat
+1/8 Test #1: reference_kat ....................   Passed    0.08 sec
+    Start 2: reference_random_failure
+2/8 Test #2: reference_random_failure .........   Passed    0.01 sec
+    Start 3: vulnerable_kat
+3/8 Test #3: vulnerable_kat ...................   Passed    0.44 sec
+    Start 4: vulnerable_random_failure
+4/8 Test #4: vulnerable_random_failure ........   Passed    0.37 sec
+    Start 5: equivalence
+5/8 Test #5: equivalence ......................   Passed    0.58 sec
+    Start 6: cli
+6/8 Test #6: cli ..............................   Passed    0.74 sec
+    Start 7: measurement
+7/8 Test #7: measurement ......................   Passed    1.99 sec
+    Start 8: vector_integrity
+8/8 Test #8: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 8
+
+Total Test time (real) =   4.22 sec

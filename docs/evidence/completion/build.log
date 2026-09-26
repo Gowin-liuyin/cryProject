@@ -1,0 +1,36 @@
+[0/2] Re-checking globbed directories...
+[1/35] Generating vulnerable-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[2/35] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/completion/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/completion/generated/RelWithDebInfo/configuration.txt
+[3/35] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[4/35] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[5/35] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[6/35] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[7/35] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[8/35] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[9/35] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[10/35] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[11/35] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[12/35] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[13/35] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[14/35] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[15/35] Building C object CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+[16/35] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[17/35] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[18/35] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[19/35] Building C object CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+[20/35] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[21/35] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[22/35] Linking C static library reference/libmlkem.a
+[23/35] Linking C static library vulnerable/libmlkem.a
+[24/35] Linking C executable reference/test_mlkem
+[25/35] Linking C executable reference/measure
+[26/35] Linking C executable reference/baseline
+[27/35] Linking C executable reference/test_equivalence
+[28/35] Linking C executable vulnerable/baseline
+[29/35] Linking C executable reference/test_random_failure
+[30/35] Linking C executable vulnerable/measure
+[31/35] Linking C executable vulnerable/test_mlkem
+[32/35] Linking C executable vulnerable/test_equivalence
+[33/35] Linking C executable vulnerable/test_random_failure
+[34/35] Linking C executable test_measurement
