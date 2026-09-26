@@ -27,6 +27,7 @@ static int check_vectors(const char *vector_path)
     unsigned case_number;
     unsigned keygen_count = 0, encapsulation_count = 0, decapsulation_count = 0;
     unsigned rejection_count = 0;
+    unsigned encapsulation_key_check_count = 0, decapsulation_key_check_count = 0;
     uint8_t rejection_input[MLKEM_SHARED_SECRET_BYTES + MLKEM_CIPHERTEXT_BYTES];
     uint8_t rejection_secret[MLKEM_SHARED_SECRET_BYTES];
     uint8_t key_seed[MLKEM_KEY_SEED_BYTES], encapsulation_seed[MLKEM_ENCAPSULATION_SEED_BYTES];
@@ -65,6 +66,18 @@ static int check_vectors(const char *vector_path)
             mlk_shake256(rejection_secret, sizeof(rejection_secret), rejection_input, sizeof(rejection_input));
             if (memcmp(rejection_secret, expected_shared_secret, sizeof(rejection_secret)) == 0) ++rejection_count;
             ++decapsulation_count;
+        } else if (strcmp(operation_name, "ekcheck") == 0) {
+            unsigned expected_validity;
+            CHECK(read_hex_bytes(vector_file, encapsulation_key, sizeof(encapsulation_key)) == 0);
+            CHECK(fscanf(vector_file, "%u", &expected_validity) == 1);
+            CHECK((baseline_native_check_pk(encapsulation_key) == 0) == (expected_validity != 0));
+            ++encapsulation_key_check_count;
+        } else if (strcmp(operation_name, "dkcheck") == 0) {
+            unsigned expected_validity;
+            CHECK(read_hex_bytes(vector_file, decapsulation_key, sizeof(decapsulation_key)) == 0);
+            CHECK(fscanf(vector_file, "%u", &expected_validity) == 1);
+            CHECK((baseline_native_check_sk(decapsulation_key) == 0) == (expected_validity != 0));
+            ++decapsulation_key_check_count;
         } else {
             CHECK(0);
         }
@@ -72,9 +85,11 @@ static int check_vectors(const char *vector_path)
     CHECK(feof(vector_file) && !ferror(vector_file));
     CHECK(fclose(vector_file) == 0);
     CHECK(keygen_count == 25 && encapsulation_count == 25 && decapsulation_count == 10);
+    CHECK(encapsulation_key_check_count == 10 && decapsulation_key_check_count == 10);
     CHECK(rejection_count > 0 && rejection_count < decapsulation_count);
     printf("NIST decaps vectors: %u implicit rejections, %u accepted ciphertexts\n", rejection_count, decapsulation_count - rejection_count);
     printf("%s: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed\n", mlkem_implementation_name());
+    puts("NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed");
     return 0;
 }
 

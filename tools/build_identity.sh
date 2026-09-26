@@ -8,6 +8,9 @@ mkdir -p "$(dirname "$output_header")"
 {
     printf 'source_commit=%s\n' "$(git rev-parse HEAD)"
     printf 'compiler_command=%s\ncompiler_flags=%s\n' "$compiler_command" "$compiler_flags"
+    printf 'measure_additional_flags=-I%s\n' "$(dirname "$output_header")"
+    printf 'vulnerable_additional_flags=-DBASELINE_VULNERABLE=1\n'
+    printf 'vulnerable_kernel_include=-I%s/vulnerable/mlkem\n' "$(dirname "$output_header")"
     "$compiler_command" --version | head -n 1
     printf 'git_worktree_status_begin\n'
     git status --porcelain

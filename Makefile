@@ -31,7 +31,7 @@ $(BUILD_DIR)/reference/test_mlkem: tests/test_mlkem.c $(APP_SOURCES) include/mlk
 $(BUILD_DIR)/vulnerable/test_mlkem: tests/test_mlkem.c $(APP_SOURCES) include/mlkem.h $(BUILD_DIR)/vulnerable/libmlkem.a
 	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 tests/test_mlkem.c $(APP_SOURCES) $(BUILD_DIR)/vulnerable/libmlkem.a -o $@
 .PHONY: test-reference test
- test-reference: $(BUILD_DIR)/reference/test_mlkem
+test-reference: $(BUILD_DIR)/reference/test_mlkem
 	$(BUILD_DIR)/reference/test_mlkem tests/vectors/mlkem768.txt
 test: test-reference $(BUILD_DIR)/vulnerable/test_mlkem
 	$(BUILD_DIR)/vulnerable/test_mlkem tests/vectors/mlkem768.txt
@@ -79,3 +79,20 @@ $(BUILD_DIR)/test_measurement: tests/test_measurement.c src/inputs.c $(APP_SOURC
 test-measurement: all $(BUILD_DIR)/test_measurement
 	sh tests/test_measurement.sh $(BUILD_DIR)
 test: test-measurement
+
+$(BUILD_DIR)/reference/test_random_failure: tests/test_random_failure.c $(APP_SOURCES) include/mlkem.h $(BUILD_DIR)/reference/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) tests/test_random_failure.c $(APP_SOURCES) $(BUILD_DIR)/reference/libmlkem.a -o $@
+$(BUILD_DIR)/vulnerable/test_random_failure: tests/test_random_failure.c $(APP_SOURCES) include/mlkem.h $(BUILD_DIR)/vulnerable/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 tests/test_random_failure.c $(APP_SOURCES) $(BUILD_DIR)/vulnerable/libmlkem.a -o $@
+.PHONY: test-random-failure sanitize
+test-random-failure: $(BUILD_DIR)/reference/test_random_failure $(BUILD_DIR)/vulnerable/test_random_failure
+	$(BUILD_DIR)/reference/test_random_failure
+	$(BUILD_DIR)/vulnerable/test_random_failure
+test: test-random-failure
+sanitize:
+	$(MAKE) BUILD_DIR=build-sanitize CFLAGS='-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer' test
+
+.PHONY: test-vector-integrity
+test-vector-integrity:
+	shasum -a 256 -c tests/vectors/SHA256SUMS
+test: test-vector-integrity

@@ -4,9 +4,9 @@
 
 static int print_usage(void)
 {
-    fputs("Usage: mlkem selftest | demo | version\n"
-        "       mlkem generate-test CATEGORY SEED CIPHERTEXT_FILE\n"
-        "       mlkem decapsulate-test SEED CIPHERTEXT_FILE\n"
+    fputs("Usage: baseline selftest | demo | version\n"
+        "       baseline generate-test CATEGORY SEED CIPHERTEXT_FILE\n"
+        "       baseline decapsulate-test SEED CIPHERTEXT_FILE\n"
         "Categories: valid bit-flipped random message-zero message-ones\n"
         "Test seeds are public fixtures; never use test keys for real secrets.\n", stderr);
     return 2;
