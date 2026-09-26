@@ -21,3 +21,9 @@ for implementation in reference vulnerable; do
     if "$program" duplicate 42 1 "$test_directory/$implementation.csv" "$test_directory/$implementation.meta" 2>/dev/null; then exit 1; fi
 done
 "$build_directory/test_measurement" "$test_directory/reference.csv" "$test_directory/vulnerable.csv" 10
+for corruption in '2s/,[0-9][0-9]*,ns$/,-1,ns/' '2s/,ns$/,ns trailing/' '3s/^[^,]*/different-run/' '2s/,[0-9][0-9]*,ns$/,18446744073709551616,ns/'; do
+    sed "$corruption" "$test_directory/reference.csv" > "$test_directory/corrupt.csv"
+    if "$build_directory/test_measurement" "$test_directory/corrupt.csv" "$test_directory/vulnerable.csv" 10 2>/dev/null; then
+        exit 1
+    fi
+done

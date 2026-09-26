@@ -1,4 +1,5 @@
 #include "mlkem.h"
+#include "inputs.h"
 #include "mlkem_native.h"
 #include "src/fips202/fips202.h"
 #include <stdio.h>
@@ -11,7 +12,8 @@ static int read_hex_bytes(FILE *vector_file, uint8_t *output, size_t output_byte
 {
     char encoded_bytes[MLKEM_DECAPSULATION_KEY_BYTES * 2u + 1u];
     if (fscanf(vector_file, "%4800s", encoded_bytes) != 1 ||
-        strlen(encoded_bytes) != output_byte_count * 2u) return 1;
+        strlen(encoded_bytes) != output_byte_count * 2u ||
+        strspn(encoded_bytes, "0123456789abcdefABCDEF") != output_byte_count * 2u) return 1;
     for (size_t byte_index = 0; byte_index < output_byte_count; ++byte_index) {
         unsigned decoded_byte;
         if (sscanf(encoded_bytes + byte_index * 2u, "%2x", &decoded_byte) != 1) return 1;
@@ -24,7 +26,9 @@ static int check_vectors(const char *vector_path)
 {
     FILE *vector_file = fopen(vector_path, "r");
     char operation_name[16];
-    unsigned case_number;
+    char case_number_text[21];
+    uint64_t case_number;
+    int scanned_field_count;
     unsigned keygen_count = 0, encapsulation_count = 0, decapsulation_count = 0;
     unsigned rejection_count = 0;
     unsigned encapsulation_key_check_count = 0, decapsulation_key_check_count = 0;
@@ -36,7 +40,9 @@ static int check_vectors(const char *vector_path)
     uint8_t ciphertext[MLKEM_CIPHERTEXT_BYTES], expected_ciphertext[MLKEM_CIPHERTEXT_BYTES];
     uint8_t shared_secret[MLKEM_SHARED_SECRET_BYTES], expected_shared_secret[MLKEM_SHARED_SECRET_BYTES];
     CHECK(vector_file != NULL);
-    while (fscanf(vector_file, "%15s %u", operation_name, &case_number) == 2) {
+    while ((scanned_field_count = fscanf(vector_file, "%15s %20s", operation_name, case_number_text)) != EOF) {
+        CHECK(scanned_field_count == 2);
+        CHECK(parse_unsigned_integer(case_number_text, &case_number) == 0 && case_number != 0);
         if (strcmp(operation_name, "keygen") == 0) {
             CHECK(read_hex_bytes(vector_file, key_seed, sizeof(key_seed)) == 0);
             CHECK(read_hex_bytes(vector_file, expected_encapsulation_key, sizeof(expected_encapsulation_key)) == 0);

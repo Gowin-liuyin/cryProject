@@ -126,6 +126,8 @@ if(BUILD_TESTING)
         "-DOUTPUT_DIRECTORY=${output_root}" -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/CheckEquivalence.cmake")
     add_test(NAME cli COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh" "${output_root}")
     add_test(NAME measurement COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_measurement.sh" "${output_root}")
+    add_test(NAME vector_parser COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
+        "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt")
     set_tests_properties(measurement PROPERTIES RUN_SERIAL TRUE)
     add_test(NAME vector_integrity COMMAND "${SHASUM_EXECUTABLE}" -a 256 -c tests/vectors/SHA256SUMS)
     set_tests_properties(vector_integrity PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
