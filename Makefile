@@ -12,9 +12,14 @@ vulnerable: $(BUILD_DIR)/vulnerable/libmlkem.a
 $(BUILD_DIR)/reference/kernel.o: src/kernel.c include/baseline_config.h $(VENDOR_FILES) Makefile
 	mkdir -p $(@D)
 	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -c $< -o $@
-$(BUILD_DIR)/vulnerable/kernel.o: src/kernel.c include/baseline_config.h $(VENDOR_FILES) Makefile
+$(BUILD_DIR)/vulnerable/patched.stamp: $(VENDOR_FILES) docs/patches/message-branch.patch
 	mkdir -p $(@D)
-	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 -c $< -o $@
+	cp -R vendor/mlkem-native/mlkem $(@D)/
+	patch -d $(@D) -p1 < docs/patches/message-branch.patch
+	touch $@
+$(BUILD_DIR)/vulnerable/kernel.o: src/kernel.c include/baseline_config.h $(BUILD_DIR)/vulnerable/patched.stamp Makefile
+	mkdir -p $(@D)
+	$(CC) -I$(BUILD_DIR)/vulnerable/mlkem $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 -c $< -o $@
 $(BUILD_DIR)/%/libmlkem.a: $(BUILD_DIR)/%/kernel.o
 	$(AR) rcs $@ $<
 clean:
@@ -30,3 +35,14 @@ $(BUILD_DIR)/vulnerable/test_mlkem: tests/test_mlkem.c $(APP_SOURCES) include/ml
 	$(BUILD_DIR)/reference/test_mlkem tests/vectors/mlkem768.txt
 test: test-reference $(BUILD_DIR)/vulnerable/test_mlkem
 	$(BUILD_DIR)/vulnerable/test_mlkem tests/vectors/mlkem768.txt
+
+$(BUILD_DIR)/reference/test_equivalence: tests/test_equivalence.c $(APP_SOURCES) include/mlkem.h $(BUILD_DIR)/reference/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) tests/test_equivalence.c $(APP_SOURCES) $(BUILD_DIR)/reference/libmlkem.a -o $@
+$(BUILD_DIR)/vulnerable/test_equivalence: tests/test_equivalence.c $(APP_SOURCES) include/mlkem.h $(BUILD_DIR)/vulnerable/libmlkem.a
+	$(CC) $(CPPFLAGS) $(WARNINGS) $(CFLAGS) -DBASELINE_VULNERABLE=1 tests/test_equivalence.c $(APP_SOURCES) $(BUILD_DIR)/vulnerable/libmlkem.a -o $@
+.PHONY: test-equivalence
+test-equivalence: $(BUILD_DIR)/reference/test_equivalence $(BUILD_DIR)/vulnerable/test_equivalence
+	$(BUILD_DIR)/reference/test_equivalence > $(BUILD_DIR)/reference/equivalence.txt
+	$(BUILD_DIR)/vulnerable/test_equivalence > $(BUILD_DIR)/vulnerable/equivalence.txt
+	cmp $(BUILD_DIR)/reference/equivalence.txt $(BUILD_DIR)/vulnerable/equivalence.txt
+test: test-equivalence

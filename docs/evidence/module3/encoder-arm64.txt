@@ -1,0 +1,44 @@
+
+build/vulnerable/test_mlkem:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000100002c68 <_baseline_native_poly_frommsg>:
+100002c68: d10083ff    	sub	sp, sp, #0x20
+100002c6c: f9000fe0    	str	x0, [sp, #0x18]
+100002c70: f9000be1    	str	x1, [sp, #0x10]
+100002c74: b9000fff    	str	wzr, [sp, #0xc]
+100002c78: b9400fe8    	ldr	w8, [sp, #0xc]
+100002c7c: 7104011f    	cmp	w8, #0x100
+100002c80: 54000043    	b.lo	0x100002c88 <_baseline_native_poly_frommsg+0x20>
+100002c84: 1400001d    	b	0x100002cf8 <_baseline_native_poly_frommsg+0x90>
+100002c88: f9400be8    	ldr	x8, [sp, #0x10]
+100002c8c: b9400fe9    	ldr	w9, [sp, #0xc]
+100002c90: 53037d29    	lsr	w9, w9, #3
+100002c94: d3407d29    	ubfx	x9, x9, #0, #32
+100002c98: 8b090108    	add	x8, x8, x9
+100002c9c: 39400108    	ldrb	w8, [x8]
+100002ca0: b9400fe9    	ldr	w9, [sp, #0xc]
+100002ca4: 528000ea    	mov	w10, #0x7               ; =7
+100002ca8: 0a0a0129    	and	w9, w9, w10
+100002cac: 1ac92508    	lsr	w8, w8, w9
+100002cb0: 36000108    	tbz	w8, #0x0, 0x100002cd0 <_baseline_native_poly_frommsg+0x68>
+100002cb4: f9400fe8    	ldr	x8, [sp, #0x18]
+100002cb8: b9400fe9    	ldr	w9, [sp, #0xc]
+100002cbc: d280004a    	mov	x10, #0x2               ; =2
+100002cc0: 9b0a2128    	madd	x8, x9, x10, x8
+100002cc4: 5280d029    	mov	w9, #0x681              ; =1665
+100002cc8: 79000109    	strh	w9, [x8]
+100002ccc: 14000006    	b	0x100002ce4 <_baseline_native_poly_frommsg+0x7c>
+100002cd0: f9400fe8    	ldr	x8, [sp, #0x18]
+100002cd4: b9400fe9    	ldr	w9, [sp, #0xc]
+100002cd8: d280004a    	mov	x10, #0x2               ; =2
+100002cdc: 9b0a2128    	madd	x8, x9, x10, x8
+100002ce0: 7900011f    	strh	wzr, [x8]
+100002ce4: 14000001    	b	0x100002ce8 <_baseline_native_poly_frommsg+0x80>
+100002ce8: b9400fe8    	ldr	w8, [sp, #0xc]
+100002cec: 11000508    	add	w8, w8, #0x1
+100002cf0: b9000fe8    	str	w8, [sp, #0xc]
+100002cf4: 17ffffe1    	b	0x100002c78 <_baseline_native_poly_frommsg+0x10>
+100002cf8: 910083ff    	add	sp, sp, #0x20
+100002cfc: d65f03c0    	ret
