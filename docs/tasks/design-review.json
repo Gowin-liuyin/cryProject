@@ -1,0 +1,134 @@
+{
+  "verdict": "CHANGES_REQUESTED",
+  "reviewDoc": "/Users/yin/code/cryProject/docs/tasks/design-review.md",
+  "designDoc": "/Users/yin/code/cryProject/docs/tasks/four-module-design.md",
+  "reviewRound": 3,
+  "summary": {
+    "high": 1,
+    "medium": 9,
+    "nit": 7,
+    "total": 17,
+    "blocking": 10
+  },
+  "findings": [
+    {
+      "id": 1,
+      "severity": "HIGH",
+      "location": "3.3「这里有一个必须由 analyze_groups 自己守住的不变式」段首句、同段的固定执行顺序、3.3「分组在实现上是连续区间」段",
+      "problem": "第二轮分组依赖的「按类别排序」归属错了，照设计实现会静默算错分组。实测：src/analyze.c 的 load_measurement_set（:349 起）只做逐行校验与 append_record，全程不排序；排序发生在 main 的 src/analyze.c:647 qsort(set.records, ..., compare_measurement_record)，随后才是 build_series（:405）按类别取连续区间。CSV 本身类别乱序（docs/evidence/mitigation/reference.csv 前四行为 message-zero, valid, message-zero, message-zero）。而 3.3 写死的顺序是「加载并校验 → 校验五类齐全且等量 → 记录两组 count → 才对两个区间各排一次序 → 计算」，整份数组按类别排序这一步根本没有出现。按字面实现，analyze_groups 会把乱序数组的前 N 条当成方向变化组、后 M 条当成方向恒定组，仍能算出格式合法的分位点与 Mann-Whitney p 值，没有任何断言会失败；M3-1 的「完全分离」「分布相同」两个合成场景对类别归属不敏感，也抓不到。后果是第二轮预注册的唯一判定统计量在真实数据上算错而 CTest 全绿。",
+      "fix": "① 3.3 事实改为「src/analyze.c:647 的 main 在 load_measurement_set 之后调用 qsort(..., compare_measurement_record)，加载函数本身不排序」。② analyze_groups 的固定顺序改为六步，新增第 2 步：加载并校验 → 对整份 set->records 调用 compare_measurement_record 排序 → 校验五类齐全且每类等量、每组 ≥ 2 → 记录两组 count 与区间起止 → 才对两个区间各按耗时排一次序 → 计算并写报告。③ 抽到 src/timing_statistics.c 的是两个无状态入口 sort_records_by_category_then_duration(records, count) 与 sort_range_by_duration(records, count)；src/analyze.c 的 main 改调前者、行为逐字不变（M3-2 兜住），analyze_groups 必须自己依次调用两者。④ M3-1 追加一条能抓住该错误的场景：类别乱序写出的合成 CSV（恒定类全 1000ns、变化类全 2000ns，行序按类别交替），断言 count=20 / count=30、rank_u1=0.0、effect_size_first_greater=0.000000；漏掉整份排序时该条必然失败。"
+    },
+    {
+      "id": 2,
+      "severity": "MEDIUM",
+      "location": "M1-6 最后一句；与 0.4 第 5 条、1.4 的 record-checks.txt 行、M2-11 的结论句冲突；M3-8",
+      "problem": "M1-6 要求「binaries.sha256 与 .meta 的 executable_digest 对上」，但 .meta 实测是 executable_digest_algorithm=SHA3-256（docs/evidence/mitigation/reference.meta:16-17），binaries.sha256 是 shasum -a 256（0.4 第 3 条），算法不同不可能对上。M2-11 自己明令「不得改用 SHA-256 与 executable_digest 对照后声称对上了」，1.4 与 4.3 写的也是 SHA3-256 对照，只有 M1-6 写错，而模块一的验收会照 M1-6 执行。既有正确先例：docs/evidence/mitigation/record-checks.txt 的 SHA3-256(build/mitigation/reference/measure)= 4d6778… 与 reference.meta 的 executable_digest 逐字相同（本轮比对一致）。",
+      "fix": "M1-6 拆成两句：「openssl dgst -sha3-256 build/deployable/<variant>/{baseline,measure} 的输出与对应 .meta 的 executable_digest 逐个相同（同算法独立工具，照 docs/evidence/mitigation/record-checks.txt 先例）」；「binaries.sha256 另用 shasum -a 256 记录同一批产物以满足 0.4 第 3 条，不参与 executable_digest 的对照」。M3-8 的「与对应 measure 产物摘要一致」补上算法名 openssl dgst -sha3-256。"
+    },
+    {
+      "id": 3,
+      "severity": "MEDIUM",
+      "location": "1.2 第四个项目符号（四个脚本的变体循环）、1.6 提交 A 清单、0.5 降级第 1 步、8.4 第一条",
+      "problem": "tests/test_cli.sh 除 :6 的变体循环外，末尾另有一段实测 41–44 行的硬编码比较块：for category in valid bit-flipped random message-zero message-ones; do cmp reference-$category vulnerable-$category; cmp reference-$category hardened-$category; done。即「新变体生成的测试向量与 reference 逐字节一致」是逐变体列出的，不在循环里。只把 deployable 加进 :6 的循环，deployable 会生成五个文件却从不被比较，CLI 层一致性检查静默不覆盖新变体——与 8.4 自查出的 test_vector_parser.sh 漏项同类。（另两处硬编码无需改：test_measurement.sh:29,32 的 reference.csv/vulnerable.csv 是比较工具的固定一对，hardened 也不在内；test_analysis.sh:100 的 s/,reference,/,hardened,/ 是构造畸形 CSV 的字面量。）",
+      "fix": "1.2 增加一条：tests/test_cli.sh 末尾比较块改为 for variant in vulnerable hardened deployable; do cmp \"$test_directory/reference-$category\" \"$test_directory/$variant-$category\"; done（或直接补一行 cmp … deployable-$category）；0.5 降级第 1 步的撤回清单加上「还原 test_cli.sh 末尾比较块」；1.6 提交 A 清单不变（同一文件）。"
+    },
+    {
+      "id": 4,
+      "severity": "MEDIUM",
+      "location": "2.2 写死的 docker run … sh -c 'set -eu …'；M2-4、M2-5 的「如实记录/记缺口」；0.5 第 1 步；2.4 文件清单",
+      "problem": "2.2 规定单次容器运行、set -eu、内含 M2-2…M2-9 与 M2-11 全部步骤，宿主 tee 出唯一 verification.log。但 M2-4 允许 -Werror 下出现警告、M2-5 明确「某项失败或超时就如实记录…写成缺口」。在 set -e 下：构建失败即在第 2 步终止，M2-5…M2-11 的产物一份都不存在；ctest 失败或超时（M2-5 预期可能发生）同样终止，四份 encoder 反汇编、四份 caller 反汇编、call-site-counts-amd64.txt、四份 .meta、binaries.sha3-256 全部拿不到，而 2.4 要求它们在目录里、0.5 要求保存逐字失败输出并继续下一模块。即「记缺口后继续」在所选运行方式下不可执行，且失败恰是最需要证据的情形。",
+      "fix": "在 2.2 的脚本骨架里写死失败处置：① 被判定步骤改为不终止脚本并记录退出码，如 cmake --build /build/cmake --parallel > /build/build.log 2>&1; echo \"build_exit=$?\" >> /build/step-exits.txt 与 ctest --test-dir /build/cmake --output-on-failure > /build/ctest.log 2>&1; echo \"ctest_exit=$?\" >> /build/step-exits.txt；② 只对前置步骤（配置失败、四个 measure 产物不存在）保留硬失败，并写明哪几步硬失败、哪几步记录后继续；③ 反汇编、调用点计数与摘要步骤排在 ctest 之后但不依赖其退出码；④ step-exits.txt、build.log、ctest.log 一并归档（2.4 清单补上这三个文件），README.md 的「未能完成的项」小节引用实测退出码。"
+    },
+    {
+      "id": 5,
+      "severity": "MEDIUM",
+      "location": "2.2 / 2.3（模块二的检查项）、2.4 文件清单；对比 1.2 的写死命令与 M1-6",
+      "problem": "1.2 与 M1-6 把「build.log 里不出现 with fuzz」定成硬门，因为 cmake/PrepareVariant.cmake 实测只用 patch -p1 -i（无 --no-fuzz，本轮确认），历史上已因此出过 fix: apply the constant-time encoder patch without context fuzz。模块二在容器内用 GNU patch 2.7.6（docs/evidence/linux-gcc/README.md 实测版本）重新应用同样三到四个补丁，fuzz 行为与宿主 BSD patch 不保证相同，而模块二全部结论都是对打完补丁的产物做反汇编。M2-4 只要求记录警告，没有任何 fuzz 判据；先例 linux-gcc README 反而写了「两个补丁都无 fuzz 应用」，即本设计比先例弱。",
+      "fix": "M2-4 追加与 1.2 同型的写死命令：容器内对 /build/build.log 跑 grep -n 'with fuzz' /build/build.log; echo \"exit=$?\"，归档后对 docs/evidence/linux-amd64/build.log 再跑一次；判据 exit=1 通过，exit=0 时不得继续产出反汇编结论，按 0.5 记缺口并把逐字输出写入 record-checks.txt；2.4 清单补上 build.log（当前只列 verification.log）。"
+    },
+    {
+      "id": 6,
+      "severity": "MEDIUM",
+      "location": "2.2 的 docker run --name baseline-gcc-amd64-setup 代码块与紧随其后的「apt 走 http_proxy=http://host.docker.internal:7890」一句",
+      "problem": "代码块是「写死」的建镜像命令，却没有传任何代理环境变量，紧接着的散文又说 apt 走该代理。两种读法都成立（命令漏了 -e，或这句只是描述环境不需要写），而这一步决定 openssl 能否装进镜像——M2-11 的主路线全挂在它上面。",
+      "fix": "把代理写进命令本身：docker run --name baseline-gcc-amd64-setup --platform linux/amd64 -e http_proxy=http://host.docker.internal:7890 -e https_proxy=http://host.docker.internal:7890 ubuntu:24.04 sh -c 'apt-get -qq update && apt-get -qq install -y --no-install-recommends build-essential cmake git patch perl binutils openssl'；并加一句：若本机 apt 无需代理则去掉两个 -e 并在 README.md 写明实际命令；apt 失败时逐字保存输出、按 0.5 记缺口，不得改用宿主算 SHA3-256 就当模块二完成。"
+    },
+    {
+      "id": 7,
+      "severity": "MEDIUM",
+      "location": "0.1 篇首的凭证落点与硬约束、M3-10「行号引用的处理」最后一句、8.3 第 12 条",
+      "problem": "0.1 把模块零提交号定为第二轮预注册的时间凭证，凭的是该提交入库的这份文本；但 M3-10 要求「若实测行号发生了变化，以插入后的实测行号更新新章节、证据 README 与本设计文件的引用」，即在模块三（已看过并采集数据）期间修改预注册文件。0.1 只给了操作路径（先单独提交修订再取证），没有禁止修改预注册内容所在的文件，于是出现两种自洽读法：凭证指向模块零那次提交的文本（此后本文件不可再改），或指向文件当前内容（凭证失效）。这正是第二轮预注册最易被质疑之处。",
+      "fix": "① 0.1 增加硬约束：「模块零提交之后，docs/tasks/four-module-design.md 不再修改（含行号、措辞、笔误）；需要更新的事实只写进证据 README.md 与 docs/statistics.md 的新章节，并注明本设计文件保持模块零提交时的原文」。② M3-10 改为行号变化只更新新章节与 docs/evidence/statistics-multiseed/README.md，并写出「本设计文件引用的 84 是模块零时点实测值，插入后实测为 <N>」。③ 若确实必须修订本文件，作为新的独立提交，并在证据 README 与最终报告并列写出「预注册凭证提交」与「修订提交」两个哈希、说明修订是否触及第二轮假设；触及则该轮预注册作废重做。"
+    },
+    {
+      "id": 8,
+      "severity": "MEDIUM",
+      "location": "篇首「预注册生效条件」、0.1、3.2 标题段、3.6 第四条、M4-7",
+      "problem": "M4-7 自己要求归档「本地没有 origin/main 跟踪引用（gone），本次提交只存在于本地」（本轮复核：git branch -vv 显示 main b53e4e0 [origin/main: gone]，git rev-parse --verify origin/main 失败退出 128）。既然如此，模块零提交只能证明本仓库历史里的相对顺序：提交时间可由作者设置，没有第三方时间戳或公开可见性。而篇首、3.2、3.6 一律称之为「预注册的时间凭证」，读者会理解为可对外验证的时间证明。这与本设计对 QEMU、对 777 口头复核的严格口径不一致，属于对自己凭证的无据升级。",
+      "fix": "在 3.6 与篇首各加一条诚实性边界：「模块零提交只是本仓库本地历史中的顺序凭证：未推送、无第三方时间戳、提交日期可被改写，因此它只支持『第二轮假设在任何第二轮采集提交之前已写定』这一相对顺序，不构成对外可验证的时间戳；更强凭证需要公开推送或外部时间戳服务，属本阶段范围之外，按 0.5 记为未闭合项。」最终报告的「未闭合项」单列同样加这一条。"
+    },
+    {
+      "id": 9,
+      "severity": "MEDIUM",
+      "location": "2.4 表末段「八个被测产物…副本本身也归档」、0.4 第 3 条、8.2 第 6 条的选择理由",
+      "problem": "实测：docs/evidence/mitigation/binaries.sha256 的七行全是构建目录路径（build/mitigation/reference/measure 等），目录里没有二进制副本；容器先例 docs/evidence/linux-gcc/ 既无 binaries.sha256 也无 record-checks.txt，更无产物副本；docs/evidence/ 下目前没有任何二进制文件，单个 measure 实测 129KB、八个副本约 1MB 且进 git 后按 0.3 不可删。模块一、三、四的 binaries.sha256 仍会记录 build/<dir>/… 路径，于是 8.2 第 6 条声称的「四个新证据目录清单一致」只在文件名层面成立，摘要对象不一致（模块二算归档副本，其余算构建目录文件），反而更难核对。2.2 已把 /build 绑定到宿主 /tmp/linux-amd64-build，八个产物在宿主直接可见，不需要拷进仓库才有摘要对象。",
+      "fix": "择一写死，建议 (a)：不归档二进制副本，宿主 binaries.sha256 用 shasum -a 256 /tmp/linux-amd64-build/cmake/{reference,vulnerable,hardened,deployable}/{baseline,measure} 生成、路径逐字保留（与 mitigation 同型），record-checks.txt 说明「摘要对象是容器写出的宿主可见产物，未拷入仓库；容器内 shasum -a 256（binaries.sha256-in-container）与这份逐行一致，钉住同一份文件」，2.4 删除产物副本行。(b) 仍归档副本，则必须在 2.4 写明实测体积、说明模块一/三/四为何不这样做，并给这些产物加 .gitattributes 的 binary 条目（0.4 第 6 条的机械步骤要覆盖它）。"
+    },
+    {
+      "id": 10,
+      "severity": "MEDIUM",
+      "location": "0.1 关于 git add docs/tasks/ 的理由段、第 7 节首段、第 8 节首段、M4-5/第 5 节的来源引用",
+      "problem": "实测 docs/tasks/ 只有 four-module-design.md、design-review.md、design-review.json 三个文件，且整个目录仍未跟踪（git status --porcelain 输出 ?? docs/tasks/），历史里没有任何一轮评审产物。第 7 节引用「docs/tasks/design-review.md（第一轮）」、第 8 节引用「（第二轮，319 行）」，但这两份文件已被下一轮写在同一路径上覆盖（本轮同样覆盖第二轮那 319 行）。0.1 又说该目录「会有多轮评审产物（本设计文件 + 每轮的 design-review.md / design-review.json）」，按当前命名不可能成立：模块零提交进去的是最后一轮，而第 7、8 节引用的来源在仓库里不存在。",
+      "fix": "择一写死。(a) 评审产物按轮次命名 design-review-round1.{md,json} … -round3.{md,json}，模块零提交全部轮次文件，第 7、8 节引用改为对应文件名（改名发生在 docs/tasks/ 内、模块零之前，不触 0.3）。(b) 保留单一文件名，但第 7、8 节首段改为「第一、二轮评审文档已被后续轮次覆盖，仅以本节逐条摘要留存；docs/tasks/design-review.{md,json} 始终是最后一轮内容」，并在 M4-5 追加章节与最终报告用同一句说明来源限制。两条都要求把 0.1 那句「多轮评审产物」改成与实际命名一致。"
+    },
+    {
+      "id": 11,
+      "severity": "NIT",
+      "location": "1.2 第三个项目符号（位选择改用上游设施）",
+      "problem": "deployable 补丁是模块一唯一的新代码，约束却是散文式的：平铺 256 次循环、mlk_value_barrier_u8 取位掩码 + mlk_ct_sel_int16 做选择、条件参数显式转 uint16_t、参数名沿用既有补丁、保留 MLKEM_INDCPA_MSGBYTES 守卫与 mlk_assert_abs_bound。字节/位索引算法、屏障按系数还是按字节取、MLKEM_Q_HALF 的传参形式都未写死，而 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror（CMakeLists.txt 的 baseline_options 实测）对这几处敏感。docs/mitigation.md 对 hardened 就给了三行片段作先例。",
+      "fix": "在 1.2 贴出目标片段：for (unsigned coefficient_index = 0; coefficient_index < MLKEM_N; ++coefficient_index) { const uint8_t bit_mask = mlk_value_barrier_u8((uint8_t)(1u << (coefficient_index % 8u))); const uint16_t selection_condition = (uint16_t)(message_bytes[coefficient_index / 8u] & bit_mask); message_polynomial->coeffs[coefficient_index] = mlk_ct_sel_int16(MLKEM_Q_HALF, 0, selection_condition); } 并注明屏障按系数取（与上游按位取等价、形态贴近平铺循环），selection_condition 的显式 uint16_t 转换是为了过 -Wconversion -Werror。"
+    },
+    {
+      "id": 12,
+      "severity": "NIT",
+      "location": "0.5 降级第 1 步的理由句「本仓库既有七份证据都记录『全部 CTest 通过』」、0.3",
+      "problem": "docs/evidence/ 实测有 8 个目录：cmake、completion、final、linux-gcc、mitigation、module3、review、statistics。其中 module3 只有 SHA256SUMS 与 encoder-arm64.txt，无 README.md、无 record-checks.txt，既不满足 0.4 的必备清单，也没有「全部 CTest 通过」的记录。0.3 写「docs/evidence/ 下已封存的目录」但未定义哪些算已封存，无法机械判断 module3 是否在只读范围内。",
+      "fix": "0.3 改为「已封存 = 当前 main 上已提交的 docs/evidence/ 全部目录，实测 8 个：cmake、completion、final、linux-gcc、mitigation、module3、review、statistics；其中 module3 只有两份文件、不满足 0.4 清单，属历史遗留，同样只读且不得回头补齐」；0.5 的理由句改为「既有带 ctest.log 的证据目录（实测 cmake、completion、final、linux-gcc、mitigation、review、statistics 七份）」。"
+    },
+    {
+      "id": 13,
+      "severity": "NIT",
+      "location": "M4-7 的三条命令与「记录含义」段、6.1 第 3 条",
+      "problem": "6.1 说「git rev-parse origin/main 报 unknown revision」，这对不带 --verify 的形式成立（实测 fatal: ambiguous argument 'origin/main': unknown revision or path not in the working tree.，且会先打印一行 origin/main）；而 M4-7 写死的是 git rev-parse --verify origin/main; echo \"exit=$?\"，实测输出 fatal: Needed a single revision、exit=128。归档时按 6.1 的描述核对会误以为命令跑错。",
+      "fix": "M4-7 补一句预期输出：「--verify 形式实测输出 fatal: Needed a single revision、exit=128（不是 unknown revision，那是不带 --verify 的形式的文本）；两种文本任一出现都说明 origin/main 不存在，逐字归档实际输出即可」；6.1 第 3 条注明它描述的是不带 --verify 的形式。"
+    },
+    {
+      "id": 14,
+      "severity": "NIT",
+      "location": "3.3 的 tests/test_analysis_round1_replay.sh 落点规则、M3-2",
+      "problem": "脚本只拿到 $1 = output_root。设计写死了报告落点 $1/round1-replay-<name>.report 与先 rm -f，但没写被调用的程序路径（其余测试脚本惯例是 $1/analyze，analyze 的 RUNTIME_OUTPUT_DIRECTORY 实测就是构建根），也没把「两份归档 CSV → 两次重放 → 两次 cmp」的数量写成判据。",
+      "fix": "3.3 补两句：「程序路径固定为 $1/analyze；用例固定为两份：docs/evidence/statistics/vulnerable.csv → round1-replay-statistics-vulnerable.report、docs/evidence/mitigation/hardened.csv → round1-replay-mitigation-hardened.report；两次 cmp（屏蔽 welch_p= / rank_p= 之后）都必须通过，任一失败即测试失败。」"
+    },
+    {
+      "id": 15,
+      "severity": "NIT",
+      "location": "M1-5 的判定句、M2-7 的结论范围句",
+      "problem": "内联判据已写死成正则，但「函数体内只有循环边界条件分支，不存在由消息位控制的 tbz / cbz / cmp+b.eq 之类」仍是人工裁量：ARM64 GCC 与 Apple Clang 的循环边界实测分别印作 b.ne / b.ls（docs/evidence/linux-gcc/README.md 的表与 docs/evidence/mitigation/*-encoder-arm64.txt），x86_64 GCC 形式尚未观察。不写清单会让不同人给出不同结论。",
+      "fix": "M1-5 与 M2-7 各加口径：「先把该函数反汇编里所有条件跳转逐条列出（地址 + 助记符），再逐条标注归属：循环计数比较（ARM64 实测 b.ne / b.ls，x86_64 GNU 侧按实测填写）判为循环边界；操作数链可追到 message_bytes 取字节/取位的判为消息位相关；标注依据（上一条影响标志位的指令）写进 README.md；无法判定归属的条件跳转按 0.5 记缺口，不得默认算作循环边界。」"
+    },
+    {
+      "id": 16,
+      "severity": "NIT",
+      "location": "M3-5、3.5 的文件表（multiseed-summary.tsv）",
+      "problem": "M3-5 用散文列出九到十列（含两个阈值列与 prespecified），生成方式是 grep/awk，但没有给出表头行。汇总表是模块三对外的主结论载体，列名不定会让「若按 1e-4 判定」这类派生列难以核对。",
+      "fix": "M3-5 写死制表符表头与列序：implementation\\tseed\\tprespecified\\tround1_significant_count\\tround1_primary_rank_p\\tround1_alpha_per_comparison\\tround2_result\\tround2_rank_p\\tround2_significant_at_1e-4\\tmean_difference_ns\\teffect_size_first_greater\\trank_z\\tcategory_mean_range_ns，并注明 round1_alpha_per_comparison 恒为 0.00010000、round2_significant_at_1e-4 取值域 yes|no|na、动机复采四行 prespecified=no 且排在最后。"
+    },
+    {
+      "id": 17,
+      "severity": "NIT",
+      "location": "1.4 的 sanitize-ctest.log 行、1.5 第二条、3.5 的同名文件行",
+      "problem": "1.4 要求 configure.log / build.log / ctest.log 来自 build/deployable（Ninja + RelWithDebInfo，0.2 写死），但 sanitize-ctest.log 来自 ctest --preset sanitize——实测该 preset 的 binaryDir 是 build/cmake-sanitize、生成器继承 baseline 的 Unix Makefiles、构建类型 Debug 且带 ASan/UBSan（CMakePresets.json:12,22-29）。同一证据目录混放两套配置的日志，而 1.5 只声明反汇编结论覆盖 build/deployable 配置，没说 sanitize 日志属另一配置。",
+      "fix": "1.4 的 sanitize-ctest.log 行加括注「来自 build/cmake-sanitize（sanitize preset：Unix Makefiles / Debug / ASan+UBSan），不是 build/deployable 这一配置；仅用于功能正确性，不用于任何产物形态或性能结论」；1.5 加同一句；模块三 3.5 的 sanitize-ctest.log 行同样处理。"
+    }
+  ]
+}
