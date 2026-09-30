@@ -202,7 +202,7 @@ NIST 原件、固定版本和转换方式保存在 `tests/vectors/` 与 [验证�
 统计确认限于 Apple M5 / ARM64 macOS，证据见
 [evidence/statistics](docs/evidence/statistics/README.md)；同一固定检验在参考版上不显著。
 去掉分支后的对照见 [evidence/mitigation](docs/evidence/mitigation/README.md)：
-同一构建条件下防护版 0/10 显著、缺陷版 7/10 显著，但残差未消失，不宣称防护版已证明恒时。
+同一构建条件下防护版 0/10 显著、缺陷版 6/10 显著，但残差随运行波动，不宣称防护版已证明恒时。
 尚未执行真实 x86_64 Linux/GCC 验证；没有宣称参考版完全恒时，也没有完成密钥恢复。
 下一阶段可在真实 x86_64 Linux/GCC 上重跑同一组功能检查、采集与固定检验，
 并对打开优化后的恒时编码逐个反汇编确认。

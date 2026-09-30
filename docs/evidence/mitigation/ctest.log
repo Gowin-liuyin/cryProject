@@ -1,31 +1,31 @@
 Test project /Users/yin/code/cryProject/build/mitigation
       Start  1: reference_kat
- 1/13 Test  #1: reference_kat ....................   Passed    0.79 sec
+ 1/13 Test  #1: reference_kat ....................   Passed    0.80 sec
       Start  2: reference_random_failure
- 2/13 Test  #2: reference_random_failure .........   Passed    0.35 sec
+ 2/13 Test  #2: reference_random_failure .........   Passed    0.37 sec
       Start  3: vulnerable_kat
  3/13 Test  #3: vulnerable_kat ...................   Passed    0.37 sec
       Start  4: vulnerable_random_failure
- 4/13 Test  #4: vulnerable_random_failure ........   Passed    0.34 sec
+ 4/13 Test  #4: vulnerable_random_failure ........   Passed    0.36 sec
       Start  5: hardened_kat
- 5/13 Test  #5: hardened_kat .....................   Passed    0.37 sec
+ 5/13 Test  #5: hardened_kat .....................   Passed    0.39 sec
       Start  6: hardened_random_failure
- 6/13 Test  #6: hardened_random_failure ..........   Passed    0.34 sec
+ 6/13 Test  #6: hardened_random_failure ..........   Passed    0.36 sec
       Start  7: equivalence_vulnerable
- 7/13 Test  #7: equivalence_vulnerable ...........   Passed    0.74 sec
+ 7/13 Test  #7: equivalence_vulnerable ...........   Passed    0.79 sec
       Start  8: equivalence_hardened
- 8/13 Test  #8: equivalence_hardened .............   Passed    0.53 sec
+ 8/13 Test  #8: equivalence_hardened .............   Passed    0.39 sec
       Start  9: cli
- 9/13 Test  #9: cli ..............................   Passed    1.17 sec
+ 9/13 Test  #9: cli ..............................   Passed    1.25 sec
       Start 10: measurement
-10/13 Test #10: measurement ......................   Passed    1.48 sec
+10/13 Test #10: measurement ......................   Passed    1.78 sec
       Start 11: vector_parser
 11/13 Test #11: vector_parser ....................   Passed    0.08 sec
       Start 12: analysis
-12/13 Test #12: analysis .........................   Passed    0.52 sec
+12/13 Test #12: analysis .........................   Passed    0.63 sec
       Start 13: vector_integrity
 13/13 Test #13: vector_integrity .................   Passed    0.01 sec
 
 100% tests passed, 0 tests failed out of 13
 
-Total Test time (real) =   7.12 sec
+Total Test time (real) =   7.58 sec
