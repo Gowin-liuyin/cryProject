@@ -1,4 +1,6 @@
 # 保留机器生成的原始日志和元数据，源码仍使用默认空白检查。
+# 补丁的上下文行按原文保留，包括空白上下文行和文件末尾的空行。
+/docs/patches/*.patch whitespace=-trailing-space
 /docs/evidence/cmake/*.log whitespace=-blank-at-eol
 /docs/evidence/cmake/*.meta whitespace=-blank-at-eol
 /docs/evidence/completion/*.meta whitespace=-blank-at-eol
