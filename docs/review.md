@@ -33,4 +33,6 @@ CMake 的生成元数据移到独立模板，主构建逻辑按固定格式整�
 
 实际平台仍为 Apple M5 / ARM64 macOS。证据见 [evidence/review](evidence/review/README.md)。
 这是对当前范围的代码审查和实测，不是无缺陷保证或整库恒时证明；真实 Linux/GCC 和正式时序统计仍未完成。
+（本节记录审查当时的状态。此后已完成固定统计确认、恒时编码对照和 Linux 加 GNU GCC 的功能验证，
+见 [validation.md](validation.md)；真实 x86_64 Linux 主机实测仍未执行。）
 README 已重写为从环境、构建、运行到数据解释和开发检查的使用入口；示例命令在本地执行验证。
