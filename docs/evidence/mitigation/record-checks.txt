@@ -1,0 +1,11 @@
+category order identical across variants:
+  reference == vulnerable
+  reference == hardened
+CSV counts, units, values, run IDs and category order passed: 25000 rows per version
+SHA3-256(build/mitigation/reference/measure)= 2c20faaf5af27a0648a17bafb8520e351a8a8cc0c9d322455309fb6dbffa018d
+SHA3-256(build/mitigation/vulnerable/measure)= 27bfad9fb9162193f21e10ebe6d6e1840c7c17aa94178e72c928a6d094b868e6
+SHA3-256(build/mitigation/hardened/measure)= 98f47542a9e459d127f5a6fb49d934faac1424d4649d91c143b816ccd8701e72
+SHA3-256(build/mitigation/analyze)= 4b91d1e9afe50278ddffd233cc0fb70754bfba385acd005f8644618097cea87a
+SHA3-256(docs/evidence/mitigation/reference.csv)= fc4f4d0ce11c287321208d045417de4ad3c00990ba3340e8a0bb00356f0fac1a
+SHA3-256(docs/evidence/mitigation/vulnerable.csv)= b49ae56442ad9de80297f4818de0a9ecac1c80afaeebc28a1730e5172a2bb4cd
+SHA3-256(docs/evidence/mitigation/hardened.csv)= 10784ea95f8d665b94327982af62f77265de1fc5cdce67f1b996047c37befd82

@@ -124,3 +124,30 @@ C 记录校验、独立 OpenSSL SHA3-256（与报告 `csv_digest`、元数据 `e
 和两版编码函数反汇编均已归档于 [evidence/statistics](evidence/statistics/README.md)。
 
 仍未执行：真实 x86_64 Linux/GCC 的同组采集与确认、恒时防护补丁、未知密钥攻击或密钥恢复。
+
+## 恒时编码补丁与对照
+
+新增第三个变体 hardened，应用独立的 message-constant-time.patch：保留与缺陷版相同的
+函数级优化控制和循环结构，只把消息位分支换成掩码选择，使对照只改变「有无分支」。
+CMake 的补丁准备与等价检查改为按变体参数化，`equivalence` 拆成 `equivalence_vulnerable`
+与 `equivalence_hardened`；CTest 从 10 项增加到 13 项。方法与边界见 [mitigation.md](mitigation.md)。
+
+功能源码提交 `8e437f27f8a27f63a4edbe54f0472f040d6b091f`。本机实际执行并通过：
+- 全新 build/mitigation 目录、CMake/Ninja/RelWithDebInfo 的 13 项 CTest。
+- sanitizer preset 的 13 项 CTest，无 ASan/UBSan 报告。
+- clang-format 21、cmake-format 0.6.13 和 `sh -n` 检查。
+- 三个变体的 `baseline version` 与采集 `.meta` 实现名一致；CLI 检查确认三者在相同种子下
+  生成的五类测试密文逐字节相同。
+
+三个变体用同一种子 20260930、每个 25000 条采集并用同一固定检验判定：
+缺陷版 7/10 显著（类别均值极差 752ns、最大 |z|=62.69），防护版 0/10（45ns、3.61），
+参考版 0/10（29ns、1.01）。record-checks.txt 另用类别列逐字节比较确认三者样本顺序相同。
+实测反汇编确认防护版函数内只剩循环边界分支，缺陷版的 `tbz` 在同一偏移变为 `and` 掩码运算。
+证据见 [evidence/mitigation](evidence/mitigation/README.md)。
+
+防护版六项「恒定消息类 vs 变化消息类」比较仍有同方向残差（均值差 22–44ns、|z| ≤ 3.61），
+未达预先规定阈值但未消失，因此不宣称该补丁已证明恒时。
+防护版整体比参考版慢约 200ns，来自为保持对照而保留的 `optnone`，不是防护的必要开销。
+
+仍未执行：真实 x86_64 Linux/GCC 的同组采集与确认、打开优化后的恒时编码产物复核、
+未知密钥攻击或密钥恢复。

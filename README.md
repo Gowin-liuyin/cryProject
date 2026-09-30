@@ -1,11 +1,14 @@
 # A1-13 · ML-KEM-768 时间侧信道实验基线
 
 用 **C11** 搭建的单机实验系统：包含 ML-KEM 参考实现、保持密码输出语义的时序缺陷变体、
-命令行自检、可复现测试密文、在 C 内部计时的原始数据采集程序，以及对原始数据执行
-固定预先规定检验的统计程序。使用 CMake 构建、CTest 验证。
+在同一构建条件下去掉秘密相关分支的防护变体、命令行自检、可复现测试密文、
+在 C 内部计时的原始数据采集程序，以及对原始数据执行固定预先规定检验的统计程序。
+使用 CMake 构建、CTest 验证。
 
-这是竞赛第一阶段的软件基线。缺陷版是**公开标注的人工机制回归**，用于研究消息编码中的
-秘密相关分支；不是新发现的部署漏洞，也不用于保护真实业务秘密。
+这是竞赛第一阶段的软件基线，以及在其上完成的统计确认与恒时编码对照。
+缺陷版是**公开标注的人工机制回归**，用于研究消息编码中的秘密相关分支；
+不是新发现的部署漏洞，也不用于保护真实业务秘密。防护版是对照实验用的最小补丁，
+不是可交付的加固实现。
 
 ## 1. 构建并运行
 
@@ -23,17 +26,20 @@ ctest --preset baseline
 build/cmake/reference/baseline version
 build/cmake/reference/baseline selftest
 build/cmake/vulnerable/baseline demo
+build/cmake/hardened/baseline demo
 ```
 
 默认配置是 `RelWithDebInfo`，本机对应 `-O2 -g -DNDEBUG`，启用 C11 和严格编译警告。
-两个版本的产物分别位于：
+三个变体的产物分别位于：
 
 | 路径 | 用途 |
 |---|---|
 | `build/cmake/reference/baseline` | 参考版命令行 |
 | `build/cmake/vulnerable/baseline` | 缺陷版命令行 |
+| `build/cmake/hardened/baseline` | 防护版命令行 |
 | `build/cmake/reference/measure` | 参考版逐次计时 |
 | `build/cmake/vulnerable/measure` | 缺陷版逐次计时 |
+| `build/cmake/hardened/measure` | 防护版逐次计时 |
 | `build/cmake/analyze` | 原始数据的固定统计检验，与实现无关 |
 
 `selftest` 和 `demo` 都使用系统安全随机源，执行一次密钥生成、封装、解封装，并检查共享密钥一致。
@@ -87,6 +93,8 @@ build/cmake/reference/measure reference-run 42 1000 \
     "$run_directory/reference.csv" "$run_directory/reference.meta"
 build/cmake/vulnerable/measure vulnerable-run 42 1000 \
     "$run_directory/vulnerable.csv" "$run_directory/vulnerable.meta"
+build/cmake/hardened/measure hardened-run 42 1000 \
+    "$run_directory/hardened.csv" "$run_directory/hardened.meta"
 ```
 
 参数顺序为：
@@ -96,8 +104,8 @@ measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE
 ```
 
 - RUN_ID 为 1–64 个 ASCII 字母、数字、下划线或连字符。
-- 每类次数为 1–20000；共有五类，因此上例每版保存 **5000 条记录**。
-- 全部输入提前生成，类别顺序按种子随机化；同种子、同次数的两版顺序相同。
+- 每类次数为 1–20000；共有五类，因此上例每个变体保存 **5000 条记录**。
+- 全部输入提前生成，类别顺序按种子随机化；同种子、同次数下各变体顺序相同。
 - 先运行 100 次预热；每条正式记录围绕完整解封装调用计时。
 - 输入生成、内存申请、结果消费和文件 I/O 都在单次计时窗口外。
 
@@ -139,7 +147,7 @@ analyze CSV_FILE REPORT_FILE
 主效应出现在「恒定消息类」与「变化消息类」之间，均值差 711–800ns、效应量 0.819–0.844。
 方法、预先规定项、数值边界和解释限制见 [统计说明](docs/statistics.md)。
 
-## 5. 参考版和缺陷版的关系
+## 5. 三个变体的关系
 
 参考实现固定自 [mlkem-native](https://github.com/pq-code-package/mlkem-native) 提交：
 
@@ -155,41 +163,49 @@ b3ba7b32773e657dd37f6f87bce82528459ad8a4
 将 `mlk_poly_frommsg` 的常数时间选择改为按消息位执行的 `if/else`。
 解封装重加密使用的消息来自私钥参与的解密，因此分支条件具有秘密依赖。
 Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinline`，以明确保留机制。
-其余代码仍按所选构建配置编译，两个版本不在同一进程混合链接。
 
-补丁保持数学输出、重加密验证和隐式拒绝，不添加延迟或空转。
-由于编码函数优化条件不同，**两版本整体速度差本身不能证明秘密泄露**；
-已知消息类别的时序也不能直接推广为未知密钥攻击。
+防护版应用 [恒时编码补丁](docs/patches/message-constant-time.patch)，
+保留**与缺陷版相同的**函数级优化控制和循环结构，只把分支换成掩码选择，
+使对照只改变「有无分支」这一项。三个变体各有独立的库、源码副本和可执行文件，
+其余代码按所选构建配置编译，不在同一进程混合链接。
+
+两个补丁都保持数学输出、重加密验证和隐式拒绝，不添加延迟或空转。
+由于编码函数优化条件不同，**参考版与另两版的整体速度差本身不能证明秘密泄露**；
+已知消息类别的时序也不能直接推广为未知密钥攻击。对照设计与结果见
+[防护说明](docs/mitigation.md)。
 
 ## 6. 验证结果与证据边界
 
-当前有 **10 项 CTest**，覆盖：
+当前有 **13 项 CTest**，覆盖：
 
 | 检查 | 实际覆盖 |
 |---|---|
-| 两版 NIST 检查 | 每版 25 keygen、25 encaps、10 decaps、20 密钥校验；解封装含 5 组隐式拒绝 |
-| 两版随机源失败 | 系统随机源打开失败的传播，以及恢复后的往返验证 |
-| 两版差分 | 64 个种子 × 有效、位翻转、随机三类；拒绝样本另核对 J(z∥c) |
-| CLI | 五类输入、参数错误、长度边界、目录读取错误及拒绝覆盖 |
+| 三版 NIST 检查 | 每版 25 keygen、25 encaps、10 decaps、20 密钥校验；解封装含 5 组隐式拒绝 |
+| 三版随机源失败 | 系统随机源打开失败的传播，以及恢复后的往返验证 |
+| 两组差分 | 缺陷版和防护版各对参考版：64 个种子 × 三类输入；拒绝样本另核对 J(z∥c) |
+| CLI | 三版五类输入、参数错误、长度边界、目录读取错误、拒绝覆盖及跨版本密文一致 |
 | 采集与记录 | 行数、类别顺序、单位、运行编号一致性；拒绝负数、溢出和尾随字段 |
-| 统计检验 | 可解析验证的合成数据、退化与样本不足处理、十类畸形 CSV 拒绝、两版真实数据全流程 |
+| 统计检验 | 可解析验证的合成数据、退化与样本不足处理、十类畸形 CSV 拒绝、三版真实数据全流程 |
 | 向量读取 | 拒绝截断用例、非法编号和非法十六进制 |
 | 向量完整性 | 原始 NIST JSON 与转换文件的固定 SHA-256 |
 
 NIST 原件、固定版本和转换方式保存在 `tests/vectors/` 与 [验证记录](docs/validation.md)。
 预期答案不由被测实现生成；只有重新转换已保存的 JSON 时才需要 jq。
 
-已执行的平台是 **Apple M5 / ARM64 macOS、Apple Clang 21**：干净构建、10 项 CTest、
+已执行的平台是 **Apple M5 / ARM64 macOS、Apple Clang 21**：干净构建、13 项 CTest、
 独立 ASan/UBSan、格式检查和自有运行代码静态分析均已通过。
 最近一次审查及对应产物证据见 [代码审查记录](docs/review.md)。
 历史数据在 `docs/evidence/` 中按构建分别保存；每组绑定自己的源码版本和二进制摘要。
 修改代码或编译条件后，必须重新定位机器码和重新采集，不能拿旧数据为新产物背书。
 
-**目标机制、原始数据和本机统计确认是三个分别核实的结论。**
-统计确认限于 Apple M5 / ARM64 macOS 的两次采集，证据见
+**目标机制、原始数据、本机统计确认和防护对照是分别核实的结论。**
+统计确认限于 Apple M5 / ARM64 macOS，证据见
 [evidence/statistics](docs/evidence/statistics/README.md)；同一固定检验在参考版上不显著。
-尚未执行真实 x86_64 Linux/GCC 验证；没有宣称参考版完全恒时，也没有完成密钥恢复或最终防护。
-下一阶段可以从独立编码补丁接入防护，用同一固定检验重新采集对比，并继续运行现有功能检查。
+去掉分支后的对照见 [evidence/mitigation](docs/evidence/mitigation/README.md)：
+同一构建条件下防护版 0/10 显著、缺陷版 7/10 显著，但残差未消失，不宣称防护版已证明恒时。
+尚未执行真实 x86_64 Linux/GCC 验证；没有宣称参考版完全恒时，也没有完成密钥恢复。
+下一阶段可在真实 x86_64 Linux/GCC 上重跑同一组功能检查、采集与固定检验，
+并对打开优化后的恒时编码逐个反汇编确认。
 
 ## 7. 开发和代码风格
 
@@ -222,6 +238,7 @@ ctest --test-dir build/ninja --output-on-failure
 
 cmake --build build/ninja --target reference
 cmake --build build/ninja --target vulnerable
+cmake --build build/ninja --target hardened
 ```
 
 `BUILD_TESTING=OFF` 可关闭测试程序；`BASELINE_SANITIZERS=ON` 可开启动态检查。
@@ -237,13 +254,14 @@ cmake --build build/ninja --target vulnerable
 | `CMakeLists.txt`、`CMakePresets.json`、`cmake/` | 唯一构建配置、测试注册、补丁副本及格式检查 |
 | `tools/build_identity.sh` | 生成并嵌入构建追溯信息 |
 | `vendor/` | 未修改的第三方源码与许可证 |
-| `docs/` | 来源、机制、计时、统计、验收、审查和原始证据 |
+| `docs/` | 来源、机制、计时、统计、防护、验收、审查和原始证据 |
 
 - **输出文件已存在**：程序有意拒绝覆盖，换用新的运行目录或文件名。
 - **密文读取失败**：输入必须是恰好 1088 字节的可读文件；先检查路径及长度。
 - **解封装显示完成**：只表示操作完成，不表示内部重加密比较通过。
 - **报告显示 `p=0`**：`erfc` 在 |z| 很大时下溢，应以报告中的 z 值为准。
 - **不知道测的是哪一版**：运行该目录下的 `baseline version`，并核对采集 `.meta` 中的实现名和文件摘要。
+- **防护版比参考版慢**：防护版为保持与缺陷版同一构建条件保留了 `optnone`，见 [防护说明](docs/mitigation.md)。
 - **更改编译器后配置报错**：使用新的构建目录，不在已有 CMake 缓存中切换工具链。
 
 CLI 退出码：0 为成功，2 为公开命令参数错误，1 为运行或文件操作失败。

@@ -2,7 +2,10 @@
 
 本项目的 vulnerable 是当前 mlkem-native 的人工回归变体，不是新发现的部署漏洞，
 也不是历史 clangover 构建的原样复现。公开机制来源见 [来源](sources.md)。
-唯一库行为补丁为 [message-branch.patch](patches/message-branch.patch)，只作用于构建目录副本，vendor 原件不修改。
+库行为补丁共两份，只作用于各自的构建目录副本，vendor 原件不修改：
+[message-branch.patch](patches/message-branch.patch) 引入按消息位的分支，
+[message-constant-time.patch](patches/message-constant-time.patch) 在相同优化控制下改回掩码选择，
+作为对照实验的防护版，见 [防护说明](mitigation.md)。
 
 ## 源码支持什么
 
@@ -32,7 +35,7 @@ GCC 使用 `optimize("O0"),noinline`。这属于公开标注的人工构建控�
 两版本各通过 60 组 NIST FIPS203 KAT（解封装含 5 接受、5 隐式拒绝），另通过 20 组 NIST 密钥校验。
 另用 64 个公开确定性种子，各测试有效、位翻转和随机密文，共 192 次解封装，
 比较含完整密钥、密文及输出的 SHA3-256 摘要；篡改和随机样本均核对 J(z||c)。
-这属于功能等价证据，不是时序统计检验。
+防护版按同一组检查与参考版逐字节等价。这属于功能等价证据，不是时序统计检验。
 原 Make 产物两版各已采集 5000 条原始时间，CMake 产物也已完成采集验证。
 本机已用固定预先规定检验完成统计确认：缺陷版 7/10 比较显著、参考版 0/10，
 主效应在恒定消息类与变化消息类之间，见 [统计说明](statistics.md)。

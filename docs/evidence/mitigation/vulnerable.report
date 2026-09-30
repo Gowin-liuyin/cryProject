@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=docs/evidence/mitigation/vulnerable.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=b49ae56442ad9de80297f4818de0a9ecac1c80afaeebc28a1730e5172a2bb4cd
+run_id=mitigation-vulnerable
+implementation=vulnerable
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=14000 p25=15000 median=15000 p75=15000 p99=18000 max=51000 mean=15052.000 stddev=981.778 distinct_values=16
+category=bit-flipped count=5000 min=14000 p25=15000 median=15000 p75=15000 p99=18000 max=49000 mean=15060.400 stddev=977.416 distinct_values=14
+category=random count=5000 min=14000 p25=15000 median=15000 p75=15000 p99=18000 max=32000 mean=15039.600 stddev=784.701 distinct_values=13
+category=message-zero count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=18000 max=48000 mean=14308.400 stddev=1001.144 distinct_values=17
+category=message-ones count=5000 min=13000 p25=14000 median=14000 p75=15000 p99=17000 max=98000 mean=14368.800 stddev=1680.045 distinct_values=15
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-60.400 welch_t=-2.1838 welch_df=8151.7 welch_p=0.0289761 rank_u1=11985217.0 rank_z=-4.6669 rank_p=3.05809e-06 effect_size_first_greater=0.479409 result=significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-8.400 welch_t=-0.4287 welch_df=9997.8 welch_p=0.668108 rank_u1=12440267.0 rank_z=-0.5825 rank_p=0.560262 effect_size_first_greater=0.497611 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=12.400 welch_t=0.6976 welch_df=9534.9 welch_p=0.485407 rank_u1=12500634.0 rank_z=0.0062 rank_p=0.995022 effect_size_first_greater=0.500025 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1000.0 mean_difference_ns=743.600 welch_t=37.4984 welch_df=9994.2 welch_p=9.77576e-308 rank_u1=20585827.5 rank_z=62.6863 rank_p=0 effect_size_first_greater=0.823433 result=significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1000.0 mean_difference_ns=683.200 welch_t=24.8266 welch_df=8056.7 welch_p=4.62788e-136 rank_u1=20133172.0 rank_z=59.3836 rank_p=0 effect_size_first_greater=0.805327 result=significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=20.800 welch_t=1.1734 welch_df=9551.7 welch_p=0.240635 rank_u1=12560450.0 rank_z=0.5868 rank_p=0.557353 effect_size_first_greater=0.502418 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1000.0 mean_difference_ns=752.000 welch_t=38.0047 welch_df=9992.3 welch_p=4.82766e-316 rank_u1=20554779.5 rank_z=62.2856 rank_p=0 effect_size_first_greater=0.822191 result=significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1000.0 mean_difference_ns=691.600 welch_t=25.1603 welch_df=8035.2 welch_p=1.09132e-139 rank_u1=20107296.5 rank_z=59.0088 rank_p=0 effect_size_first_greater=0.804292 result=significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1000.0 mean_difference_ns=731.200 welch_t=40.6468 welch_df=9458.2 welch_p=0 rank_u1=20563508.5 rank_z=62.4700 rank_p=0 effect_size_first_greater=0.822540 result=significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1000.0 mean_difference_ns=670.800 welch_t=25.5803 welch_df=7081.0 welch_p=2.52694e-144 rank_u1=20112055.5 rank_z=59.1707 rank_p=0 effect_size_first_greater=0.804482 result=significant
+significant_comparison_count=7
+note=statistical_difference_only_no_exploitability_claim
