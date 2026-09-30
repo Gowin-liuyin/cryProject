@@ -98,3 +98,29 @@ CMake ≥3.21，C11 严格警告，两个库和两个版本的程序完全分离
 vector_parser；两版 KAT 仍各覆盖 80 组独立答案。
 整理后的源码通过干净构建、9 项 CTest、ASan/UBSan 和自有运行代码静态分析。
 新产物独立证据见 evidence/review，原有 evidence/completion 等目录继续只证明各自历史提交。
+
+## 固定统计检验与正式确认
+
+按用户推进要求，新增只读取 CSV 的统计程序 `analyze`，把判定从采集中分离出来；
+采集程序仍不做任何统计判断。CTest 从 9 项增加到 10 项，新增 analysis。
+方法、预先规定项和解释边界见 [statistics.md](statistics.md)。
+
+功能源码提交 `d322cbf2743a6db8529a59641f161c688bff7acf`。本机实际执行并通过：
+- 全新 build/statistics 目录、CMake/Ninja/RelWithDebInfo 的 10 项 CTest。
+- 同一源码的 sanitizer preset 10 项 CTest，无 ASan/UBSan 报告。
+- clang-format 21 与 cmake-format 0.6.13 检查、`sh -n` 语法检查。
+- Apple Clang 静态分析覆盖 src/analyze.c，无报告；首版的符号下标指针存储触发
+  误报泄漏，改为单一平铺记录数组后消除，同时去掉了重复的增长逻辑。
+
+analysis 用可解析验证的合成数据检查统计实现：完全分离两组给出 `rank_u1=0.0`、效应量 0；
+分布相同两组给出 `rank_u1=200.0`、`rank_z=0.0000`、`rank_p=1`；取值全同判为方差退化。
+预期值由秩和检验定义推出，不由被测程序生成。另覆盖十类畸形 CSV、截断尾行、
+单条记录、缺失文件、已存在报告和参数个数错误。
+
+正式采集两个公开种子（20260930 与 42）各两版、每版 25000 条（五类各 5000）：
+参考版两次均 0/10 显著，缺陷版两次均 7/10 显著；恒定消息类与变化消息类之间
+均值差 711–800ns、效应量 0.819–0.844。两版共用同一采集程序、种子、类别顺序与输入构造。
+C 记录校验、独立 OpenSSL SHA3-256（与报告 `csv_digest`、元数据 `executable_digest` 一致）
+和两版编码函数反汇编均已归档于 [evidence/statistics](evidence/statistics/README.md)。
+
+仍未执行：真实 x86_64 Linux/GCC 的同组采集与确认、恒时防护补丁、未知密钥攻击或密钥恢复。

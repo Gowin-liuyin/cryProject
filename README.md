@@ -1,7 +1,8 @@
 # A1-13 · ML-KEM-768 时间侧信道实验基线
 
 用 **C11** 搭建的单机实验系统：包含 ML-KEM 参考实现、保持密码输出语义的时序缺陷变体、
-命令行自检、可复现测试密文，以及在 C 内部计时的原始数据采集程序。使用 CMake 构建、CTest 验证。
+命令行自检、可复现测试密文、在 C 内部计时的原始数据采集程序，以及对原始数据执行
+固定预先规定检验的统计程序。使用 CMake 构建、CTest 验证。
 
 这是竞赛第一阶段的软件基线。缺陷版是**公开标注的人工机制回归**，用于研究消息编码中的
 秘密相关分支；不是新发现的部署漏洞，也不用于保护真实业务秘密。
@@ -33,6 +34,7 @@ build/cmake/vulnerable/baseline demo
 | `build/cmake/vulnerable/baseline` | 缺陷版命令行 |
 | `build/cmake/reference/measure` | 参考版逐次计时 |
 | `build/cmake/vulnerable/measure` | 缺陷版逐次计时 |
+| `build/cmake/analyze` | 原始数据的固定统计检验，与实现无关 |
 
 `selftest` 和 `demo` 都使用系统安全随机源，执行一次密钥生成、封装、解封装，并检查共享密钥一致。
 成功只输出操作结果，不显示私钥、共享密钥或内部重加密验证结果。
@@ -114,7 +116,30 @@ run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
 
 详细的计时边界、标签依据和解释限制见 [计时说明](docs/timing.md) 与 [缺陷说明](docs/defect.md)。
 
-## 4. 参考版和缺陷版的关系
+## 4. 固定统计检验
+
+`analyze` 读取一份原始 CSV，按**采集前即固定**的检验族输出报告，不做任何数据相关的选择：
+
+```sh
+build/cmake/analyze "$run_directory/reference.csv" "$run_directory/reference.report"
+build/cmake/analyze "$run_directory/vulnerable.csv" "$run_directory/vulnerable.report"
+```
+
+```text
+analyze CSV_FILE REPORT_FILE
+```
+
+检验族为五类输入的全部 10 个类别对，族水平 0.001，Bonferroni 校正后单比较水平 1e-4；
+判定用并列修正的 Mann-Whitney U，辅以 Welch t；不删离群值，不插值，不改写输入。
+报告为 `key=value` 行，含每类的计数/分位点/均值/标准差、每个比较的统计量与判定，
+以及被分析 CSV 的 SHA3-256，可用 `openssl dgst -sha3-256` 独立核对。
+输入表头、列数、类别名、样本序号、单位和行结束都严格校验，不合格即拒绝且不创建报告。
+
+本机结果：**参考版 0/10 显著；缺陷版 7/10 显著**，两个独立公开种子各 25000 条一致复现。
+主效应出现在「恒定消息类」与「变化消息类」之间，均值差 711–800ns、效应量 0.819–0.844。
+方法、预先规定项、数值边界和解释限制见 [统计说明](docs/statistics.md)。
+
+## 5. 参考版和缺陷版的关系
 
 参考实现固定自 [mlkem-native](https://github.com/pq-code-package/mlkem-native) 提交：
 
@@ -136,9 +161,9 @@ Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinlin
 由于编码函数优化条件不同，**两版本整体速度差本身不能证明秘密泄露**；
 已知消息类别的时序也不能直接推广为未知密钥攻击。
 
-## 5. 验证结果与证据边界
+## 6. 验证结果与证据边界
 
-当前有 **9 项 CTest**，覆盖：
+当前有 **10 项 CTest**，覆盖：
 
 | 检查 | 实际覆盖 |
 |---|---|
@@ -147,23 +172,26 @@ Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinlin
 | 两版差分 | 64 个种子 × 有效、位翻转、随机三类；拒绝样本另核对 J(z∥c) |
 | CLI | 五类输入、参数错误、长度边界、目录读取错误及拒绝覆盖 |
 | 采集与记录 | 行数、类别顺序、单位、运行编号一致性；拒绝负数、溢出和尾随字段 |
+| 统计检验 | 可解析验证的合成数据、退化与样本不足处理、十类畸形 CSV 拒绝、两版真实数据全流程 |
 | 向量读取 | 拒绝截断用例、非法编号和非法十六进制 |
 | 向量完整性 | 原始 NIST JSON 与转换文件的固定 SHA-256 |
 
 NIST 原件、固定版本和转换方式保存在 `tests/vectors/` 与 [验证记录](docs/validation.md)。
 预期答案不由被测实现生成；只有重新转换已保存的 JSON 时才需要 jq。
 
-已执行的平台是 **Apple M5 / ARM64 macOS、Apple Clang 21**：干净构建、9 项 CTest、
+已执行的平台是 **Apple M5 / ARM64 macOS、Apple Clang 21**：干净构建、10 项 CTest、
 独立 ASan/UBSan、格式检查和自有运行代码静态分析均已通过。
 最近一次审查及对应产物证据见 [代码审查记录](docs/review.md)。
 历史数据在 `docs/evidence/` 中按构建分别保存；每组绑定自己的源码版本和二进制摘要。
 修改代码或编译条件后，必须重新定位机器码和重新采集，不能拿旧数据为新产物背书。
 
-**已确认目标机制并采集原始数据，时间差异尚未正式统计确认。**
+**目标机制、原始数据和本机统计确认是三个分别核实的结论。**
+统计确认限于 Apple M5 / ARM64 macOS 的两次采集，证据见
+[evidence/statistics](docs/evidence/statistics/README.md)；同一固定检验在参考版上不显著。
 尚未执行真实 x86_64 Linux/GCC 验证；没有宣称参考版完全恒时，也没有完成密钥恢复或最终防护。
-下一阶段可以从 CSV/元数据接入统计检测，从独立编码补丁接入防护，并继续运行现有功能检查。
+下一阶段可以从独立编码补丁接入防护，用同一固定检验重新采集对比，并继续运行现有功能检查。
 
-## 6. 开发和代码风格
+## 7. 开发和代码风格
 
 独立的内存及未定义行为检查：
 
@@ -200,20 +228,21 @@ cmake --build build/ninja --target vulnerable
 多配置生成器需要 `cmake --build <目录> --config Debug` 与 `ctest --test-dir <目录> -C Debug`，
 程序位于该构建目录的 `Debug/` 下。根 Makefile 只是 CMake/CTest 的兼容入口。
 
-## 7. 文件职责与常见问题
+## 8. 文件职责与常见问题
 
 | 目录/文件 | 职责 |
 |---|---|
-| `src/`、`include/` | C 接口封装、随机源、测试输入、CLI 和计时 |
+| `src/`、`include/` | C 接口封装、随机源、测试输入、CLI、计时和统计检验 |
 | `tests/` | 功能与边界检查、命令编排、NIST 原件 |
 | `CMakeLists.txt`、`CMakePresets.json`、`cmake/` | 唯一构建配置、测试注册、补丁副本及格式检查 |
 | `tools/build_identity.sh` | 生成并嵌入构建追溯信息 |
 | `vendor/` | 未修改的第三方源码与许可证 |
-| `docs/` | 来源、机制、计时、验收、审查和原始证据 |
+| `docs/` | 来源、机制、计时、统计、验收、审查和原始证据 |
 
 - **输出文件已存在**：程序有意拒绝覆盖，换用新的运行目录或文件名。
 - **密文读取失败**：输入必须是恰好 1088 字节的可读文件；先检查路径及长度。
 - **解封装显示完成**：只表示操作完成，不表示内部重加密比较通过。
+- **报告显示 `p=0`**：`erfc` 在 |z| 很大时下溢，应以报告中的 z 值为准。
 - **不知道测的是哪一版**：运行该目录下的 `baseline version`，并核对采集 `.meta` 中的实现名和文件摘要。
 - **更改编译器后配置报错**：使用新的构建目录，不在已有 CMake 缓存中切换工具链。
 
