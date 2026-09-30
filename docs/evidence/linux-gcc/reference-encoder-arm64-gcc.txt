@@ -1,0 +1,37 @@
+
+/build/cmake/reference/measure:     file format elf64-littleaarch64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .text:
+
+0000000000003de0 <baseline_native_poly_frommsg>:
+    3de0:	aa0003e5 	mov	x5, x0
+    3de4:	aa0103e4 	mov	x4, x1
+    3de8:	52800003 	mov	w3, #0x0                   	// #0
+    3dec:	52800027 	mov	w7, #0x1                   	// #1
+    3df0:	5280d026 	mov	w6, #0x681                 	// #1665
+    3df4:	d503201f 	nop
+    3df8:	52800001 	mov	w1, #0x0                   	// #0
+    3dfc:	d503201f 	nop
+    3e00:	1ac120e0 	lsl	w0, w7, w1
+    3e04:	39400082 	ldrb	w2, [x4]
+    3e08:	12001c00 	and	w0, w0, #0xff
+    3e0c:	0a020000 	and	w0, w0, w2
+    3e10:	4b0003e0 	neg	w0, w0
+    3e14:	0b030022 	add	w2, w1, w3
+    3e18:	0a8040c0 	and	w0, w6, w0, asr #16
+    3e1c:	11000421 	add	w1, w1, #0x1
+    3e20:	782278a0 	strh	w0, [x5, x2, lsl #1]
+    3e24:	7100203f 	cmp	w1, #0x8
+    3e28:	54fffec1 	b.ne	3e00 <baseline_native_poly_frommsg+0x20>  // b.any
+    3e2c:	11002063 	add	w3, w3, #0x8
+    3e30:	91000484 	add	x4, x4, #0x1
+    3e34:	7104007f 	cmp	w3, #0x100
+    3e38:	54fffe01 	b.ne	3df8 <baseline_native_poly_frommsg+0x18>  // b.any
+    3e3c:	d65f03c0 	ret
+
+Disassembly of section .fini:

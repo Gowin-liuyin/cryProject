@@ -123,7 +123,8 @@ analysis 用可解析验证的合成数据检查统计实现：完全分离两�
 C 记录校验、独立 OpenSSL SHA3-256（与报告 `csv_digest`、元数据 `executable_digest` 一致）
 和两版编码函数反汇编均已归档于 [evidence/statistics](evidence/statistics/README.md)。
 
-仍未执行：真实 x86_64 Linux/GCC 的同组采集与确认、恒时防护补丁、未知密钥攻击或密钥恢复。
+仍未执行（截至本节）：真实 x86_64 Linux 的同组采集与确认、恒时防护补丁、
+未知密钥攻击或密钥恢复。后两项见下文。
 
 ## 恒时编码补丁与对照
 
@@ -155,3 +156,25 @@ CMake 的补丁准备与等价检查改为按变体参数化，`equivalence` 拆
 
 仍未执行：真实 x86_64 Linux 的同组采集与确认、打开优化后的恒时编码产物复核、
 未知密钥攻击或密钥恢复。
+
+## Linux 与 GNU GCC 的功能验证
+
+此前全部检查都在 macOS / Apple Clang 上执行，两个补丁的 `#elif defined(__GNUC__)` 分支
+和 `src/measure.c` 的 Linux 专用路径从未被编译或运行。本次在 Apple Silicon 主机的
+`linux/arm64` 容器（Ubuntu 24.04、**GNU GCC 13.3.0**、CMake 3.28.3、GNU patch 2.7.6）
+对干净工作区的提交 `178ae0b091b7f1a7960db1994ac1c8a73121f3be` 实测：
+
+- CMake 配置与完整构建在 GCC 严格警告加 `-Werror` 下**零警告**，两个补丁都无 fuzz 应用。
+- `ctest --output-on-failure` **13 项全部通过**。
+- 三个变体 `baseline version` 与系统随机源自检正常；采集程序冒烟运行成功。
+- `hash_running_executable` 的 `/proc/self/exe` 路径首次被执行，`executable_digest` 正常写出。
+- `read_cpu_model` 的 `/proc/cpuinfo` 路径首次被执行；ARM64 Linux 无 `model name` 行，
+  按设计回退为 `cpu_model=unavailable`，未崩溃也未写出脏数据。目标环境 x86_64 有该字段，
+  此处如实记录，不为非目标平台增加解析分支。
+- GCC 产物中缺陷版编码函数的秘密相关分支表现为 `ldrb → asr → and #1 → cmp → b.eq`
+  （Clang 为 `tbz`），防护版只剩循环边界 `b.ls`，参考版只有两层循环边界 `b.ne`。
+
+容器内 `clock_getres(CLOCK_MONOTONIC)` 报告 1000000ns，**因此容器时间数据不能用于统计结论**，
+冒烟采集的 CSV 与报告不归档。证据见 [evidence/linux-gcc](evidence/linux-gcc/README.md)。
+这是 Linux 加真实 GNU GCC 的功能与产物验证，**不是 x86_64 验证，也不是时序证据**；
+真实 x86_64 Linux 主机上的采集与固定检验仍未执行。

@@ -1,0 +1,169 @@
+=== platform and tools ===
+Linux 6.12.76-linuxkit aarch64
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake version 3.28.3
+git version 2.43.0
+GNU patch 2.7.6
+
+=== configure ===
+-- The C compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.43.0") 
+-- Configuring done (0.2s)
+-- Generating done (0.2s)
+-- Build files have been written to: /build/cmake
+
+=== build ===
+[  3%] Generating vulnerable-source/patched.stamp
+[  3%] Generating hardened-source/patched.stamp
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+[  3%] Built target prepare_vulnerable
+[  3%] Built target prepare_hardened
+[  3%] Built target build_identity
+[ 11%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 11%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 11%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 13%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 17%] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+[ 23%] Building C object CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o
+[ 25%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[ 23%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[ 23%] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[ 25%] Building C object CMakeFiles/mlkem_hardened.dir/src/random.c.o
+[ 25%] Building C object CMakeFiles/mlkem_hardened.dir/src/inputs.c.o
+[ 27%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[ 33%] Linking C static library reference/libmlkem.a
+[ 33%] Linking C static library vulnerable/libmlkem.a
+[ 33%] Linking C static library hardened/libmlkem.a
+[ 33%] Built target mlkem_vulnerable
+[ 33%] Built target mlkem_reference
+[ 33%] Built target mlkem_hardened
+[ 39%] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[ 39%] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[ 52%] Building C object CMakeFiles/analyze.dir/src/analyze.c.o
+[ 45%] Building C object CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+[ 56%] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[ 52%] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[ 52%] Building C object CMakeFiles/hardened_measure.dir/src/measure.c.o
+[ 52%] Building C object CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o
+[ 52%] Building C object CMakeFiles/hardened_baseline.dir/src/main.c.o
+[ 52%] Building C object CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+[ 56%] Building C object CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o
+[ 56%] Building C object CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o
+[ 60%] Linking C executable hardened/baseline
+[ 60%] Linking C executable hardened/test_equivalence
+[ 62%] Linking C executable vulnerable/test_equivalence
+[ 64%] Linking C executable vulnerable/test_random_failure
+[ 66%] Linking C executable vulnerable/baseline
+[ 68%] Linking C executable hardened/test_random_failure
+[ 70%] Linking C executable test_measurement
+[ 72%] Linking C executable vulnerable/test_mlkem
+[ 72%] Built target vulnerable_test_equivalence
+[ 72%] Built target vulnerable_baseline
+[ 74%] Linking C executable hardened/measure
+[ 74%] Built target vulnerable_test_random_failure
+[ 76%] Built target hardened_test_random_failure
+[ 76%] Linking C executable vulnerable/measure
+[ 76%] Built target test_measurement
+[ 82%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[ 82%] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[ 82%] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[ 84%] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[ 84%] Built target hardened_test_equivalence
+[ 86%] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[ 86%] Built target hardened_baseline
+[ 90%] Linking C executable analyze
+[ 90%] Linking C executable hardened/test_mlkem
+[ 90%] Built target vulnerable_test_mlkem
+[ 90%] Built target hardened_measure
+[ 90%] Built target vulnerable_measure
+[ 92%] Linking C executable reference/test_equivalence
+[ 94%] Linking C executable reference/test_random_failure
+[ 96%] Linking C executable reference/baseline
+[ 96%] Built target hardened_test_mlkem
+[ 96%] Built target analyze
+[ 96%] Built target reference_test_random_failure
+[ 96%] Built target reference_test_equivalence
+[ 96%] Built target reference_baseline
+[ 98%] Linking C executable reference/test_mlkem
+[100%] Linking C executable reference/measure
+[100%] Built target reference_test_mlkem
+[100%] Built target reference_measure
+
+=== ctest ===
+Internal ctest changing into directory: /build/cmake
+Test project /build/cmake
+      Start  1: reference_kat
+ 1/13 Test  #1: reference_kat ....................   Passed    0.02 sec
+      Start  2: reference_random_failure
+ 2/13 Test  #2: reference_random_failure .........   Passed    0.00 sec
+      Start  3: vulnerable_kat
+ 3/13 Test  #3: vulnerable_kat ...................   Passed    0.02 sec
+      Start  4: vulnerable_random_failure
+ 4/13 Test  #4: vulnerable_random_failure ........   Passed    0.00 sec
+      Start  5: hardened_kat
+ 5/13 Test  #5: hardened_kat .....................   Passed    0.02 sec
+      Start  6: hardened_random_failure
+ 6/13 Test  #6: hardened_random_failure ..........   Passed    0.00 sec
+      Start  7: equivalence_vulnerable
+ 7/13 Test  #7: equivalence_vulnerable ...........   Passed    0.02 sec
+      Start  8: equivalence_hardened
+ 8/13 Test  #8: equivalence_hardened .............   Passed    0.02 sec
+      Start  9: cli
+ 9/13 Test  #9: cli ..............................   Passed    0.03 sec
+      Start 10: measurement
+10/13 Test #10: measurement ......................   Passed    0.03 sec
+      Start 11: vector_parser
+11/13 Test #11: vector_parser ....................   Passed    0.05 sec
+      Start 12: analysis
+12/13 Test #12: analysis .........................   Passed    0.06 sec
+      Start 13: vector_integrity
+13/13 Test #13: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 13
+
+Total Test time (real) =   0.28 sec
+
+=== variant identity and system-random selftest ===
+reference ML-KEM-768 FIPS203
+reference: system-random keygen/encaps/decaps roundtrip passed
+vulnerable ML-KEM-768 FIPS203
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+hardened ML-KEM-768 FIPS203
+hardened: system-random keygen/encaps/decaps roundtrip passed
+
+=== measure smoke run: exercises Linux /proc paths, NOT timing evidence ===
+reference: saved 250 raw decapsulation times in ns; no statistical conclusion
+reference: analyzed 250 records; 0 of 10 pre-specified comparisons significant; primary message-zero:message-ones rank p=0.399 (not_significant); statistical result only
+vulnerable: saved 250 raw decapsulation times in ns; no statistical conclusion
+vulnerable: analyzed 250 records; 6 of 10 pre-specified comparisons significant; primary message-zero:message-ones rank p=0.471 (not_significant); statistical result only
+hardened: saved 250 raw decapsulation times in ns; no statistical conclusion
+hardened: analyzed 250 records; 0 of 10 pre-specified comparisons significant; primary message-zero:message-ones rank p=0.961 (not_significant); statistical result only
+
+=== platform and source identity recorded by measure ===
+clock=CLOCK_MONOTONIC
+clock_resolution_ns=1000000
+os=Linux 6.12.76-linuxkit
+architecture=aarch64
+cpu_model=unavailable
+source_commit=178ae0b091b7f1a7960db1994ac1c8a73121f3be
+compiler_command=/usr/bin/gcc
+compiler_flags= -O2 -g -DNDEBUG -std=c11
+tracked_delta_sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+git_worktree_status_begin
+git_worktree_status_end
+
+=== encoder machine code under GCC ===
+reference conditional branches in encoder: 2
+    3e28:	54fffec1 	b.ne	3e00 <baseline_native_poly_frommsg+0x20>  // b.any
+    3e38:	54fffe01 	b.ne	3df8 <baseline_native_poly_frommsg+0x18>  // b.any
+vulnerable conditional branches in encoder: 2
+    2d24:	540000c0 	b.eq	2d3c <baseline_native_poly_frommsg+0x5c>  // b.none
+    2d5c:	54fffcc9 	b.ls	2cf4 <baseline_native_poly_frommsg+0x14>  // b.plast
+hardened conditional branches in encoder: 1
+    2d64:	54fffc89 	b.ls	2cf4 <baseline_native_poly_frommsg+0x14>  // b.plast

@@ -17,6 +17,8 @@ poly_frommsg 编译器生成秘密相关分支，列举 x86、Clang 15–18、-O
 
 当前实机：macOS Darwin 25.6.0 arm64，Apple Clang 21.0.0
 (clang-2100.3.34.2)，当前 CMake 默认 RelWithDebInfo（本机 `-O2 -g -DNDEBUG`）、C11、严格警告、无 LTO。
+另在 Apple Silicon 主机的 linux/arm64 容器（Ubuntu 24.04、GNU GCC 13.3.0）完成 Linux 与
+GNU GCC 的功能与产物验证，见 [验证记录](validation.md)；该容器时钟分辨率为 1ms，不产出时序证据。
 x86_64 Linux 实机验证尚未执行。
 
 模块一建立两个独立静态库构建目标；从模块三开始，vulnerable 对构建目录副本

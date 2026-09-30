@@ -194,6 +194,10 @@ NIST 原件、固定版本和转换方式保存在 `tests/vectors/` 与 [验证�
 
 已执行的平台是 **Apple M5 / ARM64 macOS、Apple Clang 21**：干净构建、13 项 CTest、
 独立 ASan/UBSan、格式检查和自有运行代码静态分析均已通过。
+另在 `linux/arm64` 容器用**真实 GNU GCC 13.3.0** 完成 Linux 功能与产物验证：零警告构建、
+13 项 CTest 通过、首次执行两个补丁的 GCC 分支与 `/proc` 代码路径，
+证据见 [evidence/linux-gcc](docs/evidence/linux-gcc/README.md)。容器时钟分辨率为 1ms，
+该环境**不产出时序证据**，也不等于 x86_64 验证。
 最近一次审查及对应产物证据见 [代码审查记录](docs/review.md)。
 历史数据在 `docs/evidence/` 中按构建分别保存；每组绑定自己的源码版本和二进制摘要。
 修改代码或编译条件后，必须重新定位机器码和重新采集，不能拿旧数据为新产物背书。
@@ -203,8 +207,8 @@ NIST 原件、固定版本和转换方式保存在 `tests/vectors/` 与 [验证�
 [evidence/statistics](docs/evidence/statistics/README.md)；同一固定检验在参考版上不显著。
 去掉分支后的对照见 [evidence/mitigation](docs/evidence/mitigation/README.md)：
 同一构建条件下防护版 0/10 显著、缺陷版 6/10 显著，但残差随运行波动，不宣称防护版已证明恒时。
-尚未执行真实 x86_64 Linux/GCC 验证；没有宣称参考版完全恒时，也没有完成密钥恢复。
-下一阶段可在真实 x86_64 Linux/GCC 上重跑同一组功能检查、采集与固定检验，
+尚未执行真实 x86_64 Linux 主机验证；没有宣称参考版完全恒时，也没有完成密钥恢复。
+下一阶段可以在真实 x86_64 Linux 主机上重跑同一组功能检查、采集与固定检验，
 并对打开优化后的恒时编码逐个反汇编确认。
 
 ## 7. 开发和代码风格

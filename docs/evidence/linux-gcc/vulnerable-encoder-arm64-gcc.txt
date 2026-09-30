@@ -1,0 +1,49 @@
+
+/build/cmake/vulnerable/measure:     file format elf64-littleaarch64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .text:
+
+0000000000002ce0 <baseline_native_poly_frommsg>:
+    2ce0:	d10083ff 	sub	sp, sp, #0x20
+    2ce4:	f90007e0 	str	x0, [sp, #8]
+    2ce8:	f90003e1 	str	x1, [sp]
+    2cec:	b9001fff 	str	wzr, [sp, #28]
+    2cf0:	14000019 	b	2d54 <baseline_native_poly_frommsg+0x74>
+    2cf4:	b9401fe0 	ldr	w0, [sp, #28]
+    2cf8:	53037c00 	lsr	w0, w0, #3
+    2cfc:	2a0003e0 	mov	w0, w0
+    2d00:	f94003e1 	ldr	x1, [sp]
+    2d04:	8b000020 	add	x0, x1, x0
+    2d08:	39400000 	ldrb	w0, [x0]
+    2d0c:	2a0003e1 	mov	w1, w0
+    2d10:	b9401fe0 	ldr	w0, [sp, #28]
+    2d14:	12000800 	and	w0, w0, #0x7
+    2d18:	1ac02820 	asr	w0, w1, w0
+    2d1c:	12000000 	and	w0, w0, #0x1
+    2d20:	7100001f 	cmp	w0, #0x0
+    2d24:	540000c0 	b.eq	2d3c <baseline_native_poly_frommsg+0x5c>  // b.none
+    2d28:	f94007e0 	ldr	x0, [sp, #8]
+    2d2c:	b9401fe1 	ldr	w1, [sp, #28]
+    2d30:	5280d022 	mov	w2, #0x681                 	// #1665
+    2d34:	78217802 	strh	w2, [x0, x1, lsl #1]
+    2d38:	14000004 	b	2d48 <baseline_native_poly_frommsg+0x68>
+    2d3c:	f94007e0 	ldr	x0, [sp, #8]
+    2d40:	b9401fe1 	ldr	w1, [sp, #28]
+    2d44:	7821781f 	strh	wzr, [x0, x1, lsl #1]
+    2d48:	b9401fe0 	ldr	w0, [sp, #28]
+    2d4c:	11000400 	add	w0, w0, #0x1
+    2d50:	b9001fe0 	str	w0, [sp, #28]
+    2d54:	b9401fe0 	ldr	w0, [sp, #28]
+    2d58:	7103fc1f 	cmp	w0, #0xff
+    2d5c:	54fffcc9 	b.ls	2cf4 <baseline_native_poly_frommsg+0x14>  // b.plast
+    2d60:	d503201f 	nop
+    2d64:	d503201f 	nop
+    2d68:	910083ff 	add	sp, sp, #0x20
+    2d6c:	d65f03c0 	ret
+
+Disassembly of section .fini:

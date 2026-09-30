@@ -1,0 +1,176 @@
+[
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /workspace/src/kernel.c",
+  "file": "/workspace/src/kernel.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/mlkem.c.o -c /workspace/src/mlkem.c",
+  "file": "/workspace/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/random.c.o -c /workspace/src/random.c",
+  "file": "/workspace/src/random.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/random.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/inputs.c.o -c /workspace/src/inputs.c",
+  "file": "/workspace/src/inputs.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/inputs.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/generated/RelWithDebInfo -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_baseline.dir/src/main.c.o -c /workspace/src/main.c",
+  "file": "/workspace/src/main.c",
+  "output": "CMakeFiles/reference_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/generated/RelWithDebInfo -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /workspace/src/measure.c",
+  "file": "/workspace/src/measure.c",
+  "output": "CMakeFiles/reference_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o -c /workspace/tests/test_mlkem.c",
+  "file": "/workspace/tests/test_mlkem.c",
+  "output": "CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o -c /workspace/tests/test_equivalence.c",
+  "file": "/workspace/tests/test_equivalence.c",
+  "output": "CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o -c /workspace/tests/test_random_failure.c",
+  "file": "/workspace/tests/test_random_failure.c",
+  "output": "CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/vulnerable-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /build/cmake/vulnerable_kernel.c",
+  "file": "/build/cmake/vulnerable_kernel.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/vulnerable-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o -c /workspace/src/mlkem.c",
+  "file": "/workspace/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/vulnerable-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/random.c.o -c /workspace/src/random.c",
+  "file": "/workspace/src/random.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/random.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/vulnerable-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o -c /workspace/src/inputs.c",
+  "file": "/workspace/src/inputs.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/generated/RelWithDebInfo -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_baseline.dir/src/main.c.o -c /workspace/src/main.c",
+  "file": "/workspace/src/main.c",
+  "output": "CMakeFiles/vulnerable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/generated/RelWithDebInfo -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /workspace/src/measure.c",
+  "file": "/workspace/src/measure.c",
+  "output": "CMakeFiles/vulnerable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o -c /workspace/tests/test_mlkem.c",
+  "file": "/workspace/tests/test_mlkem.c",
+  "output": "CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o -c /workspace/tests/test_equivalence.c",
+  "file": "/workspace/tests/test_equivalence.c",
+  "output": "CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o -c /workspace/tests/test_random_failure.c",
+  "file": "/workspace/tests/test_random_failure.c",
+  "output": "CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/hardened-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /build/cmake/hardened_kernel.c",
+  "file": "/build/cmake/hardened_kernel.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/hardened-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o -c /workspace/src/mlkem.c",
+  "file": "/workspace/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/hardened-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/random.c.o -c /workspace/src/random.c",
+  "file": "/workspace/src/random.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/random.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/hardened-source/mlkem -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/inputs.c.o -c /workspace/src/inputs.c",
+  "file": "/workspace/src/inputs.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/inputs.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/generated/RelWithDebInfo -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_baseline.dir/src/main.c.o -c /workspace/src/main.c",
+  "file": "/workspace/src/main.c",
+  "output": "CMakeFiles/hardened_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/build/cmake/generated/RelWithDebInfo -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /workspace/src/measure.c",
+  "file": "/workspace/src/measure.c",
+  "output": "CMakeFiles/hardened_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o -c /workspace/tests/test_mlkem.c",
+  "file": "/workspace/tests/test_mlkem.c",
+  "output": "CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o -c /workspace/tests/test_equivalence.c",
+  "file": "/workspace/tests/test_equivalence.c",
+  "output": "CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o -c /workspace/tests/test_random_failure.c",
+  "file": "/workspace/tests/test_random_failure.c",
+  "output": "CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/analyze.c.o -c /workspace/src/analyze.c",
+  "file": "/workspace/src/analyze.c",
+  "output": "CMakeFiles/analyze.dir/src/analyze.c.o"
+},
+{
+  "directory": "/build/cmake",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/workspace/include -I/workspace/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_measurement.dir/tests/test_measurement.c.o -c /workspace/tests/test_measurement.c",
+  "file": "/workspace/tests/test_measurement.c",
+  "output": "CMakeFiles/test_measurement.dir/tests/test_measurement.c.o"
+}
+]
