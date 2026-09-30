@@ -7,6 +7,8 @@ const char *mlkem_implementation_name(void)
 {
 #ifdef BASELINE_VULNERABLE
     return "vulnerable";
+#elif defined(BASELINE_HARDENED)
+    return "hardened";
 #else
     return "reference";
 #endif

@@ -130,8 +130,8 @@ else
     test "$?" -eq 2
 fi
 
-# 真实采集数据：两版各跑一次完整流程，报告必须覆盖五类和十个固定比较。
-for implementation in reference vulnerable; do
+# 真实采集数据：三个变体各跑一次完整流程，报告必须覆盖五类和十个固定比较。
+for implementation in reference vulnerable hardened; do
     "$build_directory/$implementation/measure" "analysis-$implementation" 42 50 \
         "$test_directory/$implementation.csv" "$test_directory/$implementation.meta"
     "$analyze_program" "$test_directory/$implementation.csv" \

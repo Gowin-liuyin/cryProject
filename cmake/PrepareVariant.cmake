@@ -3,11 +3,11 @@ file(MAKE_DIRECTORY "${OVERLAY_ROOT}")
 file(REMOVE_RECURSE "${OVERLAY_ROOT}/mlkem")
 file(COPY "${SOURCE_ROOT}/vendor/mlkem-native/mlkem" DESTINATION "${OVERLAY_ROOT}")
 execute_process(
-    COMMAND "${PATCH_EXECUTABLE}" -p1 -i "${SOURCE_ROOT}/docs/patches/message-branch.patch"
+    COMMAND "${PATCH_EXECUTABLE}" -p1 -i "${PATCH_FILE}"
     WORKING_DIRECTORY "${OVERLAY_ROOT}"
     RESULT_VARIABLE patch_status
 )
 if(NOT patch_status EQUAL 0)
-    message(FATAL_ERROR "Applying the vulnerable encoder patch failed: ${patch_status}")
+    message(FATAL_ERROR "Applying ${PATCH_FILE} failed: ${patch_status}")
 endif()
 file(TOUCH "${OVERLAY_ROOT}/patched.stamp")

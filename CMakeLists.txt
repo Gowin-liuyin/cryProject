@@ -34,7 +34,8 @@ find_program(SHASUM_EXECUTABLE shasum REQUIRED)
 find_program(AWK_EXECUTABLE awk REQUIRED)
 
 set(vendor_root "${CMAKE_CURRENT_SOURCE_DIR}/vendor/mlkem-native/mlkem")
-set(overlay_root "${CMAKE_CURRENT_BINARY_DIR}/vulnerable-source")
+set(encoder_patch_vulnerable "${CMAKE_CURRENT_SOURCE_DIR}/docs/patches/message-branch.patch")
+set(encoder_patch_hardened "${CMAKE_CURRENT_SOURCE_DIR}/docs/patches/message-constant-time.patch")
 set(identity_directory "${CMAKE_CURRENT_BINARY_DIR}/generated/$<CONFIG>")
 if(CMAKE_CONFIGURATION_TYPES)
     set(output_root "${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>")
@@ -65,16 +66,24 @@ if(BASELINE_SANITIZERS)
 endif()
 
 file(GLOB_RECURSE vendor_files CONFIGURE_DEPENDS "${vendor_root}/*")
-add_custom_command(
-    OUTPUT "${overlay_root}/patched.stamp"
-    COMMAND
-        "${CMAKE_COMMAND}" "-DSOURCE_ROOT=${CMAKE_CURRENT_SOURCE_DIR}"
-        "-DOVERLAY_ROOT=${overlay_root}" "-DPATCH_EXECUTABLE=${PATCH_EXECUTABLE}" -P
-        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/PrepareVariant.cmake"
-    DEPENDS ${vendor_files} docs/patches/message-branch.patch cmake/PrepareVariant.cmake
-    VERBATIM
-)
-add_custom_target(prepare_vulnerable DEPENDS "${overlay_root}/patched.stamp")
+# 两个变体各有独立的构建目录副本和补丁，vendor 原件始终不动。
+foreach(patched_variant IN ITEMS vulnerable hardened)
+    set(overlay_root_${patched_variant} "${CMAKE_CURRENT_BINARY_DIR}/${patched_variant}-source")
+    add_custom_command(
+        OUTPUT "${overlay_root_${patched_variant}}/patched.stamp"
+        COMMAND
+            "${CMAKE_COMMAND}" "-DSOURCE_ROOT=${CMAKE_CURRENT_SOURCE_DIR}"
+            "-DOVERLAY_ROOT=${overlay_root_${patched_variant}}"
+            "-DPATCH_FILE=${encoder_patch_${patched_variant}}"
+            "-DPATCH_EXECUTABLE=${PATCH_EXECUTABLE}" -P
+            "${CMAKE_CURRENT_SOURCE_DIR}/cmake/PrepareVariant.cmake"
+        DEPENDS ${vendor_files} "${encoder_patch_${patched_variant}}" cmake/PrepareVariant.cmake
+        VERBATIM
+    )
+    add_custom_target(
+        prepare_${patched_variant} DEPENDS "${overlay_root_${patched_variant}}/patched.stamp"
+    )
+endforeach()
 
 # 每次构建刷新版本信息；内容未变时保留头文件时间，避免无谓重编译。
 configure_file(
@@ -96,13 +105,13 @@ add_custom_target(
     VERBATIM
 )
 
-foreach(variant IN ITEMS reference vulnerable)
+foreach(variant IN ITEMS reference vulnerable hardened)
     set(kernel_source "${CMAKE_CURRENT_SOURCE_DIR}/src/kernel.c")
-    if(variant STREQUAL "vulnerable")
-        set(kernel_source "${CMAKE_CURRENT_BINARY_DIR}/vulnerable_kernel.c")
+    if(NOT variant STREQUAL "reference")
+        set(kernel_source "${CMAKE_CURRENT_BINARY_DIR}/${variant}_kernel.c")
         configure_file(src/kernel.c "${kernel_source}" COPYONLY)
         set_source_files_properties(
-            "${kernel_source}" PROPERTIES OBJECT_DEPENDS "${overlay_root}/patched.stamp"
+            "${kernel_source}" PROPERTIES OBJECT_DEPENDS "${overlay_root_${variant}}/patched.stamp"
         )
     endif()
     add_library(mlkem_${variant} STATIC "${kernel_source}" src/mlkem.c src/random.c src/inputs.c)
@@ -114,10 +123,16 @@ foreach(variant IN ITEMS reference vulnerable)
                    OUTPUT_NAME mlkem
     )
     add_dependencies(mlkem_${variant} build_identity)
+    if(NOT variant STREQUAL "reference")
+        add_dependencies(mlkem_${variant} prepare_${variant})
+        target_include_directories(
+            mlkem_${variant} BEFORE PRIVATE "${overlay_root_${variant}}/mlkem"
+        )
+    endif()
     if(variant STREQUAL "vulnerable")
-        add_dependencies(mlkem_${variant} prepare_vulnerable)
-        target_include_directories(mlkem_${variant} BEFORE PRIVATE "${overlay_root}/mlkem")
         target_compile_definitions(mlkem_${variant} PRIVATE BASELINE_VULNERABLE=1)
+    elseif(variant STREQUAL "hardened")
+        target_compile_definitions(mlkem_${variant} PRIVATE BASELINE_HARDENED=1)
     endif()
     foreach(program IN ITEMS baseline measure)
         if(program STREQUAL "baseline")
@@ -170,10 +185,18 @@ if(BUILD_TESTING)
     target_link_libraries(test_measurement PRIVATE mlkem_reference)
     set_target_properties(test_measurement PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
     add_test(
-        NAME equivalence
+        NAME equivalence_vulnerable
         COMMAND
-            "${CMAKE_COMMAND}" "-DREFERENCE_PROGRAM=$<TARGET_FILE:reference_test_equivalence>"
-            "-DVULNERABLE_PROGRAM=$<TARGET_FILE:vulnerable_test_equivalence>"
+            "${CMAKE_COMMAND}" "-DBASELINE_PROGRAM=$<TARGET_FILE:reference_test_equivalence>"
+            "-DVARIANT_PROGRAM=$<TARGET_FILE:vulnerable_test_equivalence>"
+            "-DVARIANT_NAME=vulnerable" "-DOUTPUT_DIRECTORY=${output_root}" -P
+            "${CMAKE_CURRENT_SOURCE_DIR}/cmake/CheckEquivalence.cmake"
+    )
+    add_test(
+        NAME equivalence_hardened
+        COMMAND
+            "${CMAKE_COMMAND}" "-DBASELINE_PROGRAM=$<TARGET_FILE:reference_test_equivalence>"
+            "-DVARIANT_PROGRAM=$<TARGET_FILE:hardened_test_equivalence>" "-DVARIANT_NAME=hardened"
             "-DOUTPUT_DIRECTORY=${output_root}" -P
             "${CMAKE_CURRENT_SOURCE_DIR}/cmake/CheckEquivalence.cmake"
     )

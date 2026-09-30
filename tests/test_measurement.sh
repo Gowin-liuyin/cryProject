@@ -3,7 +3,7 @@ set -eu
 build_directory=${1:-build}
 test_directory=$(mktemp -d)
 trap 'rm -rf "$test_directory"' EXIT HUP INT TERM
-for implementation in reference vulnerable; do
+for implementation in reference vulnerable hardened; do
     program="$build_directory/$implementation/measure"
     "$program" "check-$implementation" 42 10 "$test_directory/$implementation.csv" "$test_directory/$implementation.meta"
     if "$program" invalid 42 0 "$test_directory/zero.csv" "$test_directory/zero.meta" 2>/dev/null; then

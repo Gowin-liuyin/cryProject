@@ -3,7 +3,7 @@ set -eu
 build_directory=${1:-build}
 test_directory=$(mktemp -d)
 trap 'rm -rf "$test_directory"' EXIT HUP INT TERM
-for implementation in reference vulnerable; do
+for implementation in reference vulnerable hardened; do
     program="$build_directory/$implementation/baseline"
     "$program" version
     "$program" selftest
@@ -40,4 +40,5 @@ for implementation in reference vulnerable; do
 done
 for category in valid bit-flipped random message-zero message-ones; do
     cmp "$test_directory/reference-$category" "$test_directory/vulnerable-$category"
+    cmp "$test_directory/reference-$category" "$test_directory/hardened-$category"
 done
