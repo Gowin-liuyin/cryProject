@@ -154,6 +154,17 @@ foreach(variant IN ITEMS reference vulnerable)
     endif()
 endforeach()
 
+# 统计分析只读取 CSV，与实现变体无关，因此只构建一个程序。
+find_library(MATH_LIBRARY m)
+add_executable(analyze src/analyze.c)
+target_link_libraries(analyze PRIVATE mlkem_reference)
+if(MATH_LIBRARY)
+    target_link_libraries(analyze PRIVATE "${MATH_LIBRARY}")
+endif()
+set_target_properties(
+    analyze PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE RUNTIME_OUTPUT_DIRECTORY "${output_root}"
+)
+
 if(BUILD_TESTING)
     add_executable(test_measurement tests/test_measurement.c)
     target_link_libraries(test_measurement PRIVATE mlkem_reference)
@@ -176,6 +187,10 @@ if(BUILD_TESTING)
     add_test(NAME vector_parser
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
                      "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt"
+    )
+    add_test(NAME analysis
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis.sh"
+                     "${output_root}"
     )
     set_tests_properties(measurement PROPERTIES RUN_SERIAL TRUE)
     add_test(NAME vector_integrity COMMAND "${SHASUM_EXECUTABLE}" -a 256 -c
