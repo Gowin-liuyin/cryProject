@@ -1,0 +1,34 @@
+# README example commands executed verbatim from the repository root.
+# Products come from the baseline preset directory build/cmake (Unix Makefiles,
+# RelWithDebInfo), which is what the README documents.
+
+$ build/cmake/deployable/baseline version
+deployable ML-KEM-768 FIPS203
+exit=0
+
+$ build/cmake/deployable/baseline demo
+deployable: system-random keygen/encaps/decaps roundtrip passed
+exit=0
+
+$ build/cmake/deployable/baseline generate-test message-ones 42 "$run_directory/input.bin"
+deployable: generated message-ones test ciphertext, 1088 bytes; label comes from generator
+exit=0
+
+$ build/cmake/deployable/baseline decapsulate-test 42 "$run_directory/input.bin"
+deployable: decapsulation completed
+exit=0
+
+$ build/cmake/deployable/measure deployable-run 42 1000 "$run_directory/deployable.csv" "$run_directory/deployable.meta"
+deployable: saved 5000 raw decapsulation times in ns; no statistical conclusion
+exit=0
+
+$ build/cmake/analyze "$run_directory/deployable.csv" "$run_directory/deployable.report"
+deployable: analyzed 5000 records; 0 of 10 pre-specified comparisons significant; primary message-zero:message-ones rank p=0.35 (not_significant); statistical result only
+exit=0
+
+$ build/cmake/analyze_groups "$run_directory/deployable.csv" "$run_directory/deployable.groups.report"
+deployable: analyzed 5000 records; round-two group comparison direction-constant:direction-varying rank p=0.286 (not_significant); statistical result only
+exit=0
+
+# These 5000 records are an interface smoke run for the README examples only,
+# not statistical material; the CSV and the two reports are not archived.

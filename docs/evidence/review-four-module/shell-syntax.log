@@ -1,0 +1,16 @@
+$ sh -n tests/convert_vectors.sh
+exit=0
+$ sh -n tests/test_analysis.sh
+exit=0
+$ sh -n tests/test_analysis_groups.sh
+exit=0
+$ sh -n tests/test_analysis_round1_replay.sh
+exit=0
+$ sh -n tests/test_cli.sh
+exit=0
+$ sh -n tests/test_measurement.sh
+exit=0
+$ sh -n tests/test_vector_parser.sh
+exit=0
+$ sh -n tools/build_identity.sh
+exit=0

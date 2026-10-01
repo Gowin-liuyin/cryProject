@@ -1,0 +1,42 @@
+Apple Clang 21.0.0 (clang-2100.3.34.2), host Apple M5 / ARM64 macOS.
+Checked src/main.c src/mlkem.c src/random.c src/inputs.c src/measure.c src/analyze.c
+src/analyze_groups.c src/timing_statistics.c.
+
+Command actually executed (the include paths below are the literal ones used):
+
+clang --analyze -std=c11 -Wall -Wextra -Iinclude -Ivendor/mlkem-native/mlkem \
+    -Ibuild/review-four-module/generated/RelWithDebInfo \
+    -DMLK_CONFIG_FILE='"baseline_config.h"' -Xanalyzer -analyzer-output=text [sources]
+
+Repeated with -DBASELINE_VULNERABLE=1, then -DBASELINE_HARDENED=1, then
+-DBASELINE_DEPLOYABLE=1 appended to the same command.
+
+Difference from docs/evidence/review/static-analysis.txt: that earlier run used
+-Ibuild/cmake/generated/RelWithDebInfo, the generated directory of the baseline preset.
+This run uses -Ibuild/review-four-module/generated/RelWithDebInfo instead, so the analysis
+is bound to the same fresh configure as this module's full re-check (M4-7); that directory
+holds build_identity.h after the RelWithDebInfo build. Nothing else in the command changed.
+
+First-time coverage in this run: src/analyze.c, src/analyze_groups.c and
+src/timing_statistics.c had never been analyzed before, and -DBASELINE_HARDENED=1 and
+-DBASELINE_DEPLOYABLE=1 are both first-time macro settings. The earlier file recorded only
+five sources and -DBASELINE_VULNERABLE=1.
+
+Verbatim output of the four invocations:
+
+=== macro='none' ===
+exit=0
+=== macro='-DBASELINE_VULNERABLE=1' ===
+exit=0
+=== macro='-DBASELINE_HARDENED=1' ===
+exit=0
+=== macro='-DBASELINE_DEPLOYABLE=1' ===
+exit=0
+
+All four commands exited 0 and emitted no diagnostics; no fix commit was needed.
+BASELINE_VULNERABLE / BASELINE_HARDENED / BASELINE_DEPLOYABLE are read only in
+src/mlkem.c (the implementation-name selection), so the four settings differ in that
+translation unit; the other seven sources are analyzed four times under identical text.
+
+This is a scoped analysis of the owned wrapper, runtime and analysis code. It is not a
+proof of correctness, not a constant-time proof, and not a re-audit of vendor/.

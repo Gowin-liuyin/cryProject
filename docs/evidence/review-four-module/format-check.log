@@ -1,0 +1,14 @@
+$ cmake --build build/review-four-module --target format-check
+[0/2] Re-checking globbed directories...
+[1/2] cd /Users/yin/code/cryProject/build/review-four-module && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -DSOURCE_ROOT=/Users/yin/code/cryProject -DFORMAT_EXECUTABLE= -DFORMAT_MODE=format-check -P /Users/yin/code/cryProject/cmake/Format.cmake
+exit=0
+
+$ cmake --build --preset baseline --target format-check
+Built target format-check
+exit=0
+
+# formatter resolved by cmake/Format.cmake on APPLE via xcrun --find clang-format
+$ xcrun --find clang-format
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-format
+$ $(xcrun --find clang-format) --version
+Apple clang-format version 21.0.0 (clang-2100.3.34.2)

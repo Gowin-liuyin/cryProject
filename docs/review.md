@@ -36,3 +36,38 @@ CMake 的生成元数据移到独立模板，主构建逻辑按固定格式整�
 （本节记录审查当时的状态。此后已完成固定统计确认、恒时编码对照和 Linux 加 GNU GCC 的功能验证，
 见 [validation.md](validation.md)；真实 x86_64 Linux 主机实测仍未执行。）
 README 已重写为从环境、构建、运行到数据解释和开发检查的使用入口；示例命令在本地执行验证。
+
+## 追加：四模块新增代码的检查补齐（模块四）
+
+上一节记录的是当时的审查状态，**本节只追加，不改写它**。本轮的检查范围是四模块新增的
+自有代码与配置，不重新审计 `vendor/`，也不重复上一节已完成的逐函数阅读。
+
+**本轮检查对象**：`src/analyze.c`（第一轮固定族，上一节成文时尚不存在）、
+`src/analyze_groups.c` 与 `include/timing_statistics.h` / `src/timing_statistics.c`
+（模块三新增的第二轮分组检验与抽出的共用统计例程）、
+`docs/patches/message-value-barrier.patch` 与 `src/mlkem.c` 的 `BASELINE_DEPLOYABLE` 分支
+（模块一新增的第四个变体），以及它们在 `CMakeLists.txt`、四个 `tests/*.sh` 里的注册。
+
+**修正项**：**无。** 四次静态分析调用（8 个自有源文件 × 默认／`BASELINE_VULNERABLE`／
+`BASELINE_HARDENED`／`BASELINE_DEPLOYABLE`）全部 `exit=0` 且无诊断，
+格式与脚本语法检查一次通过，因此本轮**没有产生 `fix:` 或 `style:` 提交**。
+其中 `src/analyze.c`、`src/analyze_groups.c`、`src/timing_statistics.c` 三个文件
+以及 `-DBASELINE_HARDENED=1`、`-DBASELINE_DEPLOYABLE=1` 两个宏设置都是**首次**被静态分析覆盖；
+上一节记录的那次只覆盖五个源文件和 `-DBASELINE_VULNERABLE=1`。
+
+**实测平台与结果**：Apple M5 / ARM64 macOS、Apple Clang 21.0.0、CMake 4.3.2。
+全新构建目录 `build/review-four-module`（Ninja / RelWithDebInfo、严格警告 + `-Werror`）
+零告警构建；`ctest -N` 实测 **18 项**、全部通过；独立 `sanitize` preset（Unix Makefiles /
+Debug / ASan+UBSan）同样 18 项全部通过，日志中无 ASan/UBSan/Leak 报告。
+`format-check`、`cmake-format 0.6.13 --check`、`tests/*.sh` 与 `tools/*.sh` 的 `sh -n` 均通过
+（上一轮评审指出的「`format-check` 结果未归档」本轮已逐字归档）。
+四个变体 `measure` 自报的 `executable_digest` 与独立 OpenSSL SHA3-256 逐个一致。
+逐字日志见 [evidence/review-four-module](evidence/review-four-module/README.md)。
+
+**边界**：静态分析是范围内的封装／运行／分析代码检查，不是正确性证明、不是恒时证明，
+也不是对上游密码库的重新审计。「全部检查通过」只等于检查通过，不等于结论成立。
+本节不产出任何时序、产物形态或统计结论；真实 x86_64 Linux 主机时序实测仍未执行，
+模块二的 QEMU 模拟不改变这一条。
+本轮四个模块的评审产物落在未跟踪目录 `.agents/tasks/four-module-review/`、未进仓库，
+因此「四份判定均为 APPROVED、无阻断发现」只能由作者转述，不可从仓库逐字复核。
+本轮四模块的逐项验收结论与最终报告见 [acceptance.md](acceptance.md) 的追加章节。

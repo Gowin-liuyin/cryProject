@@ -1,0 +1,31 @@
+# Branch, author, committer, email and hash of every commit in this four-module round.
+$ git rev-parse --abbrev-ref HEAD
+main
+
+$ git log --format='%H %h %an <%ae> %cn <%ce> %s' adf9db9~1..HEAD
+4ce21336e756bb9a1018e99819b4ae50440b0e78 4ce2133 Gowin-liuyin <yinhaoran0808@outlook.com> Gowin-liuyin <yinhaoran0808@outlook.com> docs: record the multi-seed robustness and the round-two result
+268bab838d5cf8a4b0c9c8b6f5f8b144557de219 268bab8 Gowin-liuyin <yinhaoran0808@outlook.com> Gowin-liuyin <yinhaoran0808@outlook.com> feat: add the round-two pre-registered group test as a separate tool
+c1ea9cac653ba16e55521864ab7e2c4fae09412f c1ea9ca Gowin-liuyin <yinhaoran0808@outlook.com> Gowin-liuyin <yinhaoran0808@outlook.com> docs: verify the x86_64 artifact shape in an emulated container
+343a6cb5934bf1241106e4f9742a74c3dae1e5a7 343a6cb Gowin-liuyin <yinhaoran0808@outlook.com> Gowin-liuyin <yinhaoran0808@outlook.com> docs: record the deployable variant evidence under normal optimization
+0cba2c70893f433eb6a17d798660c0f407a7f6db 0cba2c7 Gowin-liuyin <yinhaoran0808@outlook.com> Gowin-liuyin <yinhaoran0808@outlook.com> feat: add the deployable constant-time encoder variant
+adf9db9d2734837de11274343d3828d49d0f2444 adf9db9 Gowin-liuyin <yinhaoran0808@outlook.com> Gowin-liuyin <yinhaoran0808@outlook.com> docs: pre-register the four-module design and its reviews
+
+$ git config --local user.name; git config --local user.email
+Gowin-liuyin
+yinhaoran0808@outlook.com
+
+# Not pushed: origin exists but there is no origin/main tracking ref.
+$ git remote -v
+origin	https://github.com/Gowin-liuyin/cryProject.git (fetch)
+origin	https://github.com/Gowin-liuyin/cryProject.git (push)
+
+$ git branch -vv
+* main 4ce2133 [origin/main: gone] docs: record the multi-seed robustness and the round-two result
+
+$ git rev-parse --verify origin/main; echo "exit=$?"
+fatal: Needed a single revision
+exit=128
+
+$ git status --porcelain
+?? .agents/
+?? docs/evidence/review-four-module/

@@ -1,0 +1,39 @@
+# Final full re-check, run after every documentation edit of this module.
+# The build directory is NOT reconfigured here: build_identity.h embeds git status --porcelain,
+# so a rebuild would change the product digests already archived in binaries.sha256.
+# The digests are re-verified first to prove the binaries under test are the archived ones.
+
+$ shasum -a 256 -c docs/evidence/review-four-module/binaries.sha256
+build/review-four-module/reference/baseline: OK
+build/review-four-module/vulnerable/baseline: OK
+build/review-four-module/hardened/baseline: OK
+build/review-four-module/deployable/baseline: OK
+build/review-four-module/reference/measure: OK
+build/review-four-module/vulnerable/measure: OK
+build/review-four-module/hardened/measure: OK
+build/review-four-module/deployable/measure: OK
+build/review-four-module/analyze: OK
+build/review-four-module/analyze_groups: OK
+exit=0
+
+$ ctest --test-dir build/review-four-module --output-on-failure
+      Start 17: analysis_round1_replay
+17/18 Test #17: analysis_round1_replay ...........   Passed    0.03 sec
+      Start 18: vector_integrity
+18/18 Test #18: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 18
+
+Total Test time (real) =   0.93 sec
+exit=0
+
+$ cmake --build build/review-four-module --target format-check
+[0/2] Re-checking globbed directories...
+[1/2] cd /Users/yin/code/cryProject/build/review-four-module && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -DSOURCE_ROOT=/Users/yin/code/cryProject -DFORMAT_EXECUTABLE= -DFORMAT_MODE=format-check -P /Users/yin/code/cryProject/cmake/Format.cmake
+exit=0
+
+$ shasum -a 256 -c docs/evidence/review-four-module/binaries.sha256   # after format-check
+build/review-four-module/deployable/measure: OK
+build/review-four-module/analyze: OK
+build/review-four-module/analyze_groups: OK
+exit=0

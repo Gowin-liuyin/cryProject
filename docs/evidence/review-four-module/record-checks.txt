@@ -1,0 +1,40 @@
+# Independent SHA3-256 of the measured products (OpenSSL), full paths kept verbatim.
+$ openssl dgst -sha3-256 build/review-four-module/{reference,vulnerable,hardened,deployable}/{baseline,measure} build/review-four-module/{analyze,analyze_groups}
+SHA3-256(build/review-four-module/reference/baseline)= 28dc1c2ba0597f25671aad5ed8c83272342815ce9dacea715c646f11601eadd9
+SHA3-256(build/review-four-module/vulnerable/baseline)= 716d61a5196fa46f669275e59b47e7c2a7e022aa9f87fb33472a92d96fba931c
+SHA3-256(build/review-four-module/hardened/baseline)= 53de33f8995f49fd88d051a2f99326d5554ec8ff6464226e078ad5617694b619
+SHA3-256(build/review-four-module/deployable/baseline)= 26975c7e5e95d90c41a235cffc4e20dd853536648cafff6ceb2e907faf763b22
+SHA3-256(build/review-four-module/reference/measure)= 0d7d5359f86d047aee9397011913fc191f0b07a7412ed26c2b2d04cdc21040e0
+SHA3-256(build/review-four-module/vulnerable/measure)= 7fae5672a0d00cc7284106dc3ee7a7160a0517ec492d74e7e80179b3782c2356
+SHA3-256(build/review-four-module/hardened/measure)= 89fce9c0aa5a14e4cf4829055e948172f789f9f834be288f40a04df35afbefe0
+SHA3-256(build/review-four-module/deployable/measure)= 8d539b89939a2417087860fd0763d078add712ba6cf947ba1b945feae8dd3ecb
+SHA3-256(build/review-four-module/analyze)= 20255af70a5a09ac5360cdd0f289e58a5a851b10b2040f1b59786df6b4b1f2d6
+SHA3-256(build/review-four-module/analyze_groups)= 78206e5cbcc314f49fca5debbb2c73f5a4fa1b607b3263965dd3eb2e9a269e55
+exit=0
+
+# Program-reported executable_digest from the small-sample measure runs
+# (RUN_ID=review-<variant>, 50 per category, NOT statistical material; CSV and report are not archived).
+$ grep '^executable_digest=' <smoke>/reference.meta
+executable_digest=0d7d5359f86d047aee9397011913fc191f0b07a7412ed26c2b2d04cdc21040e0
+$ grep '^executable_digest=' <smoke>/vulnerable.meta
+executable_digest=7fae5672a0d00cc7284106dc3ee7a7160a0517ec492d74e7e80179b3782c2356
+$ grep '^executable_digest=' <smoke>/hardened.meta
+executable_digest=89fce9c0aa5a14e4cf4829055e948172f789f9f834be288f40a04df35afbefe0
+$ grep '^executable_digest=' <smoke>/deployable.meta
+executable_digest=8d539b89939a2417087860fd0763d078add712ba6cf947ba1b945feae8dd3ecb
+
+# Result: all four program-reported executable_digest values equal the independent OpenSSL
+# SHA3-256 of the matching build/review-four-module/<variant>/measure file, so 0.4 item 5 is
+# satisfied in this directory without using the tested program as its own witness.
+# analyze / analyze_groups report no executable digest of their own; their digests above are
+# independent-tool values only. binaries.sha256 holds the shasum -a 256 values for the same
+# ten files.
+
+# 0.4 item 6: whitespace check on the staged evidence directory (verbatim, empty output kept).
+$ git add docs/evidence/review-four-module
+$ git diff --cached --check
+exit=0
+
+# No warning, so this directory needs NO .gitattributes entry; .gitattributes is unchanged by
+# this module. The existing /docs/evidence/review/*.meta line covers the older review directory
+# only and does not apply here (this directory archives no .meta file).
