@@ -1,0 +1,21 @@
+
+build/deployable/deployable/measure:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000100002690 <_baseline_native_poly_frommsg>:
+100002690: d2800008    	mov	x8, #0x0                ; =0
+100002694: 52800029    	mov	w9, #0x1                ; =1
+100002698: 5280d02a    	mov	w10, #0x681             ; =1665
+10000269c: 9240090b    	and	x11, x8, #0x7
+1000026a0: 1acb212b    	lsl	w11, w9, w11
+1000026a4: 53037d0c    	lsr	w12, w8, #3
+1000026a8: 386c682c    	ldrb	w12, [x1, x12]
+1000026ac: 0a0c016b    	and	w11, w11, w12
+1000026b0: 4b0b03eb    	neg	w11, w11
+1000026b4: 0a4b414b    	and	w11, w10, w11, lsr #16
+1000026b8: 7828780b    	strh	w11, [x0, x8, lsl #1]
+1000026bc: 91000508    	add	x8, x8, #0x1
+1000026c0: f104011f    	cmp	x8, #0x100
+1000026c4: 54fffec1    	b.ne	0x10000269c <_baseline_native_poly_frommsg+0xc>
+1000026c8: d65f03c0    	ret

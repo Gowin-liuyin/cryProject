@@ -1,0 +1,129 @@
+M1-5a 调用路径核对：产物 build/deployable/<variant>/measure
+配置：cmake -S . -B build/deployable -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF
+工具：Apple objdump（/usr/bin/objdump）。全二进制反汇编命令：objdump -d build/deployable/<variant>/measure
+判据正则：(#|$)0x681|[#$ ]1665   （MLKEM_Q_HALF = 1665 = 0x681）
+
+================ reference ================
+$ grep -nE 'bl.*<_baseline_native_poly_frommsg>' <objdump -d build/deployable/reference/measure>
+6526:100006edc: 97ffeded    	bl	0x100002690 <_baseline_native_poly_frommsg>
+poly_frommsg_call_site_count=1
+
+$ grep -nE 'bl.*<_baseline_native_indcpa_enc>' <objdump -d build/deployable/reference/measure>
+11288:10000b8d4: 97ffed5f    	bl	0x100006e50 <_baseline_native_indcpa_enc>
+11383:10000ba48: 97ffed02    	bl	0x100006e50 <_baseline_native_indcpa_enc>
+indcpa_enc_call_site_count=2
+caller_symbol_taken=_baseline_native_indcpa_enc  （计数 >= 1，按 M1-5a 第 2 步取该层）
+
+$ objdump -d --disassemble-symbols=_baseline_native_indcpa_enc build/deployable/reference/measure > reference-caller-indcpa-enc-arm64.txt
+$ grep -nE '(#|$)0x681|[#$ ]1665' reference-caller-indcpa-enc-arm64.txt; echo "exit=$?"
+exit=1
+
+$ grep -cE '(#|$)0x681|[#$ ]1665' <objdump -d build/deployable/reference/measure>
+1
+
+================ vulnerable ================
+$ grep -nE 'bl.*<_baseline_native_poly_frommsg>' <objdump -d build/deployable/vulnerable/measure>
+6508:100006e94: 97ffedff    	bl	0x100002690 <_baseline_native_poly_frommsg>
+poly_frommsg_call_site_count=1
+
+$ grep -nE 'bl.*<_baseline_native_indcpa_enc>' <objdump -d build/deployable/vulnerable/measure>
+11270:10000b88c: 97ffed5f    	bl	0x100006e08 <_baseline_native_indcpa_enc>
+11365:10000ba00: 97ffed02    	bl	0x100006e08 <_baseline_native_indcpa_enc>
+indcpa_enc_call_site_count=2
+caller_symbol_taken=_baseline_native_indcpa_enc  （计数 >= 1，按 M1-5a 第 2 步取该层）
+
+$ objdump -d --disassemble-symbols=_baseline_native_indcpa_enc build/deployable/vulnerable/measure > vulnerable-caller-indcpa-enc-arm64.txt
+$ grep -nE '(#|$)0x681|[#$ ]1665' vulnerable-caller-indcpa-enc-arm64.txt; echo "exit=$?"
+exit=1
+
+$ grep -cE '(#|$)0x681|[#$ ]1665' <objdump -d build/deployable/vulnerable/measure>
+1
+
+================ hardened ================
+$ grep -nE 'bl.*<_baseline_native_poly_frommsg>' <objdump -d build/deployable/hardened/measure>
+6507:100006e90: 97ffee00    	bl	0x100002690 <_baseline_native_poly_frommsg>
+poly_frommsg_call_site_count=1
+
+$ grep -nE 'bl.*<_baseline_native_indcpa_enc>' <objdump -d build/deployable/hardened/measure>
+11269:10000b888: 97ffed5f    	bl	0x100006e04 <_baseline_native_indcpa_enc>
+11364:10000b9fc: 97ffed02    	bl	0x100006e04 <_baseline_native_indcpa_enc>
+indcpa_enc_call_site_count=2
+caller_symbol_taken=_baseline_native_indcpa_enc  （计数 >= 1，按 M1-5a 第 2 步取该层）
+
+$ objdump -d --disassemble-symbols=_baseline_native_indcpa_enc build/deployable/hardened/measure > hardened-caller-indcpa-enc-arm64.txt
+$ grep -nE '(#|$)0x681|[#$ ]1665' hardened-caller-indcpa-enc-arm64.txt; echo "exit=$?"
+exit=1
+
+$ grep -cE '(#|$)0x681|[#$ ]1665' <objdump -d build/deployable/hardened/measure>
+1
+
+================ deployable ================
+$ grep -nE 'bl.*<_baseline_native_poly_frommsg>' <objdump -d build/deployable/deployable/measure>
+poly_frommsg_call_site_count=0
+
+$ grep -nE 'bl.*<_baseline_native_indcpa_enc>' <objdump -d build/deployable/deployable/measure>
+11259:10000b860: 97ffed53    	bl	0x100006dac <_baseline_native_indcpa_enc>
+11354:10000b9d4: 97ffecf6    	bl	0x100006dac <_baseline_native_indcpa_enc>
+indcpa_enc_call_site_count=2
+caller_symbol_taken=_baseline_native_indcpa_enc  （计数 >= 1，按 M1-5a 第 2 步取该层）
+
+$ objdump -d --disassemble-symbols=_baseline_native_indcpa_enc build/deployable/deployable/measure > deployable-caller-indcpa-enc-arm64.txt
+$ grep -nE '(#|$)0x681|[#$ ]1665' deployable-caller-indcpa-enc-arm64.txt; echo "exit=$?"
+39:100006e2c: 5280d02a    	mov	w10, #0x681             ; =1665
+exit=0
+
+$ grep -cE '(#|$)0x681|[#$ ]1665' <objdump -d build/deployable/deployable/measure>
+2
+
+================ M1-5a 情况归属结论 ================
+
+reference   → 情况 1：poly_frommsg 调用点 1（0x100006edc，落在 _baseline_native_indcpa_enc
+              起始 0x100006e50 之内），调用者正则命中 0，全二进制正则命中 1（在编码函数内）。
+              离线符号反汇编即实际执行的代码。
+vulnerable  → 情况 1：调用点 1（0x100006e94，indcpa_enc 起始 0x100006e08），调用者命中 0，
+              全二进制命中 1。补丁带 noinline，独立符号由此保证。
+hardened    → 情况 1：调用点 1（0x100006e90，indcpa_enc 起始 0x100006e04），调用者命中 0，
+              全二进制命中 1。补丁带 noinline，独立符号由此保证。
+deployable  → 情况 2（被内联）：poly_frommsg 调用点计数 0，调用者正则命中 1
+              （deployable-caller-indcpa-enc-arm64.txt:39，0x100006e2c
+              `mov w10, #0x681  ; =1665`），全二进制正则命中 2。
+              两处命中的落点：一处在从未被调用的离线副本 _baseline_native_poly_frommsg
+              （deployable-encoder-arm64.txt:9，0x100002698），一处在
+              _baseline_native_indcpa_enc 的内联段（0x100006e2c）。
+              离线副本仍存在是因为 MLK_INTERNAL_API 展开为空、符号是外部链接；
+              但它的调用点为 0，所以 **它不是执行路径**。
+              按 M1-5a 情况 2：deployable 的产物形态结论来自调用者内联段，
+              **不以离线副本反汇编冒充执行路径证据**。
+              deployable 不带任何 __attribute__（含 noinline），内联属预期后果，
+              设计明令不得为拿到独立符号而加回 noinline。
+
+内联段佐证（命中行为锚点后人工读段，M1-5a 第 3 步的佐证项，不作判据）：
+  deployable-caller-indcpa-enc-arm64.txt 行号区间 33–51（地址 0x100006e14–0x100006e5c）。
+  形态为按系数推进的 256 次单层循环：
+    行 33  0x100006e14  mov  x8, #0x0            系数计数器置 0
+    行 38  0x100006e28  mov  w9, #0x1            位掩码底数 1u
+    行 39  0x100006e2c  mov  w10, #0x681         MLKEM_Q_HALF
+    行 40  0x100006e30  add  x11, sp, #0x520     目标多项式基址
+    行 41  0x100006e34  and  x12, x8, #0x7       coefficient_index % 8（循环头）
+    行 42  0x100006e38  lsl  w12, w9, w12        1u << (coefficient_index % 8)
+    行 43  0x100006e3c  lsr  w13, w8, #3         coefficient_index / 8
+    行 44  0x100006e40  ldrb w13, [x21, x13]     message_bytes[coefficient_index / 8]
+    行 45  0x100006e44  and  w12, w12, w13       & bit_mask
+    行 46  0x100006e48  neg  w12, w12            mlk_ct_sel_int16 的掩码构造
+    行 47  0x100006e4c  and  w12, w10, w12, lsr #16
+    行 48  0x100006e50  strh w12, [x11, x8, lsl #1]
+    行 49  0x100006e54  add  x8, x8, #0x1        系数计数器 +1
+    行 50  0x100006e58  cmp  x8, #0x100          与 256 比较
+    行 51  0x100006e5c  b.ne 0x100006e34         回到循环头
+  x21 为 indcpa_enc 的第二个参数（prologue 0x100006dec `mov x21, x1`），即 message_bytes，
+  因此行 44 的取字节确实是消息字节；该值只流向 and/neg/and 算术，不参与任何条件判断。
+
+同一正则在归档的全二进制反汇编 deployable-path-arm64.txt（17619 行）上的落点：
+$ grep -nE '(#|$)0x681|[#$ ]1665\b' docs/evidence/deployable/deployable-path-arm64.txt
+1875:100002698: 5280d02a    	mov	w10, #0x681             ; =1665
+6482:100006e2c: 5280d02a    	mov	w10, #0x681             ; =1665
+$ grep -cE 'bl.*<_baseline_native_poly_frommsg>' docs/evidence/deployable/deployable-path-arm64.txt
+0
+行 1875 落在从未被调用的离线副本 _baseline_native_poly_frommsg 内，
+行 6482 落在 _baseline_native_indcpa_enc 的内联段内。调用点计数 0 与两处命中一致：
+离线副本存在但无人调用，执行路径是内联段。
