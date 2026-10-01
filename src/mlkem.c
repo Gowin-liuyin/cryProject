@@ -9,6 +9,8 @@ const char *mlkem_implementation_name(void)
     return "vulnerable";
 #elif defined(BASELINE_HARDENED)
     return "hardened";
+#elif defined(BASELINE_DEPLOYABLE)
+    return "deployable";
 #else
     return "reference";
 #endif
