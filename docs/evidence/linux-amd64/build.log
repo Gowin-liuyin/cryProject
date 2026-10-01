@@ -1,0 +1,100 @@
+[  1%] Generating hardened-source/patched.stamp
+[  2%] Generating vulnerable-source/patched.stamp
+[  4%] Generating deployable-source/patched.stamp
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+[  4%] Built target prepare_vulnerable
+[  4%] Built target prepare_hardened
+[  4%] Built target prepare_deployable
+[  4%] Built target build_identity
+[  5%] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[  7%] Building C object CMakeFiles/mlkem_hardened.dir/src/random.c.o
+[ 10%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[ 10%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[ 11%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[ 14%] Building C object CMakeFiles/mlkem_hardened.dir/src/inputs.c.o
+[ 19%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 14%] Building C object CMakeFiles/mlkem_deployable.dir/src/inputs.c.o
+[ 20%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 20%] Building C object CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o
+[ 20%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 22%] Building C object CMakeFiles/mlkem_deployable.dir/src/random.c.o
+[ 26%] Building C object CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o
+[ 28%] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+[ 28%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 28%] Building C object CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o
+[ 29%] Linking C static library deployable/libmlkem.a
+[ 31%] Linking C static library hardened/libmlkem.a
+[ 32%] Linking C static library reference/libmlkem.a
+[ 34%] Linking C static library vulnerable/libmlkem.a
+[ 34%] Built target mlkem_deployable
+[ 34%] Built target mlkem_hardened
+[ 38%] Building C object CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o
+[ 38%] Building C object CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o
+[ 38%] Building C object CMakeFiles/deployable_measure.dir/src/measure.c.o
+[ 40%] Built target mlkem_reference
+[ 40%] Building C object CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o
+[ 41%] Building C object CMakeFiles/deployable_baseline.dir/src/main.c.o
+[ 41%] Built target mlkem_vulnerable
+[ 43%] Building C object CMakeFiles/hardened_measure.dir/src/measure.c.o
+[ 44%] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[ 46%] Building C object CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o
+[ 52%] Building C object CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o
+[ 52%] Building C object CMakeFiles/hardened_baseline.dir/src/main.c.o
+[ 50%] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[ 52%] Building C object CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o
+[ 53%] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[ 56%] Building C object CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+[ 56%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[ 58%] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[ 59%] Building C object CMakeFiles/analyze.dir/src/analyze.c.o
+[ 61%] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[ 62%] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[ 64%] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[ 65%] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[ 67%] Building C object CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+[ 68%] Linking C executable deployable/test_random_failure
+[ 70%] Linking C executable deployable/baseline
+[ 71%] Linking C executable deployable/test_equivalence
+[ 73%] Linking C executable hardened/test_equivalence
+[ 74%] Linking C executable reference/test_random_failure
+[ 76%] Linking C executable reference/test_equivalence
+[ 76%] Built target deployable_baseline
+[ 76%] Built target deployable_test_random_failure
+[ 77%] Linking C executable reference/baseline
+[ 79%] Linking C executable hardened/test_random_failure
+[ 80%] Linking C executable vulnerable/test_random_failure
+[ 80%] Built target deployable_test_equivalence
+[ 80%] Built target hardened_test_equivalence
+[ 82%] Linking C executable hardened/baseline
+[ 83%] Built target reference_test_random_failure
+[ 83%] Linking C executable deployable/test_mlkem
+[ 85%] Linking C executable vulnerable/test_equivalence
+[ 86%] Linking C executable vulnerable/baseline
+[ 88%] Linking C executable test_measurement
+[ 88%] Built target reference_baseline
+[ 88%] Built target reference_test_equivalence
+[ 88%] Built target vulnerable_test_random_failure
+[ 89%] Linking C executable reference/measure
+[ 89%] Built target hardened_baseline
+[ 91%] Linking C executable deployable/measure
+[ 91%] Built target hardened_test_random_failure
+[ 91%] Built target vulnerable_test_equivalence
+[ 91%] Built target deployable_test_mlkem
+[ 92%] Linking C executable vulnerable/test_mlkem
+[ 94%] Linking C executable hardened/measure
+[ 95%] Linking C executable reference/test_mlkem
+[ 97%] Linking C executable hardened/test_mlkem
+[ 97%] Built target test_measurement
+[ 97%] Built target vulnerable_baseline
+[ 98%] Linking C executable vulnerable/measure
+[ 98%] Built target reference_measure
+[ 98%] Built target deployable_measure
+[100%] Linking C executable analyze
+[100%] Built target vulnerable_test_mlkem
+[100%] Built target hardened_measure
+[100%] Built target reference_test_mlkem
+[100%] Built target hardened_test_mlkem
+[100%] Built target vulnerable_measure
+[100%] Built target analyze

@@ -1,0 +1,107 @@
+judgement_regex_as_passed_to_grep=(#|\$)0x681|[#$ ]1665\b
+=============== reference ===============
+--- grep -c "call.*<baseline_native_poly_frommsg>" 全二进制 ---
+1
+poly_frommsg_call_count_exit=0
+--- grep -nE "call.*<baseline_native_poly_frommsg>" 全二进制（地址）---
+4318:    6073:	e8 18 e6 ff ff       	call   4690 <baseline_native_poly_frommsg>
+poly_frommsg_call_lines_exit=0
+--- grep -c "call.*<baseline_native_indcpa_enc>" 全二进制 ---
+2
+indcpa_enc_call_count_exit=0
+--- grep -nE "call.*<baseline_native_indcpa_enc>" 全二进制（地址）---
+5095:    6d09:	e8 72 f2 ff ff       	call   5f80 <baseline_native_indcpa_enc>
+5203:    6e9f:	e8 dc f0 ff ff       	call   5f80 <baseline_native_indcpa_enc>
+indcpa_enc_call_lines_exit=0
+--- 内联判据 grep -nE 对调用者反汇编 ---
+caller_regex_exit=1
+--- 特异性对照 grep -cE 对全二进制反汇编 ---
+1
+full_binary_regex_count_exit=0
+--- 特异性对照 grep -nE 对全二进制反汇编（落点）---
+2720:    46bd:	66 25 81 06          	and    $0x681,%ax
+full_binary_regex_lines_exit=0
+--- 编码函数离线副本内的全部 j* 跳转（含无条件 jmp，归属在 README 逐条标注）---
+34:    46c9:	75 dd                	jne    46a8 <baseline_native_poly_frommsg+0x18>
+38:    46d8:	75 c6                	jne    46a0 <baseline_native_poly_frommsg+0x10>
+encoder_jump_grep_exit=0
+=============== vulnerable ===============
+--- grep -c "call.*<baseline_native_poly_frommsg>" 全二进制 ---
+1
+poly_frommsg_call_count_exit=0
+--- grep -nE "call.*<baseline_native_poly_frommsg>" 全二进制（地址）---
+4330:    6093:	e8 48 cf ff ff       	call   2fe0 <baseline_native_poly_frommsg>
+poly_frommsg_call_lines_exit=0
+--- grep -c "call.*<baseline_native_indcpa_enc>" 全二进制 ---
+2
+indcpa_enc_call_count_exit=0
+--- grep -nE "call.*<baseline_native_indcpa_enc>" 全二进制（地址）---
+5107:    6d29:	e8 72 f2 ff ff       	call   5fa0 <baseline_native_indcpa_enc>
+5215:    6ebf:	e8 dc f0 ff ff       	call   5fa0 <baseline_native_indcpa_enc>
+indcpa_enc_call_lines_exit=0
+--- 内联判据 grep -nE 对调用者反汇编 ---
+caller_regex_exit=1
+--- 特异性对照 grep -cE 对全二进制反汇编 ---
+1
+full_binary_regex_count_exit=0
+--- 特异性对照 grep -nE 对全二进制反汇编（落点）---
+1102:    3028:	66 c7 04 50 81 06    	movw   $0x681,(%rax,%rdx,2)
+full_binary_regex_lines_exit=0
+--- 编码函数离线副本内的全部 j* 跳转（含无条件 jmp，归属在 README 逐条标注）---
+22:    2ff7:	eb 48                	jmp    3041 <baseline_native_poly_frommsg+0x61>
+37:    301f:	74 0f                	je     3030 <baseline_native_poly_frommsg+0x50>
+41:    302e:	eb 0d                	jmp    303d <baseline_native_poly_frommsg+0x5d>
+47:    3048:	76 af                	jbe    2ff9 <baseline_native_poly_frommsg+0x19>
+encoder_jump_grep_exit=0
+=============== hardened ===============
+--- grep -c "call.*<baseline_native_poly_frommsg>" 全二进制 ---
+1
+poly_frommsg_call_count_exit=0
+--- grep -nE "call.*<baseline_native_poly_frommsg>" 全二进制（地址）---
+4333:    60a3:	e8 38 cf ff ff       	call   2fe0 <baseline_native_poly_frommsg>
+poly_frommsg_call_lines_exit=0
+--- grep -c "call.*<baseline_native_indcpa_enc>" 全二进制 ---
+2
+indcpa_enc_call_count_exit=0
+--- grep -nE "call.*<baseline_native_indcpa_enc>" 全二进制（地址）---
+5110:    6d39:	e8 72 f2 ff ff       	call   5fb0 <baseline_native_indcpa_enc>
+5218:    6ecf:	e8 dc f0 ff ff       	call   5fb0 <baseline_native_indcpa_enc>
+indcpa_enc_call_lines_exit=0
+--- 内联判据 grep -nE 对调用者反汇编 ---
+caller_regex_exit=1
+--- 特异性对照 grep -cE 对全二进制反汇编 ---
+1
+full_binary_regex_count_exit=0
+--- 特异性对照 grep -nE 对全二进制反汇编（落点）---
+1103:    302f:	66 25 81 06          	and    $0x681,%ax
+full_binary_regex_lines_exit=0
+--- 编码函数离线副本内的全部 j* 跳转（含无条件 jmp，归属在 README 逐条标注）---
+22:    2ff7:	eb 4b                	jmp    3044 <baseline_native_poly_frommsg+0x64>
+48:    304b:	76 ac                	jbe    2ff9 <baseline_native_poly_frommsg+0x19>
+encoder_jump_grep_exit=0
+=============== deployable ===============
+--- grep -c "call.*<baseline_native_poly_frommsg>" 全二进制 ---
+0
+poly_frommsg_call_count_exit=1
+--- grep -nE "call.*<baseline_native_poly_frommsg>" 全二进制（地址）---
+poly_frommsg_call_lines_exit=1
+--- grep -c "call.*<baseline_native_indcpa_enc>" 全二进制 ---
+2
+indcpa_enc_call_count_exit=0
+--- grep -nE "call.*<baseline_native_indcpa_enc>" 全二进制（地址）---
+5101:    6d19:	e8 52 f2 ff ff       	call   5f70 <baseline_native_indcpa_enc>
+5209:    6eaf:	e8 bc f0 ff ff       	call   5f70 <baseline_native_indcpa_enc>
+indcpa_enc_call_lines_exit=0
+--- 内联判据 grep -nE 对调用者反汇编 ---
+74:    6062:	66 25 81 06          	and    $0x681,%ax
+caller_regex_exit=0
+--- 特异性对照 grep -cE 对全二进制反汇编 ---
+2
+full_binary_regex_count_exit=0
+--- 特异性对照 grep -nE 对全二进制反汇编（落点）---
+2719:    46ba:	66 25 81 06          	and    $0x681,%ax
+4319:    6062:	66 25 81 06          	and    $0x681,%ax
+full_binary_regex_lines_exit=0
+--- 编码函数离线副本内的全部 j* 跳转（含无条件 jmp，归属在 README 逐条标注）---
+34:    46cd:	75 d1                	jne    46a0 <baseline_native_poly_frommsg+0x10>
+encoder_jump_grep_exit=0

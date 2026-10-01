@@ -1,0 +1,41 @@
+
+/build/cmake/reference/measure:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000004690 <baseline_native_poly_frommsg>:
+    4690:	f3 0f 1e fa          	endbr64
+    4694:	49 89 f8             	mov    %rdi,%r8
+    4697:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+    469d:	31 ff                	xor    %edi,%edi
+    469f:	90                   	nop
+    46a0:	31 c9                	xor    %ecx,%ecx
+    46a2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    46a8:	44 89 c8             	mov    %r9d,%eax
+    46ab:	d3 e0                	shl    %cl,%eax
+    46ad:	22 06                	and    (%rsi),%al
+    46af:	0f b6 c0             	movzbl %al,%eax
+    46b2:	f7 d8                	neg    %eax
+    46b4:	c1 f8 10             	sar    $0x10,%eax
+    46b7:	8d 14 39             	lea    (%rcx,%rdi,1),%edx
+    46ba:	83 c1 01             	add    $0x1,%ecx
+    46bd:	66 25 81 06          	and    $0x681,%ax
+    46c1:	66 41 89 04 50       	mov    %ax,(%r8,%rdx,2)
+    46c6:	83 f9 08             	cmp    $0x8,%ecx
+    46c9:	75 dd                	jne    46a8 <baseline_native_poly_frommsg+0x18>
+    46cb:	83 c7 08             	add    $0x8,%edi
+    46ce:	48 83 c6 01          	add    $0x1,%rsi
+    46d2:	81 ff 00 01 00 00    	cmp    $0x100,%edi
+    46d8:	75 c6                	jne    46a0 <baseline_native_poly_frommsg+0x10>
+    46da:	c3                   	ret
+
+Disassembly of section .fini:

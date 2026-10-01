@@ -178,3 +178,36 @@ CMake 的补丁准备与等价检查改为按变体参数化，`equivalence` 拆
 冒烟采集的 CSV 与报告不归档。证据见 [evidence/linux-gcc](evidence/linux-gcc/README.md)。
 这是 Linux 加真实 GNU GCC 的功能与产物验证，**不是 x86_64 验证，也不是时序证据**；
 真实 x86_64 Linux 主机上的采集与固定检验仍未执行。
+
+## x86_64 指令集下的产物形态（QEMU 模拟）
+
+本节是**追加**记录，不改写上面任何一节的结论。上一节「Linux 与 GNU GCC 的功能验证」的结论边界里
+「不支持：x86_64 指令集下的产物形态」这一条，在本机用 `docker run --platform linux/amd64`
+（Apple Silicon 上的 QEMU 用户态模拟，解释器实测为 `/usr/bin/qemu-x86_64`）加真实 GNU GCC 13.3.0
+**部分**闭合：只闭合产物形态与功能构建，**绝不闭合时序**。
+
+对干净工作区的提交 `343a6cb5934bf1241106e4f9742a74c3dae1e5a7` 在容器内实测
+（Ubuntu 24.04 / Linux x86_64、GCC 13.3.0、CMake 3.28.3、GNU patch 2.7.6、binutils 2.42、
+OpenSSL 3.0.13，生成器为容器内默认的 Unix Makefiles、RelWithDebInfo）：
+
+- 配置与完整构建在严格警告加 `-Werror` 下**零警告**，三个补丁在 GNU patch 2.7.6 下都无 fuzz 应用。
+- `ctest -N` 实测 **16 项**，`ctest --output-on-failure` **16 项全部通过**，
+  QEMU 下没有出现失败或超时，没有为通过而缩减样本、放宽断言或跳过测试。
+- 四个变体的 `baseline version` 与系统随机源自检正常；冒烟采集（每类 50 次）成功。
+- **x86_64 GCC 把缺陷版的秘密相关分支表达为 `and $0x1,%eax` + `test %eax,%eax` + `je`**，
+  两条路径分别写 `$0x681`(1665) 与 `$0x0`；对照 ARM64 GCC 的 `cmp` + `b.eq`、
+  ARM64 Apple Clang 的 `tbz`。三套工具链都保留了该目标机制。
+- **防护版与可部署版在 x86_64 产物里同样只剩循环边界条件分支**（实测助记符为 `jbe` / `jne`，
+  操作数链为系数计数器），消息位只参与掩码算术。
+- 可部署版在 GCC 13.3.0 / `-O2` 下**被内联**进 `baseline_native_indcpa_enc`
+  （`poly_frommsg` 调用点计数为 0，内联判据正则在调用者反汇编中命中 `and $0x681,%ax`），
+  因此它的产物形态结论对象是调用者里的内联段，与另三个变体的独立符号不是同一粒度。
+  这是独立于 ARM64 的第二次实测，不是套用模块一结论。
+- 本构建是便携 C 后端：无 `src/native/x86_64` 源文件、无 AVX2 选项、无原生后端宏。
+
+容器内 `clock_getres(CLOCK_MONOTONIC)` 报告 1000000ns（1ms），**且这是 QEMU 模拟**，
+因此模拟执行时间在任何意义上都不是时序证据，连「量级参考」都不写；
+原始 CSV 与分析报告一律不归档，`analyze` 未运行。
+证据见 [evidence/linux-amd64](evidence/linux-amd64/README.md)。
+QEMU 模拟、容器、交叉编译、macOS/ARM 都不得表述为真实 x86_64 Linux 实测；
+**真实 x86_64 Linux 主机上的采集与固定检验仍未执行**。

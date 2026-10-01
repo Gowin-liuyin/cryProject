@@ -1,0 +1,20 @@
+Internal ctest changing into directory: /build/cmake
+Test project /build/cmake
+  Test  #1: reference_kat
+  Test  #2: reference_random_failure
+  Test  #3: vulnerable_kat
+  Test  #4: vulnerable_random_failure
+  Test  #5: hardened_kat
+  Test  #6: hardened_random_failure
+  Test  #7: deployable_kat
+  Test  #8: deployable_random_failure
+  Test  #9: equivalence_vulnerable
+  Test #10: equivalence_hardened
+  Test #11: equivalence_deployable
+  Test #12: cli
+  Test #13: measurement
+  Test #14: vector_parser
+  Test #15: analysis
+  Test #16: vector_integrity
+
+Total Tests: 16

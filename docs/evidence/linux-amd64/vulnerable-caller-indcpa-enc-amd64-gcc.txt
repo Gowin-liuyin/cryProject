@@ -1,0 +1,268 @@
+
+/build/cmake/vulnerable/measure:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000005fa0 <baseline_native_indcpa_enc>:
+    5fa0:	f3 0f 1e fa          	endbr64
+    5fa4:	4c 8d 54 24 08       	lea    0x8(%rsp),%r10
+    5fa9:	48 83 e4 e0          	and    $0xffffffffffffffe0,%rsp
+    5fad:	41 ff 72 f8          	push   -0x8(%r10)
+    5fb1:	55                   	push   %rbp
+    5fb2:	48 89 e5             	mov    %rsp,%rbp
+    5fb5:	41 57                	push   %r15
+    5fb7:	41 56                	push   %r14
+    5fb9:	41 55                	push   %r13
+    5fbb:	41 54                	push   %r12
+    5fbd:	41 52                	push   %r10
+    5fbf:	53                   	push   %rbx
+    5fc0:	48 81 ec 00 10 00 00 	sub    $0x1000,%rsp
+    5fc7:	48 83 0c 24 00       	orq    $0x0,(%rsp)
+    5fcc:	48 81 ec 00 10 00 00 	sub    $0x1000,%rsp
+    5fd3:	48 83 0c 24 00       	orq    $0x0,(%rsp)
+    5fd8:	48 81 ec 00 10 00 00 	sub    $0x1000,%rsp
+    5fdf:	48 83 0c 24 00       	orq    $0x0,(%rsp)
+    5fe4:	48 81 ec a0 03 00 00 	sub    $0x3a0,%rsp
+    5feb:	48 89 bd 50 cc ff ff 	mov    %rdi,-0x33b0(%rbp)
+    5ff2:	49 89 d2             	mov    %rdx,%r10
+    5ff5:	49 89 f3             	mov    %rsi,%r11
+    5ff8:	48 89 d6             	mov    %rdx,%rsi
+    5ffb:	49 89 ce             	mov    %rcx,%r14
+    5ffe:	4c 8d bd 90 ed ff ff 	lea    -0x1270(%rbp),%r15
+    6005:	4c 8d a5 90 d9 ff ff 	lea    -0x2670(%rbp),%r12
+    600c:	4c 8d ad 90 d7 ff ff 	lea    -0x2870(%rbp),%r13
+    6013:	48 8d 9d 90 d5 ff ff 	lea    -0x2a70(%rbp),%rbx
+    601a:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    6021:	00 00 
+    6023:	48 89 45 c8          	mov    %rax,-0x38(%rbp)
+    6027:	31 c0                	xor    %eax,%eax
+    6029:	48 8d 85 90 db ff ff 	lea    -0x2470(%rbp),%rax
+    6030:	48 89 c7             	mov    %rax,%rdi
+    6033:	48 89 85 80 cc ff ff 	mov    %rax,-0x3380(%rbp)
+    603a:	e8 01 d5 ff ff       	call   3540 <mlk_poly_frombytes_c>
+    603f:	49 8d b2 80 01 00 00 	lea    0x180(%r10),%rsi
+    6046:	48 8d bd 90 dd ff ff 	lea    -0x2270(%rbp),%rdi
+    604d:	e8 ee d4 ff ff       	call   3540 <mlk_poly_frombytes_c>
+    6052:	49 8d b2 00 03 00 00 	lea    0x300(%r10),%rsi
+    6059:	48 8d bd 90 df ff ff 	lea    -0x2070(%rbp),%rdi
+    6060:	e8 db d4 ff ff       	call   3540 <mlk_poly_frombytes_c>
+    6065:	4c 89 de             	mov    %r11,%rsi
+    6068:	f3 41 0f 6f 8a 80 04 	movdqu 0x480(%r10),%xmm1
+    606f:	00 00 
+    6071:	f3 41 0f 6f 92 90 04 	movdqu 0x490(%r10),%xmm2
+    6078:	00 00 
+    607a:	4c 8d 95 90 ce ff ff 	lea    -0x3170(%rbp),%r10
+    6081:	4c 89 d7             	mov    %r10,%rdi
+    6084:	4c 89 95 48 cc ff ff 	mov    %r10,-0x33b8(%rbp)
+    608b:	0f 29 4d 90          	movaps %xmm1,-0x70(%rbp)
+    608f:	0f 29 55 a0          	movaps %xmm2,-0x60(%rbp)
+    6093:	e8 48 cf ff ff       	call   2fe0 <baseline_native_poly_frommsg>
+    6098:	48 8d 75 90          	lea    -0x70(%rbp),%rsi
+    609c:	4c 89 ff             	mov    %r15,%rdi
+    609f:	ba 01 00 00 00       	mov    $0x1,%edx
+    60a4:	48 89 b5 88 cc ff ff 	mov    %rsi,-0x3378(%rbp)
+    60ab:	4c 89 bd 60 cc ff ff 	mov    %r15,-0x33a0(%rbp)
+    60b2:	e8 b9 f8 ff ff       	call   5970 <baseline_native_gen_matrix>
+    60b7:	48 83 ec 08          	sub    $0x8,%rsp
+    60bb:	4d 89 f0             	mov    %r14,%r8
+    60be:	4c 89 e2             	mov    %r12,%rdx
+    60c1:	68 ff 00 00 00       	push   $0xff
+    60c6:	4c 89 ee             	mov    %r13,%rsi
+    60c9:	45 31 c9             	xor    %r9d,%r9d
+    60cc:	31 c9                	xor    %ecx,%ecx
+    60ce:	6a 02                	push   $0x2
+    60d0:	48 89 df             	mov    %rbx,%rdi
+    60d3:	6a 01                	push   $0x1
+    60d5:	e8 c6 fc ff ff       	call   5da0 <baseline_native_poly_getnoise_eta1_4x>
+    60da:	48 8d 85 90 e1 ff ff 	lea    -0x1e70(%rbp),%rax
+    60e1:	48 83 c4 18          	add    $0x18,%rsp
+    60e5:	4d 89 f0             	mov    %r14,%r8
+    60e8:	48 8d 8d 90 d0 ff ff 	lea    -0x2f70(%rbp),%rcx
+    60ef:	48 89 c7             	mov    %rax,%rdi
+    60f2:	48 89 85 78 cc ff ff 	mov    %rax,-0x3388(%rbp)
+    60f9:	48 8d 95 90 e5 ff ff 	lea    -0x1a70(%rbp),%rdx
+    6100:	48 89 8d 70 cc ff ff 	mov    %rcx,-0x3390(%rbp)
+    6107:	41 b9 03 00 00 00    	mov    $0x3,%r9d
+    610d:	48 8d b5 90 e3 ff ff 	lea    -0x1c70(%rbp),%rsi
+    6114:	4c 8d b5 90 d2 ff ff 	lea    -0x2d70(%rbp),%r14
+    611b:	6a 06                	push   $0x6
+    611d:	6a 05                	push   $0x5
+    611f:	6a 04                	push   $0x4
+    6121:	e8 7a fc ff ff       	call   5da0 <baseline_native_poly_getnoise_eta1_4x>
+    6126:	48 83 c4 20          	add    $0x20,%rsp
+    612a:	48 89 df             	mov    %rbx,%rdi
+    612d:	e8 0e e3 ff ff       	call   4440 <mlk_poly_ntt_c>
+    6132:	4c 89 ef             	mov    %r13,%rdi
+    6135:	e8 06 e3 ff ff       	call   4440 <mlk_poly_ntt_c>
+    613a:	4c 89 e7             	mov    %r12,%rdi
+    613d:	e8 fe e2 ff ff       	call   4440 <mlk_poly_ntt_c>
+    6142:	48 89 de             	mov    %rbx,%rsi
+    6145:	4c 89 f7             	mov    %r14,%rdi
+    6148:	e8 93 d4 ff ff       	call   35e0 <mlk_poly_mulcache_compute_c>
+    614d:	4c 89 ee             	mov    %r13,%rsi
+    6150:	48 8d bd 90 d3 ff ff 	lea    -0x2c70(%rbp),%rdi
+    6157:	4d 89 fd             	mov    %r15,%r13
+    615a:	e8 81 d4 ff ff       	call   35e0 <mlk_poly_mulcache_compute_c>
+    615f:	4c 89 e6             	mov    %r12,%rsi
+    6162:	48 8d bd 90 d4 ff ff 	lea    -0x2b70(%rbp),%rdi
+    6169:	4c 8d a5 90 e7 ff ff 	lea    -0x1870(%rbp),%r12
+    6170:	e8 6b d4 ff ff       	call   35e0 <mlk_poly_mulcache_compute_c>
+    6175:	4c 89 a5 68 cc ff ff 	mov    %r12,-0x3398(%rbp)
+    617c:	4c 8b bd 48 cc ff ff 	mov    -0x33b8(%rbp),%r15
+    6183:	4c 89 a5 58 cc ff ff 	mov    %r12,-0x33a8(%rbp)
+    618a:	4c 89 ee             	mov    %r13,%rsi
+    618d:	4c 89 e7             	mov    %r12,%rdi
+    6190:	4c 89 f1             	mov    %r14,%rcx
+    6193:	48 89 da             	mov    %rbx,%rdx
+    6196:	e8 85 d6 ff ff       	call   3820 <mlk_polyvec_basemul_acc_montgomery_cached_c>
+    619b:	48 8b 85 88 cc ff ff 	mov    -0x3378(%rbp),%rax
+    61a2:	49 81 c5 00 06 00 00 	add    $0x600,%r13
+    61a9:	49 81 c4 00 02 00 00 	add    $0x200,%r12
+    61b0:	49 39 c5             	cmp    %rax,%r13
+    61b3:	75 d5                	jne    618a <baseline_native_indcpa_enc+0x1ea>
+    61b5:	4c 8b 85 68 cc ff ff 	mov    -0x3398(%rbp),%r8
+    61bc:	4c 89 f1             	mov    %r14,%rcx
+    61bf:	48 89 da             	mov    %rbx,%rdx
+    61c2:	48 8b b5 80 cc ff ff 	mov    -0x3380(%rbp),%rsi
+    61c9:	4c 8b a5 58 cc ff ff 	mov    -0x33a8(%rbp),%r12
+    61d0:	4c 8d ad 90 cc ff ff 	lea    -0x3370(%rbp),%r13
+    61d7:	4c 89 bd 48 cc ff ff 	mov    %r15,-0x33b8(%rbp)
+    61de:	4c 89 ef             	mov    %r13,%rdi
+    61e1:	4c 89 85 40 cc ff ff 	mov    %r8,-0x33c0(%rbp)
+    61e8:	e8 33 d6 ff ff       	call   3820 <mlk_polyvec_basemul_acc_montgomery_cached_c>
+    61ed:	4c 89 e7             	mov    %r12,%rdi
+    61f0:	e8 5b d4 ff ff       	call   3650 <mlk_poly_invntt_tomont_c>
+    61f5:	48 8d 85 90 e9 ff ff 	lea    -0x1670(%rbp),%rax
+    61fc:	48 89 c7             	mov    %rax,%rdi
+    61ff:	48 89 85 58 cc ff ff 	mov    %rax,-0x33a8(%rbp)
+    6206:	e8 45 d4 ff ff       	call   3650 <mlk_poly_invntt_tomont_c>
+    620b:	48 8d 85 90 eb ff ff 	lea    -0x1470(%rbp),%rax
+    6212:	48 89 c7             	mov    %rax,%rdi
+    6215:	48 89 85 68 cc ff ff 	mov    %rax,-0x3398(%rbp)
+    621c:	e8 2f d4 ff ff       	call   3650 <mlk_poly_invntt_tomont_c>
+    6221:	4c 89 ef             	mov    %r13,%rdi
+    6224:	e8 27 d4 ff ff       	call   3650 <mlk_poly_invntt_tomont_c>
+    6229:	48 8b 95 78 cc ff ff 	mov    -0x3388(%rbp),%rdx
+    6230:	4c 8b 85 40 cc ff ff 	mov    -0x33c0(%rbp),%r8
+    6237:	49 8d 8c 24 00 06 00 	lea    0x600(%r12),%rcx
+    623e:	00 
+    623f:	4c 8b 95 48 cc ff ff 	mov    -0x33b8(%rbp),%r10
+    6246:	31 c0                	xor    %eax,%eax
+    6248:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    624f:	00 
+    6250:	66 41 0f 6f 04 00    	movdqa (%r8,%rax,1),%xmm0
+    6256:	66 0f fd 04 02       	paddw  (%rdx,%rax,1),%xmm0
+    625b:	41 0f 29 04 00       	movaps %xmm0,(%r8,%rax,1)
+    6260:	48 83 c0 10          	add    $0x10,%rax
+    6264:	48 3d 00 02 00 00    	cmp    $0x200,%rax
+    626a:	75 e4                	jne    6250 <baseline_native_indcpa_enc+0x2b0>
+    626c:	49 81 c0 00 02 00 00 	add    $0x200,%r8
+    6273:	48 81 c2 00 02 00 00 	add    $0x200,%rdx
+    627a:	49 39 c8             	cmp    %rcx,%r8
+    627d:	75 c7                	jne    6246 <baseline_native_indcpa_enc+0x2a6>
+    627f:	48 8b 8d 70 cc ff ff 	mov    -0x3390(%rbp),%rcx
+    6286:	4c 89 ea             	mov    %r13,%rdx
+    6289:	4c 89 e8             	mov    %r13,%rax
+    628c:	0f 1f 40 00          	nopl   0x0(%rax)
+    6290:	66 0f 6f 01          	movdqa (%rcx),%xmm0
+    6294:	66 0f fd 00          	paddw  (%rax),%xmm0
+    6298:	48 83 c0 10          	add    $0x10,%rax
+    629c:	48 83 c1 10          	add    $0x10,%rcx
+    62a0:	0f 29 40 f0          	movaps %xmm0,-0x10(%rax)
+    62a4:	4c 39 d0             	cmp    %r10,%rax
+    62a7:	75 e7                	jne    6290 <baseline_native_indcpa_enc+0x2f0>
+    62a9:	4c 89 d0             	mov    %r10,%rax
+    62ac:	0f 1f 40 00          	nopl   0x0(%rax)
+    62b0:	66 0f 6f 00          	movdqa (%rax),%xmm0
+    62b4:	66 0f fd 02          	paddw  (%rdx),%xmm0
+    62b8:	48 83 c2 10          	add    $0x10,%rdx
+    62bc:	48 83 c0 10          	add    $0x10,%rax
+    62c0:	0f 29 42 f0          	movaps %xmm0,-0x10(%rdx)
+    62c4:	4c 39 d2             	cmp    %r10,%rdx
+    62c7:	75 e7                	jne    62b0 <baseline_native_indcpa_enc+0x310>
+    62c9:	4c 89 e7             	mov    %r12,%rdi
+    62cc:	48 89 95 48 cc ff ff 	mov    %rdx,-0x33b8(%rbp)
+    62d3:	e8 b8 d2 ff ff       	call   3590 <mlk_poly_reduce_c>
+    62d8:	48 8b bd 58 cc ff ff 	mov    -0x33a8(%rbp),%rdi
+    62df:	e8 ac d2 ff ff       	call   3590 <mlk_poly_reduce_c>
+    62e4:	48 8b bd 68 cc ff ff 	mov    -0x3398(%rbp),%rdi
+    62eb:	e8 a0 d2 ff ff       	call   3590 <mlk_poly_reduce_c>
+    62f0:	4c 89 ef             	mov    %r13,%rdi
+    62f3:	e8 98 d2 ff ff       	call   3590 <mlk_poly_reduce_c>
+    62f8:	4c 8b bd 50 cc ff ff 	mov    -0x33b0(%rbp),%r15
+    62ff:	4c 89 e6             	mov    %r12,%rsi
+    6302:	4c 89 ff             	mov    %r15,%rdi
+    6305:	e8 56 cf ff ff       	call   3260 <mlk_poly_compress_d10_c>
+    630a:	48 8b b5 58 cc ff ff 	mov    -0x33a8(%rbp),%rsi
+    6311:	49 8d bf 40 01 00 00 	lea    0x140(%r15),%rdi
+    6318:	e8 43 cf ff ff       	call   3260 <mlk_poly_compress_d10_c>
+    631d:	48 8b b5 68 cc ff ff 	mov    -0x3398(%rbp),%rsi
+    6324:	49 8d bf 80 02 00 00 	lea    0x280(%r15),%rdi
+    632b:	e8 30 cf ff ff       	call   3260 <mlk_poly_compress_d10_c>
+    6330:	49 8d bf c0 03 00 00 	lea    0x3c0(%r15),%rdi
+    6337:	4c 89 ee             	mov    %r13,%rsi
+    633a:	e8 11 cd ff ff       	call   3050 <mlk_poly_compress_d4_c>
+    633f:	31 c0                	xor    %eax,%eax
+    6341:	4c 89 f7             	mov    %r14,%rdi
+    6344:	b9 60 00 00 00       	mov    $0x60,%ecx
+    6349:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    634c:	48 8b bd 70 cc ff ff 	mov    -0x3390(%rbp),%rdi
+    6353:	b9 40 00 00 00       	mov    $0x40,%ecx
+    6358:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    635b:	48 8b bd 70 cc ff ff 	mov    -0x3390(%rbp),%rdi
+    6362:	48 8b 95 48 cc ff ff 	mov    -0x33b8(%rbp),%rdx
+    6369:	b9 40 00 00 00       	mov    $0x40,%ecx
+    636e:	48 89 d7             	mov    %rdx,%rdi
+    6371:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    6374:	b9 40 00 00 00       	mov    $0x40,%ecx
+    6379:	4c 89 ef             	mov    %r13,%rdi
+    637c:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    637f:	b9 c0 00 00 00       	mov    $0xc0,%ecx
+    6384:	4c 89 e7             	mov    %r12,%rdi
+    6387:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    638a:	48 8b bd 78 cc ff ff 	mov    -0x3388(%rbp),%rdi
+    6391:	b9 c0 00 00 00       	mov    $0xc0,%ecx
+    6396:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    6399:	48 8b bd 78 cc ff ff 	mov    -0x3388(%rbp),%rdi
+    63a0:	48 8b bd 80 cc ff ff 	mov    -0x3380(%rbp),%rdi
+    63a7:	b9 c0 00 00 00       	mov    $0xc0,%ecx
+    63ac:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    63af:	48 8b bd 80 cc ff ff 	mov    -0x3380(%rbp),%rdi
+    63b6:	b9 c0 00 00 00       	mov    $0xc0,%ecx
+    63bb:	48 89 df             	mov    %rbx,%rdi
+    63be:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    63c1:	48 8b bd 60 cc ff ff 	mov    -0x33a0(%rbp),%rdi
+    63c8:	b9 40 02 00 00       	mov    $0x240,%ecx
+    63cd:	f3 48 ab             	rep stos %rax,%es:(%rdi)
+    63d0:	48 8b bd 60 cc ff ff 	mov    -0x33a0(%rbp),%rdi
+    63d7:	66 0f ef c0          	pxor   %xmm0,%xmm0
+    63db:	48 8b 85 88 cc ff ff 	mov    -0x3378(%rbp),%rax
+    63e2:	0f 29 45 90          	movaps %xmm0,-0x70(%rbp)
+    63e6:	0f 29 45 a0          	movaps %xmm0,-0x60(%rbp)
+    63ea:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+    63ee:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+    63f5:	00 00 
+    63f7:	75 17                	jne    6410 <baseline_native_indcpa_enc+0x470>
+    63f9:	48 8d 65 d0          	lea    -0x30(%rbp),%rsp
+    63fd:	31 c0                	xor    %eax,%eax
+    63ff:	5b                   	pop    %rbx
+    6400:	41 5a                	pop    %r10
+    6402:	41 5c                	pop    %r12
+    6404:	41 5d                	pop    %r13
+    6406:	41 5e                	pop    %r14
+    6408:	41 5f                	pop    %r15
+    640a:	5d                   	pop    %rbp
+    640b:	49 8d 62 f8          	lea    -0x8(%r10),%rsp
+    640f:	c3                   	ret
+    6410:	e8 eb be ff ff       	call   2300 <__stack_chk_fail@plt>
+
+Disassembly of section .fini:

@@ -1,0 +1,310 @@
+=== M2-2 平台与工具版本 ===
+--- uname -a ---
+Linux a8f082d68ce6 6.12.76-linuxkit #1 SMP Sun Mar  8 14:41:59 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+--- uname -m ---
+x86_64
+--- gcc --version ---
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+--- cmake --version ---
+cmake version 3.28.3
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+--- patch --version ---
+GNU patch 2.7.6
+Copyright (C) 2003, 2009-2012 Free Software Foundation, Inc.
+Copyright (C) 1988 Larry Wall
+
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Larry Wall and Paul Eggert
+--- objdump --version ---
+GNU objdump (GNU Binutils for Ubuntu) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+--- openssl version ---
+OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+--- command -v shasum ---
+/usr/bin/shasum
+--- objdump --help | grep -i disassemble（确认 GNU 选项拼写）---
+  -d, --disassemble        Display assembler contents of executable sections
+  -D, --disassemble-all    Display assembler contents of all sections
+      --disassemble=<sym>  Display assembler contents from <sym>
+  -M, --disassembler-options=OPT Pass text OPT on to the disassembler
+  -z, --disassemble-zeroes       Do not skip blocks of zeroes when disassembling
+      --disassembler-color=off       Disable disassembler color output. (default)
+      --disassembler-color=terminal  Enable disassembler color output if displaying on a terminal.
+      --disassembler-color=on        Enable disassembler color output.
+      --disassembler-color=extended  Use 8-bit colors in disassembler output.
+The following i386/x86-64 specific disassembler options are supported for use
+  x86-64      Disassemble in 64bit mode
+  i386        Disassemble in 32bit mode
+  i8086       Disassemble in 16bit mode
+=== M2-9 /proc/cpuinfo（head -20，容器内）===
+processor	: 0
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint i8mm bf16 bti afp ebf16
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 1
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint i8mm bf16 bti afp ebf16
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 2
+BogoMIPS	: 48.00
+--- grep -c "model name" /proc/cpuinfo ---
+0
+=== 配置（硬失败段）===
+=== M2-4 完整构建（记录退出码后继续）===
+--- M2-4a 容器内 fuzz 门禁：grep -n "with fuzz" /build/build.log ---
+--- M2-4 警告扫描：grep -nE "warning:|Warning:" /build/build.log ---
+=== M2-5 ctest ===
+  Test #14: vector_parser
+  Test #15: analysis
+  Test #16: vector_integrity
+
+Total Tests: 16
+ 6/16 Test  #6: hardened_random_failure ..........   Passed    0.01 sec
+      Start  7: deployable_kat
+ 7/16 Test  #7: deployable_kat ...................   Passed    0.22 sec
+      Start  8: deployable_random_failure
+ 8/16 Test  #8: deployable_random_failure ........   Passed    0.01 sec
+      Start  9: equivalence_vulnerable
+ 9/16 Test  #9: equivalence_vulnerable ...........   Passed    0.32 sec
+      Start 10: equivalence_hardened
+10/16 Test #10: equivalence_hardened .............   Passed    0.32 sec
+      Start 11: equivalence_deployable
+11/16 Test #11: equivalence_deployable ...........   Passed    0.32 sec
+      Start 12: cli
+12/16 Test #12: cli ..............................   Passed    1.19 sec
+      Start 13: measurement
+13/16 Test #13: measurement ......................   Passed    0.73 sec
+      Start 14: vector_parser
+14/16 Test #14: vector_parser ....................   Passed    0.85 sec
+      Start 15: analysis
+15/16 Test #15: analysis .........................   Passed    1.82 sec
+      Start 16: vector_integrity
+16/16 Test #16: vector_integrity .................   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 16
+
+Total Test time (real) =   6.53 sec
+=== 产物前置条件（第二处硬失败）===
+=== M2-6 四个变体 baseline version 与 selftest ===
+--- reference version ---
+reference ML-KEM-768 FIPS203
+--- reference selftest（系统随机源）---
+reference: system-random keygen/encaps/decaps roundtrip passed
+--- vulnerable version ---
+vulnerable ML-KEM-768 FIPS203
+--- vulnerable selftest（系统随机源）---
+vulnerable: system-random keygen/encaps/decaps roundtrip passed
+--- hardened version ---
+hardened ML-KEM-768 FIPS203
+--- hardened selftest（系统随机源）---
+hardened: system-random keygen/encaps/decaps roundtrip passed
+--- deployable version ---
+deployable ML-KEM-768 FIPS203
+--- deployable selftest（系统随机源）---
+deployable: system-random keygen/encaps/decaps roundtrip passed
+=== 冒烟采集（每类 50 次，只为执行 Linux 代码路径与记录平台字段；CSV 不归档）===
+reference: saved 250 raw decapsulation times in ns; no statistical conclusion
+--- reference-smoke.meta 关键字段 ---
+1:run_id=smoke-reference
+2:implementation=reference
+3:test_seed=20260930
+5:clock=CLOCK_MONOTONIC
+6:time_unit=ns
+7:clock_resolution_ns=1000000
+13:cpu_model=unavailable
+14:cpu_affinity=not_pinned
+15:frequency_control=not_configured
+16:executable_digest_algorithm=SHA3-256
+17:executable_digest=fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526
+18:source_commit=343a6cb5934bf1241106e4f9742a74c3dae1e5a7
+20:build_system=CMake 3.28.3
+21:generator=Unix Makefiles
+22:configuration=RelWithDebInfo
+23:compiler_flags= -O2 -g -DNDEBUG -std=c11
+24:compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+25:compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+31:sanitizers=OFF
+vulnerable: saved 250 raw decapsulation times in ns; no statistical conclusion
+--- vulnerable-smoke.meta 关键字段 ---
+1:run_id=smoke-vulnerable
+2:implementation=vulnerable
+3:test_seed=20260930
+5:clock=CLOCK_MONOTONIC
+6:time_unit=ns
+7:clock_resolution_ns=1000000
+13:cpu_model=unavailable
+14:cpu_affinity=not_pinned
+15:frequency_control=not_configured
+16:executable_digest_algorithm=SHA3-256
+17:executable_digest=254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1
+18:source_commit=343a6cb5934bf1241106e4f9742a74c3dae1e5a7
+20:build_system=CMake 3.28.3
+21:generator=Unix Makefiles
+22:configuration=RelWithDebInfo
+23:compiler_flags= -O2 -g -DNDEBUG -std=c11
+24:compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+25:compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+31:sanitizers=OFF
+hardened: saved 250 raw decapsulation times in ns; no statistical conclusion
+--- hardened-smoke.meta 关键字段 ---
+1:run_id=smoke-hardened
+2:implementation=hardened
+3:test_seed=20260930
+5:clock=CLOCK_MONOTONIC
+6:time_unit=ns
+7:clock_resolution_ns=1000000
+13:cpu_model=unavailable
+14:cpu_affinity=not_pinned
+15:frequency_control=not_configured
+16:executable_digest_algorithm=SHA3-256
+17:executable_digest=ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e
+18:source_commit=343a6cb5934bf1241106e4f9742a74c3dae1e5a7
+20:build_system=CMake 3.28.3
+21:generator=Unix Makefiles
+22:configuration=RelWithDebInfo
+23:compiler_flags= -O2 -g -DNDEBUG -std=c11
+24:compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+25:compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+31:sanitizers=OFF
+deployable: saved 250 raw decapsulation times in ns; no statistical conclusion
+--- deployable-smoke.meta 关键字段 ---
+1:run_id=smoke-deployable
+2:implementation=deployable
+3:test_seed=20260930
+5:clock=CLOCK_MONOTONIC
+6:time_unit=ns
+7:clock_resolution_ns=1000000
+13:cpu_model=unavailable
+14:cpu_affinity=not_pinned
+15:frequency_control=not_configured
+16:executable_digest_algorithm=SHA3-256
+17:executable_digest=422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14
+18:source_commit=343a6cb5934bf1241106e4f9742a74c3dae1e5a7
+20:build_system=CMake 3.28.3
+21:generator=Unix Makefiles
+22:configuration=RelWithDebInfo
+23:compiler_flags= -O2 -g -DNDEBUG -std=c11
+24:compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+25:compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+31:sanitizers=OFF
+=== M2-3 时钟分辨率（来自 measure 的 clock_getres(CLOCK_MONOTONIC)）===
+/build/reference-smoke.meta:clock_resolution_ns=1000000
+/build/vulnerable-smoke.meta:clock_resolution_ns=1000000
+/build/hardened-smoke.meta:clock_resolution_ns=1000000
+/build/deployable-smoke.meta:clock_resolution_ns=1000000
+=== M2-7 四个变体编码函数的 x86_64 反汇编 ===
+  41 /build/reference-encoder-amd64-gcc.txt
+  53 /build/vulnerable-encoder-amd64-gcc.txt
+  54 /build/hardened-encoder-amd64-gcc.txt
+  37 /build/deployable-encoder-amd64-gcc.txt
+ 185 total
+=== M2-7a 调用路径核对 ===
+=== M2-8 便携 C 后端确认 ===
+--- grep -c "native/x86_64" compile_commands.json ---
+0
+--- grep -nE "avx2|AVX2|mavx2" compile_commands.json build.log ---
+--- grep -c "MLK_CONFIG_USE_NATIVE_BACKEND" compile_commands.json ---
+0
+=== M2-11 容器内独立同算法摘要 ===
+--- /build/binaries.sha3-256 ---
+SHA3-256(/build/cmake/reference/baseline)= 192109341343341bcf74f08118605e15c9f6d50c7fa8101798cd40cb8eedb58a
+SHA3-256(/build/cmake/reference/measure)= fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526
+SHA3-256(/build/cmake/vulnerable/baseline)= 653795a352cd8b32c43e47d1f190109a2e2db0535965c36c0fb140e139ef8141
+SHA3-256(/build/cmake/vulnerable/measure)= 254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1
+SHA3-256(/build/cmake/hardened/baseline)= 1cc0ab9a34d9825eb518d27eb21f4de4befa49783993f686e81ac3f242a974ae
+SHA3-256(/build/cmake/hardened/measure)= ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e
+SHA3-256(/build/cmake/deployable/baseline)= 4bda1b94dda490468f7df6e0e1ab59e33de29496b7cad996fdfcdfd3a0d753ff
+SHA3-256(/build/cmake/deployable/measure)= 422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14
+--- /build/binaries.sha256-in-container ---
+a0e140b7f84bd36cb535c5f98e131d664546e9da044469d0a6c532d0aad73a27  /build/cmake/reference/baseline
+0910fec40495e913eb9406f52dbef9cfc4656f1c344d54f297bdf2631e4e1c11  /build/cmake/reference/measure
+3e09aad7526026039155f96b57ff51e872a51455ff1c19159e86373509b8e654  /build/cmake/vulnerable/baseline
+6b915b873d311821f33f7262374b2922e90ba29e7c143c442ced4cbac79cc3b9  /build/cmake/vulnerable/measure
+db293850175b889ccbf37cc828cd8db2664159b70a9613a7a8b0b889081463c6  /build/cmake/hardened/baseline
+6cba862915d8772962c523a2dc41d9a2f05007b61a48bf70c4d5aa83ac8624e9  /build/cmake/hardened/measure
+6ec8e51e2c0c59aa13c200e6f096d8b2abb3468f915fd58f0cfec03dcd56e811  /build/cmake/deployable/baseline
+584ca31c43e200d6f303e0a8a8c5a2a79faff51f5046fbac220afcd1b435c4b5  /build/cmake/deployable/measure
+--- 四份 .meta 自报的 executable_digest（对象是各自的 measure）---
+/build/reference-smoke.meta:executable_digest_algorithm=SHA3-256
+/build/reference-smoke.meta:executable_digest=fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526
+/build/vulnerable-smoke.meta:executable_digest_algorithm=SHA3-256
+/build/vulnerable-smoke.meta:executable_digest=254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1
+/build/hardened-smoke.meta:executable_digest_algorithm=SHA3-256
+/build/hardened-smoke.meta:executable_digest=ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e
+/build/deployable-smoke.meta:executable_digest_algorithm=SHA3-256
+/build/deployable-smoke.meta:executable_digest=422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14
+=== step-exits.txt 全文 ===
+cpuinfo_model_name_grep_exit=1
+configure_exit=0
+build_exit=0
+fuzz_grep_exit=1
+build_warning_grep_exit=1
+ctest_list_exit=0
+ctest_exit=0
+artifact_precondition_exit=0
+reference_version_exit=0
+reference_selftest_exit=0
+vulnerable_version_exit=0
+vulnerable_selftest_exit=0
+hardened_version_exit=0
+hardened_selftest_exit=0
+deployable_version_exit=0
+deployable_selftest_exit=0
+reference_smoke_exit=0
+vulnerable_smoke_exit=0
+hardened_smoke_exit=0
+deployable_smoke_exit=0
+reference_encoder_objdump_exit=0
+vulnerable_encoder_objdump_exit=0
+hardened_encoder_objdump_exit=0
+deployable_encoder_objdump_exit=0
+deployable_path_objdump_exit=0
+reference_full_objdump_exit=0
+reference_caller_objdump_exit=0
+vulnerable_full_objdump_exit=0
+vulnerable_caller_objdump_exit=0
+hardened_full_objdump_exit=0
+hardened_caller_objdump_exit=0
+deployable_full_objdump_exit=0
+deployable_caller_objdump_exit=0
+compile_commands_copy_exit=0
+x86_64_source_grep_exit=1
+avx2_grep_exit=1
+native_backend_grep_exit=1
+reference_baseline_openssl_sha3_exit=0
+reference_baseline_shasum_exit=0
+reference_measure_openssl_sha3_exit=0
+reference_measure_shasum_exit=0
+vulnerable_baseline_openssl_sha3_exit=0
+vulnerable_baseline_shasum_exit=0
+vulnerable_measure_openssl_sha3_exit=0
+vulnerable_measure_shasum_exit=0
+hardened_baseline_openssl_sha3_exit=0
+hardened_baseline_shasum_exit=0
+hardened_measure_openssl_sha3_exit=0
+hardened_measure_shasum_exit=0
+deployable_baseline_openssl_sha3_exit=0
+deployable_baseline_shasum_exit=0
+deployable_measure_openssl_sha3_exit=0
+deployable_measure_shasum_exit=0

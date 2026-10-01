@@ -1,0 +1,37 @@
+
+/build/cmake/deployable/measure:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000004690 <baseline_native_poly_frommsg>:
+    4690:	f3 0f 1e fa          	endbr64
+    4694:	31 d2                	xor    %edx,%edx
+    4696:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    469c:	0f 1f 40 00          	nopl   0x0(%rax)
+    46a0:	89 d1                	mov    %edx,%ecx
+    46a2:	44 89 c0             	mov    %r8d,%eax
+    46a5:	83 e1 07             	and    $0x7,%ecx
+    46a8:	d3 e0                	shl    %cl,%eax
+    46aa:	89 d1                	mov    %edx,%ecx
+    46ac:	c1 e9 03             	shr    $0x3,%ecx
+    46af:	22 04 0e             	and    (%rsi,%rcx,1),%al
+    46b2:	0f b6 c0             	movzbl %al,%eax
+    46b5:	f7 d8                	neg    %eax
+    46b7:	c1 f8 10             	sar    $0x10,%eax
+    46ba:	66 25 81 06          	and    $0x681,%ax
+    46be:	66 89 04 57          	mov    %ax,(%rdi,%rdx,2)
+    46c2:	48 83 c2 01          	add    $0x1,%rdx
+    46c6:	48 81 fa 00 01 00 00 	cmp    $0x100,%rdx
+    46cd:	75 d1                	jne    46a0 <baseline_native_poly_frommsg+0x10>
+    46cf:	c3                   	ret
+
+Disassembly of section .fini:

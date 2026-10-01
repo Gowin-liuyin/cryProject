@@ -1,0 +1,179 @@
+模块二（docs/evidence/linux-amd64/）核对记录
+平台：QEMU 模拟的 linux/amd64 容器（解释器实测 /usr/bin/qemu-x86_64），不是真实 x86_64 主机。
+本文件只做功能/产物/摘要核对，不含任何时序结论。
+
+================ 1. M2-11 摘要核对（主路线：容器内 openssl dgst -sha3-256）================
+--- 容器内 openssl dgst -sha3-256（= 归档的 binaries.sha3-256）---
+SHA3-256(/build/cmake/reference/baseline)= 192109341343341bcf74f08118605e15c9f6d50c7fa8101798cd40cb8eedb58a
+SHA3-256(/build/cmake/reference/measure)= fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526
+SHA3-256(/build/cmake/vulnerable/baseline)= 653795a352cd8b32c43e47d1f190109a2e2db0535965c36c0fb140e139ef8141
+SHA3-256(/build/cmake/vulnerable/measure)= 254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1
+SHA3-256(/build/cmake/hardened/baseline)= 1cc0ab9a34d9825eb518d27eb21f4de4befa49783993f686e81ac3f242a974ae
+SHA3-256(/build/cmake/hardened/measure)= ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e
+SHA3-256(/build/cmake/deployable/baseline)= 4bda1b94dda490468f7df6e0e1ab59e33de29496b7cad996fdfcdfd3a0d753ff
+SHA3-256(/build/cmake/deployable/measure)= 422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14
+
+--- 四份 .meta 自报的 executable_digest（对象是各自的 measure，走 /proc/self/exe）---
+docs/evidence/linux-amd64/reference-smoke.meta:executable_digest_algorithm=SHA3-256
+docs/evidence/linux-amd64/reference-smoke.meta:executable_digest=fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526
+docs/evidence/linux-amd64/vulnerable-smoke.meta:executable_digest_algorithm=SHA3-256
+docs/evidence/linux-amd64/vulnerable-smoke.meta:executable_digest=254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1
+docs/evidence/linux-amd64/hardened-smoke.meta:executable_digest_algorithm=SHA3-256
+docs/evidence/linux-amd64/hardened-smoke.meta:executable_digest=ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e
+docs/evidence/linux-amd64/deployable-smoke.meta:executable_digest_algorithm=SHA3-256
+docs/evidence/linux-amd64/deployable-smoke.meta:executable_digest=422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14
+
+--- 逐个对照结论（同算法 SHA3-256，独立工具 vs 程序自报）---
+reference  measure: SHA3-256 fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526 == executable_digest  → 相同
+vulnerable measure: SHA3-256 254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1 == executable_digest  → 相同
+hardened   measure: SHA3-256 ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e == executable_digest  → 相同
+deployable measure: SHA3-256 422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14 == executable_digest  → 相同
+四个变体的 baseline 产物没有自报字段可对照（executable_digest 由 measure 写出），只留 SHA3-256 记录。
+走的是主路线：镜像里装了 openssl 3.0.13，容器内 sha3-256 可用，未使用备用路线。
+禁令遵守：未用 SHA-256 与 executable_digest 对照。
+
+================ 2. 容器内／宿主两侧 shasum -a 256 的逐行一致性 ================
+--- 容器内 shasum -a 256（/build/binaries.sha256-in-container 的内容，路径为容器内路径）---
+a0e140b7f84bd36cb535c5f98e131d664546e9da044469d0a6c532d0aad73a27  /build/cmake/reference/baseline
+0910fec40495e913eb9406f52dbef9cfc4656f1c344d54f297bdf2631e4e1c11  /build/cmake/reference/measure
+3e09aad7526026039155f96b57ff51e872a51455ff1c19159e86373509b8e654  /build/cmake/vulnerable/baseline
+6b915b873d311821f33f7262374b2922e90ba29e7c143c442ced4cbac79cc3b9  /build/cmake/vulnerable/measure
+db293850175b889ccbf37cc828cd8db2664159b70a9613a7a8b0b889081463c6  /build/cmake/hardened/baseline
+6cba862915d8772962c523a2dc41d9a2f05007b61a48bf70c4d5aa83ac8624e9  /build/cmake/hardened/measure
+6ec8e51e2c0c59aa13c200e6f096d8b2abb3468f915fd58f0cfec03dcd56e811  /build/cmake/deployable/baseline
+584ca31c43e200d6f303e0a8a8c5a2a79faff51f5046fbac220afcd1b435c4b5  /build/cmake/deployable/measure
+
+--- 宿主 shasum -a 256（= 归档的 binaries.sha256，对象是宿主可见的构建目录产物）---
+a0e140b7f84bd36cb535c5f98e131d664546e9da044469d0a6c532d0aad73a27  /tmp/linux-amd64-build/cmake/reference/baseline
+0910fec40495e913eb9406f52dbef9cfc4656f1c344d54f297bdf2631e4e1c11  /tmp/linux-amd64-build/cmake/reference/measure
+3e09aad7526026039155f96b57ff51e872a51455ff1c19159e86373509b8e654  /tmp/linux-amd64-build/cmake/vulnerable/baseline
+6b915b873d311821f33f7262374b2922e90ba29e7c143c442ced4cbac79cc3b9  /tmp/linux-amd64-build/cmake/vulnerable/measure
+db293850175b889ccbf37cc828cd8db2664159b70a9613a7a8b0b889081463c6  /tmp/linux-amd64-build/cmake/hardened/baseline
+6cba862915d8772962c523a2dc41d9a2f05007b61a48bf70c4d5aa83ac8624e9  /tmp/linux-amd64-build/cmake/hardened/measure
+6ec8e51e2c0c59aa13c200e6f096d8b2abb3468f915fd58f0cfec03dcd56e811  /tmp/linux-amd64-build/cmake/deployable/baseline
+584ca31c43e200d6f303e0a8a8c5a2a79faff51f5046fbac220afcd1b435c4b5  /tmp/linux-amd64-build/cmake/deployable/measure
+
+--- 摘要列逐行 diff（只比摘要值，路径前缀 /build 与 /tmp/linux-amd64-build 必然不同）---
+diff_exit=0  （0 = 八行逐行一致）
+
+摘要对象是容器写出的、宿主可见的构建目录产物（/tmp/linux-amd64-build/cmake/…），未拷入仓库；
+容器内 shasum -a 256（binaries.sha256-in-container）与这份 binaries.sha256 逐行一致，
+两侧钉住的是同一份文件。
+
+--- 宿主 openssl dgst -sha3-256 对同一批八个文件（额外交叉核对，非备用路线）---
+SHA3-256(/tmp/linux-amd64-build/cmake/reference/baseline)= 192109341343341bcf74f08118605e15c9f6d50c7fa8101798cd40cb8eedb58a
+SHA3-256(/tmp/linux-amd64-build/cmake/reference/measure)= fbfc5120fd5a3978b293c11d6a1d960f549299b223b1b79102c1cd626184c526
+SHA3-256(/tmp/linux-amd64-build/cmake/vulnerable/baseline)= 653795a352cd8b32c43e47d1f190109a2e2db0535965c36c0fb140e139ef8141
+SHA3-256(/tmp/linux-amd64-build/cmake/vulnerable/measure)= 254156c92d1b52fef8d3beab8a4375d7ec5a45bd23f2998a65a7c0a9a0061ac1
+SHA3-256(/tmp/linux-amd64-build/cmake/hardened/baseline)= 1cc0ab9a34d9825eb518d27eb21f4de4befa49783993f686e81ac3f242a974ae
+SHA3-256(/tmp/linux-amd64-build/cmake/hardened/measure)= ad83ecbb0eb17c3dd8201b30d9f37d72dba584261ff2feca4ede33b6045e640e
+SHA3-256(/tmp/linux-amd64-build/cmake/deployable/baseline)= 4bda1b94dda490468f7df6e0e1ab59e33de29496b7cad996fdfcdfd3a0d753ff
+SHA3-256(/tmp/linux-amd64-build/cmake/deployable/measure)= 422fd3a593751576ca340c2910d7b9836634787ec2cfb652af022185fe6f8e14
+宿主与容器内的 SHA3-256 八行同样逐行相同。
+
+================ 3. M2-4a fuzz 门禁（两次，判据 exit=1 通过）================
+--- 第一次：容器内（见 verification.log 与 step-exits.txt）---
+命令: grep -n "with fuzz" /build/build.log
+输出: （空）
+4:fuzz_grep_exit=1
+
+--- 第二次：宿主对归档副本 ---
+命令: grep -n 'with fuzz' docs/evidence/linux-amd64/build.log
+exit=1
+
+--- 三个补丁的实际 patch 输出（build.log:1-6）---
+[  1%] Generating hardened-source/patched.stamp
+[  2%] Generating vulnerable-source/patched.stamp
+[  4%] Generating deployable-source/patched.stamp
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+判定：两次均为 exit=1（无匹配），GNU patch 2.7.6 下三个补丁都无 fuzz 应用，门禁通过。
+
+================ 4. M2-4 零警告核对 ================
+命令: grep -nE "warning:|Warning:" /build/build.log  → 输出为空
+5:build_warning_grep_exit=1
+compile_commands.json 共 38 条编译命令，带 -Werror 的条数:
+38
+
+================ 5. M2-8 便携 C 后端核对 ================
+grep -c 'native/x86_64' compile_commands.json:
+0
+exit=1
+grep -nE 'avx2|AVX2|mavx2' compile_commands.json build.log:
+exit=1
+grep -c 'MLK_CONFIG_USE_NATIVE_BACKEND' compile_commands.json:
+0
+exit=1
+补丁副本的 include 优先级（三个补丁变体各一条，-I<变体>-source/mlkem 在 vendor 之前）:
+-I/build/cmake/deployable-source/mlkem
+-I/build/cmake/hardened-source/mlkem
+-I/build/cmake/vulnerable-source/mlkem
+
+================ 6. M2-10 宿主 git status --porcelain（容器是否污染仓库）================
+容器运行结束后、复制证据之前的实测输出：
+?? .agents/
+即只有既有的未跟踪代理草稿目录，被跟踪文件无改动；源码为 :ro 挂载，构建输出全部写在 /tmp/linux-amd64-build。
+
+================ 7. 0.4 第 6 条：git diff --cached --check ================
+--- 第一次（.gitattributes 尚未为本目录加条目）---
+命令: git add docs/evidence/linux-amd64 && git diff --cached --check; echo "exit=$?"
+实测 exit=2，共 757 行输出（每条警告两行：警告行 + 被指出的内容行）。
+按文件统计的警告条数（命令: git diff --cached --check | grep -oE '^docs/evidence/linux-amd64/[^:]+' | sort | uniq -c | sort -rn）:
+ 350 docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt
+   6 docs/evidence/linux-amd64/vulnerable-caller-indcpa-enc-amd64-gcc.txt
+   6 docs/evidence/linux-amd64/reference-caller-indcpa-enc-amd64-gcc.txt
+   6 docs/evidence/linux-amd64/hardened-caller-indcpa-enc-amd64-gcc.txt
+   5 docs/evidence/linux-amd64/deployable-caller-indcpa-enc-amd64-gcc.txt
+   1 docs/evidence/linux-amd64/vulnerable-smoke.meta
+   1 docs/evidence/linux-amd64/reference-smoke.meta
+   1 docs/evidence/linux-amd64/hardened-smoke.meta
+   1 docs/evidence/linux-amd64/deployable-smoke.meta
+   1 docs/evidence/linux-amd64/configure.log
+警告类型只有一种: trailing whitespace（即 git 的 blank-at-eol 检查）。
+涉及的扩展名实测为三种: .log / .meta / .txt。
+来源都是机器输出本身，不是手写内容: x86_64 objdump 把过长的指令字节列折行，
+续行形如 '    602e:	00 00 ' 末尾带空格; .meta 的 'link_flags=  ' 为空链接选项;
+configure.log 的 '-- Found Git: /usr/bin/git (found version "2.43.0") ' 是 CMake 自带的尾随空格。
+前 24 行逐字（完整 757 行可用下面这条命令原样复现：删掉 .gitattributes 里本目录的三条
+whitespace=-blank-at-eol 条目后重跑 git add + git diff --cached --check）:
+docs/evidence/linux-amd64/configure.log:7: trailing whitespace.
++-- Found Git: /usr/bin/git (found version "2.43.0") 
+docs/evidence/linux-amd64/deployable-caller-indcpa-enc-amd64-gcc.txt:42: trailing whitespace.
++    5fdc:	00 00 
+docs/evidence/linux-amd64/deployable-caller-indcpa-enc-amd64-gcc.txt:58: trailing whitespace.
++    602e:	00 00 
+docs/evidence/linux-amd64/deployable-caller-indcpa-enc-amd64-gcc.txt:60: trailing whitespace.
++    6037:	00 00 
+docs/evidence/linux-amd64/deployable-caller-indcpa-enc-amd64-gcc.txt:171: trailing whitespace.
++    6236:	00 
+docs/evidence/linux-amd64/deployable-caller-indcpa-enc-amd64-gcc.txt:265: trailing whitespace.
++    63e9:	00 00 
+docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt:353: trailing whitespace.
++    24a8:	00 00 
+docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt:355: trailing whitespace.
++    24b1:	00 
+docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt:381: trailing whitespace.
++    2520:	00 04 00 
+docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt:400: trailing whitespace.
++    2565:	00 
+docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt:408: trailing whitespace.
++    2587:	00 
+docs/evidence/linux-amd64/deployable-path-amd64-gcc.txt:412: trailing whitespace.
++    2594:	00 
+...
+
+--- 为本目录补的 .gitattributes 条目（模式限定为实际报警的三种扩展名，与既有条目同型）---
+/docs/evidence/linux-amd64/*.log whitespace=-blank-at-eol
+/docs/evidence/linux-amd64/*.meta whitespace=-blank-at-eol
+/docs/evidence/linux-amd64/*.txt whitespace=-blank-at-eol
+既有先例: linux-gcc 与 cmake 两个目录各有 *.log + *.meta 两条;
+deployable 目录另有 record-checks.txt 一条，即 .txt 型条目本仓库已有先例。
+本目录比预期（*.log + *.meta）多一条 *.txt，原因是 x86_64 objdump 的折行续行带尾随空格，
+ARM64 Apple objdump 的输出没有这种折行。这是实测结果，不是预期。
+
+--- 第二次（补条目后重跑，逐字输出）---
+命令: git add .gitattributes docs/evidence/linux-amd64 && git diff --cached --check; echo "exit=$?"
+输出: （空）
+exit=0
+判定: 通过。不格式化、不改写任何机器生成的证据文件内容。

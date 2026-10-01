@@ -1,0 +1,54 @@
+
+/build/cmake/hardened/measure:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000002fe0 <baseline_native_poly_frommsg>:
+    2fe0:	f3 0f 1e fa          	endbr64
+    2fe4:	55                   	push   %rbp
+    2fe5:	48 89 e5             	mov    %rsp,%rbp
+    2fe8:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    2fec:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+    2ff0:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+    2ff7:	eb 4b                	jmp    3044 <baseline_native_poly_frommsg+0x64>
+    2ff9:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    2ffc:	c1 e8 03             	shr    $0x3,%eax
+    2fff:	89 c2                	mov    %eax,%edx
+    3001:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    3005:	48 01 d0             	add    %rdx,%rax
+    3008:	0f b6 00             	movzbl (%rax),%eax
+    300b:	0f b6 d0             	movzbl %al,%edx
+    300e:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    3011:	83 e0 07             	and    $0x7,%eax
+    3014:	89 c1                	mov    %eax,%ecx
+    3016:	d3 fa                	sar    %cl,%edx
+    3018:	89 d0                	mov    %edx,%eax
+    301a:	83 e0 01             	and    $0x1,%eax
+    301d:	66 89 45 f8          	mov    %ax,-0x8(%rbp)
+    3021:	0f b7 45 f8          	movzwl -0x8(%rbp),%eax
+    3025:	f7 d8                	neg    %eax
+    3027:	66 89 45 fa          	mov    %ax,-0x6(%rbp)
+    302b:	0f b7 45 fa          	movzwl -0x6(%rbp),%eax
+    302f:	66 25 81 06          	and    $0x681,%ax
+    3033:	89 c1                	mov    %eax,%ecx
+    3035:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    3039:	8b 55 fc             	mov    -0x4(%rbp),%edx
+    303c:	66 89 0c 50          	mov    %cx,(%rax,%rdx,2)
+    3040:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    3044:	81 7d fc ff 00 00 00 	cmpl   $0xff,-0x4(%rbp)
+    304b:	76 ac                	jbe    2ff9 <baseline_native_poly_frommsg+0x19>
+    304d:	90                   	nop
+    304e:	90                   	nop
+    304f:	5d                   	pop    %rbp
+    3050:	c3                   	ret
+
+Disassembly of section .fini:
