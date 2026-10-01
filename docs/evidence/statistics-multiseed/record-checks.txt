@@ -1,0 +1,208 @@
+# 模块三独立核对记录（全部由仓库外独立工具算出，不用被测程序自证）
+# 生成时间（本机 TZ）：2026-10-01T12:18:08+0800
+
+== 1. 类别乱序的可复现性（cut -d, -f3 + cmp，逐字节） ==
+# 同种子、同样本数下四个变体的类别顺序必须逐字节相同；顺序本身不是按类别分段的。
+identical  seed=31337      reference vs vulnerable
+identical  seed=31337      reference vs hardened
+identical  seed=31337      reference vs deployable
+identical  seed=90210      reference vs vulnerable
+identical  seed=90210      reference vs hardened
+identical  seed=90210      reference vs deployable
+identical  seed=20261111   reference vs vulnerable
+identical  seed=20261111   reference vs hardened
+identical  seed=20261111   reference vs deployable
+identical  seed=8675309    reference vs vulnerable
+identical  seed=8675309    reference vs hardened
+identical  seed=8675309    reference vs deployable
+identical  seed=141421356  reference vs vulnerable
+identical  seed=141421356  reference vs hardened
+identical  seed=141421356  reference vs deployable
+identical  seed=777        reference vs vulnerable
+identical  seed=777        reference vs hardened
+identical  seed=777        reference vs deployable
+
+# 前 8 条记录的类别（seed 31337, reference）——证明 CSV 行序不是按类别分段的：
+random bit-flipped message-zero bit-flipped valid random valid message-zero 
+
+== 2. CSV 的 SHA3-256 与两份报告自报的 csv_digest 对照 ==
+# 独立工具：openssl dgst -sha3-256；报告字段：csv_digest（两轮各一份）
+match      9a4da746cf00fe609e7aa47cf9239c2a1a35e8c1f4847bff5e68c0316d081819  deployable-seed141421356.csv
+match      c00846a9e7f66e689c28cbedf00201a212fb84d3609233f88a569952e4f296d3  deployable-seed20261111.csv
+match      2e79fc63bd5f39ce6aed1dc22c2346db0ef3a1275aa4fd6ca196597fd1f6306e  deployable-seed31337.csv
+match      43e9f8ee4288e41c534028fb731e64e694c7c25c0f178583d9c3569b78335b90  deployable-seed8675309.csv
+match      13fc7e818dd1b7506e382d1338e36631f567483fa9b4bf5a7c6e125c220e886a  deployable-seed90210.csv
+match      7372311176687b68582bae11fedf72dbd8be7abeac5cde260e47228fd5c25895  hardened-seed141421356.csv
+match      b6e2c144851fe039dd39230df50ce685fc6b8023511adde7f4be679049212abb  hardened-seed20261111.csv
+match      c9264f8e61db9d9d4d1f5a5aab44648ad7155a778209cb3f4171b5cfa95eac0e  hardened-seed31337.csv
+match      dd0a20b3f847ecf28171e0c59fe1f3ebf2cbc64c987795ebb8dfe50f986547d1  hardened-seed8675309.csv
+match      fe2088d320faaaa7efc9aa428f826e0dc7559fbe7b4f03735f2038cebe1aea24  hardened-seed90210.csv
+match      6a69b596e35fb3ee44b2a40d3c133e34fdbf87ecb04c3eed21ed27afb389fe81  motivation-seed777-deployable.csv
+match      8d3e8e8a62341cc29b9bd47dfffe35ddb98d747c5d99f53e57ec98cfac7e08a9  motivation-seed777-hardened.csv
+match      eb20c6907419ea1de98cfdd4da184c9d10a19b1b006778b2e33790ece3e53248  motivation-seed777-reference.csv
+match      704503fa1c263a15ebcca9141831b14bf57dc6f90bd73a3126299a63186738a0  motivation-seed777-vulnerable.csv
+match      63ebed19bb8d8a8232195081d6df10c4075620fde4b37c31d4a18a687015c797  reference-seed141421356.csv
+match      a29378b01a029c5ee5efa5dfd6d03047094c399aded885ce642c1e5fe98e618c  reference-seed20261111.csv
+match      9a0936dfeb0fcfc13d7a9b5c5619adf9c69e85a1c14be5bdc70f27e036da27d1  reference-seed31337.csv
+match      7590a2f1bb6069a9ba27f595d6851f10ee8f475ca97fd2d54864d75d6ff44584  reference-seed8675309.csv
+match      e5745f1ce7dac772c2323dd7f2efe60365f157ce60b5e477391279f2aad1742d  reference-seed90210.csv
+match      849cea7d57d4ddde330f5e4543676418c672c623a5da1baa4a02069d39cf4785  vulnerable-seed141421356.csv
+match      426c1e1a5937ae13ddcb40ee79361745052ba4f627848eec24b4acb179619c7e  vulnerable-seed20261111.csv
+match      57311f9463eb4f3983e39ddfb3a9f66501f89fad8e3051c22bac9c0f3156e46e  vulnerable-seed31337.csv
+match      b8628f5091c89f778981cc27f5021ca4f6f50bad9fd8cca8580ca3142df55e62  vulnerable-seed8675309.csv
+match      281676577d945b61f287f9c9a66a1a67eb4745bb1d52035f89074e5787774a98  vulnerable-seed90210.csv
+
+== 3. .meta 的 executable_digest 与 measure 产物的 SHA3-256 对照 ==
+# .meta 实测 executable_digest_algorithm=SHA3-256，因此必须用
+# openssl dgst -sha3-256 对照；shasum -a 256 是另一个算法，永远对不上。
+match      c2e5716ef7d062460cf6a78a9ede83759cc6a9320ca19826e22bdaf43f31e931  deployable-seed141421356.meta  <- build/multiseed/deployable/measure
+match      c2e5716ef7d062460cf6a78a9ede83759cc6a9320ca19826e22bdaf43f31e931  deployable-seed20261111.meta  <- build/multiseed/deployable/measure
+match      c2e5716ef7d062460cf6a78a9ede83759cc6a9320ca19826e22bdaf43f31e931  deployable-seed31337.meta  <- build/multiseed/deployable/measure
+match      c2e5716ef7d062460cf6a78a9ede83759cc6a9320ca19826e22bdaf43f31e931  deployable-seed8675309.meta  <- build/multiseed/deployable/measure
+match      c2e5716ef7d062460cf6a78a9ede83759cc6a9320ca19826e22bdaf43f31e931  deployable-seed90210.meta  <- build/multiseed/deployable/measure
+match      c865ff521bc69027aa88199b66f8ba14c7c25ea6224fa76284c0b8c4d817c4df  hardened-seed141421356.meta  <- build/multiseed/hardened/measure
+match      c865ff521bc69027aa88199b66f8ba14c7c25ea6224fa76284c0b8c4d817c4df  hardened-seed20261111.meta  <- build/multiseed/hardened/measure
+match      c865ff521bc69027aa88199b66f8ba14c7c25ea6224fa76284c0b8c4d817c4df  hardened-seed31337.meta  <- build/multiseed/hardened/measure
+match      c865ff521bc69027aa88199b66f8ba14c7c25ea6224fa76284c0b8c4d817c4df  hardened-seed8675309.meta  <- build/multiseed/hardened/measure
+match      c865ff521bc69027aa88199b66f8ba14c7c25ea6224fa76284c0b8c4d817c4df  hardened-seed90210.meta  <- build/multiseed/hardened/measure
+match      c2e5716ef7d062460cf6a78a9ede83759cc6a9320ca19826e22bdaf43f31e931  motivation-seed777-deployable.meta  <- build/multiseed/deployable/measure
+match      c865ff521bc69027aa88199b66f8ba14c7c25ea6224fa76284c0b8c4d817c4df  motivation-seed777-hardened.meta  <- build/multiseed/hardened/measure
+match      1cae56da67019993de6aa64542f0137738d4a26d4f442168b8ba21ee343a7da0  motivation-seed777-reference.meta  <- build/multiseed/reference/measure
+match      cbda73c1062baf184ccfb2d4fb6ac085f5078bc5a8e9e6e0657256750187976a  motivation-seed777-vulnerable.meta  <- build/multiseed/vulnerable/measure
+match      1cae56da67019993de6aa64542f0137738d4a26d4f442168b8ba21ee343a7da0  reference-seed141421356.meta  <- build/multiseed/reference/measure
+match      1cae56da67019993de6aa64542f0137738d4a26d4f442168b8ba21ee343a7da0  reference-seed20261111.meta  <- build/multiseed/reference/measure
+match      1cae56da67019993de6aa64542f0137738d4a26d4f442168b8ba21ee343a7da0  reference-seed31337.meta  <- build/multiseed/reference/measure
+match      1cae56da67019993de6aa64542f0137738d4a26d4f442168b8ba21ee343a7da0  reference-seed8675309.meta  <- build/multiseed/reference/measure
+match      1cae56da67019993de6aa64542f0137738d4a26d4f442168b8ba21ee343a7da0  reference-seed90210.meta  <- build/multiseed/reference/measure
+match      cbda73c1062baf184ccfb2d4fb6ac085f5078bc5a8e9e6e0657256750187976a  vulnerable-seed141421356.meta  <- build/multiseed/vulnerable/measure
+match      cbda73c1062baf184ccfb2d4fb6ac085f5078bc5a8e9e6e0657256750187976a  vulnerable-seed20261111.meta  <- build/multiseed/vulnerable/measure
+match      cbda73c1062baf184ccfb2d4fb6ac085f5078bc5a8e9e6e0657256750187976a  vulnerable-seed31337.meta  <- build/multiseed/vulnerable/measure
+match      cbda73c1062baf184ccfb2d4fb6ac085f5078bc5a8e9e6e0657256750187976a  vulnerable-seed8675309.meta  <- build/multiseed/vulnerable/measure
+match      cbda73c1062baf184ccfb2d4fb6ac085f5078bc5a8e9e6e0657256750187976a  vulnerable-seed90210.meta  <- build/multiseed/vulnerable/measure
+
+== 4. .meta 自报的运行参数与归档文件名一致 ==
+deployable-seed141421356.meta                run_id=multiseed-deployable-141421356 test_seed=141421356  sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+deployable-seed20261111.meta                 run_id=multiseed-deployable-20261111 test_seed=20261111   sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+deployable-seed31337.meta                    run_id=multiseed-deployable-31337   test_seed=31337      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+deployable-seed8675309.meta                  run_id=multiseed-deployable-8675309 test_seed=8675309    sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+deployable-seed90210.meta                    run_id=multiseed-deployable-90210   test_seed=90210      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+hardened-seed141421356.meta                  run_id=multiseed-hardened-141421356 test_seed=141421356  sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+hardened-seed20261111.meta                   run_id=multiseed-hardened-20261111  test_seed=20261111   sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+hardened-seed31337.meta                      run_id=multiseed-hardened-31337     test_seed=31337      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+hardened-seed8675309.meta                    run_id=multiseed-hardened-8675309   test_seed=8675309    sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+hardened-seed90210.meta                      run_id=multiseed-hardened-90210     test_seed=90210      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+motivation-seed777-deployable.meta           run_id=motivation777-deployable     test_seed=777        sample_count=10000 clock=CLOCK_MONOTONIC resolution=1000ns
+motivation-seed777-hardened.meta             run_id=motivation777-hardened       test_seed=777        sample_count=10000 clock=CLOCK_MONOTONIC resolution=1000ns
+motivation-seed777-reference.meta            run_id=motivation777-reference      test_seed=777        sample_count=10000 clock=CLOCK_MONOTONIC resolution=1000ns
+motivation-seed777-vulnerable.meta           run_id=motivation777-vulnerable     test_seed=777        sample_count=10000 clock=CLOCK_MONOTONIC resolution=1000ns
+reference-seed141421356.meta                 run_id=multiseed-reference-141421356 test_seed=141421356  sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+reference-seed20261111.meta                  run_id=multiseed-reference-20261111 test_seed=20261111   sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+reference-seed31337.meta                     run_id=multiseed-reference-31337    test_seed=31337      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+reference-seed8675309.meta                   run_id=multiseed-reference-8675309  test_seed=8675309    sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+reference-seed90210.meta                     run_id=multiseed-reference-90210    test_seed=90210      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+vulnerable-seed141421356.meta                run_id=multiseed-vulnerable-141421356 test_seed=141421356  sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+vulnerable-seed20261111.meta                 run_id=multiseed-vulnerable-20261111 test_seed=20261111   sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+vulnerable-seed31337.meta                    run_id=multiseed-vulnerable-31337   test_seed=31337      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+vulnerable-seed8675309.meta                  run_id=multiseed-vulnerable-8675309 test_seed=8675309    sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+vulnerable-seed90210.meta                    run_id=multiseed-vulnerable-90210   test_seed=90210      sample_count=25000 clock=CLOCK_MONOTONIC resolution=1000ns
+
+== 5. 原始值保留核对（行数与长尾未删） ==
+# 预注册集合每份 25000 条数据行（+1 表头），动机复采每份 10000 条。
+deployable-seed141421356.csv                 data_rows=25000  max_elapsed_ns=37000
+deployable-seed20261111.csv                  data_rows=25000  max_elapsed_ns=34000
+deployable-seed31337.csv                     data_rows=25000  max_elapsed_ns=31000
+deployable-seed8675309.csv                   data_rows=25000  max_elapsed_ns=52000
+deployable-seed90210.csv                     data_rows=25000  max_elapsed_ns=834000
+hardened-seed141421356.csv                   data_rows=25000  max_elapsed_ns=36000
+hardened-seed20261111.csv                    data_rows=25000  max_elapsed_ns=43000
+hardened-seed31337.csv                       data_rows=25000  max_elapsed_ns=35000
+hardened-seed8675309.csv                     data_rows=25000  max_elapsed_ns=31000
+hardened-seed90210.csv                       data_rows=25000  max_elapsed_ns=65000
+motivation-seed777-deployable.csv            data_rows=10000  max_elapsed_ns=33000
+motivation-seed777-hardened.csv              data_rows=10000  max_elapsed_ns=53000
+motivation-seed777-reference.csv             data_rows=10000  max_elapsed_ns=42000
+motivation-seed777-vulnerable.csv            data_rows=10000  max_elapsed_ns=32000
+reference-seed141421356.csv                  data_rows=25000  max_elapsed_ns=40000
+reference-seed20261111.csv                   data_rows=25000  max_elapsed_ns=37000
+reference-seed31337.csv                      data_rows=25000  max_elapsed_ns=32000
+reference-seed8675309.csv                    data_rows=25000  max_elapsed_ns=32000
+reference-seed90210.csv                      data_rows=25000  max_elapsed_ns=31000
+vulnerable-seed141421356.csv                 data_rows=25000  max_elapsed_ns=37000
+vulnerable-seed20261111.csv                  data_rows=25000  max_elapsed_ns=35000
+vulnerable-seed31337.csv                     data_rows=25000  max_elapsed_ns=38000
+vulnerable-seed8675309.csv                   data_rows=25000  max_elapsed_ns=34000
+vulnerable-seed90210.csv                     data_rows=25000  max_elapsed_ns=249000
+
+== 6. 0.4 第 6 条：暂存后的空白检查与 .gitattributes 处置 ==
+# 第一次（未加 .gitattributes 条目）：
+$ git add docs/evidence/statistics-multiseed
+$ git diff --cached --check
+docs/evidence/statistics-multiseed/deployable-seed141421356.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/deployable-seed20261111.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/deployable-seed31337.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/deployable-seed8675309.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/deployable-seed90210.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/hardened-seed141421356.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/hardened-seed20261111.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/hardened-seed31337.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/hardened-seed8675309.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/hardened-seed90210.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/motivation-seed777-deployable.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/motivation-seed777-hardened.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/motivation-seed777-reference.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/motivation-seed777-vulnerable.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/record-checks.txt:26: trailing whitespace.
++random bit-flipped message-zero bit-flipped valid random valid message-zero 
+docs/evidence/statistics-multiseed/reference-seed141421356.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/reference-seed20261111.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/reference-seed31337.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/reference-seed8675309.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/reference-seed90210.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/vulnerable-seed141421356.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/vulnerable-seed20261111.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/vulnerable-seed31337.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/vulnerable-seed8675309.meta:32: trailing whitespace.
++link_flags=  
+docs/evidence/statistics-multiseed/vulnerable-seed90210.meta:32: trailing whitespace.
++link_flags=  
+exit=2
+# 实测报警只来自机器生成的 24 份 *.meta（link_flags= 行尾两个空格）
+# 与 record-checks.txt:26（类别顺序那行以空格结尾），因此按既有同型条目补两条：
+#   /docs/evidence/statistics-multiseed/*.meta whitespace=-blank-at-eol
+#   /docs/evidence/statistics-multiseed/record-checks.txt whitespace=-blank-at-eol
+# 第二次（补条目后）：
+$ git add .gitattributes docs/evidence/statistics-multiseed
+$ git diff --cached --check
+exit=0
+# （无输出，空结果按规程逐字保留在上面这一行与本行之间）
+
+== 7. 目录级 SHA256SUMS 的生成与核对 ==
+# 生成命令（在仓库根目录；路径为仓库相对路径，与既有证据目录同口径；不含自身）：
+$ find docs/evidence/statistics-multiseed -type f ! -name SHA256SUMS \
+    | LC_ALL=C sort | xargs shasum -a 256 > docs/evidence/statistics-multiseed/SHA256SUMS
+# 核对命令与预期：
+$ shasum -a 256 -c docs/evidence/statistics-multiseed/SHA256SUMS
+# 预期：105 行全部 OK，退出码 0（目录共 106 个文件，SHA256SUMS 自身不在清单内）。
+# 本条写在 SHA256SUMS 生成之前，因此清单覆盖本文件的最终内容；读者可直接重跑核对命令。
