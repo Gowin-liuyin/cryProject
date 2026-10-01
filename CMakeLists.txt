@@ -174,13 +174,24 @@ endforeach()
 
 # 统计分析只读取 CSV，与实现变体无关，因此只构建一个程序。
 find_library(MATH_LIBRARY m)
-add_executable(analyze src/analyze.c)
+add_executable(analyze src/analyze.c src/timing_statistics.c)
 target_link_libraries(analyze PRIVATE mlkem_reference)
 if(MATH_LIBRARY)
     target_link_libraries(analyze PRIVATE "${MATH_LIBRARY}")
 endif()
 set_target_properties(
     analyze PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE RUNTIME_OUTPUT_DIRECTORY "${output_root}"
+)
+
+# 第二轮预注册的分组检验是独立程序，第一轮的比较族因此保持逐字可复现。
+add_executable(analyze_groups src/analyze_groups.c src/timing_statistics.c)
+target_link_libraries(analyze_groups PRIVATE mlkem_reference)
+if(MATH_LIBRARY)
+    target_link_libraries(analyze_groups PRIVATE "${MATH_LIBRARY}")
+endif()
+set_target_properties(
+    analyze_groups PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE RUNTIME_OUTPUT_DIRECTORY
+                                                                 "${output_root}"
 )
 
 if(BUILD_TESTING)
@@ -211,6 +222,18 @@ if(BUILD_TESTING)
     add_test(NAME analysis
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis.sh"
                      "${output_root}"
+    )
+    add_test(NAME analysis_groups
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis_groups.sh"
+                     "${output_root}"
+    )
+    add_test(
+        NAME analysis_round1_replay
+        COMMAND "${SH_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis_round1_replay.sh" "${output_root}"
+    )
+    set_tests_properties(
+        analysis_round1_replay PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
     )
     set_tests_properties(measurement PROPERTIES RUN_SERIAL TRUE)
     add_test(NAME vector_integrity COMMAND "${SHASUM_EXECUTABLE}" -a 256 -c
