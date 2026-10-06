@@ -172,6 +172,18 @@ foreach(variant IN ITEMS reference vulnerable hardened deployable)
     endif()
 endforeach()
 
+# 普通负载入口只链接参考库，旧五类 measure 的命令和记录契约保持原样。
+add_executable(reference_benchmark src/measure.c)
+target_compile_definitions(reference_benchmark PRIVATE BASELINE_ORDINARY_WORKLOAD=1)
+target_link_libraries(reference_benchmark PRIVATE mlkem_reference)
+target_include_directories(reference_benchmark PRIVATE "${identity_directory}")
+set_target_properties(
+    reference_benchmark
+    PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+               RUNTIME_OUTPUT_DIRECTORY "${output_root}/reference"
+               OUTPUT_NAME benchmark
+)
+
 # 统计分析只读取 CSV，与实现变体无关，因此只构建一个程序。
 find_library(MATH_LIBRARY m)
 add_executable(analyze src/analyze.c src/timing_statistics.c)
@@ -202,6 +214,18 @@ endif()
 set_target_properties(inspect_timing PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 
 if(BUILD_TESTING)
+    add_executable(
+        test_reference_benchmark tests/test_reference_benchmark.c src/timing_statistics.c
+    )
+    target_link_libraries(test_reference_benchmark PRIVATE mlkem_reference)
+    if(MATH_LIBRARY)
+        target_link_libraries(test_reference_benchmark PRIVATE "${MATH_LIBRARY}")
+    endif()
+    target_compile_options(test_reference_benchmark PRIVATE -UNDEBUG)
+    add_test(NAME reference_benchmark COMMAND test_reference_benchmark
+                                              $<TARGET_FILE:reference_benchmark>
+    )
+    set_tests_properties(reference_benchmark PROPERTIES RUN_SERIAL TRUE)
     add_executable(test_timing_diagnostics tests/test_timing_diagnostics.c src/timing_statistics.c)
     target_link_libraries(test_timing_diagnostics PRIVATE mlkem_reference)
     if(MATH_LIBRARY)

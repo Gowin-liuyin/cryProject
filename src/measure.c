@@ -26,6 +26,15 @@ struct measurement_sample {
     uint64_t elapsed_nanoseconds;
 };
 
+#ifdef BASELINE_ORDINARY_WORKLOAD
+#define MEASUREMENT_CATEGORY_COUNT 3u
+#define EMPTY_WINDOW_COUNT 1000u
+static uint64_t clock_read_steps_nanoseconds[10000];
+static uint64_t empty_windows_nanoseconds[EMPTY_WINDOW_COUNT];
+#else
+#define MEASUREMENT_CATEGORY_COUNT INPUT_CATEGORY_COUNT
+#endif
+
 static volatile uint8_t result_sink;
 
 static void read_cpu_model(char *cpu_model, size_t cpu_model_capacity_bytes)
@@ -95,10 +104,94 @@ static int check_timer(uint64_t *resolution_nanoseconds)
         if (current_nanoseconds > previous_nanoseconds) {
             has_clock_progress = 1;
         }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+        clock_read_steps_nanoseconds[check_index] = current_nanoseconds - previous_nanoseconds;
+#endif
         previous_nanoseconds = current_nanoseconds;
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    for (unsigned window_index = 0; window_index < EMPTY_WINDOW_COUNT; ++window_index) {
+        uint64_t start_nanoseconds;
+        uint64_t end_nanoseconds;
+        if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+            return 1;
+        }
+        atomic_signal_fence(memory_order_seq_cst);
+        atomic_signal_fence(memory_order_seq_cst);
+        if (read_monotonic_nanoseconds(&end_nanoseconds) != 0 ||
+            end_nanoseconds < start_nanoseconds) {
+            return 1;
+        }
+        empty_windows_nanoseconds[window_index] = end_nanoseconds - start_nanoseconds;
+    }
+#endif
     return has_clock_progress ? 0 : 1;
 }
+
+#ifdef BASELINE_ORDINARY_WORKLOAD
+static int save_timer_diagnostics(FILE *metadata_file)
+{
+    uint64_t minimum_positive_step_nanoseconds = UINT64_MAX;
+    uint64_t maximum_step_nanoseconds = 0;
+    size_t zero_step_count = 0;
+    uint64_t empty_minimum_nanoseconds = UINT64_MAX;
+    uint64_t empty_maximum_nanoseconds = 0;
+    size_t empty_zero_count = 0;
+    long double empty_total_nanoseconds = 0.0L;
+    for (size_t step_index = 0;
+        step_index < sizeof(clock_read_steps_nanoseconds) / sizeof(clock_read_steps_nanoseconds[0]);
+        ++step_index) {
+        uint64_t step_nanoseconds = clock_read_steps_nanoseconds[step_index];
+        if (step_nanoseconds == 0) {
+            ++zero_step_count;
+        } else if (step_nanoseconds < minimum_positive_step_nanoseconds) {
+            minimum_positive_step_nanoseconds = step_nanoseconds;
+        }
+        if (step_nanoseconds > maximum_step_nanoseconds) {
+            maximum_step_nanoseconds = step_nanoseconds;
+        }
+        if (fprintf(metadata_file,
+                "clock_read_step=%zu elapsed_ns=%" PRIu64 "\n",
+                step_index,
+                step_nanoseconds) < 0) {
+            return 1;
+        }
+    }
+    for (size_t window_index = 0; window_index < EMPTY_WINDOW_COUNT; ++window_index) {
+        uint64_t duration_nanoseconds = empty_windows_nanoseconds[window_index];
+        empty_total_nanoseconds += (long double)duration_nanoseconds;
+        if (duration_nanoseconds == 0) {
+            ++empty_zero_count;
+        }
+        if (duration_nanoseconds < empty_minimum_nanoseconds) {
+            empty_minimum_nanoseconds = duration_nanoseconds;
+        }
+        if (duration_nanoseconds > empty_maximum_nanoseconds) {
+            empty_maximum_nanoseconds = duration_nanoseconds;
+        }
+        if (fprintf(metadata_file,
+                "empty_window=%zu elapsed_ns=%" PRIu64 "\n",
+                window_index,
+                duration_nanoseconds) < 0) {
+            return 1;
+        }
+    }
+    return fprintf(metadata_file,
+               "clock_monotonicity=passed\nclock_read_count=10001\nclock_zero_step_count=%zu\n"
+               "clock_minimum_positive_step_ns=%" PRIu64 "\nclock_maximum_step_ns=%" PRIu64
+               "\nempty_window_count=%u\nempty_window_zero_count=%zu\nempty_window_mean_ns=%.6Lf\n"
+               "empty_window_min_ns=%" PRIu64 "\nempty_window_max_ns=%" PRIu64 "\n"
+               "overhead_subtraction=none\n",
+               zero_step_count,
+               minimum_positive_step_nanoseconds,
+               maximum_step_nanoseconds,
+               EMPTY_WINDOW_COUNT,
+               empty_zero_count,
+               empty_total_nanoseconds / (long double)EMPTY_WINDOW_COUNT,
+               empty_minimum_nanoseconds,
+               empty_maximum_nanoseconds) < 0;
+}
+#endif
 
 static uint64_t draw_order_value(uint64_t test_seed, uint64_t *draw_index, uint64_t upper_bound)
 {
@@ -245,9 +338,28 @@ static int save_measurements(const char *csv_path,
             operation_status = 1;
         }
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    if (fputs("measurement_format=reference_ordinary_v1\n"
+              "workload=valid:bit-flipped:random=1:1:1\n"
+              "input_index_rule=category_local_index_shared_across_categories\n"
+              "virtualization=not_verified_by_program_see_environment_log\n",
+            metadata_file) == EOF ||
+        save_timer_diagnostics(metadata_file) != 0) {
+        operation_status = 1;
+    }
+    if (fflush(metadata_file) != 0) {
+        operation_status = 1;
+    }
+#endif
     if (fclose(csv_file) != 0) {
         operation_status = 1;
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    if (fprintf(metadata_file, "run_status=%s\n", operation_status == 0 ? "complete" : "failed") <
+        0) {
+        operation_status = 1;
+    }
+#endif
     if (fclose(metadata_file) != 0) {
         operation_status = 1;
     }
@@ -293,17 +405,18 @@ int main(int argument_count, char **argument_values)
         fputs("timer/executable identity check failed\n", stderr);
         return 1;
     }
-    sample_count = (size_t)samples_per_category * INPUT_CATEGORY_COUNT;
+    sample_count = (size_t)samples_per_category * MEASUREMENT_CATEGORY_COUNT;
     samples = calloc(sample_count, sizeof(*samples));
     if (samples == NULL ||
         generate_test_key_pair(test_seed, encapsulation_key, decapsulation_key) != 0) {
         goto cleanup;
     }
     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
-        samples[sample_index].category = (enum input_category)(sample_index % INPUT_CATEGORY_COUNT);
+        samples[sample_index].category =
+            (enum input_category)(sample_index % MEASUREMENT_CATEGORY_COUNT);
         if (generate_test_ciphertext(samples[sample_index].category,
                 test_seed,
-                sample_index / INPUT_CATEGORY_COUNT,
+                sample_index / MEASUREMENT_CATEGORY_COUNT,
                 encapsulation_key,
                 samples[sample_index].ciphertext) != 0) {
             goto cleanup;
