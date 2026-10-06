@@ -1,0 +1,14 @@
+cost_format=measurement_cost_v1
+initial_state=started
+final_state=complete
+start_ns=2300000
+preparation_end_ns=2300100
+warmup_end_ns=2300200
+collection_end_ns=2306236
+finish_ns=2316036
+child_total_wall_ns=16036
+warmup_attempted_calls=100
+warmup_completed_calls=100
+formal_attempted_calls=6
+formal_completed_calls=6
+outputs_consumed=106

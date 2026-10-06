@@ -1,0 +1,6 @@
+[0/2] Re-checking globbed directories...
+[1/6] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/configuration.txt
+[2/6] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[3/6] Building C object CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o
+[4/6] Linking C executable paired_prepare
+[5/6] Linking C executable test_paired_rejections

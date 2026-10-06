@@ -1,0 +1,106 @@
+[0/2] Re-checking globbed directories...
+[1/10] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/configuration.txt
+[2/10] Building C object CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+[3/10] Building C object CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+FAILED: [code=1] CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o 
+/usr/bin/cc -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -MF CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o.d -o CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -c /Users/yin/code/cryProject/tests/test_batch_measurement.c
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:61:5: error: use of undeclared identifier 'FILE'
+   61 |     FILE *metadata_file = fopen(metadata_path, "r");
+      |     ^~~~
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:61:11: error: use of undeclared identifier 'metadata_file'; did you mean 'metadata_path'?
+   61 |     FILE *metadata_file = fopen(metadata_path, "r");
+      |           ^~~~~~~~~~~~~
+      |           metadata_path
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:59:54: note: 'metadata_path' declared here
+   59 | static void read_digest_and_check_counts(const char *metadata_path, char digest[65])
+      |                                                      ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:61:27: error: call to undeclared function 'fopen'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   61 |     FILE *metadata_file = fopen(metadata_path, "r");
+      |                           ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:61:27: error: declaration of built-in function 'fopen' requires inclusion of the header <stdio.h> [-Werror,-Wbuiltin-requires-header]
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:64:12: error: use of undeclared identifier 'metadata_file'; did you mean 'metadata_path'?
+   64 |     assert(metadata_file != NULL);
+      |            ^~~~~~~~~~~~~
+      |            metadata_path
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/assert.h:72:25: note: expanded from macro 'assert'
+   72 |     (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __ASSERT_FILE_NAME, __LINE__, #e) : (void)0)
+      |                         ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:59:54: note: 'metadata_path' declared here
+   59 | static void read_digest_and_check_counts(const char *metadata_path, char digest[65])
+      |                                                      ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:65:12: error: call to undeclared function 'fgets'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   65 |     while (fgets(line, sizeof(line), metadata_file) != NULL) {
+      |            ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:65:38: error: use of undeclared identifier 'metadata_file'; did you mean 'metadata_path'?
+   65 |     while (fgets(line, sizeof(line), metadata_file) != NULL) {
+      |                                      ^~~~~~~~~~~~~
+      |                                      metadata_path
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:59:54: note: 'metadata_path' declared here
+   59 | static void read_digest_and_check_counts(const char *metadata_path, char digest[65])
+      |                                                      ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:65:53: error: comparison between pointer and integer ('int' and 'void *') [-Werror,-Wpointer-integer-compare]
+   65 |     while (fgets(line, sizeof(line), metadata_file) != NULL) {
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:82:13: error: call to undeclared function 'ferror'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   82 |     assert(!ferror(metadata_file));
+      |             ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:82:20: error: use of undeclared identifier 'metadata_file'; did you mean 'metadata_path'?
+   82 |     assert(!ferror(metadata_file));
+      |                    ^~~~~~~~~~~~~
+      |                    metadata_path
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/assert.h:72:25: note: expanded from macro 'assert'
+   72 |     (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __ASSERT_FILE_NAME, __LINE__, #e) : (void)0)
+      |                         ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:59:54: note: 'metadata_path' declared here
+   59 | static void read_digest_and_check_counts(const char *metadata_path, char digest[65])
+      |                                                      ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:83:12: error: call to undeclared function 'fclose'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   83 |     assert(fclose(metadata_file) == 0);
+      |            ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:83:12: note: did you mean 'close'?
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h:449:6: note: 'close' declared here
+  449 | int      close(int) __DARWIN_ALIAS_C(close);
+      |          ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:83:19: error: use of undeclared identifier 'metadata_file'; did you mean 'metadata_path'?
+   83 |     assert(fclose(metadata_file) == 0);
+      |                   ^~~~~~~~~~~~~
+      |                   metadata_path
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/assert.h:72:25: note: expanded from macro 'assert'
+   72 |     (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __ASSERT_FILE_NAME, __LINE__, #e) : (void)0)
+      |                         ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:59:54: note: 'metadata_path' declared here
+   59 | static void read_digest_and_check_counts(const char *metadata_path, char digest[65])
+      |                                                      ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:89:5: error: use of undeclared identifier 'FILE'
+   89 |     FILE *csv_file = fopen(csv_path, "r");
+      |     ^~~~
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:89:11: error: use of undeclared identifier 'csv_file'
+   89 |     FILE *csv_file = fopen(csv_path, "r");
+      |           ^~~~~~~~
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:89:22: error: call to undeclared function 'fopen'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   89 |     FILE *csv_file = fopen(csv_path, "r");
+      |                      ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:94:12: error: use of undeclared identifier 'csv_file'
+   94 |     assert(csv_file != NULL);
+      |            ^~~~~~~~
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:95:12: error: call to undeclared function 'fgets'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   95 |     assert(fgets(line, sizeof(line), csv_file) != NULL);
+      |            ^
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:95:38: error: use of undeclared identifier 'csv_file'
+   95 |     assert(fgets(line, sizeof(line), csv_file) != NULL);
+      |                                      ^~~~~~~~
+/Users/yin/code/cryProject/tests/test_batch_measurement.c:96:38: error: use of undeclared identifier 'csv_file'
+   96 |     while (fgets(line, sizeof(line), csv_file) != NULL) {
+      |                                      ^~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[4/10] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+FAILED: [code=1] CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o 
+/usr/bin/cc -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -MF CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o.d -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /Users/yin/code/cryProject/src/measure.c
+/Users/yin/code/cryProject/src/measure.c:406:38: error: unused parameter 'samples' [-Werror,-Wunused-parameter]
+  406 |     const struct measurement_sample *samples,
+      |                                      ^
+1 error generated.
+[5/10] Building C object CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+[6/10] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+ninja: build stopped: subcommand failed.

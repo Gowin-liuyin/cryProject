@@ -1,0 +1,32 @@
+Test project /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+      Start  1: reference_kat
+ 1/12 Test  #1: reference_kat ....................   Passed    0.03 sec
+      Start  2: reference_random_failure
+ 2/12 Test  #2: reference_random_failure .........   Passed    0.01 sec
+      Start  9: paired_prepare
+ 3/12 Test  #9: paired_prepare ...................   Passed    0.49 sec
+      Start 10: paired_runner
+ 4/12 Test #10: paired_runner ....................   Passed    2.31 sec
+      Start 11: paired_statistics
+ 5/12 Test #11: paired_statistics ................   Passed    0.07 sec
+      Start 12: paired_data
+ 6/12 Test #12: paired_data ......................   Passed    0.09 sec
+      Start 13: paired_rejections
+ 7/12 Test #13: paired_rejections ................   Passed    0.08 sec
+      Start 14: batch_measurement
+ 8/12 Test #14: batch_measurement ................   Passed    0.28 sec
+      Start 15: reference_benchmark
+ 9/12 Test #15: reference_benchmark ..............   Passed    0.16 sec
+      Start 21: reference_cli
+10/12 Test #21: reference_cli ....................   Passed    0.17 sec
+      Start 24: reference_vector_parser
+11/12 Test #24: reference_vector_parser ..........   Passed    0.06 sec
+      Start 28: vector_integrity
+12/12 Test #28: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 12
+
+Label Time Summary:
+reference    =   0.28 sec*proc (5 tests)
+
+Total Test time (real) =   3.76 sec

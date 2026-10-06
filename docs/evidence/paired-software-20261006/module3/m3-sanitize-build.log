@@ -1,0 +1,12 @@
+[0/2] Re-checking globbed directories...
+[1/12] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/generated/Debug/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/generated/Debug/configuration.txt
+[2/12] Building C object CMakeFiles/paired_support.dir/src/paired_statistics.c.o
+[3/12] Building C object CMakeFiles/paired_support.dir/src/timing_statistics.c.o
+[4/12] Building C object CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o
+[5/12] Building C object CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o
+[6/12] Building C object CMakeFiles/paired_support.dir/src/paired_data.c.o
+[7/12] Building C object CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o
+[8/12] Linking C static library libpaired_support.a
+[9/12] Linking C executable test_paired_statistics
+[10/12] Linking C executable test_paired_data
+[11/12] Linking C executable analyze_paired

@@ -1,0 +1,10 @@
+[0/2] Re-checking globbed directories...
+[1/10] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/generated/Debug/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/generated/Debug/configuration.txt
+[2/10] Building C object CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+[3/10] Building C object CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+[4/10] Building C object CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+[5/10] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[6/10] Linking C executable test_batch_measurement
+[7/10] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[8/10] Linking C executable reference/benchmark
+[9/10] Linking C executable reference/batch_benchmark

@@ -1,0 +1,10 @@
+SHA3-256(build/paired-release.NzGetC/reference/benchmark)= c1b3121fb1d5298d606bff3fdd7a91264877c03933b7c60c2f36b06b044e8249
+SHA3-256(build/paired-release.NzGetC/reference/batch_benchmark)= c5061c2af40358f29fcd6a81ea6705f8b52ac11fdf84a5dc082ca8e93860a60c
+SHA3-256(build/paired-release.NzGetC/reference/libmlkem.a)= 30b6ab1fc0dd58dc12a3de32ca6ef8c98c5fa195618eca1b3cd35dfc9fd392cb
+SHA3-256(build/paired-release.NzGetC/paired_runner)= 785663140686b77d6a5443218c16e33e772407aafa551162e81ed03c68031bfd
+SHA3-256(build/paired-release.NzGetC/paired_prepare)= 38078aee9411c002391b2cb93a52cf2912b24eeef3737c5d09e5ff0305ce7632
+SHA3-256(build/paired-release.NzGetC/analyze_paired)= 43fe76745eb3249f4e5cf35af288459d72fa3f653c80555832e3cb12c4fc392b
+candidate_path=main 0x100001034 clock -> 0x100001058 run_batch -> 0x100001064 clock
+batch_loop=0x100001d30 mlkem_decapsulate; status store; output stride32; decrement actual call counter; backedge 0x100001d40
+all_outputs_consumed_after_end_clock=0x1000010c8..0x1000010ec reads each output slot and volatile sink
+scope=these actual ARM64 software verification products only, not target platform

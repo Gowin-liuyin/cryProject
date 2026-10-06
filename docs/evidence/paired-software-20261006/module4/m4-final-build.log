@@ -1,0 +1,10 @@
+[0/2] Re-checking globbed directories...
+[1/10] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/configuration.txt
+[2/10] Building C object CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o
+[3/10] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[4/10] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[5/10] Linking C executable test_paired_runner
+[6/10] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
+[7/10] Linking C executable reference/benchmark
+[8/10] Linking C executable reference/batch_benchmark
+[9/10] Linking C executable paired_runner
