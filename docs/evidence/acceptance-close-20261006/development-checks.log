@@ -1,0 +1,14 @@
+$ cmake --build build/reference-ordinary-release.mgawoc39 --target format-check
+[0/2] Re-checking globbed directories...
+[1/2] cd /Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39 && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -DSOURCE_ROOT=/Users/yin/code/cryProject -DFORMAT_EXECUTABLE= -DFORMAT_MODE=format-check -P /Users/yin/code/cryProject/cmake/Format.cmake
+exit_status=0
+$ uvx --from cmakelang==0.6.13 cmake-format --check CMakeLists.txt
+exit_status=0
+$ sh -n tests/test_cli.sh
+exit_status=0
+$ sh -n tests/test_vector_parser.sh
+exit_status=0
+$ sh -n tools/run_native_reference.sh
+exit_status=0
+$ git diff --check
+exit_status=0

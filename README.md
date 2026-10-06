@@ -63,6 +63,8 @@ build/cmake/deployable/baseline demo
 | `build/cmake/vulnerable/measure` | 缺陷版逐次计时 |
 | `build/cmake/hardened/measure` | 防护版逐次计时 |
 | `build/cmake/deployable/measure` | 可部署版逐次计时 |
+| `build/cmake/reference/benchmark` | 参考版三类普通负载与读钟/空窗口自检 |
+| `build/cmake/inspect_timing` | 原序保留的离线描述诊断，不给显著性告警 |
 | `build/cmake/analyze` | 原始数据的第一轮固定统计检验，与实现无关 |
 | `build/cmake/analyze_groups` | 原始数据的第二轮预注册分组检验，与实现无关 |
 
@@ -243,9 +245,10 @@ Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinlin
 
 ## 7. 验证结果与证据边界
 
-当前注册 **20 项 CTest**，其中新增 `reference_cli` 和 `reference_vector_parser`
-支持上述独立参考版入口。以下表格记录原有 18 项完整验收的覆盖；首轮参考复核只执行了
-5 项，随后收口执行了 16 个不同功能测试，未重新执行原时序采集与两轮统计测试：
+当前注册 **22 项 CTest**。独立参考入口阶段由18增至20，随后增加
+`reference_benchmark` 和 `timing_diagnostics`。以下表格记录原有18项历史完整验收的覆盖；
+本轮分阶段执行了16个功能测试、2个新增测试及历史重放，共19个不同测试，均通过。
+这不是22项全量执行：未重新执行 `measurement`、`analysis`、`analysis_groups`。
 
 | 检查 | 实际覆盖 |
 |---|---|
@@ -357,3 +360,21 @@ cmake --build build/ninja --target deployable
 
 CLI 退出码：0 为成功，2 为公开命令参数错误，1 为运行或文件操作失败。
 C API 的精确长度和返回值定义见 [mlkem.h](include/mlkem.h)；调用方需提供互不重叠的有效缓冲区。
+
+## 10. 2026-10-06 验收收口与后续入口
+
+本轮没有重写原始六模块。参考入口及公共功能已补查；对43份历史CSV、826300条记录
+作离线审计，明确旧报告的分位数名称错误，数值和旧输出保留供重放。
+[统计口径审计](docs/statistical-audit.md) 区分记录、运行、种子和重复密文，保留第一轮失败
+与hardened显著残差；相同顺序不等于缓存或预测器状态受控。
+
+[参考普通负载](docs/reference-benchmark.md) 新增三类1:1:1入口、读钟/空窗原始诊断、
+完成状态及描述摘要。本机三次共9000条记录，混合均值13.90–14.44µs；分辨率和观察到的
+最小正增量均1000ns，未配置CPU亲和性或频率，不扣开销、不删长尾。
+源码、未提交内容与实际正式文件分别绑定，动态检查样本不进性能结果。
+
+[原生x86_64 Linux准备包](docs/native-linux-reference.md) 已完成，**尚未执行**。
+[R01–R12要求表](docs/requirement-evidence.md) 继续把防护、受控复测、第三方复现和实证
+改进标为缺口；[下一轮比较合同](docs/next-comparison.md) 以未修改参考版为强基线，
+先检验普通测量稳定性及全成本，输入选择路线目前尚无依据。
+模块提交、实际测试范围、证据及交接见 [本轮验收报告](docs/acceptance.md)。

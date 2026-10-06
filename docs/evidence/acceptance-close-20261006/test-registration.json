@@ -1,0 +1,568 @@
+{
+  "backtraceGraph": {
+    "commands": [
+      "add_test"
+    ],
+    "files": [
+      "/Users/yin/code/cryProject/CMakeLists.txt"
+    ],
+    "nodes": [
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 0
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 2
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 4
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 6
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 8
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 10
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 12
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 14
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 225,
+        "parent": 16
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 235,
+        "parent": 18
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 240,
+        "parent": 20
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 240,
+        "parent": 22
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 240,
+        "parent": 24
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 249,
+        "parent": 26
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 252,
+        "parent": 28
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 256,
+        "parent": 30
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 260,
+        "parent": 32
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 264,
+        "parent": 34
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 269,
+        "parent": 36
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 273,
+        "parent": 38
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 277,
+        "parent": 40
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 286,
+        "parent": 42
+      }
+    ]
+  },
+  "kind": "ctestInfo",
+  "tests": [
+    {
+      "backtrace": 1,
+      "command": [
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/reference/test_mlkem",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name": "reference_kat",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 3,
+      "command": [
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/reference/test_random_failure"
+      ],
+      "name": "reference_random_failure",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 5,
+      "name": "vulnerable_kat",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 7,
+      "name": "vulnerable_random_failure",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 9,
+      "name": "hardened_kat",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 11,
+      "name": "hardened_random_failure",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 13,
+      "name": "deployable_kat",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 15,
+      "name": "deployable_random_failure",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 17,
+      "command": [
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/test_reference_benchmark",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/reference/benchmark"
+      ],
+      "name": "reference_benchmark",
+      "properties": [
+        {
+          "name": "RUN_SERIAL",
+          "value": true
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 19,
+      "command": [
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/test_timing_diagnostics",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/inspect_timing"
+      ],
+      "name": "timing_diagnostics",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 21,
+      "command": [
+        "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable/test_equivalence",
+        "-DVARIANT_NAME=vulnerable",
+        "-DOUTPUT_DIRECTORY=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+        "-P",
+        "/Users/yin/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name": "equivalence_vulnerable",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 23,
+      "command": [
+        "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened/test_equivalence",
+        "-DVARIANT_NAME=hardened",
+        "-DOUTPUT_DIRECTORY=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+        "-P",
+        "/Users/yin/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name": "equivalence_hardened",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 25,
+      "command": [
+        "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable/test_equivalence",
+        "-DVARIANT_NAME=deployable",
+        "-DOUTPUT_DIRECTORY=/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+        "-P",
+        "/Users/yin/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name": "equivalence_deployable",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 27,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_cli.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+      ],
+      "name": "cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 29,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_cli.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+        "reference"
+      ],
+      "name": "reference_cli",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 31,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_measurement.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+      ],
+      "name": "measurement",
+      "properties": [
+        {
+          "name": "RUN_SERIAL",
+          "value": true
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 33,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_vector_parser.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name": "vector_parser",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 35,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_vector_parser.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt",
+        "reference"
+      ],
+      "name": "reference_vector_parser",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 37,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_analysis.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+      ],
+      "name": "analysis",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 39,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_analysis_groups.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+      ],
+      "name": "analysis_groups",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+        }
+      ]
+    },
+    {
+      "backtrace": 41,
+      "command": [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_analysis_round1_replay.sh",
+        "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39"
+      ],
+      "name": "analysis_round1_replay",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject"
+        }
+      ]
+    },
+    {
+      "backtrace": 43,
+      "command": [
+        "/usr/bin/shasum",
+        "-a",
+        "256",
+        "-c",
+        "tests/vectors/SHA256SUMS"
+      ],
+      "name": "vector_integrity",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/Users/yin/code/cryProject"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 1,
+    "minor": 0
+  }
+}
