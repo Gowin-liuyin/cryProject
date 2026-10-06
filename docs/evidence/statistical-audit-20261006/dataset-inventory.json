@@ -1,0 +1,819 @@
+[
+  {
+    "csv": "docs/evidence/cmake/reference.csv",
+    "csv_sha3_256": "42814e6abdd519f248f3e616f18dfffa44b8dcbc78bc5a3323e02d8ce0133cd3",
+    "records": 50,
+    "run_id": "cmake-reference",
+    "implementation": "reference",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790397937",
+    "source_commit": "6cc1039392679d3974aad72c71d0e5c58751b285",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=12 mean_ns=13666.666667",
+      "order_block=1 first_index=12 count=13 mean_ns=13769.230769",
+      "order_block=2 first_index=25 count=12 mean_ns=16833.333333",
+      "order_block=3 first_index=37 count=13 mean_ns=15384.615385"
+    ],
+    "all_series": "series=all count=50 mean_ns=14900.000000 p50_ns=15000 p90_ns=16000 p99_ns=23000 min_ns=13000 max_ns=23000 distinct_durations=7 tied_pair_fraction=0.206530612"
+  },
+  {
+    "csv": "docs/evidence/cmake/vulnerable.csv",
+    "csv_sha3_256": "7822ab73272c66adf2970badf41812c06ee9e4a47d24180ce08ccaa8176d7e2d",
+    "records": 50,
+    "run_id": "cmake-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790397938",
+    "source_commit": "6cc1039392679d3974aad72c71d0e5c58751b285",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=12 mean_ns=37333.333333",
+      "order_block=1 first_index=12 count=13 mean_ns=36769.230769",
+      "order_block=2 first_index=25 count=12 mean_ns=39333.333333",
+      "order_block=3 first_index=37 count=13 mean_ns=37076.923077"
+    ],
+    "all_series": "series=all count=50 mean_ns=37600.000000 p50_ns=37000 p90_ns=38000 p99_ns=64000 min_ns=36000 max_ns=64000 distinct_durations=8 tied_pair_fraction=0.380408163"
+  },
+  {
+    "csv": "docs/evidence/completion/reference.csv",
+    "csv_sha3_256": "18cad4d50a15ac7dc7f515a9591437555a72246501b278559db93528ee1ab92c",
+    "records": 500,
+    "run_id": "completion-reference",
+    "implementation": "reference",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790398073",
+    "source_commit": "203eb253941e7d2b69c421d9d9f9eae79d186089",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=125 mean_ns=18328.000000",
+      "order_block=1 first_index=125 count=125 mean_ns=17936.000000",
+      "order_block=2 first_index=250 count=125 mean_ns=17320.000000",
+      "order_block=3 first_index=375 count=125 mean_ns=17392.000000"
+    ],
+    "all_series": "series=all count=500 mean_ns=17744.000000 p50_ns=18000 p90_ns=19000 p99_ns=23000 min_ns=17000 max_ns=26000 distinct_durations=7 tied_pair_fraction=0.389402806"
+  },
+  {
+    "csv": "docs/evidence/completion/vulnerable.csv",
+    "csv_sha3_256": "d1e4109fe09a60f9ce6f0bbeaaa4a0ddb034de0733b1cd800e43908507ae2b14",
+    "records": 500,
+    "run_id": "completion-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790398073",
+    "source_commit": "203eb253941e7d2b69c421d9d9f9eae79d186089",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=125 mean_ns=16120.000000",
+      "order_block=1 first_index=125 count=125 mean_ns=16200.000000",
+      "order_block=2 first_index=250 count=125 mean_ns=16200.000000",
+      "order_block=3 first_index=375 count=125 mean_ns=15744.000000"
+    ],
+    "all_series": "series=all count=500 mean_ns=16066.000000 p50_ns=16000 p90_ns=17000 p99_ns=17000 min_ns=15000 max_ns=21000 distinct_durations=5 tied_pair_fraction=0.459679359"
+  },
+  {
+    "csv": "docs/evidence/deployable/deployable.csv",
+    "csv_sha3_256": "7c5732a35de658b4d181f6e644d584b120aa14fa5d2281dda8f6f8248551aa3b",
+    "records": 25000,
+    "run_id": "deployable-deployable",
+    "implementation": "deployable",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790823500",
+    "source_commit": "0cba2c70893f433eb6a17d798660c0f407a7f6db",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14119.200000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14111.360000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14145.120000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14125.440000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14125.280000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=58000 distinct_durations=21 tied_pair_fraction=0.776649920"
+  },
+  {
+    "csv": "docs/evidence/deployable/hardened.csv",
+    "csv_sha3_256": "371e4377898d54d59981800d5fa25ae5560b870c3536402a5b2127fd757bc201",
+    "records": 25000,
+    "run_id": "deployable-hardened",
+    "implementation": "hardened",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790823500",
+    "source_commit": "0cba2c70893f433eb6a17d798660c0f407a7f6db",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14293.280000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14534.400000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14331.360000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14293.600000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14363.160000 p50_ns=14000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=51000 distinct_durations=19 tied_pair_fraction=0.578685675"
+  },
+  {
+    "csv": "docs/evidence/deployable/reference.csv",
+    "csv_sha3_256": "d62dac805ba925e48d7b1033d682355c392a0ce153a357a18e5a990a1009eef1",
+    "records": 25000,
+    "run_id": "deployable-reference",
+    "implementation": "reference",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790823499",
+    "source_commit": "0cba2c70893f433eb6a17d798660c0f407a7f6db",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14086.720000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14097.920000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14100.480000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14126.720000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14102.960000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=50000 distinct_durations=20 tied_pair_fraction=0.730397725"
+  },
+  {
+    "csv": "docs/evidence/deployable/vulnerable.csv",
+    "csv_sha3_256": "f8f4a7a8a1944490897ee0c68d81bf40b55b5fb117b55c72ae2b9b5d9d716000",
+    "records": 25000,
+    "run_id": "deployable-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790823499",
+    "source_commit": "0cba2c70893f433eb6a17d798660c0f407a7f6db",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14649.920000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14705.920000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14790.240000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14819.200000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14741.320000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=56000 distinct_durations=22 tied_pair_fraction=0.451124512"
+  },
+  {
+    "csv": "docs/evidence/final/reference.csv",
+    "csv_sha3_256": "5acfc26a2f3e845dfa951a8e4a4ede2968a351c3deffa77070cc4cbca51f1534",
+    "records": 5000,
+    "run_id": "final-reference",
+    "implementation": "reference",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790397612",
+    "source_commit": "e519d941ddcf8a4dfb9e92f5b9343db53fc36064",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=1250 mean_ns=14005.600000",
+      "order_block=1 first_index=1250 count=1250 mean_ns=13962.400000",
+      "order_block=2 first_index=2500 count=1250 mean_ns=13984.000000",
+      "order_block=3 first_index=3750 count=1250 mean_ns=14029.600000"
+    ],
+    "all_series": "series=all count=5000 mean_ns=13995.400000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=37000 distinct_durations=13 tied_pair_fraction=0.720508182"
+  },
+  {
+    "csv": "docs/evidence/final/vulnerable.csv",
+    "csv_sha3_256": "505ece6551b10b176bdc3eccecffdccc3836c899d771ae5e1edf2a6feedade11",
+    "records": 5000,
+    "run_id": "final-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790397612",
+    "source_commit": "e519d941ddcf8a4dfb9e92f5b9343db53fc36064",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=1250 mean_ns=14684.800000",
+      "order_block=1 first_index=1250 count=1250 mean_ns=14713.600000",
+      "order_block=2 first_index=2500 count=1250 mean_ns=14684.800000",
+      "order_block=3 first_index=3750 count=1250 mean_ns=14589.600000"
+    ],
+    "all_series": "series=all count=5000 mean_ns=14668.200000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=55000 distinct_durations=17 tied_pair_fraction=0.467877656"
+  },
+  {
+    "csv": "docs/evidence/mitigation/hardened.csv",
+    "csv_sha3_256": "13759af0bdbd2c14e1eca3598256200b4ff3e25b0d76ea35a218e5e7bae8eb3e",
+    "records": 25000,
+    "run_id": "mitigation-hardened",
+    "implementation": "hardened",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790775790",
+    "source_commit": "e8f55e763dbec41801a8d7c1e9fd4e10477ee816",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14372.800000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14419.200000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14391.040000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14991.520000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14543.640000 p50_ns=14000 p90_ns=15000 p99_ns=20000 min_ns=14000 max_ns=70000 distinct_durations=33 tied_pair_fraction=0.519001474"
+  },
+  {
+    "csv": "docs/evidence/mitigation/reference.csv",
+    "csv_sha3_256": "d3abc26e4e8230bece5d9fa06f2b2b65ca224913bba65975185a4dc79f0628d0",
+    "records": 25000,
+    "run_id": "mitigation-reference",
+    "implementation": "reference",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790775791",
+    "source_commit": "e8f55e763dbec41801a8d7c1e9fd4e10477ee816",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14116.800000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14136.160000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14147.840000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14178.720000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14144.880000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=58000 distinct_durations=23 tied_pair_fraction=0.731112358"
+  },
+  {
+    "csv": "docs/evidence/mitigation/vulnerable.csv",
+    "csv_sha3_256": "3006e3db5c6a9dc762f2f77c3778b08e84da7f29a2f30e26915eb105b03732f5",
+    "records": 25000,
+    "run_id": "mitigation-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790775789",
+    "source_commit": "e8f55e763dbec41801a8d7c1e9fd4e10477ee816",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=15799.520000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14780.000000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14727.680000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14993.600000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=15075.200000 p50_ns=15000 p90_ns=16000 p99_ns=19000 min_ns=13000 max_ns=163000 distinct_durations=40 tied_pair_fraction=0.394285192"
+  },
+  {
+    "csv": "docs/evidence/review/reference.csv",
+    "csv_sha3_256": "5102ab60ef317bc0048e7d508287f0d784fe488ad8f167a05930aae141ccdb56",
+    "records": 100,
+    "run_id": "review-reference",
+    "implementation": "reference",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790398648",
+    "source_commit": "b9a758fc3f16b9b7292543abd3c2ae6967c21f2a",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=25 mean_ns=16640.000000",
+      "order_block=1 first_index=25 count=25 mean_ns=18600.000000",
+      "order_block=2 first_index=50 count=25 mean_ns=14040.000000",
+      "order_block=3 first_index=75 count=25 mean_ns=13920.000000"
+    ],
+    "all_series": "series=all count=100 mean_ns=15800.000000 p50_ns=14000 p90_ns=16000 p99_ns=41000 min_ns=13000 max_ns=53000 distinct_durations=9 tied_pair_fraction=0.560808081"
+  },
+  {
+    "csv": "docs/evidence/review/vulnerable.csv",
+    "csv_sha3_256": "890fae2763fa5c962c7daa66c6d40db01dfaaee7345899abccbacdd133f8ca50",
+    "records": 100,
+    "run_id": "review-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260926",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790398648",
+    "source_commit": "b9a758fc3f16b9b7292543abd3c2ae6967c21f2a",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=25 mean_ns=14400.000000",
+      "order_block=1 first_index=25 count=25 mean_ns=19880.000000",
+      "order_block=2 first_index=50 count=25 mean_ns=14960.000000",
+      "order_block=3 first_index=75 count=25 mean_ns=14440.000000"
+    ],
+    "all_series": "series=all count=100 mean_ns=15920.000000 p50_ns=15000 p90_ns=15000 p99_ns=50000 min_ns=14000 max_ns=79000 distinct_durations=9 tied_pair_fraction=0.405858586"
+  },
+  {
+    "csv": "docs/evidence/statistics/reference-replication.csv",
+    "csv_sha3_256": "4da554b669bbe23183746ac8448b5d2a84e12f62817ad1ef3662a992139c31fb",
+    "records": 25000,
+    "run_id": "replication-reference",
+    "implementation": "reference",
+    "seed": "42",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790773204",
+    "source_commit": "d322cbf2743a6db8529a59641f161c688bff7acf",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14065.440000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14081.760000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14074.240000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14090.400000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14077.960000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=33000 distinct_durations=20 tied_pair_fraction=0.786802595"
+  },
+  {
+    "csv": "docs/evidence/statistics/reference.csv",
+    "csv_sha3_256": "a57a12b0728fe4a7aac891d7882164db871e65b6c842ba31721c03e60f702518",
+    "records": 25000,
+    "run_id": "stats-reference",
+    "implementation": "reference",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790773172",
+    "source_commit": "d322cbf2743a6db8529a59641f161c688bff7acf",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14076.800000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14081.120000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14149.440000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14242.560000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14137.480000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=77000 distinct_durations=26 tied_pair_fraction=0.738593960"
+  },
+  {
+    "csv": "docs/evidence/statistics/vulnerable-replication.csv",
+    "csv_sha3_256": "21b5e9a6382a8ef1a4409553a7728d3551b29ccc5552ce6bd87dd8d1ab7962b6",
+    "records": 25000,
+    "run_id": "replication-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "42",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790773204",
+    "source_commit": "d322cbf2743a6db8529a59641f161c688bff7acf",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14745.280000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14726.560000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14712.320000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14809.280000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14748.360000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=73000 distinct_durations=26 tied_pair_fraction=0.467875944"
+  },
+  {
+    "csv": "docs/evidence/statistics/vulnerable.csv",
+    "csv_sha3_256": "b330fbea649f81fd96a0bf11c8b70ae4f8fba3fb2fc0864e3dc15db6294db643",
+    "records": 25000,
+    "run_id": "stats-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "20260930",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790773173",
+    "source_commit": "d322cbf2743a6db8529a59641f161c688bff7acf",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14670.400000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14717.600000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=15032.000000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14744.800000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14791.200000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=77000 distinct_durations=38 tied_pair_fraction=0.457106393"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/deployable-seed141421356.csv",
+    "csv_sha3_256": "9a4da746cf00fe609e7aa47cf9239c2a1a35e8c1f4847bff5e68c0316d081819",
+    "records": 25000,
+    "run_id": "multiseed-deployable-141421356",
+    "implementation": "deployable",
+    "seed": "141421356",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828122",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14101.440000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14010.560000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14050.560000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14049.280000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14052.960000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=37000 distinct_durations=20 tied_pair_fraction=0.776941798"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/deployable-seed20261111.csv",
+    "csv_sha3_256": "c00846a9e7f66e689c28cbedf00201a212fb84d3609233f88a569952e4f296d3",
+    "records": 25000,
+    "run_id": "multiseed-deployable-20261111",
+    "implementation": "deployable",
+    "seed": "20261111",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828117",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14073.600000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14070.720000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14048.000000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14060.640000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14063.240000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=34000 distinct_durations=20 tied_pair_fraction=0.750129416"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/deployable-seed31337.csv",
+    "csv_sha3_256": "2e79fc63bd5f39ce6aed1dc22c2346db0ef3a1275aa4fd6ca196597fd1f6306e",
+    "records": 25000,
+    "run_id": "multiseed-deployable-31337",
+    "implementation": "deployable",
+    "seed": "31337",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828112",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14082.080000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14079.200000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14079.200000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14077.120000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14079.400000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=31000 distinct_durations=17 tied_pair_fraction=0.750990910"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/deployable-seed8675309.csv",
+    "csv_sha3_256": "43e9f8ee4288e41c534028fb731e64e694c7c25c0f178583d9c3569b78335b90",
+    "records": 25000,
+    "run_id": "multiseed-deployable-8675309",
+    "implementation": "deployable",
+    "seed": "8675309",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828119",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14001.920000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14275.040000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14025.760000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14028.480000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14082.800000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=52000 distinct_durations=26 tied_pair_fraction=0.768392067"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/deployable-seed90210.csv",
+    "csv_sha3_256": "13fc7e818dd1b7506e382d1338e36631f567483fa9b4bf5a7c6e125c220e886a",
+    "records": 25000,
+    "run_id": "multiseed-deployable-90210",
+    "implementation": "deployable",
+    "seed": "90210",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828114",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14017.920000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14052.640000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14060.320000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=18983.200000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=15278.520000 p50_ns=14000 p90_ns=15000 p99_ns=29000 min_ns=13000 max_ns=834000 distinct_durations=148 tied_pair_fraction=0.651613412"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/hardened-seed141421356.csv",
+    "csv_sha3_256": "7372311176687b68582bae11fedf72dbd8be7abeac5cde260e47228fd5c25895",
+    "records": 25000,
+    "run_id": "multiseed-hardened-141421356",
+    "implementation": "hardened",
+    "seed": "141421356",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828121",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14229.120000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14258.080000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14241.600000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14286.560000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14253.840000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=36000 distinct_durations=21 tied_pair_fraction=0.682025412"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/hardened-seed20261111.csv",
+    "csv_sha3_256": "b6e2c144851fe039dd39230df50ce685fc6b8023511adde7f4be679049212abb",
+    "records": 25000,
+    "run_id": "multiseed-hardened-20261111",
+    "implementation": "hardened",
+    "seed": "20261111",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828116",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14481.280000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14251.200000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14260.160000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14276.000000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14317.160000 p50_ns=14000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=43000 distinct_durations=23 tied_pair_fraction=0.657745718"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/hardened-seed31337.csv",
+    "csv_sha3_256": "c9264f8e61db9d9d4d1f5a5aab44648ad7155a778209cb3f4171b5cfa95eac0e",
+    "records": 25000,
+    "run_id": "multiseed-hardened-31337",
+    "implementation": "hardened",
+    "seed": "31337",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828111",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14224.320000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14233.920000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14260.000000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14239.680000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14239.480000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=35000 distinct_durations=22 tied_pair_fraction=0.628768492"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/hardened-seed8675309.csv",
+    "csv_sha3_256": "dd0a20b3f847ecf28171e0c59fe1f3ebf2cbc64c987795ebb8dfe50f986547d1",
+    "records": 25000,
+    "run_id": "multiseed-hardened-8675309",
+    "implementation": "hardened",
+    "seed": "8675309",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828119",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14221.920000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14238.560000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14246.400000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14226.560000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14233.360000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=31000 distinct_durations=18 tied_pair_fraction=0.685481349"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/hardened-seed90210.csv",
+    "csv_sha3_256": "fe2088d320faaaa7efc9aa428f826e0dc7559fbe7b4f03735f2038cebe1aea24",
+    "records": 25000,
+    "run_id": "multiseed-hardened-90210",
+    "implementation": "hardened",
+    "seed": "90210",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828114",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14275.360000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14272.960000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14276.480000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14258.720000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14270.880000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=65000 distinct_durations=20 tied_pair_fraction=0.646098638"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/motivation-seed777-deployable.csv",
+    "csv_sha3_256": "6a69b596e35fb3ee44b2a40d3c133e34fdbf87ecb04c3eed21ed27afb389fe81",
+    "records": 10000,
+    "run_id": "motivation777-deployable",
+    "implementation": "deployable",
+    "seed": "777",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828130",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=2500 mean_ns=13941.600000",
+      "order_block=1 first_index=2500 count=2500 mean_ns=13936.000000",
+      "order_block=2 first_index=5000 count=2500 mean_ns=13904.800000",
+      "order_block=3 first_index=7500 count=2500 mean_ns=14017.600000"
+    ],
+    "all_series": "series=all count=10000 mean_ns=13950.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=33000 distinct_durations=14 tied_pair_fraction=0.680797200"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/motivation-seed777-hardened.csv",
+    "csv_sha3_256": "8d3e8e8a62341cc29b9bd47dfffe35ddb98d747c5d99f53e57ec98cfac7e08a9",
+    "records": 10000,
+    "run_id": "motivation777-hardened",
+    "implementation": "hardened",
+    "seed": "777",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828130",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=2500 mean_ns=14249.200000",
+      "order_block=1 first_index=2500 count=2500 mean_ns=14310.000000",
+      "order_block=2 first_index=5000 count=2500 mean_ns=14358.000000",
+      "order_block=3 first_index=7500 count=2500 mean_ns=14153.600000"
+    ],
+    "all_series": "series=all count=10000 mean_ns=14267.700000 p50_ns=14000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=53000 distinct_durations=21 tied_pair_fraction=0.685143894"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/motivation-seed777-reference.csv",
+    "csv_sha3_256": "eb20c6907419ea1de98cfdd4da184c9d10a19b1b006778b2e33790ece3e53248",
+    "records": 10000,
+    "run_id": "motivation777-reference",
+    "implementation": "reference",
+    "seed": "777",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828129",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=2500 mean_ns=13890.000000",
+      "order_block=1 first_index=2500 count=2500 mean_ns=13861.600000",
+      "order_block=2 first_index=5000 count=2500 mean_ns=13839.200000",
+      "order_block=3 first_index=7500 count=2500 mean_ns=13893.600000"
+    ],
+    "all_series": "series=all count=10000 mean_ns=13871.100000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=42000 distinct_durations=16 tied_pair_fraction=0.606365937"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/motivation-seed777-vulnerable.csv",
+    "csv_sha3_256": "704503fa1c263a15ebcca9141831b14bf57dc6f90bd73a3126299a63186738a0",
+    "records": 10000,
+    "run_id": "motivation777-vulnerable",
+    "implementation": "vulnerable",
+    "seed": "777",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828129",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=2500 mean_ns=14466.000000",
+      "order_block=1 first_index=2500 count=2500 mean_ns=14434.000000",
+      "order_block=2 first_index=5000 count=2500 mean_ns=14506.400000",
+      "order_block=3 first_index=7500 count=2500 mean_ns=14478.400000"
+    ],
+    "all_series": "series=all count=10000 mean_ns=14471.200000 p50_ns=14000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=32000 distinct_durations=17 tied_pair_fraction=0.448029043"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/reference-seed141421356.csv",
+    "csv_sha3_256": "63ebed19bb8d8a8232195081d6df10c4075620fde4b37c31d4a18a687015c797",
+    "records": 25000,
+    "run_id": "multiseed-reference-141421356",
+    "implementation": "reference",
+    "seed": "141421356",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828120",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14051.360000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14043.680000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14043.840000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14006.240000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14036.280000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=40000 distinct_durations=17 tied_pair_fraction=0.759748012"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/reference-seed20261111.csv",
+    "csv_sha3_256": "a29378b01a029c5ee5efa5dfd6d03047094c399aded885ce642c1e5fe98e618c",
+    "records": 25000,
+    "run_id": "multiseed-reference-20261111",
+    "implementation": "reference",
+    "seed": "20261111",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828115",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14008.800000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14034.240000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14056.960000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14152.800000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14063.200000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=37000 distinct_durations=22 tied_pair_fraction=0.754165946"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/reference-seed31337.csv",
+    "csv_sha3_256": "9a0936dfeb0fcfc13d7a9b5c5619adf9c69e85a1c14be5bdc70f27e036da27d1",
+    "records": 25000,
+    "run_id": "multiseed-reference-31337",
+    "implementation": "reference",
+    "seed": "31337",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828110",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=13898.720000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=13958.400000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=13936.640000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=13948.960000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=13935.680000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=32000 distinct_durations=18 tied_pair_fraction=0.645319214"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/reference-seed8675309.csv",
+    "csv_sha3_256": "7590a2f1bb6069a9ba27f595d6851f10ee8f475ca97fd2d54864d75d6ff44584",
+    "records": 25000,
+    "run_id": "multiseed-reference-8675309",
+    "implementation": "reference",
+    "seed": "8675309",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828117",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14048.960000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14047.040000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14034.400000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14025.600000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14039.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=32000 distinct_durations=16 tied_pair_fraction=0.763348233"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/reference-seed90210.csv",
+    "csv_sha3_256": "e5745f1ce7dac772c2323dd7f2efe60365f157ce60b5e477391279f2aad1742d",
+    "records": 25000,
+    "run_id": "multiseed-reference-90210",
+    "implementation": "reference",
+    "seed": "90210",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828112",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=13998.880000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=13971.840000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14021.440000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=13971.680000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=13990.960000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=31000 distinct_durations=16 tied_pair_fraction=0.719364387"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/vulnerable-seed141421356.csv",
+    "csv_sha3_256": "849cea7d57d4ddde330f5e4543676418c672c623a5da1baa4a02069d39cf4785",
+    "records": 25000,
+    "run_id": "multiseed-vulnerable-141421356",
+    "implementation": "vulnerable",
+    "seed": "141421356",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828121",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14635.840000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14639.200000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14651.840000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14827.040000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14688.480000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=37000 distinct_durations=19 tied_pair_fraction=0.459407208"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/vulnerable-seed20261111.csv",
+    "csv_sha3_256": "426c1e1a5937ae13ddcb40ee79361745052ba4f627848eec24b4acb179619c7e",
+    "records": 25000,
+    "run_id": "multiseed-vulnerable-20261111",
+    "implementation": "vulnerable",
+    "seed": "20261111",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828116",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14635.680000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14661.120000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14783.680000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14799.360000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14719.960000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=35000 distinct_durations=20 tied_pair_fraction=0.453084917"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/vulnerable-seed31337.csv",
+    "csv_sha3_256": "57311f9463eb4f3983e39ddfb3a9f66501f89fad8e3051c22bac9c0f3156e46e",
+    "records": 25000,
+    "run_id": "multiseed-vulnerable-31337",
+    "implementation": "vulnerable",
+    "seed": "31337",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828110",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14503.840000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14567.680000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14550.560000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14853.600000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14618.920000 p50_ns=15000 p90_ns=15000 p99_ns=18000 min_ns=13000 max_ns=38000 distinct_durations=20 tied_pair_fraction=0.438466595"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/vulnerable-seed8675309.csv",
+    "csv_sha3_256": "b8628f5091c89f778981cc27f5021ca4f6f50bad9fd8cca8580ca3142df55e62",
+    "records": 25000,
+    "run_id": "multiseed-vulnerable-8675309",
+    "implementation": "vulnerable",
+    "seed": "8675309",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828118",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=14588.800000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14663.360000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14610.880000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14603.040000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=14616.520000 p50_ns=15000 p90_ns=15000 p99_ns=17000 min_ns=13000 max_ns=34000 distinct_durations=19 tied_pair_fraction=0.463765853"
+  },
+  {
+    "csv": "docs/evidence/statistics-multiseed/vulnerable-seed90210.csv",
+    "csv_sha3_256": "281676577d945b61f287f9c9a66a1a67eb4745bb1d52035f89074e5787774a98",
+    "records": 25000,
+    "run_id": "multiseed-vulnerable-90210",
+    "implementation": "vulnerable",
+    "seed": "90210",
+    "clock_resolution_ns": "1000",
+    "wall_clock_unix_seconds": "1790828113",
+    "source_commit": "268bab838d5cf8a4b0c9c8b6f5f8b144557de219",
+    "duration_grid_ns": "1000",
+    "order_blocks": [
+      "order_block=0 first_index=0 count=6250 mean_ns=21958.400000",
+      "order_block=1 first_index=6250 count=6250 mean_ns=14904.800000",
+      "order_block=2 first_index=12500 count=6250 mean_ns=14677.440000",
+      "order_block=3 first_index=18750 count=6250 mean_ns=14667.520000"
+    ],
+    "all_series": "series=all count=25000 mean_ns=16552.040000 p50_ns=15000 p90_ns=18000 p99_ns=39000 min_ns=13000 max_ns=249000 distinct_durations=84 tied_pair_fraction=0.347856084"
+  }
+]

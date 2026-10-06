@@ -1,0 +1,6 @@
+$ cmake -S /Users/yin/code/cryProject -B /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m -G Ninja -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBASELINE_SANITIZERS=OFF
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m
+
+exit_status=0

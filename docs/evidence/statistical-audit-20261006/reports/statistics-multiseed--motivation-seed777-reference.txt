@@ -1,0 +1,25 @@
+format=timing_diagnostics_v1
+run_id=motivation777-reference
+implementation=reference
+record_count=10000
+time_unit=ns
+quantile_rule=rounded_zero_based_index_half_up_no_interpolation
+quantile_index=floor(p*(n-1)+0.5)
+raw_order=preserved
+outlier_removal=none
+inference=descriptive_only
+csv_digest_algorithm=SHA3-256
+csv_digest=eb20c6907419ea1de98cfdd4da184c9d10a19b1b006778b2e33790ece3e53248
+observed_duration_grid_ns=1000
+adjacent_equal_fraction=0.594759476
+order_block=0 first_index=0 count=2500 mean_ns=13890.000000
+order_block=1 first_index=2500 count=2500 mean_ns=13861.600000
+order_block=2 first_index=5000 count=2500 mean_ns=13839.200000
+order_block=3 first_index=7500 count=2500 mean_ns=13893.600000
+series=all count=10000 mean_ns=13871.100000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=42000 distinct_durations=16 tied_pair_fraction=0.606365937
+series=valid count=2000 mean_ns=13844.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=28000 distinct_durations=9 tied_pair_fraction=0.605924962
+series=bit-flipped count=2000 mean_ns=13861.500000 p50_ns=14000 p90_ns=14000 p99_ns=16000 min_ns=13000 max_ns=34000 distinct_durations=9 tied_pair_fraction=0.596203602
+series=random count=2000 mean_ns=13890.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=42000 distinct_durations=11 tied_pair_fraction=0.605849925
+series=message-zero count=2000 mean_ns=13875.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=30000 distinct_durations=11 tied_pair_fraction=0.615405703
+series=message-ones count=2000 mean_ns=13885.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=19000 distinct_durations=7 tied_pair_fraction=0.608268134
+report_status=complete

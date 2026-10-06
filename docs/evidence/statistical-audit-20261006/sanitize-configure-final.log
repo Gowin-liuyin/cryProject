@@ -1,0 +1,13 @@
+$ cmake -S /Users/yin/code/cryProject -B /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44 -G Ninja -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Debug -DBASELINE_SANITIZERS=ON
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.54.0 (Apple Git-157)")
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44
+
+exit_status=0

@@ -1,0 +1,22 @@
+$ cmake --build /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44 --target inspect_timing test_timing_diagnostics analyze analyze_groups --parallel 4
+[0/2] Re-checking globbed directories...
+[1/19] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44/generated/Debug/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44/generated/Debug/configuration.txt
+[2/19] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[3/19] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[4/19] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[5/19] Building C object CMakeFiles/analyze.dir/src/analyze.c.o
+[6/19] Building C object CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o
+[7/19] Building C object CMakeFiles/analyze.dir/src/timing_statistics.c.o
+[8/19] Building C object CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o
+[9/19] Building C object CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o
+[10/19] Building C object CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o
+[11/19] Building C object CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o
+[12/19] Building C object CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o
+[13/19] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[14/19] Linking C static library reference/libmlkem.a
+[15/19] Linking C executable analyze_groups
+[16/19] Linking C executable inspect_timing
+[17/19] Linking C executable analyze
+[18/19] Linking C executable test_timing_diagnostics
+
+exit_status=0

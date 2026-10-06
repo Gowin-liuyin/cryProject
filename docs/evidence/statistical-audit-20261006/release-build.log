@@ -1,0 +1,30 @@
+$ cmake --build /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m --target inspect_timing test_timing_diagnostics analyze analyze_groups --parallel 4
+[0/2] Re-checking globbed directories...
+[1/19] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m/generated/RelWithDebInfo/configuration.txt
+[2/19] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[3/19] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[4/19] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[5/19] Building C object CMakeFiles/analyze.dir/src/analyze.c.o
+[6/19] Building C object CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o
+[7/19] Building C object CMakeFiles/analyze.dir/src/timing_statistics.c.o
+[8/19] Building C object CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o
+[9/19] Building C object CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o
+[10/19] Building C object CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o
+FAILED: [code=1] CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o 
+/usr/bin/cc -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o -MF CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o.d -o CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o -c /Users/yin/code/cryProject/tests/test_timing_diagnostics.c
+/Users/yin/code/cryProject/tests/test_timing_diagnostics.c:40:12: error: call to undeclared function 'mkdtemp'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   40 |     assert(mkdtemp(test_directory) != NULL);
+      |            ^
+/Users/yin/code/cryProject/tests/test_timing_diagnostics.c:40:36: error: comparison between pointer and integer ('int' and 'void *') [-Werror,-Wpointer-integer-compare]
+   40 |     assert(mkdtemp(test_directory) != NULL);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/assert.h:72:25: note: expanded from macro 'assert'
+   72 |     (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __ASSERT_FILE_NAME, __LINE__, #e) : (void)0)
+      |                         ^
+2 errors generated.
+[11/19] Building C object CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o
+[12/19] Building C object CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o
+[13/19] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+ninja: build stopped: subcommand failed.
+
+exit_status=1

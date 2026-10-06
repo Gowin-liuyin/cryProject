@@ -1,0 +1,12 @@
+$ ctest --test-dir /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44 --output-on-failure -R '^(timing_diagnostics|analysis_round1_replay)$'
+Test project /Users/yin/code/cryProject/build/statistics-audit-sanitize.k5oy0z44
+    Start 10: timing_diagnostics
+1/2 Test #10: timing_diagnostics ...............   Passed    1.18 sec
+    Start 21: analysis_round1_replay
+2/2 Test #21: analysis_round1_replay ...........   Passed    0.47 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   1.65 sec
+
+exit_status=0

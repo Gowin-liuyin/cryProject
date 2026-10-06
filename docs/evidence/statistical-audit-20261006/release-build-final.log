@@ -1,0 +1,5 @@
+$ cmake --build /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m --target inspect_timing test_timing_diagnostics analyze analyze_groups --parallel 4
+[0/2] Re-checking globbed directories...
+[1/2] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/statistics-audit-release.n14o2p9m/generated/RelWithDebInfo/configuration.txt
+
+exit_status=0
