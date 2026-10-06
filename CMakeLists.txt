@@ -185,6 +185,19 @@ set_target_properties(
 )
 
 # 统计分析只读取 CSV，与实现变体无关，因此只构建一个程序。
+add_executable(reference_batch_benchmark src/measure.c src/batch_measurement.c)
+target_compile_definitions(
+    reference_batch_benchmark PRIVATE BASELINE_ORDINARY_WORKLOAD=1 BASELINE_BATCH_WORKLOAD=1
+)
+target_link_libraries(reference_batch_benchmark PRIVATE mlkem_reference)
+target_include_directories(reference_batch_benchmark PRIVATE "${identity_directory}")
+set_target_properties(
+    reference_batch_benchmark
+    PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+               RUNTIME_OUTPUT_DIRECTORY "${output_root}/reference"
+               OUTPUT_NAME batch_benchmark
+)
+
 find_library(MATH_LIBRARY m)
 add_executable(analyze src/analyze.c src/timing_statistics.c)
 target_link_libraries(analyze PRIVATE mlkem_reference)
@@ -214,6 +227,14 @@ endif()
 set_target_properties(inspect_timing PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 
 if(BUILD_TESTING)
+    add_executable(test_batch_measurement tests/test_batch_measurement.c src/batch_measurement.c)
+    target_link_libraries(test_batch_measurement PRIVATE mlkem_reference)
+    target_compile_options(test_batch_measurement PRIVATE -UNDEBUG)
+    add_test(NAME batch_measurement
+             COMMAND test_batch_measurement $<TARGET_FILE:reference_benchmark>
+                     $<TARGET_FILE:reference_batch_benchmark>
+    )
+    set_tests_properties(batch_measurement PROPERTIES RUN_SERIAL TRUE)
     add_executable(
         test_reference_benchmark tests/test_reference_benchmark.c src/timing_statistics.c
     )

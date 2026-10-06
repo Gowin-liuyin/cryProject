@@ -5,6 +5,9 @@
 #include "build_identity.h"
 #include "inputs.h"
 #include "src/fips202/fips202.h"
+#ifdef BASELINE_BATCH_WORKLOAD
+#include "batch_measurement.h"
+#endif
 
 #include <inttypes.h>
 #include <stdatomic.h>
@@ -25,6 +28,33 @@ struct measurement_sample {
     enum input_category category;
     uint64_t elapsed_nanoseconds;
 };
+
+#ifdef BASELINE_BATCH_WORKLOAD
+#define MEASUREMENT_ARGUMENT_COUNT 7
+#define CSV_ARGUMENT_INDEX 5
+#define METADATA_ARGUMENT_INDEX 6
+#define MEASUREMENT_METHOD "candidate"
+#define MEASUREMENT_FORMAT "reference_batch_v1"
+
+struct batch_window {
+    size_t first_input_index;
+    size_t call_count;
+    size_t category_counts[3];
+    uint64_t total_nanoseconds;
+};
+
+static size_t measurement_batch_size = 1;
+static struct batch_window *batch_windows;
+#else
+#define MEASUREMENT_ARGUMENT_COUNT 6
+#define CSV_ARGUMENT_INDEX 4
+#define METADATA_ARGUMENT_INDEX 5
+#define MEASUREMENT_METHOD "baseline"
+#define MEASUREMENT_FORMAT "reference_ordinary_v1"
+#ifdef BASELINE_ORDINARY_WORKLOAD
+static const size_t measurement_batch_size = 1;
+#endif
+#endif
 
 #ifdef BASELINE_ORDINARY_WORKLOAD
 #define MEASUREMENT_CATEGORY_COUNT 3u
@@ -211,7 +241,8 @@ static int finish_cost_record(FILE *cost_file, int operation_status)
 static int save_workload_identity(FILE *metadata_file, size_t sample_count)
 {
     if (fprintf(metadata_file,
-            "paired_metadata_version=paired_workload_v1\nmethod=baseline\nbatch_size=1\n"
+            "paired_metadata_version=paired_workload_v1\nmethod=" MEASUREMENT_METHOD
+            "\nbatch_size=%zu\n"
             "parameter_set=ML-KEM-768\ninput_rule=ordinary_input_stream_v1\n"
             "upstream_commit=b3ba7b32773e657dd37f6f87bce82528459ad8a4\n"
             "valid_count=%zu\nbit_flipped_count=%zu\nrandom_count=%zu\n"
@@ -219,6 +250,7 @@ static int save_workload_identity(FILE *metadata_file, size_t sample_count)
             "\nwarmup_attempted_calls=%" PRIu64 "\nwarmup_completed_calls=%" PRIu64
             "\noutputs_consumed=%" PRIu64 "\nordered_input_digest_algorithm=SHA3-256\n"
             "ordered_input_digest=",
+            measurement_batch_size,
             sample_count / 3u,
             sample_count / 3u,
             sample_count / 3u,
@@ -396,6 +428,32 @@ static int save_measurements(const char *csv_path,
         (void)remove(csv_path);
         return 1;
     }
+#ifdef BASELINE_BATCH_WORKLOAD
+    (void)samples;
+    size_t window_count = (sample_count + measurement_batch_size - 1u) / measurement_batch_size;
+    if (fputs("run_id,block_id,method,window_index,input_start,input_end,call_count,valid_count,"
+              "bit_flipped_count,random_count,elapsed_nanoseconds,time_unit,status\n",
+            csv_file) == EOF) {
+        operation_status = 1;
+    }
+    for (size_t window_index = 0; window_index < window_count; ++window_index) {
+        const struct batch_window *window = &batch_windows[window_index];
+        if (fprintf(csv_file,
+                "%s,%s,candidate,%zu,%zu,%zu,%zu,%zu,%zu,%zu,%" PRIu64 ",ns,complete\n",
+                run_id,
+                run_id,
+                window_index,
+                window->first_input_index,
+                window->first_input_index + window->call_count,
+                window->call_count,
+                window->category_counts[0],
+                window->category_counts[1],
+                window->category_counts[2],
+                window->total_nanoseconds) < 0) {
+            operation_status = 1;
+        }
+    }
+#else
     if (fprintf(csv_file,
             "run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit\n") <
         0) {
@@ -412,6 +470,7 @@ static int save_measurements(const char *csv_path,
             operation_status = 1;
         }
     }
+#endif
     if (fprintf(metadata_file,
             "run_id=%s\nimplementation=%s\ntest_seed=%" PRIu64 "\nsample_count=%zu\n"
             "clock=CLOCK_MONOTONIC\ntime_unit=ns\nclock_resolution_ns=%" PRIu64 "\n"
@@ -447,7 +506,7 @@ static int save_measurements(const char *csv_path,
         }
     }
 #ifdef BASELINE_ORDINARY_WORKLOAD
-    if (fputs("measurement_format=reference_ordinary_v1\n"
+    if (fputs("measurement_format=" MEASUREMENT_FORMAT "\n"
               "workload=valid:bit-flipped:random=1:1:1\n"
               "input_index_rule=category_local_index_shared_across_categories\n"
               "virtualization=not_verified_by_program_see_environment_log\n",
@@ -488,18 +547,36 @@ int main(int argument_count, char **argument_values)
     struct measurement_sample *samples = NULL;
     size_t sample_count;
     int operation_status = 1;
+#ifdef BASELINE_BATCH_WORKLOAD
+    uint8_t batch_shared_secrets[MAXIMUM_BATCH_CALLS][MLKEM_SHARED_SECRET_BYTES] = {{0}};
+#endif
 #ifdef BASELINE_ORDINARY_WORKLOAD
     FILE *cost_file = NULL;
     char cost_path[4096];
 #endif
-    if (argument_count != 6 || parse_unsigned_integer(argument_values[2], &test_seed) != 0 ||
+    if (argument_count != MEASUREMENT_ARGUMENT_COUNT ||
+        parse_unsigned_integer(argument_values[2], &test_seed) != 0 ||
         parse_unsigned_integer(argument_values[3], &samples_per_category) != 0 ||
         samples_per_category == 0 || samples_per_category > 20000u) {
+#ifdef BASELINE_BATCH_WORKLOAD
+        fputs("Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE\n",
+            stderr);
+#else
         fputs(
             "Usage: measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE (count 1..20000)\n",
             stderr);
+#endif
         return 2;
     }
+#ifdef BASELINE_BATCH_WORKLOAD
+    uint64_t requested_batch_size;
+    if (parse_unsigned_integer(argument_values[4], &requested_batch_size) != 0 ||
+        (requested_batch_size != 1u && requested_batch_size != 4u && requested_batch_size != 16u)) {
+        fputs("batch size must be 1, 4 or 16\n", stderr);
+        return 2;
+    }
+    measurement_batch_size = (size_t)requested_batch_size;
+#endif
     if (strlen(argument_values[1]) == 0 || strlen(argument_values[1]) > 64u) {
         fputs("invalid RUN_ID: length must be 1..64 characters\n", stderr);
         return 2;
@@ -514,7 +591,8 @@ int main(int argument_count, char **argument_values)
         }
     }
 #ifdef BASELINE_ORDINARY_WORKLOAD
-    int path_byte_count = snprintf(cost_path, sizeof(cost_path), "%s.cost", argument_values[4]);
+    int path_byte_count =
+        snprintf(cost_path, sizeof(cost_path), "%s.cost", argument_values[CSV_ARGUMENT_INDEX]);
     if (path_byte_count < 0 || (size_t)path_byte_count >= sizeof(cost_path) ||
         read_monotonic_nanoseconds(&accounting.start_nanoseconds) != 0) {
         return 1;
@@ -541,6 +619,13 @@ int main(int argument_count, char **argument_values)
     }
     sample_count = (size_t)samples_per_category * MEASUREMENT_CATEGORY_COUNT;
     samples = calloc(sample_count, sizeof(*samples));
+#ifdef BASELINE_BATCH_WORKLOAD
+    batch_windows = calloc((sample_count + measurement_batch_size - 1u) / measurement_batch_size,
+        sizeof(*batch_windows));
+    if (batch_windows == NULL) {
+        goto cleanup;
+    }
+#endif
     if (samples == NULL ||
         generate_test_key_pair(test_seed, encapsulation_key, decapsulation_key) != 0) {
         goto cleanup;
@@ -592,6 +677,56 @@ int main(int argument_count, char **argument_values)
         goto cleanup;
     }
 #endif
+#ifdef BASELINE_BATCH_WORKLOAD
+    for (size_t first_input_index = 0; first_input_index < sample_count;
+        first_input_index += measurement_batch_size) {
+        struct batch_window *window = &batch_windows[first_input_index / measurement_batch_size];
+        const uint8_t *ciphertexts[MAXIMUM_BATCH_CALLS];
+        int call_statuses[MAXIMUM_BATCH_CALLS];
+        uint64_t start_nanoseconds;
+        uint64_t end_nanoseconds;
+        window->first_input_index = first_input_index;
+        window->call_count = sample_count - first_input_index < measurement_batch_size
+            ? sample_count - first_input_index
+            : measurement_batch_size;
+        for (size_t call_index = 0; call_index < window->call_count; ++call_index) {
+            const struct measurement_sample *sample = &samples[first_input_index + call_index];
+            ciphertexts[call_index] = sample->ciphertext;
+            ++window->category_counts[(unsigned)sample->category];
+        }
+        accounting.formal_attempted_calls += (uint64_t)window->call_count;
+        if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+            accounting.formal_attempted_calls -= (uint64_t)window->call_count;
+            goto cleanup;
+        }
+        atomic_signal_fence(memory_order_seq_cst);
+        int batch_status = run_batch_decapsulations(window->call_count,
+            ciphertexts,
+            decapsulation_key,
+            batch_shared_secrets,
+            call_statuses);
+        atomic_signal_fence(memory_order_seq_cst);
+        if (read_monotonic_nanoseconds(&end_nanoseconds) != 0 ||
+            end_nanoseconds < start_nanoseconds || batch_status != 0) {
+            goto cleanup;
+        }
+        window->total_nanoseconds = end_nanoseconds - start_nanoseconds;
+        int has_failed_call = 0;
+        for (size_t call_index = 0; call_index < window->call_count; ++call_index) {
+            if (call_statuses[call_index] != 0) {
+                has_failed_call = 1;
+            } else {
+                ++accounting.formal_completed_calls;
+                result_sink ^=
+                    batch_shared_secrets[call_index][(first_input_index + call_index) % 32u];
+                ++accounting.outputs_consumed;
+            }
+        }
+        if (has_failed_call) {
+            goto cleanup;
+        }
+    }
+#else
     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
         uint64_t start_nanoseconds;
         uint64_t end_nanoseconds;
@@ -628,13 +763,14 @@ int main(int argument_count, char **argument_values)
         ++accounting.outputs_consumed;
 #endif
     }
+#endif
 #ifdef BASELINE_ORDINARY_WORKLOAD
     if (read_monotonic_nanoseconds(&accounting.collection_end_nanoseconds) != 0) {
         goto cleanup;
     }
 #endif
-    operation_status = save_measurements(argument_values[4],
-        argument_values[5],
+    operation_status = save_measurements(argument_values[CSV_ARGUMENT_INDEX],
+        argument_values[METADATA_ARGUMENT_INDEX],
         argument_values[1],
         test_seed,
         samples,
@@ -645,6 +781,10 @@ cleanup:
     erase_secret_bytes(decapsulation_key, sizeof(decapsulation_key));
     erase_secret_bytes(shared_secret, sizeof(shared_secret));
     free(samples);
+#ifdef BASELINE_BATCH_WORKLOAD
+    erase_secret_bytes(batch_shared_secrets, sizeof(batch_shared_secrets));
+    free(batch_windows);
+#endif
 #ifdef BASELINE_ORDINARY_WORKLOAD
     if (cost_file != NULL) {
         operation_status = finish_cost_record(cost_file, operation_status);
@@ -653,9 +793,15 @@ cleanup:
     if (operation_status != 0) {
         fputs("measurement failed; check resources and use new output paths\n", stderr);
     } else {
+#ifdef BASELINE_BATCH_WORKLOAD
+        printf("reference: saved raw window totals for %zu decapsulations; no statistical "
+               "conclusion\n",
+            sample_count);
+#else
         printf("%s: saved %zu raw decapsulation times in ns; no statistical conclusion\n",
             mlkem_implementation_name(),
             sample_count);
+#endif
     }
     return operation_status;
 }
