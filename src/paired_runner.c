@@ -1141,6 +1141,10 @@ static int observe_cohort(const char *phase,
         }
         return 1;
     }
+    if (access(audit_path, F_OK) == 0 || errno != ENOENT) {
+        (void)close(lock_descriptor);
+        return 1;
+    }
     uint64_t start_nanoseconds;
     uint64_t finish_nanoseconds;
     struct planned_pair checked_pairs[20];

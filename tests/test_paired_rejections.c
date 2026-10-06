@@ -184,6 +184,33 @@ check_confirmation_shapes(const char *parent, const char *generator, const char 
                    sizeof(metadata_paths[1]),
                    directory,
                    "fixture-01-candidate.meta") == 0);
+        const char *const development_seeds[] = {"2026120101",
+            "2026120105",
+            "2026120201",
+            "2026120205"};
+        for (size_t seed_index = 0; seed_index < 4u; ++seed_index) {
+            for (size_t method_index = 0; method_index < 2u; ++method_index) {
+                replace_field(metadata_paths[method_index],
+                    "test_seed",
+                    development_seeds[seed_index]);
+                update_run_digest(directory,
+                    "fixture-01",
+                    metadata_paths[method_index],
+                    7u + 3u * method_index);
+            }
+            assert(snprintf(filename, sizeof(filename), "development-seed-%zu.report", seed_index) >
+                0);
+            assert(paired_data_path(report_path, sizeof(report_path), directory, filename) == 0);
+            assert(invoke(analysis_arguments) == 0);
+            check_report_result(report_path, "comparison_evidence_insufficient");
+        }
+        for (size_t method_index = 0; method_index < 2u; ++method_index) {
+            replace_field(metadata_paths[method_index], "test_seed", "5001");
+            update_run_digest(directory,
+                "fixture-01",
+                metadata_paths[method_index],
+                7u + 3u * method_index);
+        }
         for (size_t field_index = 0; field_index < 5u; ++field_index) {
             for (size_t method_index = 0; method_index < 2u; ++method_index) {
                 replace_field(metadata_paths[method_index],

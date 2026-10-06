@@ -118,7 +118,8 @@ static int is_excluded_workload_seed(uint64_t seed)
         20261029,
         20261111,
         141421356};
-    if (seed <= 63u) {
+    if (seed <= 63u || (seed >= UINT64_C(2026120101) && seed <= UINT64_C(2026120105)) ||
+        (seed >= UINT64_C(2026120201) && seed <= UINT64_C(2026120205))) {
         return 1;
     }
     for (size_t seed_index = 0; seed_index < sizeof(excluded_seeds) / sizeof(excluded_seeds[0]);
