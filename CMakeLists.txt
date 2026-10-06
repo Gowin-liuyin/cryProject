@@ -194,7 +194,21 @@ set_target_properties(
                                                                  "${output_root}"
 )
 
+add_executable(inspect_timing src/inspect_timing.c src/timing_statistics.c)
+target_link_libraries(inspect_timing PRIVATE mlkem_reference)
+if(MATH_LIBRARY)
+    target_link_libraries(inspect_timing PRIVATE "${MATH_LIBRARY}")
+endif()
+set_target_properties(inspect_timing PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+
 if(BUILD_TESTING)
+    add_executable(test_timing_diagnostics tests/test_timing_diagnostics.c src/timing_statistics.c)
+    target_link_libraries(test_timing_diagnostics PRIVATE mlkem_reference)
+    if(MATH_LIBRARY)
+        target_link_libraries(test_timing_diagnostics PRIVATE "${MATH_LIBRARY}")
+    endif()
+    target_compile_options(test_timing_diagnostics PRIVATE -UNDEBUG)
+    add_test(NAME timing_diagnostics COMMAND test_timing_diagnostics $<TARGET_FILE:inspect_timing>)
     add_executable(test_measurement tests/test_measurement.c)
     target_link_libraries(test_measurement PRIVATE mlkem_reference)
     set_target_properties(test_measurement PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
