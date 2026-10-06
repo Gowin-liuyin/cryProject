@@ -94,15 +94,21 @@ sanitize_directory="$output_directory/build-sanitize"
 run_step release-configure cmake -S "$source_directory" -B "$release_directory" \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF
 run_step release-build cmake --build "$release_directory" --target check-reference \
-    reference_benchmark inspect_timing test_reference_benchmark test_timing_diagnostics --parallel 4
+    reference_benchmark reference_batch_benchmark inspect_timing analyze_paired paired_runner \
+    paired_prepare native_digest test_reference_benchmark test_timing_diagnostics \
+    test_batch_measurement test_paired_statistics test_paired_data test_paired_rejections \
+    test_paired_runner test_paired_prepare test_native_digest paired_worker_fixture --parallel 4
 run_step release-test ctest --test-dir "$release_directory" --output-on-failure \
-    -R '^(reference_benchmark|timing_diagnostics)$'
+    -R '^(reference_benchmark|timing_diagnostics|batch_measurement|paired_statistics|paired_data|paired_rejections|paired_runner|paired_prepare|native_digest)$'
 run_step sanitize-configure cmake -S "$source_directory" -B "$sanitize_directory" \
     -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=ON
 run_step sanitize-build cmake --build "$sanitize_directory" --target check-reference \
-    reference_benchmark inspect_timing test_reference_benchmark test_timing_diagnostics --parallel 4
+    reference_benchmark reference_batch_benchmark inspect_timing analyze_paired paired_runner \
+    paired_prepare native_digest test_reference_benchmark test_timing_diagnostics \
+    test_batch_measurement test_paired_statistics test_paired_data test_paired_rejections \
+    test_paired_runner test_paired_prepare test_native_digest paired_worker_fixture --parallel 4
 run_step sanitize-test ctest --test-dir "$sanitize_directory" --output-on-failure \
-    -R '^(reference_benchmark|timing_diagnostics)$'
+    -R '^(reference_benchmark|timing_diagnostics|batch_measurement|paired_statistics|paired_data|paired_rejections|paired_runner|paired_prepare|native_digest)$'
 run_step executable-type file "$release_directory/reference/benchmark"
 run_step disassembly objdump -d "$release_directory/reference/benchmark"
 for test_seed in 20261006 20261007 20261008; do
@@ -113,8 +119,8 @@ for test_seed in 20261006 20261007 20261008; do
         "$output_directory/$test_seed.csv" "$output_directory/$test_seed.summary"
     run_step "executable-digest-$test_seed" openssl dgst -sha3-256 "$release_directory/reference/benchmark"
     expected_digest=$(sed -n 's/^executable_digest=//p' "$output_directory/$test_seed.meta")
-    actual_digest=$(tail -n 1 "$output_directory/executable-digest-$test_seed.log" | awk '{print $NF}')
-    if test "$expected_digest" = "$actual_digest"; then
+    if actual_digest=$("$release_directory/native_digest" "$output_directory/executable-digest-$test_seed.log") && \
+        test "$expected_digest" = "$actual_digest"; then
         printf 'digest-check-%s\t0\n' "$test_seed" >> "$output_directory/step-exits.tsv"
     else
         printf 'digest-check-%s\t1\n' "$test_seed" >> "$output_directory/step-exits.tsv"

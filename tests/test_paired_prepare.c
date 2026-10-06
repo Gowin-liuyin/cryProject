@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
@@ -35,7 +36,16 @@ static int invoke(char *const arguments[], char *output, size_t capacity)
 
 int main(int argument_count, char **argument_values)
 {
-    assert(argument_count == 3);
+    if (argument_count == 4 && strcmp(argument_values[1], "init") == 0) {
+        const char *fixture_mode = getenv("CRY_PREPARE_FIXTURE_MODE");
+        if (fixture_mode != NULL && strcmp(fixture_mode, "timeout") == 0) {
+            for (;;) {
+                (void)pause();
+            }
+        }
+        return 17;
+    }
+    assert(argument_count == 4);
     char output[4096];
     char *clock_arguments[] = {argument_values[1], "clock", NULL};
     assert(invoke(clock_arguments, output, sizeof(output)) == 0);
@@ -109,6 +119,80 @@ int main(int argument_count, char **argument_values)
         NULL};
     assert(invoke(shared_arguments, output, sizeof(output)) == 0);
     assert(invoke(shared_arguments, output, sizeof(output)) == 1);
+    for (unsigned finish_index = 0; finish_index < 4u; ++finish_index) {
+        char finish_directory[4096];
+        char filename[64];
+        char receipt_path[4096];
+        assert(snprintf(filename, sizeof(filename), "finish-%u", finish_index) > 0);
+        assert(
+            paired_data_path(finish_directory, sizeof(finish_directory), directory, filename) == 0);
+        assert(mkdir(finish_directory, 0700) == 0);
+        assert(paired_data_path(receipt_path,
+                   sizeof(receipt_path),
+                   finish_directory,
+                   "budget.meta.preparation") == 0);
+        FILE *receipt = fopen(receipt_path, "wx");
+        assert(receipt != NULL && fputs("preparation_status=pending\n", receipt) >= 0 &&
+            fclose(receipt) == 0);
+        char *finish_arguments[] = {argument_values[1],
+            "finish",
+            finish_directory,
+            argument_values[2],
+            timestamp_text,
+            "301000000000",
+            "pending",
+            "pending",
+            finish_index == 0 || finish_index == 3 ? argument_values[3] : argument_values[0],
+            NULL};
+        if (finish_index == 3u) {
+            char blocked_receipt[4096];
+            assert(paired_data_path(blocked_receipt,
+                       sizeof(blocked_receipt),
+                       finish_directory,
+                       "budget.meta.preparation.new") == 0);
+            assert(mkdir(blocked_receipt, 0700) == 0);
+        }
+        if (finish_index == 2u) {
+            assert(setenv("CRY_PREPARE_FIXTURE_MODE", "timeout", 1) == 0);
+        }
+        assert(invoke(finish_arguments, output, sizeof(output)) == (finish_index == 0 ? 0 : 1));
+        assert(unsetenv("CRY_PREPARE_FIXTURE_MODE") == 0);
+        char receipt_status[32];
+        struct paired_text_field receipt_field = {"preparation_status", receipt_status, 32, 0};
+        assert(read_paired_fields(receipt_path, &receipt_field, 1) == 0);
+        assert(strcmp(receipt_status, finish_index == 0 ? "complete" : "pending") == 0);
+        char status_path[4096];
+        assert(paired_data_path(status_path,
+                   sizeof(status_path),
+                   finish_directory,
+                   "preparation-status.txt") == 0);
+        char exit_status[8];
+        struct paired_text_field exit_field = {"preparation_exit_status", exit_status, 8, 0};
+        assert(read_paired_fields(status_path, &exit_field, 1) == 0);
+        assert(strcmp(exit_status, finish_index == 0 ? "0" : "1") == 0);
+        char cost_path[4096];
+        assert(
+            paired_data_path(cost_path, sizeof(cost_path), finish_directory, "shared.cost") == 0);
+        const char *const cost_names[] = {"shared_calls_upper",
+            "shared_wall_lower_ns",
+            "shared_wall_upper_ns"};
+        char cost_values[3][32];
+        struct paired_text_field cost_fields[3];
+        uint64_t cost_numbers[3];
+        for (size_t cost_index = 0; cost_index < 3u; ++cost_index) {
+            cost_fields[cost_index] =
+                (struct paired_text_field){cost_names[cost_index], cost_values[cost_index], 32, 0};
+        }
+        assert(read_paired_fields(cost_path, cost_fields, 3) == 0);
+        for (size_t cost_index = 0; cost_index < 3u; ++cost_index) {
+            assert(parse_unsigned_integer(cost_values[cost_index], &cost_numbers[cost_index]) == 0);
+        }
+        assert(cost_numbers[0] == 40000u &&
+            cost_numbers[2] == cost_numbers[1] + UINT64_C(302000000000));
+        assert(invoke(finish_arguments, output, sizeof(output)) == 1);
+        assert(read_paired_fields(status_path, &exit_field, 1) == 0);
+        assert(strcmp(exit_status, finish_index == 0 ? "0" : "1") == 0);
+    }
     printf("software_prepare_fixture_directory=%s\n", directory);
     return 0;
 }

@@ -242,13 +242,24 @@ add_executable(paired_prepare src/paired_prepare.c)
 target_link_libraries(paired_prepare PRIVATE paired_support)
 target_include_directories(paired_prepare PRIVATE "${identity_directory}")
 set_target_properties(paired_prepare PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_executable(native_digest src/native_digest.c)
+target_link_libraries(native_digest PRIVATE baseline_options)
+set_target_properties(native_digest PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 
 if(BUILD_TESTING)
+    find_program(OPENSSL_EXECUTABLE openssl REQUIRED)
+    add_executable(test_native_digest tests/test_native_digest.c)
+    target_link_libraries(test_native_digest PRIVATE baseline_options)
+    target_compile_options(test_native_digest PRIVATE -UNDEBUG)
+    add_test(NAME native_digest COMMAND test_native_digest $<TARGET_FILE:native_digest>
+                                        "${OPENSSL_EXECUTABLE}"
+    )
     add_executable(test_paired_prepare tests/test_paired_prepare.c)
     target_link_libraries(test_paired_prepare PRIVATE paired_support)
     target_compile_options(test_paired_prepare PRIVATE -UNDEBUG)
-    add_test(NAME paired_prepare COMMAND test_paired_prepare $<TARGET_FILE:paired_prepare>
-                                         $<TARGET_FILE:mlkem_reference>
+    add_test(NAME paired_prepare
+             COMMAND test_paired_prepare $<TARGET_FILE:paired_prepare>
+                     $<TARGET_FILE:mlkem_reference> $<TARGET_FILE:paired_runner>
     )
     add_executable(paired_worker_fixture tests/paired_worker_fixture.c)
     target_link_libraries(paired_worker_fixture PRIVATE baseline_options)
