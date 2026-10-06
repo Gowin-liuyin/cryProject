@@ -97,9 +97,67 @@ static int build_source(char source_commit[41])
     return 1;
 }
 
+static int sync_parent_directory(const char *path)
+{
+    char directory[4096];
+    size_t path_length = strlen(path);
+    if (path_length >= sizeof(directory)) {
+        return 1;
+    }
+    memcpy(directory, path, path_length + 1u);
+    char *separator = strrchr(directory, '/');
+    if (separator == NULL) {
+        memcpy(directory, ".", 2);
+    } else if (separator == directory) {
+        separator[1] = '\0';
+    } else {
+        *separator = '\0';
+    }
+    int directory_descriptor = open(directory, O_RDONLY);
+    if (directory_descriptor < 0) {
+        return 1;
+    }
+    int operation_status = fsync(directory_descriptor) != 0;
+    if (close(directory_descriptor) != 0) {
+        operation_status = 1;
+    }
+    return operation_status;
+}
+
+static int sync_data_file(const char *path)
+{
+    int file_descriptor = open(path, O_RDONLY);
+    if (file_descriptor < 0) {
+        return 1;
+    }
+    int operation_status = fsync(file_descriptor) != 0;
+    if (close(file_descriptor) != 0) {
+        operation_status = 1;
+    }
+    return operation_status;
+}
+
+static void preserve_budget_audit(const char *path)
+{
+    char audit_path[4096];
+    int path_bytes = snprintf(audit_path, sizeof(audit_path), "%s.audit", path);
+    if (path_bytes < 0 || (size_t)path_bytes >= sizeof(audit_path)) {
+        return;
+    }
+    int audit_descriptor = open(audit_path, O_WRONLY | O_CREAT | O_EXCL, 0600);
+    if (audit_descriptor >= 0) {
+        static const char audit_state[] = "budget_state=unclosed\n";
+        (void)write(audit_descriptor, audit_state, sizeof(audit_state) - 1u);
+        (void)fsync(audit_descriptor);
+        (void)close(audit_descriptor);
+        (void)sync_parent_directory(audit_path);
+    }
+}
+
 static int write_budget(const char *path, const struct budget_ledger *budget, int initial)
 {
     char temporary_path[4096];
+    char previous_path[4096];
     int path_bytes =
         snprintf(temporary_path, sizeof(temporary_path), "%s.new.%jd", path, (intmax_t)getpid());
     if (path_bytes < 0 || (size_t)path_bytes >= sizeof(temporary_path)) {
@@ -110,6 +168,7 @@ static int write_budget(const char *path, const struct budget_ledger *budget, in
     }
     FILE *ledger_file = fopen(temporary_path, "wx");
     if (ledger_file == NULL) {
+        preserve_budget_audit(path);
         return 1;
     }
     int operation_status =
@@ -153,12 +212,32 @@ static int write_budget(const char *path, const struct budget_ledger *budget, in
     }
     if (operation_status == 0) {
         if (initial) {
-            if (link(temporary_path, path) != 0 || unlink(temporary_path) != 0) {
+            if (link(temporary_path, path) != 0 || unlink(temporary_path) != 0 ||
+                sync_parent_directory(path) != 0) {
                 operation_status = 1;
             }
-        } else if (rename(temporary_path, path) != 0) {
-            operation_status = 1;
+        } else {
+            path_bytes = snprintf(previous_path,
+                sizeof(previous_path),
+                "%s.previous.%jd",
+                path,
+                (intmax_t)getpid());
+            if (path_bytes < 0 || (size_t)path_bytes >= sizeof(previous_path) ||
+                link(path, previous_path) != 0 || sync_parent_directory(path) != 0 ||
+                rename(temporary_path, path) != 0) {
+                operation_status = 1;
+            } else if (sync_parent_directory(path) != 0) {
+                /* 同步失败时恢复上一份保守预留，不继续启动子程序。 */
+                (void)rename(previous_path, path);
+                (void)sync_parent_directory(path);
+                operation_status = 1;
+            } else {
+                (void)unlink(previous_path);
+            }
         }
+    }
+    if (operation_status != 0) {
+        preserve_budget_audit(path);
     }
     return operation_status;
 }
@@ -287,6 +366,68 @@ static int initialize_budget(const char *path, const char *shared_path)
     return write_budget(path, &budget, 1);
 }
 
+static int excluded_confirmation_seed(uint64_t seed)
+{
+    static const uint64_t excluded_seeds[] = {777,
+        31337,
+        90210,
+        8675309,
+        20260926,
+        20260930,
+        20261006,
+        20261007,
+        20261008,
+        20261029,
+        20261111,
+        141421356};
+    if (seed <= 63u || (seed >= UINT64_C(2026120101) && seed <= UINT64_C(2026120105)) ||
+        (seed >= UINT64_C(2026120201) && seed <= UINT64_C(2026120205))) {
+        return 1;
+    }
+    for (size_t seed_index = 0; seed_index < sizeof(excluded_seeds) / sizeof(excluded_seeds[0]);
+        ++seed_index) {
+        if (seed == excluded_seeds[seed_index]) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+static int
+validate_formal_plan(const char *phase, const struct planned_pair *pairs, size_t pair_count)
+{
+    if (strcmp(phase, "software_fixture") == 0) {
+        return 0;
+    }
+    int confirmation = strcmp(phase, "confirmation") == 0;
+    size_t order_count = confirmation ? 20u : 10u;
+    unsigned first_methods[20];
+    uint64_t random_state = confirmation ? UINT64_C(20261030) : UINT64_C(20261031);
+    for (size_t order_index = 0; order_index < order_count; ++order_index) {
+        first_methods[order_index] = order_index < order_count / 2u ? 0u : 1u;
+    }
+    for (size_t remaining_count = order_count; remaining_count > 1u; --remaining_count) {
+        size_t selected_index;
+        if (draw_paired_index(&random_state, remaining_count, &selected_index) != 0) {
+            return 1;
+        }
+        unsigned selected_method = first_methods[selected_index];
+        first_methods[selected_index] = first_methods[remaining_count - 1u];
+        first_methods[remaining_count - 1u] = selected_method;
+    }
+    size_t order_offset = !confirmation && pairs[0].batch_size == 16u ? 5u : 0u;
+    for (size_t pair_index = 0; pair_index < pair_count; ++pair_index) {
+        if (pairs[pair_index].first_method != first_methods[order_offset + pair_index] ||
+            (confirmation && excluded_confirmation_seed(pairs[pair_index].seed)) ||
+            (!confirmation &&
+                pairs[pair_index].seed !=
+                    UINT64_C(2026120101) + (order_offset == 5u ? 100u : 0u) + pair_index)) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 static int
 read_plan(const char *path, const char *phase, struct planned_pair pairs[20], size_t *pair_count)
 {
@@ -337,7 +478,8 @@ read_plan(const char *path, const char *phase, struct planned_pair pairs[20], si
     }
     if (!ferror(plan_file) && *pair_count >= 2u &&
         (strcmp(phase, "development") != 0 || *pair_count == 5u) &&
-        (strcmp(phase, "confirmation") != 0 || *pair_count == 20u)) {
+        (strcmp(phase, "confirmation") != 0 || *pair_count == 20u) &&
+        validate_formal_plan(phase, pairs, *pair_count) == 0) {
         operation_status = 0;
     }
 cleanup:
@@ -502,6 +644,10 @@ static int write_context(const char *directory,
     if (fclose(context_file) != 0) {
         operation_status = 1;
     }
+    if (operation_status == 0 &&
+        (sync_data_file(context_path) != 0 || sync_parent_directory(context_path) != 0)) {
+        operation_status = 1;
+    }
     return operation_status;
 }
 
@@ -551,6 +697,7 @@ static int run_cohort(const char *phase,
     FILE *manifest = NULL;
     FILE *attempt_log = NULL;
     if (read_budget(budget_path, &budget) != 0 || budget.pending_method != 0 ||
+        budget.observer_pending != 1u ||
         snprintf(program_paths[0],
             sizeof(program_paths[0]),
             "%s/reference/benchmark",
@@ -700,7 +847,10 @@ static int run_cohort(const char *phase,
                         data_digests[3u * method_index]) == 0 &&
                     paired_digest_file(data_paths[2u * method_index + 1u],
                         data_digests[3u * method_index + 1u]) == 0 &&
-                    paired_digest_file(cost_path, data_digests[3u * method_index + 2u]) == 0;
+                    paired_digest_file(cost_path, data_digests[3u * method_index + 2u]) == 0 &&
+                    sync_data_file(data_paths[2u * method_index]) == 0 &&
+                    sync_data_file(data_paths[2u * method_index + 1u]) == 0 &&
+                    sync_data_file(cost_path) == 0;
             }
             if (read_clock(&attempt_finish) != 0 || attempt_finish < attempt_start) {
                 release_paired_run(&runs[0]);
@@ -760,12 +910,14 @@ static int run_cohort(const char *phase,
             goto partial;
         }
     }
-    if (fclose(manifest) != 0) {
+    int manifest_sync_failed = fflush(manifest) != 0 || fsync(fileno(manifest)) != 0;
+    if (fclose(manifest) != 0 || manifest_sync_failed) {
         manifest = NULL;
         goto cleanup;
     }
     manifest = NULL;
-    if (fclose(attempt_log) != 0) {
+    int log_sync_failed = fflush(attempt_log) != 0 || fsync(fileno(attempt_log)) != 0;
+    if (fclose(attempt_log) != 0 || log_sync_failed) {
         attempt_log = NULL;
         goto cleanup;
     }
@@ -882,13 +1034,13 @@ static int close_observed_cohort(const char *directory,
     uint64_t context_lower;
     uint64_t context_upper;
     if (read_budget(budget_path, &budget) != 0 || budget.pending_method != 0 ||
-        parse_unsigned_integer(values[4], &context_lower) != 0 ||
+        budget.observer_pending != 1u || parse_unsigned_integer(values[4], &context_lower) != 0 ||
         parse_unsigned_integer(values[5], &context_upper) != 0 ||
-        runtime_overhead > 2u * METHOD_WALL_LIMIT_NS ||
-        budget.shared_wall_upper > 2u * METHOD_WALL_LIMIT_NS - runtime_overhead) {
+        runtime_overhead > 2u * METHOD_WALL_LIMIT_NS - OBSERVER_REPORTING_UPPER_NS ||
+        budget.shared_wall_upper >
+            2u * METHOD_WALL_LIMIT_NS - runtime_overhead - OBSERVER_REPORTING_UPPER_NS) {
         return 1;
     }
-    budget.observer_pending = 0;
     budget.shared_wall_lower += runtime_overhead;
     budget.shared_wall_upper += runtime_overhead + OBSERVER_REPORTING_UPPER_NS;
     if (strcmp(budget.cost_closure, "exact") == 0) {
@@ -926,7 +1078,8 @@ static int close_observed_cohort(const char *directory,
             operation_status = 1;
         }
     }
-    if (fclose(context) != 0) {
+    int context_sync_failed = fflush(context) != 0 || fsync(fileno(context)) != 0;
+    if (fclose(context) != 0 || context_sync_failed) {
         operation_status = 1;
     }
     FILE *envelope = fopen(envelope_path, "wx");
@@ -944,8 +1097,17 @@ static int close_observed_cohort(const char *directory,
             runtime_overhead) < 0) {
         operation_status = 1;
     }
-    if (fclose(envelope) != 0 || operation_status != 0 || deadline_reached ||
-        interruption_signal != 0 || rename(temporary_path, context_path) != 0) {
+    int envelope_sync_failed = fflush(envelope) != 0 || fsync(fileno(envelope)) != 0;
+    if (fclose(envelope) != 0 || envelope_sync_failed || operation_status != 0 ||
+        deadline_reached || interruption_signal != 0 || rename(temporary_path, context_path) != 0 ||
+        sync_parent_directory(context_path) != 0 || deadline_reached || interruption_signal != 0) {
+        return 1;
+    }
+    budget.observer_pending = 0;
+    if (write_budget(budget_path, &budget, 0) != 0 || deadline_reached ||
+        interruption_signal != 0) {
+        budget.observer_pending = 1;
+        (void)write_budget(budget_path, &budget, 0);
         return 1;
     }
     return 0;
@@ -959,6 +1121,12 @@ static int observe_cohort(const char *phase,
     uint64_t wall_limit)
 {
     char lock_path[4096];
+    char audit_path[4096];
+    int audit_path_bytes = snprintf(audit_path, sizeof(audit_path), "%s.audit", budget_path);
+    if (audit_path_bytes < 0 || (size_t)audit_path_bytes >= sizeof(audit_path) ||
+        access(audit_path, F_OK) == 0 || errno != ENOENT) {
+        return 1;
+    }
     int path_bytes = snprintf(lock_path, sizeof(lock_path), "%s.observer.lock", budget_path);
     if (path_bytes < 0 || (size_t)path_bytes >= sizeof(lock_path)) {
         return 1;
@@ -975,14 +1143,35 @@ static int observe_cohort(const char *phase,
     }
     uint64_t start_nanoseconds;
     uint64_t finish_nanoseconds;
-    if (read_clock(&start_nanoseconds) != 0) {
+    struct planned_pair checked_pairs[20];
+    size_t checked_pair_count;
+    if (read_clock(&start_nanoseconds) != 0 ||
+        read_plan(plan_path, phase, checked_pairs, &checked_pair_count) != 0) {
         (void)close(lock_descriptor);
         return 1;
     }
     struct budget_ledger observer_budget;
-    if (read_budget(budget_path, &observer_budget) != 0 || observer_budget.observer_pending != 0) {
+    if (read_budget(budget_path, &observer_budget) != 0 || observer_budget.observer_pending != 0 ||
+        observer_budget.pending_method != 0) {
         (void)close(lock_descriptor);
         return 1;
+    }
+    if (strcmp(phase, "software_fixture") != 0) {
+        char receipt_path[4096];
+        char receipt_status[32];
+        char receipt_source[41];
+        struct paired_text_field receipt_fields[] = {
+            {"preparation_status", receipt_status, sizeof(receipt_status), 0},
+            {"source_commit", receipt_source, sizeof(receipt_source), 0}};
+        path_bytes = snprintf(receipt_path, sizeof(receipt_path), "%s.preparation", budget_path);
+        if (path_bytes < 0 || (size_t)path_bytes >= sizeof(receipt_path) ||
+            read_paired_fields(receipt_path, receipt_fields, 2) != 0 ||
+            strcmp(receipt_status, "complete") != 0 ||
+            strcmp(receipt_source, observer_budget.source_commit) != 0) {
+            fputs("completed preparation receipt is required before target execution\n", stderr);
+            (void)close(lock_descriptor);
+            return 2;
+        }
     }
     struct budget_ledger before_worker = observer_budget;
     observer_budget.observer_pending = 1;
@@ -1005,6 +1194,9 @@ static int observe_cohort(const char *phase,
             wall_limit));
     }
     active_worker_process = (sig_atomic_t)worker_process;
+    if (interruption_signal != 0) {
+        (void)kill(worker_process, SIGTERM);
+    }
     int wait_status;
     while (waitpid(worker_process, &wait_status, 0) != worker_process) {
         if (errno != EINTR) {
@@ -1031,7 +1223,6 @@ static int observe_cohort(const char *phase,
                 failed_budget.shared_wall_lower += observed_wall - recorded_methods;
                 failed_budget.shared_wall_upper +=
                     observed_wall - recorded_methods + OBSERVER_REPORTING_UPPER_NS;
-                failed_budget.observer_pending = 0;
                 if (strcmp(failed_budget.cost_closure, "exact") == 0) {
                     memcpy(failed_budget.cost_closure, "bounded", 8);
                 }
@@ -1059,12 +1250,17 @@ static int observe_cohort(const char *phase,
                 wall_limit);
             memset(&timer, 0, sizeof(timer));
             (void)setitimer(ITIMER_REAL, &timer, NULL);
-            if (deadline_reached) {
+            if (deadline_reached || interruption_signal != 0) {
                 operation_status = 1;
             }
         }
     }
     if (operation_status != 0) {
+        struct budget_ledger failed_budget;
+        if (read_budget(budget_path, &failed_budget) == 0 && failed_budget.observer_pending == 0) {
+            failed_budget.observer_pending = 1;
+            (void)write_budget(budget_path, &failed_budget, 0);
+        }
         char context_path[4096];
         char failed_path[4096];
         if (paired_data_path(context_path, sizeof(context_path), output_directory, "cohort.meta") ==
@@ -1076,7 +1272,9 @@ static int observe_cohort(const char *phase,
             char state[32];
             struct paired_text_field field = {"cohort_status", state, sizeof(state), 0};
             if (read_paired_fields(context_path, &field, 1) == 0 && strcmp(state, "partial") != 0) {
-                (void)rename(context_path, failed_path);
+                if (rename(context_path, failed_path) == 0) {
+                    (void)sync_parent_directory(failed_path);
+                }
             }
         }
     }
