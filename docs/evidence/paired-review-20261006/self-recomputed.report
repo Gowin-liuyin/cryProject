@@ -1,0 +1,76 @@
+format=paired_stability_report_v1
+phase=software_fixture
+source_commit=0000000000000000000000000000000000000000
+paired_unit=complete_run_block
+pair_count=20
+expected_pairs=20
+batch_size=4
+baseline_first_count=10
+cohort_manifest_digest=29f7576c83dbe1a3bba59ac9e8d6decd883df6d8ea18328402d81173137a81e6
+median_rule=even_middle_two_average
+mad_rule=median_absolute_deviation
+bootstrap=paired_splitmix64_rejection_sampling
+bootstrap_seed=20261029
+bootstrap_replicates=10000
+bootstrap_interval=type7_percentile_0.005_0.995
+bootstrap_resampled_pair_count=20
+bootstrap_degenerate_replicates=0
+interval_available=yes
+baseline_calls=120
+candidate_calls=120
+baseline_run_median_ns=996
+baseline_run_mad_ns=40
+baseline_s=0.040160642570281124
+candidate_run_median_ns=999
+candidate_run_mad_ns=10
+candidate_s=0.01001001001001001
+center_relative_change=0.0030120481927711218
+center_limit=0.05
+baseline_cost_lower_ns=2000000
+baseline_cost_upper_ns=2000000
+candidate_cost_lower_ns=2000000
+candidate_cost_upper_ns=2000000
+cost_ratio_worst_case=1
+budget_valid=yes
+dependency_review_valid=no
+inference_qualification=insufficient
+result=comparison_evidence_insufficient
+candidate_single_call_p99=unavailable
+category_times=unavailable_for_mixed_windows
+s_ratio=0.24924924924924924
+interval_lower=0.2416582406471183
+interval_upper=0.25742574257425743
+baseline_lag1=1
+candidate_lag1=1
+baseline_lag1_available=yes
+candidate_lag1_available=yes
+baseline_half_mean_change=0.080321285140562249
+candidate_half_mean_change=0.02002002002002002
+shared_calls_upper=0
+shared_wall_lower_ns=0
+shared_wall_upper_ns=0
+prior_baseline_development_calls=0
+prior_candidate_development_calls=0
+prior_baseline_auxiliary_calls=0
+prior_candidate_auxiliary_calls=0
+block=fixture-00 baseline_total_ns=5520 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=920 candidate_total_ns=5880 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=980
+block=fixture-01 baseline_total_ns=5568 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=928 candidate_total_ns=5892 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=982
+block=fixture-02 baseline_total_ns=5616 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=936 candidate_total_ns=5904 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=984
+block=fixture-03 baseline_total_ns=5664 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=944 candidate_total_ns=5916 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=986
+block=fixture-04 baseline_total_ns=5712 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=952 candidate_total_ns=5928 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=988
+block=fixture-05 baseline_total_ns=5760 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=960 candidate_total_ns=5940 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=990
+block=fixture-06 baseline_total_ns=5808 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=968 candidate_total_ns=5952 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=992
+block=fixture-07 baseline_total_ns=5856 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=976 candidate_total_ns=5964 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=994
+block=fixture-08 baseline_total_ns=5904 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=984 candidate_total_ns=5976 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=996
+block=fixture-09 baseline_total_ns=5952 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=992 candidate_total_ns=5988 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=998
+block=fixture-10 baseline_total_ns=6000 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1000 candidate_total_ns=6000 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1000
+block=fixture-11 baseline_total_ns=6048 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1008 candidate_total_ns=6012 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1002
+block=fixture-12 baseline_total_ns=6096 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1016 candidate_total_ns=6024 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1004
+block=fixture-13 baseline_total_ns=6144 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1024 candidate_total_ns=6036 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1006
+block=fixture-14 baseline_total_ns=6192 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1032 candidate_total_ns=6048 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1008
+block=fixture-15 baseline_total_ns=6240 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1040 candidate_total_ns=6060 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1010
+block=fixture-16 baseline_total_ns=6288 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1048 candidate_total_ns=6072 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1012
+block=fixture-17 baseline_total_ns=6336 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1056 candidate_total_ns=6084 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1014
+block=fixture-18 baseline_total_ns=6384 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1064 candidate_total_ns=6096 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1016
+block=fixture-19 baseline_total_ns=6432 baseline_calls=6 baseline_windows=6 baseline_run_mean_ns=1072 candidate_total_ns=6108 candidate_calls=6 candidate_windows=2 candidate_run_mean_ns=1018
+report_status=complete

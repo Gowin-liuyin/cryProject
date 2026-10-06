@@ -1,0 +1,802 @@
+{
+  "backtraceGraph" : 
+  {
+    "commands" : 
+    [
+      "add_test"
+    ],
+    "files" : 
+    [
+      "/Users/yin/code/cryProject/CMakeLists.txt"
+    ],
+    "nodes" : 
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 167,
+        "parent" : 0
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 171,
+        "parent" : 2
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 167,
+        "parent" : 4
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 171,
+        "parent" : 6
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 167,
+        "parent" : 8
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 171,
+        "parent" : 10
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 167,
+        "parent" : 12
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 171,
+        "parent" : 14
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 254,
+        "parent" : 16
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 260,
+        "parent" : 18
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 270,
+        "parent" : 20
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 278,
+        "parent" : 22
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 283,
+        "parent" : 24
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 287,
+        "parent" : 26
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 293,
+        "parent" : 28
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 306,
+        "parent" : 30
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 316,
+        "parent" : 32
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 321,
+        "parent" : 34
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 321,
+        "parent" : 36
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 321,
+        "parent" : 38
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 330,
+        "parent" : 40
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 333,
+        "parent" : 42
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 337,
+        "parent" : 44
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 341,
+        "parent" : 46
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 345,
+        "parent" : 48
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 350,
+        "parent" : 50
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 354,
+        "parent" : 52
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 358,
+        "parent" : 54
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 367,
+        "parent" : 56
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" : 
+  [
+    {
+      "backtrace" : 1,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/test_mlkem",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "reference_kat",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 3,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/test_random_failure"
+      ],
+      "name" : "reference_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 5,
+      "name" : "vulnerable_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 7,
+      "name" : "vulnerable_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 9,
+      "name" : "hardened_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 11,
+      "name" : "hardened_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 13,
+      "name" : "deployable_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 15,
+      "name" : "deployable_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 17,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_native_digest",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/native_digest",
+        "/Users/yin/miniconda3/bin/openssl"
+      ],
+      "name" : "native_digest",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 19,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_prepare",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_prepare",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/libmlkem.a",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_runner"
+      ],
+      "name" : "paired_prepare",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 21,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_runner",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_runner",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/analyze_paired",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_worker_fixture"
+      ],
+      "name" : "paired_runner",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 23,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_statistics"
+      ],
+      "name" : "paired_statistics",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 25,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_data",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/analyze_paired"
+      ],
+      "name" : "paired_data",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 27,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_rejections",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_data",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/analyze_paired"
+      ],
+      "name" : "paired_rejections",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 29,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_batch_measurement",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/benchmark",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/batch_benchmark"
+      ],
+      "name" : "batch_measurement",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 31,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_reference_benchmark",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/benchmark"
+      ],
+      "name" : "reference_benchmark",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 33,
+      "name" : "timing_diagnostics",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 35,
+      "command" : 
+      [
+        "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/vulnerable/test_equivalence",
+        "-DVARIANT_NAME=vulnerable",
+        "-DOUTPUT_DIRECTORY=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "-P",
+        "/Users/yin/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name" : "equivalence_vulnerable",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 37,
+      "command" : 
+      [
+        "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/hardened/test_equivalence",
+        "-DVARIANT_NAME=hardened",
+        "-DOUTPUT_DIRECTORY=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "-P",
+        "/Users/yin/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name" : "equivalence_hardened",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 39,
+      "command" : 
+      [
+        "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/deployable/test_equivalence",
+        "-DVARIANT_NAME=deployable",
+        "-DOUTPUT_DIRECTORY=/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "-P",
+        "/Users/yin/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name" : "equivalence_deployable",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 41,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_cli.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+      ],
+      "name" : "cli",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 43,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_cli.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "reference"
+      ],
+      "name" : "reference_cli",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 45,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_measurement.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+      ],
+      "name" : "measurement",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 47,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_vector_parser.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "vector_parser",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 49,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_vector_parser.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt",
+        "reference"
+      ],
+      "name" : "reference_vector_parser",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 51,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_analysis.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+      ],
+      "name" : "analysis",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 53,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_analysis_groups.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+      ],
+      "name" : "analysis_groups",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+        }
+      ]
+    },
+    {
+      "backtrace" : 55,
+      "command" : 
+      [
+        "/bin/sh",
+        "/Users/yin/code/cryProject/tests/test_analysis_round1_replay.sh",
+        "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM"
+      ],
+      "name" : "analysis_round1_replay",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject"
+        }
+      ]
+    },
+    {
+      "backtrace" : 57,
+      "command" : 
+      [
+        "/usr/bin/shasum",
+        "-a",
+        "256",
+        "-c",
+        "tests/vectors/SHA256SUMS"
+      ],
+      "name" : "vector_integrity",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject"
+        }
+      ]
+    }
+  ],
+  "version" : 
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}

@@ -1,0 +1,7 @@
+format=paired_execution_envelope_v1
+worker_wall_ns=34260000
+method_wall_sum_ns=29766000
+shared_runtime_overhead_ns=4494000
+boundary=observer_fork_before_to_worker_exit_after
+final_observer_accounting=common_reporting_bounded_with_deadline
+observer_reporting_upper_ns=1000000000

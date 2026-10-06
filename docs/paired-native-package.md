@@ -55,3 +55,46 @@ package=/absolute/new-package
 作者复算不要求旧构建目录存在。重新构建分析器，对封存目录运行analyze_paired，并核验
 清单、CSV/meta/成本摘要；来源不完整、配对不一致、预算未闭合或环境依赖不可接受时不升级
 声明。原生结果表目前所有实验值均为未执行，软件夹具不填进去。
+
+
+## 代码审查后的准备边界（2026-10-06追加）
+
+当前入口按[审查补充](paired-review-20261006.md)执行；上面的300秒描述保留原时点口径。
+整个准备入口由3599秒加1秒强制退出宽限限制，共同墙钟上限3600秒，平分后仍是每方法30分钟。
+目录、预留、说明复制、固定源码检查和自举均在300秒加1秒宽限内。
+自举结束前由C保存CLOCK_MONOTONIC起点；之后的参考前置、两种构建、测试、取证、计划、
+历史种子扫描和核查全部进入纳秒窗口，并有3297秒加1秒宽限。
+最后由C在1秒报告截止内写shared.cost、初始化预算、记录退出状态并发布完成收据。
+成功共同成本区间为[实测后续墙钟,实测后续墙钟+301秒+1秒]，格式paired_shared_cost_v2。
+其保守上界超过3600秒时拒绝签收，不能靠未知费用补0。
+
+三套相关检查的保守调用上界目前为3×3002+9300=18306，小于共同40000预留。
+3002包括每套参考功能17、普通入口790、批次959、编排1236；编排1236已包含新增发布失败。
+参考前置另外三个3000调用样本及各100预热，共9300。纯分析、准备和摘要测试不调用密码内核。
+准备过程中任何失败或失联保留preparation-reservation.meta与未完成收据；
+该预留是40000共同调用/3600秒共同墙钟的未闭合上界，不是实际执行数。
+没有自动重试。另开输出目录不能免除旧费用；必须先结合原日志、部分输出和退出码审计
+并累计所有旧准备尝试，不能另建干净账来继续比较。无法闭合或余额不足就停止。
+
+正式runner要求budget.meta.preparation为complete且源码一致；缺失/未完成收据、
+方法/observer预留或budget.meta.audit均拒绝启动。预算同步失败保留.new.PID、.previous.PID
+和.audit；不能直接删标记恢复，先审计损坏影响和完整成本，处理过程单独记录。
+两阶段不重新初始化预算，K4/K16继续使用同一本账。
+
+开发后确认前，除内建历史/分析/固定开发种子排除外，还须重新核对全部实际元数据。
+以下步骤只扫描记录及校验已拟定计划，不能替代开发结果、候选选择或冻结提交：
+
+```sh
+package=/absolute/new-package
+rg --no-filename '^test_seed=' docs/evidence "$package" -g '*.meta' > "$package/confirmation-used-seeds.raw.txt"
+sed 's/^test_seed=//' "$package/confirmation-used-seeds.raw.txt" | LC_ALL=C sort -u > "$package/confirmation-excluded-seeds.txt"
+printf '20261029\n' >> "$package/confirmation-excluded-seeds.txt"
+"$package/build/paired_prepare" validate-plan /absolute/proposed-confirmation.plan.csv \
+    "$package/confirmation-excluded-seeds.txt"
+```
+
+扫描清单必须包含所有保留的失败和开发尝试，确认计划与扫描清单用新目录保存并在确认前提交。
+拟定20行的first_method依次为：candidate,baseline,candidate,candidate,baseline,baseline,
+baseline,baseline,baseline,baseline,candidate,candidate,baseline,candidate,baseline,candidate,
+candidate,candidate,baseline,candidate。这是原规约固定种子20261030的洗牌结果；
+runner在采集前核对，不等完整确认预算耗完后才降级。K=1仅供软件检查。

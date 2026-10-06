@@ -1,0 +1,49 @@
+Start testing: Oct 06 19:50 CST
+----------------------------------------------------------
+10/29 Testing: paired_prepare
+10/29 Test: paired_prepare
+Command: "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_prepare" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_prepare" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/reference/libmlkem.a" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_runner"
+Directory: /Users/yin/code/cryProject/build/paired-review-release.OiIUGM
+"paired_prepare" start time: Oct 06 19:50 CST
+Output:
+----------------------------------------------------------
+software_prepare_fixture_directory=/tmp/cry-paired-prepare.O2V1hM
+<end of output>
+Test time =   1.05 sec
+----------------------------------------------------------
+Test Passed.
+"paired_prepare" end time: Oct 06 19:50 CST
+"paired_prepare" time elapsed: 00:00:01
+----------------------------------------------------------
+
+11/29 Testing: paired_runner
+11/29 Test: paired_runner
+Command: "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/test_paired_runner" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_runner" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/analyze_paired" "/Users/yin/code/cryProject/build/paired-review-release.OiIUGM/paired_worker_fixture"
+Directory: /Users/yin/code/cryProject/build/paired-review-release.OiIUGM
+"paired_runner" start time: Oct 06 19:50 CST
+Output:
+----------------------------------------------------------
+paired execution failed; retain partial files and budget reservations
+budget exhausted before attempt
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+completed preparation receipt is required before target execution
+completed preparation receipt is required before target execution
+completed preparation receipt is required before target execution
+completed preparation receipt is required before target execution
+completed preparation receipt is required before target execution
+software_runner_fixture_directory=/tmp/cry-paired-runner.eor3ZJ
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"paired_runner" end time: Oct 06 19:50 CST
+"paired_runner" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 19:50 CST

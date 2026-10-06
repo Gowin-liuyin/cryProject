@@ -1,0 +1,33 @@
+[  0%] Built target build_identity
+[ 40%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 40%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 40%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 40%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 50%] Linking C static library reference/libmlkem.a
+[ 50%] Built target mlkem_reference
+[ 50%] Building C object CMakeFiles/paired_support.dir/src/paired_data.c.o
+[ 70%] Building C object CMakeFiles/paired_support.dir/src/timing_statistics.c.o
+[ 70%] Building C object CMakeFiles/paired_support.dir/src/paired_statistics.c.o
+[ 80%] Linking C static library libpaired_support.a
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[100%] Linking C executable paired_prepare
+[100%] Built target paired_prepare
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
+[100%] Linking C executable paired_runner
+[100%] Built target paired_runner
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o
+/Users/yin/code/cryProject/tests/test_paired_prepare.c:128:16: error: call to undeclared function 'mkdir'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  128 |         assert(mkdir(finish_directory, 0700) == 0);
+      |                ^
+1 error generated.
+make[3]: *** [CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o] Error 1
+make[2]: *** [CMakeFiles/test_paired_prepare.dir/all] Error 2
+make[1]: *** [CMakeFiles/test_paired_prepare.dir/rule] Error 2
+make: *** [test_paired_prepare] Error 2

@@ -1,0 +1,13 @@
+Test project /Users/yin/code/cryProject/build/paired-review-release.OiIUGM
+    Start 10: paired_prepare
+1/1 Test #10: paired_prepare ...................Subprocess aborted***Exception:   1.26 sec
+Assertion failed: (invoke(finish_arguments, output, sizeof(output)) == (finish_index == 0 ? 0 : 1)), function main, file test_paired_prepare.c, line 158.
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.26 sec
+
+The following tests FAILED:
+	 10 - paired_prepare (Subprocess aborted)
+Errors while running CTest

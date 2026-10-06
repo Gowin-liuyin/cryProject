@@ -16,6 +16,7 @@
 以下命令均在本仓库根目录执行。源码需要保留 Git 历史，构建程序会读取提交号和工作区状态。
 
 依赖：CMake **3.21 或更新版本**、Clang/GCC、Make 或 Ninja，以及 Git、patch、sh、awk、shasum。
+默认测试配置还需要提供 SHA3-256 的 OpenSSL，用于独立核对原生准备日志的摘要。
 macOS 可使用 Xcode Command Line Tools 提供的编译器；Linux 需安装对应编译工具和 CMake。
 默认 preset 使用 Unix Makefiles；普通构建不联网、不下载密码库，也不需要 Python 或 jq。
 
@@ -393,3 +394,23 @@ C API 的精确长度和返回值定义见 [mlkem.h](include/mlkem.h)；调用�
 [原生准备包](docs/paired-native-package.md) 不自动启动正式实验；
 [复算说明](docs/paired-reproduction.md) 可从封存数据重建软件报告；
 [贡献审查](docs/paired-contribution-review.md) 明确已有做法与待证明增量。
+
+
+## 12. 代码审查修复与当前入口
+
+2026-10-06追加审查修复了正式K资格、跨块顺序/构建条件、采集阶段对账、中心边界、
+失败收尾预算保留和原生摘要解析。准备流程现在有完整截止、失败成本预留及完成收据。
+本轮注册29项，普通与ASan/UBSan实际各13项通过；原生实验仍未执行。
+详见[审查与交接](docs/paired-review-20261006.md)，历史章节保留原时点结果。
+
+```sh
+cmake -S . -B build/paired-current -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF
+cmake --build build/paired-current --target check-reference reference_benchmark reference_batch_benchmark \
+    analyze_paired paired_runner paired_prepare native_digest test_native_digest test_batch_measurement \
+    test_reference_benchmark test_paired_statistics test_paired_data test_paired_rejections \
+    test_paired_runner test_paired_prepare paired_worker_fixture --parallel 4
+ctest --test-dir build/paired-current --output-on-failure \
+    -R '^(reference_kat|reference_random_failure|reference_cli|reference_vector_parser|vector_integrity|reference_benchmark|batch_measurement|paired_statistics|paired_data|paired_rejections|paired_runner|paired_prepare|native_digest)$'
+sh tools/replay_paired.sh build/paired-current/analyze_paired \
+    docs/evidence/paired-software-20261006/synthetic-cohort /absolute/new-software-report.txt
+```

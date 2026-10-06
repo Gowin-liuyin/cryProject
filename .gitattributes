@@ -31,3 +31,8 @@
 /docs/evidence/statistics/*.meta whitespace=-blank-at-eol
 /docs/evidence/statistics-multiseed/*.meta whitespace=-blank-at-eol
 /docs/evidence/statistics-multiseed/record-checks.txt whitespace=-blank-at-eol
+
+/docs/evidence/paired-review-20261006/*-build-identity.txt whitespace=-blank-at-eol
+/docs/evidence/paired-review-20261006/*last-test.log whitespace=-blank-at-eof
+/docs/evidence/paired-review-20261006/registered-tests.json whitespace=-blank-at-eol
+/docs/evidence/paired-review-20261006/software-failure-fixtures/**/*.meta whitespace=-blank-at-eol
