@@ -40,6 +40,32 @@ int main(void)
                "supports_this_measurement_quality_improvement") == 0);
     assert(strcmp(paired_result_label(&result, 1.06L, 1), "improvement_conditions_not_met") == 0);
     assert(strcmp(paired_result_label(&result, 1.0L, 0), "comparison_evidence_insufficient") == 0);
+    /* 包含恰好5%的中心边界，不用比值减1的舍入误差改变判定。 */
+    for (size_t pair_index = 0; pair_index < 20u; ++pair_index) {
+        baseline[pair_index] = 924.0L + 8.0L * (long double)pair_index;
+        candidate[pair_index] = 1050.0L + (baseline[pair_index] - 1000.0L) / 4.0L;
+    }
+    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+    assert(result.baseline.median_nanoseconds == 1000.0L);
+    assert(result.candidate.median_nanoseconds == 1050.0L);
+    assert(strcmp(paired_result_label(&result, 1.0L, 1),
+               "supports_this_measurement_quality_improvement") == 0);
+    for (size_t pair_index = 0; pair_index < 20u; ++pair_index) {
+        candidate[pair_index] += 1.0L;
+    }
+    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+    assert(strcmp(paired_result_label(&result, 1.0L, 1), "improvement_conditions_not_met") == 0);
+    for (size_t pair_index = 0; pair_index < 20u; ++pair_index) {
+        candidate[pair_index] = 950.0L + (baseline[pair_index] - 1000.0L) / 4.0L;
+    }
+    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+    assert(strcmp(paired_result_label(&result, 1.0L, 1),
+               "supports_this_measurement_quality_improvement") == 0);
+    for (size_t pair_index = 0; pair_index < 20u; ++pair_index) {
+        candidate[pair_index] -= 1.0L;
+    }
+    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+    assert(strcmp(paired_result_label(&result, 1.0L, 1), "improvement_conditions_not_met") == 0);
     for (size_t pair_index = 0; pair_index < 20u; ++pair_index) {
         candidate[pair_index] = 1000.0L + (baseline[pair_index] - 1000.0L) * 4.0L;
     }

@@ -153,6 +153,8 @@ int main(int argument_count, char **argument_values)
     uint64_t wall_totals[2] = {0};
     uint64_t seeds[MAXIMUM_RUN_PAIRS];
     char block_ids[MAXIMUM_RUN_PAIRS][65];
+    char cohort_build_environment[5][PAIRED_TEXT_CAPACITY];
+    uint64_t prior_block_finish_nanoseconds = 0;
     size_t pair_count = 0;
     size_t baseline_first_count = 0;
     int all_native_release = 1;
@@ -244,15 +246,33 @@ int main(int argument_count, char **argument_values)
             runs[1].batch_size != context.selected_batch_size) {
             goto cleanup;
         }
+        const char *run_build_environment[] = {runs[0].compiler_flags,
+            runs[0].compile_options,
+            runs[0].architecture,
+            runs[0].operating_system,
+            runs[0].sanitizers};
+        for (size_t environment_index = 0; environment_index < 5u; ++environment_index) {
+            if (pair_count == 0) {
+                memcpy(cohort_build_environment[environment_index],
+                    run_build_environment[environment_index],
+                    strlen(run_build_environment[environment_index]) + 1u);
+            } else if (strcmp(cohort_build_environment[environment_index],
+                           run_build_environment[environment_index]) != 0) {
+                goto cleanup;
+            }
+        }
         unsigned first_method = strcmp(fields[1], "baseline") == 0 ? 0u : 1u;
         if (strcmp(context.values[1], "confirmation") == 0) {
             formal_shape_valid &= first_method == confirmation_order[pair_count] &&
-                !is_excluded_workload_seed(runs[0].test_seed);
+                !is_excluded_workload_seed(runs[0].test_seed) &&
+                (context.selected_batch_size == 4u || context.selected_batch_size == 16u);
         }
         if (runs[first_method].child_finish_nanoseconds >=
-            runs[1u - first_method].child_start_nanoseconds) {
+                runs[1u - first_method].child_start_nanoseconds ||
+            runs[first_method].child_start_nanoseconds < prior_block_finish_nanoseconds) {
             goto cleanup;
         }
+        prior_block_finish_nanoseconds = runs[1u - first_method].child_finish_nanoseconds;
         baseline_first_count += first_method == 0u ? 1u : 0u;
         for (size_t prior_index = 0; prior_index < pair_count; ++prior_index) {
             if (strcmp(block_ids[prior_index], fields[0]) == 0 ||

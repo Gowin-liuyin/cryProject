@@ -15,7 +15,9 @@ const char *paired_result_label(const struct paired_statistics *statistics,
         return "comparison_evidence_insufficient";
     }
     return statistics->interval_upper < 0.8L && worst_cost_ratio <= 1.05L &&
-            statistics->center_relative_change <= 0.05L
+            fabsl(statistics->candidate.median_nanoseconds -
+                statistics->baseline.median_nanoseconds) <=
+                0.05L * statistics->baseline.median_nanoseconds
         ? "supports_this_measurement_quality_improvement"
         : "improvement_conditions_not_met";
 }

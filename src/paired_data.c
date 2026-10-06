@@ -250,8 +250,9 @@ static int load_cost(const char *csv_path, struct paired_run *run)
     if (numbers[0] == 0 || numbers[1] < numbers[0] || numbers[2] < numbers[1] ||
         numbers[3] < numbers[2] || numbers[4] < numbers[3] ||
         numbers[5] != numbers[4] - numbers[0] || numbers[5] < run->total_nanoseconds ||
-        numbers[6] != 100u || numbers[7] != 100u || numbers[8] != run->call_count ||
-        numbers[9] != run->call_count || numbers[10] != run->call_count + 100u) {
+        numbers[3] - numbers[2] < run->total_nanoseconds || numbers[6] != 100u ||
+        numbers[7] != 100u || numbers[8] != run->call_count || numbers[9] != run->call_count ||
+        numbers[10] != run->call_count + 100u) {
         return 1;
     }
     run->child_wall_nanoseconds = numbers[5];
