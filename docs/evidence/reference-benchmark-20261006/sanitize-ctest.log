@@ -1,0 +1,12 @@
+$ ctest --test-dir /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t --output-on-failure -R '^(reference_benchmark|timing_diagnostics)$'
+Test project /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t
+    Start  9: reference_benchmark
+1/2 Test  #9: reference_benchmark ..............   Passed    0.90 sec
+    Start 10: timing_diagnostics
+2/2 Test #10: timing_diagnostics ...............   Passed    0.84 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   1.74 sec
+
+exit_status=0

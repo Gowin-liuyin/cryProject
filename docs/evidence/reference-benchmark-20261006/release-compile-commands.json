@@ -1,0 +1,290 @@
+[
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /Users/yin/code/cryProject/src/kernel.c",
+  "file": "/Users/yin/code/cryProject/src/kernel.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/mlkem.c.o -c /Users/yin/code/cryProject/src/mlkem.c",
+  "file": "/Users/yin/code/cryProject/src/mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_reference.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/random.c.o -c /Users/yin/code/cryProject/src/random.c",
+  "file": "/Users/yin/code/cryProject/src/random.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_reference.dir/src/random.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/inputs.c.o -c /Users/yin/code/cryProject/src/inputs.c",
+  "file": "/Users/yin/code/cryProject/src/inputs.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_reference.dir/src/inputs.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_baseline.dir/src/main.c.o -c /Users/yin/code/cryProject/src/main.c",
+  "file": "/Users/yin/code/cryProject/src/main.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/reference_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /Users/yin/code/cryProject/src/measure.c",
+  "file": "/Users/yin/code/cryProject/src/measure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/reference_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o -c /Users/yin/code/cryProject/tests/test_mlkem.c",
+  "file": "/Users/yin/code/cryProject/tests/test_mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o -c /Users/yin/code/cryProject/tests/test_equivalence.c",
+  "file": "/Users/yin/code/cryProject/tests/test_equivalence.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o -c /Users/yin/code/cryProject/tests/test_random_failure.c",
+  "file": "/Users/yin/code/cryProject/tests/test_random_failure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable_kernel.c",
+  "file": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable_kernel.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o -c /Users/yin/code/cryProject/src/mlkem.c",
+  "file": "/Users/yin/code/cryProject/src/mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/random.c.o -c /Users/yin/code/cryProject/src/random.c",
+  "file": "/Users/yin/code/cryProject/src/random.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_vulnerable.dir/src/random.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/vulnerable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o -c /Users/yin/code/cryProject/src/inputs.c",
+  "file": "/Users/yin/code/cryProject/src/inputs.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_baseline.dir/src/main.c.o -c /Users/yin/code/cryProject/src/main.c",
+  "file": "/Users/yin/code/cryProject/src/main.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/vulnerable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /Users/yin/code/cryProject/src/measure.c",
+  "file": "/Users/yin/code/cryProject/src/measure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/vulnerable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o -c /Users/yin/code/cryProject/tests/test_mlkem.c",
+  "file": "/Users/yin/code/cryProject/tests/test_mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o -c /Users/yin/code/cryProject/tests/test_equivalence.c",
+  "file": "/Users/yin/code/cryProject/tests/test_equivalence.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o -c /Users/yin/code/cryProject/tests/test_random_failure.c",
+  "file": "/Users/yin/code/cryProject/tests/test_random_failure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened_kernel.c",
+  "file": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened_kernel.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o -c /Users/yin/code/cryProject/src/mlkem.c",
+  "file": "/Users/yin/code/cryProject/src/mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/random.c.o -c /Users/yin/code/cryProject/src/random.c",
+  "file": "/Users/yin/code/cryProject/src/random.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_hardened.dir/src/random.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/hardened-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/inputs.c.o -c /Users/yin/code/cryProject/src/inputs.c",
+  "file": "/Users/yin/code/cryProject/src/inputs.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_hardened.dir/src/inputs.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_baseline.dir/src/main.c.o -c /Users/yin/code/cryProject/src/main.c",
+  "file": "/Users/yin/code/cryProject/src/main.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/hardened_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /Users/yin/code/cryProject/src/measure.c",
+  "file": "/Users/yin/code/cryProject/src/measure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/hardened_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o -c /Users/yin/code/cryProject/tests/test_mlkem.c",
+  "file": "/Users/yin/code/cryProject/tests/test_mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o -c /Users/yin/code/cryProject/tests/test_equivalence.c",
+  "file": "/Users/yin/code/cryProject/tests/test_equivalence.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o -c /Users/yin/code/cryProject/tests/test_random_failure.c",
+  "file": "/Users/yin/code/cryProject/tests/test_random_failure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable_kernel.c",
+  "file": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable_kernel.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o -c /Users/yin/code/cryProject/src/mlkem.c",
+  "file": "/Users/yin/code/cryProject/src/mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/random.c.o -c /Users/yin/code/cryProject/src/random.c",
+  "file": "/Users/yin/code/cryProject/src/random.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_deployable.dir/src/random.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/deployable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/inputs.c.o -c /Users/yin/code/cryProject/src/inputs.c",
+  "file": "/Users/yin/code/cryProject/src/inputs.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/mlkem_deployable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_baseline.dir/src/main.c.o -c /Users/yin/code/cryProject/src/main.c",
+  "file": "/Users/yin/code/cryProject/src/main.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/deployable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_measure.dir/src/measure.c.o -c /Users/yin/code/cryProject/src/measure.c",
+  "file": "/Users/yin/code/cryProject/src/measure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/deployable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o -c /Users/yin/code/cryProject/tests/test_mlkem.c",
+  "file": "/Users/yin/code/cryProject/tests/test_mlkem.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o -c /Users/yin/code/cryProject/tests/test_equivalence.c",
+  "file": "/Users/yin/code/cryProject/tests/test_equivalence.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o -c /Users/yin/code/cryProject/tests/test_random_failure.c",
+  "file": "/Users/yin/code/cryProject/tests/test_random_failure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /Users/yin/code/cryProject/src/measure.c",
+  "file": "/Users/yin/code/cryProject/src/measure.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/reference_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/analyze.c.o -c /Users/yin/code/cryProject/src/analyze.c",
+  "file": "/Users/yin/code/cryProject/src/analyze.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/analyze.dir/src/analyze.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/timing_statistics.c.o -c /Users/yin/code/cryProject/src/timing_statistics.c",
+  "file": "/Users/yin/code/cryProject/src/timing_statistics.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/analyze.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o -c /Users/yin/code/cryProject/src/analyze_groups.c",
+  "file": "/Users/yin/code/cryProject/src/analyze_groups.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o -c /Users/yin/code/cryProject/src/timing_statistics.c",
+  "file": "/Users/yin/code/cryProject/src/timing_statistics.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o -c /Users/yin/code/cryProject/src/inspect_timing.c",
+  "file": "/Users/yin/code/cryProject/src/inspect_timing.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o -c /Users/yin/code/cryProject/src/timing_statistics.c",
+  "file": "/Users/yin/code/cryProject/src/timing_statistics.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o -c /Users/yin/code/cryProject/tests/test_reference_benchmark.c",
+  "file": "/Users/yin/code/cryProject/tests/test_reference_benchmark.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o -c /Users/yin/code/cryProject/src/timing_statistics.c",
+  "file": "/Users/yin/code/cryProject/src/timing_statistics.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o -c /Users/yin/code/cryProject/tests/test_timing_diagnostics.c",
+  "file": "/Users/yin/code/cryProject/tests/test_timing_diagnostics.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o -c /Users/yin/code/cryProject/src/timing_statistics.c",
+  "file": "/Users/yin/code/cryProject/src/timing_statistics.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_measurement.dir/tests/test_measurement.c.o -c /Users/yin/code/cryProject/tests/test_measurement.c",
+  "file": "/Users/yin/code/cryProject/tests/test_measurement.c",
+  "output": "/Users/yin/code/cryProject/build/reference-ordinary-release.mgawoc39/CMakeFiles/test_measurement.dir/tests/test_measurement.c.o"
+}
+]

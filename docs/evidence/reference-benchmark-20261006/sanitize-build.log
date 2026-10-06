@@ -1,0 +1,44 @@
+$ cmake --build /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t --target check-reference reference_benchmark inspect_timing test_reference_benchmark test_timing_diagnostics --parallel 4
+[0/2] Re-checking globbed directories...
+[1/25] cd /Users/yin/code/cryProject && /bin/sh /Users/yin/code/cryProject/tools/build_identity.sh /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t/generated/Debug/build_identity.h /usr/bin/cc /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t/generated/Debug/configuration.txt
+[2/25] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[3/25] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[4/25] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[5/25] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[6/25] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[7/25] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[8/25] Building C object CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o
+[9/25] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[10/25] Building C object CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o
+[11/25] Building C object CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o
+[12/25] Building C object CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o
+[13/25] Building C object CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o
+[14/25] Building C object CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o
+[15/25] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[16/25] Linking C static library reference/libmlkem.a
+[17/25] Linking C executable reference/baseline
+[18/25] Linking C executable reference/test_mlkem
+[19/25] Linking C executable reference/test_random_failure
+[20/25] Linking C executable reference/benchmark
+[20/25] cd /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/ctest --test-dir /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t -C Debug --output-on-failure -L reference
+Test project /Users/yin/code/cryProject/build/reference-ordinary-sanitize.prxwsq2t
+    Start  1: reference_kat
+1/5 Test  #1: reference_kat ....................   Passed    0.41 sec
+    Start  2: reference_random_failure
+2/5 Test  #2: reference_random_failure .........   Passed    0.37 sec
+    Start 15: reference_cli
+3/5 Test #15: reference_cli ....................   Passed    0.55 sec
+    Start 18: reference_vector_parser
+4/5 Test #18: reference_vector_parser ..........   Passed    0.06 sec
+    Start 22: vector_integrity
+5/5 Test #22: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   1.40 sec*proc (5 tests)
+
+Total Test time (real) =   1.40 sec
+[23/25] Linking C executable test_timing_diagnostics
+
+exit_status=0

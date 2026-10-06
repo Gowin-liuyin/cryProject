@@ -1,0 +1,11 @@
+plan_written_before_sampling=yes
+workload=valid:bit-flipped:random=1:1:1
+run_order=20261006,20261007,20261008
+samples_per_category=1000
+records_per_run=3000
+warmup_per_run=100
+formal_run_count=3
+clock_read_increments_per_run=10000
+empty_windows_per_run=1000
+repeat_on_result=no
+interpretation=descriptive_reference_performance_only

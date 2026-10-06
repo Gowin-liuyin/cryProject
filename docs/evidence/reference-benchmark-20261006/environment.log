@@ -1,0 +1,98 @@
+$ sh -c 'uname -a; sw_vers; sysctl hw.model hw.machine machdep.cpu.brand_string hw.ncpu kern.hv_vmm_present; sysctl sysctl.proc_translated 2>&1 || true; cc --version; cmake --version; openssl version; git rev-parse HEAD; git status --short; printf "cpu_affinity=not_pinned\nfrequency_control=not_configured\nbackground_load_control=not_configured\nexecution=native_arm64_Darwin_no_QEMU_command\n"'
+Darwin yindeMacBook-Air.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+hw.model: Mac17,3
+hw.machine: arm64
+machdep.cpu.brand_string: Apple M5
+hw.ncpu: 10
+kern.hv_vmm_present: 0
+sysctl.proc_translated: 0
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+cmake version 4.3.2
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
+a07bbc197d7bcee75be6d21942db88b6844b9ea4
+M  .gitattributes
+MM CMakeLists.txt
+M  README.md
+A  docs/evidence/reference-close-20261006/README.md
+A  docs/evidence/reference-close-20261006/SHA256SUMS
+A  docs/evidence/reference-close-20261006/binaries.sha256
+A  docs/evidence/reference-close-20261006/build-directories.json
+A  docs/evidence/reference-close-20261006/cmake-format.log
+A  docs/evidence/reference-close-20261006/diff-check.log
+A  docs/evidence/reference-close-20261006/environment.log
+A  docs/evidence/reference-close-20261006/multi-check-reference.log
+A  docs/evidence/reference-close-20261006/multi-configure.log
+A  docs/evidence/reference-close-20261006/multi-format-check.log
+A  docs/evidence/reference-close-20261006/multi-reference-identity.txt
+A  docs/evidence/reference-close-20261006/multi-reference-only-inventory.txt
+A  docs/evidence/reference-close-20261006/parser-shell-syntax.log
+A  docs/evidence/reference-close-20261006/previous-evidence-check.log
+A  docs/evidence/reference-close-20261006/previous-source-check.log
+A  docs/evidence/reference-close-20261006/release-check-reference.log
+A  docs/evidence/reference-close-20261006/release-configure.log
+A  docs/evidence/reference-close-20261006/release-format-check.log
+A  docs/evidence/reference-close-20261006/release-reference-identity.txt
+A  docs/evidence/reference-close-20261006/release-reference-only-inventory.txt
+A  docs/evidence/reference-close-20261006/release-shared-build.log
+A  docs/evidence/reference-close-20261006/release-shared-ctest.log
+A  docs/evidence/reference-close-20261006/release-shared-identity.txt
+A  docs/evidence/reference-close-20261006/sanitize-check-reference.log
+A  docs/evidence/reference-close-20261006/sanitize-configure.log
+A  docs/evidence/reference-close-20261006/sanitize-format-check.log
+A  docs/evidence/reference-close-20261006/sanitize-reference-identity.txt
+A  docs/evidence/reference-close-20261006/sanitize-reference-only-inventory.txt
+A  docs/evidence/reference-close-20261006/sanitize-shared-build.log
+A  docs/evidence/reference-close-20261006/sanitize-shared-ctest.log
+A  docs/evidence/reference-close-20261006/sanitize-shared-identity.txt
+A  docs/evidence/reference-close-20261006/scope-rejection.log
+A  docs/evidence/reference-close-20261006/shell-syntax.log
+A  docs/evidence/reference-close-20261006/tested-source.diff
+A  docs/evidence/reference-close-20261006/tested-source.sha256
+A  docs/evidence/reference-recheck-20261006/README.md
+A  docs/evidence/reference-recheck-20261006/SHA256SUMS
+A  docs/evidence/reference-recheck-20261006/binaries.sha256
+A  docs/evidence/reference-recheck-20261006/build-identity.txt
+A  docs/evidence/reference-recheck-20261006/configure.log
+A  docs/evidence/reference-recheck-20261006/ctest-verbose.log
+A  docs/evidence/reference-recheck-20261006/ctest.log
+A  docs/evidence/reference-recheck-20261006/development-checks.log
+A  docs/evidence/reference-recheck-20261006/environment.txt
+A  docs/evidence/reference-recheck-20261006/format-check.log
+A  docs/evidence/reference-recheck-20261006/multiconfig-build-identity.txt
+A  docs/evidence/reference-recheck-20261006/multiconfig-configure.log
+A  docs/evidence/reference-recheck-20261006/multiconfig-ctest.log
+A  docs/evidence/reference-recheck-20261006/reference-compile-commands.json
+A  docs/evidence/reference-recheck-20261006/sanitize-build-identity.txt
+A  docs/evidence/reference-recheck-20261006/sanitize-configure.log
+A  docs/evidence/reference-recheck-20261006/sanitize-ctest.log
+A  docs/evidence/reference-recheck-20261006/target-inventory.log
+A  docs/evidence/reference-recheck-20261006/test-registration.json
+A  docs/evidence/reference-recheck-20261006/tested-source.diff
+A  docs/evidence/reference-recheck-20261006/tested-source.sha256
+A  docs/evidence/reference-recheck-20261006/vector-source-check.log
+A  docs/evidence/reference-recheck-20261006/vendor-source-check.log
+A  docs/reference-recheck.md
+ M src/measure.c
+M  tests/test_cli.sh
+M  tests/test_vector_parser.sh
+?? .agents/
+?? docs/evidence/reference-benchmark-20261006/
+?? docs/evidence/statistical-audit-20261006/
+?? docs/reference-benchmark.md
+?? src/inspect_timing.c
+?? tests/test_reference_benchmark.c
+?? tests/test_timing_diagnostics.c
+cpu_affinity=not_pinned
+frequency_control=not_configured
+background_load_control=not_configured
+execution=native_arm64_Darwin_no_QEMU_command
+
+exit_status=0

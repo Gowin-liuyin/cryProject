@@ -1,0 +1,23 @@
+format=timing_diagnostics_v1
+run_id=ordinary-local-20261007
+implementation=reference
+record_count=3000
+time_unit=ns
+quantile_rule=rounded_zero_based_index_half_up_no_interpolation
+quantile_index=floor(p*(n-1)+0.5)
+raw_order=preserved
+outlier_removal=none
+inference=descriptive_only
+csv_digest_algorithm=SHA3-256
+csv_digest=7d96ec9398d2fd5b930d45bcbb52d952c29a46f731f356de03449f304c96a548
+observed_duration_grid_ns=1000
+adjacent_equal_fraction=0.592197399
+order_block=0 first_index=0 count=750 mean_ns=13852.000000
+order_block=1 first_index=750 count=750 mean_ns=13924.000000
+order_block=2 first_index=1500 count=750 mean_ns=13860.000000
+order_block=3 first_index=2250 count=750 mean_ns=13977.333333
+series=all count=3000 mean_ns=13903.333333 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=32000 distinct_durations=16 tied_pair_fraction=0.610848283
+series=valid count=1000 mean_ns=13893.000000 p50_ns=14000 p90_ns=14000 p99_ns=16000 min_ns=13000 max_ns=27000 distinct_durations=8 tied_pair_fraction=0.635213213
+series=bit-flipped count=1000 mean_ns=13923.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=31000 distinct_durations=12 tied_pair_fraction=0.611447447
+series=random count=1000 mean_ns=13894.000000 p50_ns=14000 p90_ns=14000 p99_ns=17000 min_ns=13000 max_ns=32000 distinct_durations=10 tied_pair_fraction=0.587205205
+report_status=complete
