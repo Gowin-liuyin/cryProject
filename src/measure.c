@@ -31,6 +31,20 @@ struct measurement_sample {
 #define EMPTY_WINDOW_COUNT 1000u
 static uint64_t clock_read_steps_nanoseconds[10000];
 static uint64_t empty_windows_nanoseconds[EMPTY_WINDOW_COUNT];
+
+struct measurement_accounting {
+    uint64_t start_nanoseconds;
+    uint64_t preparation_end_nanoseconds;
+    uint64_t warmup_end_nanoseconds;
+    uint64_t collection_end_nanoseconds;
+    uint64_t warmup_attempted_calls;
+    uint64_t warmup_completed_calls;
+    uint64_t formal_attempted_calls;
+    uint64_t formal_completed_calls;
+    uint64_t outputs_consumed;
+    uint8_t ordered_input_digest[32];
+};
+static struct measurement_accounting accounting;
 #else
 #define MEASUREMENT_CATEGORY_COUNT INPUT_CATEGORY_COUNT
 #endif
@@ -129,6 +143,100 @@ static int check_timer(uint64_t *resolution_nanoseconds)
 }
 
 #ifdef BASELINE_ORDINARY_WORKLOAD
+static int hash_ordered_inputs(const struct measurement_sample *samples,
+    size_t sample_count,
+    const uint8_t encapsulation_key[MLKEM_ENCAPSULATION_KEY_BYTES])
+{
+    static const uint8_t stream_header[] = "ordinary_input_stream_v1:ML-KEM-768";
+    size_t header_bytes = sizeof(stream_header) - 1u;
+    size_t input_byte_count = header_bytes + MLKEM_ENCAPSULATION_KEY_BYTES + 8u +
+        sample_count * (1u + MLKEM_CIPHERTEXT_BYTES);
+    uint8_t *input_bytes = malloc(input_byte_count);
+    if (input_bytes == NULL) {
+        return 1;
+    }
+    memcpy(input_bytes, stream_header, header_bytes);
+    memcpy(input_bytes + header_bytes, encapsulation_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+    size_t write_offset = header_bytes + MLKEM_ENCAPSULATION_KEY_BYTES;
+    for (unsigned byte_index = 0; byte_index < 8u; ++byte_index) {
+        input_bytes[write_offset++] = (uint8_t)((uint64_t)sample_count >> (8u * byte_index));
+    }
+    for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+        input_bytes[write_offset++] = (uint8_t)samples[sample_index].category;
+        memcpy(input_bytes + write_offset,
+            samples[sample_index].ciphertext,
+            MLKEM_CIPHERTEXT_BYTES);
+        write_offset += MLKEM_CIPHERTEXT_BYTES;
+    }
+    mlk_sha3_256(accounting.ordered_input_digest, input_bytes, input_byte_count);
+    free(input_bytes);
+    return 0;
+}
+
+static int finish_cost_record(FILE *cost_file, int operation_status)
+{
+    uint64_t finish_nanoseconds;
+    if (read_monotonic_nanoseconds(&finish_nanoseconds) != 0 ||
+        finish_nanoseconds < accounting.start_nanoseconds) {
+        (void)fclose(cost_file);
+        return 1;
+    }
+    if (fprintf(cost_file,
+            "final_state=%s\nstart_ns=%" PRIu64 "\npreparation_end_ns=%" PRIu64
+            "\nwarmup_end_ns=%" PRIu64 "\ncollection_end_ns=%" PRIu64 "\nfinish_ns=%" PRIu64
+            "\nchild_total_wall_ns=%" PRIu64 "\nwarmup_attempted_calls=%" PRIu64
+            "\nwarmup_completed_calls=%" PRIu64 "\nformal_attempted_calls=%" PRIu64
+            "\nformal_completed_calls=%" PRIu64 "\noutputs_consumed=%" PRIu64
+            "\ncost_file_final_write=outside_child_total_use_parent_wall\n",
+            operation_status == 0 ? "complete" : "failed",
+            accounting.start_nanoseconds,
+            accounting.preparation_end_nanoseconds,
+            accounting.warmup_end_nanoseconds,
+            accounting.collection_end_nanoseconds,
+            finish_nanoseconds,
+            finish_nanoseconds - accounting.start_nanoseconds,
+            accounting.warmup_attempted_calls,
+            accounting.warmup_completed_calls,
+            accounting.formal_attempted_calls,
+            accounting.formal_completed_calls,
+            accounting.outputs_consumed) < 0) {
+        operation_status = 1;
+    }
+    if (fclose(cost_file) != 0) {
+        operation_status = 1;
+    }
+    return operation_status;
+}
+
+static int save_workload_identity(FILE *metadata_file, size_t sample_count)
+{
+    if (fprintf(metadata_file,
+            "paired_metadata_version=paired_workload_v1\nmethod=baseline\nbatch_size=1\n"
+            "parameter_set=ML-KEM-768\ninput_rule=ordinary_input_stream_v1\n"
+            "upstream_commit=b3ba7b32773e657dd37f6f87bce82528459ad8a4\n"
+            "valid_count=%zu\nbit_flipped_count=%zu\nrandom_count=%zu\n"
+            "formal_attempted_calls=%" PRIu64 "\nformal_completed_calls=%" PRIu64
+            "\nwarmup_attempted_calls=%" PRIu64 "\nwarmup_completed_calls=%" PRIu64
+            "\noutputs_consumed=%" PRIu64 "\nordered_input_digest_algorithm=SHA3-256\n"
+            "ordered_input_digest=",
+            sample_count / 3u,
+            sample_count / 3u,
+            sample_count / 3u,
+            accounting.formal_attempted_calls,
+            accounting.formal_completed_calls,
+            accounting.warmup_attempted_calls,
+            accounting.warmup_completed_calls,
+            accounting.outputs_consumed) < 0) {
+        return 1;
+    }
+    for (size_t byte_index = 0; byte_index < 32u; ++byte_index) {
+        if (fprintf(metadata_file, "%02x", accounting.ordered_input_digest[byte_index]) < 0) {
+            return 1;
+        }
+    }
+    return fputc('\n', metadata_file) == EOF;
+}
+
 static int save_timer_diagnostics(FILE *metadata_file)
 {
     uint64_t minimum_positive_step_nanoseconds = UINT64_MAX;
@@ -344,7 +452,8 @@ static int save_measurements(const char *csv_path,
               "input_index_rule=category_local_index_shared_across_categories\n"
               "virtualization=not_verified_by_program_see_environment_log\n",
             metadata_file) == EOF ||
-        save_timer_diagnostics(metadata_file) != 0) {
+        save_timer_diagnostics(metadata_file) != 0 ||
+        save_workload_identity(metadata_file, sample_count) != 0) {
         operation_status = 1;
     }
     if (fflush(metadata_file) != 0) {
@@ -379,6 +488,10 @@ int main(int argument_count, char **argument_values)
     struct measurement_sample *samples = NULL;
     size_t sample_count;
     int operation_status = 1;
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    FILE *cost_file = NULL;
+    char cost_path[4096];
+#endif
     if (argument_count != 6 || parse_unsigned_integer(argument_values[2], &test_seed) != 0 ||
         parse_unsigned_integer(argument_values[3], &samples_per_category) != 0 ||
         samples_per_category == 0 || samples_per_category > 20000u) {
@@ -400,10 +513,31 @@ int main(int argument_count, char **argument_values)
             return 2;
         }
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    int path_byte_count = snprintf(cost_path, sizeof(cost_path), "%s.cost", argument_values[4]);
+    if (path_byte_count < 0 || (size_t)path_byte_count >= sizeof(cost_path) ||
+        read_monotonic_nanoseconds(&accounting.start_nanoseconds) != 0) {
+        return 1;
+    }
+    cost_file = fopen(cost_path, "wx");
+    if (cost_file == NULL) {
+        return 1;
+    }
+    if (fprintf(cost_file,
+            "cost_format=measurement_cost_v1\ninitial_state=started\nrun_id=%s\n",
+            argument_values[1]) < 0 ||
+        fflush(cost_file) != 0) {
+        goto cleanup;
+    }
+#endif
     if (check_timer(&resolution_nanoseconds) != 0 ||
         hash_running_executable(executable_digest) != 0) {
         fputs("timer/executable identity check failed\n", stderr);
+#ifdef BASELINE_ORDINARY_WORKLOAD
+        goto cleanup;
+#else
         return 1;
+#endif
     }
     sample_count = (size_t)samples_per_category * MEASUREMENT_CATEGORY_COUNT;
     samples = calloc(sample_count, sizeof(*samples));
@@ -429,7 +563,16 @@ int main(int argument_count, char **argument_values)
         samples[selected_index] = samples[remaining_count - 1u];
         samples[remaining_count - 1u] = selected_sample;
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    if (hash_ordered_inputs(samples, sample_count, encapsulation_key) != 0 ||
+        read_monotonic_nanoseconds(&accounting.preparation_end_nanoseconds) != 0) {
+        goto cleanup;
+    }
+#endif
     for (unsigned warmup_index = 0; warmup_index < 100u; ++warmup_index) {
+#ifdef BASELINE_ORDINARY_WORKLOAD
+        ++accounting.warmup_attempted_calls;
+#endif
         if (mlkem_decapsulate(shared_secret,
                 sizeof(shared_secret),
                 samples[warmup_index % sample_count].ciphertext,
@@ -439,12 +582,27 @@ int main(int argument_count, char **argument_values)
             goto cleanup;
         }
         result_sink ^= shared_secret[0];
+#ifdef BASELINE_ORDINARY_WORKLOAD
+        ++accounting.warmup_completed_calls;
+        ++accounting.outputs_consumed;
+#endif
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    if (read_monotonic_nanoseconds(&accounting.warmup_end_nanoseconds) != 0) {
+        goto cleanup;
+    }
+#endif
     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
         uint64_t start_nanoseconds;
         uint64_t end_nanoseconds;
         int decapsulation_status;
+#ifdef BASELINE_ORDINARY_WORKLOAD
+        ++accounting.formal_attempted_calls;
+#endif
         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+#ifdef BASELINE_ORDINARY_WORKLOAD
+            --accounting.formal_attempted_calls;
+#endif
             goto cleanup;
         }
         atomic_signal_fence(memory_order_seq_cst);
@@ -465,7 +623,16 @@ int main(int argument_count, char **argument_values)
         samples[sample_index].elapsed_nanoseconds = end_nanoseconds - start_nanoseconds;
         /* 在计时结束后消费结果，文件输出等到整批测量结束。 */
         result_sink ^= shared_secret[sample_index % sizeof(shared_secret)];
+#ifdef BASELINE_ORDINARY_WORKLOAD
+        ++accounting.formal_completed_calls;
+        ++accounting.outputs_consumed;
+#endif
     }
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    if (read_monotonic_nanoseconds(&accounting.collection_end_nanoseconds) != 0) {
+        goto cleanup;
+    }
+#endif
     operation_status = save_measurements(argument_values[4],
         argument_values[5],
         argument_values[1],
@@ -478,6 +645,11 @@ cleanup:
     erase_secret_bytes(decapsulation_key, sizeof(decapsulation_key));
     erase_secret_bytes(shared_secret, sizeof(shared_secret));
     free(samples);
+#ifdef BASELINE_ORDINARY_WORKLOAD
+    if (cost_file != NULL) {
+        operation_status = finish_cost_record(cost_file, operation_status);
+    }
+#endif
     if (operation_status != 0) {
         fputs("measurement failed; check resources and use new output paths\n", stderr);
     } else {

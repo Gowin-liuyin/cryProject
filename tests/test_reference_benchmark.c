@@ -51,18 +51,22 @@ static void check_metadata(const char *metadata_path)
     unsigned empty_window_count = 0;
     int has_complete_status = 0;
     int has_workload = 0;
+    int has_call_count = 0;
+    int has_input_digest = 0;
     assert(metadata_file != NULL);
     while (fgets(metadata_line, sizeof(metadata_line), metadata_file) != NULL) {
         clock_step_count += strncmp(metadata_line, "clock_read_step=", 16) == 0 ? 1u : 0u;
         empty_window_count += strncmp(metadata_line, "empty_window=", 13) == 0 ? 1u : 0u;
         has_complete_status |= strcmp(metadata_line, "run_status=complete\n") == 0;
         has_workload |= strcmp(metadata_line, "workload=valid:bit-flipped:random=1:1:1\n") == 0;
+        has_call_count |= strcmp(metadata_line, "formal_completed_calls=30\n") == 0;
+        has_input_digest |= strncmp(metadata_line, "ordered_input_digest=", 21) == 0;
     }
     assert(!ferror(metadata_file));
     assert(fclose(metadata_file) == 0);
     assert(clock_step_count == 10000u);
     assert(empty_window_count == 1000u);
-    assert(has_complete_status && has_workload);
+    assert(has_complete_status && has_workload && has_call_count && has_input_digest);
 }
 
 int main(int argument_count, char **argument_values)
@@ -70,6 +74,7 @@ int main(int argument_count, char **argument_values)
     char test_directory[] = "/tmp/cry-reference-benchmark.XXXXXX";
     char csv_path[2][256];
     char metadata_path[2][256];
+    char cost_path[2][256];
     struct measurement_set sets[2] = {{0}, {0}};
     assert(argument_count == 2);
     assert(mkdtemp(test_directory) != NULL);
@@ -84,6 +89,10 @@ int main(int argument_count, char **argument_values)
                    "%s/run%zu.meta",
                    test_directory,
                    run_index) > 0);
+        assert(snprintf(cost_path[run_index],
+                   sizeof(cost_path[run_index]),
+                   "%s.cost",
+                   csv_path[run_index]) > 0);
         assert(run_benchmark(argument_values[1],
                    "10",
                    csv_path[run_index],
@@ -110,15 +119,18 @@ int main(int argument_count, char **argument_values)
         free(sets[run_index].records);
         assert(unlink(csv_path[run_index]) == 0);
         assert(unlink(metadata_path[run_index]) == 0);
+        assert(unlink(cost_path[run_index]) == 0);
     }
     assert(run_benchmark(argument_values[1], "0", csv_path[0], metadata_path[0], 0) == 2);
     assert(access(csv_path[0], F_OK) != 0 && access(metadata_path[0], F_OK) != 0);
     assert(run_benchmark(argument_values[1], "10", csv_path[0], test_directory, 0) == 1);
     assert(access(csv_path[0], F_OK) != 0);
+    assert(unlink(cost_path[0]) == 0);
     /* 模拟写满文件，失败产物保留供识别，不能进入性能汇总。 */
     assert(run_benchmark(argument_values[1], "100", csv_path[0], metadata_path[0], 1) == 1);
     assert(unlink(csv_path[0]) == 0);
     assert(unlink(metadata_path[0]) == 0);
+    assert(unlink(cost_path[0]) == 0);
     assert(rmdir(test_directory) == 0);
     return 0;
 }
