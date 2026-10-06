@@ -19,6 +19,25 @@
 macOS 可使用 Xcode Command Line Tools 提供的编译器；Linux 需安装对应编译工具和 CMake。
 默认 preset 使用 Unix Makefiles；普通构建不联网、不下载密码库，也不需要 Python 或 jq。
 
+只验收参考版功能时，可以使用独立入口：
+
+```sh
+cmake --preset baseline
+cmake --build --preset baseline --target check-reference --parallel
+build/cmake/reference/baseline selftest
+
+cmake --preset sanitize
+cmake --build --preset sanitize --target check-reference --parallel
+```
+
+`check-reference` 自动构建参考版 CLI 和两个功能测试程序，再运行带 `reference` 标签的
+5 项 CTest：独立 NIST 向量与接口边界、随机源失败、普通三类输入的 CLI、向量解析、向量完整性。
+它不构建其他变体或计时程序。测试要求 `BUILD_TESTING=ON`（两个 preset 都已启用）。
+2026-10-06 首轮普通、ASan/UBSan 和 Ninja 多配置 Debug 检查均通过，来源及日志见
+[参考版复核记录](docs/reference-recheck.md)。
+随后独立收口在全新目录补查公共入口：普通与动态检查各通过参考 5 项和公共功能 11 项，
+共 16 个不同测试；多配置 Debug 通过参考 5 项，见该记录的追加章节。
+
 ```sh
 cmake --preset baseline
 cmake --build --preset baseline --parallel
@@ -224,7 +243,9 @@ Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinlin
 
 ## 7. 验证结果与证据边界
 
-当前有 **18 项 CTest**（`ctest -N` 实测），覆盖：
+当前注册 **20 项 CTest**，其中新增 `reference_cli` 和 `reference_vector_parser`
+支持上述独立参考版入口。以下表格记录原有 18 项完整验收的覆盖；首轮参考复核只执行了
+5 项，随后收口执行了 16 个不同功能测试，未重新执行原时序采集与两轮统计测试：
 
 | 检查 | 实际覆盖 |
 |---|---|

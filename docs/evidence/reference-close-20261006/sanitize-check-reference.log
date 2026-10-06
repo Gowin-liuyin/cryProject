@@ -1,0 +1,39 @@
+$ cmake --build /Users/yin/code/cryProject/build/reference-close-sanitize.1mb1blo0 --target check-reference --parallel 4
+[  0%] Built target build_identity
+[ 36%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 36%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 36%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 36%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 45%] Linking C static library reference/libmlkem.a
+[ 45%] Built target mlkem_reference
+[ 54%] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[ 72%] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[ 72%] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[ 90%] Linking C executable reference/test_random_failure
+[ 90%] Linking C executable reference/baseline
+[100%] Linking C executable reference/test_mlkem
+[100%] Built target reference_baseline
+[100%] Built target reference_test_random_failure
+[100%] Built target reference_test_mlkem
+Test project /Users/yin/code/cryProject/build/reference-close-sanitize.1mb1blo0
+Connected to MAKE jobserver
+    Start  1: reference_kat
+1/5 Test  #1: reference_kat ....................   Passed    0.41 sec
+    Start  2: reference_random_failure
+2/5 Test  #2: reference_random_failure .........   Passed    0.43 sec
+    Start 13: reference_cli
+3/5 Test #13: reference_cli ....................   Passed    0.54 sec
+    Start 16: reference_vector_parser
+4/5 Test #16: reference_vector_parser ..........   Passed    0.06 sec
+    Start 20: vector_integrity
+5/5 Test #20: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   1.46 sec*proc (5 tests)
+
+Total Test time (real) =   1.46 sec
+[100%] Built target check-reference
+
+exit_status=0

@@ -13,6 +13,10 @@
 /docs/evidence/linux-gcc/*.meta whitespace=-blank-at-eol
 /docs/evidence/mitigation/*.meta whitespace=-blank-at-eol
 /docs/evidence/review/*.meta whitespace=-blank-at-eol
+/docs/evidence/reference-recheck-20261006/tested-source.diff whitespace=-blank-at-eol
+/docs/evidence/reference-recheck-20261006/*build-identity.txt whitespace=-blank-at-eol
+/docs/evidence/reference-close-20261006/tested-source.diff whitespace=-blank-at-eol
+/docs/evidence/reference-close-20261006/*-identity.txt whitespace=-blank-at-eol
 /docs/evidence/statistics/*.meta whitespace=-blank-at-eol
 /docs/evidence/statistics-multiseed/*.meta whitespace=-blank-at-eol
 /docs/evidence/statistics-multiseed/record-checks.txt whitespace=-blank-at-eol

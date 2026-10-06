@@ -211,6 +211,10 @@ if(BUILD_TESTING)
     add_test(NAME cli COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh"
                               "${output_root}"
     )
+    add_test(NAME reference_cli
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh"
+                     "${output_root}" reference
+    )
     add_test(NAME measurement
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_measurement.sh"
                      "${output_root}"
@@ -218,6 +222,11 @@ if(BUILD_TESTING)
     add_test(NAME vector_parser
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
                      "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt"
+    )
+    add_test(
+        NAME reference_vector_parser
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
+                "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt" reference
     )
     add_test(NAME analysis
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis.sh"
@@ -241,6 +250,17 @@ if(BUILD_TESTING)
     )
     set_tests_properties(
         vector_integrity PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    set_tests_properties(
+        reference_kat reference_random_failure reference_cli reference_vector_parser
+        vector_integrity PROPERTIES LABELS reference
+    )
+    add_custom_target(
+        check-reference
+        COMMAND "${CMAKE_CTEST_COMMAND}" --test-dir "${CMAKE_CURRENT_BINARY_DIR}" -C "$<CONFIG>"
+                --output-on-failure -L reference
+        DEPENDS reference_baseline reference_test_mlkem reference_test_random_failure
+        USES_TERMINAL VERBATIM
     )
 endif()
 

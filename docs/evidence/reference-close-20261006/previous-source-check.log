@@ -1,0 +1,28 @@
+$ shasum -a 256 -c docs/evidence/reference-recheck-20261006/tested-source.sha256
+CMakeLists.txt: OK
+tests/test_cli.sh: OK
+tests/test_vector_parser.sh: OK
+src/analyze.c: OK
+src/analyze_groups.c: OK
+src/inputs.c: OK
+src/kernel.c: OK
+src/main.c: OK
+src/measure.c: OK
+src/mlkem.c: OK
+src/random.c: OK
+src/timing_statistics.c: OK
+include/baseline_config.h: OK
+include/inputs.h: OK
+include/mlkem.h: OK
+include/timing_statistics.h: OK
+tests/test_equivalence.c: OK
+tests/test_measurement.c: OK
+tests/test_mlkem.c: OK
+tests/test_random_failure.c: OK
+tests/vectors/encdec-expected.json: OK
+tests/vectors/encdec-prompt.json: OK
+tests/vectors/keygen-expected.json: OK
+tests/vectors/keygen-prompt.json: OK
+tests/vectors/mlkem768.txt: OK
+
+exit_status=0

@@ -1,0 +1,25 @@
+{
+  "registered_test_count": 20,
+  "test_names": [
+    "reference_kat",
+    "reference_random_failure",
+    "vulnerable_kat",
+    "vulnerable_random_failure",
+    "hardened_kat",
+    "hardened_random_failure",
+    "deployable_kat",
+    "deployable_random_failure",
+    "equivalence_vulnerable",
+    "equivalence_hardened",
+    "equivalence_deployable",
+    "cli",
+    "reference_cli",
+    "measurement",
+    "vector_parser",
+    "reference_vector_parser",
+    "analysis",
+    "analysis_groups",
+    "analysis_round1_replay",
+    "vector_integrity"
+  ]
+}

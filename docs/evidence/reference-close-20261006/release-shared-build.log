@@ -1,0 +1,110 @@
+$ cmake --build /Users/yin/code/cryProject/build/reference-close-release.91oeg7rz --target reference_baseline reference_test_mlkem reference_test_equivalence reference_test_random_failure vulnerable_baseline vulnerable_test_mlkem vulnerable_test_equivalence vulnerable_test_random_failure hardened_baseline hardened_test_mlkem hardened_test_equivalence hardened_test_random_failure deployable_baseline deployable_test_mlkem deployable_test_equivalence deployable_test_random_failure --parallel 4
+[  0%] Built target build_identity
+[ 71%] Built target mlkem_reference
+[100%] Built target reference_baseline
+[  0%] Built target build_identity
+[ 71%] Built target mlkem_reference
+[100%] Built target reference_test_mlkem
+[  0%] Built target build_identity
+[ 71%] Built target mlkem_reference
+[ 85%] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[100%] Linking C executable reference/test_equivalence
+[100%] Built target reference_test_equivalence
+[  0%] Built target build_identity
+[ 71%] Built target mlkem_reference
+[100%] Built target reference_test_random_failure
+[ 12%] Generating vulnerable-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[ 12%] Built target prepare_vulnerable
+[ 12%] Built target build_identity
+[ 50%] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[ 50%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[ 62%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[ 62%] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[ 75%] Linking C static library vulnerable/libmlkem.a
+[ 75%] Built target mlkem_vulnerable
+[ 87%] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[100%] Linking C executable vulnerable/baseline
+[100%] Built target vulnerable_baseline
+[ 12%] Built target prepare_vulnerable
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_vulnerable
+[ 87%] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[100%] Linking C executable vulnerable/test_mlkem
+[100%] Built target vulnerable_test_mlkem
+[ 12%] Built target prepare_vulnerable
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_vulnerable
+[ 87%] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[100%] Linking C executable vulnerable/test_equivalence
+[100%] Built target vulnerable_test_equivalence
+[ 12%] Built target prepare_vulnerable
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_vulnerable
+[ 87%] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[100%] Linking C executable vulnerable/test_random_failure
+[100%] Built target vulnerable_test_random_failure
+[ 12%] Generating hardened-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[ 12%] Built target prepare_hardened
+[ 12%] Built target build_identity
+[ 62%] Building C object CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o
+[ 62%] Building C object CMakeFiles/mlkem_hardened.dir/src/random.c.o
+[ 62%] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+[ 62%] Building C object CMakeFiles/mlkem_hardened.dir/src/inputs.c.o
+[ 75%] Linking C static library hardened/libmlkem.a
+[ 75%] Built target mlkem_hardened
+[ 87%] Building C object CMakeFiles/hardened_baseline.dir/src/main.c.o
+[100%] Linking C executable hardened/baseline
+[100%] Built target hardened_baseline
+[ 12%] Built target prepare_hardened
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_hardened
+[ 87%] Building C object CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o
+[100%] Linking C executable hardened/test_mlkem
+[100%] Built target hardened_test_mlkem
+[ 12%] Built target prepare_hardened
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_hardened
+[ 87%] Building C object CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o
+[100%] Linking C executable hardened/test_equivalence
+[100%] Built target hardened_test_equivalence
+[ 12%] Built target prepare_hardened
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_hardened
+[ 87%] Building C object CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o
+[100%] Linking C executable hardened/test_random_failure
+[100%] Built target hardened_test_random_failure
+[ 12%] Generating deployable-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[ 12%] Built target prepare_deployable
+[ 12%] Built target build_identity
+[ 62%] Building C object CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o
+[ 62%] Building C object CMakeFiles/mlkem_deployable.dir/src/random.c.o
+[ 62%] Building C object CMakeFiles/mlkem_deployable.dir/src/inputs.c.o
+[ 62%] Building C object CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o
+[ 75%] Linking C static library deployable/libmlkem.a
+[ 75%] Built target mlkem_deployable
+[ 87%] Building C object CMakeFiles/deployable_baseline.dir/src/main.c.o
+[100%] Linking C executable deployable/baseline
+[100%] Built target deployable_baseline
+[ 12%] Built target prepare_deployable
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_deployable
+[ 87%] Building C object CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o
+[100%] Linking C executable deployable/test_mlkem
+[100%] Built target deployable_test_mlkem
+[ 12%] Built target prepare_deployable
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_deployable
+[ 87%] Building C object CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o
+[100%] Linking C executable deployable/test_equivalence
+[100%] Built target deployable_test_equivalence
+[ 12%] Built target prepare_deployable
+[ 12%] Built target build_identity
+[ 75%] Built target mlkem_deployable
+[ 87%] Building C object CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o
+[100%] Linking C executable deployable/test_random_failure
+[100%] Built target deployable_test_random_failure
+
+exit_status=0

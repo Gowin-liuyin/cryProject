@@ -1,0 +1,44 @@
+[
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /Users/yin/code/cryProject/src/kernel.c",
+    "file": "/Users/yin/code/cryProject/src/kernel.c",
+    "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/mlkem.c.o -c /Users/yin/code/cryProject/src/mlkem.c",
+    "file": "/Users/yin/code/cryProject/src/mlkem.c",
+    "output": "CMakeFiles/mlkem_reference.dir/src/mlkem.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/random.c.o -c /Users/yin/code/cryProject/src/random.c",
+    "file": "/Users/yin/code/cryProject/src/random.c",
+    "output": "CMakeFiles/mlkem_reference.dir/src/random.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/inputs.c.o -c /Users/yin/code/cryProject/src/inputs.c",
+    "file": "/Users/yin/code/cryProject/src/inputs.c",
+    "output": "CMakeFiles/mlkem_reference.dir/src/inputs.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/reference-recheck.zU5HSL/generated/RelWithDebInfo -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_baseline.dir/src/main.c.o -c /Users/yin/code/cryProject/src/main.c",
+    "file": "/Users/yin/code/cryProject/src/main.c",
+    "output": "CMakeFiles/reference_baseline.dir/src/main.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o -c /Users/yin/code/cryProject/tests/test_mlkem.c",
+    "file": "/Users/yin/code/cryProject/tests/test_mlkem.c",
+    "output": "CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o -c /Users/yin/code/cryProject/tests/test_random_failure.c",
+    "file": "/Users/yin/code/cryProject/tests/test_random_failure.c",
+    "output": "CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o"
+  }
+]

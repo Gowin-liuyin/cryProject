@@ -1,0 +1,25 @@
+$ shasum -a 256 -c docs/evidence/reference-recheck-20261006/SHA256SUMS
+docs/evidence/reference-recheck-20261006/README.md: OK
+docs/evidence/reference-recheck-20261006/binaries.sha256: OK
+docs/evidence/reference-recheck-20261006/build-identity.txt: OK
+docs/evidence/reference-recheck-20261006/configure.log: OK
+docs/evidence/reference-recheck-20261006/ctest-verbose.log: OK
+docs/evidence/reference-recheck-20261006/ctest.log: OK
+docs/evidence/reference-recheck-20261006/development-checks.log: OK
+docs/evidence/reference-recheck-20261006/environment.txt: OK
+docs/evidence/reference-recheck-20261006/format-check.log: OK
+docs/evidence/reference-recheck-20261006/multiconfig-build-identity.txt: OK
+docs/evidence/reference-recheck-20261006/multiconfig-configure.log: OK
+docs/evidence/reference-recheck-20261006/multiconfig-ctest.log: OK
+docs/evidence/reference-recheck-20261006/reference-compile-commands.json: OK
+docs/evidence/reference-recheck-20261006/sanitize-build-identity.txt: OK
+docs/evidence/reference-recheck-20261006/sanitize-configure.log: OK
+docs/evidence/reference-recheck-20261006/sanitize-ctest.log: OK
+docs/evidence/reference-recheck-20261006/target-inventory.log: OK
+docs/evidence/reference-recheck-20261006/test-registration.json: OK
+docs/evidence/reference-recheck-20261006/tested-source.diff: OK
+docs/evidence/reference-recheck-20261006/tested-source.sha256: OK
+docs/evidence/reference-recheck-20261006/vector-source-check.log: OK
+docs/evidence/reference-recheck-20261006/vendor-source-check.log: OK
+
+exit_status=0

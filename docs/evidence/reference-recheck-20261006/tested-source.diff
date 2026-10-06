@@ -1,0 +1,165 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4f8b6eb..8594db2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -211,6 +211,10 @@ if(BUILD_TESTING)
+     add_test(NAME cli COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh"
+                               "${output_root}"
+     )
++    add_test(NAME reference_cli
++             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh"
++                     "${output_root}" reference
++    )
+     add_test(NAME measurement
+              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_measurement.sh"
+                      "${output_root}"
+@@ -219,6 +223,11 @@ if(BUILD_TESTING)
+              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
+                      "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt"
+     )
++    add_test(
++        NAME reference_vector_parser
++        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
++                "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt" reference
++    )
+     add_test(NAME analysis
+              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis.sh"
+                      "${output_root}"
+@@ -242,6 +251,17 @@ if(BUILD_TESTING)
+     set_tests_properties(
+         vector_integrity PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+     )
++    set_tests_properties(
++        reference_kat reference_random_failure reference_cli reference_vector_parser
++        vector_integrity PROPERTIES LABELS reference
++    )
++    add_custom_target(
++        check-reference
++        COMMAND "${CMAKE_CTEST_COMMAND}" --test-dir "${CMAKE_CURRENT_BINARY_DIR}" -C "$<CONFIG>"
++                --output-on-failure -L reference
++        DEPENDS reference_baseline reference_test_mlkem reference_test_random_failure
++        USES_TERMINAL VERBATIM
++    )
+ endif()
+ 
+ set(CLANG_FORMAT_EXECUTABLE
+diff --git a/tests/test_cli.sh b/tests/test_cli.sh
+index 238aa45..35f6e88 100644
+--- a/tests/test_cli.sh
++++ b/tests/test_cli.sh
+@@ -1,36 +1,67 @@
+ #!/bin/sh
+ set -eu
+ build_directory=${1:-build}
++test_scope=${2:-all}
++case "$test_scope" in
++    reference)
++        implementation_names=reference
++        input_categories='valid bit-flipped random'
++        ;;
++    all)
++        implementation_names='reference vulnerable hardened deployable'
++        input_categories='valid bit-flipped random message-zero message-ones'
++        ;;
++    *)
++        exit 2
++        ;;
++esac
+ test_directory=$(mktemp -d)
+ trap 'rm -rf "$test_directory"' EXIT HUP INT TERM
+-for implementation in reference vulnerable hardened deployable; do
++for implementation in $implementation_names; do
+     program="$build_directory/$implementation/baseline"
+-    "$program" version
++    version_output=$("$program" version)
++    test "$version_output" = "$implementation ML-KEM-768 FIPS203"
++    printf '%s\n' "$version_output"
+     "$program" selftest
+     "$program" demo
+-    for category in valid bit-flipped random message-zero message-ones; do
++    for category in $input_categories; do
+         "$program" generate-test "$category" 42 "$test_directory/$implementation-$category"
++        "$program" generate-test "$category" 42 "$test_directory/repeated-$implementation-$category"
++        cmp "$test_directory/$implementation-$category" "$test_directory/repeated-$implementation-$category"
+         "$program" decapsulate-test 42 "$test_directory/$implementation-$category"
+     done
+     if "$program" generate-test unknown 42 "$test_directory/no-file" 2>/dev/null; then
+         exit 1
++    else
++        test "$?" -eq 2
+     fi
+     if "$program" generate-test valid -1 "$test_directory/no-file" 2>/dev/null; then
+         exit 1
++    else
++        test "$?" -eq 2
+     fi
+     if "$program" generate-test valid 18446744073709551616 "$test_directory/no-file" 2>/dev/null; then
+         exit 1
++    else
++        test "$?" -eq 2
+     fi
+     if "$program" generate-test valid 42 "$test_directory/$implementation-valid" 2>/dev/null; then
+         exit 1
++    else
++        test "$?" -eq 1
+     fi
++    cmp "$test_directory/$implementation-valid" "$test_directory/repeated-$implementation-valid"
+     head -c 1087 "$test_directory/$implementation-valid" > "$test_directory/short"
+     cat "$test_directory/$implementation-valid" "$test_directory/short" > "$test_directory/long"
+     if "$program" decapsulate-test 42 "$test_directory/short" 2>/dev/null; then
+         exit 1
++    else
++        test "$?" -eq 1
+     fi
+     if "$program" decapsulate-test 42 "$test_directory/long" 2>/dev/null; then
+         exit 1
++    else
++        test "$?" -eq 1
+     fi
+     if "$program" decapsulate-test 42 "$test_directory" 2>/dev/null; then
+         exit 1
+@@ -38,8 +69,10 @@ for implementation in reference vulnerable hardened deployable; do
+         test "$?" -eq 1
+     fi
+ done
+-for category in valid bit-flipped random message-zero message-ones; do
+-    for variant in vulnerable hardened deployable; do
+-        cmp "$test_directory/reference-$category" "$test_directory/$variant-$category"
++if test "$test_scope" = all; then
++    for category in $input_categories; do
++        for variant in vulnerable hardened deployable; do
++            cmp "$test_directory/reference-$category" "$test_directory/$variant-$category"
++        done
+     done
+-done
++fi
+diff --git a/tests/test_vector_parser.sh b/tests/test_vector_parser.sh
+index 38ad204..ceda388 100644
+--- a/tests/test_vector_parser.sh
++++ b/tests/test_vector_parser.sh
+@@ -2,13 +2,24 @@
+ set -eu
+ build_directory=$1
+ vector_file=$2
++case "${3:-all}" in
++    reference)
++        implementation_names=reference
++        ;;
++    all)
++        implementation_names='reference vulnerable hardened deployable'
++        ;;
++    *)
++        exit 2
++        ;;
++esac
+ test_directory=$(mktemp -d)
+ trap 'rm -rf "$test_directory"' EXIT HUP INT TERM
+ cp "$vector_file" "$test_directory/incomplete.txt"
+ printf 'keygen' >> "$test_directory/incomplete.txt"
+ sed '1s/[0-9][0-9]*/-1/' "$vector_file" > "$test_directory/negative-case.txt"
+ sed '1s/\([[:xdigit:]]\)[[:xdigit:]]\([[:xdigit:]]\{126\}\)/\1z\2/' "$vector_file" > "$test_directory/invalid-hex.txt"
+-for implementation in reference vulnerable hardened deployable; do
++for implementation in $implementation_names; do
+     for invalid_file in "$test_directory"/*.txt; do
+         if "$build_directory/$implementation/test_mlkem" "$invalid_file" >/dev/null 2>&1; then
+             exit 1

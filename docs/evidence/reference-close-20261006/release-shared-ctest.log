@@ -1,0 +1,30 @@
+$ ctest --test-dir /Users/yin/code/cryProject/build/reference-close-release.91oeg7rz --output-on-failure -R '^((vulnerable|hardened|deployable)_(kat|random_failure)|equivalence_(vulnerable|hardened|deployable)|cli|vector_parser)$'
+Test project /Users/yin/code/cryProject/build/reference-close-release.91oeg7rz
+      Start  3: vulnerable_kat
+ 1/11 Test  #3: vulnerable_kat ...................   Passed    0.38 sec
+      Start  4: vulnerable_random_failure
+ 2/11 Test  #4: vulnerable_random_failure ........   Passed    0.36 sec
+      Start  5: hardened_kat
+ 3/11 Test  #5: hardened_kat .....................   Passed    0.41 sec
+      Start  6: hardened_random_failure
+ 4/11 Test  #6: hardened_random_failure ..........   Passed    0.35 sec
+      Start  7: deployable_kat
+ 5/11 Test  #7: deployable_kat ...................   Passed    0.39 sec
+      Start  8: deployable_random_failure
+ 6/11 Test  #8: deployable_random_failure ........   Passed    0.36 sec
+      Start  9: equivalence_vulnerable
+ 7/11 Test  #9: equivalence_vulnerable ...........   Passed    0.75 sec
+      Start 10: equivalence_hardened
+ 8/11 Test #10: equivalence_hardened .............   Passed    0.46 sec
+      Start 11: equivalence_deployable
+ 9/11 Test #11: equivalence_deployable ...........   Passed    0.40 sec
+      Start 12: cli
+10/11 Test #12: cli ..............................   Passed    1.33 sec
+      Start 15: vector_parser
+11/11 Test #15: vector_parser ....................   Passed    0.08 sec
+
+100% tests passed, 0 tests failed out of 11
+
+Total Test time (real) =   5.28 sec
+
+exit_status=0

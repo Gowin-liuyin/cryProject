@@ -1,0 +1,73 @@
+UpdateCTestConfiguration  from :/Users/yin/code/cryProject/build/reference-recheck.zU5HSL/DartConfiguration.tcl
+Parse Config file:/Users/yin/code/cryProject/build/reference-recheck.zU5HSL/DartConfiguration.tcl
+Test project /Users/yin/code/cryProject/build/reference-recheck.zU5HSL
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start  1: reference_kat
+
+1: Test command: /Users/yin/code/cryProject/build/reference-recheck.zU5HSL/reference/test_mlkem "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+1: Working Directory: /Users/yin/code/cryProject/build/reference-recheck.zU5HSL
+1: Test timeout computed to be: 1500
+1: NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+1: reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+1: NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+1: public argument boundaries and system-random roundtrip passed
+1/5 Test  #1: reference_kat ....................   Passed    0.02 sec
+test 2
+    Start  2: reference_random_failure
+
+2: Test command: /Users/yin/code/cryProject/build/reference-recheck.zU5HSL/reference/test_random_failure
+2: Working Directory: /Users/yin/code/cryProject/build/reference-recheck.zU5HSL
+2: Test timeout computed to be: 1500
+2: system RNG open failure propagates; normal operation recovers
+2/5 Test  #2: reference_random_failure .........   Passed    0.00 sec
+test 13
+    Start 13: reference_cli
+
+13: Test command: /bin/sh "/Users/yin/code/cryProject/tests/test_cli.sh" "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL" "reference"
+13: Working Directory: /Users/yin/code/cryProject/build/reference-recheck.zU5HSL
+13: Test timeout computed to be: 1500
+13: reference ML-KEM-768 FIPS203
+13: reference: system-random keygen/encaps/decaps roundtrip passed
+13: reference: system-random keygen/encaps/decaps roundtrip passed
+13: reference: generated valid test ciphertext, 1088 bytes; label comes from generator
+13: reference: generated valid test ciphertext, 1088 bytes; label comes from generator
+13: reference: decapsulation completed
+13: reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+13: reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+13: reference: decapsulation completed
+13: reference: generated random test ciphertext, 1088 bytes; label comes from generator
+13: reference: generated random test ciphertext, 1088 bytes; label comes from generator
+13: reference: decapsulation completed
+3/5 Test #13: reference_cli ....................   Passed    0.04 sec
+test 16
+    Start 16: reference_vector_parser
+
+16: Test command: /bin/sh "/Users/yin/code/cryProject/tests/test_vector_parser.sh" "/Users/yin/code/cryProject/build/reference-recheck.zU5HSL" "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt" "reference"
+16: Working Directory: /Users/yin/code/cryProject/build/reference-recheck.zU5HSL
+16: Test timeout computed to be: 1500
+4/5 Test #16: reference_vector_parser ..........   Passed    0.03 sec
+test 20
+    Start 20: vector_integrity
+
+20: Test command: /usr/bin/shasum "-a" "256" "-c" "tests/vectors/SHA256SUMS"
+20: Working Directory: /Users/yin/code/cryProject
+20: Test timeout computed to be: 1500
+20: tests/vectors/encdec-expected.json: OK
+20: tests/vectors/encdec-prompt.json: OK
+20: tests/vectors/keygen-expected.json: OK
+20: tests/vectors/keygen-prompt.json: OK
+20: tests/vectors/mlkem768.txt: OK
+5/5 Test #20: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   0.10 sec*proc (5 tests)
+
+Total Test time (real) =   0.10 sec

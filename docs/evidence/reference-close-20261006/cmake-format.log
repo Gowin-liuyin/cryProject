@@ -1,0 +1,3 @@
+$ uvx --from cmakelang==0.6.13 cmake-format --check CMakeLists.txt
+
+exit_status=0

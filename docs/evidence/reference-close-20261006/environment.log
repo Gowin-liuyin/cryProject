@@ -1,0 +1,33 @@
+$ sh -c 'date -u; git rev-parse HEAD; git branch --show-current; git status --short; git remote -v; git config --local --get-regexp "^user\."; uname -a; sw_vers; sysctl -n hw.model machdep.cpu.brand_string hw.ncpu; cc --version; cmake --version'
+Tue Oct  6 05:36:38 UTC 2026
+a07bbc197d7bcee75be6d21942db88b6844b9ea4
+main
+ M .gitattributes
+ M CMakeLists.txt
+ M README.md
+ M tests/test_cli.sh
+ M tests/test_vector_parser.sh
+?? .agents/
+?? docs/evidence/reference-close-20261006/
+?? docs/evidence/reference-recheck-20261006/
+?? docs/reference-recheck.md
+origin	https://github.com/Gowin-liuyin/cryProject.git (fetch)
+origin	https://github.com/Gowin-liuyin/cryProject.git (push)
+user.name Gowin-liuyin
+user.email yinhaoran0808@outlook.com
+Darwin yindeMacBook-Air.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+Mac17,3
+Apple M5
+10
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+cmake version 4.3.2
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+exit_status=0
