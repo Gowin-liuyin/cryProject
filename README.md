@@ -245,7 +245,7 @@ Clang 对该函数使用 `optnone,noinline`；GCC 使用 `optimize("O0"),noinlin
 
 ## 7. 验证结果与证据边界
 
-当前注册 **22 项 CTest**。独立参考入口阶段由18增至20，随后增加
+上一轮注册 **22 项 CTest**。独立参考入口阶段由18增至20，随后增加
 `reference_benchmark` 和 `timing_diagnostics`。以下表格记录原有18项历史完整验收的覆盖；
 本轮分阶段执行了16个功能测试、2个新增测试及历史重放，共19个不同测试，均通过。
 这不是22项全量执行：未重新执行 `measurement`、`analysis`、`analysis_groups`。
@@ -378,3 +378,18 @@ C API 的精确长度和返回值定义见 [mlkem.h](include/mlkem.h)；调用�
 改进标为缺口；[下一轮比较合同](docs/next-comparison.md) 以未修改参考版为强基线，
 先检验普通测量稳定性及全成本，输入选择路线目前尚无依据。
 模块提交、实际测试范围、证据及交接见 [本轮验收报告](docs/acceptance.md)。
+
+## 11. 有限批次普通测量比较
+
+新增参考版 `reference/batch_benchmark`（K=1/4/16）、`paired_runner`共用预算/失败记录、
+`analyze_paired`运行级成对分析及`paired_prepare`准备工具；核心和测试仍为C11。
+原普通逐次CSV、历史统计程序和未修改参考内核保持有效。
+当前注册28项，本轮普通与ASan/UBSan各选择相关12项通过，没有执行无关历史机制采集。
+
+原生环境尚未提供，正式开发和20对确认均未执行，K没有选择。
+软件夹具只证明实现及复算，不证明性能或R12改进。
+数学与预算见 [执行规约](docs/batch-execution-v1.md)，完整入口、提交、检查范围、结果缺口
+见 [本轮交接](docs/paired-round-results.md)。
+[原生准备包](docs/paired-native-package.md) 不自动启动正式实验；
+[复算说明](docs/paired-reproduction.md) 可从封存数据重建软件报告；
+[贡献审查](docs/paired-contribution-review.md) 明确已有做法与待证明增量。

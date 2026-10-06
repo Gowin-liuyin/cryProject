@@ -1,0 +1,241 @@
+Start testing: Oct 06 18:47 CST
+----------------------------------------------------------
+1/28 Testing: reference_kat
+1/28 Test: reference_kat
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/reference/test_mlkem" "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"reference_kat" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reference_kat" end time: Oct 06 18:47 CST
+"reference_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/28 Testing: reference_random_failure
+2/28 Test: reference_random_failure
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/reference/test_random_failure"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"reference_random_failure" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+system RNG open failure propagates; normal operation recovers
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"reference_random_failure" end time: Oct 06 18:47 CST
+"reference_random_failure" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/28 Testing: paired_prepare
+9/28 Test: paired_prepare
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_paired_prepare" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/paired_prepare" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/reference/libmlkem.a"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"paired_prepare" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+software_prepare_fixture_directory=/tmp/cry-paired-prepare.w0CZGf
+<end of output>
+Test time =   0.49 sec
+----------------------------------------------------------
+Test Passed.
+"paired_prepare" end time: Oct 06 18:47 CST
+"paired_prepare" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/28 Testing: paired_runner
+10/28 Test: paired_runner
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_paired_runner" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/paired_runner" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/analyze_paired" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/paired_worker_fixture"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"paired_runner" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+paired execution failed; retain partial files and budget reservations
+budget exhausted before attempt
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+paired execution failed; retain partial files and budget reservations
+software_runner_fixture_directory=/tmp/cry-paired-runner.83RMiV
+<end of output>
+Test time =   2.31 sec
+----------------------------------------------------------
+Test Passed.
+"paired_runner" end time: Oct 06 18:47 CST
+"paired_runner" time elapsed: 00:00:02
+----------------------------------------------------------
+
+11/28 Testing: paired_statistics
+11/28 Test: paired_statistics
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_paired_statistics"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"paired_statistics" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"paired_statistics" end time: Oct 06 18:47 CST
+"paired_statistics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/28 Testing: paired_data
+12/28 Test: paired_data
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_paired_data" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/analyze_paired"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"paired_data" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_fixture_directory=/tmp/cry-paired-data.nSxqKt
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"paired_data" end time: Oct 06 18:47 CST
+"paired_data" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/28 Testing: paired_rejections
+13/28 Test: paired_rejections
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_paired_rejections" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_paired_data" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/analyze_paired"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"paired_rejections" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_rejection_fixture_directory=/tmp/cry-paired-rejections.ZPP6Wb/fixture
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"paired_rejections" end time: Oct 06 18:47 CST
+"paired_rejections" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/28 Testing: batch_measurement
+14/28 Test: batch_measurement
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_batch_measurement" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/reference/benchmark" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/reference/batch_benchmark"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"batch_measurement" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+reference: saved 30 raw decapsulation times in ns; no statistical conclusion
+reference: saved raw window totals for 30 decapsulations; no statistical conclusion
+reference: saved raw window totals for 30 decapsulations; no statistical conclusion
+reference: saved raw window totals for 30 decapsulations; no statistical conclusion
+batch size must be 1, 4 or 16
+batch size must be 1, 4 or 16
+batch size must be 1, 4 or 16
+batch size must be 1, 4 or 16
+Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE
+Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE
+measurement failed; check resources and use new output paths
+<end of output>
+Test time =   0.28 sec
+----------------------------------------------------------
+Test Passed.
+"batch_measurement" end time: Oct 06 18:47 CST
+"batch_measurement" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/28 Testing: reference_benchmark
+15/28 Test: reference_benchmark
+Command: "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/test_reference_benchmark" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi/reference/benchmark"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"reference_benchmark" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+reference: saved 30 raw decapsulation times in ns; no statistical conclusion
+reference: saved 30 raw decapsulation times in ns; no statistical conclusion
+Usage: measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE (count 1..20000)
+measurement failed; check resources and use new output paths
+measurement failed; check resources and use new output paths
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"reference_benchmark" end time: Oct 06 18:47 CST
+"reference_benchmark" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/28 Testing: reference_cli
+21/28 Test: reference_cli
+Command: "/bin/sh" "/Users/yin/code/cryProject/tests/test_cli.sh" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi" "reference"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"reference_cli" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+reference ML-KEM-768 FIPS203
+reference: system-random keygen/encaps/decaps roundtrip passed
+reference: system-random keygen/encaps/decaps roundtrip passed
+reference: generated valid test ciphertext, 1088 bytes; label comes from generator
+reference: generated valid test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+reference: generated bit-flipped test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+reference: generated random test ciphertext, 1088 bytes; label comes from generator
+reference: generated random test ciphertext, 1088 bytes; label comes from generator
+reference: decapsulation completed
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"reference_cli" end time: Oct 06 18:47 CST
+"reference_cli" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/28 Testing: reference_vector_parser
+24/28 Test: reference_vector_parser
+Command: "/bin/sh" "/Users/yin/code/cryProject/tests/test_vector_parser.sh" "/Users/yin/code/cryProject/build/paired-sanitize.AoRrZi" "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt" "reference"
+Directory: /Users/yin/code/cryProject/build/paired-sanitize.AoRrZi
+"reference_vector_parser" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"reference_vector_parser" end time: Oct 06 18:47 CST
+"reference_vector_parser" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/28 Testing: vector_integrity
+28/28 Test: vector_integrity
+Command: "/usr/bin/shasum" "-a" "256" "-c" "tests/vectors/SHA256SUMS"
+Directory: /Users/yin/code/cryProject
+"vector_integrity" start time: Oct 06 18:47 CST
+Output:
+----------------------------------------------------------
+tests/vectors/encdec-expected.json: OK
+tests/vectors/encdec-prompt.json: OK
+tests/vectors/keygen-expected.json: OK
+tests/vectors/keygen-prompt.json: OK
+tests/vectors/mlkem768.txt: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"vector_integrity" end time: Oct 06 18:47 CST
+"vector_integrity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 18:47 CST
+
+reference =   0.28 sec*proc
+

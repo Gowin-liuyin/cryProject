@@ -1,0 +1,16 @@
+cost_format=measurement_cost_v1
+initial_state=started
+run_id=fixture-1
+final_state=complete
+start_ns=420164214585000
+preparation_end_ns=420164216227000
+warmup_end_ns=420164225061000
+collection_end_ns=420164225315000
+finish_ns=420164228061000
+child_total_wall_ns=13476000
+warmup_attempted_calls=100
+warmup_completed_calls=100
+formal_attempted_calls=3
+formal_completed_calls=3
+outputs_consumed=103
+cost_file_final_write=outside_child_total_use_parent_wall
