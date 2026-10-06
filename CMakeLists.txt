@@ -234,8 +234,23 @@ endif()
 add_executable(analyze_paired src/analyze_paired.c)
 target_link_libraries(analyze_paired PRIVATE paired_support)
 set_target_properties(analyze_paired PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_executable(paired_runner src/paired_runner.c)
+target_link_libraries(paired_runner PRIVATE paired_support)
+target_include_directories(paired_runner PRIVATE "${identity_directory}")
+set_target_properties(paired_runner PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 
 if(BUILD_TESTING)
+    add_executable(paired_worker_fixture tests/paired_worker_fixture.c)
+    target_link_libraries(paired_worker_fixture PRIVATE baseline_options)
+    add_executable(test_paired_runner tests/test_paired_runner.c)
+    target_link_libraries(test_paired_runner PRIVATE paired_support)
+    target_include_directories(test_paired_runner PRIVATE "${identity_directory}")
+    target_compile_options(test_paired_runner PRIVATE -UNDEBUG)
+    add_test(NAME paired_runner
+             COMMAND test_paired_runner $<TARGET_FILE:paired_runner> "${output_root}"
+                     $<TARGET_FILE:analyze_paired> $<TARGET_FILE:paired_worker_fixture>
+    )
+    set_tests_properties(paired_runner PROPERTIES RUN_SERIAL TRUE)
     add_executable(test_paired_statistics tests/test_paired_statistics.c)
     target_link_libraries(test_paired_statistics PRIVATE paired_support)
     target_compile_options(test_paired_statistics PRIVATE -UNDEBUG)
