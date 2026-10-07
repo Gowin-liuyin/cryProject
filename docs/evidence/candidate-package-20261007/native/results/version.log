@@ -1,0 +1,5 @@
+对象：ML-KEM-768，C11 本地审计与复算。环境：Linux x86_64。
+source_commit=601a1020f30e17fc6a072d35f24f43e33acf8715
+source_identity_kind=verified_source_export
+source_export_manifest_sha256=601a1020f30e17fc6a072d35f24f43e33acf87153f8cef8bf1c70475dad0a938
+compiler_flags= -O2 -g -DNDEBUG -std=c11

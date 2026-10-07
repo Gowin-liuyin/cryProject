@@ -1,0 +1,1 @@
+python3 -c import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; z.extractall(sys.argv[2]) /tmp/cryproject-candidate.ZzfLRh/final-candidate-v2.zip /tmp/cryproject-candidate.ZzfLRh/package-v2/unpacked

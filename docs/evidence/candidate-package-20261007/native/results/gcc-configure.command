@@ -1,0 +1,1 @@
+cmake -S . -B /tmp/cryproject-candidate.ZzfLRh/package-v2/build-gcc -G Ninja -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DA113_ARCHIVED_CASE_ONLY=ON

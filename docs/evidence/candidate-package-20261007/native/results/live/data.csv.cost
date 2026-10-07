@@ -1,0 +1,16 @@
+cost_format=measurement_cost_v1
+initial_state=started
+run_id=candidate-demo
+final_state=complete
+start_ns=88128317237471
+preparation_end_ns=88128320044539
+warmup_end_ns=88128324652438
+collection_end_ns=88128327412636
+finish_ns=88128328141337
+child_total_wall_ns=10903866
+warmup_attempted_calls=100
+warmup_completed_calls=100
+formal_attempted_calls=60
+formal_completed_calls=60
+outputs_consumed=160
+cost_file_final_write=outside_child_total_use_parent_wall

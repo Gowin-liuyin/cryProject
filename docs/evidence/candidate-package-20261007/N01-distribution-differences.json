@@ -1,0 +1,65 @@
+{
+  "N01_original_manifest_sha256": "da42366ce5912ebd1d2d87913c17d238c9f325c6ae178456a1b8d37bca6fcba3",
+  "final_source_export_manifest_sha256": "601a1020f30e17fc6a072d35f24f43e33acf87153f8cef8bf1c70475dad0a938",
+  "original_inputs": 210,
+  "current_inputs": 206,
+  "identical_original_inputs": 201,
+  "differences": [
+    {
+      "file": "src/analyze_paired.c",
+      "kind": "protocol_identity_string_role_conversion_only",
+      "original_sha256": "51a5a22f44b2cdf376801bf948722f2ad4c735e4b387d3a70a6ece8038feed29",
+      "distributed_sha256": "b795daadff87fa3acc0b918f8efe91b60c2a9968eeb0f955f1aabb4f831b12ba"
+    },
+    {
+      "file": "src/audit.c",
+      "kind": "audit_help_and_behavior_check",
+      "original_sha256": "917ebaecc9cd4ae96f42439865c27317469b5bf635978ad126b92740ca517ef5",
+      "distributed_sha256": "19b0cd10764d56e4b1266ce6cd474c3da6d9084c09b4cac63819291dd260f08b"
+    },
+    {
+      "file": "src/paired_runner.c",
+      "kind": "protocol_identity_string_role_conversion_only",
+      "original_sha256": "b9a331b9cb4353b3e9fb493b17f03b9789d0a6a4ca458aee013c15a3457187ac",
+      "distributed_sha256": "5afeaafe966d8acc1c95b2025153871542de558ac7c1babf5bb99fbc6a833d3b"
+    },
+    {
+      "file": "tests/test_analysis.sh",
+      "kind": "legacy_active_test_not_distributed",
+      "original_sha256": "065a8d972bb7894897ea524192b321d776db3a3239a5c2ace8f6bfbe9ce64097",
+      "distributed_sha256": null
+    },
+    {
+      "file": "tests/test_analysis_groups.sh",
+      "kind": "legacy_active_test_not_distributed",
+      "original_sha256": "db3ab612238fbf93e956277ba4745e688f956964fab572ad2a6498458bcec034",
+      "distributed_sha256": null
+    },
+    {
+      "file": "tests/test_measurement.c",
+      "kind": "legacy_active_test_not_distributed",
+      "original_sha256": "efac56bd3c2e8389e1bee630624530c0a4179679275c62673cf6fcd23d26ddcb",
+      "distributed_sha256": null
+    },
+    {
+      "file": "tests/test_measurement.sh",
+      "kind": "legacy_active_test_not_distributed",
+      "original_sha256": "936f31331f6f597d30f9370f69b1b3ba4c68ac567906bcd212af08310ec78caf",
+      "distributed_sha256": null
+    },
+    {
+      "file": "tests/test_paired_data.c",
+      "kind": "protocol_identity_string_role_conversion_only",
+      "original_sha256": "28173a2e1cc2a7b64f5e807990ec0e9ec7cc22919e0213cdd9f85ea4fd7b8e7f",
+      "distributed_sha256": "5960a5e896b8f4cf9935a2040c29babf7a1e7172732d5950b221a1453b49b087"
+    },
+    {
+      "file": "tests/test_workflow.sh",
+      "kind": "audit_help_and_behavior_check",
+      "original_sha256": "de4de8c1c46bcad1a316a4fbf159b215b06f9a8b01726b3bd9f835fbc7f36533",
+      "distributed_sha256": "c750b9e20d2f2cf98547686e6cf0c0948f4e69a02269839b6f781c3ed33e6c51"
+    }
+  ],
+  "new_algorithm_patch": false,
+  "N01_data_rebound_to_current_export": false
+}

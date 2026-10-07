@@ -1,0 +1,1 @@
+sh -c file "$1" "$2"; sha256sum "$1" "$2"; readelf -W -l "$2"; cat "$3"; getconf CHAR_BIT; getconf INT_MAX sh /tmp/cryproject-candidate.ZzfLRh/package-v2/build-gcc/audit /tmp/cryproject-candidate.ZzfLRh/package-v2/build-gcc/reference/benchmark /tmp/cryproject-candidate.ZzfLRh/package-v2/build-gcc/generated/RelWithDebInfo/configuration.txt

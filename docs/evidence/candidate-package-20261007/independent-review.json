@@ -1,0 +1,157 @@
+{
+  "format": "candidate_package_independent_review_v1",
+  "started_at_utc": "2026-10-07T16:55:24.228106+00:00",
+  "finished_at_utc": "2026-10-07T16:55:26.931262+00:00",
+  "execution_identity": "author_agent_independent_subagent_review; not real non-author execution",
+  "package_role": "anonymous_submission_candidate; R07 and real-person gaps remain",
+  "package_root_manifest_sha256": "c74d1b72ff9cf47e93893aa211ec4e476eb2e7cfa2347cb45788b4f966b6c0d7",
+  "manifest_changed_during_review": false,
+  "html_relative_links_checked": 320,
+  "major_markdown_files_checked": [
+    "分发说明.md",
+    "证据索引.md",
+    "evidence-index.md",
+    "演示说明.md",
+    "独立执行记录模板.md",
+    "运行截图待补.md",
+    "source/README.md",
+    "source/docs/upstream-security-review.md",
+    "source/docs/current-version-defense-review.md",
+    "source/docs/defense-evidence-gap.md",
+    "source/docs/product-workflow.md",
+    "source/docs/native-candidate-validation-v1.md",
+    "source/docs/full-work-acceptance.md",
+    "source/docs/round-requirements-review.md"
+  ],
+  "major_markdown_relative_links_checked": 697,
+  "missing_links": [],
+  "missing_html_anchors": [],
+  "markdown_fragments": [],
+  "checksum_manifests": [
+    {
+      "file": "SHA256SUMS",
+      "entries": 1483,
+      "mismatches": []
+    },
+    {
+      "file": "source/SOURCE_EXPORT.sha256",
+      "entries": 206,
+      "mismatches": []
+    },
+    {
+      "file": "source/docs/reference-label-control-v1.inputs.sha256",
+      "entries": 18,
+      "mismatches": []
+    }
+  ],
+  "all142_numeric_csv_byte_equal_internal": true,
+  "csv_mismatches": [],
+  "csv_identity_inventory_sha256": "d5cc6599d4e9daaf07df8c7d13887d68bf05f2b2d414b193babf8db01880b3b9",
+  "vendor_and_vector_files_checked": 132,
+  "vendor_vector_mismatches": [],
+  "pre_confirmation_original_distribution_mappings": 50,
+  "mapping_mismatches": [],
+  "pre_confirmation_record_role": "historical original digest record; not anonymous integrity manifest or new pre-registration",
+  "office_xml_and_relationship_parts_checked": 94,
+  "pdfs_deep_checked": 4,
+  "office_person_metadata": [
+    {
+      "file": "figures/论文图源.pptx",
+      "fields": [
+        {
+          "field": "creator",
+          "value": "Walnut Exporter"
+        },
+        {
+          "field": "lastModifiedBy",
+          "value": "Walnut Exporter"
+        }
+      ],
+      "upstream_official_original": false
+    },
+    {
+      "file": "report/待编号-2026密码竞赛复赛作品设计报告.docx",
+      "fields": [
+        {
+          "field": "creator",
+          "value": ""
+        },
+        {
+          "field": "lastModifiedBy",
+          "value": ""
+        }
+      ],
+      "upstream_official_original": false
+    },
+    {
+      "file": "source/docs/reference/official-2026/report-template-original.docx",
+      "fields": [
+        {
+          "field": "creator",
+          "value": "YYT"
+        },
+        {
+          "field": "lastModifiedBy",
+          "value": "SeanXiao"
+        }
+      ],
+      "upstream_official_original": true
+    },
+    {
+      "file": "source/docs/reference/official-2026/A1-13-original.docx",
+      "fields": [
+        {
+          "field": "creator",
+          "value": "岳茏 何"
+        },
+        {
+          "field": "lastModifiedBy",
+          "value": "SeanXiao"
+        }
+      ],
+      "upstream_official_original": true
+    }
+  ],
+  "privacy_hits": [],
+  "ipv4_false_positive_review": [
+    "upstream ACVP four-component version in Issue1100",
+    "upstream C99 clause6.3.1.3 in verify.h; neither is a host IP"
+  ],
+  "N01_distribution_identity": [
+    "source_commit=da42366ce5912ebd1d2d87913c17d238c9f325c6",
+    "source_identity_kind=verified_source_export",
+    "source_export_manifest_sha256=da42366ce5912ebd1d2d87913c17d238c9f325c6ae178456a1b8d37bca6fcba3",
+    "distribution_identity_kind=role_alias_not_original_git_metadata"
+  ],
+  "E02_distribution_identity": [
+    "source_commit=ef0c0dd7a8fcbbe516434ae7adf477da320863e5",
+    "source_identity_kind=git_commit",
+    "distribution_identity_kind=role_alias_not_original_git_metadata"
+  ],
+  "N01_measured_input_manifest_entries": 210,
+  "N01_measured_inputs_same": 201,
+  "N01_old_active_tests_not_distributed": [
+    "tests/test_analysis.sh",
+    "tests/test_analysis_groups.sh",
+    "tests/test_measurement.c",
+    "tests/test_measurement.sh"
+  ],
+  "N01_current_source_input_changes": [
+    "src/analyze_paired.c",
+    "src/audit.c",
+    "src/paired_runner.c",
+    "tests/test_paired_data.c",
+    "tests/test_workflow.sh"
+  ],
+  "N01_three_extra_source_changes": "matching protocol_commit role alias in analyze_paired, paired_runner, and test_paired_data; not algorithm repair",
+  "read_only_review": true,
+  "new_timing_or_exploit_experiments": false,
+  "review_scope": "prepared-directory integrity, offline linkage, anonymization and historical/source identity separation; final ZIP/server clean acceptance is separate",
+  "checks_passed": true,
+  "N01_original_distribution_difference_mapping_checked": 9,
+  "N01_distribution_difference_mapping_all_hashes_match": true,
+  "N01_distribution_difference_mapping_sha256": "9aca344845cb079e4895b3e409291912f1fe3bcef176dc9e5dcdef6d2e7d7d8d",
+  "final_source_export_manifest_sha256": "601a1020f30e17fc6a072d35f24f43e33acf87153f8cef8bf1c70475dad0a938",
+  "prior_review_preserved": "independent-review-before-description.json/.log",
+  "prepared_package_revision": "v2 pre-ZIP read-only directory verification"
+}
