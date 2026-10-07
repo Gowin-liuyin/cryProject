@@ -3,7 +3,11 @@
 import csv
 import hashlib
 import os
+import signal
 import sys
+
+# 外部依赖导入也受审计预算约束。
+signal.alarm(60)
 
 import numpy as np
 import scipy
@@ -31,6 +35,7 @@ def main():
     partial_path = report_path + ".partial"
     with open(partial_path, "x", encoding="utf-8") as output:
         output.write("format=finite_calibration_scipy_audit_v1\n")
+        output.write("external_audit_budget_seconds=60\n")
         output.write(f"scipy_version={scipy.__version__}\nnumpy_version={np.__version__}\n")
         output.write(f"raw_sha3_256={digest}\n")
         for row in selected:
