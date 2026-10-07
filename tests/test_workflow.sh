@@ -71,3 +71,9 @@ if "$program" collect bad-run invalid 3 "$test_directory/failed-collection"; the
     exit 1
 fi
 test ! -e "$test_directory/failed-collection/index.html"
+mkdir "$test_directory/existing-calibration"
+if "$program" calibrate "$test_directory/existing-calibration"; then
+    exit 1
+fi
+test ! -e "$test_directory/existing-calibration/raw.csv"
+test ! -e "$test_directory/existing-calibration/summary.report"

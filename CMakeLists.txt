@@ -261,6 +261,11 @@ target_link_libraries(controlled_statistics PUBLIC paired_support)
 add_executable(controlled_stats src/controlled_stats.c)
 target_link_libraries(controlled_stats PRIVATE controlled_statistics)
 set_target_properties(controlled_stats PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_executable(calibrate_controlled src/calibrate_controlled.c)
+target_link_libraries(calibrate_controlled PRIVATE controlled_statistics)
+target_include_directories(calibrate_controlled PRIVATE "${identity_directory}")
+add_dependencies(calibrate_controlled build_identity)
+set_target_properties(calibrate_controlled PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 add_executable(compare_replay src/compare_replay.c)
 target_link_libraries(compare_replay PRIVATE paired_support)
 set_target_properties(compare_replay PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
@@ -278,6 +283,7 @@ add_dependencies(
     analyze
     analyze_groups
     controlled_stats
+    calibrate_controlled
 )
 
 if(BUILD_TESTING)
@@ -297,6 +303,7 @@ if(BUILD_TESTING)
     target_link_libraries(test_controlled_statistics PRIVATE controlled_statistics)
     target_compile_options(test_controlled_statistics PRIVATE -UNDEBUG)
     add_test(NAME controlled_statistics COMMAND test_controlled_statistics)
+    add_test(NAME calibration_oracle COMMAND calibrate_controlled --self-test)
     add_test(NAME controlled_cli
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_controlled_cli.sh"
                      $<TARGET_FILE:controlled_stats>
