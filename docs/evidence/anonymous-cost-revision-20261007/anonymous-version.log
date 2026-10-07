@@ -1,0 +1,5 @@
+对象：ML-KEM-768，C11 本地审计与复算。环境：Darwin arm64。
+source_commit=55accfea99182d0614af0a6d954a2d483ae8bf94
+source_identity_kind=verified_source_export
+source_export_manifest_sha256=55accfea99182d0614af0a6d954a2d483ae8bf94dbbb4b1be399e58b8fd3408c
+compiler_flags= -O2 -g -DNDEBUG -std=c11
