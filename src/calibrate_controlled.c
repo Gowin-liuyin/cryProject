@@ -280,9 +280,10 @@ int main(int argument_count, char **argument_values)
             goto cleanup;
         }
     }
-    if (fputs("format=finite_controlled_calibration_v1\nsource_kind=no_secret_finite_model\n"
-              "pair_count=12\nalpha=0.01\ninterval_status=unavailable\ncryptographic_calls=0\n"
-              "task_budget_ns=120000000000\n",
+    if (fputs(
+            "format=finite_controlled_calibration_v1\nsource_kind=no_secret_finite_model\n"
+            "pair_count=12\nalpha=0.01\ninterval_status=unavailable\nmlkem_decapsulation_calls=0\n"
+            "task_budget_ns=120000000000\n",
             summary) == EOF ||
         fputs("model,effect_ns,model_assignment_count,assignment_index", records) == EOF) {
         goto cleanup;
