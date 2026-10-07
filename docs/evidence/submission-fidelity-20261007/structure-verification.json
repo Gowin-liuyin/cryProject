@@ -1,0 +1,33 @@
+{
+  "reference_sha256": "4f81348bf085527f7ebe5de2787fd91ba05e5b5531754916badb005fcfb512c2",
+  "report_docx_sha256": "3fdfff0e8696995300d04245dc784ef26d2357d4c19cfcdb0885f5a5ed6e885d",
+  "report_pdf_sha256": "f10828f11b9b79e85c31a4f68e0fb59eb3422487320bc82a1a09de048811b4a5",
+  "actual_pages": 14,
+  "text_roles_checked": 239,
+  "font_run_properties_exact": true,
+  "paragraph_properties_exact_except_declared_new_roles": true,
+  "basic_info_mixed_run_formats_exact": true,
+  "sections_exact": true,
+  "section_count": 3,
+  "protected_template_parts_byte_equal": 23,
+  "changed_parts_from_previous_report": [
+    "word/document.xml"
+  ],
+  "all_non_document_parts_preserved_from_previous_verified_report": true,
+  "all_existing_tables_xml_preserved": true,
+  "all_existing_drawings_xml_preserved": true,
+  "narrative_and_reproduction_match_content_json": true,
+  "new_role_extensions": [
+    "bibliography_left_alignment",
+    "table_caption_keep_next"
+  ],
+  "latest_pages_visually_reviewed": 14,
+  "runtime_legacy_font_aliases": {
+    "楷体_GB2312": "KaiTi",
+    "华文楷体": "Kaiti SC"
+  },
+  "font_files_distributed": false,
+  "signed": false,
+  "overall_goal_complete": false,
+  "visual_review_result": "pass; all final page PNGs opened at original resolution"
+}

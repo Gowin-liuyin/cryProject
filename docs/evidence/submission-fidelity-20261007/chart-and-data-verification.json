@@ -1,0 +1,131 @@
+{
+  "format": "candidate_report_existing_data_verification_v1",
+  "checked_at_utc": "2026-10-07T17:48:57.290047+00:00",
+  "evidence_kind": "existing_E02_C01_C02_C03_C04_material_numeric_review",
+  "execution_identity": "author_agent_local_independent_subagent_review",
+  "new_mlkem_measurement_calls": 0,
+  "new_defense_effect_data": false,
+  "new_runtime_screenshots": false,
+  "source_artifacts_sha256": {
+    "deliverables/demo/figures/论文图源.pptx": "e1d1f68be487b30945451ddaaddffc467685769bcfe7bd971a2d8dd9080a4763",
+    "deliverables/report/待编号-2026密码竞赛复赛作品设计报告.docx": "3fdfff0e8696995300d04245dc784ef26d2357d4c19cfcdb0885f5a5ed6e885d",
+    "deliverables/report/report-content.json": "d34ffaaf3a7334883737bf1850e799b5239123ea133b8cb433b679261a2fba43",
+    "docs/evidence/native-final-20261007/performance/performance.report": "52ee0fb46b7bbe4bcbe89745c2bd46d228bc9ac571ce236c8ef9d8b5de5f8e7b",
+    "docs/evidence/finite-calibration-20261007/model/summary.report": "d1a47fd3afde1af5a8827caa8a46faa3433925d65ca432bb470e2993a4751f8e",
+    "docs/evidence/controlled-comparison-20261007/confirmation-results/comparison.report": "d464085ab5e6e925bd1ac55fb78282e6e130baf83f4dce63801ec344f31bde01",
+    "docs/evidence/warm-replay-20261007/formal/comparison.report": "4729fe18159930b72af4e90ab1dcc07c66c0577d4ee49c656009d537d619287d",
+    "docs/evidence/reference-label-control-20261007/qualified/control/summary.report": "1ba8b5bbd06354b1365f5d21546459d1b324c4c1645e2c5021deedc54ae20570",
+    "docs/evidence/reference-label-materials-20261007/c04-table-values.json": "25b3bd611e167f56f737ee697338247e23a1c713d9a2ac023330f71f8b91ad60",
+    "docs/evidence/controlled-comparison-20261007/confirmation-results/attempts.tsv": "d2b01453842cdd06596344544803529028ae102df5fe6e317479f68abd04d2e3",
+    "docs/evidence/warm-replay-20261007/formal/attempts.tsv": "40572e761136e9c833959f88ed2520b21a6bdf9c118f22004d4c43ed3737787b"
+  },
+  "native_slides": 3,
+  "native_charts": 2,
+  "embedded_workbooks": 2,
+  "slide_bitmap_picture_count": 0,
+  "all18_means_match_existing_c_report": true,
+  "all4_costs_match_reports_and_attempt_ledgers": true,
+  "cost_axis_log_base": 10,
+  "chart_details": [
+    {
+      "chart_part": "ppt/slides/charts/chart1.xml",
+      "embedded_workbook": "ppt/embeddings/chart-data-snapshot-001.xlsx",
+      "workbook_sha256": "61a23816ad72f2141ebc165e2d7d52349a140dce2898752a1da21e2dbead6f36",
+      "cached_values_checked": 18,
+      "cached_categories_checked": 18,
+      "all_workbook_cells_equal_chart_cache": true,
+      "series": [
+        {
+          "series": "reference",
+          "cache_values": [
+            "46.193516666667",
+            "46.407084333333",
+            "46.206193",
+            "46.267376666667",
+            "46.261239666667",
+            "46.077669666667"
+          ]
+        },
+        {
+          "series": "hardened",
+          "cache_values": [
+            "46.148423",
+            "46.383034",
+            "46.350749",
+            "46.480338",
+            "46.401231",
+            "46.261061"
+          ]
+        },
+        {
+          "series": "deployable",
+          "cache_values": [
+            "45.925622666667",
+            "46.102585",
+            "46.209969",
+            "46.621075",
+            "46.241867",
+            "46.131357333333"
+          ]
+        }
+      ],
+      "chart_sha256": "e09c174aa975cb933b755d7448f0b460d3455b1dcf11ef74240dc4f7e3f76618"
+    },
+    {
+      "chart_part": "ppt/slides/charts/chart2.xml",
+      "embedded_workbook": "ppt/embeddings/chart-data-snapshot-002.xlsx",
+      "workbook_sha256": "5c1ec8d2072a9947dacc37adafd9779bf112be68b3e0948ea09f96888966c964",
+      "cached_values_checked": 4,
+      "cached_categories_checked": 4,
+      "all_workbook_cells_equal_chart_cache": true,
+      "series": [
+        {
+          "series": "C11",
+          "cache_values": [
+            "0.080189",
+            "0.079016"
+          ]
+        },
+        {
+          "series": "SciPy 1.16.3",
+          "cache_values": [
+            "56.401718",
+            "49.704188"
+          ]
+        }
+      ],
+      "chart_sha256": "c6cebf3cbf2f624147d2950668efc11c78dff9c586e36d9ff80761714ddff444"
+    }
+  ],
+  "attempt_ledgers": [
+    {
+      "source": "docs/evidence/controlled-comparison-20261007/confirmation-results/attempts.tsv",
+      "rows": 48,
+      "totals_ns": {
+        "baseline": 56401718000,
+        "candidate": 80189000
+      }
+    },
+    {
+      "source": "docs/evidence/warm-replay-20261007/formal/attempts.tsv",
+      "rows": 48,
+      "totals_ns": {
+        "baseline": 49704188000,
+        "candidate": 79016000
+      }
+    }
+  ],
+  "all4_docx_tables_match_existing_reports": true,
+  "table_body_rows": {
+    "1": 18,
+    "2": 6,
+    "3": 5,
+    "4": 6
+  },
+  "source_reports_all_exist": true,
+  "missing_numeric_sources_in_report_content": [],
+  "numeric_result": "pass",
+  "overall_goal_complete": false,
+  "report_snapshot_still_current_at_check_end": true,
+  "scope": "Data and editable chart-cache consistency only; does not upgrade R07 or certify constant-time behavior."
+}
