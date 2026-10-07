@@ -1,0 +1,71 @@
+[  1%] Built target prepare_vulnerable
+[  2%] Built target prepare_hardened
+[  3%] Built target prepare_deployable
+[  4%] Built target test_native_digest
+[  5%] Built target native_digest
+[  6%] Built target paired_worker_fixture
+[  6%] Built target build_identity
+[ 10%] Built target mlkem_reference
+[ 14%] Built target mlkem_hardened
+[ 19%] Built target mlkem_vulnerable
+[ 23%] Built target mlkem_deployable
+[ 24%] Built target reference_test_equivalence
+[ 26%] Built target reference_test_mlkem
+[ 27%] Built target reference_baseline
+[ 28%] Built target reference_test_random_failure
+[ 30%] Built target vulnerable_baseline
+[ 31%] Built target vulnerable_test_equivalence
+[ 33%] Built target vulnerable_test_mlkem
+[ 35%] Built target vulnerable_test_random_failure
+[ 37%] Built target hardened_test_mlkem
+[ 39%] Built target hardened_baseline
+[ 40%] Built target hardened_test_equivalence
+[ 42%] Built target hardened_test_random_failure
+[ 44%] Built target deployable_baseline
+[ 46%] Built target deployable_test_mlkem
+[ 47%] Built target deployable_test_equivalence
+[ 48%] Built target deployable_test_random_failure
+[ 49%] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[ 50%] Building C object CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+[ 51%] Building C object CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+[ 52%] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[ 54%] Linking C executable reference/benchmark
+[ 54%] Linking C executable deployable/benchmark
+[ 55%] Linking C executable hardened/benchmark
+[ 55%] Built target deployable_benchmark
+[ 55%] Built target reference_benchmark
+[ 56%] Linking C executable reference/batch_benchmark
+[ 58%] Built target analyze
+[ 58%] Built target hardened_benchmark
+[ 60%] Built target analyze_groups
+[ 62%] Built target inspect_timing
+[ 64%] Built target test_performance_replay
+[ 68%] Built target paired_support
+[ 71%] Built target test_batch_measurement
+[ 73%] Built target test_reference_benchmark
+[ 74%] Built target reference_batch_benchmark
+[ 77%] Built target test_timing_diagnostics
+[ 78%] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
+[ 80%] Built target analyze_paired
+[ 81%] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[ 83%] Built target controlled_statistics
+[ 85%] Built target compare_replay
+[ 86%] Built target test_paired_prepare
+[ 87%] Building C object CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o
+[ 88%] Built target test_paired_statistics
+[ 90%] Built target test_paired_data
+[ 92%] Built target test_paired_rejections
+[ 93%] Built target controlled_stats
+[ 94%] Building C object CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o
+[ 95%] Linking C executable paired_prepare
+[ 95%] Built target paired_prepare
+[ 97%] Built target test_controlled_statistics
+[ 97%] Linking C executable calibrate_controlled
+[ 97%] Built target calibrate_controlled
+[ 98%] Linking C executable test_paired_runner
+[ 99%] Building C object CMakeFiles/audit.dir/src/audit.c.o
+[ 99%] Built target test_paired_runner
+[ 99%] Linking C executable paired_runner
+[ 99%] Built target paired_runner
+[100%] Linking C executable audit
+[100%] Built target audit

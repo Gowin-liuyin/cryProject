@@ -1,0 +1,17 @@
+format=controlled_statistics_v1
+source_kind=no_secret_synthetic
+csv_digest=90ad34483bb88432f87ead74d6a5fccda61c772608d804076e3be031cd774a43
+plan_digest=eb05ffab80548276dd2193853104cae18edbb45afa9538b829543d8a03d8a9e4
+pair_count=20
+call_count=1
+assignment_count=1048576
+tail_count=811486
+p_value=0.773893356323242
+alpha=0.01
+mean_difference_ns=-33.950000000
+randomization_qualified=yes
+p_value_scope=conditional_randomization
+interval_status=unavailable
+secret_attribution=not_assessed
+result_status=not_detected_within_budget
+report_status=complete
