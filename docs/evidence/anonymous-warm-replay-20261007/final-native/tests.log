@@ -1,0 +1,75 @@
+Internal ctest changing into directory: /home/ubuntu/cryproject-a113-20261007/anonymous-warm-replay-final/待编号-2026密码竞赛复赛相关支撑材料/source/build-anonymous
+Test project /home/ubuntu/cryproject-a113-20261007/anonymous-warm-replay-final/待编号-2026密码竞赛复赛相关支撑材料/source/build-anonymous
+      Start  1: reference_kat
+ 1/33 Test  #1: reference_kat ....................   Passed    0.02 sec
+      Start  2: reference_random_failure
+ 2/33 Test  #2: reference_random_failure .........   Passed    0.00 sec
+      Start  3: vulnerable_kat
+ 3/33 Test  #3: vulnerable_kat ...................   Passed    0.01 sec
+      Start  4: vulnerable_random_failure
+ 4/33 Test  #4: vulnerable_random_failure ........   Passed    0.00 sec
+      Start  5: hardened_kat
+ 5/33 Test  #5: hardened_kat .....................   Passed    0.02 sec
+      Start  6: hardened_random_failure
+ 6/33 Test  #6: hardened_random_failure ..........   Passed    0.00 sec
+      Start  7: deployable_kat
+ 7/33 Test  #7: deployable_kat ...................   Passed    0.01 sec
+      Start  8: deployable_random_failure
+ 8/33 Test  #8: deployable_random_failure ........   Passed    0.00 sec
+      Start  9: performance_replay
+ 9/33 Test  #9: performance_replay ...............   Passed    0.10 sec
+      Start 10: audit_workflow
+10/33 Test #10: audit_workflow ...................   Passed    0.03 sec
+      Start 11: source_export
+11/33 Test #11: source_export ....................   Passed    0.08 sec
+      Start 12: controlled_statistics
+12/33 Test #12: controlled_statistics ............   Passed    0.00 sec
+      Start 13: calibration_oracle
+13/33 Test #13: calibration_oracle ...............   Passed    0.00 sec
+      Start 14: controlled_cli
+14/33 Test #14: controlled_cli ...................   Passed    0.03 sec
+      Start 15: compare_replay_failures
+15/33 Test #15: compare_replay_failures ..........   Passed    0.24 sec
+      Start 16: native_digest
+16/33 Test #16: native_digest ....................   Passed    0.00 sec
+      Start 17: paired_prepare
+17/33 Test #17: paired_prepare ...................   Passed    1.05 sec
+      Start 18: paired_runner
+18/33 Test #18: paired_runner ....................   Passed    0.73 sec
+      Start 19: paired_statistics
+19/33 Test #19: paired_statistics ................   Passed    0.26 sec
+      Start 20: paired_data
+20/33 Test #20: paired_data ......................   Passed    0.07 sec
+      Start 21: paired_rejections
+21/33 Test #21: paired_rejections ................   Passed    0.77 sec
+      Start 22: batch_measurement
+22/33 Test #22: batch_measurement ................   Passed    0.07 sec
+      Start 23: reference_benchmark
+23/33 Test #23: reference_benchmark ..............   Passed    0.06 sec
+      Start 24: timing_diagnostics
+24/33 Test #24: timing_diagnostics ...............   Passed    0.00 sec
+      Start 25: equivalence_vulnerable
+25/33 Test #25: equivalence_vulnerable ...........   Passed    0.04 sec
+      Start 26: equivalence_hardened
+26/33 Test #26: equivalence_hardened .............   Passed    0.04 sec
+      Start 27: equivalence_deployable
+27/33 Test #27: equivalence_deployable ...........   Passed    0.04 sec
+      Start 28: cli
+28/33 Test #28: cli ..............................   Passed    0.06 sec
+      Start 29: reference_cli
+29/33 Test #29: reference_cli ....................   Passed    0.01 sec
+      Start 30: vector_parser
+30/33 Test #30: vector_parser ....................   Passed    0.06 sec
+      Start 31: reference_vector_parser
+31/33 Test #31: reference_vector_parser ..........   Passed    0.02 sec
+      Start 32: analysis_round1_replay
+32/33 Test #32: analysis_round1_replay ...........   Passed    0.03 sec
+      Start 33: vector_integrity
+33/33 Test #33: vector_integrity .................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 33
+
+Label Time Summary:
+reference    =   0.06 sec*proc (5 tests)
+
+Total Test time (real) =   3.88 sec
