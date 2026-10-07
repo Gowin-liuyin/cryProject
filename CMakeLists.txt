@@ -304,6 +304,13 @@ if(BUILD_TESTING)
     target_compile_options(test_controlled_statistics PRIVATE -UNDEBUG)
     add_test(NAME controlled_statistics COMMAND test_controlled_statistics)
     add_test(NAME calibration_oracle COMMAND calibrate_controlled --self-test)
+    add_test(
+        NAME reference_label_control_failures
+        COMMAND
+            "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_reference_label_control.sh"
+            $<TARGET_FILE:calibrate_controlled>
+            "${CMAKE_CURRENT_SOURCE_DIR}/docs/evidence/native-final-20261007/performance"
+    )
     add_test(NAME controlled_cli
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_controlled_cli.sh"
                      $<TARGET_FILE:controlled_stats>

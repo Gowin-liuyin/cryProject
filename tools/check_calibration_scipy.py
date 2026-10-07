@@ -15,18 +15,22 @@ from scipy.stats import permutation_test
 
 
 def main():
-    raw_path, report_path = sys.argv[1:]
+    is_reference = len(sys.argv) == 4 and sys.argv[3] == "--reference-labels"
+    if len(sys.argv) != 3 and not is_reference:
+        raise ValueError("expected RAW NEW_REPORT [--reference-labels]")
+    raw_path, report_path = sys.argv[1:3]
     if scipy.__version__ != "1.16.3" or np.__version__ != "2.3.5":
         raise ValueError("frozen dependency versions required")
     with open(raw_path, "rb") as source:
         digest = hashlib.sha3_256(source.read()).hexdigest()
     with open(raw_path, newline="", encoding="utf-8") as source:
         rows = list(csv.DictReader(source))
-    if len(rows) != 40964:
+    if len(rows) != (24576 if is_reference else 40964):
         raise ValueError("incomplete finite population")
     selected = [row for row in rows if int(row["model_assignment_count"]) == 2
                 or int(row["assignment_index"]) in {0, 1, 2047, 4095}]
-    if len(selected) != 44:
+    expected_audits = 24 if is_reference else 44
+    if len(selected) != expected_audits:
         raise ValueError("wrong frozen audit set")
 
     def absolute_sum(sample, axis=-1):
@@ -34,7 +38,7 @@ def main():
 
     partial_path = report_path + ".partial"
     with open(partial_path, "x", encoding="utf-8") as output:
-        output.write("format=finite_calibration_scipy_audit_v1\n")
+        output.write(f"format={'reference_labels' if is_reference else 'finite_calibration'}_scipy_audit_v1\n")
         output.write("external_audit_budget_seconds=60\n")
         output.write(f"scipy_version={scipy.__version__}\nnumpy_version={np.__version__}\n")
         output.write(f"raw_sha3_256={digest}\n")
@@ -54,7 +58,7 @@ def main():
                          f"assignments={assignments} matches={'yes' if matches else 'no'}\n")
             if not matches:
                 raise ValueError("external tail count mismatch")
-        output.write("audited_datasets=44\nall_counts_match=yes\n"
+        output.write(f"audited_datasets={expected_audits}\nall_counts_match=yes\n"
                      "result_scope=numeric_audit_only\nreport_status=complete\n")
     os.link(partial_path, report_path)
     os.unlink(partial_path)

@@ -819,6 +819,20 @@ int main(int argument_count, char **argument_values)
         char *arguments[] = {program_path, argument_values[2], NULL};
         return execute_program(arguments, NULL);
     }
+    if (argument_count == 4 && strcmp(argument_values[1], "reference-label-control") == 0) {
+        if (make_path(program_path,
+                sizeof(program_path),
+                executable_path,
+                "calibrate_controlled") != 0) {
+            return 1;
+        }
+        char *arguments[] = {program_path,
+            "--reference-labels",
+            argument_values[2],
+            argument_values[3],
+            NULL};
+        return execute_program(arguments, NULL);
+    }
     if (argument_count == 5 && strcmp(argument_values[1], "export") == 0) {
         return export_html(argument_values[2],
             argument_values[3],
@@ -868,6 +882,7 @@ int main(int argument_count, char **argument_values)
           "audit replay SOURCE_ROOT NEW_DIRECTORY | performance NEW_DIRECTORY\n"
           "audit performance-replay DATA_DIRECTORY NEW_REPORT\n"
           "audit calibrate NEW_DIRECTORY\n"
+          "audit reference-label-control ORDINARY_DIRECTORY NEW_DIRECTORY\n"
           "audit export ORDINARY_CSV META NEW_HTML\n",
         stderr);
     return 2;
