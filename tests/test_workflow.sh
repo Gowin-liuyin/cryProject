@@ -3,6 +3,14 @@ set -eu
 program=$1
 test_directory=$(mktemp -d)
 trap 'rm -rf "$test_directory"' EXIT
+"$program" --help > "$test_directory/help.txt"
+test -s "$test_directory/help.txt"
+if "$program" unknown-command > "$test_directory/invalid-command.txt" 2>&1; then
+    exit 1
+else
+    command_exit_code=$?
+    test "$command_exit_code" -eq 2
+fi
 "$program" version
 "$program" case
 printf 'run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit\nfixture,reference,valid,0,1000,ns\nfixture,reference,bit-flipped,1,2000,ns\nfixture,reference,random,2,3000,ns\n' > "$test_directory/data.csv"

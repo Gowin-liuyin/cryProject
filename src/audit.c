@@ -649,8 +649,35 @@ cleanup:
     return operation_status;
 }
 
+static int print_help(FILE *output)
+{
+    return fputs(
+               "audit help | version | check | case\n"
+               "audit collect RUN_ID SEED SAMPLES_PER_CATEGORY NEW_DIRECTORY\n"
+               "audit inspect CSV NEW_REPORT | analyze CSV NEW_REPORT\n"
+               "audit analyze-pairs CSV PLAN NEW_REPORT\n"
+               "audit replay SOURCE_ROOT NEW_DIRECTORY | performance NEW_DIRECTORY\n"
+               "audit performance-replay DATA_DIRECTORY NEW_REPORT\n"
+               "audit calibrate NEW_DIRECTORY\n"
+               "audit reference-label-control ORDINARY_DIRECTORY NEW_DIRECTORY\n"
+               "audit export ORDINARY_CSV META NEW_HTML\n"
+               "NEW输出路径必须不存在；SEED为十进制无符号64位整数。collect采集参考三类普通负载。\n"
+               "replay读取历史档案；calibrate生成无秘密模型，reference-label-"
+               "control复算后赋标签。\n"
+               "功能检查、普通性能和未显著结果均不等于恒时或防护效果证明。\n"
+               "使用与证据入口：docs/product-workflow.md、deliverables/demo/index.html。\n",
+               output) == EOF
+        ? 1
+        : 0;
+}
+
 int main(int argument_count, char **argument_values)
 {
+    if (argument_count == 2 &&
+        (strcmp(argument_values[1], "help") == 0 || strcmp(argument_values[1], "--help") == 0 ||
+            strcmp(argument_values[1], "-h") == 0)) {
+        return print_help(stdout);
+    }
     char executable_path[4096];
     if (realpath(argument_values[0], executable_path) == NULL) {
         return 1;
@@ -772,15 +799,7 @@ int main(int argument_count, char **argument_values)
             NULL};
         return execute_program(arguments, NULL);
     }
-    fputs("audit version | check | case\n"
-          "audit collect RUN_ID SEED SAMPLES_PER_CATEGORY NEW_DIRECTORY\n"
-          "audit inspect CSV NEW_REPORT | analyze CSV NEW_REPORT\n"
-          "audit analyze-pairs CSV PLAN NEW_REPORT\n"
-          "audit replay SOURCE_ROOT NEW_DIRECTORY | performance NEW_DIRECTORY\n"
-          "audit performance-replay DATA_DIRECTORY NEW_REPORT\n"
-          "audit calibrate NEW_DIRECTORY\n"
-          "audit reference-label-control ORDINARY_DIRECTORY NEW_DIRECTORY\n"
-          "audit export ORDINARY_CSV META NEW_HTML\n",
-        stderr);
+    fputs("命令或参数不正确；运行audit help查看格式。\n", stderr);
+    (void)print_help(stderr);
     return 2;
 }

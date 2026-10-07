@@ -1,0 +1,74 @@
+[  5%] Built target prepare_deployable
+[  5%] Built target prepare_hardened
+[  5%] Built target build_identity
+[ 37%] Built target mlkem_hardened
+[ 37%] Built target mlkem_deployable
+[ 37%] Built target mlkem_reference
+[ 40%] Built target reference_baseline
+[ 48%] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[ 51%] Building C object CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+[ 56%] Built target paired_support
+[ 59%] Building C object CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+[ 64%] Built target analyze
+[ 70%] Built target analyze_groups
+[ 75%] Built target inspect_timing
+[ 81%] Built target controlled_statistics
+[ 89%] Linking C executable reference/benchmark
+[ 89%] Linking C executable hardened/benchmark
+[ 89%] Linking C executable deployable/benchmark
+[ 91%] Building C object CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o
+[ 91%] Built target hardened_benchmark
+[ 91%] Built target reference_benchmark
+[ 91%] Built target deployable_benchmark
+[ 94%] Built target controlled_stats
+[ 94%] Linking C executable calibrate_controlled
+[ 94%] Built target calibrate_controlled
+[ 97%] Building C object CMakeFiles/audit.dir/src/audit.c.o
+[100%] Linking C executable audit
+[100%] Built target audit
+/Users/yin/code/cryProject/src/audit.c:654:18: error: code should be clang-formatted [-Wclang-format-violations]
+    return fputs("audit help | version | check | case\n"
+                 ^
+/Users/yin/code/cryProject/src/audit.c:654:57: error: code should be clang-formatted [-Wclang-format-violations]
+    return fputs("audit help | version | check | case\n"
+                                                        ^
+/Users/yin/code/cryProject/src/audit.c:655:82: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit collect RUN_ID SEED SAMPLES_PER_CATEGORY NEW_DIRECTORY\n"
+                                                                                 ^
+/Users/yin/code/cryProject/src/audit.c:656:75: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit inspect CSV NEW_REPORT | analyze CSV NEW_REPORT\n"
+                                                                          ^
+/Users/yin/code/cryProject/src/audit.c:657:61: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit analyze-pairs CSV PLAN NEW_REPORT\n"
+                                                            ^
+/Users/yin/code/cryProject/src/audit.c:658:88: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit replay SOURCE_ROOT NEW_DIRECTORY | performance NEW_DIRECTORY\n"
+                                                                                       ^
+/Users/yin/code/cryProject/src/audit.c:659:72: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit performance-replay DATA_DIRECTORY NEW_REPORT\n"
+                                                                       ^
+/Users/yin/code/cryProject/src/audit.c:660:51: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit calibrate NEW_DIRECTORY\n"
+                                                  ^
+/Users/yin/code/cryProject/src/audit.c:661:84: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit reference-label-control ORDINARY_DIRECTORY NEW_DIRECTORY\n"
+                                                                                   ^
+/Users/yin/code/cryProject/src/audit.c:662:61: error: code should be clang-formatted [-Wclang-format-violations]
+                 "audit export ORDINARY_CSV META NEW_HTML\n"
+                                                            ^
+/Users/yin/code/cryProject/src/audit.c:663:134: error: code should be clang-formatted [-Wclang-format-violations]
+                 "NEW输出路径必须不存在；SEED为十进制无符号64位整数。collect采集参考三类普通负载。\n"
+/Users/yin/code/cryProject/src/audit.c:664:95: error: code should be clang-formatted [-Wclang-format-violations]
+                 "replay读取历史档案；calibrate生成无秘密模型，reference-label-control复算后赋标签。\n"
+/Users/yin/code/cryProject/src/audit.c:664:126: error: code should be clang-formatted [-Wclang-format-violations]
+                 "replay读取历史档案；calibrate生成无秘密模型，reference-label-control复算后赋标签。\n"
+/Users/yin/code/cryProject/src/audit.c:665:109: error: code should be clang-formatted [-Wclang-format-violations]
+                 "功能检查、普通性能和未显著结果均不等于恒时或防护效果证明。\n"
+CMake Error at /Users/yin/code/cryProject/cmake/Format.cmake:41 (message):
+  C style check failed; run the format target, then inspect the diff
+
+
+make[3]: *** [CMakeFiles/format-check] Error 1
+make[2]: *** [CMakeFiles/format-check.dir/all] Error 2
+make[1]: *** [CMakeFiles/format-check.dir/rule] Error 2
+make: *** [format-check] Error 2

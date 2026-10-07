@@ -1,0 +1,32 @@
+[  5%] Built target prepare_hardened
+[  5%] Built target prepare_deployable
+[  5%] Built target build_identity
+[ 37%] Built target mlkem_reference
+[ 37%] Built target mlkem_deployable
+[ 37%] Built target mlkem_hardened
+[ 40%] Built target reference_baseline
+[ 43%] Building C object CMakeFiles/paired_support.dir/src/paired_data.c.o
+[ 48%] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[ 48%] Building C object CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+[ 51%] Building C object CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+[ 59%] Linking C executable reference/benchmark
+[ 59%] Linking C executable hardened/benchmark
+[ 59%] Linking C executable deployable/benchmark
+[ 62%] Linking C static library libpaired_support.a
+[ 67%] Built target paired_support
+[ 67%] Built target hardened_benchmark
+[ 67%] Built target reference_benchmark
+[ 67%] Built target deployable_benchmark
+[ 72%] Built target analyze
+[ 83%] Built target analyze_groups
+[ 83%] Built target inspect_timing
+[ 89%] Built target controlled_statistics
+[ 91%] Building C object CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o
+[ 91%] Building C object CMakeFiles/controlled_stats.dir/src/controlled_stats.c.o
+[ 94%] Linking C executable controlled_stats
+[ 94%] Built target controlled_stats
+[ 94%] Linking C executable calibrate_controlled
+[ 94%] Built target calibrate_controlled
+[ 97%] Building C object CMakeFiles/audit.dir/src/audit.c.o
+[100%] Linking C executable audit
+[100%] Built target audit

@@ -1,0 +1,103 @@
+{
+  "review_date": "2026-10-07",
+  "verification_kind": "static_files_links_and_existing_report_values_not_new_timing",
+  "stable_conclusion_ids": [
+    "U01",
+    "D01",
+    "E01",
+    "E02",
+    "H01",
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "A01",
+    "N01",
+    "A02",
+    "I01"
+  ],
+  "required_evidence_fields": 104,
+  "file_checks": [
+    {
+      "file": "deliverables/demo/index.html",
+      "links_checked": 318,
+      "missing": [],
+      "sha256": "6c05553fe385f4636921fe70ce1b3653f0203efd85012c12a33fade7461c3928"
+    },
+    {
+      "file": "deliverables/demo/evidence-index.md",
+      "links_checked": 300,
+      "missing": [],
+      "sha256": "953f4b1c2fb23daaabf871ccb3e638a757b6a4b487158dee11bc1e78b65dbcf5"
+    },
+    {
+      "file": "deliverables/demo/演示说明.md",
+      "links_checked": 1,
+      "missing": [],
+      "sha256": "0a3bdafc7266ee8b3b3c2ca5692dd4189f42377f48d71c49859f784920cce28f"
+    },
+    {
+      "file": "deliverables/demo/独立执行记录模板.md",
+      "links_checked": 0,
+      "missing": [],
+      "sha256": "301dd80fa149a98030eb483fe0daf21ad9c49b619c50eee83f7f58073bfd581b"
+    },
+    {
+      "file": "docs/defense-evidence-gap.md",
+      "links_checked": 32,
+      "missing": [],
+      "sha256": "1581158c984ac6b3d314d2bcd7facd1f06db686bf31b9d75166718bde376c88c"
+    }
+  ],
+  "numeric_source_checks": [
+    {
+      "source": "docs/evidence/native-final-20261007/performance/performance.report",
+      "values_checked": [
+        "101.959333333",
+        "-30.100666667"
+      ]
+    },
+    {
+      "source": "docs/evidence/candidate-round-20261007/native/perf/performance.report",
+      "values_checked": [
+        "380.801722222",
+        "504.065388889"
+      ]
+    },
+    {
+      "source": "docs/evidence/controlled-comparison-20261007/confirmation-results/comparison.report",
+      "values_checked": [
+        "0.001388504"
+      ]
+    },
+    {
+      "source": "docs/evidence/warm-replay-20261007/formal/comparison.report",
+      "values_checked": [
+        "0.001562070"
+      ]
+    },
+    {
+      "source": "docs/evidence/statistics-multiseed/hardened-seed141421356.groups.report",
+      "values_checked": [
+        "1.42602e-05",
+        "0.488950"
+      ]
+    }
+  ],
+  "historical_distribution_rows_checked": 10,
+  "historical_and_new_performance_runs_linked": 36,
+  "each_performance_run_fields": [
+    "csv",
+    "meta",
+    "cost",
+    "log"
+  ],
+  "new_native_identity": "da42366ce5912ebd1d2d87913c17d238c9f325c6ae178456a1b8d37bca6fcba3",
+  "old_e02_graph_source": "0e8be6df6a0aafeb465f848dcd963505142fa96f",
+  "new_perf_graph_not_fabricated": true,
+  "r07_status": "partial_unchanged",
+  "independent_human_execution": false,
+  "real_screenshots_obtained": false,
+  "new_package_status": "awaiting_separate_clean_acceptance",
+  "visual_browser_rendering": "not_executed_prior_tool_access_rejections_preserved"
+}

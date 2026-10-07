@@ -1,0 +1,29 @@
+[  5%] Built target prepare_deployable
+[  5%] Built target prepare_hardened
+[  5%] Built target build_identity
+[ 35%] Built target mlkem_hardened
+[ 37%] Built target mlkem_reference
+[ 37%] Built target mlkem_deployable
+[ 40%] Built target reference_baseline
+[ 51%] Built target paired_support
+[ 54%] Building C object CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+[ 56%] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[ 62%] Built target analyze
+[ 64%] Building C object CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+[ 70%] Built target analyze_groups
+[ 75%] Built target inspect_timing
+[ 81%] Built target controlled_statistics
+[ 83%] Building C object CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o
+[ 91%] Linking C executable reference/benchmark
+[ 91%] Linking C executable hardened/benchmark
+[ 91%] Linking C executable deployable/benchmark
+[ 91%] Linking C executable calibrate_controlled
+[ 91%] Built target reference_benchmark
+[ 91%] Built target hardened_benchmark
+[ 91%] Built target deployable_benchmark
+[ 91%] Built target calibrate_controlled
+[ 94%] Built target controlled_stats
+[ 97%] Building C object CMakeFiles/audit.dir/src/audit.c.o
+[100%] Linking C executable audit
+[100%] Built target audit
+Built target format-check

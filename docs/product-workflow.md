@@ -6,6 +6,7 @@
 ```sh
 cmake --preset baseline
 cmake --build --preset baseline --parallel 4
+build/cmake/audit help
 build/cmake/audit version
 build/cmake/audit check
 build/cmake/audit case
@@ -75,3 +76,9 @@ CTest的无测试报错选项。测试注册清单与真实执行日志分别保
 CSV/meta/cost并验证资格，再取每块原序0..23作独立后赋标签的有限控制；保存24576份
 差值、双实现尾计数及144个原时间。不重新采集，不修改原时间，不比较原密文类别。
 此项条件错误控制不替代真实密码总体或防护复测，见[合同](reference-label-control-v1.md)。
+
+本轮结论使用稳定编号，入口为[离线页面](../deliverables/demo/index.html)及
+[逐项证据索引](../deliverables/demo/evidence-index.md)。每条可直接打开原数据、源/产物、环境、
+日志/退出、分析和缺口；公开核查与固定配置适用性单列。新N01普通性能和旧E02图源保持
+各自身份；A02复算为作者代理，I01仍待真实非原作者材料。帮助命令help/--help/-h退出0，
+未知命令退出2并显示格式。新输出须不存在；短现场运行与读取封存结果分别标注。
