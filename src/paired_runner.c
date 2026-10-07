@@ -147,7 +147,10 @@ static void preserve_budget_audit(const char *path)
     int audit_descriptor = open(audit_path, O_WRONLY | O_CREAT | O_EXCL, 0600);
     if (audit_descriptor >= 0) {
         static const char audit_state[] = "budget_state=unclosed\n";
-        (void)write(audit_descriptor, audit_state, sizeof(audit_state) - 1u);
+        ssize_t written_bytes = write(audit_descriptor, audit_state, sizeof(audit_state) - 1u);
+        if (written_bytes != (ssize_t)(sizeof(audit_state) - 1u)) {
+            fputs("budget audit marker content incomplete\n", stderr);
+        }
         (void)fsync(audit_descriptor);
         (void)close(audit_descriptor);
         (void)sync_parent_directory(audit_path);
@@ -593,7 +596,8 @@ static int write_context(const char *directory,
     size_t pair_count,
     uint64_t batch_size,
     const struct budget_ledger *starting_budget,
-    const char executable_digests[2][65],
+    const char *baseline_executable_digest,
+    const char *candidate_executable_digest,
     const char *state)
 {
     char context_path[4096];
@@ -636,8 +640,8 @@ static int write_context(const char *directory,
             starting_budget->dependency_review,
             starting_budget->cost_closure,
             starting_budget->source_commit,
-            executable_digests[0],
-            executable_digests[1],
+            baseline_executable_digest,
+            candidate_executable_digest,
             manifest_digest,
             batch_size,
             state) < 0;
@@ -771,12 +775,12 @@ static int run_cohort(const char *phase,
             }
             (void)snprintf(filenames[2u * method_index],
                 sizeof(filenames[0]),
-                "%s-%s.csv",
+                "%.64s-%s.csv",
                 pairs[pair_index].block_id,
                 method);
             (void)snprintf(filenames[2u * method_index + 1u],
                 sizeof(filenames[0]),
-                "%s-%s.meta",
+                "%.64s-%s.meta",
                 pairs[pair_index].block_id,
                 method);
             if (paired_data_path(data_paths[2u * method_index],
@@ -811,7 +815,7 @@ static int run_cohort(const char *phase,
             char child_log_path[4096];
             (void)snprintf(child_log_name,
                 sizeof(child_log_name),
-                "%s-%s.log",
+                "%.64s-%s.log",
                 pairs[pair_index].block_id,
                 method);
             int child_status = paired_data_path(child_log_path,
@@ -927,7 +931,8 @@ static int run_cohort(const char *phase,
         pair_count,
         pairs[0].batch_size,
         &starting_budget,
-        executable_digests,
+        executable_digests[0],
+        executable_digests[1],
         "pending_observer");
     goto cleanup;
 partial:
@@ -937,7 +942,8 @@ partial:
             pair_count,
             pairs[0].batch_size,
             &starting_budget,
-            executable_digests,
+            executable_digests[0],
+            executable_digests[1],
             "partial");
     }
 cleanup:
