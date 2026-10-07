@@ -1,0 +1,3023 @@
+[
+  {
+    "closed_at": null,
+    "created_at": "2026-10-05T09:37:28Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1932",
+    "is_pull_request": false,
+    "labels": [
+      "needs-mldsa-native-port",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1932,
+    "state": "open",
+    "title": "CBMC: Check relative alignment of pointers passed to assembly",
+    "updated_at": "2026-10-05T09:38:09Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-10-05T08:52:36Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1930",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1930,
+    "state": "open",
+    "title": "FIPS202: Apply MLK_INTERNAL_API to the FIPS202 layer",
+    "updated_at": "2026-10-06T11:21:45Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-09-27T03:31:01Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1927",
+    "is_pull_request": false,
+    "labels": [
+      "needs-mldsa-native-port"
+    ],
+    "merged_at": null,
+    "number": 1927,
+    "state": "open",
+    "title": "Update SOUNDNESS.md to cover #1926",
+    "updated_at": "2026-09-27T03:31:37Z"
+  },
+  {
+    "closed_at": "2026-09-27T05:41:58Z",
+    "created_at": "2026-09-25T17:16:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1926",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-09-27T05:41:58Z",
+    "number": 1926,
+    "state": "closed",
+    "title": "native: Pass buflen to rej_uniform assembly as uint64_t",
+    "updated_at": "2026-09-27T05:42:00Z"
+  },
+  {
+    "closed_at": "2026-09-27T05:33:53Z",
+    "created_at": "2026-09-25T16:13:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1924",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-09-27T05:33:52Z",
+    "number": 1924,
+    "state": "closed",
+    "title": "mlkem_native.c: Undefine sys.h macros after the native backends",
+    "updated_at": "2026-09-27T05:33:54Z"
+  },
+  {
+    "closed_at": "2026-09-27T03:59:49Z",
+    "created_at": "2026-09-25T16:03:10Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1923",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-09-27T03:59:49Z",
+    "number": 1923,
+    "state": "closed",
+    "title": "mlkem_native_asm.S: Always emit .note.GNU-stack",
+    "updated_at": "2026-09-27T03:59:50Z"
+  },
+  {
+    "closed_at": "2026-09-26T05:31:48Z",
+    "created_at": "2026-09-25T15:49:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1922",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-09-26T05:31:48Z",
+    "number": 1922,
+    "state": "closed",
+    "title": "Examples: Enable native backends in monolithic_build_native",
+    "updated_at": "2026-09-26T05:31:49Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-09-25T15:20:31Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1921",
+    "is_pull_request": false,
+    "labels": [
+      "mldsa-native-mirror"
+    ],
+    "merged_at": null,
+    "number": 1921,
+    "state": "open",
+    "title": "Portable C assumes a constant-time multiply",
+    "updated_at": "2026-09-25T15:20:31Z"
+  },
+  {
+    "closed_at": "2026-09-26T05:32:06Z",
+    "created_at": "2026-09-25T15:17:56Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1920",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-09-26T05:32:05Z",
+    "number": 1920,
+    "state": "closed",
+    "title": "Config: Make the config file flat",
+    "updated_at": "2026-09-26T05:32:07Z"
+  },
+  {
+    "closed_at": "2026-09-26T05:32:07Z",
+    "created_at": "2026-09-25T15:14:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1919",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1919,
+    "state": "closed",
+    "title": "Including mlkem_native.h before the sources silently drops build-only config options",
+    "updated_at": "2026-09-26T05:32:07Z"
+  },
+  {
+    "closed_at": "2026-10-05T14:33:33Z",
+    "created_at": "2026-09-25T14:55:56Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1918",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-10-05T14:33:33Z",
+    "number": 1918,
+    "state": "closed",
+    "title": "HOL-Light/x86_64: Drop alignment assumption on tobytes/frombytes byte buffers",
+    "updated_at": "2026-10-05T14:33:35Z"
+  },
+  {
+    "closed_at": "2026-10-05T11:58:54Z",
+    "created_at": "2026-09-25T13:08:23Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1916",
+    "is_pull_request": true,
+    "labels": [
+      "legacy-compiler-tests"
+    ],
+    "merged_at": "2026-10-05T11:58:54Z",
+    "number": 1916,
+    "state": "closed",
+    "title": "CI: Add clang23 tests and constant-time tests",
+    "updated_at": "2026-10-05T11:58:56Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-09-20T08:37:16Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1909",
+    "is_pull_request": false,
+    "labels": [
+      "mldsa-native-mirror"
+    ],
+    "merged_at": null,
+    "number": 1909,
+    "state": "open",
+    "title": "Beware of temporary writes to external buffers",
+    "updated_at": "2026-09-20T08:39:43Z"
+  },
+  {
+    "closed_at": "2026-09-05T10:46:20Z",
+    "created_at": "2026-09-05T03:14:41Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1896",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-09-05T10:46:20Z",
+    "number": 1896,
+    "state": "closed",
+    "title": "CI: Use the main Ubuntu archive for Pavona dependencies",
+    "updated_at": "2026-09-05T12:29:59Z"
+  },
+  {
+    "closed_at": "2026-09-05T12:18:06Z",
+    "created_at": "2026-09-02T11:08:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1888",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "needs-mldsa-native-port"
+    ],
+    "merged_at": null,
+    "number": 1888,
+    "state": "closed",
+    "title": "Benchmarks fail on AArch64/macOS 26.6.2",
+    "updated_at": "2026-09-05T12:18:06Z"
+  },
+  {
+    "closed_at": "2026-08-28T21:05:52Z",
+    "created_at": "2026-08-28T14:21:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1883",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-08-28T21:05:52Z",
+    "number": 1883,
+    "state": "closed",
+    "title": "CI: Bump EC2 AMIs to Ubuntu 26.04 LTS",
+    "updated_at": "2026-08-28T21:05:53Z"
+  },
+  {
+    "closed_at": "2026-08-22T03:58:07Z",
+    "created_at": "2026-08-21T11:10:27Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1874",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "documentation",
+      "mldsa-native-mirror"
+    ],
+    "merged_at": null,
+    "number": 1874,
+    "state": "closed",
+    "title": "Config: Some config options are wrongly listed as build internal",
+    "updated_at": "2026-08-22T03:58:07Z"
+  },
+  {
+    "closed_at": "2026-08-22T03:58:06Z",
+    "created_at": "2026-08-21T10:54:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1873",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "documentation"
+    ],
+    "merged_at": "2026-08-22T03:58:06Z",
+    "number": 1873,
+    "state": "closed",
+    "title": "Config: Move API-affecting options out of build-only section",
+    "updated_at": "2026-08-22T03:58:07Z"
+  },
+  {
+    "closed_at": "2026-08-07T04:57:30Z",
+    "created_at": "2026-08-05T04:43:38Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1852",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark",
+      "API-BREAK"
+    ],
+    "merged_at": "2026-08-07T04:57:30Z",
+    "number": 1852,
+    "state": "closed",
+    "title": "Split ambiguous MLK_ERR_FAIL into specific error codes",
+    "updated_at": "2026-08-07T06:14:09Z"
+  },
+  {
+    "closed_at": "2026-08-05T13:12:10Z",
+    "created_at": "2026-08-05T04:25:40Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1851",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "documentation"
+    ],
+    "merged_at": "2026-08-05T13:12:09Z",
+    "number": 1851,
+    "state": "closed",
+    "title": "Add missing documentation of MLK_ERR_RNG_FAIL error for keygen",
+    "updated_at": "2026-08-05T13:12:11Z"
+  },
+  {
+    "closed_at": "2026-08-06T12:31:44Z",
+    "created_at": "2026-08-05T04:23:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1850",
+    "is_pull_request": true,
+    "labels": [
+      "enhancement",
+      "CBMC"
+    ],
+    "merged_at": "2026-08-06T12:31:43Z",
+    "number": 1850,
+    "state": "closed",
+    "title": "CBMC: Check that outputs are zeroized or unmodified on error",
+    "updated_at": "2026-08-08T05:03:26Z"
+  },
+  {
+    "closed_at": "2026-08-06T12:31:45Z",
+    "created_at": "2026-08-04T18:44:51Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1849",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC"
+    ],
+    "merged_at": null,
+    "number": 1849,
+    "state": "closed",
+    "title": "CBMC: Verify that output buffers are unchanged or zeroized upon failure",
+    "updated_at": "2026-08-06T12:31:45Z"
+  },
+  {
+    "closed_at": "2026-08-05T13:12:11Z",
+    "created_at": "2026-08-04T18:41:31Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1848",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "documentation"
+    ],
+    "merged_at": null,
+    "number": 1848,
+    "state": "closed",
+    "title": "Potential return code `MLK_ERR_RNG_FAIL` from `keygen_derand` undocumented",
+    "updated_at": "2026-08-05T13:12:11Z"
+  },
+  {
+    "closed_at": "2026-08-07T04:57:32Z",
+    "created_at": "2026-08-04T08:50:26Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1846",
+    "is_pull_request": false,
+    "labels": [],
+    "merged_at": null,
+    "number": 1846,
+    "state": "closed",
+    "title": "Split ambiguous MLK_ERR_FAIL into separate error codes",
+    "updated_at": "2026-08-07T04:57:32Z"
+  },
+  {
+    "closed_at": "2026-08-02T13:19:13Z",
+    "created_at": "2026-08-02T11:56:05Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1823",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-08-02T13:19:13Z",
+    "number": 1823,
+    "state": "closed",
+    "title": "test_stack: Use a valid secret key for the decaps measurement",
+    "updated_at": "2026-08-02T13:19:16Z"
+  },
+  {
+    "closed_at": "2026-08-02T11:55:17Z",
+    "created_at": "2026-07-26T05:08:56Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1816",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-08-02T11:55:17Z",
+    "number": 1816,
+    "state": "closed",
+    "title": "Fix build for MLK_CONFIG_NO_RANDOMIZED_API",
+    "updated_at": "2026-08-08T05:03:20Z"
+  },
+  {
+    "closed_at": "2026-08-02T11:55:18Z",
+    "created_at": "2026-07-25T04:36:19Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1815",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "testing",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 1815,
+    "state": "closed",
+    "title": "Functional test (test_mlkem.c) fails to build for MLK_CONFIG_NO_RANDOMIZED_API",
+    "updated_at": "2026-08-02T11:55:18Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-07-22T04:12:17Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1810",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 1810,
+    "state": "open",
+    "title": "mlkem_native.c should not include *.c files for default backends when custom backend is used",
+    "updated_at": "2026-07-22T04:12:50Z"
+  },
+  {
+    "closed_at": "2026-07-22T10:10:06Z",
+    "created_at": "2026-07-21T08:29:54Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1808",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "ci",
+      "aarch64"
+    ],
+    "merged_at": null,
+    "number": 1808,
+    "state": "closed",
+    "title": "Build fails for `-march=armv8-a+nosimd`",
+    "updated_at": "2026-07-22T10:10:06Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-07-06T23:46:01Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1788",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 1788,
+    "state": "open",
+    "title": "RVV and PPC64le native backends aren't covered by the constant-time (valgrind) CI job",
+    "updated_at": "2026-07-06T23:46:01Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-07-06T14:13:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1786",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "benchmark"
+    ],
+    "merged_at": null,
+    "number": 1786,
+    "state": "open",
+    "title": "Legend missing from benchmarking graphs",
+    "updated_at": "2026-07-07T04:19:09Z"
+  },
+  {
+    "closed_at": "2026-08-07T08:44:30Z",
+    "created_at": "2026-07-06T04:29:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1781",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "API-BREAK"
+    ],
+    "merged_at": null,
+    "number": 1781,
+    "state": "closed",
+    "title": "Default namespace subject to inconsistent level-suffixing in multi-level build",
+    "updated_at": "2026-08-07T08:44:30Z"
+  },
+  {
+    "closed_at": "2026-08-07T05:59:57Z",
+    "created_at": "2026-06-29T18:20:59Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1769",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": null,
+    "number": 1769,
+    "state": "closed",
+    "title": "Clear ML-KEM outputs on KEM failure",
+    "updated_at": "2026-08-07T05:59:58Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-06-25T05:38:11Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1759",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "MVE"
+    ],
+    "merged_at": null,
+    "number": 1759,
+    "state": "open",
+    "title": "Armv8.1-M: Native XOR bytes fails unit test",
+    "updated_at": "2026-06-25T09:30:31Z"
+  },
+  {
+    "closed_at": "2026-06-20T04:39:36Z",
+    "created_at": "2026-06-14T04:06:42Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1745",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-06-20T04:39:36Z",
+    "number": 1745,
+    "state": "closed",
+    "title": "nix: Bump CBMC to latest develop to work around z3 soundness issue",
+    "updated_at": "2026-06-20T04:39:37Z"
+  },
+  {
+    "closed_at": "2026-06-26T12:20:40Z",
+    "created_at": "2026-06-14T04:02:29Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1744",
+    "is_pull_request": false,
+    "labels": [
+      "priority-high",
+      "CBMC",
+      "SOUNDNESS-RISK"
+    ],
+    "merged_at": null,
+    "number": 1744,
+    "state": "closed",
+    "title": "Avoid z3 soundness issue #9550",
+    "updated_at": "2026-06-26T12:20:40Z"
+  },
+  {
+    "closed_at": "2026-06-30T08:05:16Z",
+    "created_at": "2026-06-08T08:01:19Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1738",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-06-30T08:05:16Z",
+    "number": 1738,
+    "state": "closed",
+    "title": "Add Windows MSVC test support: rng_fail, alloc, wycheproof",
+    "updated_at": "2026-07-15T09:42:07Z"
+  },
+  {
+    "closed_at": "2026-06-08T02:46:18Z",
+    "created_at": "2026-06-07T20:37:10Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1736",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-06-08T02:46:18Z",
+    "number": 1736,
+    "state": "closed",
+    "title": "AVR: Prevent ACVP harness stack overflow under full UBSan",
+    "updated_at": "2026-06-08T02:46:20Z"
+  },
+  {
+    "closed_at": "2026-06-08T15:27:00Z",
+    "created_at": "2026-06-07T07:57:19Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1732",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "RV64"
+    ],
+    "merged_at": "2026-06-08T15:27:00Z",
+    "number": 1732,
+    "state": "closed",
+    "title": "RV64: Minor bug fix and constant-time hardening",
+    "updated_at": "2026-06-08T15:27:02Z"
+  },
+  {
+    "closed_at": "2026-06-08T09:19:55Z",
+    "created_at": "2026-06-07T01:56:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1730",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": "2026-06-08T09:19:54Z",
+    "number": 1730,
+    "state": "closed",
+    "title": "x86_64: Use SysV calling convention for assembly on Windows",
+    "updated_at": "2026-06-11T03:44:27Z"
+  },
+  {
+    "closed_at": "2026-06-08T03:52:19Z",
+    "created_at": "2026-06-07T01:14:17Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1728",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "16-bit"
+    ],
+    "merged_at": null,
+    "number": 1728,
+    "state": "closed",
+    "title": "AVR test harness does not propagate exit codes; functional test failures go unnoticed",
+    "updated_at": "2026-06-08T03:52:19Z"
+  },
+  {
+    "closed_at": "2026-06-07T12:00:51Z",
+    "created_at": "2026-06-07T01:06:38Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1727",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-06-07T12:00:51Z",
+    "number": 1727,
+    "state": "closed",
+    "title": " Fix signed-shift UB on 16-bit-int targets in `mlk_rej_uniform_c` and `mlk_poly_frombytes_c`",
+    "updated_at": "2026-06-12T03:00:45Z"
+  },
+  {
+    "closed_at": "2026-06-07T12:00:52Z",
+    "created_at": "2026-06-06T11:50:25Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1726",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "16-bit"
+    ],
+    "merged_at": null,
+    "number": 1726,
+    "state": "closed",
+    "title": "Signed-shift UB in `mlk_rej_uniform_c` on 16-bit-int targets",
+    "updated_at": "2026-06-07T12:00:52Z"
+  },
+  {
+    "closed_at": "2026-07-29T06:53:21Z",
+    "created_at": "2026-05-22T03:49:13Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1703",
+    "is_pull_request": false,
+    "labels": [
+      "priority-high",
+      "CBMC",
+      "SOUNDNESS-RISK"
+    ],
+    "merged_at": null,
+    "number": 1703,
+    "state": "closed",
+    "title": "Avoid z3 soundness issue #9550",
+    "updated_at": "2026-07-29T06:53:21Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-05-15T04:01:07Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1695",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 1695,
+    "state": "open",
+    "title": "[CI] Avoid mismatched comparison and fix error in forall/exists macros",
+    "updated_at": "2026-05-15T21:38:36Z"
+  },
+  {
+    "closed_at": "2026-05-16T02:52:44Z",
+    "created_at": "2026-05-15T03:55:17Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1694",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "CBMC"
+    ],
+    "merged_at": "2026-05-16T02:52:44Z",
+    "number": 1694,
+    "state": "closed",
+    "title": "CBMC: Document and enforce 4 GiB limit of forall/exists quantifiers",
+    "updated_at": "2026-05-22T00:59:23Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-05-12T00:27:59Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1690",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "CBMC"
+    ],
+    "merged_at": null,
+    "number": 1690,
+    "state": "open",
+    "title": "Avoid mismatched comparison and fix error in forall/exists macros",
+    "updated_at": "2026-05-16T10:14:02Z"
+  },
+  {
+    "closed_at": "2026-05-09T10:10:35Z",
+    "created_at": "2026-05-09T04:13:16Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1685",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-05-09T10:10:35Z",
+    "number": 1685,
+    "state": "closed",
+    "title": "README: Note other side-channel and fault attacks are currently out of scope",
+    "updated_at": "2026-05-10T02:14:46Z"
+  },
+  {
+    "closed_at": "2026-04-22T14:54:57Z",
+    "created_at": "2026-04-22T04:04:28Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1661",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-04-22T14:54:56Z",
+    "number": 1661,
+    "state": "closed",
+    "title": "check-contracts: Detect contracts separated from prototype by a comment",
+    "updated_at": "2026-04-22T14:54:59Z"
+  },
+  {
+    "closed_at": "2026-04-23T10:34:42Z",
+    "created_at": "2026-04-20T12:18:09Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1656",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1656,
+    "state": "closed",
+    "title": "Dead code in AArch64 poly_tomont_asm.S",
+    "updated_at": "2026-04-23T10:34:42Z"
+  },
+  {
+    "closed_at": "2026-04-21T06:43:29Z",
+    "created_at": "2026-04-20T12:06:19Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1655",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1655,
+    "state": "closed",
+    "title": "Mis-sized lookup table type annotation in rej_uniform_asm (AArch64)",
+    "updated_at": "2026-04-21T06:43:29Z"
+  },
+  {
+    "closed_at": "2026-04-06T06:01:40Z",
+    "created_at": "2026-04-04T11:35:27Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1646",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-04-06T06:01:39Z",
+    "number": 1646,
+    "state": "closed",
+    "title": "CI: Add clang22 tests and constant-time tests",
+    "updated_at": "2026-04-07T05:05:22Z"
+  },
+  {
+    "closed_at": "2026-04-02T08:43:05Z",
+    "created_at": "2026-03-23T15:29:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1639",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-04-02T08:43:05Z",
+    "number": 1639,
+    "state": "closed",
+    "title": "CI: lint: output errors",
+    "updated_at": "2026-04-02T08:43:07Z"
+  },
+  {
+    "closed_at": "2026-03-19T11:07:25Z",
+    "created_at": "2026-03-18T10:24:54Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1631",
+    "is_pull_request": true,
+    "labels": [
+      "documentation"
+    ],
+    "merged_at": "2026-03-19T11:07:25Z",
+    "number": 1631,
+    "state": "closed",
+    "title": "Update URL for s2n-bignum's SOUNDNESS.md file",
+    "updated_at": "2026-03-19T11:07:27Z"
+  },
+  {
+    "closed_at": "2026-03-14T06:39:48Z",
+    "created_at": "2026-03-14T05:23:27Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1622",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-03-14T06:39:48Z",
+    "number": 1622,
+    "state": "closed",
+    "title": "CI: Adjust randombytes config patch for AWS-LC",
+    "updated_at": "2026-03-14T06:39:50Z"
+  },
+  {
+    "closed_at": "2026-03-07T23:27:59Z",
+    "created_at": "2026-03-07T21:59:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1615",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": "2026-03-07T23:27:59Z",
+    "number": 1615,
+    "state": "closed",
+    "title": "x86_64/rej_uniform: Stick within the bounds of the input buffer",
+    "updated_at": "2026-03-07T23:28:01Z"
+  },
+  {
+    "closed_at": "2026-03-03T06:50:50Z",
+    "created_at": "2026-03-03T01:59:40Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1611",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-03-03T06:50:49Z",
+    "number": 1611,
+    "state": "closed",
+    "title": "README: Document memory safety and constant-time proofs for assembly",
+    "updated_at": "2026-03-03T06:50:52Z"
+  },
+  {
+    "closed_at": "2026-03-02T13:09:50Z",
+    "created_at": "2026-03-02T12:16:33Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1609",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-03-02T13:09:50Z",
+    "number": 1609,
+    "state": "closed",
+    "title": "SOUNDNESS.md: Fix reference to s2n-bignum soundness doc",
+    "updated_at": "2026-03-02T13:09:52Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T05:06:24Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1603",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1603,
+    "state": "open",
+    "title": "CBMC: Consider systematically employing multiple SMT solver backends for CBMC functions",
+    "updated_at": "2026-05-18T04:20:00Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T05:04:45Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1602",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "hol-light",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1602,
+    "state": "open",
+    "title": "HOL-Light: Provide tool for checking object code is matching verified object code",
+    "updated_at": "2026-03-17T21:59:34Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T05:02:29Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1601",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC",
+      "hol-light",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1601,
+    "state": "open",
+    "title": "HOL-Light/CBMC: Establish a machine-checked link between HOL Light specifications and CBMC contracts",
+    "updated_at": "2026-03-03T11:10:11Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T05:01:19Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1600",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "hol-light",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1600,
+    "state": "open",
+    "title": "HOL-Light: Provide a document explaining specification style for correctness, memory-safety, and constant-time specs",
+    "updated_at": "2026-03-03T11:09:07Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T04:59:55Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1599",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1599,
+    "state": "open",
+    "title": "CBMC: Derive the configuration from a machine- and human-readable source",
+    "updated_at": "2026-03-03T11:08:36Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T04:58:40Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1598",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1598,
+    "state": "open",
+    "title": "Consider additional verification tooling to constant-time-ness of C code",
+    "updated_at": "2026-03-03T11:07:43Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T04:57:13Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1597",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1597,
+    "state": "open",
+    "title": "Consider additional verification tooling to verify correctness of C code",
+    "updated_at": "2026-03-03T11:07:08Z"
+  },
+  {
+    "closed_at": "2026-03-09T01:16:36Z",
+    "created_at": "2026-03-01T04:55:38Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1596",
+    "is_pull_request": false,
+    "labels": [
+      "x86_64",
+      "aarch64",
+      "hol-light",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1596,
+    "state": "closed",
+    "title": "HOL-Light: Add memory-safety proof for rejection sampling routines",
+    "updated_at": "2026-03-09T01:16:36Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T04:54:29Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1595",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1595,
+    "state": "open",
+    "title": "Add verification coverage for all backends (either using existing or new methodologies)",
+    "updated_at": "2026-06-07T03:32:51Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2026-03-01T04:52:26Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1594",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "ci",
+      "hol-light",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1594,
+    "state": "open",
+    "title": "HOL-Light/CI: Add proof coverage check to CI",
+    "updated_at": "2026-03-03T11:03:54Z"
+  },
+  {
+    "closed_at": "2026-03-02T12:07:22Z",
+    "created_at": "2026-02-26T14:42:24Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1582",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-03-02T12:07:22Z",
+    "number": 1582,
+    "state": "closed",
+    "title": "Add SOUNDNESS.md",
+    "updated_at": "2026-05-10T12:56:25Z"
+  },
+  {
+    "closed_at": "2026-02-25T12:19:10Z",
+    "created_at": "2026-02-24T07:43:20Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1575",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-25T12:19:10Z",
+    "number": 1575,
+    "state": "closed",
+    "title": "HOL-Light: Add missing x86_64 CT proofs and lift to subroutine level",
+    "updated_at": "2026-02-25T12:19:11Z"
+  },
+  {
+    "closed_at": "2026-02-25T10:39:27Z",
+    "created_at": "2026-02-16T11:25:10Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1571",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 1571,
+    "state": "closed",
+    "title": "HOL-Light: Add CT proofs for x86_64 basemul, (i)NTT functions",
+    "updated_at": "2026-02-25T10:39:28Z"
+  },
+  {
+    "closed_at": "2026-02-17T06:07:24Z",
+    "created_at": "2026-02-16T10:19:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1570",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-17T06:07:24Z",
+    "number": 1570,
+    "state": "closed",
+    "title": "HOL-Light: Add constant-time proofs for various x86_64 functions",
+    "updated_at": "2026-02-17T06:07:26Z"
+  },
+  {
+    "closed_at": "2026-02-16T10:35:25Z",
+    "created_at": "2026-02-16T05:29:25Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1569",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-16T10:35:25Z",
+    "number": 1569,
+    "state": "closed",
+    "title": "HOL-Light: Add constant-time proofs for AArch64 Keccak-f1600 functions ",
+    "updated_at": "2026-02-16T10:35:27Z"
+  },
+  {
+    "closed_at": "2026-02-16T08:43:59Z",
+    "created_at": "2026-02-14T08:22:09Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1568",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-16T08:43:59Z",
+    "number": 1568,
+    "state": "closed",
+    "title": "HOL-Light: Add constant-time proofs for AArch64 NTT, INTT, and basemul",
+    "updated_at": "2026-02-16T08:44:01Z"
+  },
+  {
+    "closed_at": "2026-02-16T05:54:04Z",
+    "created_at": "2026-02-13T02:39:45Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1565",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-16T05:54:04Z",
+    "number": 1565,
+    "state": "closed",
+    "title": "HOL-Light: Add constant-time proofs for AArch64 `tomont`, `reduce`, and `mulcache_compute`",
+    "updated_at": "2026-02-16T05:54:06Z"
+  },
+  {
+    "closed_at": "2026-02-12T16:36:00Z",
+    "created_at": "2026-02-12T03:15:26Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1563",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-12T16:36:00Z",
+    "number": 1563,
+    "state": "closed",
+    "title": "HOL-Light: Add constant-time proof for AArch64 `poly_tobytes`",
+    "updated_at": "2026-02-12T16:36:02Z"
+  },
+  {
+    "closed_at": "2026-02-10T10:30:12Z",
+    "created_at": "2026-02-10T02:54:13Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1559",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-02-10T10:30:12Z",
+    "number": 1559,
+    "state": "closed",
+    "title": "Keypair: zeroize pk and sk in case of PCT failure",
+    "updated_at": "2026-02-10T10:30:16Z"
+  },
+  {
+    "closed_at": "2026-05-27T06:59:25Z",
+    "created_at": "2026-02-09T03:47:49Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1557",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "nix"
+    ],
+    "merged_at": null,
+    "number": 1557,
+    "state": "closed",
+    "title": "CI: Reconsider `nixpkgs` for compiler tests and constant-time tests",
+    "updated_at": "2026-05-27T06:59:25Z"
+  },
+  {
+    "closed_at": "2026-05-07T01:52:42Z",
+    "created_at": "2026-01-31T10:42:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1534",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 1534,
+    "state": "closed",
+    "title": "[TEST] CI: Switch OpenTitan CI to run on Ubuntu 24.04 ",
+    "updated_at": "2026-05-07T01:52:42Z"
+  },
+  {
+    "closed_at": "2026-01-23T04:30:57Z",
+    "created_at": "2026-01-23T01:35:05Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1522",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-01-23T04:30:57Z",
+    "number": 1522,
+    "state": "closed",
+    "title": "Add documentation for `randombytes` and `mlk_randombytes`",
+    "updated_at": "2026-01-23T04:31:00Z"
+  },
+  {
+    "closed_at": "2026-01-16T10:59:15Z",
+    "created_at": "2026-01-16T08:52:32Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1490",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2026-01-16T10:59:15Z",
+    "number": 1490,
+    "state": "closed",
+    "title": "Examples: Fix feature detection via auto.mk",
+    "updated_at": "2026-01-16T10:59:17Z"
+  },
+  {
+    "closed_at": "2026-01-18T04:40:30Z",
+    "created_at": "2026-01-16T06:37:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1489",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": null,
+    "number": 1489,
+    "state": "closed",
+    "title": "x86: KeccakP_1600_times4_SIMD256.c lacks namespacing of symbols",
+    "updated_at": "2026-01-18T04:40:30Z"
+  },
+  {
+    "closed_at": "2026-02-07T10:42:40Z",
+    "created_at": "2026-01-15T13:56:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1479",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "documentation",
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 1479,
+    "state": "closed",
+    "title": "Document the need for stdint.h",
+    "updated_at": "2026-02-07T10:42:40Z"
+  },
+  {
+    "closed_at": "2026-01-17T08:47:32Z",
+    "created_at": "2026-01-08T01:59:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1463",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-01-17T08:47:32Z",
+    "number": 1463,
+    "state": "closed",
+    "title": "CT: Strengthen post-condition of `ct_memcmp`",
+    "updated_at": "2026-01-17T08:47:34Z"
+  },
+  {
+    "closed_at": "2026-01-28T12:20:11Z",
+    "created_at": "2026-01-07T13:43:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1461",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 1461,
+    "state": "closed",
+    "title": "Align `ct_memcmp` with mldsa-native",
+    "updated_at": "2026-01-28T12:20:11Z"
+  },
+  {
+    "closed_at": "2026-01-04T07:10:15Z",
+    "created_at": "2026-01-04T05:25:25Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1457",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": "2026-01-04T07:10:14Z",
+    "number": 1457,
+    "state": "closed",
+    "title": "Remove unused *.inc files in x86_64 backend",
+    "updated_at": "2026-01-04T07:10:16Z"
+  },
+  {
+    "closed_at": "2026-01-01T08:48:31Z",
+    "created_at": "2026-01-01T05:58:00Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1445",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "CBMC"
+    ],
+    "merged_at": "2026-01-01T08:48:31Z",
+    "number": 1445,
+    "state": "closed",
+    "title": "CBMC: Use polyvec_permute contract in polymat_permute proof",
+    "updated_at": "2026-01-01T08:48:33Z"
+  },
+  {
+    "closed_at": "2025-12-26T08:32:52Z",
+    "created_at": "2025-12-26T06:24:10Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1434",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-12-26T08:32:52Z",
+    "number": 1434,
+    "state": "closed",
+    "title": "test_alloc: Align bump buffer",
+    "updated_at": "2025-12-26T08:32:54Z"
+  },
+  {
+    "closed_at": "2025-12-27T17:27:33Z",
+    "created_at": "2025-12-26T00:52:31Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1433",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1433,
+    "state": "closed",
+    "title": "Allocation test segfaults on x86_64",
+    "updated_at": "2025-12-27T17:27:33Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2025-12-21T05:19:18Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1423",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1423,
+    "state": "open",
+    "title": "CBMC: Re-introduce coverage tracking",
+    "updated_at": "2026-03-01T04:52:46Z"
+  },
+  {
+    "closed_at": "2025-12-22T06:56:16Z",
+    "created_at": "2025-12-17T15:21:04Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1405",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-12-22T06:56:16Z",
+    "number": 1405,
+    "state": "closed",
+    "title": "CBMC: Use instrumented malloc/free for MLK_ALLOC/MLK_FREE",
+    "updated_at": "2025-12-22T06:56:18Z"
+  },
+  {
+    "closed_at": "2025-12-17T13:07:22Z",
+    "created_at": "2025-12-17T10:05:29Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1402",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-12-17T13:07:22Z",
+    "number": 1402,
+    "state": "closed",
+    "title": "Fix pointer cleanup on dynamic allocation failure",
+    "updated_at": "2025-12-17T13:07:24Z"
+  },
+  {
+    "closed_at": "2025-12-16T22:00:36Z",
+    "created_at": "2025-12-15T06:33:46Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1389",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-12-16T22:00:36Z",
+    "number": 1389,
+    "state": "closed",
+    "title": "Make allocation of large structures/buffers configurable (without workspaces)",
+    "updated_at": "2026-01-07T13:37:49Z"
+  },
+  {
+    "closed_at": "2025-12-11T06:06:45Z",
+    "created_at": "2025-12-05T11:08:44Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1343",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1343,
+    "state": "closed",
+    "title": "`MLK_CONFIG_EXTERNAL_API_QUALIFIER` / `MLK_EXTERNAL_API` not used in public header",
+    "updated_at": "2025-12-11T06:06:45Z"
+  },
+  {
+    "closed_at": "2025-12-29T14:50:26Z",
+    "created_at": "2025-12-05T06:53:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1342",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2025-12-29T14:50:26Z",
+    "number": 1342,
+    "state": "closed",
+    "title": "Make value barrier volatile",
+    "updated_at": "2025-12-29T14:50:27Z"
+  },
+  {
+    "closed_at": "2025-12-04T15:11:56Z",
+    "created_at": "2025-12-03T10:42:58Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1337",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": null,
+    "number": 1337,
+    "state": "closed",
+    "title": "[TEST] Benchmark performance loss of volatile barrier",
+    "updated_at": "2025-12-04T15:11:56Z"
+  },
+  {
+    "closed_at": "2026-01-22T10:06:11Z",
+    "created_at": "2025-12-01T22:01:10Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1331",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2026-01-22T10:06:11Z",
+    "number": 1331,
+    "state": "closed",
+    "title": "API: add failure mode support for randombytes()",
+    "updated_at": "2026-01-22T10:06:15Z"
+  },
+  {
+    "closed_at": "2025-12-01T09:28:55Z",
+    "created_at": "2025-12-01T02:04:27Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1328",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-12-01T09:28:55Z",
+    "number": 1328,
+    "state": "closed",
+    "title": "indcpa: Add missing zeroization of pkpv",
+    "updated_at": "2025-12-01T09:28:56Z"
+  },
+  {
+    "closed_at": "2025-11-21T04:43:29Z",
+    "created_at": "2025-11-20T09:44:00Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1318",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "CBMC"
+    ],
+    "merged_at": null,
+    "number": 1318,
+    "state": "closed",
+    "title": "CBMC: Proofs for native Armv8.4-A Keccak variants failing on x86",
+    "updated_at": "2025-11-21T04:43:29Z"
+  },
+  {
+    "closed_at": "2025-11-21T14:24:16Z",
+    "created_at": "2025-11-20T01:18:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1315",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1315,
+    "state": "closed",
+    "title": "Passing CFLAGS as make argument results in KAT failure",
+    "updated_at": "2025-11-21T14:24:16Z"
+  },
+  {
+    "closed_at": "2026-01-04T07:10:15Z",
+    "created_at": "2025-11-19T09:41:20Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1314",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": null,
+    "number": 1314,
+    "state": "closed",
+    "title": "x86_64 backend: Remove unncessary `.inc` files from `mlkem/src/native/x86_64/src`",
+    "updated_at": "2026-01-04T07:10:15Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2025-11-13T04:08:43Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1304",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1304,
+    "state": "open",
+    "title": "autogen does not work on macos-15-intel",
+    "updated_at": "2026-05-21T01:41:48Z"
+  },
+  {
+    "closed_at": "2025-11-11T05:23:22Z",
+    "created_at": "2025-11-11T02:58:11Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1298",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-11-11T05:23:22Z",
+    "number": 1298,
+    "state": "closed",
+    "title": "Lint: Fix autogen to return error if dry-run fails",
+    "updated_at": "2025-11-11T05:23:24Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2025-11-06T07:01:25Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1286",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1286,
+    "state": "open",
+    "title": "autogen: Only consider tracked files in OQS meta file generation",
+    "updated_at": "2025-11-06T07:01:30Z"
+  },
+  {
+    "closed_at": "2026-03-03T01:40:46Z",
+    "created_at": "2025-11-06T05:27:22Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1285",
+    "is_pull_request": false,
+    "labels": [
+      "documentation",
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 1285,
+    "state": "closed",
+    "title": "Proofs: Document assumptions and soundness risks",
+    "updated_at": "2026-03-03T01:40:46Z"
+  },
+  {
+    "closed_at": "2025-11-06T09:42:56Z",
+    "created_at": "2025-11-06T05:00:49Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1284",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2025-11-06T09:42:56Z",
+    "number": 1284,
+    "state": "closed",
+    "title": "autogen: Fix missing indirection via file cache",
+    "updated_at": "2025-11-06T09:42:57Z"
+  },
+  {
+    "closed_at": "2025-11-05T18:16:34Z",
+    "created_at": "2025-11-05T14:23:53Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1280",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "CBMC"
+    ],
+    "merged_at": "2025-11-05T18:16:34Z",
+    "number": 1280,
+    "state": "closed",
+    "title": "CBMC: Call `mlk_randombytes` by contract",
+    "updated_at": "2025-11-05T18:16:36Z"
+  },
+  {
+    "closed_at": "2026-01-23T01:08:55Z",
+    "created_at": "2025-11-04T04:51:15Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1272",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 1272,
+    "state": "closed",
+    "title": "Support randombytes() with a failure mode",
+    "updated_at": "2026-01-23T01:08:55Z"
+  },
+  {
+    "closed_at": "2026-03-03T06:50:50Z",
+    "created_at": "2025-10-30T04:17:23Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1261",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "aarch64",
+      "hol-light"
+    ],
+    "merged_at": null,
+    "number": 1261,
+    "state": "closed",
+    "title": "HOL-Light: Import constant-time proofs from s2n-bignum",
+    "updated_at": "2026-03-03T06:50:50Z"
+  },
+  {
+    "closed_at": "2025-10-20T12:17:40Z",
+    "created_at": "2025-10-20T08:23:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1241",
+    "is_pull_request": true,
+    "labels": [
+      "enhancement",
+      "testing"
+    ],
+    "merged_at": "2025-10-20T12:17:40Z",
+    "number": 1241,
+    "state": "closed",
+    "title": "Add test exercising top-level API with unaligned buffers",
+    "updated_at": "2025-11-05T03:28:52Z"
+  },
+  {
+    "closed_at": "2025-11-13T04:13:44Z",
+    "created_at": "2025-10-20T04:08:13Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1240",
+    "is_pull_request": true,
+    "labels": [
+      "needs-work"
+    ],
+    "merged_at": null,
+    "number": 1240,
+    "state": "closed",
+    "title": "FIPS202: Provide alignment constraints for output buffers",
+    "updated_at": "2026-05-23T09:04:02Z"
+  },
+  {
+    "closed_at": "2025-10-11T03:24:32Z",
+    "created_at": "2025-10-09T13:24:20Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1223",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": "2025-10-11T03:24:32Z",
+    "number": 1223,
+    "state": "closed",
+    "title": "LIBOQS CT CI: Always compile for Haswell to avoid valgrind AVX512 failures",
+    "updated_at": "2025-10-11T03:24:33Z"
+  },
+  {
+    "closed_at": "2025-10-07T11:23:42Z",
+    "created_at": "2025-09-26T04:59:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1200",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-10-07T11:23:42Z",
+    "number": 1200,
+    "state": "closed",
+    "title": "OQS CI: Enable constant-time tests",
+    "updated_at": "2025-10-07T11:23:45Z"
+  },
+  {
+    "closed_at": "2025-10-07T11:23:43Z",
+    "created_at": "2025-09-26T04:57:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1199",
+    "is_pull_request": false,
+    "labels": [],
+    "merged_at": null,
+    "number": 1199,
+    "state": "closed",
+    "title": "OQS CI: Constant-time tests are being skipped",
+    "updated_at": "2025-10-07T11:23:43Z"
+  },
+  {
+    "closed_at": null,
+    "created_at": "2025-09-17T06:15:37Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1192",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC",
+      "soundness"
+    ],
+    "merged_at": null,
+    "number": 1192,
+    "state": "open",
+    "title": "CBMC: Add 32-bit run",
+    "updated_at": "2026-03-01T05:05:29Z"
+  },
+  {
+    "closed_at": "2025-09-17T17:39:51Z",
+    "created_at": "2025-09-16T19:59:15Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1191",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-09-17T17:39:51Z",
+    "number": 1191,
+    "state": "closed",
+    "title": "Introduce explicit upper bounds on lengths of buffers",
+    "updated_at": "2025-09-17T17:39:53Z"
+  },
+  {
+    "closed_at": "2025-09-17T01:46:45Z",
+    "created_at": "2025-09-16T01:35:53Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1190",
+    "is_pull_request": true,
+    "labels": [
+      "DO-NOT-MERGE"
+    ],
+    "merged_at": null,
+    "number": 1190,
+    "state": "closed",
+    "title": "DO NOT MERGE: Add KyberSlash vulnerability to check ct tests",
+    "updated_at": "2025-11-13T06:59:46Z"
+  },
+  {
+    "closed_at": "2025-09-17T17:39:52Z",
+    "created_at": "2025-09-15T04:27:53Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1189",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "CBMC"
+    ],
+    "merged_at": null,
+    "number": 1189,
+    "state": "closed",
+    "title": "CBMC: Make buffer bounds explicit",
+    "updated_at": "2025-09-17T17:39:52Z"
+  },
+  {
+    "closed_at": "2025-09-04T17:59:40Z",
+    "created_at": "2025-08-21T00:05:07Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1160",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "priority-high"
+    ],
+    "merged_at": null,
+    "number": 1160,
+    "state": "closed",
+    "title": "Call Frame Information (CFI) directives missing in assembly functions which breaks stack unwinding",
+    "updated_at": "2025-09-04T17:59:40Z"
+  },
+  {
+    "closed_at": "2025-11-13T04:26:02Z",
+    "created_at": "2025-08-08T04:15:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1150",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 1150,
+    "state": "closed",
+    "title": "Make: Changing tracked variables as environment variables does not trigger re-build",
+    "updated_at": "2025-11-13T04:26:02Z"
+  },
+  {
+    "closed_at": "2025-09-09T01:14:53Z",
+    "created_at": "2025-08-02T12:48:32Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1140",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-09-09T01:14:53Z",
+    "number": 1140,
+    "state": "closed",
+    "title": "Add clang 21 to compiler and constant-time tests",
+    "updated_at": "2025-09-09T01:14:54Z"
+  },
+  {
+    "closed_at": "2025-07-07T04:35:03Z",
+    "created_at": "2025-07-04T09:08:16Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1107",
+    "is_pull_request": false,
+    "labels": [],
+    "merged_at": null,
+    "number": 1107,
+    "state": "closed",
+    "title": "Running CBMC produces errors",
+    "updated_at": "2025-07-07T05:25:07Z"
+  },
+  {
+    "closed_at": "2025-08-30T03:15:25Z",
+    "created_at": "2025-06-28T13:27:02Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1101",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 1101,
+    "state": "closed",
+    "title": "[TEST]: Add CT-LLVM",
+    "updated_at": "2025-11-13T06:59:40Z"
+  },
+  {
+    "closed_at": "2025-08-10T03:25:19Z",
+    "created_at": "2025-06-16T09:44:58Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1086",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1086,
+    "state": "closed",
+    "title": "Test fails with `Illegal instruction (core dumped)` on x86_64 machine without AVX2",
+    "updated_at": "2025-08-10T03:25:19Z"
+  },
+  {
+    "closed_at": "2025-06-03T06:59:36Z",
+    "created_at": "2025-06-03T04:49:35Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1078",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2025-06-03T06:59:36Z",
+    "number": 1078,
+    "state": "closed",
+    "title": "HOL-Light: Fix paths in Makefile",
+    "updated_at": "2025-06-03T06:59:38Z"
+  },
+  {
+    "closed_at": "2025-06-01T12:14:18Z",
+    "created_at": "2025-06-01T06:49:05Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1069",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-06-01T12:14:18Z",
+    "number": 1069,
+    "state": "closed",
+    "title": "autogen: Add checker for undefined MLK_ and MLKEM_ macros",
+    "updated_at": "2025-06-01T12:14:20Z"
+  },
+  {
+    "closed_at": "2025-05-29T12:41:58Z",
+    "created_at": "2025-05-29T09:15:42Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1055",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1055,
+    "state": "closed",
+    "title": "liboqs: Segmentation fault in `poly_mulcache_compute_avx2`",
+    "updated_at": "2025-05-29T12:41:58Z"
+  },
+  {
+    "closed_at": "2025-05-21T07:31:54Z",
+    "created_at": "2025-05-21T03:59:07Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1039",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "CBMC"
+    ],
+    "merged_at": "2025-05-21T07:31:54Z",
+    "number": 1039,
+    "state": "closed",
+    "title": "CBMC: Don't declare structures in harnesses",
+    "updated_at": "2025-05-21T07:31:57Z"
+  },
+  {
+    "closed_at": "2025-05-20T01:55:07Z",
+    "created_at": "2025-05-19T02:55:44Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1033",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 1033,
+    "state": "closed",
+    "title": "Fix CI errors `Process completed with exit code 2.`",
+    "updated_at": "2025-05-20T01:55:07Z"
+  },
+  {
+    "closed_at": "2025-05-18T06:17:54Z",
+    "created_at": "2025-05-18T05:13:53Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1026",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "benchmark"
+    ],
+    "merged_at": "2025-05-18T06:17:54Z",
+    "number": 1026,
+    "state": "closed",
+    "title": "Fix API consistency check for backends",
+    "updated_at": "2025-05-18T06:27:31Z"
+  },
+  {
+    "closed_at": "2025-05-11T17:30:52Z",
+    "created_at": "2025-05-10T06:00:17Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1000",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2025-05-11T17:30:52Z",
+    "number": 1000,
+    "state": "closed",
+    "title": "AArch64: Zeroize rejection sampling stack buffer",
+    "updated_at": "2025-05-11T17:30:54Z"
+  },
+  {
+    "closed_at": "2025-04-29T11:48:21Z",
+    "created_at": "2025-04-29T10:42:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/986",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-04-29T11:48:21Z",
+    "number": 986,
+    "state": "closed",
+    "title": "Add statement of origin and terms of use for NIST KAT rng",
+    "updated_at": "2025-04-29T11:48:24Z"
+  },
+  {
+    "closed_at": "2025-05-29T05:09:50Z",
+    "created_at": "2025-04-09T07:25:26Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/960",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "integration"
+    ],
+    "merged_at": null,
+    "number": 960,
+    "state": "closed",
+    "title": "AWS-LC: Fix importer.sh to work on MacOS",
+    "updated_at": "2025-05-29T05:09:50Z"
+  },
+  {
+    "closed_at": "2025-04-08T07:05:44Z",
+    "created_at": "2025-04-08T03:11:17Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/956",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "ci"
+    ],
+    "merged_at": null,
+    "number": 956,
+    "state": "closed",
+    "title": "CI: Fix OQS build",
+    "updated_at": "2025-04-08T07:05:44Z"
+  },
+  {
+    "closed_at": "2025-04-08T02:07:25Z",
+    "created_at": "2025-04-06T06:43:55Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/951",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "documentation"
+    ],
+    "merged_at": null,
+    "number": 951,
+    "state": "closed",
+    "title": "Update SLOTHY README",
+    "updated_at": "2025-04-08T02:07:25Z"
+  },
+  {
+    "closed_at": "2025-04-01T05:03:23Z",
+    "created_at": "2025-04-01T02:41:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/924",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 924,
+    "state": "closed",
+    "title": "`tests all` does not actually run ACVP tests",
+    "updated_at": "2025-04-01T05:03:24Z"
+  },
+  {
+    "closed_at": "2025-06-19T14:30:14Z",
+    "created_at": "2025-03-31T07:18:54Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/923",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 923,
+    "state": "closed",
+    "title": "[TEST]: Add CT-LLVM",
+    "updated_at": "2025-06-19T14:30:14Z"
+  },
+  {
+    "closed_at": "2025-09-25T04:01:29Z",
+    "created_at": "2025-03-27T09:51:25Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/915",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 915,
+    "state": "closed",
+    "title": "Use CT-LLVM in CI",
+    "updated_at": "2025-09-25T04:01:29Z"
+  },
+  {
+    "closed_at": "2025-03-25T07:41:22Z",
+    "created_at": "2025-03-24T05:19:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/908",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-03-25T07:41:22Z",
+    "number": 908,
+    "state": "closed",
+    "title": "CI: Add clang 20.1.1 compiler tests and constant-time tests",
+    "updated_at": "2025-03-25T07:41:24Z"
+  },
+  {
+    "closed_at": "2025-03-23T06:15:31Z",
+    "created_at": "2025-03-23T05:33:24Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/904",
+    "is_pull_request": true,
+    "labels": [
+      "CBMC"
+    ],
+    "merged_at": "2025-03-23T06:15:31Z",
+    "number": 904,
+    "state": "closed",
+    "title": "CBMC: Add a link to list of undefined behaviors caught by CBMC",
+    "updated_at": "2025-03-23T06:15:33Z"
+  },
+  {
+    "closed_at": "2025-03-19T10:59:39Z",
+    "created_at": "2025-03-19T08:22:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/892",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-03-19T10:59:39Z",
+    "number": 892,
+    "state": "closed",
+    "title": "README: Don't claim absolute absence of UB",
+    "updated_at": "2025-03-19T10:59:40Z"
+  },
+  {
+    "closed_at": "2025-03-23T06:15:32Z",
+    "created_at": "2025-03-19T08:19:26Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/891",
+    "is_pull_request": false,
+    "labels": [
+      "CBMC"
+    ],
+    "merged_at": null,
+    "number": 891,
+    "state": "closed",
+    "title": "CBMC: Update CBMC README to explain which classes of UB are caught",
+    "updated_at": "2025-03-23T06:15:32Z"
+  },
+  {
+    "closed_at": "2025-03-15T11:45:47Z",
+    "created_at": "2025-03-13T03:59:29Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/873",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-03-15T11:45:47Z",
+    "number": 873,
+    "state": "closed",
+    "title": "Allow customization of randombytes function name ",
+    "updated_at": "2025-03-15T11:45:48Z"
+  },
+  {
+    "closed_at": "2025-02-26T06:25:25Z",
+    "created_at": "2025-02-25T17:36:00Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/808",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 808,
+    "state": "closed",
+    "title": "Benchmarking does not work on Intel Mac",
+    "updated_at": "2025-02-26T06:25:41Z"
+  },
+  {
+    "closed_at": "2025-02-24T08:01:32Z",
+    "created_at": "2025-02-23T07:00:40Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/801",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-02-24T08:01:32Z",
+    "number": 801,
+    "state": "closed",
+    "title": "CI: Add test for custom zeroization function",
+    "updated_at": "2025-02-24T08:01:35Z"
+  },
+  {
+    "closed_at": "2025-02-18T19:45:49Z",
+    "created_at": "2025-02-18T04:59:01Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/782",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-02-18T19:45:49Z",
+    "number": 782,
+    "state": "closed",
+    "title": "Remove ubuntu-20.04 jobs (due to GH deprecating the runners)",
+    "updated_at": "2025-02-18T19:45:51Z"
+  },
+  {
+    "closed_at": "2025-02-18T03:51:23Z",
+    "created_at": "2025-02-17T13:53:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/780",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-02-18T03:51:23Z",
+    "number": 780,
+    "state": "closed",
+    "title": "Use random coins for Pairwise Consistency Test (PCT)",
+    "updated_at": "2025-02-18T03:51:25Z"
+  },
+  {
+    "closed_at": "2025-02-18T03:51:24Z",
+    "created_at": "2025-02-17T13:16:05Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/779",
+    "is_pull_request": false,
+    "labels": [],
+    "merged_at": null,
+    "number": 779,
+    "state": "closed",
+    "title": "Use random coins in PCT",
+    "updated_at": "2025-03-04T12:48:30Z"
+  },
+  {
+    "closed_at": "2025-02-15T17:50:33Z",
+    "created_at": "2025-02-14T13:40:41Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/771",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-02-15T17:50:33Z",
+    "number": 771,
+    "state": "closed",
+    "title": "CT: Mark random coins as secret outside of randombytes()",
+    "updated_at": "2025-02-15T17:50:35Z"
+  },
+  {
+    "closed_at": "2025-02-05T16:46:12Z",
+    "created_at": "2025-02-05T14:07:45Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/749",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "testing",
+      "aarch64",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 749,
+    "state": "closed",
+    "title": "`autogen --aarch64-clean` causes `tests all` to fail on macOS",
+    "updated_at": "2025-03-04T12:48:29Z"
+  },
+  {
+    "closed_at": "2025-01-31T14:18:30Z",
+    "created_at": "2025-01-31T12:20:17Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/724",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-01-31T14:18:30Z",
+    "number": 724,
+    "state": "closed",
+    "title": "CI: Only run constant-time tests using patched Valgrind",
+    "updated_at": "2025-02-05T15:48:27Z"
+  },
+  {
+    "closed_at": "2025-02-15T18:59:54Z",
+    "created_at": "2025-01-30T10:59:27Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/720",
+    "is_pull_request": false,
+    "labels": [],
+    "merged_at": null,
+    "number": 720,
+    "state": "closed",
+    "title": "Enumerate all secret stack buffers",
+    "updated_at": "2025-03-04T12:48:27Z"
+  },
+  {
+    "closed_at": "2025-01-27T08:37:19Z",
+    "created_at": "2025-01-27T08:04:54Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/705",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2025-01-27T08:37:19Z",
+    "number": 705,
+    "state": "closed",
+    "title": "Add alignment constraint to stack buffer in rejection sampling",
+    "updated_at": "2025-02-05T15:48:25Z"
+  },
+  {
+    "closed_at": "2025-01-27T04:21:43Z",
+    "created_at": "2025-01-26T03:24:05Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/702",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 702,
+    "state": "closed",
+    "title": "AArch64 assembly alignment warnings",
+    "updated_at": "2025-03-04T12:48:26Z"
+  },
+  {
+    "closed_at": "2025-01-24T07:06:56Z",
+    "created_at": "2025-01-24T06:25:28Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/694",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 694,
+    "state": "closed",
+    "title": "Compress: Use shift instead of division by 2-power",
+    "updated_at": "2025-04-11T03:49:54Z"
+  },
+  {
+    "closed_at": "2025-01-24T07:29:10Z",
+    "created_at": "2025-01-24T04:49:27Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/692",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-01-24T07:29:10Z",
+    "number": 692,
+    "state": "closed",
+    "title": "CI: Limit max # of parallel constant-time-check tasks",
+    "updated_at": "2025-02-05T15:48:25Z"
+  },
+  {
+    "closed_at": "2025-01-23T14:24:11Z",
+    "created_at": "2025-01-23T03:22:51Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/687",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-01-23T14:24:11Z",
+    "number": 687,
+    "state": "closed",
+    "title": "Add Valgrind-based constant-time tests",
+    "updated_at": "2025-02-05T15:48:24Z"
+  },
+  {
+    "closed_at": "2025-01-25T14:01:18Z",
+    "created_at": "2025-01-21T07:37:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/676",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2025-01-25T14:01:18Z",
+    "number": 676,
+    "state": "closed",
+    "title": "Test: Add Github ubuntu-24.04-arm runners",
+    "updated_at": "2025-02-05T15:48:25Z"
+  },
+  {
+    "closed_at": "2025-01-14T04:33:28Z",
+    "created_at": "2025-01-13T08:18:05Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/652",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "benchmark"
+    ],
+    "merged_at": null,
+    "number": 652,
+    "state": "closed",
+    "title": "`tests bench --opt ALL -c NO` not executing no_opt benchmarks",
+    "updated_at": "2025-01-14T04:33:28Z"
+  },
+  {
+    "closed_at": "2025-03-15T11:45:48Z",
+    "created_at": "2025-01-12T08:17:41Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/640",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 640,
+    "state": "closed",
+    "title": "Make name of `randombytes` configurable",
+    "updated_at": "2025-03-15T11:45:48Z"
+  },
+  {
+    "closed_at": "2025-01-06T05:06:25Z",
+    "created_at": "2025-01-06T04:15:12Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/616",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": "2025-01-06T05:06:25Z",
+    "number": 616,
+    "state": "closed",
+    "title": "Format: Ignore symlinks",
+    "updated_at": "2025-02-05T15:48:19Z"
+  },
+  {
+    "closed_at": "2025-01-06T05:06:26Z",
+    "created_at": "2025-01-06T03:53:28Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/614",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 614,
+    "state": "closed",
+    "title": "`format` creates copies from symlinks",
+    "updated_at": "2025-01-06T05:06:26Z"
+  },
+  {
+    "closed_at": "2025-01-02T05:33:54Z",
+    "created_at": "2025-01-01T20:10:14Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/608",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": "2025-01-02T05:33:54Z",
+    "number": 608,
+    "state": "closed",
+    "title": "Makefile: Fix race condition during duplicated symbol checking",
+    "updated_at": "2025-02-05T15:48:18Z"
+  },
+  {
+    "closed_at": "2025-01-02T05:33:55Z",
+    "created_at": "2025-01-01T19:40:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/607",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 607,
+    "state": "closed",
+    "title": "Parallel build of `mlkem` target on MacOS with gcc-11 sometimes fails with libc++ runtime error",
+    "updated_at": "2025-01-02T05:33:55Z"
+  },
+  {
+    "closed_at": "2025-01-02T07:00:47Z",
+    "created_at": "2025-01-01T14:27:06Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/606",
+    "is_pull_request": true,
+    "labels": [
+      "documentation",
+      "enhancement"
+    ],
+    "merged_at": "2025-01-02T07:00:47Z",
+    "number": 606,
+    "state": "closed",
+    "title": "README: Minor improvement to Ubuntu quickstart",
+    "updated_at": "2025-02-05T15:48:18Z"
+  },
+  {
+    "closed_at": "2025-01-02T06:42:11Z",
+    "created_at": "2024-12-31T20:25:32Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/601",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 601,
+    "state": "closed",
+    "title": "`make bench` adds HAL to libmlkem.a",
+    "updated_at": "2025-01-02T06:42:11Z"
+  },
+  {
+    "closed_at": "2024-12-28T09:15:33Z",
+    "created_at": "2024-12-28T07:41:20Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/586",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-12-28T09:15:33Z",
+    "number": 586,
+    "state": "closed",
+    "title": "Improved error messages for dev scripts",
+    "updated_at": "2025-02-05T15:48:17Z"
+  },
+  {
+    "closed_at": "2024-12-28T05:18:58Z",
+    "created_at": "2024-12-28T04:56:46Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/584",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 584,
+    "state": "closed",
+    "title": "CI: Test nix install via apt on Ubuntu",
+    "updated_at": "2025-04-11T03:48:42Z"
+  },
+  {
+    "closed_at": "2024-12-30T20:23:11Z",
+    "created_at": "2024-12-27T17:46:23Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/581",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "documentation",
+      "dependencies"
+    ],
+    "merged_at": null,
+    "number": 581,
+    "state": "closed",
+    "title": "Document clang-format version requirements",
+    "updated_at": "2024-12-30T20:23:11Z"
+  },
+  {
+    "closed_at": "2024-12-28T13:10:41Z",
+    "created_at": "2024-12-27T06:20:37Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/580",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 580,
+    "state": "closed",
+    "title": "autogenerate_files.py: Provide meaningful error message when clang-format fails",
+    "updated_at": "2024-12-28T13:10:41Z"
+  },
+  {
+    "closed_at": "2024-12-24T12:27:12Z",
+    "created_at": "2024-12-23T22:48:47Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/574",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 574,
+    "state": "closed",
+    "title": "AVX2 backend not enabled by default",
+    "updated_at": "2024-12-24T16:01:22Z"
+  },
+  {
+    "closed_at": "2024-12-22T12:56:04Z",
+    "created_at": "2024-12-20T20:51:24Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/560",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "enhancement"
+    ],
+    "merged_at": null,
+    "number": 560,
+    "state": "closed",
+    "title": "Make test scripts usable in older versions of Python",
+    "updated_at": "2024-12-22T12:56:04Z"
+  },
+  {
+    "closed_at": "2024-12-20T07:34:22Z",
+    "created_at": "2024-12-20T05:45:49Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/556",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 556,
+    "state": "closed",
+    "title": "Build fails on MacOS (Apple M1) with gcc-11 nix shell",
+    "updated_at": "2024-12-20T07:34:22Z"
+  },
+  {
+    "closed_at": "2024-12-21T05:00:07Z",
+    "created_at": "2024-12-19T19:06:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/552",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "build"
+    ],
+    "merged_at": null,
+    "number": 552,
+    "state": "closed",
+    "title": "Build of benchmark test fails with gcc 14.2.0",
+    "updated_at": "2024-12-21T05:00:07Z"
+  },
+  {
+    "closed_at": "2024-12-18T06:26:35Z",
+    "created_at": "2024-12-17T20:24:50Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/541",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "benchmark"
+    ],
+    "merged_at": "2024-12-18T06:26:35Z",
+    "number": 541,
+    "state": "closed",
+    "title": "Fix ordering of includes in arith/fips202 backend",
+    "updated_at": "2025-02-05T15:48:15Z"
+  },
+  {
+    "closed_at": "2024-12-13T08:53:06Z",
+    "created_at": "2024-12-13T07:06:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/524",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2024-12-13T08:53:06Z",
+    "number": 524,
+    "state": "closed",
+    "title": "Build libraries for individual and all security levels",
+    "updated_at": "2025-02-05T15:48:14Z"
+  },
+  {
+    "closed_at": "2024-12-12T14:53:00Z",
+    "created_at": "2024-12-12T13:09:58Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/517",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-12-12T14:53:00Z",
+    "number": 517,
+    "state": "closed",
+    "title": "FIPS202: Remove redundant zeroization in shake128_absorb_once()",
+    "updated_at": "2025-02-05T15:48:13Z"
+  },
+  {
+    "closed_at": "2025-01-23T14:24:12Z",
+    "created_at": "2024-11-30T15:28:42Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/462",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "priority-high"
+    ],
+    "merged_at": null,
+    "number": 462,
+    "state": "closed",
+    "title": "Run valgrind-based constant-time tests in CI",
+    "updated_at": "2025-01-31T09:00:20Z"
+  },
+  {
+    "closed_at": "2024-12-01T04:03:06Z",
+    "created_at": "2024-11-29T08:44:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/460",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2024-12-01T04:03:06Z",
+    "number": 460,
+    "state": "closed",
+    "title": "Harden constant time functions against inlining and optimizations",
+    "updated_at": "2024-12-01T04:03:07Z"
+  },
+  {
+    "closed_at": "2024-11-26T08:00:12Z",
+    "created_at": "2024-11-20T00:26:53Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/429",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "x86_64"
+    ],
+    "merged_at": null,
+    "number": 429,
+    "state": "closed",
+    "title": "Unstable benchmarking in EC2 on x86_64",
+    "updated_at": "2024-11-26T08:00:13Z"
+  },
+  {
+    "closed_at": "2024-11-14T05:52:17Z",
+    "created_at": "2024-11-13T04:36:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/392",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2024-11-14T05:52:17Z",
+    "number": 392,
+    "state": "closed",
+    "title": "Fix EC2 failures when Github runner name is already taken",
+    "updated_at": "2024-11-14T05:52:19Z"
+  },
+  {
+    "closed_at": "2024-11-27T06:41:32Z",
+    "created_at": "2024-11-13T04:09:49Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/391",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "ci",
+      "priority-high"
+    ],
+    "merged_at": null,
+    "number": 391,
+    "state": "closed",
+    "title": "CI timeouts due to EC2 runners sometimes not picking up the CI jobs",
+    "updated_at": "2024-11-27T06:41:33Z"
+  },
+  {
+    "closed_at": "2024-11-12T03:51:36Z",
+    "created_at": "2024-11-11T10:50:03Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/375",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-11-12T03:51:35Z",
+    "number": 375,
+    "state": "closed",
+    "title": "Fix tests error handling and logging output file",
+    "updated_at": "2024-11-12T03:51:37Z"
+  },
+  {
+    "closed_at": "2024-11-05T05:43:22Z",
+    "created_at": "2024-11-04T19:59:29Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/340",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-11-05T05:43:22Z",
+    "number": 340,
+    "state": "closed",
+    "title": "CBMC: Pass uninitialized pointers in all verification harnesses",
+    "updated_at": "2024-11-05T05:43:23Z"
+  },
+  {
+    "closed_at": "2024-10-31T19:47:18Z",
+    "created_at": "2024-10-31T06:59:48Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/291",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-10-31T19:47:18Z",
+    "number": 291,
+    "state": "closed",
+    "title": "Add input validation for public key and secret key",
+    "updated_at": "2024-10-31T19:47:20Z"
+  },
+  {
+    "closed_at": "2024-10-31T05:30:10Z",
+    "created_at": "2024-10-30T08:41:45Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/285",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2024-10-31T05:30:10Z",
+    "number": 285,
+    "state": "closed",
+    "title": "Fix makefile cflags propagation and duplication issue, remove RNG .a files",
+    "updated_at": "2024-10-31T05:30:12Z"
+  },
+  {
+    "closed_at": "2024-10-30T09:54:45Z",
+    "created_at": "2024-10-30T06:07:16Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/279",
+    "is_pull_request": true,
+    "labels": [
+      "benchmark"
+    ],
+    "merged_at": "2024-10-30T09:54:45Z",
+    "number": 279,
+    "state": "closed",
+    "title": "Add address + UB sanitizer to CI debug tests",
+    "updated_at": "2024-10-30T09:54:48Z"
+  },
+  {
+    "closed_at": "2024-10-30T09:54:46Z",
+    "created_at": "2024-10-30T05:42:10Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/278",
+    "is_pull_request": false,
+    "labels": [
+      "enhancement",
+      "testing"
+    ],
+    "merged_at": null,
+    "number": 278,
+    "state": "closed",
+    "title": "Add address and UB sanitizer to debug tests",
+    "updated_at": "2024-10-30T09:54:47Z"
+  },
+  {
+    "closed_at": "2024-10-30T09:28:34Z",
+    "created_at": "2024-10-30T05:09:32Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/276",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 276,
+    "state": "closed",
+    "title": "`tests --cflags` does not work with multiple arguments",
+    "updated_at": "2024-10-30T09:28:34Z"
+  },
+  {
+    "closed_at": "2024-10-31T05:30:11Z",
+    "created_at": "2024-10-30T04:44:45Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/275",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "testing"
+    ],
+    "merged_at": null,
+    "number": 275,
+    "state": "closed",
+    "title": "Redundant CFLAGS `make` when specifying CFLAGS base",
+    "updated_at": "2024-10-31T05:30:12Z"
+  },
+  {
+    "closed_at": "2024-11-27T07:02:03Z",
+    "created_at": "2024-10-30T04:21:47Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/274",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "ci"
+    ],
+    "merged_at": null,
+    "number": 274,
+    "state": "closed",
+    "title": "Automatically terminate CI EC2 instances after some time",
+    "updated_at": "2024-11-27T07:02:03Z"
+  },
+  {
+    "closed_at": "2024-10-28T06:10:19Z",
+    "created_at": "2024-10-28T03:21:21Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/261",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-10-28T06:10:19Z",
+    "number": 261,
+    "state": "closed",
+    "title": "Remove randombytes.c and add notrandombytes.c",
+    "updated_at": "2024-10-28T06:10:23Z"
+  },
+  {
+    "closed_at": "2024-10-28T06:10:22Z",
+    "created_at": "2024-10-25T12:53:30Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/260",
+    "is_pull_request": false,
+    "labels": [],
+    "merged_at": null,
+    "number": 260,
+    "state": "closed",
+    "title": "Remove randombytes",
+    "updated_at": "2024-10-28T06:10:22Z"
+  },
+  {
+    "closed_at": "2024-10-17T15:54:28Z",
+    "created_at": "2024-10-17T15:17:39Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/254",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 254,
+    "state": "closed",
+    "title": "Performance regression on Graviton4 from #249",
+    "updated_at": "2024-10-17T15:54:29Z"
+  },
+  {
+    "closed_at": "2024-10-17T12:14:57Z",
+    "created_at": "2024-10-17T06:15:04Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/252",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 252,
+    "state": "closed",
+    "title": "`tests` does not work out of the box with Ubuntu-22.04",
+    "updated_at": "2024-10-17T12:14:57Z"
+  },
+  {
+    "closed_at": "2024-11-07T06:42:09Z",
+    "created_at": "2024-10-17T05:52:32Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/251",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 251,
+    "state": "closed",
+    "title": "`tests all` does not work if `tests` not in PATH",
+    "updated_at": "2024-11-07T06:42:09Z"
+  },
+  {
+    "closed_at": "2024-10-15T14:17:02Z",
+    "created_at": "2024-10-15T08:23:44Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/240",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "testing"
+    ],
+    "merged_at": null,
+    "number": 240,
+    "state": "closed",
+    "title": "`tests` script does not work outside of nix environment",
+    "updated_at": "2024-10-15T14:17:03Z"
+  },
+  {
+    "closed_at": "2024-10-14T06:21:41Z",
+    "created_at": "2024-10-12T06:04:28Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/217",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "benchmark",
+      "ci"
+    ],
+    "merged_at": null,
+    "number": 217,
+    "state": "closed",
+    "title": "fix ci event trigger for labelling",
+    "updated_at": "2024-10-14T06:21:42Z"
+  },
+  {
+    "closed_at": "2025-01-09T20:50:37Z",
+    "created_at": "2024-10-12T03:52:20Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/214",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "testing"
+    ],
+    "merged_at": null,
+    "number": 214,
+    "state": "closed",
+    "title": "Formatting off in `tests all`",
+    "updated_at": "2025-01-09T20:50:37Z"
+  },
+  {
+    "closed_at": "2024-10-17T18:22:50Z",
+    "created_at": "2024-10-11T19:20:51Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/213",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "ci"
+    ],
+    "merged_at": null,
+    "number": 213,
+    "state": "closed",
+    "title": "CI workflows reset when setting 'benchmark' label",
+    "updated_at": "2024-10-17T18:22:50Z"
+  },
+  {
+    "closed_at": "2024-10-31T19:47:19Z",
+    "created_at": "2024-10-10T04:17:22Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/210",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "priority-high"
+    ],
+    "merged_at": null,
+    "number": 210,
+    "state": "closed",
+    "title": "Make implementation fully FIPS203 compliant",
+    "updated_at": "2024-10-31T19:47:20Z"
+  },
+  {
+    "closed_at": "2024-10-14T05:04:10Z",
+    "created_at": "2024-10-05T07:31:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/198",
+    "is_pull_request": false,
+    "labels": [
+      "bug",
+      "testing"
+    ],
+    "merged_at": null,
+    "number": 198,
+    "state": "closed",
+    "title": "Tests scripts do not work out of the box on x86",
+    "updated_at": "2024-10-14T05:04:10Z"
+  },
+  {
+    "closed_at": "2024-10-04T15:51:32Z",
+    "created_at": "2024-10-04T08:03:18Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/193",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 193,
+    "state": "closed",
+    "title": "clang-format CI does not catch formatting mismatches",
+    "updated_at": "2024-10-04T15:51:33Z"
+  },
+  {
+    "closed_at": "2024-10-03T06:01:50Z",
+    "created_at": "2024-10-03T05:06:36Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/185",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2024-10-03T06:01:50Z",
+    "number": 185,
+    "state": "closed",
+    "title": "Fix gen_matrix()",
+    "updated_at": "2024-10-04T12:17:52Z"
+  },
+  {
+    "closed_at": "2024-10-01T05:04:46Z",
+    "created_at": "2024-10-01T04:22:52Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/172",
+    "is_pull_request": true,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": "2024-10-01T05:04:46Z",
+    "number": 172,
+    "state": "closed",
+    "title": "tests: Fix bug in export of benchmarking results",
+    "updated_at": "2024-10-04T12:17:51Z"
+  },
+  {
+    "closed_at": "2024-10-01T08:38:39Z",
+    "created_at": "2024-09-24T02:51:09Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/157",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 157,
+    "state": "closed",
+    "title": "Running format errors in x86_64-linux-cross-ci shell",
+    "updated_at": "2024-10-01T08:38:39Z"
+  },
+  {
+    "closed_at": "2024-10-01T11:11:53Z",
+    "created_at": "2024-09-21T04:19:11Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/149",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 149,
+    "state": "closed",
+    "title": "EC2 CI fails on PRs from forks",
+    "updated_at": "2024-10-01T11:11:53Z"
+  },
+  {
+    "closed_at": "2024-09-10T08:16:18Z",
+    "created_at": "2024-09-09T14:47:53Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/114",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 114,
+    "state": "closed",
+    "title": "The `--cflags` parameter in the `tests` script does not work",
+    "updated_at": "2024-09-10T08:16:18Z"
+  },
+  {
+    "closed_at": "2024-09-09T03:46:35Z",
+    "created_at": "2024-08-12T15:56:07Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/94",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 94,
+    "state": "closed",
+    "title": "astyle lint is breaking mlkem/poly.c on branch only",
+    "updated_at": "2024-09-09T03:46:53Z"
+  },
+  {
+    "closed_at": "2024-06-26T03:06:48Z",
+    "created_at": "2024-06-25T08:45:06Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/77",
+    "is_pull_request": true,
+    "labels": [
+      "bug",
+      "benchmark"
+    ],
+    "merged_at": "2024-06-26T03:06:48Z",
+    "number": 77,
+    "state": "closed",
+    "title": "Make the bench workflow trigger more naturally",
+    "updated_at": "2024-10-04T12:17:45Z"
+  },
+  {
+    "closed_at": "2024-06-26T06:59:28Z",
+    "created_at": "2024-06-21T05:17:16Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/75",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 75,
+    "state": "closed",
+    "title": "Makefile should properly keep track of variables",
+    "updated_at": "2024-06-26T06:59:28Z"
+  },
+  {
+    "closed_at": "2024-06-21T06:01:22Z",
+    "created_at": "2024-06-21T05:11:34Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/74",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 74,
+    "state": "closed",
+    "title": "Benchmarks sometimes report 0 cycles",
+    "updated_at": "2024-06-21T06:01:22Z"
+  },
+  {
+    "closed_at": "2024-06-13T06:31:51Z",
+    "created_at": "2024-06-13T05:22:11Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/57",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-06-13T06:31:51Z",
+    "number": 57,
+    "state": "closed",
+    "title": "Use ubuntu-latest for lint job instead",
+    "updated_at": "2024-10-04T12:17:44Z"
+  },
+  {
+    "closed_at": "2024-06-13T05:22:29Z",
+    "created_at": "2024-06-12T09:13:40Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/55",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-06-13T05:22:29Z",
+    "number": 55,
+    "state": "closed",
+    "title": "Fix secret-dependent branch in poly_fromsg",
+    "updated_at": "2024-10-04T12:17:44Z"
+  },
+  {
+    "closed_at": "2024-09-10T08:58:32Z",
+    "created_at": "2024-06-10T11:42:37Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/52",
+    "is_pull_request": false,
+    "labels": [
+      "bug"
+    ],
+    "merged_at": null,
+    "number": 52,
+    "state": "closed",
+    "title": "poly_frombytes() not inverse of poly_tobytes()",
+    "updated_at": "2024-09-10T08:58:32Z"
+  },
+  {
+    "closed_at": "2024-03-26T21:18:47Z",
+    "created_at": "2024-03-24T22:29:09Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/20",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": "2024-03-26T21:18:47Z",
+    "number": 20,
+    "state": "closed",
+    "title": "Add randombytes",
+    "updated_at": "2024-10-04T12:17:42Z"
+  },
+  {
+    "closed_at": "2024-03-24T02:36:20Z",
+    "created_at": "2024-03-20T11:14:28Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/5",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 5,
+    "state": "closed",
+    "title": "Format randombytes with astyle",
+    "updated_at": "2024-03-24T02:59:50Z"
+  },
+  {
+    "closed_at": "2024-03-24T02:36:19Z",
+    "created_at": "2024-03-20T11:14:25Z",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/4",
+    "is_pull_request": true,
+    "labels": [],
+    "merged_at": null,
+    "number": 4,
+    "state": "closed",
+    "title": "Add randombytes",
+    "updated_at": "2024-03-24T02:59:49Z"
+  }
+]

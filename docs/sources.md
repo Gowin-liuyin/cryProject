@@ -1,7 +1,10 @@
 # 来源与构建口径
 
 参考实现：<https://github.com/pq-code-package/mlkem-native>
-固定提交：`b3ba7b32773e657dd37f6f87bce82528459ad8a4`（2026-09-21）。
+固定提交：`b3ba7b32773e657dd37f6f87bce82528459ad8a4`。
+[上游提交记录](https://github.com/pq-code-package/mlkem-native/commit/b3ba7b32773e657dd37f6f87bce82528459ad8a4)
+的作者时间为 2026-09-21 07:50:12 UTC，提交者时间为 2026-09-22 03:22:27 UTC。
+本轮将原先仅写作者日期的来源记录补齐，两者不是库版本差异或上游漏洞。
 `vendor/mlkem-native/mlkem/` 原样复制该提交的完整库目录；`LICENSE` 原样保留。
 库代码按 Apache-2.0 OR ISC OR MIT 提供，文档 CC-BY-4.0；各文件版权及 SPDX 以原件为准。
 本项目采用便携 C 后端、ML-KEM-768，禁用上游随机 API，由后续封装管理系统随机源。
@@ -15,11 +18,17 @@ poly_frommsg 编译器生成秘密相关分支，列举 x86、Clang 15–18、-O
 历史案例不能直接冒称本机已复现，也不能将旧 Kyber 身份换成当前 ML-KEM。
 已在当前库上单独维护最小机制回归补丁，并核验实际采集产物的机器码。
 
-当前实机：macOS Darwin 25.6.0 arm64，Apple Clang 21.0.0
+早期记录（保留当时时点）：macOS Darwin 25.6.0 arm64，Apple Clang 21.0.0
 (clang-2100.3.34.2)，当前 CMake 默认 RelWithDebInfo（本机 `-O2 -g -DNDEBUG`）、C11、严格警告、无 LTO。
 另在 Apple Silicon 主机的 linux/arm64 容器（Ubuntu 24.04、GNU GCC 13.3.0）完成 Linux 与
 GNU GCC 的功能与产物验证，见 [验证记录](validation.md)；该容器时钟分辨率为 1ms，不产出时序证据。
-x86_64 Linux 实机验证尚未执行。
+上述早期阶段尚未执行 x86_64 Linux 实机验证；它不是当前状态。
+后续已在授权的 Ubuntu 24.04.4/x86_64/KVM、4 vCPU 云实例完成
+[E01 参考验收](evidence/native-reference-20261007/README.md)和
+[E02 三种形态普通性能](evidence/native-final-20261007/README.md)，
+源码分别为记录中固定的 `9d9554b` 与 `0e8be6d`。
+它们是已有实际记录，不属于本轮重新执行；普通性能不构成完整秘密机制防护闭环。
+本轮公开来源与版本关系见[集中审查](upstream-security-review.md)。
 
 模块一建立两个独立静态库构建目标；从模块三开始，vulnerable 对构建目录副本
 应用独立消息编码补丁，参考版继续编译原始快照。后续增加的 hardened 变体同样只作用于

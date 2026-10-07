@@ -1,0 +1,338 @@
+[
+  {
+    "number": 55,
+    "title": "Fix secret-dependent branch in poly_fromsg",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/55",
+    "created_at": "2024-06-12T09:13:40Z",
+    "updated_at": "2024-10-04T12:17:44Z",
+    "closed_at": "2024-06-13T05:22:29Z",
+    "merged_at": "2024-06-13T05:22:29Z",
+    "merge_commit_sha": "9d98b94453b49c14b26334088ec8924bf5047d29",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 2490,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 2490
+    }
+  },
+  {
+    "number": 460,
+    "title": "Harden constant time functions against inlining and optimizations",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/460",
+    "created_at": "2024-11-29T08:44:48Z",
+    "updated_at": "2024-12-01T04:03:07Z",
+    "closed_at": "2024-12-01T04:03:06Z",
+    "merged_at": "2024-12-01T04:03:06Z",
+    "merge_commit_sha": "b2c64037ba605fb3cdfa8cdd763ba700b2e6c9c3",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 1992,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 1992
+    }
+  },
+  {
+    "number": 1328,
+    "title": "indcpa: Add missing zeroization of pkpv",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1328",
+    "created_at": "2025-12-01T02:04:27Z",
+    "updated_at": "2025-12-01T09:28:56Z",
+    "closed_at": "2025-12-01T09:28:55Z",
+    "merged_at": "2025-12-01T09:28:55Z",
+    "merge_commit_sha": "72b9197125bc8d0a5dc75da6327b4a75f8be41bd",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 481,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 481
+    }
+  },
+  {
+    "number": 1342,
+    "title": "Make value barrier volatile",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1342",
+    "created_at": "2025-12-05T06:53:34Z",
+    "updated_at": "2025-12-29T14:50:27Z",
+    "closed_at": "2025-12-29T14:50:26Z",
+    "merged_at": "2025-12-29T14:50:26Z",
+    "merge_commit_sha": "d10fee2e16533feae5e1343692fb77f6bb2e411d",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 420,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 420
+    }
+  },
+  {
+    "number": 1402,
+    "title": "Fix pointer cleanup on dynamic allocation failure",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1402",
+    "created_at": "2025-12-17T10:05:29Z",
+    "updated_at": "2025-12-17T13:07:24Z",
+    "closed_at": "2025-12-17T13:07:22Z",
+    "merged_at": "2025-12-17T13:07:22Z",
+    "merge_commit_sha": "eceae93c93a2c4498d52d839e17bb41d38b24447",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 447,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 447
+    }
+  },
+  {
+    "number": 1559,
+    "title": "Keypair: zeroize pk and sk in case of PCT failure",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1559",
+    "created_at": "2026-02-10T02:54:13Z",
+    "updated_at": "2026-02-10T10:30:16Z",
+    "closed_at": "2026-02-10T10:30:12Z",
+    "merged_at": "2026-02-10T10:30:12Z",
+    "merge_commit_sha": "6d579fa6b88d94d734bf12157addbb4c5892fa9e",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 330,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 330
+    }
+  },
+  {
+    "number": 1615,
+    "title": "x86_64/rej_uniform: Stick within the bounds of the input buffer",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1615",
+    "created_at": "2026-03-07T21:59:52Z",
+    "updated_at": "2026-03-07T23:28:01Z",
+    "closed_at": "2026-03-07T23:27:59Z",
+    "merged_at": "2026-03-07T23:27:59Z",
+    "merge_commit_sha": "f10b80194b52c9e3a9606489c11412afdb783752",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 264,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 264
+    }
+  },
+  {
+    "number": 1694,
+    "title": "CBMC: Document and enforce 4 GiB limit of forall/exists quantifiers",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1694",
+    "created_at": "2026-05-15T03:55:17Z",
+    "updated_at": "2026-05-22T00:59:23Z",
+    "closed_at": "2026-05-16T02:52:44Z",
+    "merged_at": "2026-05-16T02:52:44Z",
+    "merge_commit_sha": "070028c9bfe2ac241b20a29169fc89e9f42f43f5",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 182,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 182
+    }
+  },
+  {
+    "number": 1727,
+    "title": " Fix signed-shift UB on 16-bit-int targets in `mlk_rej_uniform_c` and `mlk_poly_frombytes_c`",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1727",
+    "created_at": "2026-06-07T01:06:38Z",
+    "updated_at": "2026-06-12T03:00:45Z",
+    "closed_at": "2026-06-07T12:00:51Z",
+    "merged_at": "2026-06-07T12:00:51Z",
+    "merge_commit_sha": "0356a25da256f843c7a58c80e8c82963ff755127",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 162,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 162
+    }
+  },
+  {
+    "number": 1732,
+    "title": "RV64: Minor bug fix and constant-time hardening",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1732",
+    "created_at": "2026-06-07T07:57:19Z",
+    "updated_at": "2026-06-08T15:27:02Z",
+    "closed_at": "2026-06-08T15:27:00Z",
+    "merged_at": "2026-06-08T15:27:00Z",
+    "merge_commit_sha": "3e19945b092ae4baf76488a3cdff816d789a6762",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 147,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 147
+    }
+  },
+  {
+    "number": 1745,
+    "title": "nix: Bump CBMC to latest develop to work around z3 soundness issue",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1745",
+    "created_at": "2026-06-14T04:06:42Z",
+    "updated_at": "2026-06-20T04:39:37Z",
+    "closed_at": "2026-06-20T04:39:36Z",
+    "merged_at": "2026-06-20T04:39:36Z",
+    "merge_commit_sha": "68ca560e6a7bf4f47f16de65301e81f6b4bd1b6d",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 132,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 132
+    }
+  },
+  {
+    "number": 1762,
+    "title": "Upgrade to tagged release of CBMC 6.10.0",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1762",
+    "created_at": "2026-06-26T09:37:59Z",
+    "updated_at": "2026-06-26T12:20:42Z",
+    "closed_at": "2026-06-26T12:20:39Z",
+    "merged_at": "2026-06-26T12:20:39Z",
+    "merge_commit_sha": "3abd699be199e1b97cd40431a9356b5ab409736f",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 125,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 125
+    }
+  },
+  {
+    "number": 1816,
+    "title": "Fix build for MLK_CONFIG_NO_RANDOMIZED_API",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1816",
+    "created_at": "2026-07-26T05:08:56Z",
+    "updated_at": "2026-08-08T05:03:20Z",
+    "closed_at": "2026-08-02T11:55:17Z",
+    "merged_at": "2026-08-02T11:55:17Z",
+    "merge_commit_sha": "b668a29ddc9ad7364f18d6488847b8e2168013d5",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 89,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 89
+    }
+  },
+  {
+    "number": 1850,
+    "title": "CBMC: Check that outputs are zeroized or unmodified on error",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1850",
+    "created_at": "2026-08-05T04:23:48Z",
+    "updated_at": "2026-08-08T05:03:26Z",
+    "closed_at": "2026-08-06T12:31:44Z",
+    "merged_at": "2026-08-06T12:31:43Z",
+    "merge_commit_sha": "5a5f77cc12518e1ecbbe1923e92638cb3a6fdd03",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 67,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 67
+    }
+  },
+  {
+    "number": 1852,
+    "title": "Split ambiguous MLK_ERR_FAIL into specific error codes",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1852",
+    "created_at": "2026-08-05T04:43:38Z",
+    "updated_at": "2026-08-07T06:14:09Z",
+    "closed_at": "2026-08-07T04:57:30Z",
+    "merged_at": "2026-08-07T04:57:30Z",
+    "merge_commit_sha": "7c48efa57513bc9c3b4b406d70169edc3de6dfc1",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 62,
+      "behind_by": 0,
+      "status": "ahead",
+      "total_commits": 62
+    }
+  },
+  {
+    "number": 1909,
+    "title": "Beware of temporary writes to external buffers",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1909",
+    "created_at": "2026-09-20T08:37:16Z",
+    "updated_at": "2026-09-20T08:39:43Z",
+    "closed_at": null,
+    "merged_at": null,
+    "merge_commit_sha": null
+  },
+  {
+    "number": 1919,
+    "title": "Including mlkem_native.h before the sources silently drops build-only config options",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1919",
+    "created_at": "2026-09-25T15:14:39Z",
+    "updated_at": "2026-09-26T05:32:07Z",
+    "closed_at": "2026-09-26T05:32:07Z",
+    "merged_at": null,
+    "merge_commit_sha": null
+  },
+  {
+    "number": 1920,
+    "title": "Config: Make the config file flat",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1920",
+    "created_at": "2026-09-25T15:17:56Z",
+    "updated_at": "2026-09-26T05:32:07Z",
+    "closed_at": "2026-09-26T05:32:06Z",
+    "merged_at": "2026-09-26T05:32:05Z",
+    "merge_commit_sha": "b87425bd27105506e5f4675d2edd76468b1a8f6f",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 0,
+      "behind_by": 2,
+      "status": "behind",
+      "total_commits": 0
+    }
+  },
+  {
+    "number": 1921,
+    "title": "Portable C assumes a constant-time multiply",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/issues/1921",
+    "created_at": "2026-09-25T15:20:31Z",
+    "updated_at": "2026-09-25T15:20:31Z",
+    "closed_at": null,
+    "merged_at": null,
+    "merge_commit_sha": null
+  },
+  {
+    "number": 1923,
+    "title": "mlkem_native_asm.S: Always emit .note.GNU-stack",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1923",
+    "created_at": "2026-09-25T16:03:10Z",
+    "updated_at": "2026-09-27T03:59:50Z",
+    "closed_at": "2026-09-27T03:59:49Z",
+    "merged_at": "2026-09-27T03:59:49Z",
+    "merge_commit_sha": "9f317085dd16d74db1acefafa61523539b417257",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 0,
+      "behind_by": 4,
+      "status": "behind",
+      "total_commits": 0
+    }
+  },
+  {
+    "number": 1926,
+    "title": "native: Pass buflen to rej_uniform assembly as uint64_t",
+    "html_url": "https://github.com/pq-code-package/mlkem-native/pull/1926",
+    "created_at": "2026-09-25T17:16:12Z",
+    "updated_at": "2026-09-27T05:42:00Z",
+    "closed_at": "2026-09-27T05:41:58Z",
+    "merged_at": "2026-09-27T05:41:58Z",
+    "merge_commit_sha": "fc269bc2d1068486625a3775310c2c1f28d74732",
+    "fixed_comparison_exit_code": 0,
+    "fixed_comparison": {
+      "ahead_by": 0,
+      "behind_by": 7,
+      "status": "behind",
+      "total_commits": 0
+    }
+  }
+]
