@@ -1,0 +1,398 @@
+[
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/kernel.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/kernel.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/random.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/random.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/inputs.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_baseline.dir/src/main.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "output": "CMakeFiles/reference_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "output": "CMakeFiles/reference_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "output": "CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "output": "CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "output": "CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/vulnerable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/vulnerable_kernel.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/vulnerable_kernel.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/vulnerable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/vulnerable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/random.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/random.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/vulnerable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_baseline.dir/src/main.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "output": "CMakeFiles/vulnerable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "output": "CMakeFiles/vulnerable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "output": "CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "output": "CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "output": "CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/hardened-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/hardened_kernel.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/hardened_kernel.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/hardened-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/hardened-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/random.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/random.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/hardened-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/inputs.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_baseline.dir/src/main.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "output": "CMakeFiles/hardened_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "output": "CMakeFiles/hardened_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "output": "CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "output": "CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "output": "CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/deployable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/deployable_kernel.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/deployable_kernel.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/deployable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/deployable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/random.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/random.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/random.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/deployable-source/mlkem -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/inputs.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inputs.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_baseline.dir/src/main.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/main.c",
+  "output": "CMakeFiles/deployable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_measure.dir/src/measure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "output": "CMakeFiles/deployable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_mlkem.c",
+  "output": "CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_equivalence.c",
+  "output": "CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_random_failure.c",
+  "output": "CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "output": "CMakeFiles/reference_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/measure.c",
+  "output": "CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/batch_measurement.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/batch_measurement.c",
+  "output": "CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/analyze.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/analyze.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/analyze.c",
+  "output": "CMakeFiles/analyze.dir/src/analyze.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/timing_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "output": "CMakeFiles/analyze.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/analyze_groups.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/analyze_groups.c",
+  "output": "CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "output": "CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inspect_timing.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/inspect_timing.c",
+  "output": "CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "output": "CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/paired_data.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_data.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_data.c",
+  "output": "CMakeFiles/paired_support.dir/src/paired_data.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/paired_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_statistics.c",
+  "output": "CMakeFiles/paired_support.dir/src/paired_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/timing_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "output": "CMakeFiles/paired_support.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/analyze_paired.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/analyze_paired.c",
+  "output": "CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_runner.dir/src/paired_runner.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_runner.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_runner.c",
+  "output": "CMakeFiles/paired_runner.dir/src/paired_runner.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_prepare.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/paired_prepare.c",
+  "output": "CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/native_digest.dir/src/native_digest.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/native_digest.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/native_digest.c",
+  "output": "CMakeFiles/native_digest.dir/src/native_digest.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_native_digest.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_native_digest.c",
+  "output": "CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_prepare.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_prepare.c",
+  "output": "CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/paired_worker_fixture.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/paired_worker_fixture.c",
+  "output": "CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release/generated/RelWithDebInfo -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_runner.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_runner.c",
+  "output": "CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_statistics.c",
+  "output": "CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_data.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_data.c",
+  "output": "CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_rejections.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_paired_rejections.c",
+  "output": "CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_batch_measurement.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_batch_measurement.c",
+  "output": "CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/batch_measurement.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/batch_measurement.c",
+  "output": "CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_reference_benchmark.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_reference_benchmark.c",
+  "output": "CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "output": "CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_timing_diagnostics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_timing_diagnostics.c",
+  "output": "CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/src/timing_statistics.c",
+  "output": "CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/include -I/home/ubuntu/cryproject-a113-20261007/source-9d9554b/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_measurement.dir/tests/test_measurement.c.o -c /home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_measurement.c",
+  "file": "/home/ubuntu/cryproject-a113-20261007/source-9d9554b/tests/test_measurement.c",
+  "output": "CMakeFiles/test_measurement.dir/tests/test_measurement.c.o"
+}
+]

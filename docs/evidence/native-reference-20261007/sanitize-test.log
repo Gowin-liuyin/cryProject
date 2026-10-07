@@ -1,0 +1,34 @@
+arguments_begin
+ctest
+--test-dir
+/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-sanitize
+--output-on-failure
+-R
+^(reference_benchmark|timing_diagnostics|batch_measurement|paired_statistics|paired_data|paired_rejections|paired_runner|paired_prepare|native_digest)$
+arguments_end
+Wed Oct  7 00:18:12 UTC 2026
+Internal ctest changing into directory: /home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-sanitize
+Test project /home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-sanitize
+    Start  9: native_digest
+1/9 Test  #9: native_digest ....................   Passed    0.03 sec
+    Start 10: paired_prepare
+2/9 Test #10: paired_prepare ...................   Passed    1.14 sec
+    Start 11: paired_runner
+3/9 Test #11: paired_runner ....................   Passed    1.27 sec
+    Start 12: paired_statistics
+4/9 Test #12: paired_statistics ................   Passed    0.46 sec
+    Start 13: paired_data
+5/9 Test #13: paired_data ......................   Passed    0.15 sec
+    Start 14: paired_rejections
+6/9 Test #14: paired_rejections ................   Passed    1.71 sec
+    Start 15: batch_measurement
+7/9 Test #15: batch_measurement ................   Passed    0.28 sec
+    Start 16: reference_benchmark
+8/9 Test #16: reference_benchmark ..............   Passed    0.20 sec
+    Start 17: timing_diagnostics
+9/9 Test #17: timing_diagnostics ...............   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 9
+
+Total Test time (real) =   5.27 sec
+Wed Oct  7 00:18:18 UTC 2026

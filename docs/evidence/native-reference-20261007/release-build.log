@@ -1,0 +1,159 @@
+arguments_begin
+cmake
+--build
+/home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release
+--target
+check-reference
+reference_benchmark
+reference_batch_benchmark
+inspect_timing
+analyze_paired
+paired_runner
+paired_prepare
+native_digest
+test_reference_benchmark
+test_timing_diagnostics
+test_batch_measurement
+test_paired_statistics
+test_paired_data
+test_paired_rejections
+test_paired_runner
+test_paired_prepare
+test_native_digest
+paired_worker_fixture
+--parallel
+4
+arguments_end
+Wed Oct  7 00:16:59 UTC 2026
+[  0%] Built target build_identity
+[  9%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 18%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 27%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 36%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 45%] Linking C static library reference/libmlkem.a
+[ 45%] Built target mlkem_reference
+[ 54%] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[ 63%] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[ 72%] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[ 81%] Linking C executable reference/test_random_failure
+[ 90%] Linking C executable reference/baseline
+[ 90%] Built target reference_test_random_failure
+[ 90%] Built target reference_baseline
+[100%] Linking C executable reference/test_mlkem
+[100%] Built target reference_test_mlkem
+Test project /home/ubuntu/cryproject-a113-20261007/runs/reference-9d9554b/build-release
+    Start  1: reference_kat
+1/5 Test  #1: reference_kat ....................   Passed    0.02 sec
+    Start  2: reference_random_failure
+2/5 Test  #2: reference_random_failure .........   Passed    0.00 sec
+    Start 22: reference_cli
+3/5 Test #22: reference_cli ....................   Passed    0.01 sec
+    Start 25: reference_vector_parser
+4/5 Test #25: reference_vector_parser ..........   Passed    0.02 sec
+    Start 29: vector_integrity
+5/5 Test #29: vector_integrity .................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   0.06 sec*proc (5 tests)
+
+Total Test time (real) =   0.07 sec
+[100%] Built target check-reference
+[  0%] Built target build_identity
+[ 71%] Built target mlkem_reference
+[ 85%] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[100%] Linking C executable reference/benchmark
+[100%] Built target reference_benchmark
+[  0%] Built target build_identity
+[ 62%] Built target mlkem_reference
+[ 75%] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[ 87%] Building C object CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+[100%] Linking C executable reference/batch_benchmark
+[100%] Built target reference_batch_benchmark
+[  0%] Built target build_identity
+[ 62%] Built target mlkem_reference
+[ 75%] Building C object CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o
+[ 87%] Building C object CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o
+[100%] Linking C executable inspect_timing
+[100%] Built target inspect_timing
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 50%] Building C object CMakeFiles/paired_support.dir/src/paired_data.c.o
+[ 60%] Building C object CMakeFiles/paired_support.dir/src/timing_statistics.c.o
+[ 70%] Building C object CMakeFiles/paired_support.dir/src/paired_statistics.c.o
+[ 80%] Linking C static library libpaired_support.a
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o
+[100%] Linking C executable analyze_paired
+[100%] Built target analyze_paired
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
+[100%] Linking C executable paired_runner
+[100%] Built target paired_runner
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[100%] Linking C executable paired_prepare
+[100%] Built target paired_prepare
+[ 50%] Building C object CMakeFiles/native_digest.dir/src/native_digest.c.o
+[100%] Linking C executable native_digest
+[100%] Built target native_digest
+[  0%] Built target build_identity
+[ 62%] Built target mlkem_reference
+[ 75%] Building C object CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o
+[ 87%] Building C object CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o
+[100%] Linking C executable test_reference_benchmark
+[100%] Built target test_reference_benchmark
+[  0%] Built target build_identity
+[ 62%] Built target mlkem_reference
+[ 75%] Building C object CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o
+[ 87%] Building C object CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o
+[100%] Linking C executable test_timing_diagnostics
+[100%] Built target test_timing_diagnostics
+[  0%] Built target build_identity
+[ 71%] Built target mlkem_reference
+[ 71%] Building C object CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+[ 85%] Building C object CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+[100%] Linking C executable test_batch_measurement
+[100%] Built target test_batch_measurement
+[  0%] Built target build_identity
+[ 55%] Built target mlkem_reference
+[ 88%] Built target paired_support
+[100%] Building C object CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o
+[100%] Linking C executable test_paired_statistics
+[100%] Built target test_paired_statistics
+[  0%] Built target build_identity
+[ 55%] Built target mlkem_reference
+[ 88%] Built target paired_support
+[100%] Building C object CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o
+[100%] Linking C executable test_paired_data
+[100%] Built target test_paired_data
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o
+[100%] Linking C executable test_paired_rejections
+[100%] Built target test_paired_rejections
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o
+[100%] Linking C executable test_paired_runner
+[100%] Built target test_paired_runner
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o
+[100%] Linking C executable test_paired_prepare
+[100%] Built target test_paired_prepare
+[ 50%] Building C object CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o
+[100%] Linking C executable test_native_digest
+[100%] Built target test_native_digest
+[ 50%] Building C object CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o
+[100%] Linking C executable paired_worker_fixture
+[100%] Built target paired_worker_fixture
+Wed Oct  7 00:17:33 UTC 2026
