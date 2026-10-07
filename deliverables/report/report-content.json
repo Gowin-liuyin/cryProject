@@ -63,5 +63,6 @@
   "source_reports": [
     "docs/evidence/native-final-20261007/performance/performance.report",
     "docs/evidence/finite-calibration-20261007/model/summary.report"
-  ]
+  ],
+  "reproduction_instructions": "证据：E01参考前置，E02普通性能，H01历史审计，C01复算效率，C02有限模型校准，R01作者复现。原CSV字节不变，元数据角色转换另有摘要。重建命令见支撑包source/README.md，非原作者须保留实际日志并本人签收。"
 }
