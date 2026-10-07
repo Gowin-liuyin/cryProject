@@ -24,6 +24,13 @@ struct batch_record {
     uint64_t elapsed_nanoseconds;
 };
 
+struct measurement_cost {
+    uint64_t child_wall_nanoseconds;
+    uint64_t child_start_nanoseconds;
+    uint64_t child_finish_nanoseconds;
+    uint64_t warmup_calls;
+};
+
 struct paired_run {
     char run_id[65];
     char method[16];
@@ -54,6 +61,11 @@ int paired_digest_file(const char *path, char digest[65]);
 int is_paired_hex(const char *text, size_t character_count);
 int is_paired_identifier(const char *text);
 int paired_data_path(char *path, size_t capacity, const char *directory, const char *filename);
+int load_measurement_cost(const char *csv_path,
+    const char *expected_run_id,
+    uint64_t expected_calls,
+    uint64_t total_nanoseconds,
+    struct measurement_cost *cost);
 int load_paired_run(const char *csv_path, const char *metadata_path, struct paired_run *run);
 int validate_paired_runs(const struct paired_run *baseline, const struct paired_run *candidate);
 void release_paired_run(struct paired_run *run);

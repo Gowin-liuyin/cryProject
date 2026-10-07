@@ -17,14 +17,16 @@
 #include <time.h>
 #include <unistd.h>
 
+#define ORDINARY_METADATA_COUNT 17u
+
 struct ordinary_dataset {
     struct measurement_set measurements;
-    char metadata[9][256];
+    char metadata[ORDINARY_METADATA_COUNT][256];
     char csv_digest[65];
     uint64_t total_duration_ns;
 };
 
-static const char *const metadata_names[9] = {"run_id",
+static const char *const metadata_names[ORDINARY_METADATA_COUNT] = {"run_id",
     "implementation",
     "sample_count",
     "run_status",
@@ -32,7 +34,15 @@ static const char *const metadata_names[9] = {"run_id",
     "source_commit",
     "ordered_input_digest",
     "test_seed",
-    "executable_digest"};
+    "executable_digest",
+    "clock",
+    "time_unit",
+    "measurement_format",
+    "formal_attempted_calls",
+    "formal_completed_calls",
+    "warmup_attempted_calls",
+    "warmup_completed_calls",
+    "outputs_consumed"};
 static const char *const safe_variants[3] = {"reference", "hardened", "deployable"};
 static volatile sig_atomic_t active_child;
 static volatile sig_atomic_t deadline_expired;
@@ -119,20 +129,23 @@ static int load_ordinary_dataset(const char *csv_path,
     struct ordinary_dataset *dataset)
 {
     memset(dataset, 0, sizeof(*dataset));
-    struct paired_text_field fields[9];
-    for (size_t field_index = 0; field_index < 9u; ++field_index) {
+    struct paired_text_field fields[ORDINARY_METADATA_COUNT];
+    for (size_t field_index = 0; field_index < ORDINARY_METADATA_COUNT; ++field_index) {
         fields[field_index] = (struct paired_text_field){metadata_names[field_index],
             dataset->metadata[field_index],
             sizeof(dataset->metadata[field_index]),
             0};
     }
     if (load_measurement_set(csv_path, &dataset->measurements) != 0 ||
-        read_paired_fields(metadata_path, fields, 9) != 0 ||
+        read_paired_fields(metadata_path, fields, ORDINARY_METADATA_COUNT) != 0 ||
         paired_digest_file(csv_path, dataset->csv_digest) != 0 ||
         strcmp(dataset->metadata[0], dataset->measurements.run_id) != 0 ||
         strcmp(dataset->metadata[1], dataset->measurements.implementation) != 0 ||
         strcmp(dataset->metadata[3], "complete") != 0 || strcmp(dataset->metadata[4], "OFF") != 0 ||
-        !is_paired_hex(dataset->metadata[6], 64) || !is_paired_hex(dataset->metadata[8], 64)) {
+        !is_paired_hex(dataset->metadata[6], 64) || !is_paired_hex(dataset->metadata[8], 64) ||
+        strcmp(dataset->metadata[9], "CLOCK_MONOTONIC") != 0 ||
+        strcmp(dataset->metadata[10], "ns") != 0 ||
+        strcmp(dataset->metadata[11], "reference_ordinary_v1") != 0) {
         free(dataset->measurements.records);
         dataset->measurements.records = NULL;
         return 1;
@@ -142,8 +155,21 @@ static int load_ordinary_dataset(const char *csv_path,
     size_t category_counts[3] = {0};
     if (parse_unsigned_integer(dataset->metadata[2], &expected_count) != 0 ||
         expected_count != dataset->measurements.record_count ||
+        expected_count > UINT64_MAX - 100u ||
         parse_unsigned_integer(dataset->metadata[7], &test_seed) != 0) {
         goto invalid;
+    }
+    uint64_t expected_counters[5] = {expected_count,
+        expected_count,
+        100u,
+        100u,
+        expected_count + 100u};
+    for (size_t counter_index = 0; counter_index < 5u; ++counter_index) {
+        uint64_t actual_counter;
+        if (parse_unsigned_integer(dataset->metadata[counter_index + 12u], &actual_counter) != 0 ||
+            actual_counter != expected_counters[counter_index]) {
+            goto invalid;
+        }
     }
     for (size_t record_index = 0; record_index < dataset->measurements.record_count;
         ++record_index) {
@@ -158,6 +184,14 @@ static int load_ordinary_dataset(const char *csv_path,
     }
     if (category_counts[0] == 0 || category_counts[0] != category_counts[1] ||
         category_counts[0] != category_counts[2]) {
+        goto invalid;
+    }
+    struct measurement_cost cost;
+    if (load_measurement_cost(csv_path,
+            dataset->measurements.run_id,
+            expected_count,
+            dataset->total_duration_ns,
+            &cost) != 0) {
         goto invalid;
     }
     return 0;
@@ -206,14 +240,17 @@ static int export_html(const char *csv_path,
         malloc(dataset.measurements.record_count * sizeof(*sorted_records));
     FILE *output = NULL;
     char temporary_html_path[4096];
+    char cost_path[4096];
     int operation_status = 1;
     int temporary_path_length = snprintf(temporary_html_path,
         sizeof(temporary_html_path),
         "%s.partial.%jd",
         html_path,
         (intmax_t)getpid());
+    int cost_path_length = snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path);
     if (sorted_records == NULL || temporary_path_length < 0 ||
-        (size_t)temporary_path_length >= sizeof(temporary_html_path)) {
+        (size_t)temporary_path_length >= sizeof(temporary_html_path) || cost_path_length < 0 ||
+        (size_t)cost_path_length >= sizeof(cost_path)) {
         goto cleanup;
     }
     memcpy(sorted_records,
@@ -238,7 +275,7 @@ static int export_html(const char *csv_path,
         write_escaped(output, origin) != 0 || fputs("。运行编号：<code>", output) == EOF ||
         write_escaped(output, dataset.measurements.run_id) != 0 ||
         fprintf(output,
-            "</code>。共 %zu 条逐次记录，三类比例 1:1:1，记录结构和完成声明已核验。</p>"
+            "</code>。共 %zu 条逐次记录，三类比例 1:1:1，记录、阶段成本和完成状态已核验。</p>"
             "<p>对象：",
             dataset.measurements.record_count) < 0 ||
         write_escaped(output, dataset.measurements.implementation) != 0 ||
@@ -274,7 +311,8 @@ static int export_html(const char *csv_path,
               "<h2>证据与复算</h2><p>",
             output) == EOF ||
         write_link(output, csv_path, "逐次原始数据") != 0 || fputs(" · ", output) == EOF ||
-        write_link(output, metadata_path, "环境及方法记录") != 0 ||
+        write_link(output, metadata_path, "环境及方法记录") != 0 || fputs(" · ", output) == EOF ||
+        write_link(output, cost_path, "阶段成本及完成记录") != 0 ||
         fputs("</p><p>原始数据 SHA3-256：<code>", output) == EOF ||
         write_escaped(output, dataset.csv_digest) != 0 ||
         fputs("</code></p><p>被测源码身份：<code>", output) == EOF ||
@@ -285,7 +323,7 @@ static int export_html(const char *csv_path,
               "新描述.report</code>。定位、防护、对照、"
               "未闭合项及完整交接见支撑包的证据索引；历史案例与本次普通记录分开解释。</p>"
               "<footer>导出状态：完整。元数据声明需结合采集退出码、源码和产物清单核查。"
-              "该页的数据链接要求 HTML 与 CSV/meta 放在同一目录。</footer></html>\n",
+              "该页的数据链接要求 HTML 与 CSV/meta/cost 放在同一目录。</footer></html>\n",
             output) == EOF) {
         goto cleanup;
     }

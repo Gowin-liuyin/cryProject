@@ -211,7 +211,11 @@ cleanup:
     return operation_status;
 }
 
-static int load_cost(const char *csv_path, struct paired_run *run)
+int load_measurement_cost(const char *csv_path,
+    const char *expected_run_id,
+    uint64_t expected_calls,
+    uint64_t total_nanoseconds,
+    struct measurement_cost *cost)
 {
     static const char *const names[] = {"cost_format",
         "final_state",
@@ -225,20 +229,29 @@ static int load_cost(const char *csv_path, struct paired_run *run)
         "warmup_completed_calls",
         "formal_attempted_calls",
         "formal_completed_calls",
-        "outputs_consumed"};
-    char values[13][128];
-    struct paired_text_field fields[13];
+        "outputs_consumed",
+        "run_id",
+        "initial_state"};
+    char values[15][128];
+    struct paired_text_field fields[15];
+    // 既有配对档案按原合同读取；普通负载另核对运行身份。
+    size_t field_count = expected_run_id == NULL ? 13u : 15u;
     char cost_path[4096];
+    if (csv_path == NULL || cost == NULL || expected_calls > UINT64_MAX - 100u) {
+        return 1;
+    }
     int path_bytes = snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path);
     if (path_bytes < 0 || (size_t)path_bytes >= sizeof(cost_path)) {
         return 1;
     }
-    for (size_t field_index = 0; field_index < 13u; ++field_index) {
+    for (size_t field_index = 0; field_index < field_count; ++field_index) {
         fields[field_index] =
             (struct paired_text_field){names[field_index], values[field_index], 128, 0};
     }
-    if (read_paired_fields(cost_path, fields, 13) != 0 ||
-        strcmp(values[0], "measurement_cost_v1") != 0 || strcmp(values[1], "complete") != 0) {
+    if (read_paired_fields(cost_path, fields, field_count) != 0 ||
+        strcmp(values[0], "measurement_cost_v1") != 0 || strcmp(values[1], "complete") != 0 ||
+        (expected_run_id != NULL &&
+            (strcmp(values[13], expected_run_id) != 0 || strcmp(values[14], "started") != 0))) {
         return 1;
     }
     uint64_t numbers[11];
@@ -249,16 +262,30 @@ static int load_cost(const char *csv_path, struct paired_run *run)
     }
     if (numbers[0] == 0 || numbers[1] < numbers[0] || numbers[2] < numbers[1] ||
         numbers[3] < numbers[2] || numbers[4] < numbers[3] ||
-        numbers[5] != numbers[4] - numbers[0] || numbers[5] < run->total_nanoseconds ||
-        numbers[3] - numbers[2] < run->total_nanoseconds || numbers[6] != 100u ||
-        numbers[7] != 100u || numbers[8] != run->call_count || numbers[9] != run->call_count ||
-        numbers[10] != run->call_count + 100u) {
+        numbers[5] != numbers[4] - numbers[0] || numbers[5] < total_nanoseconds ||
+        numbers[3] - numbers[2] < total_nanoseconds || numbers[6] != 100u || numbers[7] != 100u ||
+        numbers[8] != expected_calls || numbers[9] != expected_calls ||
+        numbers[10] != expected_calls + 100u) {
         return 1;
     }
-    run->child_wall_nanoseconds = numbers[5];
-    run->child_start_nanoseconds = numbers[0];
-    run->child_finish_nanoseconds = numbers[4];
-    run->warmup_calls = numbers[7];
+    cost->child_wall_nanoseconds = numbers[5];
+    cost->child_start_nanoseconds = numbers[0];
+    cost->child_finish_nanoseconds = numbers[4];
+    cost->warmup_calls = numbers[7];
+    return 0;
+}
+
+static int load_cost(const char *csv_path, struct paired_run *run)
+{
+    struct measurement_cost cost;
+    if (load_measurement_cost(csv_path, NULL, run->call_count, run->total_nanoseconds, &cost) !=
+        0) {
+        return 1;
+    }
+    run->child_wall_nanoseconds = cost.child_wall_nanoseconds;
+    run->child_start_nanoseconds = cost.child_start_nanoseconds;
+    run->child_finish_nanoseconds = cost.child_finish_nanoseconds;
+    run->warmup_calls = cost.warmup_calls;
     return 0;
 }
 

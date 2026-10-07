@@ -14,7 +14,7 @@ build/cmake/audit collect demonstration 2026100703 20 runs/new-demonstration
 ```
 
 新目录内有逐次CSV、meta、成本、退出日志、描述报告和index.html。短演示的60条记录只验证
-入口，不代替正式样本。打开HTML查看数据及来源；缺文件、坏记录、meta partial、动态产物或
+入口，不代替正式样本。打开HTML查看数据及来源；缺CSV/meta/cost、坏记录、partial、动态产物或
 输出已存在均拒绝签收。HTML通过临时文件、完成写入及独占发布，不用部分页面显示成功。
 原始I/O失败保留部分文件；新路径不意味着可以绕过正式合同的旧成本。
 
@@ -47,7 +47,9 @@ build/cmake/audit performance-replay 已封存性能目录 新性能.report
 子程序阶段成本及父进程完整启动/读写/退出窗口均保存；共同构建及文档制作不在该进程指标中。
 它不执行新的人工秘密机制时序，不代替缺陷前后的受控复测。Linux正式性能需固定源码和新目录，
 按原生说明外部taskset控制；不要把本地ARM结果与Linux混合比较。
-performance-replay仅读18份逐次CSV及完成meta，核对每块输入、种子、版本、调用数和一致产物
+performance-replay仅读18套逐次CSV、meta及阶段cost，核对运行身份、CLOCK_MONOTONIC/ns、
+ordinary格式、正式/预热调用及结果消费数，并要求阶段时间有序、总墙钟等于首尾差值、
+采集窗口足以容纳逐次时间总和；成本缺失或矛盾拒绝完整报告。再核对每块输入、种子、版本和一致产物
 身份，从原始记录重建全部分位数、运行差值及同规则区间。先核对封存SHA清单，再使用此入口；
 报告路径新建，失败保留部分报告且不写complete。它不要求旧二进制目录存在，也不重新采集。
 
