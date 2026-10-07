@@ -1,0 +1,125 @@
+[0/2] Re-checking globbed directories...
+[1/121] Building C object CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o
+[2/121] Building C object CMakeFiles/native_digest.dir/src/native_digest.c.o
+[3/121] Generating vulnerable-source/patched.stamp
+patching file mlkem/src/compress.c
+[4/121] Linking C executable paired_worker_fixture
+[5/121] Linking C executable native_digest
+[6/121] Building C object CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o
+[7/121] Generating hardened-source/patched.stamp
+patching file mlkem/src/compress.c
+[8/121] Generating deployable-source/patched.stamp
+patching file mlkem/src/compress.c
+[9/121] Linking C executable test_native_digest
+[10/121] cd /home/ubuntu/cryproject-a113-20261007/source-c151ddd && /usr/bin/sh /home/ubuntu/cryproject-a113-20261007/source-c151ddd/tools/build_identity.sh /home/ubuntu/cryproject-a113-20261007/runs/replay-c151ddd/build/generated/RelWithDebInfo/build_identity.h /usr/bin/cc /home/ubuntu/cryproject-a113-20261007/runs/replay-c151ddd/build/generated/RelWithDebInfo/configuration.txt
+[11/121] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[12/121] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[13/121] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[14/121] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[15/121] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[16/121] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[17/121] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[18/121] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[19/121] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[20/121] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[21/121] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[22/121] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[23/121] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[24/121] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[25/121] Building C object CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o
+[26/121] Building C object CMakeFiles/mlkem_hardened.dir/src/random.c.o
+[27/121] Building C object CMakeFiles/mlkem_hardened.dir/src/inputs.c.o
+[28/121] Building C object CMakeFiles/hardened_baseline.dir/src/main.c.o
+[29/121] Building C object CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o
+[30/121] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[31/121] Building C object CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o
+[32/121] Linking C static library reference/libmlkem.a
+[33/121] Linking C executable reference/baseline
+[34/121] Building C object CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o
+[35/121] Linking C executable reference/test_mlkem
+[36/121] Linking C executable reference/test_equivalence
+[37/121] Linking C executable reference/test_random_failure
+[38/121] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[39/121] Building C object CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o
+[40/121] Linking C static library vulnerable/libmlkem.a
+[41/121] Building C object CMakeFiles/mlkem_deployable.dir/src/random.c.o
+[42/121] Linking C executable vulnerable/baseline
+[43/121] Linking C executable vulnerable/test_mlkem
+[44/121] Linking C executable vulnerable/test_equivalence
+[45/121] Linking C executable vulnerable/test_random_failure
+[46/121] Building C object CMakeFiles/deployable_baseline.dir/src/main.c.o
+[47/121] Building C object CMakeFiles/mlkem_deployable.dir/src/inputs.c.o
+[48/121] Building C object CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o
+[49/121] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+[50/121] Building C object CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o
+[51/121] Building C object CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o
+[52/121] Linking C static library hardened/libmlkem.a
+[53/121] Linking C executable hardened/baseline
+[54/121] Linking C executable hardened/test_mlkem
+[55/121] Linking C executable hardened/test_equivalence
+[56/121] Linking C executable hardened/test_random_failure
+[57/121] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[58/121] Building C object CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+[59/121] Linking C executable reference/benchmark
+[60/121] Linking C executable hardened/benchmark
+[61/121] Building C object CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+[62/121] Building C object CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+[63/121] Building C object CMakeFiles/analyze.dir/src/analyze.c.o
+[64/121] Building C object CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o
+[65/121] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[66/121] Building C object CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o
+[67/121] Linking C executable reference/batch_benchmark
+[68/121] Linking C static library deployable/libmlkem.a
+[69/121] Linking C executable deployable/baseline
+[70/121] Building C object CMakeFiles/analyze.dir/src/timing_statistics.c.o
+[71/121] Linking C executable deployable/test_mlkem
+[72/121] Linking C executable deployable/test_equivalence
+[73/121] Linking C executable deployable/test_random_failure
+[74/121] Building C object CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o
+[75/121] Linking C executable deployable/benchmark
+[76/121] Linking C executable analyze
+[77/121] Building C object CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o
+[78/121] Linking C executable analyze_groups
+[79/121] Building C object CMakeFiles/paired_support.dir/src/paired_statistics.c.o
+[80/121] Building C object CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o
+[81/121] Linking C executable inspect_timing
+[82/121] Building C object CMakeFiles/paired_support.dir/src/paired_data.c.o
+[83/121] Building C object CMakeFiles/paired_support.dir/src/timing_statistics.c.o
+[84/121] Linking C static library libpaired_support.a
+[85/121] Building C object CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o
+[86/121] Linking C executable analyze_paired
+[87/121] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[88/121] Building C object CMakeFiles/controlled_statistics.dir/src/controlled_statistics.c.o
+[89/121] Linking C executable paired_prepare
+[90/121] Linking C static library libcontrolled_statistics.a
+[91/121] Building C object CMakeFiles/controlled_stats.dir/src/controlled_stats.c.o
+[92/121] Building C object CMakeFiles/test_performance_replay.dir/tests/test_performance_replay.c.o
+[93/121] Linking C executable controlled_stats
+[94/121] Linking C executable test_performance_replay
+[95/121] Building C object CMakeFiles/compare_replay.dir/src/compare_replay.c.o
+[96/121] Linking C executable compare_replay
+[97/121] Building C object CMakeFiles/test_controlled_statistics.dir/tests/test_controlled_statistics.c.o
+[98/121] Linking C executable test_controlled_statistics
+[99/121] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
+[100/121] Linking C executable paired_runner
+[101/121] Building C object CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o
+[102/121] Linking C executable test_paired_prepare
+[103/121] Building C object CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o
+[104/121] Linking C executable test_paired_statistics
+[105/121] Building C object CMakeFiles/audit.dir/src/audit.c.o
+[106/121] Linking C executable audit
+[107/121] Building C object CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o
+[108/121] Building C object CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o
+[109/121] Linking C executable test_paired_runner
+[110/121] Linking C executable test_paired_data
+[111/121] Building C object CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+[112/121] Building C object CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+[113/121] Building C object CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o
+[114/121] Linking C executable test_batch_measurement
+[115/121] Building C object CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o
+[116/121] Linking C executable test_paired_rejections
+[117/121] Building C object CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o
+[118/121] Building C object CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o
+[119/121] Linking C executable test_reference_benchmark
+[120/121] Building C object CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o
+[121/121] Linking C executable test_timing_diagnostics
