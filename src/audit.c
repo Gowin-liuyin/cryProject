@@ -665,7 +665,7 @@ static int print_help(FILE *output)
                "replay读取历史档案；calibrate生成无秘密模型，reference-label-"
                "control复算后赋标签。\n"
                "功能检查、普通性能和未显著结果均不等于恒时或防护效果证明。\n"
-               "使用与证据入口：docs/product-workflow.md、deliverables/demo/index.html。\n",
+               "使用入口：docs/product-workflow.md；离线证据见交付目录中的index.html。\n",
                output) == EOF
         ? 1
         : 0;
