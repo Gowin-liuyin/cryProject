@@ -141,7 +141,7 @@ static int digest_matches(const char *path, const char *expected_digest)
 int main(int argument_count, char **argument_values)
 {
     struct cohort_context context = {0};
-    struct paired_run runs[2] = {{0}, {0}};
+    struct paired_run runs[2] = {0};
     char cohort_path[4096];
     FILE *cohort_file = NULL;
     FILE *report_file = NULL;

@@ -743,7 +743,7 @@ static int run_cohort(const char *phase,
         char data_paths[4][4096];
         char data_digests[6][65];
         uint64_t parent_wall[2] = {0};
-        struct paired_run runs[2] = {{0}, {0}};
+        struct paired_run runs[2] = {0};
         for (unsigned method_position = 0; method_position < 2u; ++method_position) {
             unsigned method_index = method_position == 0 ? pairs[pair_index].first_method
                                                          : 1u - pairs[pair_index].first_method;

@@ -287,7 +287,7 @@ int main(int argument_count, char **argument_values)
                    directory,
                    filenames[path_index]) == 0);
     }
-    struct paired_run runs[2] = {{0}, {0}};
+    struct paired_run runs[2] = {0};
     assert(load_paired_run(paths[0], paths[1], &runs[0]) == 0);
     assert(load_paired_run(paths[2], paths[3], &runs[1]) == 0);
     assert(validate_paired_runs(&runs[0], &runs[1]) == 0);
