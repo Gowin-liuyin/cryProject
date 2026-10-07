@@ -93,15 +93,20 @@ static int self_test(void)
     const int64_t balanced[4] = {1, -1, 1, -1};
     const int64_t mixed_zero[4] = {2, -1, 0, 3};
     int64_t almost_separated[CALIBRATION_PAIRS];
+    int64_t maximum_span[CALIBRATION_PAIRS];
+    int64_t excessive_span[CALIBRATION_PAIRS];
     for (size_t pair_index = 0; pair_index < CALIBRATION_PAIRS; ++pair_index) {
         almost_separated[pair_index] = pair_index == 0 ? -1 : 1;
+        maximum_span[pair_index] = (int64_t)pair_index + 13;
+        excessive_span[pair_index] = CALIBRATION_MAXIMUM_SUM_NS;
     }
     uint64_t tail_count;
     if (convolution_tail(separated, 4, &tail_count) != 0 || tail_count != 2u ||
         convolution_tail(balanced, 4, &tail_count) != 0 || tail_count != 16u ||
         convolution_tail(mixed_zero, 4, &tail_count) != 0 || tail_count != 8u ||
         convolution_tail(almost_separated, CALIBRATION_PAIRS, &tail_count) != 0 ||
-        tail_count != 26u) {
+        tail_count != 26u || convolution_tail(maximum_span, CALIBRATION_PAIRS, &tail_count) != 0 ||
+        tail_count != 2u || convolution_tail(excessive_span, CALIBRATION_PAIRS, &tail_count) == 0) {
         return 1;
     }
     return 0;
