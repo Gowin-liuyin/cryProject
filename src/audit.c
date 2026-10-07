@@ -344,6 +344,16 @@ replay_archive(const char *binary_directory, const char *source_directory, const
         chdir(source_directory) != 0) {
         return 1;
     }
+    char integrity_log[4096];
+    if (make_path(integrity_log, sizeof(integrity_log), output_directory, "integrity.log") != 0) {
+        return 1;
+    }
+    char *integrity_arguments[] =
+        {"shasum", "-a", "256", "-c", "docs/evidence/statistics-multiseed/SHA256SUMS", NULL};
+    if (execute_program(integrity_arguments, integrity_log) != 0) {
+        fputs("封存清单校验失败；停止复算并保留日志。\n", stderr);
+        return 1;
+    }
     const uint64_t seeds[5] = {31337, 90210, 8675309, 20261111, 141421356};
     const char *variants[4] = {"reference", "vulnerable", "hardened", "deployable"};
     size_t replayed_reports = 0;
