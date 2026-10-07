@@ -31,10 +31,23 @@ static int read_clock(uint64_t *nanoseconds)
     return 0;
 }
 
-static int run_process(char *const arguments[], const char *log_path, uint64_t *wall_ns)
+static void terminate_process(pid_t child_process)
+{
+    int wait_status;
+    (void)kill(child_process, SIGKILL);
+    while (waitpid(child_process, &wait_status, 0) < 0 && errno == EINTR) {
+    }
+}
+
+static int run_process(char *const arguments[],
+    const char *log_path,
+    int is_preimported,
+    uint64_t *ready_ns,
+    uint64_t *wall_ns)
 {
     uint64_t start_ns;
     uint64_t finish_ns;
+    *ready_ns = 0;
     int log_descriptor = open(log_path, O_WRONLY | O_CREAT | O_EXCL, 0600);
     if (log_descriptor < 0 || read_clock(&start_ns) != 0) {
         if (log_descriptor >= 0) {
@@ -56,14 +69,37 @@ static int run_process(char *const arguments[], const char *log_path, uint64_t *
         return 125;
     }
     int wait_status = 0;
+    if (is_preimported) {
+        while (waitpid(child_process, &wait_status, WUNTRACED) < 0) {
+            if (deadline_reached || errno != EINTR) {
+                terminate_process(child_process);
+                return deadline_reached ? 124 : 125;
+            }
+        }
+        if (!WIFSTOPPED(wait_status) || WSTOPSIG(wait_status) != SIGSTOP) {
+            if (!WIFEXITED(wait_status) && !WIFSIGNALED(wait_status)) {
+                terminate_process(child_process);
+            }
+            return 125;
+        }
+        uint64_t ready_clock_ns;
+        if (read_clock(&ready_clock_ns) != 0 || ready_clock_ns <= start_ns || deadline_reached) {
+            terminate_process(child_process);
+            return deadline_reached ? 124 : 125;
+        }
+        *ready_ns = ready_clock_ns - start_ns;
+        start_ns = ready_clock_ns;
+        if (kill(child_process, SIGCONT) != 0) {
+            terminate_process(child_process);
+            return 125;
+        }
+    }
     for (;;) {
         if (waitpid(child_process, &wait_status, 0) == child_process) {
             break;
         }
         if (deadline_reached || errno != EINTR) {
-            (void)kill(child_process, SIGKILL);
-            while (waitpid(child_process, &wait_status, 0) < 0 && errno == EINTR) {
-            }
+            terminate_process(child_process);
             return deadline_reached ? 124 : 125;
         }
     }
@@ -98,9 +134,10 @@ static int compare_ratios(const void *first_value, const void *second_value)
 int main(int argument_count, char **argument_values)
 {
     int is_development = argument_count == 7 && strcmp(argument_values[6], "development") == 0;
-    if (argument_count != 6 && !is_development) {
+    int is_preimported = argument_count == 7 && strcmp(argument_values[6], "preimported") == 0;
+    if (argument_count != 6 && !is_development && !is_preimported) {
         fputs("Usage: compare_replay C_ANALYZER PYTHON SCIPY_SCRIPT EIGHT_TASK_DIRECTORY "
-              "NEW_OUTPUT [development]\n",
+              "NEW_OUTPUT [development|preimported]\n",
             stderr);
         return 2;
     }
@@ -110,7 +147,8 @@ int main(int argument_count, char **argument_values)
         mkdir(argument_values[5], 0700) != 0) {
         return 1;
     }
-    (void)alarm(300);
+    unsigned int budget_seconds = is_preimported ? 120u : 300u;
+    (void)alarm(budget_seconds);
     char ledger_path[4096];
     char summary_path[4096];
     if (paired_data_path(ledger_path, sizeof(ledger_path), argument_values[5], "attempts.tsv") !=
@@ -130,11 +168,15 @@ int main(int argument_count, char **argument_values)
     size_t completed_attempts = 0;
     long double ratios[24];
     uint64_t method_total_ns[2] = {0};
+    uint64_t baseline_ready_total_ns = 0;
     uint64_t comparison_start_ns;
     uint64_t comparison_finish_ns;
     size_t task_count = is_development ? 2u : 8u;
     if (read_clock(&comparison_start_ns) != 0 ||
-        fputs("task\trepetition\tmethod\twall_ns\texit_status\ttail_count\tassignment_count\n",
+        fputs(is_preimported
+                ? "task\trepetition\tmethod\twall_ns\texit_status\ttail_count\tassignment_"
+                  "count\tready_ns\n"
+                : "task\trepetition\tmethod\twall_ns\texit_status\ttail_count\tassignment_count\n",
             ledger) == EOF) {
         goto cleanup;
     }
@@ -152,13 +194,17 @@ int main(int argument_count, char **argument_values)
         }
         char original_digest[65];
         char final_digest[65];
-        if (paired_digest_file(csv_path, original_digest) != 0) {
+        char original_plan_digest[65];
+        char final_plan_digest[65];
+        if (paired_digest_file(csv_path, original_digest) != 0 ||
+            paired_digest_file(plan_path, original_plan_digest) != 0) {
             goto cleanup;
         }
         uint64_t smallest_baseline_ns = UINT64_MAX;
         uint64_t largest_candidate_ns = 0;
         for (size_t repetition_index = 0; repetition_index < 3u; ++repetition_index) {
             uint64_t wall_ns[2] = {0};
+            uint64_t ready_ns[2] = {0};
             uint64_t result_counts[2][2] = {{0}};
             for (size_t method_position = 0; method_position < 2u; ++method_position) {
                 size_t method_index = (task_index + repetition_index) % 2u == 0
@@ -196,15 +242,18 @@ int main(int argument_count, char **argument_values)
                     csv_path,
                     plan_path,
                     report_path,
+                    is_preimported ? "--preimported" : NULL,
                     NULL};
                 int child_status =
                     run_process(method_index == 0 ? baseline_arguments : candidate_arguments,
                         log_path,
+                        is_preimported && method_index == 0,
+                        &ready_ns[method_index],
                         &wall_ns[method_index]);
                 int result_failed =
                     child_status != 0 || read_result(report_path, result_counts[method_index]) != 0;
                 if (fprintf(ledger,
-                        "%zu\t%zu\t%s\t%" PRIu64 "\t%d\t%" PRIu64 "\t%" PRIu64 "\n",
+                        "%zu\t%zu\t%s\t%" PRIu64 "\t%d\t%" PRIu64 "\t%" PRIu64,
                         task_index + 1u,
                         repetition_index + 1u,
                         method_index == 0 ? "baseline" : "candidate",
@@ -212,11 +261,13 @@ int main(int argument_count, char **argument_values)
                         child_status,
                         result_counts[method_index][1],
                         result_counts[method_index][0]) < 0 ||
-                    fflush(ledger) != 0 || result_failed) {
+                    (is_preimported && fprintf(ledger, "\t%" PRIu64, ready_ns[method_index]) < 0) ||
+                    fputc('\n', ledger) == EOF || fflush(ledger) != 0 || result_failed) {
                     goto cleanup;
                 }
                 ++completed_attempts;
                 method_total_ns[method_index] += wall_ns[method_index];
+                baseline_ready_total_ns += ready_ns[method_index];
             }
             if (memcmp(result_counts[0], result_counts[1], sizeof(result_counts[0])) != 0) {
                 goto cleanup;
@@ -234,12 +285,15 @@ int main(int argument_count, char **argument_values)
             all_tasks_faster = 0;
         }
         if (paired_digest_file(csv_path, final_digest) != 0 ||
-            strcmp(original_digest, final_digest) != 0) {
+            strcmp(original_digest, final_digest) != 0 ||
+            paired_digest_file(plan_path, final_plan_digest) != 0 ||
+            strcmp(original_plan_digest, final_plan_digest) != 0) {
             goto cleanup;
         }
     }
     if (read_clock(&comparison_finish_ns) != 0 || deadline_reached ||
-        comparison_finish_ns - comparison_start_ns > UINT64_C(300000000000)) {
+        comparison_finish_ns - comparison_start_ns >
+            (uint64_t)budget_seconds * UINT64_C(1000000000)) {
         goto cleanup;
     }
     size_t ratio_count = 3u * task_count;
@@ -251,16 +305,18 @@ int main(int argument_count, char **argument_values)
     }
     operation_status =
         fprintf(summary,
-            "format=replay_efficiency_v1\nclock=CLOCK_MONOTONIC\ntime_unit=ns\n"
+            "format=%s\nclock=CLOCK_MONOTONIC\ntime_unit=ns\n"
             "phase=%s\ntask_count=%zu\ncompleted_attempts=%zu\nexact_counts_identical=yes\nraw_csv_"
             "unchanged=yes\n"
             "all_task_candidate_max_below_baseline_min=%s\nmedian_process_wall_ratio=%.9Lf\n"
             "ratio_min=%.9Lf\nratio_max=%.9Lf\nbaseline_process_total_ns=%" PRIu64
             "\ncandidate_process_total_ns=%" PRIu64 "\ncomparison_wall_ns=%" PRIu64
             "\nresult_status=%s\nuncertainty=fixed_tasks_three_runs_each\n"
-            "general_population_interval=unavailable\nsecret_attribution=not_assessed\nreport_"
-            "status=complete\n",
-            is_development ? "development" : "confirmation",
+            "general_population_interval=unavailable\nsecret_attribution=not_assessed\n",
+            is_preimported ? "preimported_replay_efficiency_v1" : "replay_efficiency_v1",
+            is_development       ? "development"
+                : is_preimported ? "cost_sensitivity_supplement"
+                                 : "confirmation",
             task_count,
             completed_attempts,
             all_tasks_faster ? "yes" : "no",
@@ -273,6 +329,18 @@ int main(int argument_count, char **argument_values)
             is_development                                 ? "development_only"
                 : all_tasks_faster && median_ratio <= 0.5L ? "supports_this_exact_replay_efficiency"
                                                            : "improvement_conditions_not_met") < 0;
+    if (!operation_status && is_preimported &&
+        fprintf(summary,
+            "baseline_ready_total_ns=%" PRIu64 "\nplan_files_unchanged=yes\n"
+            "baseline_window=after_import_before_task_read_to_exit\n"
+            "candidate_window=full_cli_process\nready_protocol=SIGSTOP_then_C_clock_then_SIGCONT\n"
+            "pure_kernel_comparison=no\nnew_independent_tasks=no\nbudget_seconds=120\n",
+            baseline_ready_total_ns) < 0) {
+        operation_status = 1;
+    }
+    if (!operation_status && fputs("report_status=complete\n", summary) == EOF) {
+        operation_status = 1;
+    }
     if (fclose(summary) != 0) {
         operation_status = 1;
     }

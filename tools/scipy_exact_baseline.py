@@ -2,6 +2,8 @@
 
 import csv
 import hashlib
+import os
+import signal
 import sys
 
 import numpy as np
@@ -10,7 +12,14 @@ from scipy.stats import permutation_test
 
 
 def main():
-    csv_path, plan_path, report_path = sys.argv[1:]
+    is_preimported = len(sys.argv) == 5 and sys.argv[4] == "--preimported"
+    if len(sys.argv) != 4 and not is_preimported:
+        raise ValueError("expected CSV PLAN NEW_REPORT [--preimported]")
+    if is_preimported:
+        if scipy.__version__ != "1.16.3" or np.__version__ != "2.3.5":
+            raise ValueError("preimported supplement requires frozen dependency versions")
+        os.kill(os.getpid(), signal.SIGSTOP)
+    csv_path, plan_path, report_path = sys.argv[1:4]
     with open(csv_path, "rb") as source:
         csv_bytes = source.read()
     with open(plan_path, encoding="utf-8") as source:
