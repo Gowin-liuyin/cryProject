@@ -53,6 +53,8 @@ verified_source_export。兼容source_commit字段是导出清单摘要前40位�
 标准构建和复算不需要SciPy；它仅用于合同限定的外部强对照，版本/来源/命令另见
 [固定比较](controlled-comparison-v1.md)及[结果](evidence/controlled-comparison-20261007/README.md)。
 
-check实际运行全部相关功能/软件测试，排除measurement、analysis、analysis_groups三个
-主动机制计时集成入口，并使用CTest的无测试报错选项。测试注册清单与真实执行日志分别保存。
+默认A113_ARCHIVED_CASE_ONLY保持人工机制为归档案例，旧五类measure及三个主动机制集成
+测试不进入默认构建/注册；算法、CLI功能、旧分析器和归档规则均保持有效。已有旧构建目录
+可能保留先前可执行文件，正式验收须使用新构建目录。check仍显式排除这三个旧测试名，并使用
+CTest的无测试报错选项。测试注册清单与真实执行日志分别保存。
 部署、上传、签名、盖章、作品编号和真实非原作者执行不由入口自动代办。

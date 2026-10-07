@@ -26,6 +26,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(BASELINE_SANITIZERS "Enable ASan/UBSan; do not use these timings as performance evidence"
        OFF
 )
+option(A113_ARCHIVED_CASE_ONLY "Use archived mechanism cases in the delivery workflow" ON)
 include(CTest)
 find_package(Git REQUIRED)
 find_program(PATCH_EXECUTABLE patch REQUIRED)
@@ -137,7 +138,11 @@ foreach(variant IN ITEMS reference vulnerable hardened deployable)
     elseif(variant STREQUAL "deployable")
         target_compile_definitions(mlkem_${variant} PRIVATE BASELINE_DEPLOYABLE=1)
     endif()
-    foreach(program IN ITEMS baseline measure)
+    set(variant_programs baseline)
+    if(NOT A113_ARCHIVED_CASE_ONLY)
+        list(APPEND variant_programs measure)
+    endif()
+    foreach(program IN LISTS variant_programs)
         if(program STREQUAL "baseline")
             set(program_source src/main.c)
         else()
@@ -153,7 +158,10 @@ foreach(variant IN ITEMS reference vulnerable hardened deployable)
                        OUTPUT_NAME ${program}
         )
     endforeach()
-    add_custom_target(${variant} DEPENDS ${variant}_baseline ${variant}_measure)
+    add_custom_target(${variant} DEPENDS ${variant}_baseline)
+    if(NOT A113_ARCHIVED_CASE_ONLY)
+        add_dependencies(${variant} ${variant}_measure)
+    endif()
     if(BUILD_TESTING)
         foreach(test_program IN ITEMS test_mlkem test_equivalence test_random_failure)
             add_executable(${variant}_${test_program} "tests/${test_program}.c")
@@ -360,9 +368,11 @@ if(BUILD_TESTING)
     endif()
     target_compile_options(test_timing_diagnostics PRIVATE -UNDEBUG)
     add_test(NAME timing_diagnostics COMMAND test_timing_diagnostics $<TARGET_FILE:inspect_timing>)
-    add_executable(test_measurement tests/test_measurement.c)
-    target_link_libraries(test_measurement PRIVATE mlkem_reference)
-    set_target_properties(test_measurement PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    if(NOT A113_ARCHIVED_CASE_ONLY)
+        add_executable(test_measurement tests/test_measurement.c)
+        target_link_libraries(test_measurement PRIVATE mlkem_reference)
+        set_target_properties(test_measurement PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    endif()
     foreach(checked_variant IN ITEMS vulnerable hardened deployable)
         add_test(
             NAME equivalence_${checked_variant}
@@ -380,10 +390,13 @@ if(BUILD_TESTING)
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh"
                      "${output_root}" reference
     )
-    add_test(NAME measurement
-             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_measurement.sh"
-                     "${output_root}"
-    )
+    if(NOT A113_ARCHIVED_CASE_ONLY)
+        add_test(NAME measurement
+                 COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_measurement.sh"
+                         "${output_root}"
+        )
+        set_tests_properties(measurement PROPERTIES RUN_SERIAL TRUE)
+    endif()
     add_test(NAME vector_parser
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
                      "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt"
@@ -393,14 +406,17 @@ if(BUILD_TESTING)
         COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_vector_parser.sh"
                 "${output_root}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt" reference
     )
-    add_test(NAME analysis
-             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis.sh"
-                     "${output_root}"
-    )
-    add_test(NAME analysis_groups
-             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis_groups.sh"
-                     "${output_root}"
-    )
+    if(NOT A113_ARCHIVED_CASE_ONLY)
+        add_test(NAME analysis
+                 COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis.sh"
+                         "${output_root}"
+        )
+        add_test(
+            NAME analysis_groups
+            COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_analysis_groups.sh"
+                    "${output_root}"
+        )
+    endif()
     add_test(
         NAME analysis_round1_replay
         COMMAND "${SH_EXECUTABLE}"
@@ -409,7 +425,6 @@ if(BUILD_TESTING)
     set_tests_properties(
         analysis_round1_replay PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
     )
-    set_tests_properties(measurement PROPERTIES RUN_SERIAL TRUE)
     add_test(NAME vector_integrity COMMAND "${SHASUM_EXECUTABLE}" -a 256 -c
                                            tests/vectors/SHA256SUMS
     )
