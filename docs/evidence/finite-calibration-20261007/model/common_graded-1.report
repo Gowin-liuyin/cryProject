@@ -1,0 +1,17 @@
+format=controlled_statistics_v1
+source_kind=no_secret_synthetic
+csv_digest=648721c0cae31f996eecaac1d7a8c0a52a9992fca1a3706c9d1aa772ba269830
+plan_digest=b681f746ef52e20e8e66b4015ef094c19c65abc61442c339bec2506d6d2c95c2
+pair_count=12
+call_count=1
+assignment_count=4096
+tail_count=2
+p_value=0.000488281250000
+alpha=0.01
+mean_difference_ns=6.500000000
+randomization_qualified=no
+p_value_scope=exploratory_only
+interval_status=unavailable
+secret_attribution=not_assessed
+result_status=evidence_insufficient
+report_status=complete

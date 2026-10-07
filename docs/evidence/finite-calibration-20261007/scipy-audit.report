@@ -1,0 +1,53 @@
+format=finite_calibration_scipy_audit_v1
+external_audit_budget_seconds=60
+scipy_version=1.16.3
+numpy_version=2.3.5
+raw_sha3_256=233f3f046f1586b1b3d11a7e88bcc996691b8232b5af3bed28884dba716f7e09
+model=independent_equal effect_ns=0 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=0 assignment=1 tail_count=26 assignments=4096 matches=yes
+model=independent_equal effect_ns=0 assignment=2047 tail_count=26 assignments=4096 matches=yes
+model=independent_equal effect_ns=0 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=1 assignment=0 tail_count=4096 assignments=4096 matches=yes
+model=independent_equal effect_ns=1 assignment=1 tail_count=4096 assignments=4096 matches=yes
+model=independent_equal effect_ns=1 assignment=2047 tail_count=4 assignments=4096 matches=yes
+model=independent_equal effect_ns=1 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=2 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=2 assignment=1 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=2 assignment=2047 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=2 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=4 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=4 assignment=1 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=4 assignment=2047 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=4 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=12 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=12 assignment=1 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=12 assignment=2047 tail_count=2 assignments=4096 matches=yes
+model=independent_equal effect_ns=12 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=common_equal effect_ns=0 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=common_equal effect_ns=0 assignment=1 tail_count=2 assignments=4096 matches=yes
+model=independent_graded effect_ns=0 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=independent_graded effect_ns=0 assignment=1 tail_count=4 assignments=4096 matches=yes
+model=independent_graded effect_ns=0 assignment=2047 tail_count=140 assignments=4096 matches=yes
+model=independent_graded effect_ns=0 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_graded effect_ns=1 assignment=0 tail_count=4 assignments=4096 matches=yes
+model=independent_graded effect_ns=1 assignment=1 tail_count=8 assignments=4096 matches=yes
+model=independent_graded effect_ns=1 assignment=2047 tail_count=64 assignments=4096 matches=yes
+model=independent_graded effect_ns=1 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_graded effect_ns=2 assignment=0 tail_count=12 assignments=4096 matches=yes
+model=independent_graded effect_ns=2 assignment=1 tail_count=24 assignments=4096 matches=yes
+model=independent_graded effect_ns=2 assignment=2047 tail_count=32 assignments=4096 matches=yes
+model=independent_graded effect_ns=2 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_graded effect_ns=4 assignment=0 tail_count=188 assignments=4096 matches=yes
+model=independent_graded effect_ns=4 assignment=1 tail_count=316 assignments=4096 matches=yes
+model=independent_graded effect_ns=4 assignment=2047 tail_count=12 assignments=4096 matches=yes
+model=independent_graded effect_ns=4 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=independent_graded effect_ns=12 assignment=0 tail_count=4 assignments=4096 matches=yes
+model=independent_graded effect_ns=12 assignment=1 tail_count=4 assignments=4096 matches=yes
+model=independent_graded effect_ns=12 assignment=2047 tail_count=4 assignments=4096 matches=yes
+model=independent_graded effect_ns=12 assignment=4095 tail_count=2 assignments=4096 matches=yes
+model=common_graded effect_ns=0 assignment=0 tail_count=2 assignments=4096 matches=yes
+model=common_graded effect_ns=0 assignment=1 tail_count=2 assignments=4096 matches=yes
+audited_datasets=44
+all_counts_match=yes
+result_scope=numeric_audit_only
+report_status=complete

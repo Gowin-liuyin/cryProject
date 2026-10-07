@@ -1,0 +1,15 @@
+{
+  "fixed_c_source": "62dbe4cfb4a8c0d8480c7271e9214f74697f8f86",
+  "model_datasets": 40964,
+  "all_c_integer_counts_equal": true,
+  "external_audit_datasets": 44,
+  "external_counts_equal": true,
+  "dependent_cli_insufficient": 4,
+  "native_normal_tests": 33,
+  "native_sanitizer_tests": 33,
+  "task_wall_ns": 430655423,
+  "mlkem_decapsulation_calls": 0,
+  "calibration_scope": "finite_synthetic_models_only",
+  "real_crypto_population_calibration": false,
+  "independent_human_execution": false
+}
