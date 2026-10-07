@@ -1,0 +1,8 @@
+source_commit=697ddf867dfb1791ebcc4eba4e97f16197be3069
+normal_tests=32/32
+sanitizer_tests=32/32
+performance_replay=byte_equal
+missing_cost=rejected_no_complete
+new_formal_measurement=not_performed
+execution_kind=author_agent_native_kvm
+status=complete

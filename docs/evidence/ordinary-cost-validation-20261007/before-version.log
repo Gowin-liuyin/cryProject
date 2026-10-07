@@ -1,0 +1,4 @@
+对象：ML-KEM-768，C11 本地审计与复算。环境：Darwin arm64。
+source_commit=d4ed8625490c94fc707a34e64dd6b5cb85ac53db
+source_identity_kind=git_commit
+compiler_flags= -O2 -g -DNDEBUG -std=c11

@@ -1,7 +1,11 @@
 # 原生 x86_64 Linux 参考验收准备包
 
-状态：**准备完成、尚未执行**。本轮没有用户提供且可访问的原生x86_64 Linux入口，
-没有扫描网络、猜主机或创建远程资源。macOS本地结果与既有QEMU记录不填补这个缺口。
+当前状态：**已在用户授权的原生x86_64/KVM目标执行**，Ubuntu24.04.4、4vCPU。
+固定9d9554b的参考验收和9000条普通记录见evidence/native-reference-20261007；
+固定0e8be6d的三种安全形态普通性能见evidence/native-final-20261007。
+后续只读复算及成本资格修复分别见evidence/native-readonly-replay-20261007和
+evidence/ordinary-cost-validation-20261007。不是裸金属，也不是完整秘密机制防护闭环。
+本文件保留准备包的执行要求，不以Mac/QEMU结果替代原生证据。
 
 依赖：CMake ≥3.21、GNU GCC或Clang、Make（默认生成器）、Git、patch、POSIX sh、awk、
 sed、Perl/shasum、OpenSSL（支持SHA3-256）、GNU objdump/binutils、file。
@@ -35,6 +39,6 @@ complete与源码/产物摘要，再检查源CSV及总结中的摘要。空窗�
 反汇编保存实际正式产物全文，执行后仍需人工核对计时窗口内的完整解封装调用及输出消费。
 脚本只计算普通负载描述值，不运行漏洞复现、其他变体计时或两轮历史显著性检验。
 
-本机已经检查POSIX脚本语法和macOS拒绝路径（返回2、未创建目标输出），并实际执行过
-相同CMake目标与普通负载流程。Linux平台分支、GNU反汇编、/proc宿主识别和真实性能
-仍待执行；这些边界不能因为准备包存在而改成“跨平台实测完成”。
+POSIX脚本语法及macOS拒绝路径（返回2、未创建目标输出）已检查。Linux平台分支、GNU
+反汇编、/proc执行环境和普通性能已有上述固定版本真实记录；首次准备及编译失败也保留。
+宿主频率、调度与独立性未证明，新执行仍应采用新目录和完整身份，不覆盖旧材料。

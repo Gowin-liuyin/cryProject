@@ -1,0 +1,490 @@
+diff --git a/docs/product-workflow.md b/docs/product-workflow.md
+index 4b14b65..7bbb95f 100644
+--- a/docs/product-workflow.md
++++ b/docs/product-workflow.md
+@@ -14,7 +14,7 @@ build/cmake/audit collect demonstration 2026100703 20 runs/new-demonstration
+ ```
+ 
+ 新目录内有逐次CSV、meta、成本、退出日志、描述报告和index.html。短演示的60条记录只验证
+-入口，不代替正式样本。打开HTML查看数据及来源；缺文件、坏记录、meta partial、动态产物或
++入口，不代替正式样本。打开HTML查看数据及来源；缺CSV/meta/cost、坏记录、partial、动态产物或
+ 输出已存在均拒绝签收。HTML通过临时文件、完成写入及独占发布，不用部分页面显示成功。
+ 原始I/O失败保留部分文件；新路径不意味着可以绕过正式合同的旧成本。
+ 
+@@ -47,7 +47,9 @@ build/cmake/audit performance-replay 已封存性能目录 新性能.report
+ 子程序阶段成本及父进程完整启动/读写/退出窗口均保存；共同构建及文档制作不在该进程指标中。
+ 它不执行新的人工秘密机制时序，不代替缺陷前后的受控复测。Linux正式性能需固定源码和新目录，
+ 按原生说明外部taskset控制；不要把本地ARM结果与Linux混合比较。
+-performance-replay仅读18份逐次CSV及完成meta，核对每块输入、种子、版本、调用数和一致产物
++performance-replay仅读18套逐次CSV、meta及阶段cost，核对运行身份、CLOCK_MONOTONIC/ns、
++ordinary格式、正式/预热调用及结果消费数，并要求阶段时间有序、总墙钟等于首尾差值、
++采集窗口足以容纳逐次时间总和；成本缺失或矛盾拒绝完整报告。再核对每块输入、种子、版本和一致产物
+ 身份，从原始记录重建全部分位数、运行差值及同规则区间。先核对封存SHA清单，再使用此入口；
+ 报告路径新建，失败保留部分报告且不写complete。它不要求旧二进制目录存在，也不重新采集。
+ 
+diff --git a/include/paired_data.h b/include/paired_data.h
+index 35f8941..8031b82 100644
+--- a/include/paired_data.h
++++ b/include/paired_data.h
+@@ -24,6 +24,13 @@ struct batch_record {
+     uint64_t elapsed_nanoseconds;
+ };
+ 
++struct measurement_cost {
++    uint64_t child_wall_nanoseconds;
++    uint64_t child_start_nanoseconds;
++    uint64_t child_finish_nanoseconds;
++    uint64_t warmup_calls;
++};
++
+ struct paired_run {
+     char run_id[65];
+     char method[16];
+@@ -54,6 +61,11 @@ int paired_digest_file(const char *path, char digest[65]);
+ int is_paired_hex(const char *text, size_t character_count);
+ int is_paired_identifier(const char *text);
+ int paired_data_path(char *path, size_t capacity, const char *directory, const char *filename);
++int load_measurement_cost(const char *csv_path,
++    const char *expected_run_id,
++    uint64_t expected_calls,
++    uint64_t total_nanoseconds,
++    struct measurement_cost *cost);
+ int load_paired_run(const char *csv_path, const char *metadata_path, struct paired_run *run);
+ int validate_paired_runs(const struct paired_run *baseline, const struct paired_run *candidate);
+ void release_paired_run(struct paired_run *run);
+diff --git a/src/audit.c b/src/audit.c
+index 443e50b..bc5481e 100644
+--- a/src/audit.c
++++ b/src/audit.c
+@@ -17,14 +17,16 @@
+ #include <time.h>
+ #include <unistd.h>
+ 
++#define ORDINARY_METADATA_COUNT 17u
++
+ struct ordinary_dataset {
+     struct measurement_set measurements;
+-    char metadata[9][256];
++    char metadata[ORDINARY_METADATA_COUNT][256];
+     char csv_digest[65];
+     uint64_t total_duration_ns;
+ };
+ 
+-static const char *const metadata_names[9] = {"run_id",
++static const char *const metadata_names[ORDINARY_METADATA_COUNT] = {"run_id",
+     "implementation",
+     "sample_count",
+     "run_status",
+@@ -32,7 +34,15 @@ static const char *const metadata_names[9] = {"run_id",
+     "source_commit",
+     "ordered_input_digest",
+     "test_seed",
+-    "executable_digest"};
++    "executable_digest",
++    "clock",
++    "time_unit",
++    "measurement_format",
++    "formal_attempted_calls",
++    "formal_completed_calls",
++    "warmup_attempted_calls",
++    "warmup_completed_calls",
++    "outputs_consumed"};
+ static const char *const safe_variants[3] = {"reference", "hardened", "deployable"};
+ static volatile sig_atomic_t active_child;
+ static volatile sig_atomic_t deadline_expired;
+@@ -119,20 +129,23 @@ static int load_ordinary_dataset(const char *csv_path,
+     struct ordinary_dataset *dataset)
+ {
+     memset(dataset, 0, sizeof(*dataset));
+-    struct paired_text_field fields[9];
+-    for (size_t field_index = 0; field_index < 9u; ++field_index) {
++    struct paired_text_field fields[ORDINARY_METADATA_COUNT];
++    for (size_t field_index = 0; field_index < ORDINARY_METADATA_COUNT; ++field_index) {
+         fields[field_index] = (struct paired_text_field){metadata_names[field_index],
+             dataset->metadata[field_index],
+             sizeof(dataset->metadata[field_index]),
+             0};
+     }
+     if (load_measurement_set(csv_path, &dataset->measurements) != 0 ||
+-        read_paired_fields(metadata_path, fields, 9) != 0 ||
++        read_paired_fields(metadata_path, fields, ORDINARY_METADATA_COUNT) != 0 ||
+         paired_digest_file(csv_path, dataset->csv_digest) != 0 ||
+         strcmp(dataset->metadata[0], dataset->measurements.run_id) != 0 ||
+         strcmp(dataset->metadata[1], dataset->measurements.implementation) != 0 ||
+         strcmp(dataset->metadata[3], "complete") != 0 || strcmp(dataset->metadata[4], "OFF") != 0 ||
+-        !is_paired_hex(dataset->metadata[6], 64) || !is_paired_hex(dataset->metadata[8], 64)) {
++        !is_paired_hex(dataset->metadata[6], 64) || !is_paired_hex(dataset->metadata[8], 64) ||
++        strcmp(dataset->metadata[9], "CLOCK_MONOTONIC") != 0 ||
++        strcmp(dataset->metadata[10], "ns") != 0 ||
++        strcmp(dataset->metadata[11], "reference_ordinary_v1") != 0) {
+         free(dataset->measurements.records);
+         dataset->measurements.records = NULL;
+         return 1;
+@@ -142,9 +155,22 @@ static int load_ordinary_dataset(const char *csv_path,
+     size_t category_counts[3] = {0};
+     if (parse_unsigned_integer(dataset->metadata[2], &expected_count) != 0 ||
+         expected_count != dataset->measurements.record_count ||
++        expected_count > UINT64_MAX - 100u ||
+         parse_unsigned_integer(dataset->metadata[7], &test_seed) != 0) {
+         goto invalid;
+     }
++    uint64_t expected_counters[5] = {expected_count,
++        expected_count,
++        100u,
++        100u,
++        expected_count + 100u};
++    for (size_t counter_index = 0; counter_index < 5u; ++counter_index) {
++        uint64_t actual_counter;
++        if (parse_unsigned_integer(dataset->metadata[counter_index + 12u], &actual_counter) != 0 ||
++            actual_counter != expected_counters[counter_index]) {
++            goto invalid;
++        }
++    }
+     for (size_t record_index = 0; record_index < dataset->measurements.record_count;
+         ++record_index) {
+         const struct measurement_record *record = &dataset->measurements.records[record_index];
+@@ -160,6 +186,14 @@ static int load_ordinary_dataset(const char *csv_path,
+         category_counts[0] != category_counts[2]) {
+         goto invalid;
+     }
++    struct measurement_cost cost;
++    if (load_measurement_cost(csv_path,
++            dataset->measurements.run_id,
++            expected_count,
++            dataset->total_duration_ns,
++            &cost) != 0) {
++        goto invalid;
++    }
+     return 0;
+ invalid:
+     free(dataset->measurements.records);
+@@ -206,14 +240,17 @@ static int export_html(const char *csv_path,
+         malloc(dataset.measurements.record_count * sizeof(*sorted_records));
+     FILE *output = NULL;
+     char temporary_html_path[4096];
++    char cost_path[4096];
+     int operation_status = 1;
+     int temporary_path_length = snprintf(temporary_html_path,
+         sizeof(temporary_html_path),
+         "%s.partial.%jd",
+         html_path,
+         (intmax_t)getpid());
++    int cost_path_length = snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path);
+     if (sorted_records == NULL || temporary_path_length < 0 ||
+-        (size_t)temporary_path_length >= sizeof(temporary_html_path)) {
++        (size_t)temporary_path_length >= sizeof(temporary_html_path) || cost_path_length < 0 ||
++        (size_t)cost_path_length >= sizeof(cost_path)) {
+         goto cleanup;
+     }
+     memcpy(sorted_records,
+@@ -238,7 +275,7 @@ static int export_html(const char *csv_path,
+         write_escaped(output, origin) != 0 || fputs("。运行编号：<code>", output) == EOF ||
+         write_escaped(output, dataset.measurements.run_id) != 0 ||
+         fprintf(output,
+-            "</code>。共 %zu 条逐次记录，三类比例 1:1:1，记录结构和完成声明已核验。</p>"
++            "</code>。共 %zu 条逐次记录，三类比例 1:1:1，记录、阶段成本和完成状态已核验。</p>"
+             "<p>对象：",
+             dataset.measurements.record_count) < 0 ||
+         write_escaped(output, dataset.measurements.implementation) != 0 ||
+@@ -274,7 +311,8 @@ static int export_html(const char *csv_path,
+               "<h2>证据与复算</h2><p>",
+             output) == EOF ||
+         write_link(output, csv_path, "逐次原始数据") != 0 || fputs(" · ", output) == EOF ||
+-        write_link(output, metadata_path, "环境及方法记录") != 0 ||
++        write_link(output, metadata_path, "环境及方法记录") != 0 || fputs(" · ", output) == EOF ||
++        write_link(output, cost_path, "阶段成本及完成记录") != 0 ||
+         fputs("</p><p>原始数据 SHA3-256：<code>", output) == EOF ||
+         write_escaped(output, dataset.csv_digest) != 0 ||
+         fputs("</code></p><p>被测源码身份：<code>", output) == EOF ||
+@@ -285,7 +323,7 @@ static int export_html(const char *csv_path,
+               "新描述.report</code>。定位、防护、对照、"
+               "未闭合项及完整交接见支撑包的证据索引；历史案例与本次普通记录分开解释。</p>"
+               "<footer>导出状态：完整。元数据声明需结合采集退出码、源码和产物清单核查。"
+-              "该页的数据链接要求 HTML 与 CSV/meta 放在同一目录。</footer></html>\n",
++              "该页的数据链接要求 HTML 与 CSV/meta/cost 放在同一目录。</footer></html>\n",
+             output) == EOF) {
+         goto cleanup;
+     }
+diff --git a/src/paired_data.c b/src/paired_data.c
+index 326a742..6856cc1 100644
+--- a/src/paired_data.c
++++ b/src/paired_data.c
+@@ -211,7 +211,11 @@ cleanup:
+     return operation_status;
+ }
+ 
+-static int load_cost(const char *csv_path, struct paired_run *run)
++int load_measurement_cost(const char *csv_path,
++    const char *expected_run_id,
++    uint64_t expected_calls,
++    uint64_t total_nanoseconds,
++    struct measurement_cost *cost)
+ {
+     static const char *const names[] = {"cost_format",
+         "final_state",
+@@ -225,20 +229,29 @@ static int load_cost(const char *csv_path, struct paired_run *run)
+         "warmup_completed_calls",
+         "formal_attempted_calls",
+         "formal_completed_calls",
+-        "outputs_consumed"};
+-    char values[13][128];
+-    struct paired_text_field fields[13];
++        "outputs_consumed",
++        "run_id",
++        "initial_state"};
++    char values[15][128];
++    struct paired_text_field fields[15];
++    // 既有配对档案按原合同读取；普通负载另核对运行身份。
++    size_t field_count = expected_run_id == NULL ? 13u : 15u;
+     char cost_path[4096];
++    if (csv_path == NULL || cost == NULL || expected_calls > UINT64_MAX - 100u) {
++        return 1;
++    }
+     int path_bytes = snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path);
+     if (path_bytes < 0 || (size_t)path_bytes >= sizeof(cost_path)) {
+         return 1;
+     }
+-    for (size_t field_index = 0; field_index < 13u; ++field_index) {
++    for (size_t field_index = 0; field_index < field_count; ++field_index) {
+         fields[field_index] =
+             (struct paired_text_field){names[field_index], values[field_index], 128, 0};
+     }
+-    if (read_paired_fields(cost_path, fields, 13) != 0 ||
+-        strcmp(values[0], "measurement_cost_v1") != 0 || strcmp(values[1], "complete") != 0) {
++    if (read_paired_fields(cost_path, fields, field_count) != 0 ||
++        strcmp(values[0], "measurement_cost_v1") != 0 || strcmp(values[1], "complete") != 0 ||
++        (expected_run_id != NULL &&
++            (strcmp(values[13], expected_run_id) != 0 || strcmp(values[14], "started") != 0))) {
+         return 1;
+     }
+     uint64_t numbers[11];
+@@ -249,16 +262,30 @@ static int load_cost(const char *csv_path, struct paired_run *run)
+     }
+     if (numbers[0] == 0 || numbers[1] < numbers[0] || numbers[2] < numbers[1] ||
+         numbers[3] < numbers[2] || numbers[4] < numbers[3] ||
+-        numbers[5] != numbers[4] - numbers[0] || numbers[5] < run->total_nanoseconds ||
+-        numbers[3] - numbers[2] < run->total_nanoseconds || numbers[6] != 100u ||
+-        numbers[7] != 100u || numbers[8] != run->call_count || numbers[9] != run->call_count ||
+-        numbers[10] != run->call_count + 100u) {
++        numbers[5] != numbers[4] - numbers[0] || numbers[5] < total_nanoseconds ||
++        numbers[3] - numbers[2] < total_nanoseconds || numbers[6] != 100u || numbers[7] != 100u ||
++        numbers[8] != expected_calls || numbers[9] != expected_calls ||
++        numbers[10] != expected_calls + 100u) {
++        return 1;
++    }
++    cost->child_wall_nanoseconds = numbers[5];
++    cost->child_start_nanoseconds = numbers[0];
++    cost->child_finish_nanoseconds = numbers[4];
++    cost->warmup_calls = numbers[7];
++    return 0;
++}
++
++static int load_cost(const char *csv_path, struct paired_run *run)
++{
++    struct measurement_cost cost;
++    if (load_measurement_cost(csv_path, NULL, run->call_count, run->total_nanoseconds, &cost) !=
++        0) {
+         return 1;
+     }
+-    run->child_wall_nanoseconds = numbers[5];
+-    run->child_start_nanoseconds = numbers[0];
+-    run->child_finish_nanoseconds = numbers[4];
+-    run->warmup_calls = numbers[7];
++    run->child_wall_nanoseconds = cost.child_wall_nanoseconds;
++    run->child_start_nanoseconds = cost.child_start_nanoseconds;
++    run->child_finish_nanoseconds = cost.child_finish_nanoseconds;
++    run->warmup_calls = cost.warmup_calls;
+     return 0;
+ }
+ 
+diff --git a/tests/test_performance_replay.c b/tests/test_performance_replay.c
+index 084f664..8fe3832 100644
+--- a/tests/test_performance_replay.c
++++ b/tests/test_performance_replay.c
+@@ -26,6 +26,38 @@ static int invoke(const char *program, const char *directory, const char *report
+     return WIFEXITED(wait_status) ? WEXITSTATUS(wait_status) : 128;
+ }
+ 
++static void write_cost(const char *path,
++    const char *run_name,
++    const char *final_state,
++    uint64_t total_duration_ns)
++{
++    FILE *cost_file = fopen(path, "w");
++    assert(cost_file != NULL);
++    assert(fprintf(cost_file,
++               "cost_format=measurement_cost_v1\ninitial_state=started\nrun_id=%s\n"
++               "final_state=%s\nstart_ns=100\npreparation_end_ns=200\nwarmup_end_ns=300\n"
++               "collection_end_ns=%" PRIu64 "\nfinish_ns=%" PRIu64 "\nchild_total_wall_ns=%" PRIu64
++               "\nwarmup_attempted_calls=100\nwarmup_completed_calls=100\n"
++               "formal_attempted_calls=3000\nformal_completed_calls=3000\noutputs_consumed=3100\n",
++               run_name,
++               final_state,
++               300u + total_duration_ns,
++               1300u + total_duration_ns,
++               1200u + total_duration_ns) > 0);
++    assert(fclose(cost_file) == 0);
++}
++
++static void expect_incomplete(const char *program, const char *directory, const char *report_path)
++{
++    assert(invoke(program, directory, report_path) != 0);
++    FILE *report_file = fopen(report_path, "r");
++    assert(report_file != NULL);
++    char report[8192];
++    size_t report_bytes = fread(report, 1, sizeof(report) - 1u, report_file);
++    report[report_bytes] = '\0';
++    assert(fclose(report_file) == 0 && strstr(report, "report_status=complete") == NULL);
++}
++
+ int main(int argument_count, char **argument_values)
+ {
+     assert(argument_count == 2);
+@@ -34,6 +66,7 @@ int main(int argument_count, char **argument_values)
+     const char *variants[3] = {"reference", "hardened", "deployable"};
+     char csv_path[512];
+     char metadata_path[512];
++    char cost_path[512];
+     char report_path[512];
+     const char zero_digest[] = "0000000000000000000000000000000000000000000000000000000000000000";
+     for (size_t block_index = 1; block_index <= 6u; ++block_index) {
+@@ -50,6 +83,8 @@ int main(int argument_count, char **argument_values)
+                 "%s/%s.meta",
+                 test_directory,
+                 run_name);
++            (void)
++                snprintf(cost_path, sizeof(cost_path), "%s/%s.csv.cost", test_directory, run_name);
+             uint64_t duration_ns = 1000u + 100u * block_index;
+             if (variant_index == 1u) {
+                 duration_ns += 100u;
+@@ -73,17 +108,23 @@ int main(int argument_count, char **argument_values)
+             assert(fclose(csv_file) == 0);
+             FILE *metadata_file = fopen(metadata_path, "wx");
+             assert(metadata_file != NULL);
+-            assert(fprintf(metadata_file,
+-                       "run_id=%s\nimplementation=%s\nsample_count=3000\nrun_status=complete\n"
+-                       "sanitizers=OFF\nsource_commit=software_fixture\nordered_input_digest=%s\n"
+-                       "test_seed=%" PRIu64
+-                       "\nexecutable_digest=%s\norigin=synthetic_parser_fixture\n",
+-                       run_name,
+-                       variants[variant_index],
+-                       zero_digest,
+-                       UINT64_C(202610072000) + block_index,
+-                       zero_digest) > 0);
++            assert(
++                fprintf(metadata_file,
++                    "run_id=%s\nimplementation=%s\nsample_count=3000\nrun_status=complete\n"
++                    "sanitizers=OFF\nsource_commit=software_fixture\nordered_input_digest=%s\n"
++                    "test_seed=%" PRIu64 "\nexecutable_digest=%s\norigin=synthetic_parser_fixture\n"
++                    "clock=CLOCK_MONOTONIC\ntime_unit=ns\nmeasurement_format=reference_ordinary_"
++                    "v1\n"
++                    "formal_attempted_calls=3000\nformal_completed_calls=3000\n"
++                    "warmup_attempted_calls=100\nwarmup_completed_calls=100\noutputs_consumed="
++                    "3100\n",
++                    run_name,
++                    variants[variant_index],
++                    zero_digest,
++                    UINT64_C(202610072000) + block_index,
++                    zero_digest) > 0);
+             assert(fclose(metadata_file) == 0);
++            write_cost(cost_path, run_name, "complete", duration_ns * 3000u);
+         }
+     }
+     (void)snprintf(report_path, sizeof(report_path), "%s/result.report", test_directory);
+@@ -100,13 +141,21 @@ int main(int argument_count, char **argument_values)
+         strstr(report, "interval_lower_ns=100.000000000 interval_upper_ns=100.000000000") != NULL);
+     assert(strstr(report, "report_status=complete") != NULL);
+     assert(invoke(argument_values[1], test_directory, report_path) != 0);
++    assert(unlink(cost_path) == 0);
++    (void)snprintf(report_path, sizeof(report_path), "%s/missing-cost.report", test_directory);
++    expect_incomplete(argument_values[1], test_directory, report_path);
++    write_cost(cost_path, "ordinary-deployable-block6", "partial", UINT64_C(4500000));
++    (void)snprintf(report_path, sizeof(report_path), "%s/partial-cost.report", test_directory);
++    expect_incomplete(argument_values[1], test_directory, report_path);
++    write_cost(cost_path, "wrong-run", "complete", UINT64_C(4500000));
++    (void)snprintf(report_path, sizeof(report_path), "%s/wrong-cost-run.report", test_directory);
++    expect_incomplete(argument_values[1], test_directory, report_path);
++    write_cost(cost_path, "ordinary-deployable-block6", "complete", 1);
++    (void)snprintf(report_path, sizeof(report_path), "%s/short-cost-window.report", test_directory);
++    expect_incomplete(argument_values[1], test_directory, report_path);
++    write_cost(cost_path, "ordinary-deployable-block6", "complete", UINT64_C(4500000));
+     assert(unlink(csv_path) == 0);
+     (void)snprintf(report_path, sizeof(report_path), "%s/partial.report", test_directory);
+-    assert(invoke(argument_values[1], test_directory, report_path) != 0);
+-    report_file = fopen(report_path, "r");
+-    assert(report_file != NULL);
+-    report_bytes = fread(report, 1, sizeof(report) - 1u, report_file);
+-    report[report_bytes] = '\0';
+-    assert(fclose(report_file) == 0 && strstr(report, "report_status=complete") == NULL);
++    expect_incomplete(argument_values[1], test_directory, report_path);
+     return 0;
+ }
+diff --git a/tests/test_workflow.sh b/tests/test_workflow.sh
+index d1670a4..b0d1b86 100644
+--- a/tests/test_workflow.sh
++++ b/tests/test_workflow.sh
+@@ -7,8 +7,26 @@ trap 'rm -rf "$test_directory"' EXIT
+ "$program" case
+ printf 'run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit\nfixture,reference,valid,0,1000,ns\nfixture,reference,bit-flipped,1,2000,ns\nfixture,reference,random,2,3000,ns\n' > "$test_directory/data.csv"
+ zero_digest=$(printf '%064d' 0)
+-printf 'run_id=fixture\nimplementation=reference\nsample_count=3\nrun_status=complete\nsanitizers=OFF\nsource_commit=software_fixture\nordered_input_digest=%s\ntest_seed=1\nexecutable_digest=%s\n' \
++printf 'run_id=fixture\nimplementation=reference\nsample_count=3\nrun_status=complete\nsanitizers=OFF\nsource_commit=software_fixture\nordered_input_digest=%s\ntest_seed=1\nexecutable_digest=%s\nclock=CLOCK_MONOTONIC\ntime_unit=ns\nmeasurement_format=reference_ordinary_v1\nformal_attempted_calls=3\nformal_completed_calls=3\nwarmup_attempted_calls=100\nwarmup_completed_calls=100\noutputs_consumed=103\n' \
+     "$zero_digest" "$zero_digest" > "$test_directory/data.meta"
++cat > "$test_directory/complete.cost" <<'EOF'
++cost_format=measurement_cost_v1
++initial_state=started
++run_id=fixture
++final_state=complete
++start_ns=100
++preparation_end_ns=200
++warmup_end_ns=300
++collection_end_ns=6300
++finish_ns=7000
++child_total_wall_ns=6900
++warmup_attempted_calls=100
++warmup_completed_calls=100
++formal_attempted_calls=3
++formal_completed_calls=3
++outputs_consumed=103
++EOF
++cp "$test_directory/complete.cost" "$test_directory/data.csv.cost"
+ "$program" export "$test_directory/data.csv" "$test_directory/data.meta" "$test_directory/result.html"
+ test -s "$test_directory/result.html"
+ if "$program" export "$test_directory/data.csv" "$test_directory/data.meta" "$test_directory/result.html"; then
+@@ -19,6 +37,36 @@ if "$program" export "$test_directory/data.csv" "$test_directory/partial.meta" "
+     exit 1
+ fi
+ test ! -e "$test_directory/partial.html"
++for replacement in 'clock=CLOCK_MONOTONIC/clock=CLOCK_REALTIME' \
++    'time_unit=ns/time_unit=us' \
++    'measurement_format=reference_ordinary_v1/measurement_format=unknown' \
++    'formal_completed_calls=3/formal_completed_calls=2' \
++    'warmup_completed_calls=100/warmup_completed_calls=99' \
++    'outputs_consumed=103/outputs_consumed=102'; do
++    sed "s/$replacement/" "$test_directory/data.meta" > "$test_directory/invalid.meta"
++    if "$program" export "$test_directory/data.csv" "$test_directory/invalid.meta" "$test_directory/invalid.html"; then
++        exit 1
++    fi
++    test ! -e "$test_directory/invalid.html"
++done
++for replacement in 'run_id=fixture/run_id=another-run' \
++    'initial_state=started/initial_state=unknown' \
++    'final_state=complete/final_state=partial' \
++    'collection_end_ns=6300/collection_end_ns=6299' \
++    'child_total_wall_ns=6900/child_total_wall_ns=6901' \
++    'formal_completed_calls=3/formal_completed_calls=2' \
++    'outputs_consumed=103/outputs_consumed=102'; do
++    sed "s/$replacement/" "$test_directory/complete.cost" > "$test_directory/data.csv.cost"
++    if "$program" export "$test_directory/data.csv" "$test_directory/data.meta" "$test_directory/invalid.html"; then
++        exit 1
++    fi
++    test ! -e "$test_directory/invalid.html"
++done
++rm "$test_directory/data.csv.cost"
++if "$program" export "$test_directory/data.csv" "$test_directory/data.meta" "$test_directory/missing-cost.html"; then
++    exit 1
++fi
++test ! -e "$test_directory/missing-cost.html"
+ if "$program" collect bad-run invalid 3 "$test_directory/failed-collection"; then
+     exit 1
+ fi

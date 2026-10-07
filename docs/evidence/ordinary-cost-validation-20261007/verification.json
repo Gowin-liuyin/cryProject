@@ -1,0 +1,17 @@
+{
+  "source_commit": "697ddf867dfb1791ebcc4eba4e97f16197be3069",
+  "local_precommit_normal_tests": 32,
+  "local_precommit_sanitizer_tests": 32,
+  "fixed_local_related_tests": 4,
+  "fixed_native_gcc_tests": 32,
+  "fixed_native_clang_sanitizer_tests": 32,
+  "default_test_registration": 32,
+  "legacy_active_timing_tests_registered": false,
+  "complete_18_run_reports_byte_equal": true,
+  "missing_cost_reports_rejected": true,
+  "old_missing_cost_report_was_complete": true,
+  "archived_reports_byte_equal": 40,
+  "new_formal_measurements": 0,
+  "independent_human_execution": false,
+  "scientific_gates_closed_by_this_fix": false
+}

@@ -1,0 +1,72 @@
+Test project /Users/yin/code/cryProject/build/cost-validation-sanitizers
+      Start  1: reference_kat
+ 1/32 Test  #1: reference_kat ....................   Passed    0.45 sec
+      Start  2: reference_random_failure
+ 2/32 Test  #2: reference_random_failure .........   Passed    0.45 sec
+      Start  3: vulnerable_kat
+ 3/32 Test  #3: vulnerable_kat ...................   Passed    0.40 sec
+      Start  4: vulnerable_random_failure
+ 4/32 Test  #4: vulnerable_random_failure ........   Passed    0.37 sec
+      Start  5: hardened_kat
+ 5/32 Test  #5: hardened_kat .....................   Passed    0.49 sec
+      Start  6: hardened_random_failure
+ 6/32 Test  #6: hardened_random_failure ..........   Passed    0.37 sec
+      Start  7: deployable_kat
+ 7/32 Test  #7: deployable_kat ...................   Passed    0.41 sec
+      Start  8: deployable_random_failure
+ 8/32 Test  #8: deployable_random_failure ........   Passed    0.37 sec
+      Start  9: performance_replay
+ 9/32 Test  #9: performance_replay ...............   Passed    1.06 sec
+      Start 10: audit_workflow
+10/32 Test #10: audit_workflow ...................   Passed    0.64 sec
+      Start 11: source_export
+11/32 Test #11: source_export ....................   Passed    0.13 sec
+      Start 12: controlled_statistics
+12/32 Test #12: controlled_statistics ............   Passed    0.66 sec
+      Start 13: controlled_cli
+13/32 Test #13: controlled_cli ...................   Passed    0.51 sec
+      Start 14: compare_replay_failures
+14/32 Test #14: compare_replay_failures ..........   Passed    0.62 sec
+      Start 15: native_digest
+15/32 Test #15: native_digest ....................   Passed    0.81 sec
+      Start 16: paired_prepare
+16/32 Test #16: paired_prepare ...................   Passed    2.38 sec
+      Start 17: paired_runner
+17/32 Test #17: paired_runner ....................   Passed    3.02 sec
+      Start 18: paired_statistics
+18/32 Test #18: paired_statistics ................   Passed    0.59 sec
+      Start 19: paired_data
+19/32 Test #19: paired_data ......................   Passed    0.58 sec
+      Start 20: paired_rejections
+20/32 Test #20: paired_rejections ................   Passed    1.79 sec
+      Start 21: batch_measurement
+21/32 Test #21: batch_measurement ................   Passed    1.26 sec
+      Start 22: reference_benchmark
+22/32 Test #22: reference_benchmark ..............   Passed    0.56 sec
+      Start 23: timing_diagnostics
+23/32 Test #23: timing_diagnostics ...............   Passed    0.83 sec
+      Start 24: equivalence_vulnerable
+24/32 Test #24: equivalence_vulnerable ...........   Passed    0.82 sec
+      Start 25: equivalence_hardened
+25/32 Test #25: equivalence_hardened .............   Passed    0.47 sec
+      Start 26: equivalence_deployable
+26/32 Test #26: equivalence_deployable ...........   Passed    0.75 sec
+      Start 27: cli
+27/32 Test #27: cli ..............................   Passed    2.47 sec
+      Start 28: reference_cli
+28/32 Test #28: reference_cli ....................   Passed    0.18 sec
+      Start 29: vector_parser
+29/32 Test #29: vector_parser ....................   Passed    0.22 sec
+      Start 30: reference_vector_parser
+30/32 Test #30: reference_vector_parser ..........   Passed    0.07 sec
+      Start 31: analysis_round1_replay
+31/32 Test #31: analysis_round1_replay ...........   Passed    0.49 sec
+      Start 32: vector_integrity
+32/32 Test #32: vector_integrity .................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 32
+
+Label Time Summary:
+reference    =   1.17 sec*proc (5 tests)
+
+Total Test time (real) =  24.25 sec

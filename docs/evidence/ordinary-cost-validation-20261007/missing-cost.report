@@ -1,0 +1,9 @@
+format=safe_ordinary_performance_v1
+blocks=6
+formal_calls_per_run=3000
+warmup_calls_per_run=100
+planned_total_calls=55800
+clock=CLOCK_MONOTONIC
+time_unit=ns
+interval_scope=exploratory_iid_run_pair_bootstrap_only
+secret_attribution=not_assessed
