@@ -2,6 +2,12 @@
 
 日期：2026-10-07。阶段：可交付工程、报告与匿名材料已验收；科学及真实签署缺口保留。
 
+模块五开始前重新核验授权实例：Ubuntu24.04.4、x86_64/KVM、4vCPU，约7.99GB来宾
+内存，CPU2可用，GCC13.3/Clang18.1.3/CMake3.28.3/Ninja1.11.1。新的/tmp独立目录，
+不读取或复制私钥；环境原输出见candidate-round-20261007/preflight.log。先固定
+[工程验证口径](native-candidate-validation-v1.md)，正式普通采集与动态检查分时；
+本行尚不声明构建、检查或复算完成，随后按实际退出更新。
+
 模块三/四已完成固定便携配置适用性与自有边界审查，见
 [current-version-defense-review.md](current-version-defense-review.md)。确认DEF-F01：构建身份
 模板误用未定义路径，实际编译路径原本正确。修正四版路径与配置记录，保持库、补丁、
