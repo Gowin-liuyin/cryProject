@@ -1,4 +1,21 @@
-# A1-13 · ML-KEM-768 时间侧信道实验基线
+# A1-13 · ML-KEM-768 本地审计与复算作品
+
+当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、
+成对统计、普通性能及离线HTML导出。构建后从这里开始：
+
+```sh
+cmake --preset baseline
+cmake --build --preset baseline --parallel 4
+build/cmake/audit version
+build/cmake/audit check
+build/cmake/audit case
+```
+
+[使用流程](docs/product-workflow.md)、[完整验收表](docs/full-work-acceptance.md)及
+[进度](docs/full-work-progress.md)给出最新状态。已取得真实4vCPU KVM/x86_64 Linux普通参考证据；
+有限批次合同准备失败并停止；无秘密精确复算的C/SciPy效率比较已确认。
+人工回归历史链、新原生普通测量和合成统计验证分开，尚未宣称完整受控防护闭环或全部竞赛达标。
+以下章节保留原软件基线及历轮的时点记录。
 
 用 **C11** 搭建的单机实验系统：包含 ML-KEM 参考实现、保持密码输出语义的时序缺陷变体、
 在同一构建条件下去掉秘密相关分支的防护变体、不带函数级优化控制的可部署恒时编码变体、

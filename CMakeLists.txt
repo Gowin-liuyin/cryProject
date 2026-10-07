@@ -172,17 +172,19 @@ foreach(variant IN ITEMS reference vulnerable hardened deployable)
     endif()
 endforeach()
 
-# 普通负载入口只链接参考库，旧五类 measure 的命令和记录契约保持原样。
-add_executable(reference_benchmark src/measure.c)
-target_compile_definitions(reference_benchmark PRIVATE BASELINE_ORDINARY_WORKLOAD=1)
-target_link_libraries(reference_benchmark PRIVATE mlkem_reference)
-target_include_directories(reference_benchmark PRIVATE "${identity_directory}")
-set_target_properties(
-    reference_benchmark
-    PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
-               RUNTIME_OUTPUT_DIRECTORY "${output_root}/reference"
-               OUTPUT_NAME benchmark
-)
+# 普通测量仅覆盖参考和两种无分支对照，历史五类入口保持原样。
+foreach(ordinary_variant IN ITEMS reference hardened deployable)
+    add_executable(${ordinary_variant}_benchmark src/measure.c)
+    target_compile_definitions(${ordinary_variant}_benchmark PRIVATE BASELINE_ORDINARY_WORKLOAD=1)
+    target_link_libraries(${ordinary_variant}_benchmark PRIVATE mlkem_${ordinary_variant})
+    target_include_directories(${ordinary_variant}_benchmark PRIVATE "${identity_directory}")
+    set_target_properties(
+        ${ordinary_variant}_benchmark
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/${ordinary_variant}"
+                   OUTPUT_NAME benchmark
+    )
+endforeach()
 
 # 统计分析只读取 CSV，与实现变体无关，因此只构建一个程序。
 add_executable(reference_batch_benchmark src/measure.c src/batch_measurement.c)
@@ -254,8 +256,31 @@ set_target_properties(controlled_stats PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${ou
 add_executable(compare_replay src/compare_replay.c)
 target_link_libraries(compare_replay PRIVATE paired_support)
 set_target_properties(compare_replay PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_executable(audit src/audit.c)
+target_link_libraries(audit PRIVATE controlled_statistics)
+target_include_directories(audit PRIVATE "${identity_directory}")
+set_target_properties(audit PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_dependencies(
+    audit
+    reference_baseline
+    reference_benchmark
+    hardened_benchmark
+    deployable_benchmark
+    inspect_timing
+    analyze
+    analyze_groups
+    controlled_stats
+)
 
 if(BUILD_TESTING)
+    add_test(NAME audit_workflow
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_workflow.sh"
+                     $<TARGET_FILE:audit>
+    )
+    add_test(NAME source_export
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_source_export.sh"
+                     "${CMAKE_CURRENT_SOURCE_DIR}/tools/build_identity.sh" "${CMAKE_C_COMPILER}"
+    )
     add_executable(test_controlled_statistics tests/test_controlled_statistics.c)
     target_link_libraries(test_controlled_statistics PRIVATE controlled_statistics)
     target_compile_options(test_controlled_statistics PRIVATE -UNDEBUG)
