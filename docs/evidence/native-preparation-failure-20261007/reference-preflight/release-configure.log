@@ -1,0 +1,22 @@
+arguments_begin
+cmake
+-S
+/home/ubuntu/cryproject-a113-20261007/source
+-B
+/home/ubuntu/cryproject-a113-20261007/runs/paired-v1/reference-preflight/build-release
+-DCMAKE_BUILD_TYPE=RelWithDebInfo
+-DBUILD_TESTING=ON
+-DBASELINE_SANITIZERS=OFF
+arguments_end
+Wed Oct  7 00:12:14 UTC 2026
+-- The C compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.43.0") 
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ubuntu/cryproject-a113-20261007/runs/paired-v1/reference-preflight/build-release
+Wed Oct  7 00:12:14 UTC 2026

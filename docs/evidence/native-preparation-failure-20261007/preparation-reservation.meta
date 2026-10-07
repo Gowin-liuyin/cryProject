@@ -1,0 +1,7 @@
+format=paired_preparation_reservation_v1
+source_commit=76e6c1bc9384d1e2ca8e30e3238dfc6cda4e2a30
+preparation_status=pending
+cost_closure=unclosed
+shared_calls_upper=40000
+shared_wall_upper_ns=3600000000000
+automatic_retry=forbidden
