@@ -1,0 +1,1 @@
+Existing authorized SSH alias; UTC date, uname, os-release, nproc, lscpu, free -b, systemd-detect-virt, taskset -pc, df -h /tmp, process names and tool versions. Raw stdout in environment.log; SSH exit 0.

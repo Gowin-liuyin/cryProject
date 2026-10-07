@@ -1,0 +1,26 @@
+[
+  {
+    "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+    "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/kernel.c",
+    "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/kernel.c",
+    "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+  },
+  {
+    "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+    "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable_kernel.c",
+    "file": "/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable_kernel.c",
+    "output": "CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+  },
+  {
+    "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+    "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened_kernel.c",
+    "file": "/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened_kernel.c",
+    "output": "CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+  },
+  {
+    "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+    "command": "/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable_kernel.c",
+    "file": "/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable_kernel.c",
+    "output": "CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o"
+  }
+]

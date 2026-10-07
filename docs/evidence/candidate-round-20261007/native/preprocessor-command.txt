@@ -1,0 +1,1 @@
+/usr/bin/gcc '-DMLK_CONFIG_FILE="baseline_config.h"' -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -dM -E /tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem/src/verify.h

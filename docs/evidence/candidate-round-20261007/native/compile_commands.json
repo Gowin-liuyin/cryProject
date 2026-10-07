@@ -1,0 +1,422 @@
+[
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/kernel.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/kernel.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/random.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/random.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/inputs.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/inputs.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_baseline.dir/src/main.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "output": "CMakeFiles/reference_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "output": "CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "output": "CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "output": "CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable_kernel.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable_kernel.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/random.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/random.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/vulnerable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_baseline.dir/src/main.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "output": "CMakeFiles/vulnerable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "output": "CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "output": "CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "output": "CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened_kernel.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened_kernel.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/random.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/random.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/hardened-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/inputs.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/inputs.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_baseline.dir/src/main.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "output": "CMakeFiles/hardened_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "output": "CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "output": "CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "output": "CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable_kernel.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable_kernel.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/random.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/random.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/random.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/deployable-source/mlkem -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/inputs.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/inputs.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_baseline.dir/src/main.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/main.c",
+  "output": "CMakeFiles/deployable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_mlkem.c",
+  "output": "CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_equivalence.c",
+  "output": "CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_random_failure.c",
+  "output": "CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "output": "CMakeFiles/reference_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_benchmark.dir/src/measure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "output": "CMakeFiles/hardened_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_benchmark.dir/src/measure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "output": "CMakeFiles/deployable_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/measure.c",
+  "output": "CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/batch_measurement.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/batch_measurement.c",
+  "output": "CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/analyze.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/analyze.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/analyze.c",
+  "output": "CMakeFiles/analyze.dir/src/analyze.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/timing_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "output": "CMakeFiles/analyze.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/analyze_groups.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/analyze_groups.c",
+  "output": "CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "output": "CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/inspect_timing.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/inspect_timing.c",
+  "output": "CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "output": "CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/paired_data.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/paired_data.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/paired_data.c",
+  "output": "CMakeFiles/paired_support.dir/src/paired_data.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/paired_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/paired_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/paired_statistics.c",
+  "output": "CMakeFiles/paired_support.dir/src/paired_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/timing_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "output": "CMakeFiles/paired_support.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/analyze_paired.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/analyze_paired.c",
+  "output": "CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_runner.dir/src/paired_runner.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/paired_runner.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/paired_runner.c",
+  "output": "CMakeFiles/paired_runner.dir/src/paired_runner.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/paired_prepare.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/paired_prepare.c",
+  "output": "CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/native_digest.dir/src/native_digest.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/native_digest.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/native_digest.c",
+  "output": "CMakeFiles/native_digest.dir/src/native_digest.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/controlled_statistics.dir/src/controlled_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/controlled_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/controlled_statistics.c",
+  "output": "CMakeFiles/controlled_statistics.dir/src/controlled_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/controlled_stats.dir/src/controlled_stats.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/controlled_stats.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/controlled_stats.c",
+  "output": "CMakeFiles/controlled_stats.dir/src/controlled_stats.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/calibrate_controlled.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/calibrate_controlled.c",
+  "output": "CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/compare_replay.dir/src/compare_replay.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/compare_replay.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/compare_replay.c",
+  "output": "CMakeFiles/compare_replay.dir/src/compare_replay.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/audit.dir/src/audit.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/audit.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/audit.c",
+  "output": "CMakeFiles/audit.dir/src/audit.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_performance_replay.dir/tests/test_performance_replay.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_performance_replay.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_performance_replay.c",
+  "output": "CMakeFiles/test_performance_replay.dir/tests/test_performance_replay.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_controlled_statistics.dir/tests/test_controlled_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_controlled_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_controlled_statistics.c",
+  "output": "CMakeFiles/test_controlled_statistics.dir/tests/test_controlled_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_native_digest.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_native_digest.c",
+  "output": "CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_prepare.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_prepare.c",
+  "output": "CMakeFiles/test_paired_prepare.dir/tests/test_paired_prepare.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/paired_worker_fixture.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/paired_worker_fixture.c",
+  "output": "CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/build/release/generated/RelWithDebInfo -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_runner.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_runner.c",
+  "output": "CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_statistics.c",
+  "output": "CMakeFiles/test_paired_statistics.dir/tests/test_paired_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_data.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_data.c",
+  "output": "CMakeFiles/test_paired_data.dir/tests/test_paired_data.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_rejections.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_paired_rejections.c",
+  "output": "CMakeFiles/test_paired_rejections.dir/tests/test_paired_rejections.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_batch_measurement.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_batch_measurement.c",
+  "output": "CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/batch_measurement.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/batch_measurement.c",
+  "output": "CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_reference_benchmark.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_reference_benchmark.c",
+  "output": "CMakeFiles/test_reference_benchmark.dir/tests/test_reference_benchmark.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "output": "CMakeFiles/test_reference_benchmark.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/tests/test_timing_diagnostics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/tests/test_timing_diagnostics.c",
+  "output": "CMakeFiles/test_timing_diagnostics.dir/tests/test_timing_diagnostics.c.o"
+},
+{
+  "directory": "/tmp/cryproject-candidate.ZzfLRh/source/build/release",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/tmp/cryproject-candidate.ZzfLRh/source/include -I/tmp/cryproject-candidate.ZzfLRh/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o -c /tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "file": "/tmp/cryproject-candidate.ZzfLRh/source/src/timing_statistics.c",
+  "output": "CMakeFiles/test_timing_diagnostics.dir/src/timing_statistics.c.o"
+}
+]

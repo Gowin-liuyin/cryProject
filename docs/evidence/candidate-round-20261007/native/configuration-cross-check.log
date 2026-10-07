@@ -1,0 +1,6 @@
+reference: recorded include matches compilation path/order; no LTO flag
+vulnerable: recorded include matches compilation path/order; no LTO flag
+hardened: recorded include matches compilation path/order; no LTO flag
+deployable: recorded include matches compilation path/order; no LTO flag
+Effective macros: portable C/FIPS202, stack allocation, inline asm value barrier
+Check scope: CMake metadata consistency; no hardware constant-time conclusion
