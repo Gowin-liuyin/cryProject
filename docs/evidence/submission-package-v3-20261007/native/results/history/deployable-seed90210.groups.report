@@ -1,0 +1,27 @@
+analysis_tool=fixed_prespecified_group_test
+analysis_version=1
+analysis_round=2
+prespecified_after_round1_data=yes
+hypothesis=direction_constant_vs_direction_varying
+csv_path=docs/evidence/statistics-multiseed/deployable-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=13fc7e818dd1b7506e382d1338e36631f567483fa9b4bf5a7c6e125c220e886a
+run_id=multiseed-deployable-90210
+implementation=deployable
+record_count=25000
+time_unit=ns
+group=direction-constant members=message-zero,message-ones count=10000 min=13000 p25=14000 median=14000 p75=14000 p99=33000 max=814000 mean=15309.900 stddev=16575.498 distinct_values=92
+group=direction-varying members=valid,bit-flipped,random count=15000 min=13000 p25=14000 median=14000 p75=14000 p99=27000 max=834000 mean=15257.600 stddev=17032.578 distinct_values=102
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=1
+multiplicity_correction=none_single_prespecified_comparison
+alpha_per_comparison=0.00100000
+round1_alpha_per_comparison_for_reference=0.00010000
+comparison=direction-constant:direction-varying primary=yes n1=10000 n2=15000 median_difference_ns=0.0 mean_difference_ns=52.300 welch_t=0.2417 welch_df=21822.4 welch_p=0.808999 rank_u1=74188416.5 rank_z=-2.0840 rank_p=0.0371592 effect_size_first_greater=0.494589 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim
+sample_independence_note=direction_constant_group_reuses_two_fixed_ciphertexts_under_one_key

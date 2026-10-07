@@ -1,0 +1,64 @@
+/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/audit:               ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=c3a58a161be80a59cab193838fdb4429ff6ac35b, for GNU/Linux 3.2.0, with debug_info, not stripped
+/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/reference/benchmark: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=44236a123a42ac2eef2c6bbe168eadd33264cd59, for GNU/Linux 3.2.0, with debug_info, not stripped
+48f75c2aa9a4fbed082541a17f67f4dd65ad4c966e409d4d57b4df8b0747abd6  /tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/audit
+515714f8f85be324b97107cc2359da1a7a77800615c9144a5bcc87081c0a1884  /tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/reference/benchmark
+
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x4680
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0002d8 0x0002d8 R   0x8
+  INTERP         0x000318 0x0000000000000318 0x0000000000000318 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x0022d0 0x0022d0 R   0x1000
+  LOAD           0x003000 0x0000000000003000 0x0000000000003000 0x006d6d 0x006d6d R E 0x1000
+  LOAD           0x00a000 0x000000000000a000 0x000000000000a000 0x007b20 0x007b20 R   0x1000
+  LOAD           0x0125f0 0x00000000000125f0 0x00000000000125f0 0x000a20 0x0162b0 RW  0x1000
+  DYNAMIC        0x012ca8 0x0000000000012ca8 0x0000000000012ca8 0x0001f0 0x0001f0 RW  0x8
+  NOTE           0x000338 0x0000000000000338 0x0000000000000338 0x000030 0x000030 R   0x8
+  NOTE           0x000368 0x0000000000000368 0x0000000000000368 0x000044 0x000044 R   0x4
+  GNU_PROPERTY   0x000338 0x0000000000000338 0x0000000000000338 0x000030 0x000030 R   0x8
+  GNU_EH_FRAME   0x0109d8 0x00000000000109d8 0x00000000000109d8 0x0002ec 0x0002ec R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0x10
+  GNU_RELRO      0x0125f0 0x00000000000125f0 0x00000000000125f0 0x000a10 0x000a10 R   0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .data.rel.ro .dynamic .got .data .bss 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.gnu.build-id .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .data.rel.ro .dynamic .got 
+build_system=CMake 3.28.3
+generator=Ninja
+configuration=RelWithDebInfo
+compiler_flags= -O2 -g -DNDEBUG -std=c11
+compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+include_directories=/tmp/cryproject-submission-v3.BwWNyE/acceptance/unpacked/待编号-2026密码竞赛复赛相关支撑材料/source/include /tmp/cryproject-submission-v3.BwWNyE/acceptance/unpacked/待编号-2026密码竞赛复赛相关支撑材料/source/vendor/mlkem-native/mlkem
+measure_include=/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/generated/RelWithDebInfo
+reference_kernel_include=/tmp/cryproject-submission-v3.BwWNyE/acceptance/unpacked/待编号-2026密码竞赛复赛相关支撑材料/source/vendor/mlkem-native/mlkem
+vulnerable_kernel_include=/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/vulnerable-source/mlkem
+hardened_kernel_include=/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/hardened-source/mlkem
+deployable_kernel_include=/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/deployable-source/mlkem
+baseline_config_parameter_set=MLK_CONFIG_PARAMETER_SET=768
+baseline_config_randomized_api=MLK_CONFIG_NO_RANDOMIZED_API
+baseline_config_backend=portable C arithmetic and builtin portable FIPS202 (no native or custom backend definitions)
+target_interprocedural_optimization=FALSE (additional compiler flags must be checked separately)
+vulnerable_definition=BASELINE_VULNERABLE=1
+vulnerable_encoder=optnone+noinline (Clang); O0+noinline (GCC)
+sanitizers=OFF
+link_flags=  
+compile_commands=/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/compile_commands.json
+8
+2147483647

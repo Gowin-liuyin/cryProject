@@ -1,0 +1,1 @@
+/tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc/audit analyze-pairs docs/evidence/controlled-comparison-20261007/confirmation-data/task-2.csv docs/evidence/controlled-comparison-20261007/confirmation-data/task-2.plan /tmp/cryproject-submission-v3.BwWNyE/acceptance/results/exact.report

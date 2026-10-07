@@ -1,0 +1,1 @@
+cmake -S . -B /tmp/cryproject-submission-v3.BwWNyE/acceptance/build-gcc -G Ninja -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DA113_ARCHIVED_CASE_ONLY=ON

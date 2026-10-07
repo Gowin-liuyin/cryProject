@@ -1,0 +1,1100 @@
+{
+  "format": "submission_package_v3_independent_review_v1",
+  "started_at_utc": "2026-10-07T18:12:53.435871+00:00",
+  "finished_at_utc": "2026-10-07T18:12:56.856963+00:00",
+  "execution_identity": "author_agent_independent_subagent_review; not real non-author execution",
+  "root_manifest_sha256": "42d253a0595022f14455cef21b21edb4bfff6c651233c4ca7c7d0f998c17be6c",
+  "manifest_changed_during_review": false,
+  "source_export_manifest_sha256": "601a1020f30e17fc6a072d35f24f43e33acf87153f8cef8bf1c70475dad0a938",
+  "source_export_input_files": 206,
+  "html_relative_links_checked": 320,
+  "all_markdown_relative_links_checked": 833,
+  "upstream_external_subset_refs": [
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/basic"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/monolithic_build"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/monolithic_build_native"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/multilevel_build"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/multilevel_build_native"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/monolithic_build_multilevel"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/README.md",
+      "link": "../examples/monolithic_build_multilevel_native"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/src/fips202/native/armv81m/README.md",
+      "link": "../../../../../dev/fips202/armv81m"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "link": "../../../../dev/aarch64_clean"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "link": "../../../../dev/aarch64_opt"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "link": "../../../../scripts/simpasm"
+    },
+    {
+      "file": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "link": "../../../../dev"
+    }
+  ],
+  "upstream_scope_entries": 12,
+  "manifest_checks": [
+    {
+      "file": "SHA256SUMS",
+      "entries": 2092,
+      "failures": []
+    },
+    {
+      "file": "source/SOURCE_EXPORT.sha256",
+      "entries": 206,
+      "failures": []
+    },
+    {
+      "file": "figures/SHA256SUMS",
+      "entries": 7,
+      "failures": []
+    },
+    {
+      "file": "report/SHA256SUMS",
+      "entries": 8,
+      "failures": []
+    },
+    {
+      "file": "source/docs/reference-label-control-v1.inputs.sha256",
+      "entries": 18,
+      "failures": []
+    },
+    {
+      "file": "source/tests/vectors/SHA256SUMS",
+      "entries": 5,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/SHA256SUMS",
+      "entries": 1717,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/statistics/SHA256SUMS",
+      "entries": 21,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-label-control-20261007/SHA256SUMS",
+      "entries": 30,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/final-self-reproduction-20261007/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/deployable/SHA256SUMS",
+      "entries": 30,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/statistical-audit-20261006/SHA256SUMS",
+      "entries": 72,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/distribution-digest-scope/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-final-20261007/SHA256SUMS",
+      "entries": 93,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-package-20261007/SHA256SUMS",
+      "entries": 1,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/cmake/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-report-20261007/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/warm-replay-20261007/SHA256SUMS",
+      "entries": 123,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/SHA256SUMS",
+      "entries": 311,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/review-four-module/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/defense-review-20261007/SHA256SUMS",
+      "entries": 13,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/finite-calibration-20261007/SHA256SUMS",
+      "entries": 39,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/completion/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/defensive-case-20261007/SHA256SUMS",
+      "entries": 8,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-preparation-failure-20261007/SHA256SUMS",
+      "entries": 20,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/SHA256SUMS",
+      "entries": 157,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/linux-gcc/SHA256SUMS",
+      "entries": 9,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/linux-amd64/SHA256SUMS",
+      "entries": 26,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/statistics-multiseed/SHA256SUMS",
+      "entries": 105,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/review/SHA256SUMS",
+      "entries": 15,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/final/SHA256SUMS",
+      "entries": 13,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/ordinary-cost-validation-20261007/SHA256SUMS",
+      "entries": 28,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/mitigation/SHA256SUMS",
+      "entries": 19,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-reference-20261007/SHA256SUMS",
+      "entries": 38,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/SHA256SUMS",
+      "entries": 198,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-reference-failure-20261007/SHA256SUMS",
+      "entries": 8,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-label-materials-20261007/SHA256SUMS",
+      "entries": 1,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-benchmark-20261006/SHA256SUMS",
+      "entries": 41,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-product-20261007/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/submission-fidelity-20261007/SHA256SUMS",
+      "entries": 10,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/upstream-security-review-20261007/SHA256SUMS",
+      "entries": 6,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-round-20261007/SHA256SUMS",
+      "entries": 195,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-label-control-20261007/prototype/SHA256SUMS",
+      "entries": 5,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-label-control-20261007/qualified/SHA256SUMS",
+      "entries": 12,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-label-control-20261007/prototype/control/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/reference-label-control-20261007/qualified/control/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/statistical-audit-20261006/reports/SHA256SUMS",
+      "entries": 43,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-final-20261007/performance/SHA256SUMS",
+      "entries": 74,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-final-20261007/earlier-gcc-sanitize-failure/SHA256SUMS",
+      "entries": 2,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/warm-replay-20261007/native/SHA256SUMS",
+      "entries": 9,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/warm-replay-20261007/formal/SHA256SUMS",
+      "entries": 98,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/SHA256SUMS",
+      "entries": 273,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/SHA256SUMS",
+      "entries": 136,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/SHA256SUMS",
+      "entries": 136,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/prepare/SHA256SUMS",
+      "entries": 23,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/SHA256SUMS",
+      "entries": 113,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/prepare/finish-0/SHA256SUMS",
+      "entries": 5,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/prepare/finish-1/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/prepare/plans/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/prepare/finish-3/SHA256SUMS",
+      "entries": 5,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/prepare/finish-2/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/successful/SHA256SUMS",
+      "entries": 20,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/publication/SHA256SUMS",
+      "entries": 20,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/exhausted/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/failure-2/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/tiny/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/failure-0/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/failure-1/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/sanitize/runner/interrupted/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/prepare/SHA256SUMS",
+      "entries": 23,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/SHA256SUMS",
+      "entries": 113,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/prepare/finish-0/SHA256SUMS",
+      "entries": 5,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/prepare/finish-1/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/prepare/plans/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/prepare/finish-3/SHA256SUMS",
+      "entries": 5,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/prepare/finish-2/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/successful/SHA256SUMS",
+      "entries": 20,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/publication/SHA256SUMS",
+      "entries": 20,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/exhausted/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/failure-2/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/tiny/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/failure-0/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/failure-1/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-review-20261006/software-failure-fixtures/release/runner/interrupted/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/finite-calibration-20261007/model/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/native-preparation-failure-20261007/reference-preflight/SHA256SUMS",
+      "entries": 6,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/development/SHA256SUMS",
+      "entries": 30,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/reference-control/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/confirmation-data/SHA256SUMS",
+      "entries": 16,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/confirmation-results/SHA256SUMS",
+      "entries": 98,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/development/results/SHA256SUMS",
+      "entries": 26,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/controlled-comparison-20261007/development/data/SHA256SUMS",
+      "entries": 4,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/ordinary-cost-validation-20261007/native/SHA256SUMS",
+      "entries": 13,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/synthetic-cohort/SHA256SUMS",
+      "entries": 124,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/module4/SHA256SUMS",
+      "entries": 16,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/module3/SHA256SUMS",
+      "entries": 9,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/module2/SHA256SUMS",
+      "entries": 8,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/module5/SHA256SUMS",
+      "entries": 14,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/paired-software-20261006/module1/SHA256SUMS",
+      "entries": 6,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-round-20261007/native/SHA256SUMS",
+      "entries": 189,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-round-20261007/native/reference-control/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-round-20261007/native/model/SHA256SUMS",
+      "entries": 10,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-round-20261007/native/history/SHA256SUMS",
+      "entries": 41,
+      "failures": []
+    },
+    {
+      "file": "source/docs/evidence/candidate-round-20261007/native/perf/SHA256SUMS",
+      "entries": 74,
+      "failures": []
+    },
+    {
+      "file": "source/docs/reference/official-2026/SHA256SUMS",
+      "entries": 3,
+      "failures": []
+    }
+  ],
+  "numeric_csv_files_checked": 243,
+  "csv_mismatches": [],
+  "vendor_vector_original_files_checked": 132,
+  "distributed_digest_checks": [
+    {
+      "record": "source/docs/evidence/candidate-product-20261007/demo-review.json",
+      "field": "distributed_file_checks",
+      "file": "index.html",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-product-20261007/demo-review.json",
+      "field": "distributed_file_checks",
+      "file": "evidence-index.md",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-product-20261007/demo-review.json",
+      "field": "distributed_file_checks",
+      "file": "演示说明.md",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-product-20261007/demo-review.json",
+      "field": "distributed_file_checks",
+      "file": "独立执行记录模板.md",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-product-20261007/demo-review.json",
+      "field": "distributed_file_checks",
+      "file": "source/docs/defense-evidence-gap.md",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "figures/论文图源.pptx",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "report/history/candidate-v2-待编号-2026密码竞赛复赛作品设计报告.docx",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "report/history/candidate-v2-report-content.json",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/performance.report",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/finite-calibration-20261007/model/summary.report",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/controlled-comparison-20261007/confirmation-results/comparison.report",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/warm-replay-20261007/formal/comparison.report",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/reference-label-materials-20261007/c04-table-values.json",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/controlled-comparison-20261007/confirmation-results/attempts.tsv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-report-20261007/chart-and-data-verification.json",
+      "field": "distributed_source_artifacts_sha256",
+      "file": "source/docs/evidence/warm-replay-20261007/formal/attempts.tsv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/defense-review-20261007/configuration-review.txt",
+      "field": "distributed_configuration_sha256",
+      "file": "source/docs/evidence/defense-review-20261007/configuration.txt",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/prototype/control/summary.report",
+      "field": "ordinary-reference-block1",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/prototype/control/summary.report",
+      "field": "ordinary-reference-block2",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/prototype/control/summary.report",
+      "field": "ordinary-reference-block3",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/prototype/control/summary.report",
+      "field": "ordinary-reference-block4",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/prototype/control/summary.report",
+      "field": "ordinary-reference-block5",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/prototype/control/summary.report",
+      "field": "ordinary-reference-block6",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "field": "ordinary-reference-block1",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "field": "ordinary-reference-block2",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "field": "ordinary-reference-block3",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "field": "ordinary-reference-block4",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "field": "ordinary-reference-block5",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/qualified/control/summary.report",
+      "field": "ordinary-reference-block6",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/sanitized-control.report",
+      "field": "ordinary-reference-block1",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/sanitized-control.report",
+      "field": "ordinary-reference-block2",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/sanitized-control.report",
+      "field": "ordinary-reference-block3",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/sanitized-control.report",
+      "field": "ordinary-reference-block4",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/sanitized-control.report",
+      "field": "ordinary-reference-block5",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/reference-label-control-20261007/sanitized-control.report",
+      "field": "ordinary-reference-block6",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-round-20261007/native/reference-control/summary.report",
+      "field": "ordinary-reference-block1",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-round-20261007/native/reference-control/summary.report",
+      "field": "ordinary-reference-block2",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-round-20261007/native/reference-control/summary.report",
+      "field": "ordinary-reference-block3",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-round-20261007/native/reference-control/summary.report",
+      "field": "ordinary-reference-block4",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-round-20261007/native/reference-control/summary.report",
+      "field": "ordinary-reference-block5",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/evidence/candidate-round-20261007/native/reference-control/summary.report",
+      "field": "ordinary-reference-block6",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.meta",
+      "algorithm": "SHA3-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.csv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.csv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.csv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.csv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.csv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.csv",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.meta",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.meta",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.meta",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.meta",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.meta",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.meta",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block1.csv.cost",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block2.csv.cost",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block3.csv.cost",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block4.csv.cost",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block5.csv.cost",
+      "algorithm": "SHA-256",
+      "passed": true
+    },
+    {
+      "record": "source/docs/reference-label-control-v1.distribution-map.json",
+      "field": "distributed_sha256",
+      "file": "source/docs/evidence/native-final-20261007/performance/ordinary-reference-block6.csv.cost",
+      "algorithm": "SHA-256",
+      "passed": true
+    }
+  ],
+  "historical_digest_roles_present": true,
+  "c04_historical_meta_digest_rows": 24,
+  "c04_input_map_entries": 18,
+  "c04_current_input_manifest_is_new_preregistration": false,
+  "office_files_checked": [
+    "figures/论文图源.pptx",
+    "report/待编号-2026密码竞赛复赛作品设计报告.docx",
+    "source/docs/reference/official-2026/report-template-original.docx",
+    "source/docs/reference/official-2026/A1-13-original.docx",
+    "report/history/candidate-v2-待编号-2026密码竞赛复赛作品设计报告.docx"
+  ],
+  "office_xml_relationship_parts_checked": 113,
+  "docx_relationships_checked": 61,
+  "pdfs_deep_checked": 5,
+  "privacy_hits": [],
+  "issues": [],
+  "passed": true,
+  "read_only_packet_review": true,
+  "new_timing_calls": 0,
+  "new_defense_effect_data": false,
+  "scope": "Prepared anonymous v3 directory integrity and qualification only; final ZIP/server clean acceptance remains separate.",
+  "additional_object_distributed_sha256_checked": 77,
+  "additional_distributed_sha256_mismatches": [],
+  "old_demo_5_and_chart_11_hash_rows_exactly_preserved": true,
+  "old_c04_24_source_run_rows_exactly_preserved": true,
+  "current_report_uses_new_revision_evidence": true,
+  "vendor_all12_missing_references_exactly_match_scope": [
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/basic",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/monolithic_build",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/monolithic_build_native",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/multilevel_build",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/multilevel_build_native",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/monolithic_build_multilevel",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/README.md",
+      "external_target": "examples/monolithic_build_multilevel_native",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/src/fips202/native/armv81m/README.md",
+      "external_target": "dev/fips202/armv81m",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "external_target": "dev/aarch64_clean",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "external_target": "dev/aarch64_opt",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "external_target": "scripts/simpasm",
+      "scope_mapping_exact": true
+    },
+    {
+      "original_readme": "source/vendor/mlkem-native/mlkem/src/native/aarch64/README.md",
+      "external_target": "dev",
+      "scope_mapping_exact": true
+    }
+  ],
+  "original_record_files_count": 14,
+  "original_record_file_roles": "Historical compiler/binary/source/cohort digest records; no claim that they identify newly built distribution programs",
+  "ipv4_screening": "Only two four-component numbers found: upstream ACVP version and C99 clause; no host IP identified",
+  "final_root_manifest_sha256": "42d253a0595022f14455cef21b21edb4bfff6c651233c4ca7c7d0f998c17be6c"
+}

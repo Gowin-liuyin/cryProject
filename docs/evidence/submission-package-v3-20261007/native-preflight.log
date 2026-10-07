@@ -1,0 +1,20 @@
+2026-10-07T18:24:19Z
+Linux VM-0-17-ubuntu 6.8.0-138-generic #138-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 22:41:49 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+4
+               total        used        free      shared  buff/cache   available
+Mem:      7993503744   703184896  1548201984     2662400  6066294784  7290318848
+Swap:     2084564992           0  2084564992
+kvm
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda2        50G  9.4G   38G  20% /
+    PID COMMAND         %CPU
+ 425248 systemd         11.7
+   6795 barad_agent      0.4
+   7283 YDService        0.2
+   6794 barad_agent      0.0
+   7339 YDLive           0.0
+  57021 sh               0.0
+      1 systemd          0.0
+ 401812 kworker/0:2-cgr  0.0
+ 142642 multipathd       0.0
+/tmp/cryproject-submission-v3.BwWNyE

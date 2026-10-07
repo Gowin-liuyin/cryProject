@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=docs/evidence/statistics-multiseed/deployable-seed141421356.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=9a4da746cf00fe609e7aa47cf9239c2a1a35e8c1f4847bff5e68c0316d081819
+run_id=multiseed-deployable-141421356
+implementation=deployable
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=30000 mean=14046.400 stddev=661.464 distinct_values=13
+category=bit-flipped count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=31000 mean=14055.600 stddev=741.228 distinct_values=14
+category=random count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=30000 mean=14053.600 stddev=702.585 distinct_values=13
+category=message-zero count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=32000 mean=14053.600 stddev=707.974 distinct_values=14
+category=message-ones count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=37000 mean=14055.600 stddev=729.805 distinct_values=13
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-2.000 welch_t=-0.1391 welch_df=9988.8 welch_p=0.889381 rank_u1=12467756.5 rank_z=-0.3940 rank_p=0.693612 effect_size_first_greater=0.498710 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-9.200 welch_t=-0.6548 welch_df=9871.1 welch_p=0.512581 rank_u1=12450842.0 rank_z=-0.6022 rank_p=0.54707 effect_size_first_greater=0.498034 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-7.200 welch_t=-0.5276 welch_df=9961.9 welch_p=0.597777 rank_u1=12478623.0 rank_z=-0.2573 rank_p=0.796969 effect_size_first_greater=0.499145 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-7.200 welch_t=-0.5255 welch_df=9952.2 welch_p=0.599263 rank_u1=12486432.5 rank_z=-0.1648 rank_p=0.869125 effect_size_first_greater=0.499457 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-9.200 welch_t=-0.6605 welch_df=9902.9 welch_p=0.508952 rank_u1=12454244.5 rank_z=-0.5514 rank_p=0.58134 effect_size_first_greater=0.498170 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=2.000 welch_t=0.1385 welch_df=9969.5 welch_p=0.889867 rank_u1=12527722.0 rank_z=0.3412 rank_p=0.732965 effect_size_first_greater=0.501109 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=2.000 welch_t=0.1380 welch_df=9977.0 welch_p=0.890264 rank_u1=12535876.0 rank_z=0.4458 rank_p=0.655734 effect_size_first_greater=0.501435 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=0.000 welch_t=0.0000 welch_df=9995.6 welch_p=1 rank_u1=12503314.0 rank_z=0.0408 rank_p=0.967423 effect_size_first_greater=0.500133 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=0.000 welch_t=0.0000 welch_df=9997.4 welch_p=1 rank_u1=12507930.0 rank_z=0.0967 rank_p=0.922926 effect_size_first_greater=0.500317 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-2.000 welch_t=-0.1396 welch_df=9983.6 welch_p=0.888975 rank_u1=12475649.0 rank_z=-0.2948 rank_p=0.768149 effect_size_first_greater=0.499026 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

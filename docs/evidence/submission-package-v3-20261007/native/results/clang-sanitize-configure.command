@@ -1,0 +1,1 @@
+cmake -S . -B /tmp/cryproject-submission-v3.BwWNyE/acceptance/build-sanitize -G Ninja -DCMAKE_C_COMPILER=clang-18 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=ON -DA113_ARCHIVED_CASE_ONLY=ON

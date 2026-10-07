@@ -337,3 +337,10 @@ H01单次历史分布摘要，直接读取原报告category字段，不新增统
 [原始退出账本](../../docs/evidence/candidate-package-20261007/native/results/step-exits.tsv)、
 [新源逐项差异](../../docs/evidence/candidate-package-20261007/N01-distribution-differences.json)。
 作者代理不变为I01真人，当前包不回填N01旧正式产物身份，不升级R07。
+
+最新完整资料链[v3](../support/submission-v3-20261007/README.md)保持601a构建输入，
+补齐全部自有Markdown链接，原摘要/匿名摘要与C04事前冻结/分发清单分角色。243原CSV
+字节保持；[v3真实25步](../../docs/evidence/submission-package-v3-20261007/native/results/step-exits.tsv)
+和[新身份](../../docs/evidence/submission-package-v3-20261007/final-archive-identity.json)单列。
+原vendor12处外部示例/开发引用按原快照说明范围，不是当前本地证据；旧报告在新包history。
+源相同、检查通过和页面完整均不关闭R07或I01真实人员缺口。

@@ -1,5 +1,7 @@
 # 本轮候选终版交付说明
 
+最新完整资料链为[v3包](../deliverables/support/submission-v3-20261007/README.md)，源601a保持；[本次全链修正及成品验证](evidence/submission-package-v3-20261007/README.md)另列，v2原记录仍保留。
+
 当前材料为**提交候选版**：授权范围内的工程、公开/适用性审查、真实Linux验证、证据展示、
 报告及新匿名包已完成；全部既定研究与人员要求仍未验收。R01/R03/R10保持范围内签收，
 其余状态详见[最新R01–R12表](full-work-acceptance.md)，不因重新整理或测试通过升级。
@@ -20,12 +22,12 @@
   [PDF](../deliverables/report/待编号-2026密码竞赛复赛作品设计报告.pdf)、
   [可编辑PPT图源](../deliverables/demo/figures/论文图源.pptx)。报告14页全页视觉核验；
   字体/字号/三分节/页边距与23保护parts保持；原三图/两工作簿和四表与C结果一致。
-- [最新匿名支撑包v2](../deliverables/support/candidate-round-20261007-v2/README.md)、
-  [同一成品干净验收](evidence/candidate-package-20261007/README.md)。ZIP 11,195,936字节，
-  1484条目，SHA-256 `b46cb573e0439cf94990e14c66cbcb533d11aa9bf687dbbb4496e02e5ffcf7c7`；
+- [最新匿名支撑包v3](../deliverables/support/submission-v3-20261007/README.md)、
+  [同一成品干净验收](evidence/submission-package-v3-20261007/README.md)。ZIP 14,071,061字节，
+  2093条目，SHA-256 `58d6a60460952cec2a9c1cbc478f35a36e904ecab44252fc594fb98df34f5d26`；
   源清单 `601a1020f30e17fc6a072d35f24f43e33acf87153f8cef8bf1c70475dad0a938`。
   Linux新目录GCC/Clang动态各34、25步骤全0、五类主结果逐字一致，另有60条真实普通短演示。
-  第一稿差异说明漏项后停止成品验收并保留，未覆盖；v2已补齐210→206所有9项差异。
+  第一稿差异说明漏项后停止成品验收并保留；v2补齐210→206所有9项差异；v3再补全自有文档及匿名摘要角色。
 
 ## 问题、修复与支持范围
 
@@ -75,3 +77,6 @@ C02有限合成模型、C04后赋标签、E02与N01普通性能各保原用途�
 
 未闭合部分只暂停其依赖的签收。本轮已交付的工程候选材料可继续审阅修改，不能据此
 称全部目标完成或正式签署提交完成。
+
+本次续审新增提交7b0855e修正报告主要窗口/匿名原件/A01别名，本段及v3包收口提交追加
+完整资料链与匿名摘要角色；不新增密码算法、秘密时序或虚构真实人员。未标全目标完成。
