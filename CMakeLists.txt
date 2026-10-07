@@ -246,7 +246,28 @@ add_executable(native_digest src/native_digest.c)
 target_link_libraries(native_digest PRIVATE baseline_options)
 set_target_properties(native_digest PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 
+add_library(controlled_statistics STATIC src/controlled_statistics.c)
+target_link_libraries(controlled_statistics PUBLIC paired_support)
+add_executable(controlled_stats src/controlled_stats.c)
+target_link_libraries(controlled_stats PRIVATE controlled_statistics)
+set_target_properties(controlled_stats PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_executable(compare_replay src/compare_replay.c)
+target_link_libraries(compare_replay PRIVATE paired_support)
+set_target_properties(compare_replay PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+
 if(BUILD_TESTING)
+    add_executable(test_controlled_statistics tests/test_controlled_statistics.c)
+    target_link_libraries(test_controlled_statistics PRIVATE controlled_statistics)
+    target_compile_options(test_controlled_statistics PRIVATE -UNDEBUG)
+    add_test(NAME controlled_statistics COMMAND test_controlled_statistics)
+    add_test(NAME controlled_cli
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_controlled_cli.sh"
+                     $<TARGET_FILE:controlled_stats>
+    )
+    add_test(NAME compare_replay_failures
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_compare_replay.sh"
+                     $<TARGET_FILE:compare_replay> $<TARGET_FILE:controlled_stats>
+    )
     find_program(OPENSSL_EXECUTABLE openssl REQUIRED)
     add_executable(test_native_digest tests/test_native_digest.c)
     target_link_libraries(test_native_digest PRIVATE baseline_options)
