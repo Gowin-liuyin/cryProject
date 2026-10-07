@@ -1,0 +1,61 @@
+[0/2] Re-checking globbed directories...
+[1/129] Generating vulnerable-source/patched.stamp
+patching file mlkem/src/compress.c
+[2/129] Building C object CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o
+[3/129] Generating hardened-source/patched.stamp
+patching file mlkem/src/compress.c
+[4/129] Building C object CMakeFiles/native_digest.dir/src/native_digest.c.o
+[5/129] Linking C executable paired_worker_fixture
+[6/129] Generating deployable-source/patched.stamp
+patching file mlkem/src/compress.c
+[7/129] Building C object CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o
+[8/129] Linking C executable native_digest
+[9/129] Linking C executable test_native_digest
+[10/129] cd runner-01-root/cryproject-a113-20261007/source-b618c6c && /usr/bin/sh runner-01-root/cryproject-a113-20261007/source-b618c6c/tools/build_identity.sh runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/generated/Debug/build_identity.h /usr/bin/cc runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/generated/Debug/configuration.txt
+[11/129] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[12/129] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[13/129] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[14/129] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[15/129] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[16/129] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[17/129] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[18/129] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[19/129] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[20/129] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[21/129] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[22/129] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[23/129] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[24/129] Building C object CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+[25/129] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[26/129] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[27/129] Building C object CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o
+[28/129] Building C object CMakeFiles/mlkem_hardened.dir/src/random.c.o
+[29/129] Building C object CMakeFiles/mlkem_hardened.dir/src/inputs.c.o
+[30/129] Building C object CMakeFiles/hardened_baseline.dir/src/main.c.o
+[31/129] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[32/129] Linking C static library reference/libmlkem.a
+[33/129] Linking C executable reference/baseline
+[34/129] Linking C executable reference/measure
+[35/129] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+FAILED: CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o 
+/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -Irunner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/vulnerable-source/mlkem -Irunner-01-root/cryproject-a113-20261007/source-b618c6c/include -Irunner-01-root/cryproject-a113-20261007/source-b618c6c/vendor/mlkem-native/mlkem -g -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -MD -MT CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -MF CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o.d -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/vulnerable_kernel.c
+In file included from runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/vulnerable-source/mlkem/mlkem_native.c:62,
+                 from runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/vulnerable_kernel.c:1:
+runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/vulnerable-source/mlkem/src/compress.c: In function ‘baseline_native_poly_frommsg’:
+runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/vulnerable-source/mlkem/src/compress.c:709:81: error: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Werror=sign-conversion]
+  709 |         if ((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u) {
+      |                                                                                 ^
+cc1: all warnings being treated as errors
+[36/129] Building C object CMakeFiles/hardened_measure.dir/src/measure.c.o
+[37/129] Linking C executable reference/test_mlkem
+[38/129] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+FAILED: CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o 
+/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -Irunner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/hardened-source/mlkem -Irunner-01-root/cryproject-a113-20261007/source-b618c6c/include -Irunner-01-root/cryproject-a113-20261007/source-b618c6c/vendor/mlkem-native/mlkem -g -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -MD -MT CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -MF CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o.d -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/hardened_kernel.c
+In file included from runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/hardened-source/mlkem/mlkem_native.c:62,
+                 from runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/hardened_kernel.c:1:
+runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/hardened-source/mlkem/src/compress.c: In function ‘baseline_native_poly_frommsg’:
+runner-01-root/cryproject-a113-20261007/runs/final-b618c6c/build-sanitize/hardened-source/mlkem/src/compress.c:710:92: error: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Werror=sign-conversion]
+  710 |             (uint16_t)((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u);
+      |                                                                                            ^
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.

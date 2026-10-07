@@ -1,0 +1,65 @@
+$ ctest --test-dir build/multiseed -N
+Test project role-author-root/code/cryProject/build/multiseed
+  Test  #1: reference_kat
+  Test  #2: reference_random_failure
+  Test  #3: vulnerable_kat
+  Test  #4: vulnerable_random_failure
+  Test  #5: hardened_kat
+  Test  #6: hardened_random_failure
+  Test  #7: deployable_kat
+  Test  #8: deployable_random_failure
+  Test  #9: equivalence_vulnerable
+  Test #10: equivalence_hardened
+  Test #11: equivalence_deployable
+  Test #12: cli
+  Test #13: measurement
+  Test #14: vector_parser
+  Test #15: analysis
+  Test #16: analysis_groups
+  Test #17: analysis_round1_replay
+  Test #18: vector_integrity
+
+Total Tests: 18
+
+$ ctest --test-dir build/multiseed --output-on-failure
+Test project role-author-root/code/cryProject/build/multiseed
+      Start  1: reference_kat
+ 1/18 Test  #1: reference_kat ....................   Passed    0.80 sec
+      Start  2: reference_random_failure
+ 2/18 Test  #2: reference_random_failure .........   Passed    0.40 sec
+      Start  3: vulnerable_kat
+ 3/18 Test  #3: vulnerable_kat ...................   Passed    0.56 sec
+      Start  4: vulnerable_random_failure
+ 4/18 Test  #4: vulnerable_random_failure ........   Passed    0.35 sec
+      Start  5: hardened_kat
+ 5/18 Test  #5: hardened_kat .....................   Passed    0.38 sec
+      Start  6: hardened_random_failure
+ 6/18 Test  #6: hardened_random_failure ..........   Passed    0.34 sec
+      Start  7: deployable_kat
+ 7/18 Test  #7: deployable_kat ...................   Passed    0.37 sec
+      Start  8: deployable_random_failure
+ 8/18 Test  #8: deployable_random_failure ........   Passed    0.34 sec
+      Start  9: equivalence_vulnerable
+ 9/18 Test  #9: equivalence_vulnerable ...........   Passed    0.88 sec
+      Start 10: equivalence_hardened
+10/18 Test #10: equivalence_hardened .............   Passed    0.48 sec
+      Start 11: equivalence_deployable
+11/18 Test #11: equivalence_deployable ...........   Passed    0.39 sec
+      Start 12: cli
+12/18 Test #12: cli ..............................   Passed    1.65 sec
+      Start 13: measurement
+13/18 Test #13: measurement ......................   Passed    1.91 sec
+      Start 14: vector_parser
+14/18 Test #14: vector_parser ....................   Passed    0.10 sec
+      Start 15: analysis
+15/18 Test #15: analysis .........................   Passed    0.55 sec
+      Start 16: analysis_groups
+16/18 Test #16: analysis_groups ..................   Passed    0.58 sec
+      Start 17: analysis_round1_replay
+17/18 Test #17: analysis_round1_replay ...........   Passed    0.03 sec
+      Start 18: vector_integrity
+18/18 Test #18: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 18
+
+Total Test time (real) =  10.13 sec

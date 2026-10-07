@@ -1,0 +1,907 @@
+{
+  "backtraceGraph" : 
+  {
+    "commands" : 
+    [
+      "add_test"
+    ],
+    "files" : 
+    [
+      "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/CMakeLists.txt"
+    ],
+    "nodes" : 
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 175,
+        "parent" : 0
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 179,
+        "parent" : 2
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 175,
+        "parent" : 4
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 179,
+        "parent" : 6
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 175,
+        "parent" : 8
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 179,
+        "parent" : 10
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 175,
+        "parent" : 12
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 179,
+        "parent" : 14
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 287,
+        "parent" : 16
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 288,
+        "parent" : 18
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 292,
+        "parent" : 20
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 299,
+        "parent" : 22
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 300,
+        "parent" : 24
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 304,
+        "parent" : 26
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 312,
+        "parent" : 28
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 318,
+        "parent" : 30
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 328,
+        "parent" : 32
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 336,
+        "parent" : 34
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 341,
+        "parent" : 36
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 345,
+        "parent" : 38
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 351,
+        "parent" : 40
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 364,
+        "parent" : 42
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 374,
+        "parent" : 44
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 381,
+        "parent" : 46
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 381,
+        "parent" : 48
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 381,
+        "parent" : 50
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 390,
+        "parent" : 52
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 393,
+        "parent" : 54
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 404,
+        "parent" : 56
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 408,
+        "parent" : 58
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 424,
+        "parent" : 60
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 432,
+        "parent" : 62
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" : 
+  [
+    {
+      "backtrace" : 1,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/test_mlkem",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "reference_kat",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 3,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/test_random_failure"
+      ],
+      "name" : "reference_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 5,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/vulnerable/test_mlkem",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "vulnerable_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 7,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/vulnerable/test_random_failure"
+      ],
+      "name" : "vulnerable_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 9,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/hardened/test_mlkem",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "hardened_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 11,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/hardened/test_random_failure"
+      ],
+      "name" : "hardened_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 13,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/deployable/test_mlkem",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "deployable_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 15,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/deployable/test_random_failure"
+      ],
+      "name" : "deployable_random_failure",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 17,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_performance_replay",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/audit"
+      ],
+      "name" : "performance_replay",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 19,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_workflow.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/audit"
+      ],
+      "name" : "audit_workflow",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 21,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_source_export.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tools/build_identity.sh",
+        "/usr/bin/cc"
+      ],
+      "name" : "source_export",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 23,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_controlled_statistics"
+      ],
+      "name" : "controlled_statistics",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 25,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_controlled_cli.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/controlled_stats"
+      ],
+      "name" : "controlled_cli",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 27,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_compare_replay.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/compare_replay",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/controlled_stats"
+      ],
+      "name" : "compare_replay_failures",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 29,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_native_digest",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/native_digest",
+        "role-author-root/miniconda3/bin/openssl"
+      ],
+      "name" : "native_digest",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 31,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_paired_prepare",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/paired_prepare",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/libmlkem.a",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/paired_runner"
+      ],
+      "name" : "paired_prepare",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 33,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_paired_runner",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/paired_runner",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/analyze_paired",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/paired_worker_fixture"
+      ],
+      "name" : "paired_runner",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 35,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_paired_statistics"
+      ],
+      "name" : "paired_statistics",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 37,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_paired_data",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/analyze_paired"
+      ],
+      "name" : "paired_data",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 39,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_paired_rejections",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_paired_data",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/analyze_paired"
+      ],
+      "name" : "paired_rejections",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 41,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_batch_measurement",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/benchmark",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/batch_benchmark"
+      ],
+      "name" : "batch_measurement",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 43,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_reference_benchmark",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/benchmark"
+      ],
+      "name" : "reference_benchmark",
+      "properties" : 
+      [
+        {
+          "name" : "RUN_SERIAL",
+          "value" : true
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 45,
+      "command" : 
+      [
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/test_timing_diagnostics",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/inspect_timing"
+      ],
+      "name" : "timing_diagnostics",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 47,
+      "command" : 
+      [
+        "role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/vulnerable/test_equivalence",
+        "-DVARIANT_NAME=vulnerable",
+        "-DOUTPUT_DIRECTORY=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "-P",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/cmake/CheckEquivalence.cmake"
+      ],
+      "name" : "equivalence_vulnerable",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 49,
+      "command" : 
+      [
+        "role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/hardened/test_equivalence",
+        "-DVARIANT_NAME=hardened",
+        "-DOUTPUT_DIRECTORY=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "-P",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/cmake/CheckEquivalence.cmake"
+      ],
+      "name" : "equivalence_hardened",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 51,
+      "command" : 
+      [
+        "role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build/deployable/test_equivalence",
+        "-DVARIANT_NAME=deployable",
+        "-DOUTPUT_DIRECTORY=/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "-P",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/cmake/CheckEquivalence.cmake"
+      ],
+      "name" : "equivalence_deployable",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 53,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_cli.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+      ],
+      "name" : "cli",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 55,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_cli.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "reference"
+      ],
+      "name" : "reference_cli",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 57,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_vector_parser.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "vector_parser",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 59,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_vector_parser.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/vectors/mlkem768.txt",
+        "reference"
+      ],
+      "name" : "reference_vector_parser",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+        }
+      ]
+    },
+    {
+      "backtrace" : 61,
+      "command" : 
+      [
+        "/bin/sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source/tests/test_analysis_round1_replay.sh",
+        "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/build"
+      ],
+      "name" : "analysis_round1_replay",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source"
+        }
+      ]
+    },
+    {
+      "backtrace" : 63,
+      "command" : 
+      [
+        "/usr/bin/shasum",
+        "-a",
+        "256",
+        "-c",
+        "tests/vectors/SHA256SUMS"
+      ],
+      "name" : "vector_integrity",
+      "properties" : 
+      [
+        {
+          "name" : "LABELS",
+          "value" : 
+          [
+            "reference"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T/a113-clean-reproduction.0je69vst/source"
+        }
+      ]
+    }
+  ],
+  "version" : 
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}

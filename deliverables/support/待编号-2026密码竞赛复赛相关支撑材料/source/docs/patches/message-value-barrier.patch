@@ -1,0 +1,49 @@
+--- a/mlkem/src/compress.c
++++ b/mlkem/src/compress.c
+@@ -694,35 +694,22 @@
+  *              `(msg[i] >> j) & 1` which the compiler can reason must
+  *              be either 0 or 1. */
+ MLK_INTERNAL_API
+-void mlk_poly_frommsg(mlk_poly *r, const uint8_t msg[MLKEM_INDCPA_MSGBYTES])
++void mlk_poly_frommsg(mlk_poly *message_polynomial,
++    const uint8_t message_bytes[MLKEM_INDCPA_MSGBYTES])
+ {
+-  unsigned i;
+ #if (MLKEM_INDCPA_MSGBYTES != MLKEM_N / 8)
+ #error "MLKEM_INDCPA_MSGBYTES must be equal to MLKEM_N/8 bytes!"
+ #endif
+-
+-  for (i = 0; i < MLKEM_N / 8; i++)
+-  __loop__(
+-    invariant(i <= MLKEM_N / 8)
+-    invariant(array_bound(r->coeffs, 0, 8 * i, 0, MLKEM_Q))
+-    decreases(MLKEM_N / 8 - i))
+-  {
+-    unsigned j;
+-    for (j = 0; j < 8; j++)
+-    __loop__(
+-      invariant(i <  MLKEM_N / 8 && j <= 8)
+-      invariant(array_bound(r->coeffs, 0, 8 * i + j, 0, MLKEM_Q))
+-      decreases(8 - j))
+-    {
+-      /* mlk_ct_sel_int16(MLKEM_Q_HALF, 0, b) is `Decompress_1(b != 0)`
+-       * as per @[FIPS203, Eq (4.8)]. */
+-
+-      /* Prevent the compiler from recognizing this as a bit selection */
+-      uint8_t mask = mlk_value_barrier_u8((uint8_t)(1u << j));
+-      r->coeffs[8 * i + j] = mlk_ct_sel_int16(MLKEM_Q_HALF, 0, msg[i] & mask);
++    /* 可部署参照：不带任何函数级优化控制，按所选构建配置正常编译；
++     * 位选择沿用上游值屏障设施，循环形态与另两个补丁一致以便逐份对照反汇编。 */
++    for (unsigned coefficient_index = 0; coefficient_index < MLKEM_N; ++coefficient_index) {
++        const uint8_t bit_mask = mlk_value_barrier_u8((uint8_t)(1u << (coefficient_index % 8u)));
++        const uint16_t selection_condition =
++            (uint16_t)(message_bytes[coefficient_index / 8u] & bit_mask);
++        message_polynomial->coeffs[coefficient_index] =
++            mlk_ct_sel_int16(MLKEM_Q_HALF, 0, selection_condition);
+     }
+-  }
+-  mlk_assert_abs_bound(r, MLKEM_N, MLKEM_Q);
++    mlk_assert_abs_bound(message_polynomial, MLKEM_N, MLKEM_Q);
+ }
+ #endif /* !MLK_CONFIG_NO_ENCAPS_API || !MLK_CONFIG_NO_DECAPS_API */
+ 

@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=docs/evidence/statistics-multiseed/reference-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=e5745f1ce7dac772c2323dd7f2efe60365f157ce60b5e477391279f2aad1742d
+run_id=multiseed-reference-90210
+implementation=reference
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=29000 mean=13981.200 stddev=631.923 distinct_values=11
+category=bit-flipped count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=30000 mean=13982.800 stddev=700.144 distinct_values=11
+category=random count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=31000 mean=13985.400 stddev=686.790 distinct_values=12
+category=message-zero count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=30000 mean=13991.000 stddev=727.616 distinct_values=11
+category=message-ones count=5000 min=13000 p25=14000 median=14000 p75=14000 p99=17000 max=31000 mean=14014.400 stddev=860.431 distinct_values=14
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-23.400 welch_t=-1.4684 welch_df=9729.5 welch_p=0.142 rank_u1=12411990.0 rank_z=-0.9621 rank_p=0.335984 effect_size_first_greater=0.496480 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-1.600 welch_t=-0.1200 welch_df=9894.7 welch_p=0.904517 rank_u1=12570078.0 rank_z=0.7632 rank_p=0.445347 effect_size_first_greater=0.502803 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-4.200 welch_t=-0.3182 welch_df=9929.5 welch_p=0.75032 rank_u1=12542526.0 rank_z=0.4629 rank_p=0.643449 effect_size_first_greater=0.501701 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-9.800 welch_t=-0.7191 welch_df=9805.6 welch_p=0.472108 rank_u1=12513286.0 rank_z=0.1443 rank_p=0.885228 effect_size_first_greater=0.500531 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-33.200 welch_t=-2.1990 welch_df=9176.4 welch_p=0.0278747 rank_u1=12425232.5 rank_z=-0.8263 rank_p=0.408607 effect_size_first_greater=0.497009 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-2.600 welch_t=-0.1875 welch_df=9994.3 welch_p=0.851304 rank_u1=12472582.0 rank_z=-0.2960 rank_p=0.767217 effect_size_first_greater=0.498903 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-8.200 welch_t=-0.5742 welch_df=9983.2 welch_p=0.565819 rank_u1=12443543.5 rank_z=-0.6084 rank_p=0.542893 effect_size_first_greater=0.497742 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-31.600 welch_t=-2.0143 welch_df=9601.3 welch_p=0.0439783 rank_u1=12355175.0 rank_z=-1.5871 rank_p=0.112495 effect_size_first_greater=0.494207 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-5.600 welch_t=-0.3958 welch_df=9964.8 welch_p=0.692281 rank_u1=12470950.5 rank_z=-0.3129 rank_p=0.754353 effect_size_first_greater=0.498838 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-29.000 welch_t=-1.8626 welch_df=9529.8 welch_p=0.0625136 rank_u1=12382740.0 rank_z=-1.2843 rank_p=0.199039 effect_size_first_greater=0.495310 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

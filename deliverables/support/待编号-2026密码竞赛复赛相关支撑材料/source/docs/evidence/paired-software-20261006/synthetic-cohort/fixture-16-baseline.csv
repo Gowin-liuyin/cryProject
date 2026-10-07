@@ -1,0 +1,7 @@
+run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
+fixture-16,reference,valid,0,1048,ns
+fixture-16,reference,bit-flipped,1,1048,ns
+fixture-16,reference,random,2,1048,ns
+fixture-16,reference,valid,3,1048,ns
+fixture-16,reference,bit-flipped,4,1048,ns
+fixture-16,reference,random,5,1048,ns

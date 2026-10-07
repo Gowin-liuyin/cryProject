@@ -1,0 +1,27 @@
+[0/2] Re-checking globbed directories...
+[1/13] cd role-author-root/code/cryProject && /bin/sh role-author-root/code/cryProject/tools/build_identity.sh role-author-root/code/cryProject/build/paired-sanitize.AoRrZi/generated/Debug/build_identity.h /usr/bin/cc role-author-root/code/cryProject/build/paired-sanitize.AoRrZi/generated/Debug/configuration.txt
+[2/13] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[3/13] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[4/13] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[5/13] Linking C executable reference/benchmark
+[6/13] Linking C executable reference/batch_benchmark
+[6/13] cd role-author-root/code/cryProject/build/paired-sanitize.AoRrZi && role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/ctest --test-dir role-author-root/code/cryProject/build/paired-sanitize.AoRrZi -C Debug --output-on-failure -L reference
+Test project role-author-root/code/cryProject/build/paired-sanitize.AoRrZi
+    Start  1: reference_kat
+1/5 Test  #1: reference_kat ....................   Passed    0.10 sec
+    Start  2: reference_random_failure
+2/5 Test  #2: reference_random_failure .........   Passed    0.01 sec
+    Start 21: reference_cli
+3/5 Test #21: reference_cli ....................   Passed    0.17 sec
+    Start 24: reference_vector_parser
+4/5 Test #24: reference_vector_parser ..........   Passed    0.06 sec
+    Start 28: vector_integrity
+5/5 Test #28: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   0.35 sec*proc (5 tests)
+
+Total Test time (real) =   0.36 sec
+[11/13] Linking C executable paired_runner

@@ -1,0 +1,9 @@
+format=paired_preparation_reservation_v1
+source_commit=73f90134d5aeca73dc618e1719f2adb4d057d430
+preparation_status=pending
+cost_closure=unclosed
+shared_calls_upper=40000
+shared_wall_upper_ns=3600000000000
+automatic_retry=forbidden
+
+distribution_identity_kind=role_alias_not_original_git_metadata

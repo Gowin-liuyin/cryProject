@@ -1,0 +1,73 @@
+$ cmake --build build/deployable --parallel
+[0/2] Re-checking globbed directories...
+[1/69] Generating deployable-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[2/69] Generating vulnerable-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[3/69] Generating hardened-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+[4/69] cd role-author-root/code/cryProject && /bin/sh role-author-root/code/cryProject/tools/build_identity.sh role-author-root/code/cryProject/build/deployable/generated/RelWithDebInfo/build_identity.h /usr/bin/cc role-author-root/code/cryProject/build/deployable/generated/RelWithDebInfo/configuration.txt
+[5/69] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[6/69] Building C object CMakeFiles/mlkem_vulnerable.dir/src/random.c.o
+[7/69] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[8/69] Building C object CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o
+[9/69] Building C object CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o
+[10/69] Building C object CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o
+[11/69] Building C object CMakeFiles/mlkem_hardened.dir/src/inputs.c.o
+[12/69] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[13/69] Building C object CMakeFiles/mlkem_hardened.dir/src/random.c.o
+[14/69] Building C object CMakeFiles/mlkem_deployable.dir/src/random.c.o
+[15/69] Building C object CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o
+[16/69] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[17/69] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[18/69] Building C object CMakeFiles/reference_test_equivalence.dir/tests/test_equivalence.c.o
+[19/69] Building C object CMakeFiles/mlkem_deployable.dir/src/inputs.c.o
+[20/69] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[21/69] Building C object CMakeFiles/vulnerable_baseline.dir/src/main.c.o
+[22/69] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[23/69] Building C object CMakeFiles/vulnerable_test_equivalence.dir/tests/test_equivalence.c.o
+[24/69] Building C object CMakeFiles/vulnerable_test_random_failure.dir/tests/test_random_failure.c.o
+[25/69] Building C object CMakeFiles/hardened_baseline.dir/src/main.c.o
+[26/69] Building C object CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+[27/69] Building C object CMakeFiles/vulnerable_test_mlkem.dir/tests/test_mlkem.c.o
+[28/69] Building C object CMakeFiles/hardened_test_random_failure.dir/tests/test_random_failure.c.o
+[29/69] Building C object CMakeFiles/deployable_baseline.dir/src/main.c.o
+[30/69] Building C object CMakeFiles/hardened_test_equivalence.dir/tests/test_equivalence.c.o
+[31/69] Building C object CMakeFiles/hardened_measure.dir/src/measure.c.o
+[32/69] Building C object CMakeFiles/hardened_test_mlkem.dir/tests/test_mlkem.c.o
+[33/69] Building C object CMakeFiles/deployable_measure.dir/src/measure.c.o
+[34/69] Building C object CMakeFiles/deployable_test_random_failure.dir/tests/test_random_failure.c.o
+[35/69] Building C object CMakeFiles/deployable_test_equivalence.dir/tests/test_equivalence.c.o
+[36/69] Building C object CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+[37/69] Building C object CMakeFiles/deployable_test_mlkem.dir/tests/test_mlkem.c.o
+[38/69] Building C object CMakeFiles/analyze.dir/src/analyze.c.o
+[39/69] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+[40/69] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[41/69] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[42/69] Linking C static library hardened/libmlkem.a
+[43/69] Linking C static library vulnerable/libmlkem.a
+[44/69] Linking C static library reference/libmlkem.a
+[45/69] Linking C executable hardened/baseline
+[46/69] Linking C executable hardened/test_random_failure
+[47/69] Linking C executable hardened/test_equivalence
+[48/69] Linking C executable hardened/measure
+[49/69] Linking C executable hardened/test_mlkem
+[50/69] Linking C executable vulnerable/measure
+[51/69] Linking C executable vulnerable/baseline
+[52/69] Building C object CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o
+[53/69] Linking C executable vulnerable/test_random_failure
+[54/69] Linking C executable vulnerable/test_equivalence
+[55/69] Linking C executable vulnerable/test_mlkem
+[56/69] Linking C executable reference/baseline
+[57/69] Linking C executable reference/test_random_failure
+[58/69] Linking C executable reference/test_mlkem
+[59/69] Linking C executable reference/measure
+[60/69] Linking C executable reference/test_equivalence
+[61/69] Linking C executable test_measurement
+[62/69] Linking C executable analyze
+[63/69] Linking C static library deployable/libmlkem.a
+[64/69] Linking C executable deployable/test_equivalence
+[65/69] Linking C executable deployable/test_mlkem
+[66/69] Linking C executable deployable/test_random_failure
+[67/69] Linking C executable deployable/baseline
+[68/69] Linking C executable deployable/measure

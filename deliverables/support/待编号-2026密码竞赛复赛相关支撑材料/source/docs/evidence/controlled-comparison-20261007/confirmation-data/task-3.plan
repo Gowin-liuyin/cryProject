@@ -1,0 +1,11 @@
+format=controlled_plan_v1
+source_kind=no_secret_synthetic
+randomization=independent_label_swaps
+no_carryover=verified
+interval_iid=verified
+data_digest=e257be015b8af7de920fb28aaab439b7988df86a52a591ffe4bc295dfe8221b5
+source_csv_digest=none_synthetic
+generator_seed=202610071003
+scenario=ties
+assignment_rule=SplitMix64_low_bit_independent_pair_swap
+source_indices=none_synthetic

@@ -1,0 +1,715 @@
+{
+  "backtraceGraph": {
+    "commands": [
+      "add_test"
+    ],
+    "files": [
+      "role-author-root/code/cryProject/CMakeLists.txt"
+    ],
+    "nodes": [
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 0
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 2
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 4
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 6
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 8
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 10
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 167,
+        "parent": 12
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 171,
+        "parent": 14
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 250,
+        "parent": 16
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 259,
+        "parent": 18
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 267,
+        "parent": 20
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 272,
+        "parent": 22
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 276,
+        "parent": 24
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 282,
+        "parent": 26
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 295,
+        "parent": 28
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 305,
+        "parent": 30
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 310,
+        "parent": 32
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 310,
+        "parent": 34
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 310,
+        "parent": 36
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 319,
+        "parent": 38
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 322,
+        "parent": 40
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 326,
+        "parent": 42
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 330,
+        "parent": 44
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 334,
+        "parent": 46
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 339,
+        "parent": 48
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 343,
+        "parent": 50
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 347,
+        "parent": 52
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 356,
+        "parent": 54
+      }
+    ]
+  },
+  "kind": "ctestInfo",
+  "tests": [
+    {
+      "backtrace": 1,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/reference/test_mlkem",
+        "role-author-root/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name": "reference_kat",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 3,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/reference/test_random_failure"
+      ],
+      "name": "reference_random_failure",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 5,
+      "name": "vulnerable_kat",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 7,
+      "name": "vulnerable_random_failure",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 9,
+      "name": "hardened_kat",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 11,
+      "name": "hardened_random_failure",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 13,
+      "name": "deployable_kat",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 15,
+      "name": "deployable_random_failure",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 17,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_paired_prepare",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/paired_prepare",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/reference/libmlkem.a"
+      ],
+      "name": "paired_prepare",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 19,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_paired_runner",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/paired_runner",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/analyze_paired",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/paired_worker_fixture"
+      ],
+      "name": "paired_runner",
+      "properties": [
+        {
+          "name": "RUN_SERIAL",
+          "value": true
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 21,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_paired_statistics"
+      ],
+      "name": "paired_statistics",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 23,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_paired_data",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/analyze_paired"
+      ],
+      "name": "paired_data",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 25,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_paired_rejections",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_paired_data",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/analyze_paired"
+      ],
+      "name": "paired_rejections",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 27,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_batch_measurement",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/reference/benchmark",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/reference/batch_benchmark"
+      ],
+      "name": "batch_measurement",
+      "properties": [
+        {
+          "name": "RUN_SERIAL",
+          "value": true
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 29,
+      "command": [
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/test_reference_benchmark",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC/reference/benchmark"
+      ],
+      "name": "reference_benchmark",
+      "properties": [
+        {
+          "name": "RUN_SERIAL",
+          "value": true
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 31,
+      "name": "timing_diagnostics",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 33,
+      "command": [
+        "role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=role-author-root/code/cryProject/build/paired-release.NzGetC/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=role-author-root/code/cryProject/build/paired-release.NzGetC/vulnerable/test_equivalence",
+        "-DVARIANT_NAME=vulnerable",
+        "-DOUTPUT_DIRECTORY=role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "-P",
+        "role-author-root/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name": "equivalence_vulnerable",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 35,
+      "command": [
+        "role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=role-author-root/code/cryProject/build/paired-release.NzGetC/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=role-author-root/code/cryProject/build/paired-release.NzGetC/hardened/test_equivalence",
+        "-DVARIANT_NAME=hardened",
+        "-DOUTPUT_DIRECTORY=role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "-P",
+        "role-author-root/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name": "equivalence_hardened",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 37,
+      "command": [
+        "role-author-root/.local/lib/python3.13/site-packages/cmake/data/bin/cmake",
+        "-DBASELINE_PROGRAM=role-author-root/code/cryProject/build/paired-release.NzGetC/reference/test_equivalence",
+        "-DVARIANT_PROGRAM=role-author-root/code/cryProject/build/paired-release.NzGetC/deployable/test_equivalence",
+        "-DVARIANT_NAME=deployable",
+        "-DOUTPUT_DIRECTORY=role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "-P",
+        "role-author-root/code/cryProject/cmake/CheckEquivalence.cmake"
+      ],
+      "name": "equivalence_deployable",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 39,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_cli.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC"
+      ],
+      "name": "cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 41,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_cli.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "reference"
+      ],
+      "name": "reference_cli",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 43,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_measurement.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC"
+      ],
+      "name": "measurement",
+      "properties": [
+        {
+          "name": "RUN_SERIAL",
+          "value": true
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 45,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_vector_parser.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "role-author-root/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name": "vector_parser",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 47,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_vector_parser.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC",
+        "role-author-root/code/cryProject/tests/vectors/mlkem768.txt",
+        "reference"
+      ],
+      "name": "reference_vector_parser",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 49,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_analysis.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC"
+      ],
+      "name": "analysis",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 51,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_analysis_groups.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC"
+      ],
+      "name": "analysis_groups",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject/build/paired-release.NzGetC"
+        }
+      ]
+    },
+    {
+      "backtrace": 53,
+      "command": [
+        "/bin/sh",
+        "role-author-root/code/cryProject/tests/test_analysis_round1_replay.sh",
+        "role-author-root/code/cryProject/build/paired-release.NzGetC"
+      ],
+      "name": "analysis_round1_replay",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject"
+        }
+      ]
+    },
+    {
+      "backtrace": 55,
+      "command": [
+        "/usr/bin/shasum",
+        "-a",
+        "256",
+        "-c",
+        "tests/vectors/SHA256SUMS"
+      ],
+      "name": "vector_integrity",
+      "properties": [
+        {
+          "name": "LABELS",
+          "value": [
+            "reference"
+          ]
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "role-author-root/code/cryProject"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 1,
+    "minor": 0
+  }
+}

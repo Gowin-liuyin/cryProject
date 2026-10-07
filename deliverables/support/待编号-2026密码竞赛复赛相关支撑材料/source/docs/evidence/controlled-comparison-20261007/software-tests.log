@@ -1,0 +1,66 @@
+Test project role-author-root/code/cryProject/build/cmake
+      Start  1: reference_kat
+ 1/29 Test  #1: reference_kat ....................   Passed    0.02 sec
+      Start  2: reference_random_failure
+ 2/29 Test  #2: reference_random_failure .........   Passed    0.00 sec
+      Start  3: vulnerable_kat
+ 3/29 Test  #3: vulnerable_kat ...................   Passed    0.02 sec
+      Start  4: vulnerable_random_failure
+ 4/29 Test  #4: vulnerable_random_failure ........   Passed    0.00 sec
+      Start  5: hardened_kat
+ 5/29 Test  #5: hardened_kat .....................   Passed    0.02 sec
+      Start  6: hardened_random_failure
+ 6/29 Test  #6: hardened_random_failure ..........   Passed    0.00 sec
+      Start  7: deployable_kat
+ 7/29 Test  #7: deployable_kat ...................   Passed    0.02 sec
+      Start  8: deployable_random_failure
+ 8/29 Test  #8: deployable_random_failure ........   Passed    0.00 sec
+      Start  9: controlled_statistics
+ 9/29 Test  #9: controlled_statistics ............   Passed    0.00 sec
+      Start 10: controlled_cli
+10/29 Test #10: controlled_cli ...................   Passed    0.42 sec
+      Start 11: compare_replay_failures
+11/29 Test #11: compare_replay_failures ..........   Passed    0.38 sec
+      Start 12: native_digest
+12/29 Test #12: native_digest ....................   Passed    0.02 sec
+      Start 13: paired_prepare
+13/29 Test #13: paired_prepare ...................   Passed    1.77 sec
+      Start 14: paired_runner
+14/29 Test #14: paired_runner ....................   Passed    1.59 sec
+      Start 15: paired_statistics
+15/29 Test #15: paired_statistics ................   Passed    0.07 sec
+      Start 16: paired_data
+16/29 Test #16: paired_data ......................   Passed    0.04 sec
+      Start 17: paired_rejections
+17/29 Test #17: paired_rejections ................   Passed    0.50 sec
+      Start 18: batch_measurement
+18/29 Test #18: batch_measurement ................   Passed    0.05 sec
+      Start 19: reference_benchmark
+19/29 Test #19: reference_benchmark ..............   Passed    0.03 sec
+      Start 20: timing_diagnostics
+20/29 Test #20: timing_diagnostics ...............   Passed    0.01 sec
+      Start 21: equivalence_vulnerable
+21/29 Test #21: equivalence_vulnerable ...........   Passed    0.02 sec
+      Start 22: equivalence_hardened
+22/29 Test #22: equivalence_hardened .............   Passed    0.02 sec
+      Start 23: equivalence_deployable
+23/29 Test #23: equivalence_deployable ...........   Passed    0.02 sec
+      Start 24: cli
+24/29 Test #24: cli ..............................   Passed    0.21 sec
+      Start 25: reference_cli
+25/29 Test #25: reference_cli ....................   Passed    0.04 sec
+      Start 26: vector_parser
+26/29 Test #26: vector_parser ....................   Passed    0.08 sec
+      Start 27: reference_vector_parser
+27/29 Test #27: reference_vector_parser ..........   Passed    0.03 sec
+      Start 28: analysis_round1_replay
+28/29 Test #28: analysis_round1_replay ...........   Passed    0.03 sec
+      Start 29: vector_integrity
+29/29 Test #29: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 29
+
+Label Time Summary:
+reference    =   0.10 sec*proc (5 tests)
+
+Total Test time (real) =   5.43 sec

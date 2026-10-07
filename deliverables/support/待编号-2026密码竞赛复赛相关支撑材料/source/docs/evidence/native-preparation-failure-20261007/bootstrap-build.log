@@ -1,0 +1,22 @@
+cmake
+--build
+runner-01-root/cryproject-a113-20261007/runs/paired-v1/build
+--target
+paired_prepare
+--parallel
+4
+[  0%] Built target build_identity
+[ 10%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 20%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 30%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 40%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 50%] Linking C static library reference/libmlkem.a
+[ 50%] Built target mlkem_reference
+[ 50%] Building C object CMakeFiles/paired_support.dir/src/paired_data.c.o
+[ 60%] Building C object CMakeFiles/paired_support.dir/src/timing_statistics.c.o
+[ 70%] Building C object CMakeFiles/paired_support.dir/src/paired_statistics.c.o
+[ 80%] Linking C static library libpaired_support.a
+[ 80%] Built target paired_support
+[ 90%] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[100%] Linking C executable paired_prepare
+[100%] Built target paired_prepare
