@@ -3,12 +3,20 @@
 
 #include "timing_statistics.h"
 
+#define ORDINARY_METADATA_COUNT 17u
 #define PAIRED_TEXT_CAPACITY 512u
 #define PAIRED_MAXIMUM_CALLS 60000u
 #define PAIRED_COHORT_HEADER                                                                       \
     "block_id,first_method,baseline_csv,baseline_meta,candidate_csv,candidate_meta,baseline_csv_"  \
     "digest,baseline_meta_digest,baseline_cost_digest,candidate_csv_digest,candidate_meta_digest," \
     "candidate_cost_digest,baseline_parent_wall_ns,candidate_parent_wall_ns\n"
+
+struct ordinary_dataset {
+    struct measurement_set measurements;
+    char metadata[ORDINARY_METADATA_COUNT][256];
+    char csv_digest[65];
+    uint64_t total_duration_ns;
+};
 
 struct paired_text_field {
     const char *name;
@@ -61,6 +69,9 @@ int paired_digest_file(const char *path, char digest[65]);
 int is_paired_hex(const char *text, size_t character_count);
 int is_paired_identifier(const char *text);
 int paired_data_path(char *path, size_t capacity, const char *directory, const char *filename);
+int load_ordinary_dataset(const char *csv_path,
+    const char *metadata_path,
+    struct ordinary_dataset *dataset);
 int load_measurement_cost(const char *csv_path,
     const char *expected_run_id,
     uint64_t expected_calls,

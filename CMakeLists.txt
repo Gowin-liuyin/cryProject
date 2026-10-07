@@ -310,6 +310,7 @@ if(BUILD_TESTING)
             "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_reference_label_control.sh"
             $<TARGET_FILE:calibrate_controlled>
             "${CMAKE_CURRENT_SOURCE_DIR}/docs/evidence/native-final-20261007/performance"
+            $<TARGET_FILE:controlled_stats>
     )
     add_test(NAME controlled_cli
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_controlled_cli.sh"

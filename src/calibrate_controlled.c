@@ -356,9 +356,12 @@ static int run_reference_block(FILE *records,
             return 1;
         }
     }
-    struct measurement_set source_set = {0};
-    if (load_measurement_set(paths[0], &source_set) != 0 || source_set.record_count != 3000u ||
-        strcmp(source_set.implementation, "reference") != 0 ||
+    struct ordinary_dataset dataset;
+    if (load_ordinary_dataset(paths[0], paths[1], &dataset) != 0) {
+        return 1;
+    }
+    struct measurement_set source_set = dataset.measurements;
+    if (source_set.record_count != 3000u || strcmp(source_set.implementation, "reference") != 0 ||
         strcmp(source_set.run_id, run_id) != 0) {
         free(source_set.records);
         return 1;

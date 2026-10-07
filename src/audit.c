@@ -17,32 +17,6 @@
 #include <time.h>
 #include <unistd.h>
 
-#define ORDINARY_METADATA_COUNT 17u
-
-struct ordinary_dataset {
-    struct measurement_set measurements;
-    char metadata[ORDINARY_METADATA_COUNT][256];
-    char csv_digest[65];
-    uint64_t total_duration_ns;
-};
-
-static const char *const metadata_names[ORDINARY_METADATA_COUNT] = {"run_id",
-    "implementation",
-    "sample_count",
-    "run_status",
-    "sanitizers",
-    "source_commit",
-    "ordered_input_digest",
-    "test_seed",
-    "executable_digest",
-    "clock",
-    "time_unit",
-    "measurement_format",
-    "formal_attempted_calls",
-    "formal_completed_calls",
-    "warmup_attempted_calls",
-    "warmup_completed_calls",
-    "outputs_consumed"};
 static const char *const safe_variants[3] = {"reference", "hardened", "deployable"};
 static volatile sig_atomic_t active_child;
 static volatile sig_atomic_t deadline_expired;
@@ -122,83 +96,6 @@ static int execute_program(char *const arguments[], const char *log_path)
     }
     last_process_wall_ns = finish_ns - start_ns;
     return WIFEXITED(wait_status) ? WEXITSTATUS(wait_status) : 128;
-}
-
-static int load_ordinary_dataset(const char *csv_path,
-    const char *metadata_path,
-    struct ordinary_dataset *dataset)
-{
-    memset(dataset, 0, sizeof(*dataset));
-    struct paired_text_field fields[ORDINARY_METADATA_COUNT];
-    for (size_t field_index = 0; field_index < ORDINARY_METADATA_COUNT; ++field_index) {
-        fields[field_index] = (struct paired_text_field){metadata_names[field_index],
-            dataset->metadata[field_index],
-            sizeof(dataset->metadata[field_index]),
-            0};
-    }
-    if (load_measurement_set(csv_path, &dataset->measurements) != 0 ||
-        read_paired_fields(metadata_path, fields, ORDINARY_METADATA_COUNT) != 0 ||
-        paired_digest_file(csv_path, dataset->csv_digest) != 0 ||
-        strcmp(dataset->metadata[0], dataset->measurements.run_id) != 0 ||
-        strcmp(dataset->metadata[1], dataset->measurements.implementation) != 0 ||
-        strcmp(dataset->metadata[3], "complete") != 0 || strcmp(dataset->metadata[4], "OFF") != 0 ||
-        !is_paired_hex(dataset->metadata[6], 64) || !is_paired_hex(dataset->metadata[8], 64) ||
-        strcmp(dataset->metadata[9], "CLOCK_MONOTONIC") != 0 ||
-        strcmp(dataset->metadata[10], "ns") != 0 ||
-        strcmp(dataset->metadata[11], "reference_ordinary_v1") != 0) {
-        free(dataset->measurements.records);
-        dataset->measurements.records = NULL;
-        return 1;
-    }
-    uint64_t expected_count;
-    uint64_t test_seed;
-    size_t category_counts[3] = {0};
-    if (parse_unsigned_integer(dataset->metadata[2], &expected_count) != 0 ||
-        expected_count != dataset->measurements.record_count ||
-        expected_count > UINT64_MAX - 100u ||
-        parse_unsigned_integer(dataset->metadata[7], &test_seed) != 0) {
-        goto invalid;
-    }
-    uint64_t expected_counters[5] = {expected_count,
-        expected_count,
-        100u,
-        100u,
-        expected_count + 100u};
-    for (size_t counter_index = 0; counter_index < 5u; ++counter_index) {
-        uint64_t actual_counter;
-        if (parse_unsigned_integer(dataset->metadata[counter_index + 12u], &actual_counter) != 0 ||
-            actual_counter != expected_counters[counter_index]) {
-            goto invalid;
-        }
-    }
-    for (size_t record_index = 0; record_index < dataset->measurements.record_count;
-        ++record_index) {
-        const struct measurement_record *record = &dataset->measurements.records[record_index];
-        if (record->category_index >= 3u ||
-            record->elapsed_nanoseconds > (uint64_t)CONTROLLED_MAXIMUM_DIFFERENCE_NS ||
-            dataset->total_duration_ns > UINT64_MAX - record->elapsed_nanoseconds) {
-            goto invalid;
-        }
-        ++category_counts[record->category_index];
-        dataset->total_duration_ns += record->elapsed_nanoseconds;
-    }
-    if (category_counts[0] == 0 || category_counts[0] != category_counts[1] ||
-        category_counts[0] != category_counts[2]) {
-        goto invalid;
-    }
-    struct measurement_cost cost;
-    if (load_measurement_cost(csv_path,
-            dataset->measurements.run_id,
-            expected_count,
-            dataset->total_duration_ns,
-            &cost) != 0) {
-        goto invalid;
-    }
-    return 0;
-invalid:
-    free(dataset->measurements.records);
-    dataset->measurements.records = NULL;
-    return 1;
 }
 
 static int write_escaped(FILE *output, const char *text)

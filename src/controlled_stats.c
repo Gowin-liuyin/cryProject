@@ -165,12 +165,28 @@ static int generate_pairs(const char *scenario,
 {
     struct measurement_set source_set = {0};
     char source_digest[65] = "none_synthetic";
-    if (source_path != NULL &&
-        (load_measurement_set(source_path, &source_set) != 0 || source_set.record_count < 40u ||
-            strcmp(source_set.implementation, "reference") != 0 ||
-            paired_digest_file(source_path, source_digest) != 0)) {
-        free(source_set.records);
-        return 1;
+    if (source_path != NULL) {
+        char metadata_path[4096];
+        size_t source_length = strlen(source_path);
+        if (source_length < 4u || source_length >= sizeof(metadata_path) - 1u ||
+            strcmp(source_path + source_length - 4u, ".csv") != 0) {
+            return 1;
+        }
+        (void)snprintf(metadata_path,
+            sizeof(metadata_path),
+            "%.*s.meta",
+            (int)(source_length - 4u),
+            source_path);
+        struct ordinary_dataset dataset;
+        if (load_ordinary_dataset(source_path, metadata_path, &dataset) != 0) {
+            return 1;
+        }
+        source_set = dataset.measurements;
+        memcpy(source_digest, dataset.csv_digest, sizeof(source_digest));
+        if (source_set.record_count < 40u || strcmp(source_set.implementation, "reference") != 0) {
+            free(source_set.records);
+            return 1;
+        }
     }
     if (source_path == NULL && strcmp(scenario, "null") != 0 && strcmp(scenario, "effect") != 0 &&
         strcmp(scenario, "ties") != 0 && strcmp(scenario, "drift") != 0 &&
