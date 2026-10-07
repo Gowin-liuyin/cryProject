@@ -97,9 +97,10 @@ static int compare_ratios(const void *first_value, const void *second_value)
 
 int main(int argument_count, char **argument_values)
 {
-    if (argument_count != 6) {
+    int is_development = argument_count == 7 && strcmp(argument_values[6], "development") == 0;
+    if (argument_count != 6 && !is_development) {
         fputs("Usage: compare_replay C_ANALYZER PYTHON SCIPY_SCRIPT EIGHT_TASK_DIRECTORY "
-              "NEW_OUTPUT\n",
+              "NEW_OUTPUT [development]\n",
             stderr);
         return 2;
     }
@@ -131,12 +132,13 @@ int main(int argument_count, char **argument_values)
     uint64_t method_total_ns[2] = {0};
     uint64_t comparison_start_ns;
     uint64_t comparison_finish_ns;
+    size_t task_count = is_development ? 2u : 8u;
     if (read_clock(&comparison_start_ns) != 0 ||
         fputs("task\trepetition\tmethod\twall_ns\texit_status\ttail_count\tassignment_count\n",
             ledger) == EOF) {
         goto cleanup;
     }
-    for (size_t task_index = 0; task_index < 8u; ++task_index) {
+    for (size_t task_index = 0; task_index < task_count; ++task_index) {
         char csv_path[4096];
         char plan_path[4096];
         char task_name[65];
@@ -240,8 +242,9 @@ int main(int argument_count, char **argument_values)
         comparison_finish_ns - comparison_start_ns > UINT64_C(300000000000)) {
         goto cleanup;
     }
-    qsort(ratios, 24, sizeof(*ratios), compare_ratios);
-    long double median_ratio = (ratios[11] + ratios[12]) / 2.0L;
+    size_t ratio_count = 3u * task_count;
+    qsort(ratios, ratio_count, sizeof(*ratios), compare_ratios);
+    long double median_ratio = (ratios[ratio_count / 2u - 1u] + ratios[ratio_count / 2u]) / 2.0L;
     FILE *summary = fopen(summary_path, "wx");
     if (summary == NULL) {
         goto cleanup;
@@ -249,23 +252,27 @@ int main(int argument_count, char **argument_values)
     operation_status =
         fprintf(summary,
             "format=replay_efficiency_v1\nclock=CLOCK_MONOTONIC\ntime_unit=ns\n"
-            "completed_attempts=%zu\nexact_counts_identical=yes\nraw_csv_unchanged=yes\n"
+            "phase=%s\ntask_count=%zu\ncompleted_attempts=%zu\nexact_counts_identical=yes\nraw_csv_"
+            "unchanged=yes\n"
             "all_task_candidate_max_below_baseline_min=%s\nmedian_process_wall_ratio=%.9Lf\n"
             "ratio_min=%.9Lf\nratio_max=%.9Lf\nbaseline_process_total_ns=%" PRIu64
             "\ncandidate_process_total_ns=%" PRIu64 "\ncomparison_wall_ns=%" PRIu64
-            "\nresult_status=%s\nuncertainty=fixed_eight_tasks_three_runs_each\n"
+            "\nresult_status=%s\nuncertainty=fixed_tasks_three_runs_each\n"
             "general_population_interval=unavailable\nsecret_attribution=not_assessed\nreport_"
             "status=complete\n",
+            is_development ? "development" : "confirmation",
+            task_count,
             completed_attempts,
             all_tasks_faster ? "yes" : "no",
             median_ratio,
             ratios[0],
-            ratios[23],
+            ratios[ratio_count - 1u],
             method_total_ns[0],
             method_total_ns[1],
             comparison_finish_ns - comparison_start_ns,
-            all_tasks_faster && median_ratio <= 0.5L ? "supports_this_exact_replay_efficiency"
-                                                     : "improvement_conditions_not_met") < 0;
+            is_development                                 ? "development_only"
+                : all_tasks_faster && median_ratio <= 0.5L ? "supports_this_exact_replay_efficiency"
+                                                           : "improvement_conditions_not_met") < 0;
     if (fclose(summary) != 0) {
         operation_status = 1;
     }
