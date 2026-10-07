@@ -1,0 +1,24 @@
+format=current_defense_configuration_review_v1
+review_date=2026-10-07 (client Asia/Shanghai calendar)
+base_source_commit=6de20c492521760e984b708c24e41692bf311745
+execution_identity=author_agent_local
+environment=Darwin arm64; does not replace Linux validation
+compiler=Apple Clang 21.0.0.21000334
+build_directory=build/defense-review-20261007
+configure_command=cmake -S . -B build/defense-review-20261007 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DA113_ARCHIVED_CASE_ONLY=ON
+configure_exit_status=0
+build_command=cmake --build build/defense-review-20261007 --target build_identity format-check
+source_export_command=ctest --test-dir build/defense-review-20261007 -R ^source_export$ --output-on-failure
+source_export_exit_status=0
+reference: identity path matches effective include; no LTO compiler flag
+vulnerable: identity path matches effective include; no LTO compiler flag
+hardened: identity path matches effective include; no LTO compiler flag
+deployable: identity path matches effective include; no LTO compiler flag
+effective configuration: portable arithmetic/FIPS202, stack allocation, inline asm value barrier
+new_ciphertext_timing_experiment=not_executed
+security_limit=configuration and metadata consistency only; no universal constant-time claim
+overall_check_exit_status=0
+build_identity_format_exit_status=0
+recorded_check_source_commit=cb3f9b21426fccd1004f1c51d2498be810b10cc1
+generated_configuration_sha256=cf94ca5c1e96ace3df1ac5a4750f0cbd64c7f73e14c5581c7e4c0c3d9238e15e
+base_source_commit_role=initial_review_reference; actual recorded identity is build_identity.h.txt

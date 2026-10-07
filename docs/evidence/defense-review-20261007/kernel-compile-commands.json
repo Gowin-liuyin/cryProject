@@ -1,0 +1,26 @@
+[
+  {
+    "directory": "/Users/yin/code/cryProject/build/defense-review-20261007",
+    "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /Users/yin/code/cryProject/src/kernel.c",
+    "file": "/Users/yin/code/cryProject/src/kernel.c",
+    "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/defense-review-20261007",
+    "command": "/usr/bin/cc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/defense-review-20261007/vulnerable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /Users/yin/code/cryProject/build/defense-review-20261007/vulnerable_kernel.c",
+    "file": "/Users/yin/code/cryProject/build/defense-review-20261007/vulnerable_kernel.c",
+    "output": "CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/defense-review-20261007",
+    "command": "/usr/bin/cc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/defense-review-20261007/hardened-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /Users/yin/code/cryProject/build/defense-review-20261007/hardened_kernel.c",
+    "file": "/Users/yin/code/cryProject/build/defense-review-20261007/hardened_kernel.c",
+    "output": "CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+  },
+  {
+    "directory": "/Users/yin/code/cryProject/build/defense-review-20261007",
+    "command": "/usr/bin/cc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/build/defense-review-20261007/deployable-source/mlkem -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /Users/yin/code/cryProject/build/defense-review-20261007/deployable_kernel.c",
+    "file": "/Users/yin/code/cryProject/build/defense-review-20261007/deployable_kernel.c",
+    "output": "CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o"
+  }
+]

@@ -1,0 +1,28 @@
+format=defense_configuration_command_ledger_v1
+execution_identity=author_agent_local
+environment=Darwin arm64; does not replace Linux verification
+configure_command=['cmake', '-S', '.', '-B', '/Users/yin/code/cryProject/build/defense-review-20261007', '-DCMAKE_BUILD_TYPE=RelWithDebInfo', '-DBUILD_TESTING=ON', '-DBASELINE_SANITIZERS=OFF', '-DA113_ARCHIVED_CASE_ONLY=ON']
+configure_started_utc=2026-10-07T16:08:42.139436+00:00
+configure_finished_utc=2026-10-07T16:08:42.406920+00:00
+configure_exit_status=0
+identity-format_command=['cmake', '--build', '/Users/yin/code/cryProject/build/defense-review-20261007', '--target', 'build_identity', 'format-check']
+identity-format_started_utc=2026-10-07T16:08:42.407108+00:00
+identity-format_finished_utc=2026-10-07T16:08:44.183594+00:00
+identity-format_exit_status=0
+source-export_command=['ctest', '--test-dir', '/Users/yin/code/cryProject/build/defense-review-20261007', '-R', '^source_export$', '--output-on-failure']
+source-export_started_utc=2026-10-07T16:08:44.183816+00:00
+source-export_finished_utc=2026-10-07T16:08:44.363738+00:00
+source-export_exit_status=0
+configuration-cross-check_command=['python3', '/Users/yin/code/cryProject/docs/evidence/defense-review-20261007/check_configuration.py', '/Users/yin/code/cryProject', '/Users/yin/code/cryProject/build/defense-review-20261007']
+configuration-cross-check_started_utc=2026-10-07T16:08:44.363939+00:00
+configuration-cross-check_finished_utc=2026-10-07T16:08:44.415655+00:00
+configuration-cross-check_exit_status=0
+check_source_commit=cb3f9b21426fccd1004f1c51d2498be810b10cc1
+check_worktree_status_begin
+M cmake/build_configuration.txt.in
+ M docs/sources.md
+?? .agents/
+?? docs/evidence/candidate-round-20261007/
+?? docs/evidence/defense-review-20261007/
+?? docs/evidence/upstream-security-review-20261007/
+check_worktree_status_end
