@@ -1,0 +1,4 @@
+[render_docx] $ /Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/soffice -env:UserInstallation=file:///private/tmp/soffice_profile_gfn4n7ym --invisible --headless --norestore --convert-to pdf --outdir /private/tmp/soffice_convert_bkg2s7_r /Users/yin/code/cryProject/deliverables/report/待编号-2026密码竞赛复赛作品设计报告.docx
+convert /Users/yin/code/cryProject/deliverables/report/待编号-2026密码竞赛复赛作品设计报告.docx as a Writer document -> /private/tmp/soffice_convert_bkg2s7_r/待编号-2026密码竞赛复赛作品设计报告.pdf using filter : writer_pdf_Export
+
+Pages rendered to /Users/yin/code/cryProject/runs/candidate-report-20261007/render-v1

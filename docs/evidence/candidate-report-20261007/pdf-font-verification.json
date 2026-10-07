@@ -1,0 +1,90 @@
+{
+  "tool": "bundled pypdf PDF object inspection",
+  "pdffonts_attempt_exit_code": 127,
+  "pdffonts_attempt_error": "bundled PATH has no pdffonts executable",
+  "actual_pdf_fonts": [
+    {
+      "base_font": "/BAAAAA+KaiTi",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/CAAAAA+HiraMaruPro-W4",
+      "subtype": "/Type1",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/DAAAAA+SimSun",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/EAAAAA+HiraginoSans-W7",
+      "subtype": "/Type1",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/FAAAAA+KaiTi",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/GAAAAA+STZhongsong",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/HAAAAA+SimSun",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/IAAAAA+TimesNewRomanPSMT",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/JAAAAA+SimSun",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/KAAAAA+Calibri",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/LAAAAA+STKaitiSC-Regular",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/MAAAAA+TimesNewRomanPS-BoldMT",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/NAAAAA+SimHei",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/OAAAAA+KaiTi",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/PAAAAA+MicrosoftYaHei",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    },
+    {
+      "base_font": "/QAAAAA+KaiTi",
+      "subtype": "/TrueType",
+      "embedded_font_stream": true
+    }
+  ],
+  "all_pdf_font_streams_embedded": true,
+  "runtime_aliases_preserve_docx_names": true,
+  "font_files_distributed": false
+}

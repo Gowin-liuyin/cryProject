@@ -1,0 +1,40 @@
+{
+  "before_docx_sha256": "ae148cbf839435e4c973276db66a6b12530528fce33fd5be068728b2dae0acc4",
+  "updated_docx_sha256": "94766409a70472329ee11746b74fb1b6d6cee613ff1821ba8e4f56c6dfccf0a7",
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "all_non_document_parts_preserved_from_previous_verified_report": true,
+  "changes": [
+    {
+      "old": "作品已形成可运行的C11工程、统一使用入口、真实原生普通测量、历史防御案例档案、无秘密精确统计验证、限定强对照效率结果及原始数据复算材料。功能正确、记录完整、有限复算效率和密码安全是四类不同结论。",
+      "new": "本轮补齐公开来源与固定版本适用性审查，修正构建身份记录中的路径错误，保留算法及历史数据。软件、功能与产物核验、普通性能、既有数据复算分别留证。有限精确复算效率服务于统计检测的核查与复现，不支持ML-KEM加速、检测更灵敏或防护已有效；当前材料为供团队审阅修改的提交候选版。",
+      "kind": "text_only"
+    },
+    {
+      "old": "[2] pq-code-package. mlkem-native. 固定b3ba7b32773e657dd37f6f87bce82528459ad8a4；许可证见源码原件。https://github.com/pq-code-package/mlkem-native",
+      "new": "[2] pq-code-package. mlkem-native固定快照及证明边界。https://github.com/pq-code-package/mlkem-native/blob/b3ba7b32773e657dd37f6f87bce82528459ad8a4/SOUNDNESS.md；预防性值屏障变更：https://github.com/pq-code-package/mlkem-native/pull/1342。",
+      "kind": "text_only"
+    },
+    {
+      "old": "证据：E01前置，E02性能，H01档案，C01复算，C02模型，C03预导入，C04后赋标签，R01作者复现。原CSV字节不变，元数据角色转换另有摘要。重建命令见支撑包source/README.md，非原作者须保留实际日志并本人签收。",
+      "new": "证据：U01公开来源，D01固定版本审查，E01前置，E02旧性能，H01人工档案，C01—C04统计复核，R01旧作者复现，N01本轮Linux核验与A02作者代理复算。原CSV不改；公开审查与适用性在source/docs，N01原件在docs/evidence/candidate-round-20261007/native，复算和离线索引入口见支撑包source/README.md。真实非原作者执行须另留本人日志并签收。",
+      "kind": "text_only"
+    },
+    {
+      "old": "Apple M5/ARM64实现源的普通及ASan/UBSan检查通过。Linux普通测量固定S02在GCC及Clang动态各执行31项，后续只读验收32项；有限模型校准固定S04两种构建各33项。此前GCC sanitizer在既有人工补丁的符号转换警告处失败，原日志保留，没有关闭警告或修改封存补丁。动态检查不冒充正式性能产物。",
+      "new": "已有S02/S03/S04各按31/32/33项解释。本轮N01在UTC 16:18:45—16:19:13以固定新导出完成GCC13.3普通和Clang18.1.3 ASan/UBSan各34项，四版构建路径及GNU_STACK RW核验通过。40份旧报告与C01—C04主结果逐字一致；这是作者代理复算，非原作者尚未执行。随机open失败已测，read/close故障注入未执行；此前GCC动态构建失败原件保留，未关闭警告或改封存补丁。",
+      "kind": "text_only"
+    },
+    {
+      "after": "封装层首先检查指针和精确长度，避免短缓冲区进入固定长度内核。正确长度的无效密文继续走隐式拒绝，不向CLI暴露重加密验证标志。系统随机源失败向调用方传播；公开种子的确定性入口限实验夹具，不用于保护业务密钥。",
+      "new": "本轮公开核查U01与适用审查D01区分旧Kyber、最终ML-KEM、架构后端及固定版本。固定库已有volatile值屏障和相关清理；后续配置、汇编栈标记及ABI问题按实际便携构建排除。C层恒时未形式证明，硬件乘法前提和不可读勘误保留未知。自有修正DEF-F01仅补齐真实构建路径记录，不改变密码运算，也不构成上游新漏洞或防护效果证据。[2]",
+      "kind": "cloned_body_paragraph"
+    },
+    {
+      "after": "6个运行对的iid条件在KVM上未得到证明，bootstrap区间仅是该模型下的探索描述，不保证总体覆盖，也不作防护效果判定。hardened保留函数级O0控制，reference/deployable正常优化，比较同时包含优化和代码形态差异；不能把速度差完全归于安全防护。负开销允许存在，不能据此声称更安全。",
+      "new": "本轮N01另采18个普通运行，54000条正式记录和1800次预热；hardened与deployable相对reference开销分别为0.824599%及1.091517%，99%探索区间均跨零，完整父窗口合计4.162秒。新源码及产物另列N01；图2和表1仍为旧E02，两个身份不混用，普通开销不判防护效果。",
+      "kind": "cloned_body_paragraph"
+    }
+  ]
+}

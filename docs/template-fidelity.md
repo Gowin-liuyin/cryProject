@@ -25,3 +25,11 @@ theme、原logo、原header/footer均保持。
 字体文件没有加入交付包。模板自身和成品按同一配置渲染，实际字形及文字属性均核对。
 
 结果及验证见evidence/template-fidelity-20261007；原有科学缺口和非原作者记录仍独立验收。
+
+本轮候选报告加入公开审查U01、固定版本适用性D01、构建记录修正DEF-F01及真实Linux
+N01/A02核验，报告自然增至14页（先前13页）。没有缩减字号或行距，三个分节、23个
+模板保护parts、全部原表和图以及相对上一已核版本的非document parts均保持；239个
+实际文字段落角色逐项核对。bundled LibreOffice与既有fontconfig重新渲染后，14页PNG
+均以原分辨率打开检查。旧E02图与新N01普通结果分开，三页PPT、两图与两工作簿未改。
+本轮数据、结构和全页核验见[evidence/candidate-report-20261007](evidence/candidate-report-20261007/README.md)。
+审批及签字页保持原占位，候选版不代表全部科学要求验收或本人签署完成。

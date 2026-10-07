@@ -1,0 +1,21 @@
+format=existing_chart_review_attempts_v1
+execution_identity=author_agent_local_subagent
+scope=existing_E02_C01_C02_C03_C04_materials_only
+
+exploration_attempt_1=read conventional ppt/charts/chart1.xml path
+exploration_exit_status=1
+exploration_error=KeyError: There is no item named 'ppt/charts/chart1.xml' in the archive
+exploration_correction=enumerated actual chart parts under ppt/slides/charts and followed package relationships
+exploration_time=not_recorded_in_a_file
+artifact_data_mismatch=no
+
+verification_command=python3 runs/candidate-report-20261007/verify_chart_and_data.py
+runtime=Codex bundled Python 3.12
+verification_exit_status=0
+verification_time=recorded_as_checked_at_utc_in_chart-and-data-verification.json
+verification_output=chart-and-data-verification.log
+source_reports_metadata_gap=C01 confirmation report omitted from report-content.json source_reports at initial check
+gap_resolution=awaiting report owner metadata update and rerun
+new_mlkem_calls=0
+new_defense_effect_data=no
+new_runtime_screenshots=no
