@@ -1,0 +1,32 @@
+{
+  "source_commit": "ef20a33f4617419b0b03e6315b803464354f2739",
+  "contract_commit": "2e00f39a39e518dc7d51afe7801da17dd59021d8",
+  "native_raw_rows": 24576,
+  "selected_original_times": 144,
+  "all_c_oracle_counts_equal": true,
+  "external_fixed_audits_equal": 24,
+  "sanitized_complete_raw_byte_equal": true,
+  "sanitized_selected_times_byte_equal": true,
+  "prototype_rejected_by_new_qualification_guard": true,
+  "prototype_raw_counts_unchanged_after_fix": true,
+  "ordinary_performance_report_byte_equal": true,
+  "historical_reports_byte_equal": 40,
+  "old_model_raw_rows_byte_equal": 40964,
+  "project_default_tests": 34,
+  "native_release_tests": 34,
+  "native_sanitizer_tests": 34,
+  "mlkem_decapsulation_calls": 0,
+  "conditional_rejections_per_block": [
+    40,
+    40,
+    40,
+    38,
+    40,
+    38
+  ],
+  "denominator_per_block": 4096,
+  "real_ciphertext_category_test": false,
+  "real_crypto_population_calibrated": false,
+  "overall_goal_complete": false,
+  "report_and_distribution_update": "pending_next_material_revision"
+}

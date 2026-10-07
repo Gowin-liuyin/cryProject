@@ -1,0 +1,33 @@
+format=reference_labels_scipy_audit_v1
+external_audit_budget_seconds=60
+scipy_version=1.16.3
+numpy_version=2.3.5
+raw_sha3_256=5d590c0534903b83fd6e44aa845a53f7fcb87f4326bd134a3c6d10a982d26c11
+model=ordinary-reference-block1 effect_ns=0 assignment=0 tail_count=1992 assignments=4096 matches=yes
+model=ordinary-reference-block1 effect_ns=0 assignment=1 tail_count=3018 assignments=4096 matches=yes
+model=ordinary-reference-block1 effect_ns=0 assignment=2047 tail_count=1898 assignments=4096 matches=yes
+model=ordinary-reference-block1 effect_ns=0 assignment=4095 tail_count=1992 assignments=4096 matches=yes
+model=ordinary-reference-block2 effect_ns=0 assignment=0 tail_count=2934 assignments=4096 matches=yes
+model=ordinary-reference-block2 effect_ns=0 assignment=1 tail_count=4018 assignments=4096 matches=yes
+model=ordinary-reference-block2 effect_ns=0 assignment=2047 tail_count=2166 assignments=4096 matches=yes
+model=ordinary-reference-block2 effect_ns=0 assignment=4095 tail_count=2934 assignments=4096 matches=yes
+model=ordinary-reference-block3 effect_ns=0 assignment=0 tail_count=740 assignments=4096 matches=yes
+model=ordinary-reference-block3 effect_ns=0 assignment=1 tail_count=946 assignments=4096 matches=yes
+model=ordinary-reference-block3 effect_ns=0 assignment=2047 tail_count=1764 assignments=4096 matches=yes
+model=ordinary-reference-block3 effect_ns=0 assignment=4095 tail_count=740 assignments=4096 matches=yes
+model=ordinary-reference-block4 effect_ns=0 assignment=0 tail_count=2508 assignments=4096 matches=yes
+model=ordinary-reference-block4 effect_ns=0 assignment=1 tail_count=2796 assignments=4096 matches=yes
+model=ordinary-reference-block4 effect_ns=0 assignment=2047 tail_count=2696 assignments=4096 matches=yes
+model=ordinary-reference-block4 effect_ns=0 assignment=4095 tail_count=2508 assignments=4096 matches=yes
+model=ordinary-reference-block5 effect_ns=0 assignment=0 tail_count=608 assignments=4096 matches=yes
+model=ordinary-reference-block5 effect_ns=0 assignment=1 tail_count=1102 assignments=4096 matches=yes
+model=ordinary-reference-block5 effect_ns=0 assignment=2047 tail_count=1148 assignments=4096 matches=yes
+model=ordinary-reference-block5 effect_ns=0 assignment=4095 tail_count=608 assignments=4096 matches=yes
+model=ordinary-reference-block6 effect_ns=0 assignment=0 tail_count=3840 assignments=4096 matches=yes
+model=ordinary-reference-block6 effect_ns=0 assignment=1 tail_count=3488 assignments=4096 matches=yes
+model=ordinary-reference-block6 effect_ns=0 assignment=2047 tail_count=2854 assignments=4096 matches=yes
+model=ordinary-reference-block6 effect_ns=0 assignment=4095 tail_count=3840 assignments=4096 matches=yes
+audited_datasets=24
+all_counts_match=yes
+result_scope=numeric_audit_only
+report_status=complete

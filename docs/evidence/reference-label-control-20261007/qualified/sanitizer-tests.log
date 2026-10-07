@@ -1,0 +1,77 @@
+Internal ctest changing into directory: /home/ubuntu/cryproject-a113-20261007/source-reference-qualified/build-sanitizers
+Test project /home/ubuntu/cryproject-a113-20261007/source-reference-qualified/build-sanitizers
+      Start  1: reference_kat
+ 1/34 Test  #1: reference_kat ......................   Passed    0.03 sec
+      Start  2: reference_random_failure
+ 2/34 Test  #2: reference_random_failure ...........   Passed    0.00 sec
+      Start  3: vulnerable_kat
+ 3/34 Test  #3: vulnerable_kat .....................   Passed    0.03 sec
+      Start  4: vulnerable_random_failure
+ 4/34 Test  #4: vulnerable_random_failure ..........   Passed    0.00 sec
+      Start  5: hardened_kat
+ 5/34 Test  #5: hardened_kat .......................   Passed    0.03 sec
+      Start  6: hardened_random_failure
+ 6/34 Test  #6: hardened_random_failure ............   Passed    0.00 sec
+      Start  7: deployable_kat
+ 7/34 Test  #7: deployable_kat .....................   Passed    0.03 sec
+      Start  8: deployable_random_failure
+ 8/34 Test  #8: deployable_random_failure ..........   Passed    0.00 sec
+      Start  9: performance_replay
+ 9/34 Test  #9: performance_replay .................   Passed    0.21 sec
+      Start 10: audit_workflow
+10/34 Test #10: audit_workflow .....................   Passed    0.11 sec
+      Start 11: source_export
+11/34 Test #11: source_export ......................   Passed    0.09 sec
+      Start 12: controlled_statistics
+12/34 Test #12: controlled_statistics ..............   Passed    0.01 sec
+      Start 13: calibration_oracle
+13/34 Test #13: calibration_oracle .................   Passed    0.00 sec
+      Start 14: reference_label_control_failures
+14/34 Test #14: reference_label_control_failures ...   Passed    0.04 sec
+      Start 15: controlled_cli
+15/34 Test #15: controlled_cli .....................   Passed    0.08 sec
+      Start 16: compare_replay_failures
+16/34 Test #16: compare_replay_failures ............   Passed    0.59 sec
+      Start 17: native_digest
+17/34 Test #17: native_digest ......................   Passed    0.03 sec
+      Start 18: paired_prepare
+18/34 Test #18: paired_prepare .....................   Passed    1.12 sec
+      Start 19: paired_runner
+19/34 Test #19: paired_runner ......................   Passed    1.29 sec
+      Start 20: paired_statistics
+20/34 Test #20: paired_statistics ..................   Passed    0.33 sec
+      Start 21: paired_data
+21/34 Test #21: paired_data ........................   Passed    0.11 sec
+      Start 22: paired_rejections
+22/34 Test #22: paired_rejections ..................   Passed    1.39 sec
+      Start 23: batch_measurement
+23/34 Test #23: batch_measurement ..................   Passed    0.26 sec
+      Start 24: reference_benchmark
+24/34 Test #24: reference_benchmark ................   Passed    0.18 sec
+      Start 25: timing_diagnostics
+25/34 Test #25: timing_diagnostics .................   Passed    0.02 sec
+      Start 26: equivalence_vulnerable
+26/34 Test #26: equivalence_vulnerable .............   Passed    0.09 sec
+      Start 27: equivalence_hardened
+27/34 Test #27: equivalence_hardened ...............   Passed    0.09 sec
+      Start 28: equivalence_deployable
+28/34 Test #28: equivalence_deployable .............   Passed    0.09 sec
+      Start 29: cli
+29/34 Test #29: cli ................................   Passed    0.41 sec
+      Start 30: reference_cli
+30/34 Test #30: reference_cli ......................   Passed    0.08 sec
+      Start 31: vector_parser
+31/34 Test #31: vector_parser ......................   Passed    0.15 sec
+      Start 32: reference_vector_parser
+32/34 Test #32: reference_vector_parser ............   Passed    0.04 sec
+      Start 33: analysis_round1_replay
+33/34 Test #33: analysis_round1_replay .............   Passed    0.05 sec
+      Start 34: vector_integrity
+34/34 Test #34: vector_integrity ...................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 34
+
+Label Time Summary:
+reference    =   0.17 sec*proc (5 tests)
+
+Total Test time (real) =   7.01 sec
