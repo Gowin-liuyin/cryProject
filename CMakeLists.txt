@@ -281,6 +281,10 @@ add_dependencies(
 )
 
 if(BUILD_TESTING)
+    add_executable(test_performance_replay tests/test_performance_replay.c)
+    target_link_libraries(test_performance_replay PRIVATE mlkem_reference)
+    target_compile_options(test_performance_replay PRIVATE -UNDEBUG)
+    add_test(NAME performance_replay COMMAND test_performance_replay $<TARGET_FILE:audit>)
     add_test(NAME audit_workflow
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_workflow.sh"
                      $<TARGET_FILE:audit>

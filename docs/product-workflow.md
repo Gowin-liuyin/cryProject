@@ -35,6 +35,7 @@ alpha、旧分位数名称兼容字段及其审计限制保持有效；新成对
 
 ```sh
 build/cmake/audit performance runs/new-safe-performance
+build/cmake/audit performance-replay 已封存性能目录 新性能.report
 ```
 
 只运行reference/hardened/deployable普通三类，6个固定运行块、全部6种方法排列、
@@ -46,6 +47,9 @@ build/cmake/audit performance runs/new-safe-performance
 子程序阶段成本及父进程完整启动/读写/退出窗口均保存；共同构建及文档制作不在该进程指标中。
 它不执行新的人工秘密机制时序，不代替缺陷前后的受控复测。Linux正式性能需固定源码和新目录，
 按原生说明外部taskset控制；不要把本地ARM结果与Linux混合比较。
+performance-replay仅读18份逐次CSV及完成meta，核对每块输入、种子、版本、调用数和一致产物
+身份，从原始记录重建全部分位数、运行差值及同规则区间。先核对封存SHA清单，再使用此入口；
+报告路径新建，失败保留部分报告且不写complete。它不要求旧二进制目录存在，也不重新采集。
 
 匿名源导出包含SOURCE_EXPORT.sha256，构建时核对清单；source_identity_kind明确为
 verified_source_export。兼容source_commit字段是导出清单摘要前40位，并有说明字段，

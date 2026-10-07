@@ -444,6 +444,37 @@ static int collect_ordinary(const char *binary_directory, char **argument_values
     return 0;
 }
 
+static int write_performance_comparisons(FILE *report, uint64_t totals_ns[3][6])
+{
+    for (size_t variant_index = 1; variant_index < 3u; ++variant_index) {
+        int64_t differences_ns[6];
+        long double reference_sum = 0.0L;
+        for (size_t block_index = 0; block_index < 6u; ++block_index) {
+            if (totals_ns[0][block_index] > (uint64_t)CONTROLLED_MAXIMUM_DIFFERENCE_NS ||
+                totals_ns[variant_index][block_index] >
+                    (uint64_t)CONTROLLED_MAXIMUM_DIFFERENCE_NS) {
+                return 1;
+            }
+            differences_ns[block_index] =
+                (int64_t)totals_ns[variant_index][block_index] - (int64_t)totals_ns[0][block_index];
+            reference_sum += (long double)totals_ns[0][block_index];
+        }
+        struct controlled_result result;
+        if (compute_controlled_result(differences_ns, 6, 1, &result) != 0 ||
+            fprintf(report,
+                "comparison=%s:reference mean_difference_ns=%.9Lf relative_overhead=%.9Lf"
+                " interval_lower_ns=%.9Lf interval_upper_ns=%.9Lf\n",
+                safe_variants[variant_index],
+                result.mean_difference_ns / 3000.0L,
+                result.mean_difference_ns * 6.0L / reference_sum,
+                result.interval_lower_ns / 3000.0L,
+                result.interval_upper_ns / 3000.0L) < 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 static int safe_performance(const char *binary_directory, const char *output_directory)
 {
     char report_path[4096];
@@ -566,31 +597,8 @@ static int safe_performance(const char *binary_directory, const char *output_dir
             free(dataset.measurements.records);
         }
     }
-    for (size_t variant_index = 1; variant_index < 3u; ++variant_index) {
-        int64_t differences_ns[6];
-        long double reference_sum = 0.0L;
-        for (size_t block_index = 0; block_index < 6u; ++block_index) {
-            if (totals_ns[0][block_index] > (uint64_t)CONTROLLED_MAXIMUM_DIFFERENCE_NS ||
-                totals_ns[variant_index][block_index] >
-                    (uint64_t)CONTROLLED_MAXIMUM_DIFFERENCE_NS) {
-                goto cleanup;
-            }
-            differences_ns[block_index] =
-                (int64_t)totals_ns[variant_index][block_index] - (int64_t)totals_ns[0][block_index];
-            reference_sum += (long double)totals_ns[0][block_index];
-        }
-        struct controlled_result result;
-        if (compute_controlled_result(differences_ns, 6, 1, &result) != 0 ||
-            fprintf(report,
-                "comparison=%s:reference mean_difference_ns=%.9Lf relative_overhead=%.9Lf"
-                " interval_lower_ns=%.9Lf interval_upper_ns=%.9Lf\n",
-                safe_variants[variant_index],
-                result.mean_difference_ns / 3000.0L,
-                result.mean_difference_ns * 6.0L / reference_sum,
-                result.interval_lower_ns / 3000.0L,
-                result.interval_upper_ns / 3000.0L) < 0) {
-            goto cleanup;
-        }
+    if (write_performance_comparisons(report, totals_ns) != 0) {
+        goto cleanup;
     }
     if (deadline_expired ||
         fprintf(report,
@@ -605,6 +613,101 @@ cleanup:
     if (ledger != NULL && fclose(ledger) != 0) {
         operation_status = 1;
     }
+    if (report != NULL && fclose(report) != 0) {
+        operation_status = 1;
+    }
+    return operation_status;
+}
+
+static int replay_performance(const char *data_directory, const char *report_path)
+{
+    FILE *report = fopen(report_path, "wx");
+    uint64_t totals_ns[3][6] = {{0}};
+    char source_identity[256] = "";
+    char executable_digests[3][65] = {{0}};
+    int operation_status = 1;
+    if (report == NULL ||
+        fputs("format=safe_ordinary_performance_v1\nblocks=6\nformal_calls_per_run=3000\n"
+              "warmup_calls_per_run=100\nplanned_total_calls=55800\nclock=CLOCK_MONOTONIC\n"
+              "time_unit=ns\ninterval_scope=exploratory_iid_run_pair_bootstrap_only\nsecret_"
+              "attribution=not_assessed\n",
+            report) == EOF) {
+        goto cleanup;
+    }
+    const size_t orders[6][3] = {{0, 1, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}, {1, 0, 2}, {0, 2, 1}};
+    for (size_t block_index = 0; block_index < 6u; ++block_index) {
+        char input_digest[65] = "";
+        for (size_t position_index = 0; position_index < 3u; ++position_index) {
+            size_t variant_index = orders[block_index][position_index];
+            char run_name[128];
+            char filename[192];
+            char csv_path[4096];
+            char metadata_path[4096];
+            char seed_text[32];
+            (void)snprintf(run_name,
+                sizeof(run_name),
+                "ordinary-%s-block%zu",
+                safe_variants[variant_index],
+                block_index + 1u);
+            (void)snprintf(filename, sizeof(filename), "%s.csv", run_name);
+            if (make_path(csv_path, sizeof(csv_path), data_directory, filename) != 0) {
+                goto cleanup;
+            }
+            (void)snprintf(filename, sizeof(filename), "%s.meta", run_name);
+            if (make_path(metadata_path, sizeof(metadata_path), data_directory, filename) != 0) {
+                goto cleanup;
+            }
+            (void)snprintf(seed_text,
+                sizeof(seed_text),
+                "%" PRIu64,
+                UINT64_C(202610072001) + block_index);
+            struct ordinary_dataset dataset;
+            if (load_ordinary_dataset(csv_path, metadata_path, &dataset) != 0) {
+                goto cleanup;
+            }
+            int invalid = dataset.measurements.record_count != 3000u ||
+                strcmp(dataset.metadata[1], safe_variants[variant_index]) != 0 ||
+                strcmp(dataset.metadata[7], seed_text) != 0 ||
+                (source_identity[0] != '\0' && strcmp(source_identity, dataset.metadata[5]) != 0) ||
+                (input_digest[0] != '\0' && strcmp(input_digest, dataset.metadata[6]) != 0) ||
+                (executable_digests[variant_index][0] != '\0' &&
+                    strcmp(executable_digests[variant_index], dataset.metadata[8]) != 0);
+            memcpy(source_identity, dataset.metadata[5], sizeof(source_identity));
+            (void)snprintf(input_digest, sizeof(input_digest), "%.64s", dataset.metadata[6]);
+            (void)snprintf(executable_digests[variant_index],
+                sizeof(executable_digests[0]),
+                "%.64s",
+                dataset.metadata[8]);
+            totals_ns[variant_index][block_index] = dataset.total_duration_ns;
+            sort_range_by_duration(dataset.measurements.records, dataset.measurements.record_count);
+            struct sample_series series = {dataset.measurements.records,
+                dataset.measurements.record_count};
+            if (invalid ||
+                fprintf(report,
+                    "run=%s seed=%s count=3000 mean_ns=%.9Lf p50_ns=%" PRIu64 " p90_ns=%" PRIu64
+                    " p99_ns=%" PRIu64 " csv_digest=%s\n",
+                    run_name,
+                    seed_text,
+                    (long double)dataset.total_duration_ns / 3000.0L,
+                    series_quantile(&series, 0.5),
+                    series_quantile(&series, 0.9),
+                    series_quantile(&series, 0.99),
+                    dataset.csv_digest) < 0) {
+                free(dataset.measurements.records);
+                goto cleanup;
+            }
+            free(dataset.measurements.records);
+        }
+    }
+    if (write_performance_comparisons(report, totals_ns) != 0 ||
+        fprintf(report,
+            "source_identity=%s\nformal_completed_calls=54000\nwarmup_completed_calls=1800\n"
+            "result_status=ordinary_performance_description_only\nreport_status=complete\n",
+            source_identity) < 0) {
+        goto cleanup;
+    }
+    operation_status = 0;
+cleanup:
     if (report != NULL && fclose(report) != 0) {
         operation_status = 1;
     }
@@ -665,6 +768,9 @@ int main(int argument_count, char **argument_values)
         puts("正在执行6个固定普通运行块，三种无分支实现；失败会保留部分数据。");
         return safe_performance(executable_path, argument_values[2]);
     }
+    if (argument_count == 4 && strcmp(argument_values[1], "performance-replay") == 0) {
+        return replay_performance(argument_values[2], argument_values[3]);
+    }
     if (argument_count == 5 && strcmp(argument_values[1], "export") == 0) {
         return export_html(argument_values[2],
             argument_values[3],
@@ -712,6 +818,7 @@ int main(int argument_count, char **argument_values)
           "audit inspect CSV NEW_REPORT | analyze CSV NEW_REPORT\n"
           "audit analyze-pairs CSV PLAN NEW_REPORT\n"
           "audit replay SOURCE_ROOT NEW_DIRECTORY | performance NEW_DIRECTORY\n"
+          "audit performance-replay DATA_DIRECTORY NEW_REPORT\n"
           "audit export ORDINARY_CSV META NEW_HTML\n",
         stderr);
     return 2;
