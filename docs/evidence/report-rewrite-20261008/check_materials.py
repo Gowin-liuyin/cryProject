@@ -566,6 +566,68 @@ def baremetal_phrase_failures(report_text: str, facts: dict[str, object]) -> lis
     return failures
 
 
+E02_N01_CROSS = "E02 与 N01 的探索区间均跨零"
+RYZEN_NO_CROSS = "Ryzen 裸金属的探索区间不跨零"
+RYZEN_NOT_SIGNOFF = "这些记录仍不是频率锁定、恒时证明或竞赛签收"
+
+
+def ordinary_interval_bounds(facts: dict[str, object]) -> list[tuple[Decimal, Decimal]]:
+    bounds = []
+    for line in facts["quoted_lines"]:
+        if not str(line).startswith("comparison="):
+            continue
+        lower_match = re.search(r"interval_lower_ns=(-?[0-9]+(?:\.[0-9]+)?)", str(line))
+        upper_match = re.search(r"interval_upper_ns=(-?[0-9]+(?:\.[0-9]+)?)", str(line))
+        if lower_match is None or upper_match is None:
+            raise RuntimeError(f"裸金属比较行没有区间: {line}")
+        bounds.append((Decimal(lower_match.group(1)), Decimal(upper_match.group(1))))
+    if not bounds:
+        raise RuntimeError("裸金属普通报告没有比较区间")
+    return bounds
+
+
+def linux_ordinary_claim_failures(
+    paragraphs: list[str], facts: dict[str, object]
+) -> list[str]:
+    bounds = ordinary_interval_bounds(facts)
+    if any(lower <= 0 for lower, _upper in bounds):
+        return []
+    failures = []
+    for paragraph in paragraphs:
+        for sentence in re.split(r"[。；]", paragraph):
+            names_every_linux = (
+                "真实 Linux 普通记录" in sentence
+                and "均跨零" in sentence
+                and ("E02" not in sentence or "N01" not in sentence)
+            )
+            anaphora = "其探索区间均跨零" in sentence and (
+                "E02" not in sentence or "N01" not in sentence
+            )
+            if names_every_linux or anaphora:
+                failures.append(
+                    "裸金属区间下界为正，报告仍把真实 Linux 普通记录的探索区间写成均跨零"
+                )
+                break
+        else:
+            continue
+        break
+    summary = next(
+        (
+            paragraph
+            for paragraph in paragraphs
+            if paragraph.startswith("测试表明，当前原生构建")
+        ),
+        "",
+    )
+    if not summary:
+        failures.append("报告没有第7.1节工作总结段")
+    else:
+        for phrase in (E02_N01_CROSS, RYZEN_NO_CROSS, RYZEN_NOT_SIGNOFF):
+            if phrase not in summary:
+                failures.append(f"第7.1节没有写明: {phrase}")
+    return failures
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -674,6 +736,20 @@ def pdf_failures(facts: dict[str, object]) -> list[str]:
     for phrase in phrases:
         if phrase not in compact:
             failures.append(f"PDF 缺少: {phrase}")
+    bounds = ordinary_interval_bounds(facts)
+    if all(lower > 0 for lower, _upper in bounds):
+        if "其探索区间均跨零" in compact:
+            failures.append("PDF 仍写其探索区间均跨零")
+        old_claim = re.sub(
+            r"\s+",
+            "",
+            "真实 Linux 普通记录揭示了有限运行中的性能波动，其探索区间均跨零",
+        )
+        if old_claim in compact:
+            failures.append("PDF 仍把真实 Linux 普通记录的探索区间写成均跨零")
+        for phrase in (E02_N01_CROSS, RYZEN_NO_CROSS, RYZEN_NOT_SIGNOFF):
+            if re.sub(r"\s+", "", phrase) not in compact:
+                failures.append(f"PDF 缺少: {phrase}")
     return failures
 
 
@@ -705,6 +781,10 @@ def check_materials(skip_pdf: bool) -> int:
     print(f"statistic_mismatches={mismatches}")
     failures.extend(r07_phrase_failures(report_text))
     failures.extend(baremetal_phrase_failures(report_text, facts))
+    bounds = ordinary_interval_bounds(facts)
+    positive_lowers = sum(1 for lower, _upper in bounds if lower > 0)
+    print(f"baremetal_positive_lowers={positive_lowers}/{len(bounds)}")
+    failures.extend(linux_ordinary_claim_failures(paragraphs, facts))
     failures.extend(identity_failures(report_text))
     if "R02 范围内签收" in report_text or "R04 范围内签收" in report_text:
         failures.append("报告把 R02 或 R04 写成范围内签收")

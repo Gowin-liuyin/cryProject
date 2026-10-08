@@ -5,15 +5,15 @@
       "bytes": 78315
     },
     "CACR2026EA16XZ-作品设计报告-重写版.docx": {
-      "sha256": "fe099281e9f2ec9253bbd9d6022afc9bf4fc0c8afab8313a4fb3d6601c3f793f",
-      "bytes": 1970142
+      "sha256": "b818634a75935cab4508799f749bebac014503198879709ec3d55db3672a897c",
+      "bytes": 1970220
     },
     "CACR2026EA16XZ-作品设计报告-重写版.pdf": {
-      "sha256": "a590535787dd8732c80c1e5e26694fe39db74652d17cfb54c7b0ab6491745181",
-      "bytes": 3083829
+      "sha256": "c73d261090af8361bf0bb5dd5c2540155d97fed1552bad30977ae258e2a18c67",
+      "bytes": 3086183
     }
   },
-  "pdf_pages": 40,
+  "pdf_pages": 41,
   "toc_entries_checked": 42,
   "main_chapters": 7,
   "secondary_sections": 32,
@@ -23,8 +23,10 @@
   "review": {
     "all_pages_viewed": false,
     "render": "LibreOffice 26.8，SimSun/宋体用 Songti SC，SimHei/黑体用 Heiti SC，楷体_GB2312 用 Kaiti SC。当前 PDF 为 40 页。",
-    "pages_viewed": [1, 38, 39, 40],
-    "viewed_note": "已看封面，以及附录 A 印页 34–35、附录 B 印页 36 的中文和材料数字。先前 39 页 Word 稿的逐页目视不覆盖这次重渲染。",
+    "pages_viewed": [
+      36
+    ],
+    "viewed_note": "已看第7.1节印页32。跨零只写 KVM 的 E02 与 N01；Ryzen 裸金属探索区间不跨零，这些记录仍不是频率锁定、恒时证明或竞赛签收。",
     "unchanged_pages_verified_by_pixel_equality": false,
     "all_16_ppt_slides_viewed": true,
     "native_math_overbar_repair": "m:bar; no m:acc remains",
