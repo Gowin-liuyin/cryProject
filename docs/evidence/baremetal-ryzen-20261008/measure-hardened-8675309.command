@@ -1,0 +1,1 @@
+taskset -c 2 /home/nss-marker/yhr/Cry/run/build-mechanism/hardened/measure baremetal-hardened-8675309 8675309 5000 /home/nss-marker/yhr/Cry/run/mechanism/hardened-seed8675309.csv /home/nss-marker/yhr/Cry/run/mechanism/hardened-seed8675309.meta

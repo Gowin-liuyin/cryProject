@@ -1,0 +1,16 @@
+cost_format=measurement_cost_v1
+initial_state=started
+run_id=ordinary-deployable-block3
+final_state=complete
+start_ns=3236452549304397
+preparation_end_ns=3236452604679738
+warmup_end_ns=3236452607691940
+collection_end_ns=3236452697826518
+finish_ns=3236452698541437
+child_total_wall_ns=149237040
+warmup_attempted_calls=100
+warmup_completed_calls=100
+formal_attempted_calls=3000
+formal_completed_calls=3000
+outputs_consumed=3100
+cost_file_final_write=outside_child_total_use_parent_wall

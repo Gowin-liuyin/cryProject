@@ -1,0 +1,1 @@
+cmake -S /home/nss-marker/yhr/Cry/source -B /home/nss-marker/yhr/Cry/run/build-mechanism -G Unix Makefiles -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=gcc -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DA113_ARCHIVED_CASE_ONLY=OFF

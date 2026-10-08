@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/home/nss-marker/yhr/Cry/run/mechanism/deployable-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=99e76a607880c250eb11f4588ed8f502806ef944ac1eec718beea56884361fba
+run_id=baremetal-deployable-90210
+implementation=deployable
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=29596 p25=29656 median=29676 p75=29696 p99=31049 max=42891 mean=29727.563 stddev=411.894 distinct_values=166
+category=bit-flipped count=5000 min=29586 p25=29656 median=29676 p75=29696 p99=31058 max=42190 mean=29725.892 stddev=345.849 distinct_values=167
+category=random count=5000 min=29595 p25=29656 median=29676 p75=29696 p99=31058 max=38021 mean=29723.238 stddev=273.385 distinct_values=159
+category=message-zero count=5000 min=29586 p25=29656 median=29676 p75=29696 p99=31028 max=46928 mean=29725.351 stddev=405.335 distinct_values=161
+category=message-ones count=5000 min=29586 p25=29656 median=29676 p75=29696 p99=31028 max=54824 mean=29726.800 stddev=485.691 distinct_values=157
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-1.449 welch_t=-0.1620 welch_df=9687.9 welch_p=0.871317 rank_u1=12629294.5 rank_z=0.9007 rank_p=0.367766 effect_size_first_greater=0.505172 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=1.671 welch_t=0.2197 welch_df=9707.4 welch_p=0.826133 rank_u1=12610452.0 rank_z=0.7695 rank_p=0.441577 effect_size_first_greater=0.504418 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=4.325 welch_t=0.6186 welch_df=8687.6 welch_p=0.536186 rank_u1=12725632.0 rank_z=1.5719 rank_p=0.115964 effect_size_first_greater=0.509025 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=2.212 welch_t=0.2706 welch_df=9995.4 welch_p=0.78667 rank_u1=12647806.0 rank_z=1.0296 rank_p=0.303176 effect_size_first_greater=0.505912 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=0.763 welch_t=0.0847 welch_df=9738.2 welch_p=0.932519 rank_u1=12781918.5 rank_z=1.9641 rank_p=0.0495182 effect_size_first_greater=0.511277 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=2.654 welch_t=0.4257 welch_df=9492.0 welch_p=0.670334 rank_u1=12614248.0 rank_z=0.7959 rank_p=0.426067 effect_size_first_greater=0.504570 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=0.541 welch_t=0.0718 welch_df=9756.3 welch_p=0.942765 rank_u1=12536445.5 rank_z=0.2539 rank_p=0.799587 effect_size_first_greater=0.501458 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-0.908 welch_t=-0.1077 welch_df=9031.7 welch_p=0.914228 rank_u1=12669914.5 rank_z=1.1838 rank_p=0.236505 effect_size_first_greater=0.506797 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-2.113 welch_t=-0.3056 welch_df=8767.3 welch_p=0.75991 rank_u1=12424727.0 rank_z=-0.5243 rank_p=0.600042 effect_size_first_greater=0.496989 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-3.562 welch_t=-0.4519 welch_df=7877.7 welch_p=0.651314 rank_u1=12555690.0 rank_z=0.3880 rank_p=0.698038 effect_size_first_greater=0.502228 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

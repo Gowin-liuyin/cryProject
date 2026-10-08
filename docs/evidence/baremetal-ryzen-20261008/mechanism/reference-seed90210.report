@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/home/nss-marker/yhr/Cry/run/mechanism/reference-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=5b134e15c91d408f0f42710b0f16fce95c543e47296725ccf9bb1dc6c09981b6
+run_id=baremetal-reference-90210
+implementation=reference
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=29666 p25=29756 median=29776 p75=29796 p99=31099 max=49593 mean=29825.507 stddev=431.837 distinct_values=158
+category=bit-flipped count=5000 min=29676 p25=29756 median=29776 p75=29806 p99=31078 max=31800 mean=29817.937 stddev=211.687 distinct_values=155
+category=random count=5000 min=29666 p25=29756 median=29776 p75=29797 p99=31099 max=50165 mean=29822.525 stddev=358.450 distinct_values=152
+category=message-zero count=5000 min=29676 p25=29756 median=29776 p75=29806 p99=31118 max=35727 mean=29825.846 stddev=244.805 distinct_values=159
+category=message-ones count=5000 min=29666 p25=29756 median=29776 p75=29797 p99=31098 max=36068 mean=29819.161 stddev=235.326 distinct_values=154
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=6.685 welch_t=1.3920 welch_df=9982.4 welch_p=0.163917 rank_u1=12669571.0 rank_z=1.1779 rank_p=0.238851 effect_size_first_greater=0.506783 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=7.570 welch_t=1.1130 welch_df=7270.3 welch_p=0.265692 rank_u1=12229195.0 rank_z=-1.8813 rank_p=0.0599245 effect_size_first_greater=0.489168 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=2.982 welch_t=0.3757 welch_df=9670.1 welch_p=0.707129 rank_u1=12205931.5 rank_z=-2.0430 rank_p=0.0410524 effect_size_first_greater=0.488237 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-0.339 welch_t=-0.0482 welch_df=7911.2 welch_p=0.961531 rank_u1=12169351.5 rank_z=-2.2969 rank_p=0.0216253 effect_size_first_greater=0.486774 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=6.346 welch_t=0.9125 welch_df=7727.4 welch_p=0.361525 rank_u1=12335089.0 rank_z=-1.1457 rank_p=0.25194 effect_size_first_greater=0.493404 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-4.588 welch_t=-0.7793 welch_df=8107.8 welch_p=0.435775 rank_u1=12473505.5 rank_z=-0.1841 rank_p=0.85397 effect_size_first_greater=0.498940 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-7.909 welch_t=-1.7280 welch_df=9794.0 welch_p=0.0839923 rank_u1=12434790.0 rank_z=-0.4530 rank_p=0.650572 effect_size_first_greater=0.497392 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-1.224 welch_t=-0.2734 welch_df=9888.0 welch_p=0.784518 rank_u1=12603813.0 rank_z=0.7212 rank_p=0.47081 effect_size_first_greater=0.504153 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-3.321 welch_t=-0.5409 welch_df=8829.1 welch_p=0.588554 rank_u1=12459504.0 rank_z=-0.2813 rank_p=0.778483 effect_size_first_greater=0.498380 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=3.364 welch_t=0.5548 welch_df=8633.1 welch_p=0.579048 rank_u1=12627741.0 rank_z=0.8874 rank_p=0.374862 effect_size_first_greater=0.505110 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

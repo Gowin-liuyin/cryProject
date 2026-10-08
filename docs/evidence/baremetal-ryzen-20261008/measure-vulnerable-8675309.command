@@ -1,0 +1,1 @@
+taskset -c 2 /home/nss-marker/yhr/Cry/run/build-mechanism/vulnerable/measure baremetal-vulnerable-8675309 8675309 5000 /home/nss-marker/yhr/Cry/run/mechanism/vulnerable-seed8675309.csv /home/nss-marker/yhr/Cry/run/mechanism/vulnerable-seed8675309.meta

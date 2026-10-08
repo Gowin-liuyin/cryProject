@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/home/nss-marker/yhr/Cry/run/mechanism/reference-seed8675309.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=137db82e26a89d48ddba01e0d44c9a07cf42fd94d78c54a528ddb0ddbbb7a098
+run_id=baremetal-reference-8675309
+implementation=reference
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=29656 p25=29736 median=29756 p75=29776 p99=31099 max=36919 mean=29792.440 stddev=252.316 distinct_values=148
+category=bit-flipped count=5000 min=29666 p25=29736 median=29756 p75=29776 p99=31119 max=36258 mean=29799.660 stddev=255.535 distinct_values=158
+category=random count=5000 min=29666 p25=29736 median=29756 p75=29776 p99=31108 max=35207 mean=29795.678 stddev=234.808 distinct_values=159
+category=message-zero count=5000 min=29646 p25=29736 median=29756 p75=29776 p99=31108 max=51127 mean=29804.765 stddev=383.636 distinct_values=164
+category=message-ones count=5000 min=29636 p25=29736 median=29756 p75=29776 p99=31119 max=62438 mean=29810.607 stddev=630.163 distinct_values=163
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-5.842 welch_t=-0.5599 welch_df=8257.0 welch_p=0.575553 rank_u1=12530704.0 rank_z=0.2136 rank_p=0.830826 effect_size_first_greater=0.501228 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-7.220 welch_t=-1.4217 welch_df=9996.4 welch_p=0.155105 rank_u1=12420951.5 rank_z=-0.5501 rank_p=0.582251 effect_size_first_greater=0.496838 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-3.239 welch_t=-0.6644 welch_df=9946.7 welch_p=0.506427 rank_u1=12432286.5 rank_z=-0.4713 rank_p=0.637429 effect_size_first_greater=0.497291 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-12.325 welch_t=-1.8980 welch_df=8642.1 welch_p=0.0576927 rank_u1=12369413.5 rank_z=-0.9088 rank_p=0.363435 effect_size_first_greater=0.494777 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-18.167 welch_t=-1.8924 welch_df=6561.7 welch_p=0.0584326 rank_u1=12402785.0 rank_z=-0.6765 rank_p=0.498695 effect_size_first_greater=0.496111 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=3.982 welch_t=0.8113 welch_df=9927.3 welch_p=0.417182 rank_u1=12511530.5 rank_z=0.0802 rank_p=0.936052 effect_size_first_greater=0.500461 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-5.105 welch_t=-0.7831 welch_df=8705.3 welch_p=0.433576 rank_u1=12448700.0 rank_z=-0.3569 rank_p=0.721137 effect_size_first_greater=0.497948 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-10.946 welch_t=-1.1383 welch_df=6599.7 welch_p=0.255007 rank_u1=12478338.0 rank_z=-0.1507 rank_p=0.880202 effect_size_first_greater=0.499134 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-9.087 welch_t=-1.4285 welch_df=8283.5 welch_p=0.153152 rank_u1=12434143.5 rank_z=-0.4583 rank_p=0.64674 effect_size_first_greater=0.497366 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-14.928 welch_t=-1.5697 welch_df=6360.9 welch_p=0.116492 rank_u1=12466825.5 rank_z=-0.2308 rank_p=0.817432 effect_size_first_greater=0.498673 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

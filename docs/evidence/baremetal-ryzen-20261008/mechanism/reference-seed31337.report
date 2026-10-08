@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/home/nss-marker/yhr/Cry/run/mechanism/reference-seed31337.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=970ba209bbf3ebcdf2fcbbeb9eee88923ce2d1287a1b2ab5cbb590f98b90c49e
+run_id=baremetal-reference-31337
+implementation=reference
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=29696 p25=29756 median=29776 p75=29787 p99=31269 max=39715 mean=29826.274 stddev=332.697 distinct_values=144
+category=bit-flipped count=5000 min=29686 p25=29756 median=29776 p75=29796 p99=31259 max=50024 mean=29833.304 stddev=448.636 distinct_values=148
+category=random count=5000 min=29686 p25=29756 median=29776 p75=29796 p99=31269 max=50405 mean=29828.472 stddev=408.016 distinct_values=149
+category=message-zero count=5000 min=29686 p25=29756 median=29776 p75=29787 p99=31249 max=41688 mean=29823.451 stddev=341.235 distinct_values=146
+category=message-ones count=5000 min=29686 p25=29756 median=29776 p75=29787 p99=31259 max=55675 mean=29826.788 stddev=478.205 distinct_values=139
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-3.338 welch_t=-0.4017 welch_df=9041.7 welch_p=0.687883 rank_u1=12335308.0 rank_z=-1.1459 rank_p=0.251817 effect_size_first_greater=0.493412 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-7.030 welch_t=-0.8900 welch_df=9220.5 welch_p=0.37348 rank_u1=12405773.0 rank_z=-0.6555 rank_p=0.512124 effect_size_first_greater=0.496231 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-2.198 welch_t=-0.2952 welch_df=9608.7 welch_p=0.767847 rank_u1=12506296.5 rank_z=0.0438 rank_p=0.965067 effect_size_first_greater=0.500252 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=2.824 welch_t=0.4189 welch_df=9991.6 welch_p=0.67526 rank_u1=12824108.5 rank_z=2.2551 rank_p=0.024127 effect_size_first_greater=0.512964 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-0.514 welch_t=-0.0624 welch_df=8919.7 welch_p=0.950252 rank_u1=12657353.5 rank_z=1.0948 rank_p=0.273614 effect_size_first_greater=0.506294 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=4.832 welch_t=0.5634 welch_df=9909.3 welch_p=0.573147 rank_u1=12602475.5 rank_z=0.7128 rank_p=0.475963 effect_size_first_greater=0.504099 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=9.853 welch_t=1.2361 welch_df=9332.6 welch_p=0.216423 rank_u1=12918097.5 rank_z=2.9090 rank_p=0.003626 effect_size_first_greater=0.516724 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=6.516 welch_t=0.7027 welch_df=9957.5 welch_p=0.482271 rank_u1=12752173.0 rank_z=1.7544 rank_p=0.0793586 effect_size_first_greater=0.510087 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=5.021 welch_t=0.6675 welch_df=9694.8 welch_p=0.504426 rank_u1=12814420.5 rank_z=2.1874 rank_p=0.0287163 effect_size_first_greater=0.512577 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=1.684 welch_t=0.1894 welch_df=9756.3 welch_p=0.849776 rank_u1=12651250.5 rank_z=1.0522 rank_p=0.292729 effect_size_first_greater=0.506050 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

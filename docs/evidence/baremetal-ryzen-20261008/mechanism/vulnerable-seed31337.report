@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/home/nss-marker/yhr/Cry/run/mechanism/vulnerable-seed31337.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=2ddd85df6073062ad6163b4e5003f2da4daa2f9ab4b33a634642188f388e531a
+run_id=baremetal-vulnerable-31337
+implementation=vulnerable
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=30117 p25=30818 median=30868 p75=30908 p99=32231 max=40857 mean=30905.443 stddev=333.454 distinct_values=213
+category=bit-flipped count=5000 min=30267 p25=30819 median=30868 p75=30908 p99=32271 max=33514 mean=30909.290 stddev=255.532 distinct_values=237
+category=random count=5000 min=30457 p25=30828 median=30868 p75=30908 p99=32281 max=49784 mean=30914.156 stddev=406.898 distinct_values=212
+category=message-zero count=5000 min=29886 p25=29977 median=30006 p75=30036 p99=31379 max=40136 mean=30054.552 stddev=325.862 distinct_values=177
+category=message-ones count=5000 min=29857 p25=29987 median=30017 p75=30046 p99=31379 max=64953 mean=30063.901 stddev=577.297 distinct_values=170
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=-11.0 mean_difference_ns=-9.350 welch_t=-0.9973 welch_df=7891.0 welch_p=0.318616 rank_u1=10666814.5 rank_z=-12.7105 rank_p=5.16711e-37 effect_size_first_greater=0.426673 result=significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-3.847 welch_t=-0.6475 welch_df=9364.7 welch_p=0.517321 rank_u1=12278999.5 rank_z=-1.5320 rank_p=0.12553 effect_size_first_greater=0.491160 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-8.713 welch_t=-1.1711 welch_df=9626.4 welch_p=0.241549 rank_u1=12090931.5 rank_z=-2.8357 rank_p=0.00457309 effect_size_first_greater=0.483637 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=862.0 mean_difference_ns=850.892 welch_t=129.0482 welch_df=9992.7 welch_p=0 rank_u1=24249114.0 rank_z=81.4114 rank_p=0 effect_size_first_greater=0.969965 result=significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=851.0 mean_difference_ns=841.542 welch_t=89.2571 welch_df=8000.6 welch_p=0 rank_u1=24335933.5 rank_z=82.0126 rank_p=0 effect_size_first_greater=0.973437 result=significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-4.866 welch_t=-0.7161 welch_df=8411.3 welch_p=0.473905 rank_u1=12317106.5 rank_z=-1.2678 rank_p=0.204872 effect_size_first_greater=0.492684 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=862.0 mean_difference_ns=854.739 welch_t=145.9512 welch_df=9460.1 welch_p=0 rank_u1=24254930.0 rank_z=81.4514 rank_p=0 effect_size_first_greater=0.970197 result=significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=851.0 mean_difference_ns=845.389 welch_t=94.6869 welch_df=6885.5 welch_p=0 rank_u1=24340900.5 rank_z=82.0467 rank_p=0 effect_size_first_greater=0.973636 result=significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=862.0 mean_difference_ns=859.605 welch_t=116.5996 welch_df=9542.4 welch_p=0 rank_u1=24251593.5 rank_z=81.4283 rank_p=0 effect_size_first_greater=0.970064 result=significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=851.0 mean_difference_ns=850.255 welch_t=85.1244 welch_df=8982.7 welch_p=0 rank_u1=24337815.5 rank_z=82.0253 rank_p=0 effect_size_first_greater=0.973513 result=significant
+significant_comparison_count=7
+note=statistical_difference_only_no_exploitability_claim

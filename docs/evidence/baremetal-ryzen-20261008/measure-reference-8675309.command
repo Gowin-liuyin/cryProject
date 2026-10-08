@@ -1,0 +1,1 @@
+taskset -c 2 /home/nss-marker/yhr/Cry/run/build-mechanism/reference/measure baremetal-reference-8675309 8675309 5000 /home/nss-marker/yhr/Cry/run/mechanism/reference-seed8675309.csv /home/nss-marker/yhr/Cry/run/mechanism/reference-seed8675309.meta

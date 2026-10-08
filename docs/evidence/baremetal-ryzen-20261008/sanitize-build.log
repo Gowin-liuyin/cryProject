@@ -1,0 +1,1429 @@
+[  1%] Generating hardened-source/patched.stamp
+[  3%] Generating vulnerable-source/patched.stamp
+[  3%] Generating deployable-source/patched.stamp
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+patching file mlkem/src/compress.c
+[  3%] Built target prepare_hardened
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  3%] Built target prepare_deployable
+[  3%] Built target prepare_vulnerable
+[  3%] Building C object CMakeFiles/native_digest.dir/src/native_digest.c.o
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  3%] Building C object CMakeFiles/test_native_digest.dir/tests/test_native_digest.c.o
+[  4%] Building C object CMakeFiles/paired_worker_fixture.dir/tests/paired_worker_fixture.c.o
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  4%] Linking C executable paired_worker_fixture
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  5%] Linking C executable native_digest
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  6%] Linking C executable test_native_digest
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  6%] Built target paired_worker_fixture
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  6%] Built target native_digest
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  6%] Built target test_native_digest
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "zh_CN.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("zh_CN.UTF-8").
+[  6%] Built target build_identity
+[  8%] Building C object CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o
+[  8%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 10%] Building C object CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o
+[ 10%] Building C object CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o
+In file included from /home/nss-marker/yhr/Cry/source/build/cmake-sanitize/hardened-source/mlkem/mlkem_native.c:62,
+                 from /home/nss-marker/yhr/Cry/source/build/cmake-sanitize/hardened_kernel.c:1:
+/home/nss-marker/yhr/Cry/source/build/cmake-sanitize/hardened-source/mlkem/src/compress.c: In function 'baseline_native_poly_frommsg':
+/home/nss-marker/yhr/Cry/source/build/cmake-sanitize/hardened-source/mlkem/src/compress.c:710:92: error: conversion to 'unsigned int' from 'int' may change the sign of the result [-Werror=sign-conversion]
+  710 |             (uint16_t)((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u);
+      |                                                                                            ^
+In file included from /home/nss-marker/yhr/Cry/source/build/cmake-sanitize/vulnerable-source/mlkem/mlkem_native.c:62,
+                 from /home/nss-marker/yhr/Cry/source/build/cmake-sanitize/vulnerable_kernel.c:1:
+/home/nss-marker/yhr/Cry/source/build/cmake-sanitize/vulnerable-source/mlkem/src/compress.c: In function 'baseline_native_poly_frommsg':
+/home/nss-marker/yhr/Cry/source/build/cmake-sanitize/vulnerable-source/mlkem/src/compress.c:709:81: error: conversion to 'unsigned int' from 'int' may change the sign of the result [-Werror=sign-conversion]
+  709 |         if ((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u) {
+      |                                                                                 ^
+cc1: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/mlkem_hardened.dir/build.make:77: CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:1364: CMakeFiles/mlkem_hardened.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+cc1: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/mlkem_vulnerable.dir/build.make:77: CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:1207: CMakeFiles/mlkem_vulnerable.dir/all] Error 2
+[ 11%] Building C object CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o
+[ 12%] Building C object CMakeFiles/mlkem_deployable.dir/src/random.c.o
+[ 12%] Building C object CMakeFiles/mlkem_deployable.dir/src/inputs.c.o
+[ 13%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 15%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 15%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 16%] Linking C static library deployable/libmlkem.a
+[ 16%] Linking C static library reference/libmlkem.a
+[ 16%] Built target mlkem_deployable
+[ 16%] Built target mlkem_reference
+gmake: *** [Makefile:101: all] Error 2

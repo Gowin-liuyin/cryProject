@@ -1,0 +1,1 @@
+taskset -c 2 /home/nss-marker/yhr/Cry/run/build-mechanism/deployable/measure baremetal-deployable-31337 31337 5000 /home/nss-marker/yhr/Cry/run/mechanism/deployable-seed31337.csv /home/nss-marker/yhr/Cry/run/mechanism/deployable-seed31337.meta

@@ -1,0 +1,4 @@
+对象：ML-KEM-768，C11 本地审计与复算。环境：Linux x86_64。
+source_commit=a5340330f4d647c850f15329ef6bb7615c7d88ea
+source_identity_kind=git_commit
+compiler_flags= -O2 -g -DNDEBUG -std=c11

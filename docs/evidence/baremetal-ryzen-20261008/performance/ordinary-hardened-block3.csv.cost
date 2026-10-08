@@ -1,0 +1,16 @@
+cost_format=measurement_cost_v1
+initial_state=started
+run_id=ordinary-hardened-block3
+final_state=complete
+start_ns=3236452850588085
+preparation_end_ns=3236452905921256
+warmup_end_ns=3236452908933929
+collection_end_ns=3236452999142316
+finish_ns=3236452999867794
+child_total_wall_ns=149279709
+warmup_attempted_calls=100
+warmup_completed_calls=100
+formal_attempted_calls=3000
+formal_completed_calls=3000
+outputs_consumed=3100
+cost_file_final_write=outside_child_total_use_parent_wall

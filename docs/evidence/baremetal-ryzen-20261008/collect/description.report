@@ -1,0 +1,23 @@
+format=timing_diagnostics_v1
+run_id=demonstration
+implementation=reference
+record_count=60
+time_unit=ns
+quantile_rule=rounded_zero_based_index_half_up_no_interpolation
+quantile_index=floor(p*(n-1)+0.5)
+raw_order=preserved
+outlier_removal=none
+inference=descriptive_only
+csv_digest_algorithm=SHA3-256
+csv_digest=a669a8d263a48f9641390481f55d4a20008ebd744d8eaf32087884780cd61bdd
+observed_duration_grid_ns=1
+adjacent_equal_fraction=0.050847458
+order_block=0 first_index=0 count=15 mean_ns=29913.066667
+order_block=1 first_index=15 count=15 mean_ns=29698.733333
+order_block=2 first_index=30 count=15 mean_ns=29841.600000
+order_block=3 first_index=45 count=15 mean_ns=29668.666667
+series=all count=60 mean_ns=29780.516667 p50_ns=29686 p90_ns=29726 p99_ns=31960 min_ns=29596 max_ns=33372 distinct_durations=17 tied_pair_fraction=0.083615819
+series=valid count=20 mean_ns=29686.050000 p50_ns=29686 p90_ns=29706 p99_ns=29757 min_ns=29646 max_ns=29757 distinct_durations=9 tied_pair_fraction=0.084210526
+series=bit-flipped count=20 mean_ns=29978.450000 p50_ns=29686 p90_ns=29746 p99_ns=33372 min_ns=29596 max_ns=33372 distinct_durations=13 tied_pair_fraction=0.057894737
+series=random count=20 mean_ns=29677.050000 p50_ns=29676 p90_ns=29706 p99_ns=29726 min_ns=29636 max_ns=29726 distinct_durations=10 tied_pair_fraction=0.068421053
+report_status=complete
