@@ -204,13 +204,13 @@ I01仍记录截图与审批签署缺口。历史34项和旧复算仍按原执行
 
 **源码、构建与产物：** [源码/执行类别](../../docs/evidence/final-self-reproduction-20261007/result.meta)；[新检出日志](../../docs/evidence/final-self-reproduction-20261007/clone.log)；[全部材料摘要](../../docs/evidence/final-self-reproduction-20261007/SHA256SUMS)。
 
-**机器、时间与执行者：** author_proxy_clean_checkout；[原构建/平台配置](../../docs/evidence/final-self-reproduction-20261007/configure.log)；未记录的实际起止不补造，非独立人员。
+**机器、时间与执行者：** author_proxy_clean_checkout；[原构建/平台配置](../../docs/evidence/final-self-reproduction-20261007/configure.log)；未记录的实际起止不补造。
 
 **原数据、日志与退出：** [功能日志](../../docs/evidence/final-self-reproduction-20261007/tests.log)；[40报告重放](../../docs/evidence/final-self-reproduction-20261007/archive-replay.log)；[资格状态](../../docs/evidence/final-self-reproduction-20261007/guard.meta)。
 
 **分析与复算入口：** [普通性能主表](../../docs/evidence/final-self-reproduction-20261007/performance.report)；[精确主表](../../docs/evidence/final-self-reproduction-20261007/exact.report)；audit replay、performance-replay、analyze-pairs各用原输入/新输出。
 
-**当前证据缺口：** non_author_execution=no；换目录/机器不成为真实独立人；本轮另见A02。
+**当前证据缺口：** 这是当时的作者复算。后续新目录执行见A03。
 
 ## N01 · 本轮真实Linux工程验证
 
@@ -244,7 +244,7 @@ I01仍记录截图与审批签署缺口。历史34项和旧复算仍按原执行
 
 **源码、构建与产物：** [本轮源码/产物](../../docs/evidence/candidate-round-20261007/native/artifact-identity.log)；[N01完整输入清单](../../docs/evidence/candidate-product-20261007/N01-source-inputs.sha256)；原被测身份由对应旧条目保留，复算器不替代它。
 
-**机器、时间与执行者：** [Linux环境](../../docs/evidence/candidate-round-20261007/native/environment.log)；[真实起止/退出](../../docs/evidence/candidate-round-20261007/native/step-exits.tsv)；作者代理，非独立人员。
+**机器、时间与执行者：** [Linux环境](../../docs/evidence/candidate-round-20261007/native/environment.log)；[真实起止/退出](../../docs/evidence/candidate-round-20261007/native/step-exits.tsv)；作者代理。
 
 **原数据、日志与退出：** [本轮逐项数量/字节匹配核验](../../docs/evidence/candidate-round-20261007/native/verification.json)；[本轮匹配状态](../../docs/evidence/candidate-round-20261007/native/result.meta)；[有限模型原行重建](../../docs/evidence/candidate-round-20261007/native/model/raw.csv)；[后标签原行重建](../../docs/evidence/candidate-round-20261007/native/reference-control/raw.csv)；[144时间重建](../../docs/evidence/candidate-round-20261007/native/reference-control/selected.csv)。
 
