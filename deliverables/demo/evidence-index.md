@@ -130,7 +130,7 @@ I01仍记录截图与审批签署缺口。历史34项和旧复算仍按原执行
 
 **分析与复算入口：** [原确认主报告](../../docs/evidence/controlled-comparison-20261007/confirmation-results/comparison.report)；audit analyze-pairs 任务.csv 任务.plan 新报告。每方法3次变化不是总体置信区间。
 
-**当前证据缺口：** 不支持ML-KEM/纯内核加速、真实误报/检出优势或防护有效；R12整体仍部分。
+**当前证据缺口：** 不支持ML-KEM/纯内核加速、真实误报/检出优势或防护有效。R12只按这段复算效率范围内签收。
 
 ## C02 · 有限合成模型校准
 
