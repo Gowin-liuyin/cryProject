@@ -1,0 +1,13 @@
+audit help | version | check | case
+audit collect RUN_ID SEED SAMPLES_PER_CATEGORY NEW_DIRECTORY
+audit inspect CSV NEW_REPORT | analyze CSV NEW_REPORT
+audit analyze-pairs CSV PLAN NEW_REPORT
+audit replay SOURCE_ROOT NEW_DIRECTORY | performance NEW_DIRECTORY
+audit performance-replay DATA_DIRECTORY NEW_REPORT
+audit calibrate NEW_DIRECTORY
+audit reference-label-control ORDINARY_DIRECTORY NEW_DIRECTORY
+audit export ORDINARY_CSV META NEW_HTML
+NEW输出路径必须不存在；SEED为十进制无符号64位整数。collect采集参考三类普通负载。
+replay读取历史档案；calibrate生成无秘密模型，reference-label-control复算后赋标签。
+功能检查、普通性能和未显著结果均不等于恒时或防护效果证明。
+使用入口：docs/product-workflow.md；离线证据见交付目录中的index.html。

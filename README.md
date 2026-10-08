@@ -3,8 +3,9 @@
 本轮提交候选版新增[公开来源审查](docs/upstream-security-review.md)、
 [固定版本适用性](docs/current-version-defense-review.md)与[真实Linux工程核验](docs/evidence/candidate-round-20261007/README.md)。
 [离线证据展示](deliverables/demo/index.html)和[结论索引](deliverables/demo/evidence-index.md)按稳定编号直达材料。
-`build/cmake/audit help`给出普通使用与复算命令；R07完整受控防护效果、真实非原作者执行、
-实际截图及本人签署仍缺，当前材料供项目组审阅修改，不称全部要求验收完成。
+`build/cmake/audit help`给出普通使用与复算命令。封存 v3 的新目录执行已由所有者授权代理完成并计入 R11，
+见 [执行记录](docs/evidence/author-proxy-v3-20261008/README.md)。R07 完整受控防护效果、实际截图及审批签署仍缺，
+当前材料供项目组审阅修改，不称全部要求验收完成。
 
 当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、
 成对统计、普通性能及离线HTML导出。构建后从这里开始：

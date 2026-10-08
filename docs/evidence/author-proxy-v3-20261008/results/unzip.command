@@ -1,0 +1,1 @@
+python3 -c import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; z.extractall(sys.argv[2]) /tmp/cryproject-author-proxy-20261008.kSvlwt/待编号-2026密码竞赛复赛相关支撑材料.zip /tmp/cryproject-author-proxy-20261008.kSvlwt/work/unpacked

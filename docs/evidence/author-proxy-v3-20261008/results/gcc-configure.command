@@ -1,0 +1,1 @@
+cmake -S . -B /tmp/cryproject-author-proxy-20261008.kSvlwt/work/build-gcc -G Ninja -DCMAKE_C_COMPILER=gcc -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DA113_ARCHIVED_CASE_ONLY=ON
