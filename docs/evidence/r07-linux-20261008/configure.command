@@ -1,0 +1,1 @@
+cmake -S /tmp/cryproject-r07.G6Vreo/source -B /tmp/cryproject-r07.G6Vreo/work/build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=gcc -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DA113_ARCHIVED_CASE_ONLY=OFF

@@ -1,0 +1,1 @@
+taskset -c 2 /tmp/cryproject-r07.G6Vreo/work/build/hardened/measure r07-hardened-20261111 20261111 5000 /tmp/cryproject-r07.G6Vreo/work/raw/hardened-seed20261111.csv /tmp/cryproject-r07.G6Vreo/work/raw/hardened-seed20261111.meta

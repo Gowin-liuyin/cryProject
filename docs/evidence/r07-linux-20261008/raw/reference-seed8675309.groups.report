@@ -1,0 +1,27 @@
+analysis_tool=fixed_prespecified_group_test
+analysis_version=1
+analysis_round=2
+prespecified_after_round1_data=yes
+hypothesis=direction_constant_vs_direction_varying
+csv_path=/tmp/cryproject-r07.G6Vreo/work/raw/reference-seed8675309.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=aebe522304e825e775ae771c97676b08581bb70e61fff1ec20d30f995fec0ef8
+run_id=r07-reference-8675309
+implementation=reference
+record_count=25000
+time_unit=ns
+group=direction-constant members=message-zero,message-ones count=10000 min=45240 p25=45479 median=45558 p75=45640 p99=51438 max=76518 mean=45845.262 stddev=1370.987 distinct_values=647
+group=direction-varying members=valid,bit-flipped,random count=15000 min=45269 p25=45479 median=45550 p75=45639 p99=51499 max=86188 mean=45832.051 stddev=1349.840 distinct_values=789
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=1
+multiplicity_correction=none_single_prespecified_comparison
+alpha_per_comparison=0.00100000
+round1_alpha_per_comparison_for_reference=0.00010000
+comparison=direction-constant:direction-varying primary=yes n1=10000 n2=15000 median_difference_ns=8.0 mean_difference_ns=13.212 welch_t=0.7511 welch_df=21197.2 welch_p=0.452617 rank_u1=75709418.5 rank_z=1.2691 rank_p=0.204407 effect_size_first_greater=0.504729 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim
+sample_independence_note=direction_constant_group_reuses_two_fixed_ciphertexts_under_one_key

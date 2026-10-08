@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/tmp/cryproject-r07.G6Vreo/work/raw/vulnerable-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=405cd5888a7abc85b6672afa041da2237e1e58da826457707e0f97b59c39d098
+run_id=r07-vulnerable-90210
+implementation=vulnerable
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=46300 p25=47089 median=47190 p75=47319 p99=57448 max=66167 mean=47703.480 stddev=1961.676 distinct_values=687
+category=bit-flipped count=5000 min=46248 p25=47088 median=47189 p75=47319 p99=57338 max=67318 mean=47661.643 stddev=1887.023 distinct_values=664
+category=random count=5000 min=46490 p25=47089 median=47198 p75=47318 p99=57778 max=104167 mean=47731.930 stddev=2187.619 distinct_values=675
+category=message-zero count=5000 min=45529 p25=45789 median=45879 p75=45980 p99=56729 max=76748 mean=46327.435 stddev=1962.712 distinct_values=582
+category=message-ones count=5000 min=45549 p25=45809 median=45899 p75=46009 p99=56688 max=89038 mean=46412.438 stddev=2084.289 distinct_values=587
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=-20.0 mean_difference_ns=-85.003 welch_t=-2.0995 welch_df=9962.1 welch_p=0.0357766 rank_u1=11410944.0 rank_z=-7.5451 rank_p=4.51901e-14 effect_size_first_greater=0.456438 result=significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=1.0 mean_difference_ns=41.837 welch_t=1.0868 welch_df=9983.0 welch_p=0.277113 rank_u1=12514100.5 rank_z=0.0977 rank_p=0.922182 effect_size_first_greater=0.500564 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=-8.0 mean_difference_ns=-28.450 welch_t=-0.6846 welch_df=9881.5 welch_p=0.493568 rank_u1=12418395.0 rank_z=-0.5654 rank_p=0.571829 effect_size_first_greater=0.496736 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1311.0 mean_difference_ns=1376.045 welch_t=35.0639 welch_df=9998.0 welch_p=2.39125e-269 rank_u1=23481175.5 rank_z=76.0767 rank_p=0 effect_size_first_greater=0.939247 result=significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1291.0 mean_difference_ns=1291.042 welch_t=31.8947 welch_df=9961.5 welch_p=3.16106e-223 rank_u1=23232470.0 rank_z=74.3536 rank_p=0 effect_size_first_greater=0.929299 result=significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=-9.0 mean_difference_ns=-70.287 welch_t=-1.7203 welch_df=9787.2 welch_p=0.0853776 rank_u1=12403645.5 rank_z=-0.6675 rank_p=0.504423 effect_size_first_greater=0.496146 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1310.0 mean_difference_ns=1334.208 welch_t=34.6505 welch_df=9982.6 welch_p=4.39637e-263 rank_u1=23475040.0 rank_z=76.0342 rank_p=0 effect_size_first_greater=0.939002 result=significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1290.0 mean_difference_ns=1249.205 welch_t=31.4170 welch_df=9900.8 welch_p=1.18597e-216 rank_u1=23225385.5 rank_z=74.3046 rank_p=0 effect_size_first_greater=0.929015 result=significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1319.0 mean_difference_ns=1404.495 welch_t=33.7910 welch_df=9882.6 welch_p=2.67565e-250 rank_u1=23483552.0 rank_z=76.0931 rank_p=0 effect_size_first_greater=0.939342 result=significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1299.0 mean_difference_ns=1319.492 welch_t=30.8786 welch_df=9974.7 welch_p=2.31427e-209 rank_u1=23235073.0 rank_z=74.3717 rank_p=0 effect_size_first_greater=0.929403 result=significant
+significant_comparison_count=7
+note=statistical_difference_only_no_exploitability_claim

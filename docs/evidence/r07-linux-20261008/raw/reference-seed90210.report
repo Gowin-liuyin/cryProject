@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/tmp/cryproject-r07.G6Vreo/work/raw/reference-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=f77fb0c1445227a60892099d7cb8f95c014bab5fce0c26ff854f63d492ce0f24
+run_id=r07-reference-90210
+implementation=reference
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=45428 p25=45629 median=45699 p75=45788 p99=52659 max=73918 mean=46024.142 stddev=1612.380 distinct_values=450
+category=bit-flipped count=5000 min=45429 p25=45629 median=45699 p75=45779 p99=52450 max=96128 mean=45999.000 stddev=1597.032 distinct_values=435
+category=random count=5000 min=45439 p25=45630 median=45700 p75=45789 p99=53009 max=78299 mean=46078.020 stddev=1739.242 distinct_values=482
+category=message-zero count=5000 min=45418 p25=45630 median=45699 p75=45780 p99=52688 max=71729 mean=46031.954 stddev=1526.280 distinct_values=455
+category=message-ones count=5000 min=45440 p25=45630 median=45699 p75=45787 p99=52470 max=65079 mean=46009.706 stddev=1427.842 distinct_values=440
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=22.249 welch_t=0.7527 welch_df=9953.9 welch_p=0.451614 rank_u1=12510521.0 rank_z=0.0729 rank_p=0.941894 effect_size_first_greater=0.500421 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=25.142 welch_t=0.7834 welch_df=9997.1 welch_p=0.433407 rank_u1=12662664.5 rank_z=1.1270 rank_p=0.259746 effect_size_first_greater=0.506507 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=-1.0 mean_difference_ns=-53.878 welch_t=-1.6064 welch_df=9941.2 welch_p=0.108191 rank_u1=12314502.0 rank_z=-1.2852 rank_p=0.198727 effect_size_first_greater=0.492580 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-7.812 welch_t=-0.2488 welch_df=9968.0 welch_p=0.803504 rank_u1=12445885.5 rank_z=-0.3749 rank_p=0.70772 effect_size_first_greater=0.497835 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=14.436 welch_t=0.4740 welch_df=9853.8 welch_p=0.635518 rank_u1=12454125.0 rank_z=-0.3178 rank_p=0.750611 effect_size_first_greater=0.498165 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=-1.0 mean_difference_ns=-79.020 welch_t=-2.3664 welch_df=9926.1 welch_p=0.0179636 rank_u1=12150392.5 rank_z=-2.4222 rank_p=0.0154271 effect_size_first_greater=0.486016 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-32.954 welch_t=-1.0548 welch_df=9977.5 welch_p=0.291498 rank_u1=12280492.5 rank_z=-1.5208 rank_p=0.128304 effect_size_first_greater=0.491220 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-10.706 welch_t=-0.3534 welch_df=9875.2 welch_p=0.723814 rank_u1=12289811.0 rank_z=-1.4563 rank_p=0.145321 effect_size_first_greater=0.491592 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=1.0 mean_difference_ns=46.066 welch_t=1.4077 welch_df=9832.1 welch_p=0.159225 rank_u1=12630510.5 rank_z=0.9042 rank_p=0.365881 effect_size_first_greater=0.505220 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=1.0 mean_difference_ns=68.315 welch_t=2.1467 welch_df=9632.6 welch_p=0.0318198 rank_u1=12639956.0 rank_z=0.9697 rank_p=0.332217 effect_size_first_greater=0.505598 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

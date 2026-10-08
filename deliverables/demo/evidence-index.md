@@ -110,7 +110,7 @@ I01仍记录截图与审批签署缺口。历史34项和旧复算仍按原执行
 
 **分析与复算入口：** [单次回归报告](../../docs/evidence/mitigation/vulnerable.report)；[掩码报告](../../docs/evidence/mitigation/hardened.report)；[H1失败报告](../../docs/evidence/statistics-multiseed/vulnerable-seed31337.report)；[H2残差报告](../../docs/evidence/statistics-multiseed/hardened-seed141421356.groups.report)；[全部20运行表](../../docs/evidence/statistics-multiseed/multiseed-summary.tsv)；audit replay只读重建40报告。残差p=1.42602e-05，优势概率effect_size_first_greater=0.488950，非Cliff差。
 
-**当前证据缺口：** [R07可接受材料与具体缺口](../../docs/defense-evidence-gap.md)；相同顺序不证明微状态相同，重复密文不自动独立，并列修正不处理序列依赖；不显著不是恒时证明。
+**当前证据缺口：** 本条是 Apple M5 历史。同一 Linux 的前后采集见 [r07-linux-20261008](../../docs/evidence/r07-linux-20261008/README.md)，两套平台不拼接。重复密文不自动独立；不显著不是恒时证明。
 
 ## C01 · 固定任务精确复算确认
 

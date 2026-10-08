@@ -1,0 +1,34 @@
+analysis_tool=fixed_prespecified_tests
+analysis_version=1
+csv_path=/tmp/cryproject-r07.G6Vreo/work/raw/deployable-seed90210.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=7b23c5818ab6bf91333c878a3ace65ae6f2959b1a1551fa12b969bd13a2d984b
+run_id=r07-deployable-90210
+implementation=deployable
+record_count=25000
+time_unit=ns
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=10
+multiplicity_correction=bonferroni
+alpha_per_comparison=0.00010000
+category=valid count=5000 min=45269 p25=45509 median=45579 p75=45668 p99=60639 max=102179 mean=46085.165 stddev=2458.997 distinct_values=520
+category=bit-flipped count=5000 min=45280 p25=45509 median=45579 p75=45668 p99=61238 max=82488 mean=46099.653 stddev=2521.393 distinct_values=519
+category=random count=5000 min=45270 p25=45510 median=45588 p75=45679 p99=62718 max=137597 mean=46142.521 stddev=2803.816 distinct_values=541
+category=message-zero count=5000 min=45289 p25=45509 median=45579 p75=45669 p99=62589 max=75809 mean=46137.900 stddev=2499.901 distinct_values=555
+category=message-ones count=5000 min=45257 p25=45510 median=45580 p75=45669 p99=63078 max=72968 mean=46139.527 stddev=2532.613 distinct_values=526
+comparison=message-zero:message-ones primary=yes n1=5000 n2=5000 median_difference_ns=-1.0 mean_difference_ns=-1.627 welch_t=-0.0323 welch_df=9996.3 welch_p=0.974213 rank_u1=12357325.0 rank_z=-0.9885 rank_p=0.322912 effect_size_first_greater=0.494293 result=not_significant
+comparison=valid:bit-flipped primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-14.488 welch_t=-0.2909 welch_df=9991.7 welch_p=0.771141 rank_u1=12486752.5 rank_z=-0.0918 rank_p=0.926874 effect_size_first_greater=0.499470 result=not_significant
+comparison=valid:random primary=no n1=5000 n2=5000 median_difference_ns=-9.0 mean_difference_ns=-57.356 welch_t=-1.0875 welch_df=9830.6 welch_p=0.276818 rank_u1=12074341.0 rank_z=-2.9491 rank_p=0.00318718 effect_size_first_greater=0.482974 result=not_significant
+comparison=valid:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-52.735 welch_t=-1.0634 welch_df=9995.3 welch_p=0.287594 rank_u1=12389916.0 rank_z=-0.7627 rank_p=0.445647 effect_size_first_greater=0.495597 result=not_significant
+comparison=valid:message-ones primary=no n1=5000 n2=5000 median_difference_ns=-1.0 mean_difference_ns=-54.362 welch_t=-1.0890 welch_df=9989.3 welch_p=0.276175 rank_u1=12246366.0 rank_z=-1.7572 rank_p=0.0788756 effect_size_first_greater=0.489855 result=not_significant
+comparison=bit-flipped:random primary=no n1=5000 n2=5000 median_difference_ns=-9.0 mean_difference_ns=-42.867 welch_t=-0.8039 welch_df=9887.4 welch_p=0.421478 rank_u1=12088043.5 rank_z=-2.8541 rank_p=0.00431532 effect_size_first_greater=0.483522 result=not_significant
+comparison=bit-flipped:message-zero primary=no n1=5000 n2=5000 median_difference_ns=0.0 mean_difference_ns=-38.247 welch_t=-0.7617 welch_df=9997.3 welch_p=0.446243 rank_u1=12404549.0 rank_z=-0.6613 rank_p=0.508414 effect_size_first_greater=0.496182 result=not_significant
+comparison=bit-flipped:message-ones primary=no n1=5000 n2=5000 median_difference_ns=-1.0 mean_difference_ns=-39.874 welch_t=-0.7890 welch_df=9997.8 welch_p=0.430137 rank_u1=12261172.0 rank_z=-1.6547 rank_p=0.0979926 effect_size_first_greater=0.490447 result=not_significant
+comparison=random:message-zero primary=no n1=5000 n2=5000 median_difference_ns=9.0 mean_difference_ns=4.620 welch_t=0.0870 welch_df=9869.2 welch_p=0.930695 rank_u1=12818091.5 rank_z=2.2038 rank_p=0.0275366 effect_size_first_greater=0.512724 result=not_significant
+comparison=random:message-ones primary=no n1=5000 n2=5000 median_difference_ns=8.0 mean_difference_ns=2.993 welch_t=0.0560 welch_df=9896.3 welch_p=0.955325 rank_u1=12677407.5 rank_z=1.2291 rank_p=0.219025 effect_size_first_greater=0.507096 result=not_significant
+significant_comparison_count=0
+note=statistical_difference_only_no_exploitability_claim

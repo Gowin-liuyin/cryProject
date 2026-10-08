@@ -1,0 +1,27 @@
+analysis_tool=fixed_prespecified_group_test
+analysis_version=1
+analysis_round=2
+prespecified_after_round1_data=yes
+hypothesis=direction_constant_vs_direction_varying
+csv_path=/tmp/cryproject-r07.G6Vreo/work/raw/vulnerable-seed8675309.csv
+csv_digest_algorithm=SHA3-256
+csv_digest=76fb3703b27f0f0912a6c430cb4b4ec40ad8d86d6ebbb3fcf0292c28c5f8e903
+run_id=r07-vulnerable-8675309
+implementation=vulnerable
+record_count=25000
+time_unit=ns
+group=direction-constant members=message-zero,message-ones count=10000 min=45408 p25=45639 median=45718 p75=45808 p99=51638 max=84349 mean=46013.946 stddev=1433.967 distinct_values=668
+group=direction-varying members=valid,bit-flipped,random count=15000 min=46048 p25=46928 median=47018 p75=47128 p99=52949 max=73688 mean=47310.286 stddev=1415.920 distinct_values=873
+location_test=welch_t_normal_approximation
+rank_test=mann_whitney_u_tie_corrected_normal_approximation
+quantile_rule=nearest_rank_no_interpolation
+outlier_removal=none
+alpha_family=0.001000
+comparison_count=1
+multiplicity_correction=none_single_prespecified_comparison
+alpha_per_comparison=0.00100000
+round1_alpha_per_comparison_for_reference=0.00010000
+comparison=direction-constant:direction-varying primary=yes n1=10000 n2=15000 median_difference_ns=-1300.0 mean_difference_ns=-1296.339 welch_t=-70.3783 welch_df=21239.8 welch_p=0 rank_u1=7629888.5 rank_z=-120.5143 rank_p=0 effect_size_first_greater=0.050866 result=significant
+significant_comparison_count=1
+note=statistical_difference_only_no_exploitability_claim
+sample_independence_note=direction_constant_group_reuses_two_fixed_ciphertexts_under_one_key

@@ -1,0 +1,1 @@
+taskset -c 2 /tmp/cryproject-r07.G6Vreo/work/build/deployable/measure r07-deployable-141421356 141421356 5000 /tmp/cryproject-r07.G6Vreo/work/raw/deployable-seed141421356.csv /tmp/cryproject-r07.G6Vreo/work/raw/deployable-seed141421356.meta
