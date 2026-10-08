@@ -1,0 +1,78 @@
+{
+  "format": "math_cost_data_stage_file_metadata_validation_v1",
+  "validation_role": "file_bytes_rows_metadata_and_links_only_not_new_statistics",
+  "stage_payload_files": 15,
+  "stage_manifest_records": 15,
+  "original_byte_copies": 8,
+  "anonymous_reading_and_extracted_files": 7,
+  "row_counts": {
+    "raw-times.csv": 176,
+    "raw-clock.csv": 512,
+    "pairs.csv": 80,
+    "summary.csv": 8,
+    "failures.csv": 0
+  },
+  "input_record_rows": 8,
+  "existing_c01_input_map_entries": 24,
+  "all_24_source_run_copy_and_v2_bytes_equal": true,
+  "local_note_links_checked": 9,
+  "unmapped_external_original_links": [
+    {
+      "source_note": "UPDATE_COST_RESULTS.md",
+      "label": "本轮证据",
+      "original_target_role": "excluded_external_original"
+    },
+    {
+      "source_note": "RESULT_REVIEW.md",
+      "label": "审计器源码",
+      "original_target_role": "excluded_external_original"
+    },
+    {
+      "source_note": "RESULT_REVIEW.md",
+      "label": "独立 CMake/CTest 配置",
+      "original_target_role": "excluded_external_original"
+    },
+    {
+      "source_note": "RESULT_REVIEW.md",
+      "label": "配置",
+      "original_target_role": "excluded_external_original"
+    },
+    {
+      "source_note": "RESULT_REVIEW.md",
+      "label": "编译",
+      "original_target_role": "excluded_external_original"
+    },
+    {
+      "source_note": "RESULT_REVIEW.md",
+      "label": "检查",
+      "original_target_role": "excluded_external_original"
+    }
+  ],
+  "blocked_identity_hits": [],
+  "private_git_alias_applied": "SOURCE-MATH-COST-01",
+  "source_files_checked_unchanged": 82,
+  "v2_archive_unchanged": true,
+  "new_cryptographic_calls": 0,
+  "new_statistics_runs": 0,
+  "raw_history_artifact_pending_preserved": true,
+  "current_artifact_review_separate": true,
+  "stage_not_final_or_sealed": true,
+  "phase_row_counts": {
+    "warmup": 16,
+    "formal": 160
+  },
+  "clock_kind_row_counts": {
+    "step": 256,
+    "empty": 256
+  },
+  "production_and_observer_actual_source_digest_checked": true,
+  "sealed_c01_preflight_actual_ok_lines": 153,
+  "additional_source_metadata_checks": [
+    "src/controlled_statistics.c",
+    "docs/research/aris-20261008/update-cost/update_cost.c",
+    "docs/evidence/aris-update-cost-20261008/code-review.md",
+    "docs/evidence/aris-update-cost-20261008/result-review.md",
+    "docs/evidence/aris-update-cost-20261008/sealed-input-preflight.log"
+  ],
+  "all_payload_manifest_digests_checked_again": true
+}

@@ -1,0 +1,16 @@
+{
+  "task": "fixed_integer_same_language_update_cost",
+  "target": "local_cpu_only",
+  "platform": "Darwin",
+  "architecture": "arm64",
+  "logical_cpus": 10,
+  "memory_bytes": 17179869184,
+  "free_disk_bytes": 203981553664,
+  "minimum_free_disk_bytes": 536870912,
+  "gpu_required": false,
+  "new_cryptographic_calls": 0,
+  "frequency_control": "not_configured",
+  "preview_service_55467": "not_listening_on_prior_lsof_check",
+  "available": true,
+  "remote_execution": false
+}

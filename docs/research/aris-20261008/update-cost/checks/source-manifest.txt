@@ -1,0 +1,30 @@
+source_commit=8470548a13b46cffc3e8ce54a320394d31d86848
+compiler=/usr/bin/cc
+compiler_id=AppleClang
+compiler_version=21.0.0.21000334
+system=Darwin
+architecture=arm64
+optimization=-O2
+lto=disabled
+sanitizers=OFF
+working_tree_status_begin
+ M deliverables/submission/CACR2026EA16XZ/README.md
+ M docs/full-work-progress.md
+ M docs/statistics.md
+?? .agents/
+?? deliverables/research/
+?? deliverables/submission/CACR2026EA16XZ/aris-20261008/
+?? deliverables/support/CACR2026EA16XZ-aris-20261008/
+?? docs/evidence/aris-research-report-20261008/
+?? docs/evidence/aris-research-support-20261008/
+?? docs/evidence/literature-study-20261008/
+?? docs/research/
+working_tree_status_end
+sha256=a6dfcecab1035da729ce1cd4c2e54a24553b375b65b29857bac91b1e7a76ceb6  snapshots/controlled_snapshot.c
+sha256=59b4b3323fe36926e3019412ad83a3c65b4e1128fdeceebda37ace3c3d76c537  snapshots/naive_snapshot.c
+sha256=4d008eaf9fc40c9b232d0a432cfaae8bccdd72e13c96e3a87930e7c86950057f  snapshots/paired_statistics_snapshot.c
+sha256=4a4e73ee7a6fbf14ee2b61b73a1dc0e576ac62861eb45b92d3c3b5b2a0654d10  snapshots/controlled_statistics.h
+sha256=8f24ac6c448aaa3ed453cf95ff22cbe00dda7e19b9a0d3306d22301194a117b8  snapshots/paired_statistics.h
+sha256=f2793f9170ee9d519872f60b79844c804e13345a5cba4c2e81c48a182cb087d9  update_cost.c
+sha256=59b37ae1d03bf6aa75d0533fc06e07b5abd8c15636c14a3b9b5eaf2d12b256b7  update_cost.h
+sha256=2a7fd4badf7dd335d917b3456cbf860cbb7d044ffa5157a095c6fe32d65b7672  CMakeLists.txt

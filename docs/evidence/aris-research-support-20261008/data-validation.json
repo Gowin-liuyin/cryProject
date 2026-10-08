@@ -1,0 +1,987 @@
+{
+  "format": "anonymous_research_support_data_validation_v1",
+  "date": "2026-10-08",
+  "new_cryptographic_calls": 0,
+  "new_timing_runs": 0,
+  "new_significance_tests": 0,
+  "group_origins": {
+    "C01": "Apple M5 ARM64 macOS fixed eight no_secret_synthetic tasks original complete-process comparison",
+    "C03": "Apple M5 ARM64 macOS same eight C01 tasks preimported cost sensitivity comparison not new tasks",
+    "C02": "Ubuntu x86_64 KVM synthetic finite model integers in synthetic ns no cryptographic calls",
+    "C04": "post_collection independent labels on six historical E02 KVM reference time blocks not original ciphertext labels",
+    "E02": "native-final-20261007 Ubuntu x86_64 KVM ordinary performance original eighteen runs",
+    "N01": "candidate-round-20261007/native/perf Ubuntu x86_64 KVM ordinary performance distinct later eighteen runs",
+    "R07": "Ubuntu x86_64 KVM four implementations five prespecified seeds artificial mechanism archived data",
+    "B01_RYZEN": "Ubuntu Ryzen 9 9950X bare metal mechanism and ordinary performance separate from R07 no new groups reports no frequency lock GCC sanitizer build failed",
+    "H01_ARM": "Apple M5 ARM64 historical twenty prespecified mechanism runs separate motivation seed777 four nonprespecified runs"
+  },
+  "files_verified": 540,
+  "all_original_sources_unchanged": true,
+  "original_byte_copies": 357,
+  "anonymous_text_views": 183,
+  "payload_private_pattern_hits": 0,
+  "preserved_original_digest_fields_verified": 690,
+  "forbidden_payload_suffixes": [],
+  "efficiency_inputs": [
+    {
+      "task": 1,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": -29.4
+    },
+    {
+      "task": 2,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": 491.2
+    },
+    {
+      "task": 3,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": 0.0
+    },
+    {
+      "task": 4,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": -33.95
+    },
+    {
+      "task": 5,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": 134.8
+    },
+    {
+      "task": 6,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": 639.85
+    },
+    {
+      "task": 7,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": 0.0
+    },
+    {
+      "task": 8,
+      "pair_count": 20,
+      "original_plan_data_sha3_matches": true,
+      "direct_mean_difference_ns": -125.7
+    }
+  ],
+  "efficiency_ledgers": [
+    {
+      "group": "C01",
+      "rows_verified": 48,
+      "matched_repetition_pairs": 24,
+      "task_count": 8,
+      "all_exits_zero": true,
+      "report_and_ledger_tail_mismatches": 0,
+      "ratio_median": 0.001388504260722591,
+      "ratio_minimum": 0.001139407903401099,
+      "ratio_maximum": 0.0017348535289716004,
+      "scope": "original_fixed_tasks_and_recorded_cost_windows_no_new_timing"
+    },
+    {
+      "group": "C03",
+      "rows_verified": 48,
+      "matched_repetition_pairs": 24,
+      "task_count": 8,
+      "all_exits_zero": true,
+      "report_and_ledger_tail_mismatches": 0,
+      "ratio_median": 0.001562069576549664,
+      "ratio_minimum": 0.0012747859214257092,
+      "ratio_maximum": 0.0019251277510412695,
+      "scope": "original_fixed_tasks_and_recorded_cost_windows_no_new_timing"
+    }
+  ],
+  "C02": {
+    "rows_verified": 40964,
+    "candidate_oracle_tail_mismatches": 0,
+    "rejection_counts": {
+      "independent_equal|0": 26,
+      "independent_equal|1": 794,
+      "independent_equal|2": 4096,
+      "independent_equal|4": 4096,
+      "independent_equal|12": 4096,
+      "common_equal|0": 2,
+      "independent_graded|0": 38,
+      "independent_graded|1": 48,
+      "independent_graded|2": 91,
+      "independent_graded|4": 353,
+      "independent_graded|12": 4096,
+      "common_graded|0": 2
+    },
+    "common_declaration_result_status": "evidence_insufficient",
+    "scope": "finite synthetic model only not empirical cryptographic error rates"
+  },
+  "C04": {
+    "rows_verified_by_binary_labels_direct_sum_sorted_inclusive_tail": 24576,
+    "selected_times_verified_against_original_E02_KVM_CSV": 144,
+    "rejection_counts": {
+      "ordinary-reference-block1": 40,
+      "ordinary-reference-block2": 40,
+      "ordinary-reference-block3": 40,
+      "ordinary-reference-block4": 38,
+      "ordinary-reference-block5": 40,
+      "ordinary-reference-block6": 38
+    },
+    "scope": "conditional post-assigned labels only time dependence allowed but original ciphertext randomization not established"
+  },
+  "timing_csv_identity_and_count_checks": [
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-deployable-block1.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "9cc55b566260dbac405566c78aa8da49e8ca6caaf73ef7dcf7217e49ff976ce2",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-deployable-block2.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "531b94bc2664737f4f4f32cd2fd8c9f7e445ddfd83d9d5acd35b29a7ce169753",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-deployable-block3.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "edd990eb45a255e4d45dee72f046123df4b7c4caf9557bc85d250da32795b788",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-deployable-block4.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "5711fee161cccde3e101366d96738e2c40e28a45f0b88359003cb7f50f9591be",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-deployable-block5.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "1e68b909d056d5259458194cc5fe53125f9b00e124350c3e96643c08acd4e778",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-deployable-block6.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "b196d9c3c0a2d57e66bd4ccb4c9d65916b6561d3dfb34175ddb917fd023d3d46",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-hardened-block1.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "e12b3914de0840f33703c13011588dd64b7113433cd40cf788b7e65fa4d73477",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-hardened-block2.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "5cf8379640efab9df883ab58f1ee628d5375ad86e6081b8aa936d9babdf48f70",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-hardened-block3.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "a461c2e37c6a3e3f821e0da5f2a49c2da3007d6efae7e8a86c50ca3beb62fb1c",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-hardened-block4.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "91e94a8f31e38fcab0e9c73c8ade875fac7e2a2048eedbbfd4a1905bf1f88cd8",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-hardened-block5.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "953b1140c3df7357f70e07592501cc3da62a3274b19dbccc2150bacc74a59c43",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-hardened-block6.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "9b8f7e61dd44c7ddc37f5b6609f20870a758bce94ac7ab78f4ce1f489bb502d6",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-reference-block1.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "841f2267ce67636e5ae42be18e89231c093d6809069e86d45e032f3a681d9fb9",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-reference-block2.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "a4fe9aba57c6c06c540b27ef8260f1be9bf82246fbf7cc671b8c945aec2fd31c",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-reference-block3.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "3f77e7435177e610d9cef1e26a5eda5aa8eb748fb5f6ea94c8524cd3ff12772d",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-reference-block4.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "981e2ac51c699280ab0166be7910d85473f95e04b5556736d598c1f1362fa98a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-reference-block5.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "15fb6ed49f9ca12f6711e00cfdddec8c3a2e2ed5094b54d092e7ad946b9aa8d9",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/native-final-20261007/performance/ordinary-reference-block6.csv",
+      "group": "E02",
+      "rows": 3000,
+      "original_csv_sha3_256": "34afeb727baf75b1cea144297f87be48070312301421c92cfeae87ae146e16f6",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block1.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "08e8137ea8c9dfb7a31110c9d52f3d86635c902b60d9a259b7996431e5b97b2e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block2.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "27e5c415b2c077bba820abaecb9b8c7bdba2ffcf04af37ef489d9ecfd9298d6b",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block3.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "0d84ebb311ebe12c111d6502483e300dfd1acb532f384c7d0ecd8d623b6b733a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block4.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "90b63275fc1027af233093e1388d23e361805350f4f207b1ad87a7bd1fad7e5c",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block5.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "eb4fc86b7a5e466ef1e303820ac69dff630f184fd4e8e58e420734f481da4206",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block6.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "23739eda3ce2754f5ad2c515b0fec12fb0ab74f6c0969dcf9b0580fc12e2ef61",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block1.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "50a64b747b2f32862566a68d8f8b8d577c136d8ddc0c86a7b4631b9d72eaa06a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block2.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "7b01899caff0136bd7b06ae26a57959f1148770d88e7c8aa3f06aa4e73065216",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block3.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "8a22e414425796ed388636c10f8e56bbe02c35e4974998ab4d464791e5f4f2a8",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block4.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "bf762f0f56f3348b8d91a255664855c4769cd990f12e47242c65bd3a1f47fa55",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block5.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "f1f225d9a7aa6d084874c503480309486dd29ccbcc6e73d5769345e9c1f5cf81",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block6.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "3e827f87626432aea3b61dc5f5e685b1d540cbdbecf669b2793c1f7b586edba5",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block1.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "3141cea9c69045af0155fd8fa62804a047b5b8ea9abe6b22978e600b5eb80bb4",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block2.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "dbde577a6e544818036da100a107969b6bcdf5f1377cf3bcb33a2740ac373e8e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block3.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "e27e3d15b216f220ec3766944db050311c981a1a94bb80d7f9f285296f264a85",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block4.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "2b9bd981bc7d1afbd0b731d5bca1d617b6ae00eb244ca185394e568e9d70c7e0",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block5.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "de98e112a5eec7ff69cbd6b79bed683014bd6c4c6bcb03544e78ee5deddf2991",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block6.csv",
+      "group": "N01",
+      "rows": 3000,
+      "original_csv_sha3_256": "116fd9cbcf99d052543159e5c0475ff5c9df59edd92b6345f89a7a60cf582202",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-deployable-block1.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "4e72e57a680f1966371b9f3082e6dfb00c071300f59189f51bd1f49e902eaa7b",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-deployable-block2.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "183f46679955eef5c169b80dcc6ace3772b961ff64e05eae19b57970254b25f3",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-deployable-block3.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "893fe9489e48e3ab54e20a538f5f77129d5ed1848c98a3e6b2cfb56001bce846",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-deployable-block4.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "724ba85d3863ce1366e39ce8455c47346121edb588e2979d442dd9e95c977399",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-deployable-block5.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "c86ad080c373df6983a0024b1ff299d56a6bbcf24943a526d9f1ba66835c5c02",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-deployable-block6.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "a1ab1be85f43f9ec04cdae3f5d2fca570346b444e009696734cf3a55c9a36000",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-hardened-block1.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "667afdd0dcce92a70e3da1dd90d5ac7d7c309fe98313643d84f497c47360aaa9",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-hardened-block2.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "deb4b6a4b97b662a90776387100f160024a022e3c79bd3bb5414edfde2a0ebb7",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-hardened-block3.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "70ef1370e02697f7b366ef858eafef9d5c3ce1b1e5657ca061bc7e52ce8b83a5",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-hardened-block4.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "b74ddf1c2e3140fd236facbbc571abf023d872d66007f069e0ed89c6d9237f7a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-hardened-block5.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "c969c07efbb172a1d8adee6d4cc6fb15282971684828d91955d966e24c0c507e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-hardened-block6.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "5a8ebbdc8f831d201b7a18b92b038a0136fcb273be4c4974e41241dd7d3b8807",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-reference-block1.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "f376d87bd4ff88430ae3cba5b6e541bbe168fb7a324025a30fd60505f86b0ac8",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-reference-block2.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "3f023c216a9f3205051a0ac3be56bc5a56a057e84eed442f69d62f9c3baab9a8",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-reference-block3.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "71942b4d925827e3ff8d0cb8e39427e62479b32413b00f09614ce359b0825dc9",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-reference-block4.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "28a3a47f57b1f50c812f827c7c199675e1bba5b71996f63ab52827b35ddf8995",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-reference-block5.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "d230412c24321f495356eb804f37eed7c3a3019e78475ce38e8fa6a7d8aafb78",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/performance/ordinary-reference-block6.csv",
+      "group": "B01_RYZEN",
+      "rows": 3000,
+      "original_csv_sha3_256": "61fad4ec081732c1e77201b9b9d0df7a8826cef700c12caca16e56034f0f8fe3",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/reference-seed31337.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "fe37742f11b881d69e577a7d8a98e64f37bd2f6755bf912a3c0ea14b47c5d498",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/reference-seed90210.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "f77fb0c1445227a60892099d7cb8f95c014bab5fce0c26ff854f63d492ce0f24",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/reference-seed20261111.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "b1412e4069a2241a48041f2a8818c838652b0dc207743c9f3f262a1e351b49d0",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/reference-seed8675309.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "aebe522304e825e775ae771c97676b08581bb70e61fff1ec20d30f995fec0ef8",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/reference-seed141421356.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "53038022de1dc65caba8d7bcabea97eb3060d536e9f274cc0d9a3eee5452b487",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/vulnerable-seed31337.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "6fd18d32c9e505b2e99585e42f68764c32c6b6f36d2a98dc5ee3eb5e9e5170d5",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/vulnerable-seed90210.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "405cd5888a7abc85b6672afa041da2237e1e58da826457707e0f97b59c39d098",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/vulnerable-seed20261111.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "6dc53c2938b50d8c6fe86a73307a1c01aa32b74b2fbb4634b1bfb391efb52f3c",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/vulnerable-seed8675309.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "76fb3703b27f0f0912a6c430cb4b4ec40ad8d86d6ebbb3fcf0292c28c5f8e903",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/vulnerable-seed141421356.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "e25e2a533fa3fa037183c5ecbfb00d8a6e06eb3ed5821f2b29150dac7e150721",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/hardened-seed31337.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "84c6ccd983c0af7952e1ce3376686c87ead34904feb186c8ca14db7e355e7ba0",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/hardened-seed90210.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "b5094c3bc2e2e31f5e68342d7be0f6eca62b7bcad877d88d20cf5c7cb66fad6a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/hardened-seed20261111.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "ebbca318dbbc055e8594b25a3a276558b3f887a7a2d29c539d37a39672c56f18",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/hardened-seed8675309.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "833091263353c5b1861d04ca5f92f74ce0d5b381e3949bcc3fbae1b32d907522",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/hardened-seed141421356.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "e07cd969c457ecd7a1119b7c32e1aac5d91c5dfedbff9a81900bb72062dd5c75",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/deployable-seed31337.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "746faac1852b6d30836a0509bd2fb86b2982e6c03f45012826c0e4969fc3af87",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/deployable-seed90210.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "7b23c5818ab6bf91333c878a3ace65ae6f2959b1a1551fa12b969bd13a2d984b",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/deployable-seed20261111.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "bba544123f3a738e5661c710f8c168de29ad9b44445fdedadb465c9d20e6a1a7",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/deployable-seed8675309.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "9c1bd3ddefeede86777ff6326ddcf42ec126e10ac535282f8490f9778673d4fd",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/r07-linux-20261008/raw/deployable-seed141421356.csv",
+      "group": "R07",
+      "rows": 25000,
+      "original_csv_sha3_256": "646cdc02037872c9797c69c17404bac54b862be44b5d5700881ee9e8b5bbcfb4",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/reference-seed31337.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "970ba209bbf3ebcdf2fcbbeb9eee88923ce2d1287a1b2ab5cbb590f98b90c49e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/reference-seed90210.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "5b134e15c91d408f0f42710b0f16fce95c543e47296725ccf9bb1dc6c09981b6",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/reference-seed20261111.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "d93a34652b9fe043bd69cd4e5cec1142384e7c7cb577dc4c7ba6621ae9c9e60c",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/reference-seed8675309.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "137db82e26a89d48ddba01e0d44c9a07cf42fd94d78c54a528ddb0ddbbb7a098",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/reference-seed141421356.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "5230dac58df28e9b289f28c7d0f5d1c03c0940c252891a0ef4c3780f1406d806",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/vulnerable-seed31337.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "2ddd85df6073062ad6163b4e5003f2da4daa2f9ab4b33a634642188f388e531a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/vulnerable-seed90210.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "07ae15f17f56cf8b66f779199522ed7262f40daf2c89d9eef66e99adbbbc0905",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/vulnerable-seed20261111.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "c8b86af1c8016f42920307428e609b69fa35ab888d92f5d36693c15e8d58a043",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/vulnerable-seed8675309.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "5eeefe4ae582743f285adc41307404066a143b7f044cf8e7a0311d57f4706128",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/vulnerable-seed141421356.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "97b154d1da5340e9d6d8bdd0a704d91d6fcfda9e5a4c020373fc86046667a9d1",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/hardened-seed31337.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "c2c49453fa0321f8ad1a25e590ee167c7e2217dbcaf8522814eb826c6cdd0b7a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/hardened-seed90210.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "a283e381eacce938d1db3727fb9b226d47a72788bf3a776a2cd6a371cbe1ed57",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/hardened-seed20261111.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "bb2321d06813a062c4fb358e5940b83c484e721fd11bd24e8d53b59548e09900",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/hardened-seed8675309.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "2385c8166df890bbdccb3c9770d7b1c9afbfe4a9b31735f03e79298e50d97430",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/hardened-seed141421356.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "262c9b89b8dca64474f80ba0cd68f7c186821c4e46551527380a182df2f03777",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/deployable-seed31337.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "989acae3596a9ba0ed93443afff6cce55d5bbcaa4b494faa520301d886d516b7",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/deployable-seed90210.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "99e76a607880c250eb11f4588ed8f502806ef944ac1eec718beea56884361fba",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/deployable-seed20261111.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "97b87916003d541787d6e2d435c94554ffdc0a5d9f67ea6a574e3ec747578a5b",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/deployable-seed8675309.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "d066d7c5aaf956792b62bee3305a224c31c5c47214f7e7717296d01fb5d56e0b",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/baremetal-ryzen-20261008/mechanism/deployable-seed141421356.csv",
+      "group": "B01_RYZEN",
+      "rows": 25000,
+      "original_csv_sha3_256": "74b4cb02d9554c4dcdcb0e799d5da8eae48a15c4f0ceac909c999bb09f87ce35",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/reference-seed31337.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "9a0936dfeb0fcfc13d7a9b5c5619adf9c69e85a1c14be5bdc70f27e036da27d1",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/reference-seed90210.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "e5745f1ce7dac772c2323dd7f2efe60365f157ce60b5e477391279f2aad1742d",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/reference-seed20261111.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "a29378b01a029c5ee5efa5dfd6d03047094c399aded885ce642c1e5fe98e618c",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/reference-seed8675309.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "7590a2f1bb6069a9ba27f595d6851f10ee8f475ca97fd2d54864d75d6ff44584",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/reference-seed141421356.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "63ebed19bb8d8a8232195081d6df10c4075620fde4b37c31d4a18a687015c797",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/vulnerable-seed31337.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "57311f9463eb4f3983e39ddfb3a9f66501f89fad8e3051c22bac9c0f3156e46e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/vulnerable-seed90210.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "281676577d945b61f287f9c9a66a1a67eb4745bb1d52035f89074e5787774a98",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/vulnerable-seed20261111.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "426c1e1a5937ae13ddcb40ee79361745052ba4f627848eec24b4acb179619c7e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/vulnerable-seed8675309.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "b8628f5091c89f778981cc27f5021ca4f6f50bad9fd8cca8580ca3142df55e62",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/vulnerable-seed141421356.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "849cea7d57d4ddde330f5e4543676418c672c623a5da1baa4a02069d39cf4785",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/hardened-seed31337.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "c9264f8e61db9d9d4d1f5a5aab44648ad7155a778209cb3f4171b5cfa95eac0e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/hardened-seed90210.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "fe2088d320faaaa7efc9aa428f826e0dc7559fbe7b4f03735f2038cebe1aea24",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/hardened-seed20261111.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "b6e2c144851fe039dd39230df50ce685fc6b8023511adde7f4be679049212abb",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/hardened-seed8675309.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "dd0a20b3f847ecf28171e0c59fe1f3ebf2cbc64c987795ebb8dfe50f986547d1",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/hardened-seed141421356.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "7372311176687b68582bae11fedf72dbd8be7abeac5cde260e47228fd5c25895",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/deployable-seed31337.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "2e79fc63bd5f39ce6aed1dc22c2346db0ef3a1275aa4fd6ca196597fd1f6306e",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/deployable-seed90210.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "13fc7e818dd1b7506e382d1338e36631f567483fa9b4bf5a7c6e125c220e886a",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/deployable-seed20261111.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "c00846a9e7f66e689c28cbedf00201a212fb84d3609233f88a569952e4f296d3",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/deployable-seed8675309.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "43e9f8ee4288e41c534028fb731e64e694c7c25c0f178583d9c3569b78335b90",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/deployable-seed141421356.csv",
+      "group": "H01_ARM",
+      "rows": 25000,
+      "original_csv_sha3_256": "9a4da746cf00fe609e7aa47cf9239c2a1a35e8c1f4847bff5e68c0316d081819",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/motivation-seed777-reference.csv",
+      "group": "H01_ARM",
+      "rows": 10000,
+      "original_csv_sha3_256": "eb20c6907419ea1de98cfdd4da184c9d10a19b1b006778b2e33790ece3e53248",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/motivation-seed777-vulnerable.csv",
+      "group": "H01_ARM",
+      "rows": 10000,
+      "original_csv_sha3_256": "704503fa1c263a15ebcca9141831b14bf57dc6f90bd73a3126299a63186738a0",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/motivation-seed777-hardened.csv",
+      "group": "H01_ARM",
+      "rows": 10000,
+      "original_csv_sha3_256": "8d3e8e8a62341cc29b9bd47dfffe35ddb98d747c5d99f53e57ec98cfac7e08a9",
+      "csv_meta_counts_match": true
+    },
+    {
+      "source_path": "docs/evidence/statistics-multiseed/motivation-seed777-deployable.csv",
+      "group": "H01_ARM",
+      "rows": 10000,
+      "original_csv_sha3_256": "6a69b596e35fb3ee44b2a40d3c133e34fdbf87ecb04c3eed21ed27afb389fe81",
+      "csv_meta_counts_match": true
+    }
+  ],
+  "package_status": "data_staging_only_root_agent_adds_documents_index_and_zip",
+  "missing_optional_files": [],
+  "final_staging_cross_check": {
+    "actual_payload_files": 540,
+    "manifest_members_match": true,
+    "all_original_and_distributed_sha256_match": true,
+    "all_original_sha3_match": true,
+    "original_byte_csv_files": 133,
+    "original_byte_tsv_files": 8,
+    "preserved_standalone_numeric_unit_clock_fields": 3965,
+    "preserved_category_comparison_group_run_lines": 1152,
+    "suffix_counts": {
+      ".tsv": 8,
+      ".report": 215,
+      ".plan": 12,
+      ".csv": 133,
+      ".meta": 118,
+      ".cost": 54
+    },
+    "privacy_pattern_hits": 0,
+    "local_git_commit_identifier_hits": 0,
+    "symlinks": 0,
+    "internal_identity_map_in_payload": false,
+    "validation_scope": "original bytes hashes and numerical fields; no original anonymous CLI metadata replay claim"
+  }
+}

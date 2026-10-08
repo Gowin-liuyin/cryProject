@@ -1,0 +1,18 @@
+{
+  "changes": [
+    {
+      "reference": "[9] Diaconis",
+      "edit": "remove_publisher_url_repeating_retained_DOI"
+    },
+    {
+      "reference": "[10] Hemerik",
+      "edit": "remove_publisher_url_repeating_retained_DOI"
+    },
+    {
+      "reference": 11,
+      "edit": "standard_first_author_et_al_title_venue_year_pages_DOI_unchanged"
+    }
+  ],
+  "reason": "avoid_one_reference_on_a_separate_page_without_font_or_spacing_change",
+  "body_and_numeric_values_unchanged": true
+}

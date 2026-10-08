@@ -1,0 +1,100 @@
+{
+  "status": "official_snapshot_read_and_fixed_portable_source_checked",
+  "checked_at_utc": "2026-10-08T23:11:29Z",
+  "checked_at_asia_shanghai": "2026-10-09T07:11:29+08:00",
+  "repository_head": "8470548a13b46cffc3e8ce54a320394d31d86848",
+  "branch": "main",
+  "collection_policy": "Normal publicly listed HTTPS URLs; no custom request headers, authentication, proxy changes, WAF bypass, or speculative URLs.",
+  "publication_page": {
+    "url": "https://csrc.nist.gov/pubs/fips/203/final",
+    "web_read": "available",
+    "planning_note_date": "2025-11-17",
+    "listed_workbook_url": "https://csrc.nist.gov/files/pubs/fips/203/final/docs/fips-203-potential-updates.xlsx",
+    "listed_pdf_url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf",
+    "curl_read": "failed",
+    "curl_exit_code": 35,
+    "curl_http_code": "000",
+    "curl_error": "LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to csrc.nist.gov:443",
+    "note": "The landing-page curl failure does not negate the successful primary web read or successful direct downloads of its listed attachments. No successful local HTML snapshot is claimed."
+  },
+  "workbook": {
+    "url": "https://csrc.nist.gov/files/pubs/fips/203/final/docs/fips-203-potential-updates.xlsx",
+    "http_status": 200,
+    "http_response_date": "Thu, 08 Oct 2026 23:09:07 GMT",
+    "last_modified": "Mon, 17 Nov 2025 13:55:22 GMT",
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "bytes": 23849,
+    "sha256": "edf899c89762449f43d7713883caeefc2e4ae9ae98d5a76b339547db22cb3ac7",
+    "scratch_original": "build/aris-resume-20261009/official-source/fips-203-potential-updates.xlsx",
+    "workbook_property_modified_utc": "2025-11-17T13:47:51Z",
+    "worksheet_count": 1,
+    "worksheet_names": ["Sheet1"],
+    "worksheet_states": ["visible"],
+    "reported_used_dimension": "A1:H45",
+    "populated_cells": 29,
+    "populated_errata_rows": [16, 17],
+    "errata_entry_count": 2,
+    "populated_cells_after_row_17": 0,
+    "formula_count": 0,
+    "hidden_rows": 0,
+    "hidden_columns": 0,
+    "zip_crc_status": "passed",
+    "inspection": "Read-only openpyxl over all worksheets and independent ZIP/XML cell inventory; no workbook save, edit, recalculation, or formula execution.",
+    "correction_status": "The workbook states that these are potential corrections, do not add technical requirements, and are not official changes to the publication."
+  },
+  "pdf": {
+    "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf",
+    "http_status": 200,
+    "http_response_date": "Thu, 08 Oct 2026 23:10:15 GMT",
+    "last_modified": "Thu, 22 Aug 2024 13:49:17 GMT",
+    "content_type": "application/pdf",
+    "bytes": 1252341,
+    "sha256": "fe1f12f32a7e44ec9fdebbf400cda843a40b506dee676725234dc6f7923b6cac",
+    "scratch_original": "build/aris-resume-20261009/official-source/NIST.FIPS.203.pdf",
+    "page_count": 56,
+    "verified_locations": [
+      {"printed_page": 26, "physical_page_one_based": 35, "object": "Algorithms 9 and 10"},
+      {"printed_page": 31, "physical_page_one_based": 40, "object": "Algorithm 15"},
+      {"printed_page": 44, "physical_page_one_based": 53, "object": "Appendix A"}
+    ]
+  },
+  "fixed_portable_source": {
+    "upstream_snapshot_commit": "b3ba7b32773e657dd37f6f87bce82528459ad8a4",
+    "files": [
+      {"path": "vendor/mlkem-native/mlkem/src/poly.c", "sha256": "f0e0643a2c3743181b7927a9d47af0930ce7870a9d79671f64e6089fe028982e"},
+      {"path": "vendor/mlkem-native/mlkem/src/indcpa.c", "sha256": "deec4767a465d71656862d55c26a45775e9bf4328e0837c3cb2e23b6a06ea0ec"},
+      {"path": "vendor/mlkem-native/mlkem/src/zetas.inc", "sha256": "303d1abccc4757d49a5c8df5f88080fefef617b7360056db5311bd94354096d4"}
+    ],
+    "source_files_modified": false,
+    "entries": [
+      {
+        "workbook_range": "Sheet1!A16:D16",
+        "identified_date": "2025-03-31",
+        "location": "Appendix A",
+        "interpretation": "Add explanatory text about the index-zero table entry retained to align table positions with the stated exponent; the NTT algorithms use indices 1 through 127.",
+        "static_observation": "Forward NTT layers 1 through 7 read indices 2^(layer-1) through 2^layer-1. Inverse layers read the same positive-index ranges in reverse. The separate multiplication cache reads indices 64 through 127. These portable-C reads do not select table index zero.",
+        "source_locations": ["poly.c:399", "poly.c:414", "poly.c:447", "poly.c:493", "poly.c:501", "poly.c:551", "poly.c:288"],
+        "impact": "Clarifies the document's table layout. No source edit is indicated by this potential correction on the inspected portable-C path."
+      },
+      {
+        "workbook_range": "Sheet1!A17:D17",
+        "identified_date": "2025-10-17",
+        "location": "Section 5.3, Algorithm 15, line 7 comment",
+        "interpretation": "Change the explanatory comment's polynomial name from v to w; line 6 computes w and the line 7 expression already compresses w.",
+        "static_observation": "The fixed source subtracts sb from v in place, reduces that result, and passes the resulting difference polynomial to mlk_poly_tomsg. The local name v denotes the updated value at decoding time.",
+        "source_locations": ["indcpa.c:624", "indcpa.c:625", "indcpa.c:627"],
+        "impact": "Corrects a comment rather than the published executable mathematical expression. No source edit is indicated by this potential correction on the inspected portable-C path."
+      }
+    ]
+  },
+  "claim_scope": {
+    "official_workbook_current_snapshot_fully_read": true,
+    "all_snapshot_entries_statically_compared_to_fixed_portable_source": true,
+    "all_backends_compiler_artifacts_or_standard_clauses_covered": false,
+    "nist_module_or_algorithm_certification_established": false,
+    "constant_time_or_exploitability_established": false,
+    "cryptographic_or_timing_experiments_executed": false,
+    "future_workbook_updates_covered": false
+  },
+  "preservation_note": "Original downloads are currently scratch files in build/. Preserve byte-identical copies in a new evidence directory before using them as durable source artifacts; do not edit old sealed evidence or prior reports in place."
+}

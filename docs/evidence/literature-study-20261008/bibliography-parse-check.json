@@ -1,0 +1,1031 @@
+[
+  {
+    "DOI": "10.6028/NIST.FIPS.203",
+    "URL": "https://csrc.nist.gov/pubs/fips/203/final",
+    "author": [
+      {
+        "literal": "National Institute of Standards and Technology"
+      }
+    ],
+    "id": "nist203",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "note": "标准; accessed 2026-10-08",
+    "publisher": "FIPS 203",
+    "title": "Module-lattice-based key-encapsulation mechanism standard",
+    "type": ""
+  },
+  {
+    "DOI": "10.6028/NIST.SP.800-227",
+    "URL": "https://csrc.nist.gov/pubs/sp/800/227/final",
+    "author": [
+      {
+        "family": "Alagic",
+        "given": "Gorjan"
+      },
+      {
+        "family": "Barker",
+        "given": "Elaine"
+      },
+      {
+        "family": "Chen",
+        "given": "Lily"
+      },
+      {
+        "family": "Moody",
+        "given": "Dustin"
+      },
+      {
+        "family": "Robinson",
+        "given": "Angela"
+      },
+      {
+        "family": "Silberg",
+        "given": "Hamilton"
+      },
+      {
+        "family": "Waller",
+        "given": "Noah"
+      }
+    ],
+    "id": "nist227",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "标准指南; accessed 2026-10-08",
+    "publisher": "NIST SP 800-227",
+    "title": "Recommendations for key-encapsulation mechanisms",
+    "type": ""
+  },
+  {
+    "DOI": "10.1007/978-3-031-68379-4\\_12",
+    "URL": "https://link.springer.com/chapter/10.1007/978-3-031-68379-4\\_12",
+    "author": [
+      {
+        "family": "Almeida",
+        "given": "José Bacelar"
+      },
+      {
+        "family": "Olmos",
+        "given": "Santiago Arranz"
+      },
+      {
+        "family": "Barbosa",
+        "given": "Manuel"
+      },
+      {
+        "family": "Barthe",
+        "given": "Gilles"
+      },
+      {
+        "family": "Dupressoir",
+        "given": "François"
+      },
+      {
+        "family": "Grégoire",
+        "given": "Benjamin"
+      },
+      {
+        "family": "Laporte",
+        "given": "Vincent"
+      },
+      {
+        "family": "Léchenet",
+        "given": "Jean-Christophe"
+      },
+      {
+        "family": "Low",
+        "given": "Cameron"
+      },
+      {
+        "family": "Oliveira",
+        "given": "Tiago"
+      },
+      {
+        "family": "Pacheco",
+        "given": "Hugo"
+      },
+      {
+        "family": "Quaresma",
+        "given": "Miguel"
+      },
+      {
+        "family": "Schwabe",
+        "given": "Peter"
+      },
+      {
+        "family": "Strub",
+        "given": "Pierre-Yves"
+      }
+    ],
+    "container-title": "Lecture notes in computer science",
+    "id": "episodev",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "384-421",
+    "title": "Formally verifying kyber: Episode v: Machine-checked IND-CCA security and correctness of ML-KEM in EasyCrypt",
+    "title-short": "Formally verifying kyber",
+    "type": "paper-conference"
+  },
+  {
+    "URL": "https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/almeida",
+    "author": [
+      {
+        "family": "Almeida",
+        "given": "José Bacelar"
+      },
+      {
+        "family": "Barbosa",
+        "given": "Manuel"
+      },
+      {
+        "family": "Barthe",
+        "given": "Gilles"
+      },
+      {
+        "family": "Dupressoir",
+        "given": "François"
+      },
+      {
+        "family": "Emmi",
+        "given": "Michael"
+      }
+    ],
+    "container-title": "USENIX security 2016, pp.53–70",
+    "id": "ctverif",
+    "issued": {
+      "date-parts": [
+        [
+          2016
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "Verifying constant-time implementations",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1145/3133956.3134078",
+    "URL": "https://acmccs.github.io/papers/p1807-almeidaA.pdf",
+    "author": [
+      {
+        "family": "Almeida",
+        "given": "José Bacelar"
+      },
+      {
+        "family": "Barbosa",
+        "given": "Manuel"
+      },
+      {
+        "family": "Barthe",
+        "given": "Gilles"
+      },
+      {
+        "family": "Blot",
+        "given": "Arthur"
+      },
+      {
+        "family": "Grégoire",
+        "given": "Benjamin"
+      },
+      {
+        "family": "Laporte",
+        "given": "Vincent"
+      },
+      {
+        "family": "Oliveira",
+        "given": "Tiago"
+      },
+      {
+        "family": "Pacheco",
+        "given": "Hugo"
+      },
+      {
+        "family": "Schmidt",
+        "given": "Benedikt"
+      },
+      {
+        "family": "Strub",
+        "given": "Pierre-Yves"
+      }
+    ],
+    "container-title": "Proceedings of the 2017 ACM SIGSAC conference on computer and communications security",
+    "id": "jasmin",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "1807-1823",
+    "title": "Jasmin: High-assurance and high-speed cryptography",
+    "title-short": "Jasmin",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1109/SP40000.2020.00074",
+    "URL": "https://binsec.github.io/nutshells/sp-20.html",
+    "author": [
+      {
+        "family": "Daniel",
+        "given": "Lesly-Ann"
+      },
+      {
+        "family": "Bardin",
+        "given": "Sebastien"
+      },
+      {
+        "family": "Rezk",
+        "given": "Tamara"
+      }
+    ],
+    "container-title": "2020 IEEE symposium on security and privacy (SP)",
+    "id": "binsec",
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "1021-1038",
+    "title": "Binsec/rel: Efficient relational symbolic execution for constant-time at binary-level",
+    "title-short": "Binsec/rel",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1145/3708821.3733909",
+    "URL": "https://doi.org/10.1145/3708821.3733909",
+    "author": [
+      {
+        "family": "Schneider",
+        "given": "Moritz"
+      },
+      {
+        "family": "Lain",
+        "given": "Daniele"
+      },
+      {
+        "family": "Puddu",
+        "given": "Ivan"
+      },
+      {
+        "family": "Dutly",
+        "given": "Nicolas"
+      },
+      {
+        "family": "Capkun",
+        "given": "Srdjan"
+      }
+    ],
+    "container-title": "Proceedings of the 20th ACM asia conference on computer and communications security",
+    "id": "breakingbad",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "1690-1706",
+    "title": "Breaking bad: How compilers break constant-time implementations",
+    "title-short": "Breaking bad",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.48550/arXiv.2507.06112",
+    "URL": "https://arxiv.org/abs/2507.06112",
+    "author": [
+      {
+        "family": "Geimer",
+        "given": "Antoine"
+      },
+      {
+        "family": "Maurice",
+        "given": "Clementine"
+      }
+    ],
+    "id": "funflags",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "预印本; accessed 2026-10-08",
+    "publisher": "arXiv:2507.06112",
+    "title": "Fun with flags: How compilers break and fix constant-time code",
+    "title-short": "Fun with flags",
+    "type": ""
+  },
+  {
+    "URL": "https://eprint.iacr.org/2025/338",
+    "author": [
+      {
+        "family": "Zhang",
+        "given": "Zhiyuan"
+      },
+      {
+        "family": "Barthe",
+        "given": "Gilles"
+      }
+    ],
+    "id": "ctllvm",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "预印本; accessed 2026-10-08",
+    "publisher": "IACR ePrint 2025/338",
+    "title": "CT-LLVM: Automatic large-scale constant-time analysis",
+    "title-short": "CT-LLVM",
+    "type": ""
+  },
+  {
+    "URL": "https://www.usenix.org/conference/usenixsecurity26/presentation/jiang-qisheng",
+    "author": [
+      {
+        "family": "Jiang",
+        "given": "Qisheng"
+      },
+      {
+        "family": "Zhang",
+        "given": "Danfeng"
+      }
+    ],
+    "container-title": "USENIX security 2026, pp.5113–5132",
+    "id": "vect",
+    "issued": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "VeCT: Secure and efficient constant-time code rewriting with vector extensions",
+    "title-short": "VeCT",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.23919/DATE.2017.7927267",
+    "URL": "https://eprint.iacr.org/2016/1123",
+    "author": [
+      {
+        "family": "Reparaz",
+        "given": "Oscar"
+      },
+      {
+        "family": "Balasch",
+        "given": "Josep"
+      },
+      {
+        "family": "Verbauwhede",
+        "given": "Ingrid"
+      }
+    ],
+    "container-title": "Design, automation &amp; test in europe conference &amp; exhibition (DATE), 2017",
+    "id": "dudect",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "1697-1702",
+    "title": "Dude, is my code constant time?",
+    "type": "paper-conference"
+  },
+  {
+    "URL": "https://www.usenix.org/conference/usenixsecurity24/presentation/dunsche",
+    "author": [
+      {
+        "family": "Dunsche",
+        "given": "Martin"
+      },
+      {
+        "family": "Maehren",
+        "given": "Marcel"
+      },
+      {
+        "family": "Erinola",
+        "given": "Nurullah"
+      },
+      {
+        "family": "Merget",
+        "given": "Robert"
+      },
+      {
+        "family": "Bissantz",
+        "given": "Nicolai"
+      },
+      {
+        "family": "Somorovsky",
+        "given": "Juraj"
+      },
+      {
+        "family": "Schwenk",
+        "given": "Jörg"
+      }
+    ],
+    "container-title": "USENIX security 2024, pp.6687–6704",
+    "id": "rtlf",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "With great power come great side channels: Statistical timing side-channel analyses with bounded type-1 errors",
+    "title-short": "With great power come great side channels",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.48550/arXiv.2504.19821",
+    "URL": "https://arxiv.org/html/2504.19821v1",
+    "author": [
+      {
+        "family": "Dunsche",
+        "given": "Martin"
+      },
+      {
+        "family": "Bastian",
+        "given": "Patrick"
+      },
+      {
+        "family": "Maehren",
+        "given": "Marcel"
+      },
+      {
+        "family": "Erinola",
+        "given": "Nurullah"
+      },
+      {
+        "family": "Merget",
+        "given": "Robert"
+      },
+      {
+        "family": "Bissantz",
+        "given": "Nicolai"
+      },
+      {
+        "family": "Dette",
+        "given": "Holger"
+      },
+      {
+        "family": "Schwenk",
+        "given": "Jörg"
+      }
+    ],
+    "id": "silent",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "预印本; accessed 2026-10-08",
+    "publisher": "arXiv:2504.19821v1",
+    "title": "SILENT: A new lens on statistics in software timing side channels",
+    "title-short": "SILENT",
+    "type": ""
+  },
+  {
+    "URL": "https://eprint.iacr.org/2015/207",
+    "author": [
+      {
+        "family": "Schneider",
+        "given": "Tobias"
+      },
+      {
+        "family": "Moradi",
+        "given": "Amir"
+      }
+    ],
+    "container-title": "CHES 2015；ePrint修订2015/207",
+    "id": "leakageroadmap",
+    "issued": {
+      "date-parts": [
+        [
+          2015
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "Leakage assessment methodology - a clear roadmap for side-channel evaluations",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1007/s11749-017-0571-1",
+    "URL": "https://link.springer.com/article/10.1007/s11749-017-0571-1",
+    "author": [
+      {
+        "family": "Hemerik",
+        "given": "Jesse"
+      },
+      {
+        "family": "Goeman",
+        "given": "Jelle"
+      }
+    ],
+    "container-title": "TEST",
+    "id": "exact",
+    "issued": {
+      "date-parts": [
+        [
+          2018
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "811-825",
+    "title": "Exact testing with random permutations",
+    "type": "article-journal",
+    "volume": "27"
+  },
+  {
+    "DOI": "10.2202/1544-6115.1585",
+    "URL": "https://gksmyth.github.io/pubs/PermPValuesPreprint.pdf",
+    "author": [
+      {
+        "family": "Phipson",
+        "given": "Belinda"
+      },
+      {
+        "family": "Smyth",
+        "given": "Gordon K"
+      }
+    ],
+    "container-title": "Statistical Applications in Genetics and Molecular Biology",
+    "id": "phipson",
+    "issued": {
+      "date-parts": [
+        [
+          2010
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "Permutation p-values should never be zero: Calculating exact p-values when permutations are randomly drawn",
+    "title-short": "Permutation p-values should never be zero",
+    "type": "article-journal",
+    "volume": "9"
+  },
+  {
+    "DOI": "10.1016/j.neuroimage.2014.01.060",
+    "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4010955/",
+    "author": [
+      {
+        "family": "Winkler",
+        "given": "Anderson M."
+      },
+      {
+        "family": "Ridgway",
+        "given": "Gerard R."
+      },
+      {
+        "family": "Webster",
+        "given": "Matthew A."
+      },
+      {
+        "family": "Smith",
+        "given": "Stephen M."
+      },
+      {
+        "family": "Nichols",
+        "given": "Thomas E."
+      }
+    ],
+    "container-title": "NeuroImage",
+    "id": "winkler",
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "381-397",
+    "title": "Permutation inference for the general linear model",
+    "type": "article-journal",
+    "volume": "92"
+  },
+  {
+    "DOI": "10.1145/2464157.2464160",
+    "URL": "https://kar.kent.ac.uk/33611/",
+    "author": [
+      {
+        "family": "Kalibera",
+        "given": "Tomas"
+      },
+      {
+        "family": "Jones",
+        "given": "Richard"
+      }
+    ],
+    "container-title": "Proceedings of the 2013 international symposium on memory management",
+    "id": "kalibera",
+    "issued": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "63-74",
+    "title": "Rigorous benchmarking in reasonable time",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1145/1508244.1508275",
+    "URL": "https://sape.inf.usi.ch/publications/asplos09.html",
+    "author": [
+      {
+        "family": "Mytkowicz",
+        "given": "Todd"
+      },
+      {
+        "family": "Diwan",
+        "given": "Amer"
+      },
+      {
+        "family": "Hauswirth",
+        "given": "Matthias"
+      },
+      {
+        "family": "Sweeney",
+        "given": "Peter F."
+      }
+    ],
+    "container-title": "Proceedings of the 14th international conference on architectural support for programming languages and operating systems",
+    "id": "mytkowicz",
+    "issued": {
+      "date-parts": [
+        [
+          2009
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "265-276",
+    "title": "Producing wrong data without doing anything obviously wrong!",
+    "type": "paper-conference"
+  },
+  {
+    "URL": "https://crocs.fi.muni.cz/public/papers/usablect\\_sp22",
+    "author": [
+      {
+        "family": "Jancar",
+        "given": "Jan"
+      },
+      {
+        "family": "Fourné",
+        "given": "Marcel"
+      },
+      {
+        "family": "Braga",
+        "given": "Daniel De Almeida"
+      },
+      {
+        "family": "Sabt",
+        "given": "Mohamed"
+      },
+      {
+        "family": "Schwabe",
+        "given": "Peter"
+      },
+      {
+        "family": "Barthe",
+        "given": "Gilles"
+      },
+      {
+        "family": "Fouque",
+        "given": "Pierre-Alain"
+      },
+      {
+        "family": "Acar",
+        "given": "Yasemin"
+      }
+    ],
+    "container-title": "IEEE symposium on security and privacy 2022",
+    "id": "jancar",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "They’re not that hard to mitigate: What cryptographic library developers think about timing attacks",
+    "title-short": "They’re not that hard to mitigate",
+    "type": "paper-conference"
+  },
+  {
+    "URL": "https://www.usenix.org/conference/usenixsecurity24/presentation/fourne",
+    "author": [
+      {
+        "family": "Fourné",
+        "given": "Marcel"
+      },
+      {
+        "family": "Braga",
+        "given": "Daniel De Almeida"
+      },
+      {
+        "family": "Jancar",
+        "given": "Jan"
+      },
+      {
+        "family": "Sabt",
+        "given": "Mohamed"
+      },
+      {
+        "family": "Schwabe",
+        "given": "Peter"
+      },
+      {
+        "family": "Barthe",
+        "given": "Gilles"
+      },
+      {
+        "family": "Fouque",
+        "given": "Pierre-Alain"
+      },
+      {
+        "family": "Acar",
+        "given": "Yasemin"
+      }
+    ],
+    "container-title": "USENIX security 2024, pp.6705–6722",
+    "id": "fourne",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "These results must be false: A usability evaluation of constant-time analysis tools",
+    "title-short": "These results must be false",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.1145/3576915.3623112",
+    "URL": "https://arxiv.org/abs/2310.08153",
+    "author": [
+      {
+        "family": "Geimer",
+        "given": "Antoine"
+      },
+      {
+        "family": "Vergnolle",
+        "given": "Mathéo"
+      },
+      {
+        "family": "Recoules",
+        "given": "Frédéric"
+      },
+      {
+        "family": "Daniel",
+        "given": "Lesly-Ann"
+      },
+      {
+        "family": "Bardin",
+        "given": "Sébastien"
+      },
+      {
+        "family": "Maurice",
+        "given": "Clémentine"
+      }
+    ],
+    "container-title": "ACM CCS 2023, pp.1690–1704",
+    "id": "evaluation",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "title": "A systematic evaluation of automated tools for side-channel vulnerabilities detection in cryptographic libraries",
+    "type": "paper-conference"
+  },
+  {
+    "DOI": "10.46586/tches.v2025.i2.209-234",
+    "URL": "https://kyberslash.cr.yp.to/papers.html",
+    "author": [
+      {
+        "family": "Bernstein",
+        "given": "Daniel J."
+      },
+      {
+        "family": "Bhargavan",
+        "given": "Karthikeyan"
+      },
+      {
+        "family": "Bhasin",
+        "given": "Shivam"
+      },
+      {
+        "family": "Chattopadhyay",
+        "given": "Anupam"
+      },
+      {
+        "family": "Chia",
+        "given": "Tee Kiah"
+      },
+      {
+        "family": "Kannwischer",
+        "given": "Matthias J."
+      },
+      {
+        "family": "Kiefer",
+        "given": "Franziskus"
+      },
+      {
+        "family": "Paiva",
+        "given": "Thales B."
+      },
+      {
+        "family": "Ravi",
+        "given": "Prasanna"
+      },
+      {
+        "family": "Tamvada",
+        "given": "Goutam"
+      }
+    ],
+    "container-title": "IACR Transactions on Cryptographic Hardware and Embedded Systems",
+    "id": "kyberslash",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "同行评审; accessed 2026-10-08",
+    "page": "209-234",
+    "title": "KyberSlash: Exploiting secret-dependent division timings in kyber implementations",
+    "title-short": "KyberSlash",
+    "type": "article-journal",
+    "volume": "2025"
+  },
+  {
+    "URL": "https://github.com/pq-code-package/mlkem-native/blob/b3ba7b32773e657dd37f6f87bce82528459ad8a4/SOUNDNESS.md",
+    "author": [
+      {
+        "literal": "pq-code-package contributors"
+      }
+    ],
+    "id": "native",
+    "issued": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    },
+    "note": "项目技术文档; accessed 2026-10-08",
+    "publisher": "固定提交b3ba7b32773e657dd37f6f87bce82528459ad8a4",
+    "title": "Mlkem-native: Formal verification in mlkem-native: Scope, assumptions, risks",
+    "title-short": "Mlkem-native",
+    "type": ""
+  },
+  {
+    "URL": "https://github.com/scipy/scipy/blob/v1.16.3/scipy/stats/\\_resampling.py",
+    "author": [
+      {
+        "literal": "SciPy developers"
+      }
+    ],
+    "id": "scipy",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "软件文档; accessed 2026-10-08",
+    "publisher": "SciPy v1.16.3源代码；v1.16.2 API文档",
+    "title": "SciPy permutation_test documentation and versioned implementation",
+    "type": ""
+  },
+  {
+    "URL": "https://github.com/antoonpurnal/clangover",
+    "author": [
+      {
+        "family": "Purnal",
+        "given": "Antoon"
+      }
+    ],
+    "id": "clangover",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "note": "项目技术文档; accessed 2026-10-08",
+    "publisher": "作者仓库，固定提交7f4d5dc162b77c362a34a0d52949f7a3e1b16d81",
+    "title": "Clangover: Compiler-induced timing behavior in kyber",
+    "title-short": "Clangover",
+    "type": ""
+  },
+  {
+    "URL": "https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/best-practices/data-operand-independent-timing-isa-guidance.html",
+    "author": [
+      {
+        "literal": "Intel"
+      }
+    ],
+    "id": "intel",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "厂商技术指南; accessed 2026-10-08",
+    "publisher": "Intel Software Security Guidance，2025-09-10更新",
+    "title": "Data operand independent timing ISA guidance",
+    "type": ""
+  },
+  {
+    "URL": "https://security.apple.com/blog/formal-verification-corecrypto/",
+    "author": [
+      {
+        "literal": "Apple Security Engineering and Architecture and Hardware Technologies Formal Verification"
+      }
+    ],
+    "id": "apple",
+    "issued": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    },
+    "note": "厂商技术报告; accessed 2026-10-08",
+    "publisher": "Apple Security Research，2026-05-22",
+    "title": "A blueprint for formal verification of apple corecrypto",
+    "type": ""
+  },
+  {
+    "URL": "https://blog.trailofbits.com/2025/12/02/introducing-constant-time-support-for-llvm-to-protect-cryptographic-code/",
+    "author": [
+      {
+        "family": "Alexandre",
+        "given": "Julius"
+      }
+    ],
+    "id": "llvmct",
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "note": "开发者技术报告; accessed 2026-10-08",
+    "publisher": "Trail of Bits，2025-12-02",
+    "title": "Introducing constant-time support for LLVM to protect cryptographic code",
+    "type": ""
+  }
+]

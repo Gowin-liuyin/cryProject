@@ -1,0 +1,163 @@
+{
+  "audit_kind": "same_model_independent_read_only_four_member_reading_precision_delta_and_exact_final_zip_review",
+  "timestamp_utc": "2026-10-08T15:11:38.256243+00:00",
+  "prior_zip_sha256": "a41b58ed328a8d72f94edb9926602d52c9a11d8da2b3356db4a4fac2dba0f485",
+  "current_zip_sha256": "59b858391d21392e3725e01791b8b877f942599ccce46d323aacc22d109cf9ee",
+  "new_cryptographic_calls": 0,
+  "statistics_reexecuted": false,
+  "new_experiments_executed": false,
+  "source_code_executed": false,
+  "visual_rerender_performed": false,
+  "previous_PASS_backfilled": false,
+  "full_goal_complete": false,
+  "r02_closed": false,
+  "r04_closed": false,
+  "checks": [
+    {
+      "check": "prior_a41_is_exact_preserved_baseline",
+      "passed": true,
+      "sha256": "a41b58ed328a8d72f94edb9926602d52c9a11d8da2b3356db4a4fac2dba0f485",
+      "entries": 594
+    },
+    {
+      "check": "current_final_exact_identity",
+      "passed": true,
+      "sha256": "59b858391d21392e3725e01791b8b877f942599ccce46d323aacc22d109cf9ee",
+      "bytes": 15090897,
+      "entries": 594
+    },
+    {
+      "check": "current_final_CRC_safe_unique_and_594_payload_byte_match",
+      "passed": true
+    },
+    {
+      "check": "exact_four_changed_members_and_590_identical",
+      "passed": true,
+      "changed_members": [
+        "SHA256SUMS",
+        "data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html",
+        "data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md",
+        "manifest.json"
+      ],
+      "unchanged_members": 590
+    },
+    {
+      "check": "exact_once_phrase_swap_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md_80",
+      "passed": true
+    },
+    {
+      "check": "exact_once_phrase_swap_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md_24",
+      "passed": true
+    },
+    {
+      "check": "only_two_semantic_phrase_changes_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md",
+      "passed": true
+    },
+    {
+      "check": "numeric_literals_and_formula_tokens_unchanged_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md",
+      "passed": true
+    },
+    {
+      "check": "exact_once_phrase_swap_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html_80",
+      "passed": true
+    },
+    {
+      "check": "exact_once_phrase_swap_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html_24",
+      "passed": true
+    },
+    {
+      "check": "only_two_semantic_phrase_changes_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html",
+      "passed": true
+    },
+    {
+      "check": "numeric_literals_and_formula_tokens_unchanged_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html",
+      "passed": true
+    },
+    {
+      "check": "manifest_only_two_reading_view_records_updated",
+      "passed": true,
+      "changed_records": [
+        "data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html",
+        "data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md"
+      ]
+    },
+    {
+      "check": "all_manifest_distributed_SHA_and_lengths",
+      "passed": true,
+      "entries": 592,
+      "mismatches": []
+    },
+    {
+      "check": "all_physical_source_SHA_and_lengths",
+      "passed": true,
+      "verified": 578,
+      "generated_without_source_digest": 14,
+      "mismatches": []
+    },
+    {
+      "check": "SHA256SUMS_593_full_file_closure_and_digests",
+      "passed": true,
+      "hash_entries": 593
+    },
+    {
+      "check": "outer_DOCX_PDF_manifest_equal_payload_and_ZIP",
+      "passed": true
+    },
+    {
+      "check": "clock_phrase_matches_frozen_contract_C_formula_and_saved_qualification",
+      "passed": true,
+      "C_source_read_only": true,
+      "calibration_recomputed": false
+    },
+    {
+      "check": "source_alias_phrase_matches_preserved_qualification_not_git",
+      "passed": true
+    },
+    {
+      "check": "raw_historical_pending_and_incomplete_claims_preserved",
+      "passed": true
+    },
+    {
+      "check": "reports_raw_numeric_inputs_qualification_contract_and_original_review_bytes_unchanged",
+      "passed": true
+    },
+    {
+      "check": "changed_reading_views_and_manifest_no_known_private_identity",
+      "passed": true
+    },
+    {
+      "check": "all_649_local_links_continue_valid",
+      "passed": true,
+      "local_links": 649,
+      "external_reference_links": 54,
+      "fragment_links": 0,
+      "missing": [],
+      "outside": []
+    },
+    {
+      "check": "native_math_and_scriptless_local_runtime_preserved",
+      "passed": true,
+      "html_files": 22,
+      "mathml_objects": 116,
+      "script_or_event_files": [],
+      "remote_runtime_resource_files": []
+    },
+    {
+      "check": "prior_review_records_not_edited_or_backfilled",
+      "passed": true,
+      "prior_records_sha256": {
+        "review-payload.md": "048a25aaa191d57080382fb0cb0328b990f6e527ac22d0f1f009e9972cde282a",
+        "review-final-zip.md": "a254c406efc97227c215be6d32a97dd9d4091862f4cd50b179ad9d11b9022d3d",
+        "review-payload-verification.json": "413f55a4cca982a1423deb0c2f7fe6f5a1b6615ea0de300bbbe58665e183abb9"
+      },
+      "prior_records_apply_only_to": "a41b58ed328a8d72f94edb9926602d52c9a11d8da2b3356db4a4fac2dba0f485"
+    },
+    {
+      "check": "current_final_and_prior_identity_stable_at_end",
+      "passed": true
+    }
+  ],
+  "passed_checks": 26,
+  "total_checks": 26,
+  "status": "passed_for_exact_reading_precision_final_zip"
+}

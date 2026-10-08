@@ -1,0 +1,45 @@
+Change Dir: '/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal'
+
+Run Build Command(s): /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile
+/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -S/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost -B/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal --check-build-system CMakeFiles/Makefile.cmake 0
+/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_progress_start /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal//CMakeFiles/progress.marks
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/Makefile2 all
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/incremental_snapshot.dir/build.make CMakeFiles/incremental_snapshot.dir/depend
+cd /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_depends "Unix Makefiles" /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/incremental_snapshot.dir/DependInfo.cmake "--color=" incremental_snapshot
+Dependencies file "CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o.d" is newer than depends file "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/incremental_snapshot.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target incremental_snapshot
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/incremental_snapshot.dir/build.make CMakeFiles/incremental_snapshot.dir/build
+make[2]: Nothing to be done for `CMakeFiles/incremental_snapshot.dir/build'.
+[ 20%] Built target incremental_snapshot
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/naive_snapshot.dir/build.make CMakeFiles/naive_snapshot.dir/depend
+cd /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_depends "Unix Makefiles" /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/naive_snapshot.dir/DependInfo.cmake "--color=" naive_snapshot
+Dependencies file "CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o.d" is newer than depends file "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/naive_snapshot.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target naive_snapshot
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/naive_snapshot.dir/build.make CMakeFiles/naive_snapshot.dir/build
+make[2]: Nothing to be done for `CMakeFiles/naive_snapshot.dir/build'.
+[ 40%] Built target naive_snapshot
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/paired_snapshot.dir/build.make CMakeFiles/paired_snapshot.dir/depend
+cd /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_depends "Unix Makefiles" /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/paired_snapshot.dir/DependInfo.cmake "--color=" paired_snapshot
+Dependencies file "CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o.d" is newer than depends file "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/paired_snapshot.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target paired_snapshot
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/paired_snapshot.dir/build.make CMakeFiles/paired_snapshot.dir/build
+make[2]: Nothing to be done for `CMakeFiles/paired_snapshot.dir/build'.
+[ 60%] Built target paired_snapshot
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/update_cost.dir/build.make CMakeFiles/update_cost.dir/depend
+cd /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_depends "Unix Makefiles" /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal /Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/update_cost.dir/DependInfo.cmake "--color=" update_cost
+Dependencies file "CMakeFiles/update_cost.dir/update_cost.c.o.d" is newer than depends file "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal/CMakeFiles/update_cost.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target update_cost
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/update_cost.dir/build.make CMakeFiles/update_cost.dir/build
+[ 80%] Building C object CMakeFiles/update_cost.dir/update_cost.c.o
+/usr/bin/cc -DUPDATE_COST_SANITIZERS=0 -I/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots -std=c11 -arch arm64 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/update_cost.dir/update_cost.c.o -MF CMakeFiles/update_cost.dir/update_cost.c.o.d -o CMakeFiles/update_cost.dir/update_cost.c.o -c /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/update_cost.c
+/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/update_cost.c:578:9: error: redefinition of 'has_valid_result'
+  578 |     int has_valid_result =
+      |         ^
+/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/update_cost.c:552:9: note: previous definition is here
+  552 |     int has_valid_result = 0;
+      |         ^
+1 error generated.
+make[2]: *** [CMakeFiles/update_cost.dir/update_cost.c.o] Error 1
+make[1]: *** [CMakeFiles/update_cost.dir/all] Error 2
+make: *** [all] Error 2
+

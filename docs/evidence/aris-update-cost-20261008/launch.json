@@ -1,0 +1,16 @@
+{
+  "attempt": 1,
+  "phase": "about_to_start",
+  "utc": "2026-10-08T12:06:29.992240+00:00",
+  "arguments": [
+    "/Users/yin/code/cryProject/docs/evidence/aris-update-cost-20261008/measured-update_cost",
+    "/Users/yin/code/cryProject/docs/evidence/controlled-comparison-20261007",
+    "/Users/yin/code/cryProject/docs/evidence/aris-update-cost-20261008/run"
+  ],
+  "review_verdict": "ready_for_one_bounded_math_run",
+  "ordinary_binary_sha256": "79dc6ba9b890fd136a62a1a1b1d9dddbfd77aaf8b14c8a963527db38155cef9b",
+  "management_budget_ns": 30000000000,
+  "timer_and_statistics_implementation": "C11",
+  "new_cryptographic_calls": 0,
+  "rerun_for_better_result_allowed": false
+}

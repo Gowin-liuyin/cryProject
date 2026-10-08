@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal",
+  "command": "/usr/bin/cc -DUPDATE_COST_SANITIZERS=0 -Dcompute_controlled_result=compute_incremental_controlled_result -I/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots -std=c11 -arch arm64 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o -c /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots/controlled_snapshot.c",
+  "file": "/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots/controlled_snapshot.c",
+  "output": "CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal",
+  "command": "/usr/bin/cc -DUPDATE_COST_SANITIZERS=0 -Dcompute_controlled_result=compute_naive_controlled_result -I/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots -std=c11 -arch arm64 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o -c /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots/naive_snapshot.c",
+  "file": "/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots/naive_snapshot.c",
+  "output": "CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal",
+  "command": "/usr/bin/cc -DUPDATE_COST_SANITIZERS=0 -I/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots -std=c11 -arch arm64 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o -c /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots/paired_statistics_snapshot.c",
+  "file": "/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots/paired_statistics_snapshot.c",
+  "output": "CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/aris-research-20261008/update-cost-normal",
+  "command": "/usr/bin/cc -DUPDATE_COST_SANITIZERS=0 -I/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/snapshots -std=c11 -arch arm64 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/update_cost.dir/update_cost.c.o -c /Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/update_cost.c",
+  "file": "/Users/yin/code/cryProject/docs/research/aris-20261008/update-cost/update_cost.c",
+  "output": "CMakeFiles/update_cost.dir/update_cost.c.o"
+}
+]

@@ -1,0 +1,2627 @@
+{
+  "audit_kind": "same_model_independent_read_only_package_closure_and_claim_boundary_review",
+  "audit_timestamp_utc": "2026-10-08T14:01:47.867494+00:00",
+  "scope": "new_payload_and_exact_v3_math_cost_added_zip_only",
+  "new_cryptographic_calls": 0,
+  "statistics_reexecuted": false,
+  "new_experiment_or_formula_calculation": false,
+  "visual_rerender_performed": false,
+  "full_goal_signed_off": false,
+  "r02_closed": false,
+  "r04_closed": false,
+  "checks": [
+    {
+      "check": "payload_and_manifest_closure",
+      "passed": true,
+      "manifest_entries": 592,
+      "payload_files": 594
+    },
+    {
+      "check": "safe_paths_no_symlinks",
+      "passed": true
+    },
+    {
+      "check": "allowed_types_no_sources_commands_logs_or_executables",
+      "passed": true,
+      "type_counts": {
+        ".html": 22,
+        ".css": 1,
+        ".md": 12,
+        ".json": 7,
+        "SHA256SUMS": 1,
+        ".bib": 1,
+        ".docx": 1,
+        ".pdf": 1,
+        ".tsv": 9,
+        ".csv": 138,
+        ".meta": 120,
+        ".report": 215,
+        ".plan": 12,
+        ".cost": 54
+      }
+    },
+    {
+      "check": "all_manifest_distributed_digests_and_lengths",
+      "passed": true,
+      "matched": 592,
+      "mismatch_paths": []
+    },
+    {
+      "check": "all_physical_source_digests_and_lengths",
+      "passed": true,
+      "verified": 578,
+      "generated_without_original_digest": 14,
+      "mismatch_paths": []
+    },
+    {
+      "check": "sha_path_README.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/deployable-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/hardened-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/reference-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/mechanism/vulnerable-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/attempts.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-deployable-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-hardened-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/ordinary-reference-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/performance/performance.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/B01_RYZEN/step-exits.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-1.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-2.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-3.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-4.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-5.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-6.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-7.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-7.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-8.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/inputs/task-8.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/attempts.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/comparison.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-1-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-1-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-1-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-1-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-1-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-1-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-2-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-2-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-2-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-2-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-2-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-2-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-3-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-3-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-3-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-3-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-3-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-3-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-4-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-4-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-4-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-4-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-4-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-4-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-5-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-5-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-5-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-5-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-5-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-5-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-6-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-6-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-6-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-6-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-6-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-6-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-7-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-7-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-7-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-7-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-7-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-7-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-8-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-8-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-8-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-8-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-8-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C01/results/task-8-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_equal-0.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_equal-0.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_equal-0.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_equal-1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_equal-1.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_equal-1.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_graded-0.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_graded-0.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_graded-0.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_graded-1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_graded-1.plan",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/common_graded-1.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/raw.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C02/model/summary.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/attempts.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/comparison.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-1-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-1-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-1-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-1-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-1-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-1-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-2-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-2-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-2-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-2-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-2-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-2-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-3-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-3-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-3-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-3-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-3-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-3-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-4-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-4-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-4-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-4-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-4-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-4-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-5-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-5-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-5-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-5-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-5-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-5-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-6-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-6-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-6-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-6-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-6-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-6-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-7-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-7-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-7-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-7-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-7-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-7-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-8-r1-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-8-r1-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-8-r2-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-8-r2-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-8-r3-baseline.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C03/results/task-8-r3-candidate.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C04/control/raw.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C04/control/selected.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C04/control/summary.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/C04/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/attempts.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-deployable-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-hardened-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/ordinary-reference-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/E02/performance/performance.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/deployable-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/hardened-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/multiseed-summary.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/reference-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/confirmation/vulnerable-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-deployable.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-deployable.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-deployable.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-deployable.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-hardened.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-hardened.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-hardened.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-hardened.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-reference.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-reference.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-reference.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-reference.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-vulnerable.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-vulnerable.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-vulnerable.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/H01_ARM/motivation/motivation-seed777-vulnerable.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/CODE_REVIEW.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/CODE_REVIEW.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/RESULT_REVIEW.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/RESULT_REVIEW.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/UPDATE_COST_CONTRACT.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/UPDATE_COST_CONTRACT.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/UPDATE_COST_RESULTS.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/failures.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/final-state.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/initial-state.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/input-map.json",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/input-records.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/pairs.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/qualification.json",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/raw-clock.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/raw-times.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/summary.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/M01_UPDATE_COST/verification.json",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/attempts.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-deployable-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-hardened-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block1.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block1.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block1.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block2.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block2.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block2.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block3.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block3.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block3.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block4.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block4.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block4.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block5.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block5.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block5.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block6.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block6.csv.cost",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/ordinary-reference-block6.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/N01/performance/performance.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/deployable-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/hardened-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/reference-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed141421356.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed141421356.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed141421356.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed141421356.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed20261111.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed20261111.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed20261111.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed20261111.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed31337.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed31337.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed31337.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed31337.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed8675309.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed8675309.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed8675309.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed8675309.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed90210.csv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed90210.groups.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed90210.meta",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/raw/vulnerable-seed90210.report",
+      "passed": true
+    },
+    {
+      "check": "sha_path_data/R07/step-exits.tsv",
+      "passed": true
+    },
+    {
+      "check": "sha_path_index.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_manifest.json",
+      "passed": true
+    },
+    {
+      "check": "sha_path_reader.css",
+      "passed": true
+    },
+    {
+      "check": "sha_path_report/CACR2026EA16XZ-作品设计报告.docx",
+      "passed": true
+    },
+    {
+      "check": "sha_path_report/CACR2026EA16XZ-作品设计报告.pdf",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/CLAIMS_FROM_RESULTS.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/CLAIMS_FROM_RESULTS.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/DEEP_READING.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/DEEP_READING.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/FINITE_REFERENCE_BOUNDARY.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/FINITE_REFERENCE_BOUNDARY.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/LITERATURE_DELTA.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/LITERATURE_DELTA.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/PROOF_PACKAGE.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/PROOF_PACKAGE.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/STANDARD_CONSISTENCY.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/STANDARD_CONSISTENCY.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/SUPPORT_PACKAGE_CONTRACT.html",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/SUPPORT_PACKAGE_CONTRACT.md",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/references.bib",
+      "passed": true
+    },
+    {
+      "check": "sha_path_research/references.json",
+      "passed": true
+    },
+    {
+      "check": "sha_path_verification/data-validation.json",
+      "passed": true
+    },
+    {
+      "check": "sha_path_verification/report-validation.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256SUMS_closure",
+      "passed": true,
+      "hash_entries": 593
+    },
+    {
+      "check": "SHA256SUMS_all_bytes",
+      "passed": true
+    },
+    {
+      "check": "old_v2_identity_and_crc",
+      "passed": true,
+      "sha256": "f203f5407ad3850c089f389a5d3dd5e490a9517eb79d4e6ba5b44b6f0acdf93d",
+      "entries": 574
+    },
+    {
+      "check": "all_nine_old_groups_byte_unchanged",
+      "passed": true,
+      "old_data_files": 540,
+      "identical_files": 540
+    },
+    {
+      "check": "old_numeric_files_preserved",
+      "passed": true,
+      "original_numeric_files": 141
+    },
+    {
+      "check": "old_groups_manifest_records_unchanged",
+      "passed": true
+    },
+    {
+      "check": "M01_original_five_csv_two_meta_and_audit_json",
+      "passed": true,
+      "original_records": 8
+    },
+    {
+      "check": "all_24_inputs_original_saved_copy_old_v2_and_current_C01",
+      "passed": true,
+      "items": 24,
+      "tasks": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3,
+        "7": 3,
+        "8": 3
+      },
+      "mismatch_paths": []
+    },
+    {
+      "check": "duplicate_zero_tasks_retained_without_new_independent_inputs",
+      "passed": true
+    },
+    {
+      "check": "anonymous_TSV_only_path_changes",
+      "passed": true,
+      "preserved_fields": [
+        "assignment_count",
+        "nonzero_pair_count",
+        "tail_count",
+        "task"
+      ],
+      "changed_path_fields": [
+        "csv_path",
+        "expectation_path",
+        "plan_path"
+      ]
+    },
+    {
+      "check": "historical_pending_external_not_rewritten",
+      "passed": true
+    },
+    {
+      "check": "new_source_origin_not_claimed_prior_sealed",
+      "passed": true
+    },
+    {
+      "check": "source_alias_not_git_and_software_package_distinct",
+      "passed": true
+    },
+    {
+      "check": "qualification_source_record_digests",
+      "passed": true,
+      "external_record_digests_checked": 33
+    },
+    {
+      "check": "scope_preserves_incomplete_R02_R04_and_no_software_rebuild",
+      "passed": true
+    },
+    {
+      "check": "local_HTML_Markdown_CSS_links_and_HTML_anchors",
+      "passed": true,
+      "local_links": 649,
+      "fragment_links": 0,
+      "external_reference_links": 54,
+      "missing": [],
+      "outside": []
+    },
+    {
+      "check": "no_runtime_scripts_and_native_math",
+      "passed": true,
+      "runtime_script_or_event_count": 0,
+      "native_mathml_objects": 116,
+      "html_files": 22,
+      "duplicate_ids_files": []
+    },
+    {
+      "check": "report_OOXML_crc",
+      "passed": true,
+      "parts": 41
+    },
+    {
+      "check": "report_native_formula_count",
+      "passed": true,
+      "math_objects": 62
+    },
+    {
+      "check": "report_no_embedded_program_parts",
+      "passed": true
+    },
+    {
+      "check": "report_hidden_owner_metadata_removed",
+      "passed": true,
+      "XML_and_relationship_parts_parsed": 21
+    },
+    {
+      "check": "report_PDF_page_count_and_metadata",
+      "passed": true,
+      "pages": 42,
+      "author_absent": true
+    },
+    {
+      "check": "PDF_no_embedded_files_or_javascript",
+      "passed": true
+    },
+    {
+      "check": "whole_text_XML_relationship_PDF_identity_scan",
+      "passed": true,
+      "scanned_text_or_decoded_parts": 657,
+      "matched_categories": [],
+      "git_identifiers_compared": 124
+    },
+    {
+      "check": "report_and_PDF_expected_bytes",
+      "passed": true,
+      "report_sha256": "d2370eeeed170e7eea3c8092b2f7e0b6c7ba419aff080d7fb9cbca77fd405782",
+      "pdf_sha256": "fa1b1cfa7e509b350b187ba2338409889cd4cf7ae0e5af452afd10eaf82b2966"
+    },
+    {
+      "check": "report_abstract_A2_complete_eight_rows_and_limits",
+      "passed": true,
+      "table_A2_PDF_page": 41,
+      "visual_review_rerun": false
+    },
+    {
+      "check": "new_exact_ZIP_digest_size_and_count",
+      "passed": true,
+      "sha256": "a41b58ed328a8d72f94edb9926602d52c9a11d8da2b3356db4a4fac2dba0f485",
+      "bytes": 15090778,
+      "entries": 594
+    },
+    {
+      "check": "new_ZIP_crc_safe_paths_unique_and_payload_bytes",
+      "passed": true,
+      "CRC_passed": true
+    },
+    {
+      "check": "new_ZIP_outer_report_PDF_manifest_match",
+      "passed": true
+    },
+    {
+      "check": "old_v2_unchanged_after_final_ZIP_review",
+      "passed": true
+    },
+    {
+      "check": "full_event_attribute_active_content_and_remote_resource_absence",
+      "passed": true,
+      "active_content_files": [],
+      "external_runtime_resource_files": []
+    },
+    {
+      "check": "plain_text_record_files_have_no_executable_magic_or_nul_bytes",
+      "passed": true,
+      "unexpected_magic_files": []
+    },
+    {
+      "check": "report_all_author_user_attributes_docvars_comments_and_external_relationships",
+      "passed": true,
+      "owner_attribute_parts": [],
+      "docvar_comment_person_parts": [],
+      "external_relationship_parts": [],
+      "drawing_extLst_role": "standard_useLocalDpi_not_private_identity"
+    }
+  ],
+  "status": "passed_for_package_closure",
+  "passed_checks": 631,
+  "total_checks": 631
+}

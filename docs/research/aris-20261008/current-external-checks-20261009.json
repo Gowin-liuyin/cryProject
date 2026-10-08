@@ -1,0 +1,37 @@
+{
+  "checked_utc": "2026-10-08T16:43:27.127315+00:00",
+  "github_verified_email_read": {
+    "exit_code": 1,
+    "http_status": 404,
+    "required_scope_missing": "user",
+    "new_scope_requested": false
+  },
+  "kvm_read_only_ssh": {
+    "exit_code": 255,
+    "result": "connection_closed_by_known_host",
+    "new_experiment_started": false
+  },
+  "baremetal_read_only_ssh": {
+    "exit_code": 255,
+    "result": "publickey_password_authentication_denied",
+    "new_experiment_started": false
+  },
+  "nist_errata_workbook": {
+    "url": "https://csrc.nist.gov/files/pubs/fips/203/final/docs/fips-203-potential-updates.xlsx",
+    "http_status": 403,
+    "content_type": "text/plain; charset=UTF-8",
+    "body_bytes": 17,
+    "workbook_obtained": false
+  },
+  "human_approval_or_signed_artifacts_received": false,
+  "no_current_live_experiment_handles": true,
+  "new_cryptographic_calls": 0,
+  "complete_goal_proven": false,
+  "actual_tool_output_record": "external-check-tool-output-20261009.md",
+  "read_only_blocked_review": "blocked_audit_supported",
+  "latest_three_goal_turns_classification": [
+    "progress",
+    "progress",
+    "progress"
+  ]
+}

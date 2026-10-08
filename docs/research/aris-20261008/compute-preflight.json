@@ -1,0 +1,13 @@
+{
+  "target": "local_cpu_only",
+  "task": "archived_data_packaging_and_arithmetic_validation",
+  "architecture": "arm64",
+  "os": "Darwin",
+  "cpu_count": 10,
+  "memory_bytes": 17179869184,
+  "free_disk_bytes": 199696551936,
+  "minimum_free_disk_bytes": 536870912,
+  "gpu_required": false,
+  "cryptographic_calls": 0,
+  "available": true
+}

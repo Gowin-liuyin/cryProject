@@ -1,0 +1,145 @@
+{
+  "contract": {
+    "path": "docs/research/aris-20261008/UPDATE_COST_CONTRACT.md",
+    "sha256": "e7a9bb1fa896764c94fccb207561a1295c99e630f13f5a224d77558d59c86325"
+  },
+  "ordinary_binary": {
+    "path": "build/aris-research-20261008/update-cost-normal/update_cost",
+    "sha256": "79dc6ba9b890fd136a62a1a1b1d9dddbfd77aaf8b14c8a963527db38155cef9b"
+  },
+  "production_source": {
+    "path": "src/controlled_statistics.c",
+    "sha256": "a6dfcecab1035da729ce1cd4c2e54a24553b375b65b29857bac91b1e7a76ceb6"
+  },
+  "observer_source": {
+    "path": "docs/research/aris-20261008/update-cost/update_cost.c",
+    "sha256": "f2793f9170ee9d519872f60b79844c804e13345a5cba4c2e81c48a182cb087d9"
+  },
+  "inputs": [
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-1.csv",
+      "sha256": "cebb397427902f145777cff91ed40d8078521d562fb82ec7a5265030047edfb8",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-1.plan",
+      "sha256": "7203a496753b1d6de2d3af93e1738f1848e1f1a77cd3305231f3d475165e5ee9",
+      "bytes": 379
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-1-r1-baseline.report",
+      "sha256": "1a28e17999006ee5d38f5976b083fc4323d76aa556d56502895ccec84eaf3f61",
+      "bytes": 164
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-2.csv",
+      "sha256": "b5774d56f1ba617d0d52dc26e4e978370d1f86fe4a2eb608044641e96d328a37",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-2.plan",
+      "sha256": "75acc9bb47d5ab3caee931b7171afb3dd7e6f60c9d8d807fa74afef5c137f0d3",
+      "bytes": 381
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-2-r1-baseline.report",
+      "sha256": "764ae0d66e88dd23403d091f069b82b10dc808139cba0b32c976a46fe0c8a5fc",
+      "bytes": 161
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-3.csv",
+      "sha256": "91600da489cbeea2efe1c5f29fc2ed91714acaf303b06c60a799201b611f1ac5",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-3.plan",
+      "sha256": "1dd15e7abecc7fcdb5534c07402399c0b493cd0a96ecef5ca4808bd77cb777e7",
+      "bytes": 379
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-3-r1-baseline.report",
+      "sha256": "3a72478dd5fe16b44c2f82efca219ff4f67d831209654aeb439fdd68d4f3c4e9",
+      "bytes": 165
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-4.csv",
+      "sha256": "9dc881a4ab3d5aa753b82d3bc22fce358644da51b77911a0c57d123c91163bba",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-4.plan",
+      "sha256": "7e5ea6bdde5bdae7d79fbd22c48981bca4ed5ff7277a1a6d5fbf70b828bfc207",
+      "bytes": 382
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-4-r1-baseline.report",
+      "sha256": "88068e198bf7a9c3e1b145536268b28ea7c09c6a9428e75d0a6e7224d3522cf7",
+      "bytes": 164
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-5.csv",
+      "sha256": "482b778f6b5bb0ddafdc8c2175c9ab131d00fa5c908c435a1796b6d6defb821d",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-5.plan",
+      "sha256": "70b40456d769d393c5d45631acf1d038e3b80be8a1d5886b6559326bb5f86bf8",
+      "bytes": 379
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-5-r1-baseline.report",
+      "sha256": "19e4ca2c78a73c2ff890758aee208d1db8580cb305637dad6efcc2cfb03f2fff",
+      "bytes": 164
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-6.csv",
+      "sha256": "659a8a79707b82f8b58c5c931001d075a74be50cd5462fc46a2f9b7244a549fb",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-6.plan",
+      "sha256": "f81db8bad3662494eb769906c71639d4ff6b4ec5b847c9fdb121f58359e9b8bd",
+      "bytes": 381
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-6-r1-baseline.report",
+      "sha256": "8dd577352787f9f2da0ad034452ea01aa061f5c84754a37918ad0081c5787439",
+      "bytes": 160
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-7.csv",
+      "sha256": "91600da489cbeea2efe1c5f29fc2ed91714acaf303b06c60a799201b611f1ac5",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-7.plan",
+      "sha256": "c452b6f9de608018fab94e9c813ac1f85de52ba98e2c33ecd92104f54767272c",
+      "bytes": 379
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-7-r1-baseline.report",
+      "sha256": "3a72478dd5fe16b44c2f82efca219ff4f67d831209654aeb439fdd68d4f3c4e9",
+      "bytes": 165
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-8.csv",
+      "sha256": "fcb70bf02b26ba650e48ea459e2c09e84c7e023ae962e4525a815ce5938813d5",
+      "bytes": 423
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-8.plan",
+      "sha256": "b13788b96aae8efc144833b8d29cabc61f1a412bc9df3bd28e5ba5fb03d4b4ec",
+      "bytes": 382
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-8-r1-baseline.report",
+      "sha256": "45eb5a4146f49e9792477f16630876864a31583735fb27952279c72c20034c7e",
+      "bytes": 164
+    }
+  ],
+  "sealed_manifest_check_exit": 0,
+  "source_binary_manifest_check_exit": 0,
+  "compile_and_link_no_lto_verified": true,
+  "formal_runs_started": 0,
+  "software_checks_only_so_far": true
+}

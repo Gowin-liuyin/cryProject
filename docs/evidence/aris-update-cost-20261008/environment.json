@@ -1,0 +1,108 @@
+{
+  "uname": {
+    "arguments": [
+      "uname",
+      "-a"
+    ],
+    "exit_code": 0,
+    "stdout": "Darwin yindeMacBook-Air.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64\n",
+    "stderr": ""
+  },
+  "os": {
+    "arguments": [
+      "sw_vers"
+    ],
+    "exit_code": 0,
+    "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+    "stderr": ""
+  },
+  "cpu_model": {
+    "arguments": [
+      "sysctl",
+      "-n",
+      "machdep.cpu.brand_string"
+    ],
+    "exit_code": 0,
+    "stdout": "Apple M5\n",
+    "stderr": ""
+  },
+  "logical_cpu": {
+    "arguments": [
+      "sysctl",
+      "-n",
+      "hw.logicalcpu"
+    ],
+    "exit_code": 0,
+    "stdout": "10\n",
+    "stderr": ""
+  },
+  "memory": {
+    "arguments": [
+      "sysctl",
+      "-n",
+      "hw.memsize"
+    ],
+    "exit_code": 0,
+    "stdout": "17179869184\n",
+    "stderr": ""
+  },
+  "compiler": {
+    "arguments": [
+      "/usr/bin/cc",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+    "stderr": ""
+  },
+  "power_settings": {
+    "arguments": [
+      "pmset",
+      "-g",
+      "custom"
+    ],
+    "exit_code": 0,
+    "stdout": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         0\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10\n",
+    "stderr": ""
+  },
+  "git_head": {
+    "arguments": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "stdout": "8470548a13b46cffc3e8ce54a320394d31d86848\n",
+    "stderr": ""
+  },
+  "git_branch": {
+    "arguments": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "exit_code": 0,
+    "stdout": "main\n",
+    "stderr": ""
+  },
+  "git_status": {
+    "arguments": [
+      "git",
+      "status",
+      "--porcelain=v1"
+    ],
+    "exit_code": 0,
+    "stdout": " M deliverables/submission/CACR2026EA16XZ/README.md\n M docs/full-work-progress.md\n M docs/statistics.md\n?? .agents/\n?? deliverables/research/\n?? deliverables/submission/CACR2026EA16XZ/aris-20261008/\n?? deliverables/support/CACR2026EA16XZ-aris-20261008/\n?? docs/evidence/aris-research-report-20261008/\n?? docs/evidence/aris-research-support-20261008/\n?? docs/evidence/literature-study-20261008/\n?? docs/research/\n",
+    "stderr": ""
+  },
+  "dirty_summary": {
+    "arguments": [
+      "git",
+      "diff",
+      "--stat"
+    ],
+    "exit_code": 0,
+    "stdout": " deliverables/submission/CACR2026EA16XZ/README.md |  2 ++\n docs/full-work-progress.md                       | 26 ++++++++++++++++++++++++\n docs/statistics.md                               | 10 ++++++---\n 3 files changed, 35 insertions(+), 3 deletions(-)\n",
+    "stderr": ""
+  }
+}

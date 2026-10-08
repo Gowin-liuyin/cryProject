@@ -1,0 +1,32 @@
+--- docs/research/aris-20261008/update-cost/snapshots/controlled_snapshot.c	2026-10-08 19:34:51
++++ docs/research/aris-20261008/update-cost/snapshots/naive_snapshot.c	2026-10-08 19:34:51
+@@ -49,24 +49,18 @@
+     }
+     result->mean_difference_ns = (long double)observed_sum / (long double)pair_count;
+     result->assignment_count = UINT64_C(1) << pair_count;
+-    int64_t permuted_sum = -observed_sum;
+-    uint64_t previous_gray_code = 0;
+     for (uint64_t assignment_index = 0; assignment_index < result->assignment_count;
+         ++assignment_index) {
+         uint64_t gray_code = assignment_index ^ (assignment_index >> 1u);
+-        if (assignment_index != 0) {
+-            uint64_t changed_bit = gray_code ^ previous_gray_code;
+-            size_t changed_pair = 0;
+-            while ((changed_bit >> changed_pair) != 1u) {
+-                ++changed_pair;
+-            }
+-            int64_t twice_difference = 2 * differences_ns[changed_pair];
+-            permuted_sum += (gray_code & changed_bit) != 0 ? twice_difference : -twice_difference;
++        int64_t permuted_sum = 0;
++        for (size_t pair_index = 0; pair_index < pair_count; ++pair_index) {
++            permuted_sum += (gray_code & (UINT64_C(1) << pair_index)) != 0
++                ? differences_ns[pair_index]
++                : -differences_ns[pair_index];
+         }
+         if (absolute_sum(permuted_sum) >= absolute_sum(observed_sum)) {
+             ++result->tail_count;
+         }
+-        previous_gray_code = gray_code;
+     }
+     result->exact_p_value = (long double)result->tail_count / (long double)result->assignment_count;
+     if (compute_interval) {

@@ -26,8 +26,12 @@ build/cmake/analyze "$run_directory/reference.csv" "$run_directory/reference.rep
 - 族显著性水平 `alpha_family=0.001`，Bonferroni 校正后单比较水平 `1e-4`。
 - 主统计量为并列修正、带连续性校正的 Mann-Whitney U 正态近似；判定只依据它。
 - 辅助统计量为 Welch t 及其 Welch–Satterthwaite 自由度，同样用正态近似给 p 值。
-- 分位点按排序后最近秩取值，不插值；不删除离群值，不裁尾，不做任何平滑。
-- 效应量报告 `effect_size_first_greater = U1/(n1·n2)`，即第一类取值更大的成对比例。
+- 分位点按排序后的零基下标 `floor(p*(n-1)+0.5)` 取值，不插值；旧报告的
+  `nearest_rank_no_interpolation` 名称按[统计审计](statistical-audit.md)解释。
+  不删除离群值，不裁尾，不做任何平滑。
+- 效应量报告 `effect_size_first_greater = U1/(n1·n2)`，实际为所有跨类样本对中
+  第一类严格较大的比例，加上相等比例的一半。它不是严格大于概率；旧字段名为兼容保留。
+  例如两类均为 `[1,1,2,2]`，严格大于比例为 0.25、相等比例为 0.5，报告值为 0.5。
 
 判定标签只有四种：`significant`、`not_significant`、`degenerate_no_variation`
 （方差为零）、`insufficient_samples`（任一类不足 2 个样本）。
@@ -179,7 +183,7 @@ reference / hardened / deployable 的主比较在五个新种子上全部不显�
   （`valid`、`bit-flipped`、`random`）之间，完整解封装耗时分布存在差异。
 - 统计形式：两组逐次原始值合并成两个样本（n1 = 2×5000 = 10000、n2 = 3×5000 = 15000），
   做并列修正、带连续性校正的 Mann-Whitney U 正态近似，**判定只依据它**；
-  辅助报告 Welch t 与 Welch–Satterthwaite 自由度。分位点按最近秩取值、不插值、
+  辅助报告 Welch t 与 Welch–Satterthwaite 自由度。分位点按上述零基舍入规则取值、不插值、
   不删离群值、不裁尾——与第一轮完全相同的口径。
 - 显著性水平：`alpha_family=0.001`；本族只有 1 个预先规定的比较，因此
   `comparison_count=1`、`multiplicity_correction=none_single_prespecified_comparison`、

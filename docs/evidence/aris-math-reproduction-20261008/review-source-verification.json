@@ -1,0 +1,55 @@
+{
+  "format": "independent_final_math_source_payload_review_v1",
+  "date": "2026-10-08",
+  "status": "passed_with_declared_scope",
+  "payload_file_count": 123,
+  "manifest_entry_digests_verified": 121,
+  "sha256sum_entries_verified": 122,
+  "original_byte_files_verified": 68,
+  "unchanged_c_headers_and_original_failure_wrapper": 9,
+  "unchanged_c_and_header_files": 8,
+  "fixed_original_c01_inputs_checked_against_59b_zip": 24,
+  "original_run_input_copies": 24,
+  "original_run_records_including_pending": 8,
+  "pending_bytes_from_actual_original": true,
+  "archive_dependency_sha256": "59b858391d21392e3725e01791b8b877f942599ccce46d323aacc22d109cf9ee",
+  "payload_manifest_sha256": "dd783cc8697ef1cdbfda0233cc4023921c5f0539297888f8e83a4b5d5e39817b",
+  "payload_sha256sums_sha256": "dbe5990956a67ca3addfc6f67b38f59d08cd94b3dc9fae73eaca6d42bc4b2eca",
+  "anonymous_build_views_compared_to_real_logs_and_build_metadata": 40,
+  "software_checks": {
+    "normal": {
+      "checked_steps": 4,
+      "ctest": "3/3"
+    },
+    "sanitize": {
+      "checked_steps": 4,
+      "ctest": "3/3"
+    },
+    "audit": {
+      "checked_steps": 4,
+      "ctest": "1/1"
+    }
+  },
+  "original_audit_json_preserved": true,
+  "additional_audit_json_outputs_identical": 2,
+  "same_build_normal_zero_window_failure_states": 2,
+  "sanitize_failure_output_directories": 0,
+  "cmake_and_main_control_flow_manually_read": true,
+  "git_dependency_or_source_commit_identity_in_build": false,
+  "privacy_files_scanned": 123,
+  "privacy_hits": [],
+  "payload_binaries_included": false,
+  "license_new_grant_found": false,
+  "formal_collector_or_20_pair_statistic_executed_by_reviewer": false,
+  "payload_unchanged_by_reviewer": true,
+  "zip_export_verified": false,
+  "scope": "pure_math_source_rebuild_and_existing_one_run_ledger_offline_recalculation_only",
+  "not_proved": [
+    "new_formal_measurement",
+    "portable_timing_or_original_binary_identity",
+    "finite_population_false_positive_or_detection_rate",
+    "R02_R04",
+    "constant_time_or_crypto_mechanism",
+    "whole_project_goal"
+  ]
+}

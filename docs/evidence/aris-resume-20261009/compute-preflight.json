@@ -1,0 +1,55 @@
+{
+  "checked_utc": "2026-10-08T23:12:04.320131+00:00",
+  "task": "CPU_compatible_fixed_integer_rebuild_process_replication",
+  "cpu_compatible": true,
+  "gpu_required": false,
+  "available": true,
+  "free_disk_bytes": 204478885888,
+  "frequency_control": "not_configured",
+  "background_load_isolation": "not_configured",
+  "records": {
+    "cpu_model": {
+      "exit_code": 0,
+      "stdout": "Apple M5\n",
+      "stderr": ""
+    },
+    "cpu_count": {
+      "exit_code": 0,
+      "stdout": "10\n",
+      "stderr": ""
+    },
+    "memory": {
+      "exit_code": 0,
+      "stdout": "17179869184\n",
+      "stderr": ""
+    },
+    "os": {
+      "exit_code": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+      "stderr": ""
+    },
+    "compiler": {
+      "exit_code": 0,
+      "stdout": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+      "stderr": ""
+    },
+    "power_source": {
+      "exit_code": 0,
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=7340131)\t100%; charged; 0:00 remaining present: true\n",
+      "stderr": ""
+    },
+    "power_settings": {
+      "exit_code": 0,
+      "stdout": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         0\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10\n",
+      "stderr": ""
+    },
+    "load": {
+      "exit_code": 0,
+      "stdout": " 7:12  up 7 days,  9:07, 1 user, load averages: 3.27 3.15 2.95\n",
+      "stderr": ""
+    }
+  },
+  "new_cryptographic_calls": 0,
+  "baremetal_ssh": "authentication_denied_255",
+  "kvm_ssh": "connection_closed_255"
+}

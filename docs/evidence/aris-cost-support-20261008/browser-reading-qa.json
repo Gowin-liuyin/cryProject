@@ -1,0 +1,20 @@
+{
+  "browser": "Codex_in_app_browser",
+  "purpose": "static_reading_QA_not_software_execution_screenshot",
+  "pages_read": [
+    "index.html",
+    "data/M01_UPDATE_COST/index.html",
+    "data/M01_UPDATE_COST/UPDATE_COST_RESULTS.html"
+  ],
+  "group_and_result_top_views_actually_seen": true,
+  "links_clicked_from_visible_state": true,
+  "two_reading_precision_changes_observed_after_reload": true,
+  "tab_created_for_this_QA_closed": true,
+  "temporary_server_bind": "127.0.0.1",
+  "temporary_server_owned_processes_stopped": [
+    42887
+  ],
+  "cryptographic_calls": 0,
+  "statistics_rerun": false,
+  "real_execution_screenshot_requirement_closed": false
+}

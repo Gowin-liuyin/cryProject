@@ -1,0 +1,43 @@
+{
+  "round": 2,
+  "status": "completed",
+  "scope": "bounded_research_note_only",
+  "reviewer_backend": "same_model_independent_subagents",
+  "codex_mcp_available": false,
+  "verdict": "ready_for_bounded_research_note",
+  "scores": {
+    "statistical_theory": 9.3,
+    "evidence_review": 9.4,
+    "official_novelty": 9.0
+  },
+  "date": "2026-10-08",
+  "pending_experiments": [],
+  "whole_project_acceptance_complete": false,
+  "formal_report_candidate_completed": true,
+  "remaining_items": [
+    "specific_fips_errata_applicability",
+    "baremetal_sanitizer_recorded_failure",
+    "real_population_inference_conditions",
+    "commit_email_verification",
+    "real_screenshots_approval_and_submission_receipt"
+  ],
+  "new_data_explanation_supplement_completed": true,
+  "new_supplement_is_software_replacement": false,
+  "post_round_checks": {
+    "finite_reference_rank_lemma": "ready_as_bounded_rank_lemma",
+    "anonymous_supplement_v2": "passed_bounded_data_and_explanation_scope",
+    "update_cost_code_review": "ready_for_one_bounded_math_run",
+    "update_cost_execution": {
+      "attempts": 1,
+      "exit_code": 0,
+      "platform": "macOS_arm64",
+      "formal_windows": 160
+    },
+    "update_cost_result_review": "supports_fixed_nonzero_update_cost_saving",
+    "new_update_cost_result_in_anonymous_v2": false,
+    "math_cost_integrated_report": "42_pages_scientific_and_full_visual_scope_passed",
+    "math_cost_data_supplement": "594_zip_entries_649_local_links_and_anonymity_passed",
+    "new_update_cost_result_in_math_cost_edition": true,
+    "math_source_reproduction_export": "123_files_68_original_bytes_24_inputs_and_actual_CMake_CTest_checks_passed"
+  }
+}

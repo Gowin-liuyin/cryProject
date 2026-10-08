@@ -1,0 +1,159 @@
+{
+  "attempts": 1,
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "tool_wait_wall_time_seconds": 1.086388709,
+  "tool_wait_is_not_independent_process_cost_measurement": true,
+  "source_and_binary_check_exit": 0,
+  "measured_binary_unchanged": true,
+  "all_24_inputs_and_copies_unchanged": true,
+  "inputs": [
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-1.csv",
+      "sha256_after": "cebb397427902f145777cff91ed40d8078521d562fb82ec7a5265030047edfb8",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-1.plan",
+      "sha256_after": "7203a496753b1d6de2d3af93e1738f1848e1f1a77cd3305231f3d475165e5ee9",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-1-r1-baseline.report",
+      "sha256_after": "1a28e17999006ee5d38f5976b083fc4323d76aa556d56502895ccec84eaf3f61",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-2.csv",
+      "sha256_after": "b5774d56f1ba617d0d52dc26e4e978370d1f86fe4a2eb608044641e96d328a37",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-2.plan",
+      "sha256_after": "75acc9bb47d5ab3caee931b7171afb3dd7e6f60c9d8d807fa74afef5c137f0d3",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-2-r1-baseline.report",
+      "sha256_after": "764ae0d66e88dd23403d091f069b82b10dc808139cba0b32c976a46fe0c8a5fc",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-3.csv",
+      "sha256_after": "91600da489cbeea2efe1c5f29fc2ed91714acaf303b06c60a799201b611f1ac5",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-3.plan",
+      "sha256_after": "1dd15e7abecc7fcdb5534c07402399c0b493cd0a96ecef5ca4808bd77cb777e7",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-3-r1-baseline.report",
+      "sha256_after": "3a72478dd5fe16b44c2f82efca219ff4f67d831209654aeb439fdd68d4f3c4e9",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-4.csv",
+      "sha256_after": "9dc881a4ab3d5aa753b82d3bc22fce358644da51b77911a0c57d123c91163bba",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-4.plan",
+      "sha256_after": "7e5ea6bdde5bdae7d79fbd22c48981bca4ed5ff7277a1a6d5fbf70b828bfc207",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-4-r1-baseline.report",
+      "sha256_after": "88068e198bf7a9c3e1b145536268b28ea7c09c6a9428e75d0a6e7224d3522cf7",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-5.csv",
+      "sha256_after": "482b778f6b5bb0ddafdc8c2175c9ab131d00fa5c908c435a1796b6d6defb821d",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-5.plan",
+      "sha256_after": "70b40456d769d393c5d45631acf1d038e3b80be8a1d5886b6559326bb5f86bf8",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-5-r1-baseline.report",
+      "sha256_after": "19e4ca2c78a73c2ff890758aee208d1db8580cb305637dad6efcc2cfb03f2fff",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-6.csv",
+      "sha256_after": "659a8a79707b82f8b58c5c931001d075a74be50cd5462fc46a2f9b7244a549fb",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-6.plan",
+      "sha256_after": "f81db8bad3662494eb769906c71639d4ff6b4ec5b847c9fdb121f58359e9b8bd",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-6-r1-baseline.report",
+      "sha256_after": "8dd577352787f9f2da0ad034452ea01aa061f5c84754a37918ad0081c5787439",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-7.csv",
+      "sha256_after": "91600da489cbeea2efe1c5f29fc2ed91714acaf303b06c60a799201b611f1ac5",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-7.plan",
+      "sha256_after": "c452b6f9de608018fab94e9c813ac1f85de52ba98e2c33ecd92104f54767272c",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-7-r1-baseline.report",
+      "sha256_after": "3a72478dd5fe16b44c2f82efca219ff4f67d831209654aeb439fdd68d4f3c4e9",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-8.csv",
+      "sha256_after": "fcb70bf02b26ba650e48ea459e2c09e84c7e023ae962e4525a815ce5938813d5",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-data/task-8.plan",
+      "sha256_after": "b13788b96aae8efc144833b8d29cabc61f1a412bc9df3bd28e5ba5fb03d4b4ec",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    },
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/task-8-r1-baseline.report",
+      "sha256_after": "45eb5a4146f49e9792477f16630876864a31583735fb27952279c72c20034c7e",
+      "source_unchanged": true,
+      "output_copy_identical": true
+    }
+  ],
+  "formal_output_meta": "run/final-state.meta",
+  "raw_outputs_not_edited": true
+}

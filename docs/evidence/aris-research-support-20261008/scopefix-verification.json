@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "before_docx_sha256": "d3e6c9f6304c39f4a19c181d80224ffad90c54b258fa73792db6c0f3a05e9d9e",
+  "before_pdf_sha256": "52b47fd6feee25d4eb8587972521bd5c564938a3f73d9564adbd195a428d86c0",
+  "after_docx_sha256": "63cb19d7fd6aae9a6dc36244aafeee28a72c195c53fc23414d2c6bf00803cf59",
+  "private_report_sha256_before_and_after": "223e6da18fbfbf2dd1987be9670d688609a54d30a3e48d070b30ab8974824b30",
+  "private_report_unchanged_by_this_operation": true,
+  "changed_parts_from_previous_anonymous": [
+    "word/document.xml"
+  ],
+  "unchanged_parts_from_previous_anonymous_count": 40,
+  "changed_paragraph_indices": [
+    640
+  ],
+  "text_runs_touched": 3,
+  "before_scope_text": "真实 Linux 普通记录揭示了有限运行中的性能波动，其探索区间均跨零；",
+  "after_scope_text": "普通性能呈现跨运行波动：KVM的E02/N01探索区间跨零，Ryzen裸金属区间不跨零；",
+  "numeric_results_unchanged": true,
+  "anonymous_aliases_unchanged": true,
+  "anonymous_metadata_unchanged": true,
+  "previous_pass_applies_only_to_backup": true,
+  "after_pdf_sha256": "edb8411ed8f23cb9a72913dcd87ffdd9345c3e7485ca69c921f96fe327c2b380",
+  "page_count": 41,
+  "toc_entries_checked": 42,
+  "toc_all_matched": true,
+  "changed_render_pages": [
+    37
+  ],
+  "unchanged_render_pages_pixel_identical": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    38,
+    39,
+    40,
+    41
+  ],
+  "new_difference_pages_actually_viewed_editor": [
+    37
+  ],
+  "new_difference_pages_actually_viewed_helper": [
+    37
+  ],
+  "new_visual_findings": [],
+  "privacy_scan": "passed",
+  "whole_document_review_basis": "page37_new_original_resolution_review_plus_other40_png_byte_identity_to_prior_full_review",
+  "prior_full_visual_review_docx_sha256": "d3e6c9f6304c39f4a19c181d80224ffad90c54b258fa73792db6c0f3a05e9d9e"
+}

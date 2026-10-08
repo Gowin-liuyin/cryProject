@@ -1,0 +1,1 @@
+/usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fno-lto CMakeFiles/update_cost.dir/update_cost.c.o CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o -o update_cost  -lm

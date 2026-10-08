@@ -1,0 +1,19 @@
+{
+  "breaking_bad": {
+    "formal_doi": "10.1145/3708821.3733909",
+    "primary_author_publication_page": "https://syssec.ethz.ch/publications/2025-09-02-breaking-bad-how-compilers-break-constant-time-implementations-20-500-11850-783304/",
+    "author_abstract": "https://arxiv.org/abs/2410.13489",
+    "current_reading_scope": "formal_metadata_and_author_abstract_not_new_full_text_read",
+    "publisher_and_repository_pdf_requests": "403",
+    "new_report_reference": 11
+  },
+  "rtlf_erratum": {
+    "official_url": "https://www.usenix.org/system/files/sec24_errata_dunsche.pdf",
+    "official_one_page_text_read": true,
+    "use": "timing_difference_vs_exploitability_boundary_without_attack_procedure",
+    "existing_reference": 4
+  },
+  "new_cryptographic_calls": 0,
+  "other_new_scientific_text_unchanged": true,
+  "report_sha256_after": "4d39cae7dc3d4224dea6016bf5af27d775f08f4bc6df0b7f65ea9bea96382375"
+}

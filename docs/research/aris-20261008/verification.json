@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-08",
+  "source_commit": "6f20657975c2665e59ff316c7fb2b35f1b17f18f",
+  "scope": "read_only_archived_data_and_public_mathematics",
+  "new_cryptographic_calls": 0,
+  "archive_manifests": [
+    {
+      "directory": "docs/evidence/r07-linux-20261008",
+      "verified_entries": 153,
+      "mismatches": 0
+    },
+    {
+      "directory": "docs/evidence/baremetal-ryzen-20261008",
+      "verified_entries": 321,
+      "mismatches": 0
+    }
+  ],
+  "model_rows": [
+    {
+      "path": "docs/evidence/finite-calibration-20261007/model/raw.csv",
+      "sha256": "d5e002f9a563ae03443f76eaa909bde22868591754b672160d2d82f4b1137e23",
+      "rows": 40964,
+      "tail_mismatches": 0,
+      "rejections": {
+        "independent_equal|0": 26,
+        "independent_equal|1": 794,
+        "independent_equal|2": 4096,
+        "independent_equal|4": 4096,
+        "independent_equal|12": 4096,
+        "common_equal|0": 2,
+        "independent_graded|0": 38,
+        "independent_graded|1": 48,
+        "independent_graded|2": 91,
+        "independent_graded|4": 353,
+        "independent_graded|12": 4096,
+        "common_graded|0": 2
+      }
+    },
+    {
+      "path": "docs/evidence/reference-label-control-20261007/qualified/control/raw.csv",
+      "sha256": "189c882065a034c89b3d4623cabec11d795f8f23364da248ba346ee8de94f49c",
+      "rows": 24576,
+      "tail_mismatches": 0,
+      "rejections": {
+        "ordinary-reference-block1|0": 40,
+        "ordinary-reference-block2|0": 40,
+        "ordinary-reference-block3|0": 40,
+        "ordinary-reference-block4|0": 38,
+        "ordinary-reference-block5|0": 40,
+        "ordinary-reference-block6|0": 38
+      }
+    }
+  ],
+  "c04_independent_direct_sum": {
+    "verified_rows": 24576,
+    "rejection_counts": [
+      40,
+      40,
+      40,
+      38,
+      40,
+      38
+    ],
+    "selected_source": "native-final-20261007/performance",
+    "algorithm": "binary_labels_direct_sum_sorted_inclusive_tail"
+  },
+  "cost_ledgers": [
+    {
+      "path": "docs/evidence/controlled-comparison-20261007/confirmation-results/attempts.tsv",
+      "sha256": "d2b01453842cdd06596344544803529028ae102df5fe6e317479f68abd04d2e3",
+      "rows": 48,
+      "matched_pairs": 24,
+      "ratio_median": 0.001388504260722591,
+      "ratio_min": 0.001139407903401099,
+      "ratio_max": 0.0017348535289716004
+    },
+    {
+      "path": "docs/evidence/warm-replay-20261007/formal/attempts.tsv",
+      "sha256": "40572e761136e9c833959f88ed2520b21a6bdf9c118f22004d4c43ed3737787b",
+      "rows": 48,
+      "matched_pairs": 24,
+      "ratio_median": 0.001562069576549664,
+      "ratio_min": 0.0012747859214257092,
+      "ratio_max": 0.0019251277510412695
+    }
+  ],
+  "rank_mean_examples": [
+    {
+      "csv": "docs/evidence/r07-linux-20261008/raw/vulnerable-seed20261111.csv",
+      "sha256": "2574f73114a5e21f448c800d0d44fd145e959ed5339c1f7a0f307785f07dffea",
+      "count_per_category": 5000,
+      "recomputed_mean_difference_ns": 42.34019999999873,
+      "recomputed_p50_difference_ns": -19,
+      "archived_rank_p": "5.46693e-07",
+      "archived_welch_normal_approx_p": "0.350711",
+      "scope": "mean_and_p50_recomputed_p_values_read_from_original_report"
+    },
+    {
+      "csv": "docs/evidence/baremetal-ryzen-20261008/mechanism/vulnerable-seed141421356.csv",
+      "sha256": "16be4f5623583b768dcc37767c06403c8fb421e0791335e963a4e8042d2b9f4e",
+      "count_per_category": 5000,
+      "recomputed_mean_difference_ns": -0.9140000000006694,
+      "recomputed_p50_difference_ns": -10,
+      "archived_rank_p": "6.89739e-25",
+      "archived_welch_normal_approx_p": "0.893937",
+      "scope": "mean_and_p50_recomputed_p_values_read_from_original_report"
+    }
+  ],
+  "pure_math_checks": [
+    {
+      "weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "independent_zero_effect_rejections": 26,
+      "common_sign_invalid_tail": 2,
+      "assignment_count": 4096,
+      "common_sign_invalid_p": 0.00048828125,
+      "valid_global_flip_p": 1
+    },
+    {
+      "weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "independent_zero_effect_rejections": 38,
+      "common_sign_invalid_tail": 2,
+      "assignment_count": 4096,
+      "common_sign_invalid_p": 0.00048828125,
+      "valid_global_flip_p": 1
+    }
+  ],
+  "resolution_bound": [
+    {
+      "nonzero_pairs": 1,
+      "attainable_minimum_p": 1.0,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 2,
+      "attainable_minimum_p": 0.5,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 3,
+      "attainable_minimum_p": 0.25,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 4,
+      "attainable_minimum_p": 0.125,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 5,
+      "attainable_minimum_p": 0.0625,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 6,
+      "attainable_minimum_p": 0.03125,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 7,
+      "attainable_minimum_p": 0.015625,
+      "can_reject_at_alpha_0_01": false
+    },
+    {
+      "nonzero_pairs": 8,
+      "attainable_minimum_p": 0.0078125,
+      "can_reject_at_alpha_0_01": true
+    }
+  ],
+  "tie_example": {
+    "samples": [
+      1,
+      1,
+      2,
+      2
+    ],
+    "strict_greater_pairs": 4,
+    "equal_pairs": 8,
+    "total_pairs": 16,
+    "rank_effect": 0.5
+  },
+  "format_check": {
+    "command": "cmake --build --preset baseline --target format-check",
+    "exit_status": 0,
+    "scope": "existing_owned_C_style_no_new_build_or_timing"
+  },
+  "source_access": {
+    "url": "https://csrc.nist.gov/files/pubs/fips/203/final/docs/fips-203-potential-updates.xlsx",
+    "web_result": "unsupported_xlsx_content_type",
+    "direct_http_result": "403_Forbidden",
+    "specific_errata_applicability": "not_verified"
+  }
+}
