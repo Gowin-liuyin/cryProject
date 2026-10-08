@@ -1,0 +1,35 @@
+{
+  "source_hashes": [
+    {
+      "path": "process_summary.c",
+      "sha256": "ae27c352dbd39c8a2cf59e13b0c31ef5b389aec6f6dc77ea0db0df744f134b14"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "70820a849c8ff5667105df4e61c6529044c6da8f7929ce91db5e9519528feb33"
+    },
+    {
+      "path": "SUMMARY_README.md",
+      "sha256": "5649acf1b6afc042e40d1da551becff8fa4e600c86d545cb946e6e21ba8b9be1"
+    }
+  ],
+  "binaries": [
+    {
+      "variant": "normal",
+      "sha256": "081c08fd428363975381b13cb5b32e1f8534e76bbdce398b7ef14b5f3e33d780",
+      "software_check": "1/1 handwritten fixture CTest",
+      "scope": "three_summary_tables_only_no_process_identity_verification"
+    },
+    {
+      "variant": "sanitize",
+      "sha256": "3f212fa04cd52f3f7f39a97b3eb6d9821a6667a9461bb35672dc34956c7c74f2",
+      "software_check": "1/1 handwritten fixture CTest",
+      "scope": "three_summary_tables_only_no_process_identity_verification"
+    }
+  ],
+  "formal_observer_called": false,
+  "new_cryptographic_calls": 0,
+  "new_formal_runs": 0,
+  "cmake_format": "passed",
+  "clang_format": "passed"
+}

@@ -1,0 +1,18 @@
+{
+  "preparation_ready": true,
+  "clean_extracted_source_files": 123,
+  "fixed_inputs_checked": 24,
+  "collector_normal_ctest": "3/3",
+  "collector_sanitize_ctest": "3/3",
+  "old_frozen_audit_ctest": "1/1",
+  "summary_normal_final_ctest": "1/1",
+  "summary_sanitize_final_ctest": "1/1",
+  "summary_output_assertions": true,
+  "independent_summary_review": "passed_software_scope",
+  "new_formal_runs": 0,
+  "new_cryptographic_calls": 0,
+  "formal_run_directories_created": false,
+  "collector_source_inputs_binary_unchanged_during_summary_implementation": true,
+  "overall_research_claim": "unverified_until_formal_runs_and_independent_checks",
+  "source_status": "implementation_requires_root_module_commit_before_formal_launch"
+}

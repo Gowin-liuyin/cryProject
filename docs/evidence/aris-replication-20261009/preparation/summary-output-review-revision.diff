@@ -1,0 +1,89 @@
+--- first_checked/process_summary.c
++++ final_checked/process_summary.c
+@@ -143,7 +143,7 @@
+     return read_line(input_file, line) == 0;
+ }
+ 
+-static struct summary_facts summarize_rows(const struct summary_row rows[PROCESS_COUNT][TASK_COUNT])
++static struct summary_facts summarize_rows(struct summary_row rows[PROCESS_COUNT][TASK_COUNT])
+ {
+     struct summary_facts facts = {0};
+     for (size_t process_index = 0; process_index < PROCESS_COUNT; ++process_index) {
+@@ -161,7 +161,7 @@
+ }
+ 
+ static int write_report(FILE *output_file,
+-    const struct summary_row rows[PROCESS_COUNT][TASK_COUNT],
++    struct summary_row rows[PROCESS_COUNT][TASK_COUNT],
+     struct summary_facts facts)
+ {
+     int pattern_supported = facts.direction_supported && facts.clocks_complete;
+@@ -254,6 +254,44 @@
+     }
+ }
+ 
++static void require_report(struct summary_row rows[PROCESS_COUNT][TASK_COUNT],
++    struct summary_facts facts,
++    const char *expected_status)
++{
++    FILE *output_file = tmpfile();
++    require_test(output_file != NULL, "report temporary file");
++    require_test(write_report(output_file, rows, facts), "report write");
++    require_test(fflush(output_file) == 0 && fseek(output_file, 0, SEEK_SET) == 0, "report rewind");
++    char status_line[128];
++    int written = snprintf(status_line,
++        sizeof(status_line),
++        "  \"research_claim_status\": \"%s\",",
++        expected_status);
++    require_test(written > 0 && (size_t)written < sizeof(status_line), "status line bound");
++    unsigned int row_count = 0;
++    unsigned int limit_count = 0;
++    unsigned int status_count = 0;
++    char line[LINE_CAPACITY];
++    int line_status;
++    while ((line_status = read_line(output_file, line)) == 1) {
++        if (strncmp(line, "    {\"process\":", 15u) == 0) {
++            ++row_count;
++        }
++        if (strcmp(line, status_line) == 0) {
++            ++status_count;
++        }
++        if (strcmp(line, "  \"process_identity_verified_by_this_program\": false,") == 0 ||
++            strcmp(line, "  \"source_artifact_raw_counts_verified_by_this_program\": false,") ==
++                0 ||
++            strcmp(line, "  \"population_inference\": false,") == 0) {
++            ++limit_count;
++        }
++    }
++    require_test(line_status == 0 && row_count == 24u && status_count == 1u && limit_count == 3u,
++        "handwritten report status, limits and 24 rows");
++    require_test(fclose(output_file) == 0, "report close");
++}
++
+ static int parse_fixture(const char *text, size_t length, struct summary_row *rows)
+ {
+     FILE *input_file = tmpfile();
+@@ -292,6 +330,7 @@
+     require_test(facts.supporting_nonzero_medians == 18u && facts.clock_qualified_pairs == 240u &&
+             facts.direction_supported && facts.clocks_complete,
+         "hand-counted support");
++    require_report(rows, facts, "awaiting_independent_process_audits_and_artifact_checks");
+     char modified[FIXTURE_CAPACITY];
+     size_t length = replace_fixture(modified,
+         valid_fixtures[2],
+@@ -302,6 +341,7 @@
+     require_test(facts.supporting_nonzero_medians == 17u && !facts.direction_supported &&
+             facts.clocks_complete,
+         "equal-one unsupported direction");
++    require_report(rows, facts, "unsupported_by_three_summary_tables");
+     require_test(parse_fixture(valid_fixtures[2], strlen(valid_fixtures[2]), rows[2]),
+         "restore data");
+     length = replace_fixture(modified,
+@@ -313,6 +353,7 @@
+     require_test(facts.direction_supported && !facts.clocks_complete &&
+             facts.clock_qualified_pairs == 239u,
+         "one missing clock qualification");
++    require_report(rows, facts, "unsupported_by_three_summary_tables");
+ 
+     static const struct {
+         const char *from;

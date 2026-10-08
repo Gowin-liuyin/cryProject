@@ -1,0 +1,135 @@
+{
+  "review": "collector_exception_cleanup_fake_process_only_v2_natural_exit_guard",
+  "collector_sha256": "74eb00626e615247e66b16efc910cb03e3c63d79903cc65ecfb8718a73f9305c",
+  "real_processes_launched": 0,
+  "formal_paths_touched": 0,
+  "cases": [
+    {
+      "case": "start_publish_failure",
+      "passed": true,
+      "events": [
+        [
+          "fake_popen"
+        ],
+        [
+          "publish",
+          "process-start.json"
+        ],
+        [
+          "poll"
+        ],
+        [
+          "terminate"
+        ],
+        [
+          "wait",
+          5
+        ]
+      ]
+    },
+    {
+      "case": "start_publish_failure_terminate_timeout",
+      "passed": true,
+      "events": [
+        [
+          "fake_popen"
+        ],
+        [
+          "publish",
+          "process-start.json"
+        ],
+        [
+          "poll"
+        ],
+        [
+          "terminate"
+        ],
+        [
+          "wait",
+          5
+        ],
+        [
+          "kill"
+        ],
+        [
+          "wait",
+          null
+        ]
+      ]
+    },
+    {
+      "case": "finish_publish_failure_completed_child",
+      "passed": true,
+      "events": [
+        [
+          "fake_popen"
+        ],
+        [
+          "publish",
+          "process-start.json"
+        ],
+        [
+          "wait",
+          null
+        ],
+        [
+          "publish",
+          "process-finish.json"
+        ],
+        [
+          "poll"
+        ]
+      ]
+    },
+    {
+      "case": "wait_keyboard_interrupt",
+      "passed": true,
+      "events": [
+        [
+          "fake_popen"
+        ],
+        [
+          "publish",
+          "process-start.json"
+        ],
+        [
+          "wait",
+          null
+        ],
+        [
+          "poll"
+        ],
+        [
+          "terminate"
+        ],
+        [
+          "wait",
+          5
+        ]
+      ]
+    },
+    {
+      "case": "natural_exit_before_terminate",
+      "passed": true,
+      "events": [
+        [
+          "fake_popen"
+        ],
+        [
+          "publish",
+          "process-start.json"
+        ],
+        [
+          "poll"
+        ],
+        [
+          "terminate"
+        ],
+        [
+          "wait",
+          5
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "source_hashes": [
+    {
+      "path": "process_summary.c",
+      "sha256": "2e33ede99d082cc37488227022dae96915a90b7f840ef2cfbe3136f3372aa497"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "70820a849c8ff5667105df4e61c6529044c6da8f7929ce91db5e9519528feb33"
+    },
+    {
+      "path": "SUMMARY_README.md",
+      "sha256": "8a4750b3b3ec360777f425fb4eccd7814456d7cfd4c3b696ea2f25f12f5fb6b6"
+    }
+  ],
+  "binaries": [
+    {
+      "variant": "normal",
+      "sha256": "bb34c985ac25d72be098fce2bebc8cce74fc090486b7b2aae7ecae079f6cb8d7",
+      "software_check": "1/1 handwritten fixtures including output assertions",
+      "scope": "three_summary_tables_only_no_process_identity_verification"
+    },
+    {
+      "variant": "sanitize",
+      "sha256": "c10979037fa4f7a288bee81dc5ee9859cc16047fb8c155a1363b75d465c2389f",
+      "software_check": "1/1 handwritten fixtures including output assertions",
+      "scope": "three_summary_tables_only_no_process_identity_verification"
+    }
+  ],
+  "formal_observer_called": false,
+  "new_cryptographic_calls": 0,
+  "new_formal_runs": 0,
+  "cmake_format": "passed",
+  "clang_format": "passed",
+  "revision": "write_report assertions and pre-C2X array parameter compatibility",
+  "first_checked_sources_and_artifacts_preserved": true
+}

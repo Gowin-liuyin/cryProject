@@ -1,0 +1,26 @@
+{
+  "artifacts": [
+    {
+      "variant": "normal",
+      "sha256": "bc61bb544d9fef27591219399eb16cca7d3941517980d05f93fff913ae0bb3ea",
+      "role": "new_build_software_checked_artifact_not_old_79dc",
+      "collector_formal_called": false
+    },
+    {
+      "variant": "sanitize",
+      "sha256": "5a747a39b78c538326b4d768b0f953d1a5387aa20f517600f9c7cae5a3298afa",
+      "role": "new_build_software_checked_artifact_not_old_79dc",
+      "collector_formal_called": false
+    },
+    {
+      "variant": "audit",
+      "sha256": "175adbc5fa6ac5a99bf187e4235b5f1a16ce33a908bf91c9409e7bf126e162f5",
+      "role": "new_build_software_checked_artifact_not_old_79dc",
+      "collector_formal_called": false
+    }
+  ],
+  "new_formal_runs": 0,
+  "new_cryptographic_calls": 0,
+  "asm_scope": "new ordinary executable machine code; awaits independent root qualification",
+  "old_frozen_audit_only": true
+}

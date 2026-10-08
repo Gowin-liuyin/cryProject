@@ -1,0 +1,211 @@
+--- before_format/process_summary.c
++++ after_format/process_summary.c
+@@ -55,8 +55,7 @@
+     fields[0] = line;
+     for (size_t field_index = 0; field_index < 8u; ++field_index) {
+         char *separator = strchr(fields[field_index], ',');
+-        if (*fields[field_index] == '\0' ||
+-            ((field_index + 1u < 8u) != (separator != NULL))) {
++        if (*fields[field_index] == '\0' || ((field_index + 1u < 8u) != (separator != NULL))) {
+             return 0;
+         }
+         if (separator != NULL) {
+@@ -144,8 +143,7 @@
+     return read_line(input_file, line) == 0;
+ }
+ 
+-static struct summary_facts summarize_rows(
+-    const struct summary_row rows[PROCESS_COUNT][TASK_COUNT])
++static struct summary_facts summarize_rows(const struct summary_row rows[PROCESS_COUNT][TASK_COUNT])
+ {
+     struct summary_facts facts = {0};
+     for (size_t process_index = 0; process_index < PROCESS_COUNT; ++process_index) {
+@@ -167,9 +165,9 @@
+     struct summary_facts facts)
+ {
+     int pattern_supported = facts.direction_supported && facts.clocks_complete;
+-    const char *claim_status = pattern_supported ?
+-        "awaiting_independent_process_audits_and_artifact_checks" :
+-        "unsupported_by_three_summary_tables";
++    const char *claim_status = pattern_supported
++        ? "awaiting_independent_process_audits_and_artifact_checks"
++        : "unsupported_by_three_summary_tables";
+     if (fprintf(output_file,
+             "{\n  \"format\": \"m02_three_process_summary_v1\",\n"
+             "  \"process_count\": 3,\n  \"tasks_per_process\": 8,\n"
+@@ -210,8 +208,9 @@
+                     row->ratio_maximum,
+                     row->clock_qualified_pairs,
+                     row->nonzero_pair_count == 0u ? zero_scope : nonzero_scope,
+-                    process_index + 1u == PROCESS_COUNT && task_index + 1u == TASK_COUNT ? "" : ",") <
+-                0) {
++                    process_index + 1u == PROCESS_COUNT && task_index + 1u == TASK_COUNT
++                        ? ""
++                        : ",") < 0) {
+                 return 0;
+             }
+         }
+@@ -219,36 +218,33 @@
+     return fputs("  ]\n}\n", output_file) != EOF;
+ }
+ 
+-#define FIXTURE_HEADER \
+-    "task,nonzero_pair_count,repeat_pairs,ratio_median,ratio_minimum,ratio_maximum," \
++#define FIXTURE_HEADER                                                                             \
++    "task,nonzero_pair_count,repeat_pairs,ratio_median,ratio_minimum,ratio_maximum,"               \
+     "clock_qualified_pairs,mechanism_scope\n"
+-#define ZERO_ROW(task) \
++#define ZERO_ROW(task)                                                                             \
+     task ",0,10,1.500000000000,1.000000000000,2.000000000000,10,zero_vector_no_per_state_claim\n"
+-#define NONZERO_ROW(task, median, minimum, maximum) \
++#define NONZERO_ROW(task, median, minimum, maximum)                                                \
+     task ",20,10," median "," minimum "," maximum ",10,nonzero_requires_artifact_review\n"
+ 
+ static const char *const valid_fixtures[PROCESS_COUNT] = {
+-    FIXTURE_HEADER
+-    NONZERO_ROW("1", "0.500000000000", "0.250000000000", "0.750000000000")
+-    NONZERO_ROW("2", "0.500000000000", "0.250000000000", "0.750000000000") ZERO_ROW("3")
+-    NONZERO_ROW("4", "0.500000000000", "0.250000000000", "0.750000000000")
+-    NONZERO_ROW("5", "0.500000000000", "0.250000000000", "0.750000000000")
+-    NONZERO_ROW("6", "0.500000000000", "0.250000000000", "0.750000000000") ZERO_ROW("7")
+-    NONZERO_ROW("8", "0.500000000000", "0.250000000000", "0.750000000000"),
+-    FIXTURE_HEADER
+-    NONZERO_ROW("1", "0.750000000000", "0.500000000000", "1.000000000000")
+-    NONZERO_ROW("2", "0.750000000000", "0.500000000000", "1.000000000000") ZERO_ROW("3")
+-    NONZERO_ROW("4", "0.750000000000", "0.500000000000", "1.000000000000")
+-    NONZERO_ROW("5", "0.750000000000", "0.500000000000", "1.000000000000")
+-    NONZERO_ROW("6", "0.750000000000", "0.500000000000", "1.000000000000") ZERO_ROW("7")
+-    NONZERO_ROW("8", "0.750000000000", "0.500000000000", "1.000000000000"),
+-    FIXTURE_HEADER
+-    NONZERO_ROW("1", "0.900000000000", "0.800000000000", "1.000000000000")
+-    NONZERO_ROW("2", "0.900000000000", "0.800000000000", "1.000000000000") ZERO_ROW("3")
+-    NONZERO_ROW("4", "0.900000000000", "0.800000000000", "1.000000000000")
+-    NONZERO_ROW("5", "0.900000000000", "0.800000000000", "1.000000000000")
+-    NONZERO_ROW("6", "0.900000000000", "0.800000000000", "1.000000000000") ZERO_ROW("7")
+-    NONZERO_ROW("8", "0.900000000000", "0.800000000000", "1.000000000000")};
++    FIXTURE_HEADER NONZERO_ROW("1", "0.500000000000", "0.250000000000", "0.750000000000")
++        NONZERO_ROW("2", "0.500000000000", "0.250000000000", "0.750000000000") ZERO_ROW(
++            "3") NONZERO_ROW("4", "0.500000000000", "0.250000000000", "0.750000000000")
++            NONZERO_ROW("5", "0.500000000000", "0.250000000000", "0.750000000000")
++                NONZERO_ROW("6", "0.500000000000", "0.250000000000", "0.750000000000") ZERO_ROW("7")
++                    NONZERO_ROW("8", "0.500000000000", "0.250000000000", "0.750000000000"),
++    FIXTURE_HEADER NONZERO_ROW("1", "0.750000000000", "0.500000000000", "1.000000000000")
++        NONZERO_ROW("2", "0.750000000000", "0.500000000000", "1.000000000000") ZERO_ROW(
++            "3") NONZERO_ROW("4", "0.750000000000", "0.500000000000", "1.000000000000")
++            NONZERO_ROW("5", "0.750000000000", "0.500000000000", "1.000000000000")
++                NONZERO_ROW("6", "0.750000000000", "0.500000000000", "1.000000000000") ZERO_ROW("7")
++                    NONZERO_ROW("8", "0.750000000000", "0.500000000000", "1.000000000000"),
++    FIXTURE_HEADER NONZERO_ROW("1", "0.900000000000", "0.800000000000", "1.000000000000")
++        NONZERO_ROW("2", "0.900000000000", "0.800000000000", "1.000000000000") ZERO_ROW(
++            "3") NONZERO_ROW("4", "0.900000000000", "0.800000000000", "1.000000000000")
++            NONZERO_ROW("5", "0.900000000000", "0.800000000000", "1.000000000000")
++                NONZERO_ROW("6", "0.900000000000", "0.800000000000", "1.000000000000") ZERO_ROW("7")
++                    NONZERO_ROW("8", "0.900000000000", "0.800000000000", "1.000000000000")};
+ 
+ static void require_test(int condition, const char *name)
+ {
+@@ -288,30 +284,44 @@
+     struct summary_row rows[PROCESS_COUNT][TASK_COUNT];
+     for (size_t process_index = 0; process_index < PROCESS_COUNT; ++process_index) {
+         require_test(parse_fixture(valid_fixtures[process_index],
+-                         strlen(valid_fixtures[process_index]), rows[process_index]), "valid fixture");
++                         strlen(valid_fixtures[process_index]),
++                         rows[process_index]),
++            "valid fixture");
+     }
+     struct summary_facts facts = summarize_rows(rows);
+     require_test(facts.supporting_nonzero_medians == 18u && facts.clock_qualified_pairs == 240u &&
+-                     facts.direction_supported && facts.clocks_complete, "hand-counted support");
++            facts.direction_supported && facts.clocks_complete,
++        "hand-counted support");
+     char modified[FIXTURE_CAPACITY];
+-    size_t length = replace_fixture(modified, valid_fixtures[2],
++    size_t length = replace_fixture(modified,
++        valid_fixtures[2],
+         "8,20,10,0.900000000000,0.800000000000,1.000000000000,10,",
+         "8,20,10,1.000000000000,0.750000000000,1.250000000000,10,");
+     require_test(parse_fixture(modified, length, rows[2]), "equal-one is valid data");
+     facts = summarize_rows(rows);
+     require_test(facts.supporting_nonzero_medians == 17u && !facts.direction_supported &&
+-                     facts.clocks_complete, "equal-one unsupported direction");
+-    require_test(parse_fixture(valid_fixtures[2], strlen(valid_fixtures[2]), rows[2]), "restore data");
+-    length = replace_fixture(modified, valid_fixtures[1],
++            facts.clocks_complete,
++        "equal-one unsupported direction");
++    require_test(parse_fixture(valid_fixtures[2], strlen(valid_fixtures[2]), rows[2]),
++        "restore data");
++    length = replace_fixture(modified,
++        valid_fixtures[1],
+         "6,20,10,0.750000000000,0.500000000000,1.000000000000,10,",
+         "6,20,10,0.750000000000,0.500000000000,1.000000000000,9,");
+     require_test(parse_fixture(modified, length, rows[1]), "insufficient-clock is valid data");
+     facts = summarize_rows(rows);
+     require_test(facts.direction_supported && !facts.clocks_complete &&
+-                     facts.clock_qualified_pairs == 239u, "one missing clock qualification");
+-    static const struct { const char *from; const char *to; } rejected[] = {
+-        {"task,", "wrong,"}, {"1,20,10,", "2,20,10,"}, {"3,0,10,", "3,20,10,"},
+-        {"1,20,10,", "1,0,10,"}, {"1,20,10,", "1,20,9,"},
++            facts.clock_qualified_pairs == 239u,
++        "one missing clock qualification");
++
++    static const struct {
++        const char *from;
++        const char *to;
++    } rejected[] = {{"task,", "wrong,"},
++        {"1,20,10,", "2,20,10,"},
++        {"3,0,10,", "3,20,10,"},
++        {"1,20,10,", "1,0,10,"},
++        {"1,20,10,", "1,20,9,"},
+         {",10,nonzero_requires", ",11,nonzero_requires"},
+         {"0.500000000000,0.250000000000", "-1.000000000000,0.250000000000"},
+         {"0.500000000000,0.250000000000", "NaN,0.250000000000"},
+@@ -322,15 +332,19 @@
+         {"0.500000000000,0.250000000000", "0.5,0.250000000000"},
+         {"1,20,10,", "1,42949672960,10,"},
+         {"0.500000000000,0.250000000000", "0.500000000000,extra,0.250000000000"}};
++
+     for (size_t rejected_index = 0; rejected_index < sizeof(rejected) / sizeof(rejected[0]);
+-         ++rejected_index) {
+-        length = replace_fixture(modified, valid_fixtures[0], rejected[rejected_index].from,
++        ++rejected_index) {
++        length = replace_fixture(modified,
++            valid_fixtures[0],
++            rejected[rejected_index].from,
+             rejected[rejected_index].to);
+         require_test(!parse_fixture(modified, length, rows[0]), "invalid schema or value rejected");
+     }
+     const char *last_row = strstr(valid_fixtures[0], "\n8,");
+     require_test(last_row != NULL, "last fixture row");
+-    require_test(!parse_fixture(valid_fixtures[0], (size_t)(last_row + 1 - valid_fixtures[0]), rows[0]),
++    require_test(
++        !parse_fixture(valid_fixtures[0], (size_t)(last_row + 1 - valid_fixtures[0]), rows[0]),
+         "missing row rejected");
+     require_test(!parse_fixture(valid_fixtures[0], strlen(valid_fixtures[0]) - 1u, rows[0]),
+         "truncated final newline rejected");
+@@ -340,8 +354,10 @@
+     require_test(!parse_fixture(modified, length, rows[0]), "extra row rejected");
+     memcpy(modified, valid_fixtures[0], strlen(valid_fixtures[0]));
+     modified[0] = '\0';
+-    require_test(!parse_fixture(modified, strlen(valid_fixtures[0]), rows[0]), "embedded NUL rejected");
+-    puts("Hand-written support, reversal, clock and strict-input fixtures passed; no observer called.");
++    require_test(!parse_fixture(modified, strlen(valid_fixtures[0]), rows[0]),
++        "embedded NUL rejected");
++    puts("Hand-written support, reversal, clock and strict-input fixtures passed; no observer "
++         "called.");
+ }
+ 
+ int main(int argument_count, char **argument_values)
+@@ -357,8 +373,11 @@
+     struct summary_row rows[PROCESS_COUNT][TASK_COUNT];
+     for (size_t process_index = 0; process_index < PROCESS_COUNT; ++process_index) {
+         char path[PATH_CAPACITY];
+-        int written = snprintf(path, sizeof(path), "%s/run-%zu/summary.csv",
+-            argument_values[1], process_index + 1u);
++        int written = snprintf(path,
++            sizeof(path),
++            "%s/run-%zu/summary.csv",
++            argument_values[1],
++            process_index + 1u);
+         if (written <= 0 || (size_t)written >= sizeof(path)) {
+             fprintf(stderr, "Summary path exceeds bound\n");
+             return 1;

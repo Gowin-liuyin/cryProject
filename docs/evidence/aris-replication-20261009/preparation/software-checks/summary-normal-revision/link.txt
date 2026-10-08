@@ -1,0 +1,1 @@
+/usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fno-lto CMakeFiles/process_summary.dir/process_summary.c.o -o process_summary  -lm

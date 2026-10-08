@@ -1,0 +1,56 @@
+cmake_minimum_required(VERSION 3.21)
+project(m02_process_summary LANGUAGES C)
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+    message(FATAL_ERROR "Use an out-of-source build")
+endif()
+if(NOT CMAKE_C_COMPILER_ID MATCHES "^(GNU|Clang|AppleClang)$")
+    message(FATAL_ERROR "Requires GCC/Clang")
+endif()
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION FALSE)
+option(SUMMARY_SANITIZERS "ASan/UBSan software checks" OFF)
+add_executable(process_summary process_summary.c)
+target_compile_options(
+    process_summary
+    PRIVATE -O2
+            -g
+            -fno-lto
+            -Wall
+            -Wextra
+            -Wpedantic
+            -Wshadow
+            -Wconversion
+            -Wstrict-prototypes
+            -Werror
+)
+target_link_options(process_summary PRIVATE -fno-lto)
+target_link_libraries(process_summary PRIVATE m)
+if(SUMMARY_SANITIZERS)
+    target_compile_options(
+        process_summary PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer
+    )
+    target_link_options(process_summary PRIVATE -fsanitize=address,undefined)
+endif()
+find_program(CLANG_FORMAT_EXECUTABLE NAMES clang-format)
+if(NOT CLANG_FORMAT_EXECUTABLE AND CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    execute_process(
+        COMMAND xcrun --find clang-format
+        OUTPUT_VARIABLE CLANG_FORMAT_EXECUTABLE
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+endif()
+if(CLANG_FORMAT_EXECUTABLE)
+    add_custom_target(
+        format-check
+        COMMAND "${CLANG_FORMAT_EXECUTABLE}" --dry-run --Werror
+                "${CMAKE_CURRENT_SOURCE_DIR}/process_summary.c"
+        VERBATIM
+    )
+endif()
+include(CTest)
+if(BUILD_TESTING)
+    add_test(NAME process_summary_handwritten_fixtures COMMAND process_summary --selftest)
+endif()

@@ -1,0 +1,48 @@
+[
+  {
+    "step": "configure",
+    "exit_code": 0,
+    "arguments": [
+      "cmake",
+      "-S",
+      "/Users/yin/code/cryProject/build/aris-replication-20261009/source",
+      "-B",
+      "/Users/yin/code/cryProject/build/aris-replication-20261009/normal",
+      "-DBUILD_TESTING=ON",
+      "-DUPDATE_COST_SANITIZERS=OFF"
+    ]
+  },
+  {
+    "step": "build",
+    "exit_code": 0,
+    "arguments": [
+      "cmake",
+      "--build",
+      "/Users/yin/code/cryProject/build/aris-replication-20261009/normal",
+      "--verbose",
+      "--parallel",
+      "2"
+    ]
+  },
+  {
+    "step": "ctest",
+    "exit_code": 0,
+    "arguments": [
+      "ctest",
+      "--test-dir",
+      "/Users/yin/code/cryProject/build/aris-replication-20261009/normal",
+      "--output-on-failure"
+    ]
+  },
+  {
+    "step": "format-check",
+    "exit_code": 0,
+    "arguments": [
+      "cmake",
+      "--build",
+      "/Users/yin/code/cryProject/build/aris-replication-20261009/normal",
+      "--target",
+      "format-check"
+    ]
+  }
+]

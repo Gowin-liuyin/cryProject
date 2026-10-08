@@ -1,0 +1,29 @@
+--- revision_before_format/process_summary.c
++++ revision_after_format/process_summary.c
+@@ -261,11 +261,12 @@
+     FILE *output_file = tmpfile();
+     require_test(output_file != NULL, "report temporary file");
+     require_test(write_report(output_file, rows, facts), "report write");
+-    require_test(fflush(output_file) == 0 && fseek(output_file, 0, SEEK_SET) == 0,
+-        "report rewind");
++    require_test(fflush(output_file) == 0 && fseek(output_file, 0, SEEK_SET) == 0, "report rewind");
+     char status_line[128];
+-    int written = snprintf(status_line, sizeof(status_line),
+-        "  \"research_claim_status\": \"%s\",", expected_status);
++    int written = snprintf(status_line,
++        sizeof(status_line),
++        "  \"research_claim_status\": \"%s\",",
++        expected_status);
+     require_test(written > 0 && (size_t)written < sizeof(status_line), "status line bound");
+     unsigned int row_count = 0;
+     unsigned int limit_count = 0;
+@@ -280,7 +281,8 @@
+             ++status_count;
+         }
+         if (strcmp(line, "  \"process_identity_verified_by_this_program\": false,") == 0 ||
+-            strcmp(line, "  \"source_artifact_raw_counts_verified_by_this_program\": false,") == 0 ||
++            strcmp(line, "  \"source_artifact_raw_counts_verified_by_this_program\": false,") ==
++                0 ||
+             strcmp(line, "  \"population_inference\": false,") == 0) {
+             ++limit_count;
+         }

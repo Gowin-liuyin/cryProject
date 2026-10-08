@@ -1,0 +1,1 @@
+/usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fno-lto CMakeFiles/update_cost_result_review.dir/result_audit.c.o -o update_cost_result_review  -lm

@@ -1,0 +1,17 @@
+Change Dir: '/Users/yin/code/cryProject/build/aris-replication-20261009/audit'
+
+Run Build Command(s): /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile -j2
+/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -S/Users/yin/code/cryProject/build/aris-replication-20261009/source/audit -B/Users/yin/code/cryProject/build/aris-replication-20261009/audit --check-build-system CMakeFiles/Makefile.cmake 0
+/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_progress_start /Users/yin/code/cryProject/build/aris-replication-20261009/audit/CMakeFiles /Users/yin/code/cryProject/build/aris-replication-20261009/audit//CMakeFiles/progress.marks
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/Makefile2 all
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/update_cost_result_review.dir/build.make CMakeFiles/update_cost_result_review.dir/depend
+cd /Users/yin/code/cryProject/build/aris-replication-20261009/audit && /Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_depends "Unix Makefiles" /Users/yin/code/cryProject/build/aris-replication-20261009/source/audit /Users/yin/code/cryProject/build/aris-replication-20261009/source/audit /Users/yin/code/cryProject/build/aris-replication-20261009/audit /Users/yin/code/cryProject/build/aris-replication-20261009/audit /Users/yin/code/cryProject/build/aris-replication-20261009/audit/CMakeFiles/update_cost_result_review.dir/DependInfo.cmake "--color=" update_cost_result_review
+/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/update_cost_result_review.dir/build.make CMakeFiles/update_cost_result_review.dir/build
+[ 50%] Building C object CMakeFiles/update_cost_result_review.dir/result_audit.c.o
+/usr/bin/cc   -std=c11 -arch arm64 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/update_cost_result_review.dir/result_audit.c.o -MF CMakeFiles/update_cost_result_review.dir/result_audit.c.o.d -o CMakeFiles/update_cost_result_review.dir/result_audit.c.o -c /Users/yin/code/cryProject/build/aris-replication-20261009/source/audit/result_audit.c
+[100%] Linking C executable update_cost_result_review
+/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/update_cost_result_review.dir/link.txt --verbose=1
+/usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fno-lto CMakeFiles/update_cost_result_review.dir/result_audit.c.o -o update_cost_result_review  -lm
+[100%] Built target update_cost_result_review
+/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake -E cmake_progress_start /Users/yin/code/cryProject/build/aris-replication-20261009/audit/CMakeFiles 0
+
