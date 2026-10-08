@@ -1,7 +1,7 @@
 # A1-13 长期工程约定
 
 - 本仓库直接在 `main` 开发；不新建开发分支，不自动 push，不强制重置、覆盖用户修改或改写历史。
-- 开工先读适用 AGENTS.md、README、方案和构建配置，检查状态、远端、身份及真实环境；复用有效实现。代码发现优先使用可用的知识图谱工具，不足时回退文本搜索。
+- 开工先读适用 AGENTS.md、README、方案和构建配置，检查状态、远端、身份及真实环境；工作环境和目录以文末「工作环境与工作目录」为准。复用有效实现。代码发现优先使用可用的知识图谱工具，不足时回退文本搜索。
 - 作者和提交者名称均为 `Gowin-liuyin`；邮箱必须来自账号已验证邮箱或设置中显示的 noreply 邮箱，只设置本仓库配置。无法确认时先询问，不能冒用身份。
 - 按模块执行“实现 → 必要检查 → 检查 diff → commit”，完成即提交，再进入下一模块。每次提交核对 main、作者、提交者、邮箱及 hash。只暂存本模块文件；修复使用新提交。
 - 参考项目镜像的 `sources/` 为只读，不编辑、移动、删除同步资料。工程只在本仓库根目录维护。
@@ -17,3 +17,34 @@
 - 分别报告功能正确、源码秘密依赖、产物机制、原始数据、观察差异及正式统计确认；缺证据不升级声明。macOS/ARM、交叉编译或模拟器不能冒充真实 x86_64 Linux 实测。
 - 原始六模块不重建。推进顺序为官方材料与验收表、固定原生快照、有限批次路线收口、防御案例、固定改进合同、受控验证、产品入口、干净复算、报告、演示及匿名包。维护 docs/full-work-progress.md；分别记录软件完成、实验执行、假设成立和竞赛验收，缺证据不签收。
 - 自有代码格式遵循 .clang-format、.cmake-format.json、.editorconfig 和 docs/style.md；C 分支/循环必须带大括号，单变量声明，不压缩多条语句。格式提交与功能修复分别验证；提交前运行 format-check，禁止格式化 vendor、固定向量和已封存证据。
+
+## 工作环境与工作目录
+
+三套环境各有固定根目录。代码和文档只在本仓库改。Linux 实测按机器落到下面的目录，拉回的副本放进对应的 `docs/evidence/` 子目录。口令和私钥内容不写入仓库、证据或命令记录。身份文件只记录路径。
+
+### 本机：仓库根目录
+
+- 当前克隆是 `/Users/yin/code/cryProject`。换机器后仍以该克隆的根目录为工程目录，远端 `https://github.com/Gowin-liuyin/cryProject.git`，分支 `main`。
+- 源码、文档和提交都在这个根目录完成。本地构建在 `build/`，CMake 预设产物在 `build/cmake`。`build/` 只供本机编译，不作为证据。
+- 这台机器是 Apple Silicon 上的 macOS。这里的编译和计时记为 macOS/ARM。
+- `sources/` 只读。已封存证据和已提交的 `docs/evidence/` 记录不就地改写。
+
+### KVM：`/home/ubuntu/cryproject-a113-20261007`
+
+- SSH 别名 `cryproject-native-x86`，地址 `ubuntu@119.45.121.134`，端口 22，身份文件 `/Users/yin/.ssh/id_ed25519`。
+- 2026-10-08 预检：主机名 `VM-0-17-ubuntu`，Ubuntu 24.04.4，Linux 6.8.0-138-generic，x86_64，`systemd-detect-virt=kvm`，4 vCPU，内存 7806156 kB。GCC 13.3.0、Clang 18.1.3、CMake 3.28.3、Ninja 1.11.1。客户机没有可配置的 cpufreq，物理频率在这台机器上不能锁定。
+- 持久工作根目录是 `/home/ubuntu/cryproject-a113-20261007`。源码按提交放在 `source-<短提交号>/`，一次运行的构建和输出放在 `runs/<名称>/`。新运行新建子目录，保留已有的 `source-*` 和 `runs/*`。
+- 2026-10-08 有两处已经结束的临时目录，构建树没有留在持久根目录：R07 是 `/tmp/cryproject-r07.G6Vreo`，封存包代理重跑是 `/tmp/cryproject-author-proxy-20261008.kSvlwt`。下次工作使用持久根目录下的新子目录。拉回副本分别是 `docs/evidence/r07-linux-20261008` 和 `docs/evidence/author-proxy-v3-20261008`。
+
+### 裸金属：`/home/nss-marker/yhr/Cry`
+
+- 登录命令是 `ssh nss-marker@10.144.144.5`。本机 `~/.ssh/config` 里的 Host `nss-marker-cloud` 指向 `10.144.144.3`；连这台裸金属时写完整地址 `10.144.144.5`。
+- 2026-10-08 预检：主机名 `nss-m`，Ubuntu 24.04.4，Linux 6.17.0-35-generic，x86_64，`systemd-detect-virt=none`，AMD Ryzen 9 9950X，32 线程，内存 63385244 kB。调速器保持 `powersave`，记录中的 `frequency_control=not_configured`。GCC 13.3.0、Clang 18.1.3、CMake 3.28.3。
+- 工作根目录是 `/home/nss-marker/yhr/Cry`。2026-10-08 这次的目录是：
+  - `source/`：源码，提交 `a5340330f4d647c850f15329ef6bb7615c7d88ea`。普通 `audit` 构建在 `source/build/cmake`。
+  - `run/build-mechanism`：机制计时构建，GCC、RelWithDebInfo、sanitizer 关闭、`A113_ARCHIVED_CASE_ONLY=OFF`。
+  - `run/mechanism`：四变体机制 CSV 与分析报告。
+  - `run/performance`：普通性能。`run/collect`：短演示。`run/calibrate`：有限模型。`run/reference-label-control`：后赋标签。`run/replay`：封存历史重放。
+- 拉回副本是 `docs/evidence/baremetal-ryzen-20261008`，单独存放，不并入 `docs/evidence/r07-linux-20261008`。这些记录不是频率锁定、恒时证明或竞赛签收。下次新跑仍以 `/home/nss-marker/yhr/Cry` 为根，另建子目录，保留这次的 `source/` 和 `run/`。
+
+R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。
