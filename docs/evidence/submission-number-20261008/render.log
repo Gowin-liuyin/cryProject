@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/Users/yin/.codex/plugins/cache/openai-primary-runtime/documents/26.905.11957/skills/documents/render_docx.py", line 530, in main
+    dpi = calc_dpi_via_ooxml_docx(render_input_path, args.width, args.height)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yin/.codex/plugins/cache/openai-primary-runtime/documents/26.905.11957/skills/documents/render_docx.py", line 168, in calc_dpi_via_ooxml_docx
+    with ZipFile(input_path, "r") as zf:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1353, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/yin/code/cryProject/deliverables/submission/CACR2026EA16XZ/CACR2026EA16XZ-2026密码竞赛复赛作品设计报告.docx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yin/.codex/plugins/cache/openai-primary-runtime/documents/26.905.11957/skills/documents/render_docx.py", line 546, in <module>
+    main()
+  File "/Users/yin/.codex/plugins/cache/openai-primary-runtime/documents/26.905.11957/skills/documents/render_docx.py", line 534, in main
+    dpi = calc_dpi_via_pdf(
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/yin/.codex/plugins/cache/openai-primary-runtime/documents/26.905.11957/skills/documents/render_docx.py", line 376, in calc_dpi_via_pdf
+    raise RuntimeError("Failed to convert input to PDF for DPI computation.\n" + debug)
+RuntimeError: Failed to convert input to PDF for DPI computation.
+--- DOCX->PDF ---
+CMD: /Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/soffice -env:UserInstallation=file:///private/tmp/soffice_profile_k92adnh2 --invisible --headless --norestore --convert-to pdf --outdir /private/tmp/soffice_convert_dai9_em0 /Users/yin/code/cryProject/deliverables/submission/CACR2026EA16XZ/CACR2026EA16XZ-2026密码竞赛复赛作品设计报告.docx
+EXIT: 1
+STDERR:
+Error: source file could not be loaded
+--- DOCX->ODT ---
+CMD: /Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/soffice -env:UserInstallation=file:///private/tmp/soffice_profile_k92adnh2 --invisible --headless --norestore --convert-to odt --outdir /private/tmp/soffice_convert_dai9_em0 /Users/yin/code/cryProject/deliverables/submission/CACR2026EA16XZ/CACR2026EA16XZ-2026密码竞赛复赛作品设计报告.docx
+EXIT: 1
+STDERR:
+Error: source file could not be loaded
