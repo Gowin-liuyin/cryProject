@@ -1,0 +1,77 @@
+{
+  "orchestration_runtime": {
+    "executable": "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+  },
+  "platform": {
+    "arguments": [
+      "uname",
+      "-a"
+    ],
+    "returncode": 0,
+    "stdout": "Darwin yindeMacBook-Air.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64\n",
+    "stderr": ""
+  },
+  "os": {
+    "arguments": [
+      "sw_vers"
+    ],
+    "returncode": 0,
+    "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+    "stderr": ""
+  },
+  "power": {
+    "arguments": [
+      "pmset",
+      "-g",
+      "ps"
+    ],
+    "returncode": 0,
+    "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=7340131)\t100%; charged; 0:00 remaining present: true\n",
+    "stderr": ""
+  },
+  "machine": {
+    "arguments": [
+      "sysctl",
+      "hw.model",
+      "hw.machine",
+      "hw.ncpu",
+      "hw.memsize",
+      "machdep.cpu.brand_string"
+    ],
+    "returncode": 0,
+    "stdout": "hw.model: Mac17,3\nhw.machine: arm64\nhw.ncpu: 10\nhw.memsize: 17179869184\nmachdep.cpu.brand_string: Apple M5\n",
+    "stderr": ""
+  },
+  "git_status": {
+    "arguments": [
+      "git",
+      "status",
+      "--short",
+      "--branch"
+    ],
+    "returncode": 0,
+    "stdout": "## main...origin/main [ahead 4]\n M deliverables/submission/CACR2026EA16XZ/README.md\n M docs/full-work-progress.md\n?? .agents/\n?? docs/evidence/aris-replication-20261009/execution/\n",
+    "stderr": ""
+  },
+  "git_commit": {
+    "arguments": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "1ac2033eb16057ee684eedefc6301a0ce6b5b7ed\n",
+    "stderr": ""
+  },
+  "git_uncommitted_stat": {
+    "arguments": [
+      "git",
+      "diff",
+      "--stat"
+    ],
+    "returncode": 0,
+    "stdout": " deliverables/submission/CACR2026EA16XZ/README.md |  2 ++\n docs/full-work-progress.md                       | 13 +++++++++++++\n 2 files changed, 15 insertions(+)\n",
+    "stderr": ""
+  }
+}

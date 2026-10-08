@@ -1,0 +1,46 @@
+{
+  "format": "m02_summary_post_execution_handoff_v1",
+  "record_type": "post_execution_handoff_record_not_original_start_record",
+  "record_created_utc": "2026-10-08T23:49:29.735010+00:00",
+  "phase": "read_only_summary_after_three_formal_processes_and_independent_c_audits",
+  "implementation_commit": "1ac2033eb16057ee684eedefc6301a0ce6b5b7ed",
+  "command_literal": "build/aris-replication-20261009/summary-normal/process_summary docs/evidence/aris-replication-20261009 docs/evidence/aris-replication-20261009/process-summary.json",
+  "arguments": [
+    "build/aris-replication-20261009/summary-normal/process_summary",
+    "docs/evidence/aris-replication-20261009",
+    "docs/evidence/aris-replication-20261009/process-summary.json"
+  ],
+  "cwd": "/Users/yin/code/cryProject",
+  "returncode": 0,
+  "stdout": "Three summary tables recorded; overall claim still requires independent process checks.\n",
+  "execution_result_provenance": "actual exec_command result relayed by root; no second command execution for this record",
+  "utc_start": null,
+  "utc_finish": null,
+  "start_finish_utc_unavailable": true,
+  "tool_wall_time_seconds": 5.333e-06,
+  "tool_wall_time_role": "tool observation metric; neither algorithm-window nor end-to-end-process timing",
+  "binary_sha256": "bb34c985ac25d72be098fce2bebc8cce74fc090486b7b2aae7ecae079f6cb8d7",
+  "source_sha256": "2e33ede99d082cc37488227022dae96915a90b7f840ef2cfbe3136f3372aa497",
+  "cmake_sha256": "70820a849c8ff5667105df4e61c6529044c6da8f7929ce91db5e9519528feb33",
+  "output_relative_path": "docs/evidence/aris-replication-20261009/process-summary.json",
+  "output_sha256": "5fdbdad01b44af86608a8aba97537ca3ce40b1c0600963d7736091cb8df3b9e9",
+  "summary_inputs": [
+    {
+      "relative_path": "run-1/summary.csv",
+      "sha256": "30ba18e0d90507487af0162759dcc3f5398028d3cba9458a100e79b41ea04882"
+    },
+    {
+      "relative_path": "run-2/summary.csv",
+      "sha256": "5a277fe9d7c91eef06750ead22a06c847a61038a1263aa95e05773893e14921d"
+    },
+    {
+      "relative_path": "run-3/summary.csv",
+      "sha256": "5b097bdba637325f561a0f58631766e8ef256cfdaa16c319d3e6840d223c137c"
+    }
+  ],
+  "new_observer_runs_performed_for_handoff": 0,
+  "statistics_reexecuted_for_handoff": false,
+  "summary_reexecuted_for_handoff": false,
+  "old_m01_pooled": false,
+  "scope": "one_rebuild_three_sequential_processes_fixed_tasks_existing_record_summary"
+}
