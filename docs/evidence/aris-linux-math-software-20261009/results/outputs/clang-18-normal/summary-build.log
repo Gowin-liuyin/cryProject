@@ -1,0 +1,23 @@
+Change Dir: '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile -j2
+/usr/bin/cmake -S/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/summary-source -B/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/CMakeFiles /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+/usr/bin/gmake  -f CMakeFiles/process_summary.dir/build.make CMakeFiles/process_summary.dir/depend
+gmake[2]: Entering directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+cd /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/summary-source /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/summary-source /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/CMakeFiles/process_summary.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+/usr/bin/gmake  -f CMakeFiles/process_summary.dir/build.make CMakeFiles/process_summary.dir/build
+gmake[2]: Entering directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+[ 50%] Building C object CMakeFiles/process_summary.dir/process_summary.c.o
+/usr/bin/clang-18   -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/process_summary.dir/process_summary.c.o -MF CMakeFiles/process_summary.dir/process_summary.c.o.d -o CMakeFiles/process_summary.dir/process_summary.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/summary-source/process_summary.c
+[100%] Linking C executable process_summary
+/usr/bin/cmake -E cmake_link_script CMakeFiles/process_summary.dir/link.txt --verbose=1
+/usr/bin/clang-18 -fno-lto CMakeFiles/process_summary.dir/process_summary.c.o -o process_summary  -lm 
+gmake[2]: Leaving directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+[100%] Built target process_summary
+gmake[1]: Leaving directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary'
+/usr/bin/cmake -E cmake_progress_start /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/CMakeFiles 0
+

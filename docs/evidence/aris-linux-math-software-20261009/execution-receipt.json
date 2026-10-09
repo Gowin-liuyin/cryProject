@@ -1,0 +1,40 @@
+{
+  "record_type": "post_execution_handoff_from_actual_root_tool_results",
+  "preparation_commit": "2025b636c7a9823233365fa318cefab407de80c2",
+  "remote_root": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63",
+  "stage_archive_sha256": "6b3ba2c6ed62d80ee4ec39824f18e1430185652e9a94c9b979c12703f234d0fc",
+  "path_negative_command": "sh stage/verification/remote-run.sh /tmp /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/path-reject-must-not-exist",
+  "negative_command_status_verified": 2,
+  "negative_output_not_created_verified": true,
+  "negative_verification_provenance": "root remote helper checked status=2 and absence before printing passed; actual tool result attached",
+  "deployment_tool_result": {
+    "chunk_id": "34986c",
+    "wall_time_seconds": 0.000007333,
+    "exit_code": 0,
+    "original_token_count": 19,
+    "output": "linux-math-software-stage.tar.gz: OK\nfixed_root_rejection=passed status=2\n"
+  },
+  "matrix_command": "env LC_ALL=C LANG=C sh stage/verification/remote-run.sh /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs",
+  "matrix_initial_tool_result": {
+    "chunk_id": "53cd21",
+    "wall_time_seconds": 1.003150458,
+    "session_id": 76791,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "matrix_terminal_exit_code": 0,
+  "actual_terminal_session_id": 76791,
+  "result_summary_tool_result": {
+    "chunk_id": "bcd022",
+    "wall_time_seconds": 0.000017042,
+    "exit_code": 0,
+    "original_token_count": 389,
+    "output": "state=complete failed_cells=0\ncell=outputs/gcc-13-normal\nexit_status=0\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.00 sec\n100% tests passed, 0 tests failed out of 3\nTotal Test time (real) =   0.01 sec\n100% tests passed, 0 tests failed out of 4\nTotal Test time (real) =   0.03 sec\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.00 sec\ncell=outputs/gcc-13-sanitize\nexit_status=0\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.01 sec\n100% tests passed, 0 tests failed out of 3\nTotal Test time (real) =   0.02 sec\n100% tests passed, 0 tests failed out of 4\nTotal Test time (real) =   0.04 sec\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.00 sec\ncell=outputs/clang-18-normal\nexit_status=0\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.00 sec\n100% tests passed, 0 tests failed out of 3\nTotal Test time (real) =   0.01 sec\n100% tests passed, 0 tests failed out of 4\nTotal Test time (real) =   0.03 sec\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.00 sec\ncell=outputs/clang-18-sanitize\nexit_status=0\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.01 sec\n100% tests passed, 0 tests failed out of 3\nTotal Test time (real) =   0.01 sec\n100% tests passed, 0 tests failed out of 4\nTotal Test time (real) =   0.04 sec\n100% tests passed, 0 tests failed out of 1\nTotal Test time (real) =   0.00 sec\nd965738e67f9fb58bb1a72f17d3d5700c00291b82891e96652886c4c861feaaf  evidence-results.tar.gz\n"
+  },
+  "result_archive_sha256": "d965738e67f9fb58bb1a72f17d3d5700c00291b82891e96652886c4c861feaaf",
+  "extracted_raw_evidence_files": 157,
+  "new_formal_observations": 0,
+  "cryptographic_calls": 0,
+  "password_stored": false,
+  "auth_transition_note": "one transport-closed password session before deployment; fresh immediate prompt handling succeeded; neither was a matrix attempt"
+}

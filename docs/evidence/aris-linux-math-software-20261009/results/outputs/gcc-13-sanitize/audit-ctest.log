@@ -1,0 +1,25 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/DartConfiguration.tcl
+Test project /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: independent_c_result_audit
+
+1: Test command: /usr/bin/cmake "-DAUDITOR=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/update_cost_result_review" "-DEVIDENCE_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit/../frozen-evidence" "-DINPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit/../inputs" "-DCHECK_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit" "-P" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit/audit_check.cmake"
+1: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit
+1: Test timeout computed to be: 1500
+1: -- Independent C audit passed; formal observer and statistics were not rerun.
+1: New audit output: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/ctest-verification-0ca01eb1f56d52e9.json
+1/1 Test #1: independent_c_result_audit .......   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.01 sec

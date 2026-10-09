@@ -218,3 +218,9 @@ Linux当前连接仍失败，本机M5纯数学CPU复核资源可用且实际AC�
 2026-10-09用户说明裸金属采用密码登录后，交互密码认证实际成功。新[访问核验](evidence/aris-access-restored-20261009/access-check.json)仅存无凭据结果：
 nss-m、Linux/x86_64、无虚拟化、32线程、约定工作根存在，观察到powersave。此前BatchMode的255仅说明免交互认证未通过，旧失败保留。
 服务器访问阻断已解除，目标已恢复active；本轮没有新实验，也未由governor名称签收锁频或R02/R04。密码未写入仓库、证据文件或命令。
+
+2026-10-09完成[真实Linux数学软件复核](research/aris-linux-math-software-20261009/RESULTS.md)：
+新目录、合同2025b63、GCC13/Clang18各普通及ASan/UBSan四配置，每配置9项软件测试通过，16份原M02审计/汇总JSON字节一致。
+157份原日志及编译/链接/符号/库记录已取回，stage264路径/263摘要前后不变；没有新计时或密码调用，旧密码GCC失败保留。
+原审计manifest静态OFF与实际动态参数ON的区别已说明，十二个远端ELF摘要尚未在本地重算，不补造该验证。
+[频率控制候选](research/aris-linux-math-software-20261009/FREQUENCY_CONTROL_PROPOSAL.md)已准备，资源窗口问题等待用户回复；未改共享硬件，R02/R04仍部分签收。

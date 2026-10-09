@@ -1,0 +1,40 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/DartConfiguration.tcl
+Test project /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: update_cost_selfcheck
+
+1: Test command: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/update_cost "--selftest"
+1: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector
+1: Test timeout computed to be: 1500
+1: selfcheck=passed hand_cases=6 methods=2 interface_bounds=checked parser_bounds=checked
+1/3 Test #1: update_cost_selfcheck ............   Passed    0.01 sec
+test 2
+    Start 2: update_cost_fixed_inputs
+
+2: Test command: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/update_cost "--check-inputs" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/inputs"
+2: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector
+2: Test timeout computed to be: 1500
+2: input_selfcheck=passed archived_files=24 wrong_task_rejections=16 input_bytes=unchanged
+2/3 Test #2: update_cost_fixed_inputs .........   Passed    0.00 sec
+test 3
+    Start 3: update_cost_failure_record
+
+3: Test command: /usr/bin/cmake "-DOBSERVER=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/update_cost" "-DCHECK_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector" "-DSANITIZERS=ON" "-P" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/failure_check.cmake"
+3: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector
+3: Test timeout computed to be: 1500
+3: -- Failure-path software check passed; no statistics window was executed
+3/3 Test #3: update_cost_failure_record .......   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Total Test time (real) =   0.02 sec

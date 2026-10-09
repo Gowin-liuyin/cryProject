@@ -1,0 +1,24 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/DartConfiguration.tcl
+Test project /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: process_summary_handwritten_fixtures
+
+1: Test command: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/process_summary "--selftest"
+1: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary
+1: Test timeout computed to be: 1500
+1: Hand-written support, reversal, clock and strict-input fixtures passed; no observer called.
+1/1 Test #1: process_summary_handwritten_fixtures ...   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

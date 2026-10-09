@@ -1,0 +1,23 @@
+Change Dir: '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile -j2
+/usr/bin/cmake -S/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit -B/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/CMakeFiles /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+/usr/bin/gmake  -f CMakeFiles/update_cost_result_review.dir/build.make CMakeFiles/update_cost_result_review.dir/depend
+gmake[2]: Entering directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+cd /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/CMakeFiles/update_cost_result_review.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+/usr/bin/gmake  -f CMakeFiles/update_cost_result_review.dir/build.make CMakeFiles/update_cost_result_review.dir/build
+gmake[2]: Entering directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+[ 50%] Building C object CMakeFiles/update_cost_result_review.dir/result_audit.c.o
+/usr/bin/gcc-13   -fsanitize=address,undefined -fno-omit-frame-pointer -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -MD -MT CMakeFiles/update_cost_result_review.dir/result_audit.c.o -MF CMakeFiles/update_cost_result_review.dir/result_audit.c.o.d -o CMakeFiles/update_cost_result_review.dir/result_audit.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit/result_audit.c
+[100%] Linking C executable update_cost_result_review
+/usr/bin/cmake -E cmake_link_script CMakeFiles/update_cost_result_review.dir/link.txt --verbose=1
+/usr/bin/gcc-13 -fsanitize=address,undefined -fno-omit-frame-pointer -fsanitize=address,undefined -fno-lto CMakeFiles/update_cost_result_review.dir/result_audit.c.o -o update_cost_result_review  -lm 
+gmake[2]: Leaving directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+[100%] Built target update_cost_result_review
+gmake[1]: Leaving directory '/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit'
+/usr/bin/cmake -E cmake_progress_start /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/CMakeFiles 0
+

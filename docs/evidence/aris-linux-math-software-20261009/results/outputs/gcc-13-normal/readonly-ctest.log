@@ -1,0 +1,52 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly/DartConfiguration.tcl
+Test project /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: m02_readonly_process_1
+
+1: Test command: /usr/bin/cmake "-DAUDITOR=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/audit/update_cost_result_review" "-DM02_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen" "-DINPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen/preparation/fixed-inputs" "-DOUTPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/recomputed-json" "-DPROCESS_NUMBER=1" "-P" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/verification/readonly_check.cmake"
+1: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly
+1: Test timeout computed to be: 60
+1: -- Independent C audit passed; formal observer and statistics were not rerun.
+1: Byte-identical frozen JSON: e635e7352a00d18e83fcd55fa0ff8057caf1d550cbfafdc409edcd9c7d639dae
+1/4 Test #1: m02_readonly_process_1 ...........   Passed    0.01 sec
+test 2
+    Start 2: m02_readonly_process_2
+
+2: Test command: /usr/bin/cmake "-DAUDITOR=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/audit/update_cost_result_review" "-DM02_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen" "-DINPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen/preparation/fixed-inputs" "-DOUTPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/recomputed-json" "-DPROCESS_NUMBER=2" "-P" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/verification/readonly_check.cmake"
+2: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly
+2: Test timeout computed to be: 60
+2: -- Independent C audit passed; formal observer and statistics were not rerun.
+2: Byte-identical frozen JSON: 778cceafca552293e70b3666c604d83b40f50d1a24feeb9719bbd835f6383eab
+2/4 Test #2: m02_readonly_process_2 ...........   Passed    0.01 sec
+test 3
+    Start 3: m02_readonly_process_3
+
+3: Test command: /usr/bin/cmake "-DAUDITOR=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/audit/update_cost_result_review" "-DM02_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen" "-DINPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen/preparation/fixed-inputs" "-DOUTPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/recomputed-json" "-DPROCESS_NUMBER=3" "-P" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/verification/readonly_check.cmake"
+3: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly
+3: Test timeout computed to be: 60
+3: -- Independent C audit passed; formal observer and statistics were not rerun.
+3: Byte-identical frozen JSON: c763b1ae85c0cb4bf74eb933e241c6459738bcd6fd1c90ea4ddf4b2fa6f520a5
+3/4 Test #3: m02_readonly_process_3 ...........   Passed    0.01 sec
+test 4
+    Start 4: m02_readonly_summary
+
+4: Test command: /usr/bin/cmake "-DSUMMARY=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/summary/process_summary" "-DM02_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/m02-frozen" "-DOUTPUT_ROOT=/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/recomputed-json" "-P" "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/verification/readonly_check.cmake"
+4: Working Directory: /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/readonly
+4: Test timeout computed to be: 60
+4: -- Three summary tables recorded; overall claim still requires independent process checks.
+4: Byte-identical frozen JSON: 5fdbdad01b44af86608a8aba97537ca3ce40b1c0600963d7736091cb8df3b9e9
+4/4 Test #4: m02_readonly_summary .............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.03 sec

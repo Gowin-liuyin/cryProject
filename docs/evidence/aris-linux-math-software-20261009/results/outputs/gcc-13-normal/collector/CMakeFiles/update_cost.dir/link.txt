@@ -1,0 +1,1 @@
+/usr/bin/gcc-13 -fno-lto CMakeFiles/update_cost.dir/update_cost.c.o CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o -o update_cost  -lm 

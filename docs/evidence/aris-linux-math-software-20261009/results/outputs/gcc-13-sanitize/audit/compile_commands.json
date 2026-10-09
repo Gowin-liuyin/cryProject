@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit",
+  "command": "/usr/bin/gcc-13   -fsanitize=address,undefined -fno-omit-frame-pointer -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/update_cost_result_review.dir/result_audit.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit/result_audit.c",
+  "file": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/audit/result_audit.c",
+  "output": "CMakeFiles/update_cost_result_review.dir/result_audit.c.o"
+}
+]

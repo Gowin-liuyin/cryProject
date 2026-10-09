@@ -1,0 +1,13 @@
+source_identity=SOURCE-MATH-COST-01
+source_identity_kind=anonymous_source_alias_not_git
+compiler=/usr/bin/clang-18
+compiler_id=Clang
+compiler_version=18.1.3
+system=Linux
+architecture=x86_64
+optimization=-O2
+lto=disabled
+sanitizers=OFF
+sha256=3b8b4ba9233b8e3f118d6832113c7fb364a0e55a69e977ee5203157286389ea4  audit/result_audit.c
+sha256=f283c088e6730950e0ee5aa54e16440c62de3c5fc6bb5f5ab17df7916474e018  audit/CMakeLists.txt
+sha256=1a24e8e298c43c3519a424dfe0e7ba7d6567d822efd505c97fa7f4cdacad66f3  audit/audit_check.cmake

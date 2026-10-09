@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector",
+  "command": "/usr/bin/gcc-13 -DUPDATE_COST_SANITIZERS=1 -Dcompute_controlled_result=compute_incremental_controlled_result -I/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots/controlled_snapshot.c",
+  "file": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots/controlled_snapshot.c",
+  "output": "CMakeFiles/incremental_snapshot.dir/snapshots/controlled_snapshot.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector",
+  "command": "/usr/bin/gcc-13 -DUPDATE_COST_SANITIZERS=1 -Dcompute_controlled_result=compute_naive_controlled_result -I/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots/naive_snapshot.c",
+  "file": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots/naive_snapshot.c",
+  "output": "CMakeFiles/naive_snapshot.dir/snapshots/naive_snapshot.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector",
+  "command": "/usr/bin/gcc-13 -DUPDATE_COST_SANITIZERS=1 -I/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots/paired_statistics_snapshot.c",
+  "file": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots/paired_statistics_snapshot.c",
+  "output": "CMakeFiles/paired_snapshot.dir/snapshots/paired_statistics_snapshot.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector",
+  "command": "/usr/bin/gcc-13 -DUPDATE_COST_SANITIZERS=1 -I/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/snapshots -std=c11 -O2 -g -fno-lto -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/update_cost.dir/update_cost.c.o -c /home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/update_cost.c",
+  "file": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/stage/math-source/update_cost.c",
+  "output": "CMakeFiles/update_cost.dir/update_cost.c.o"
+}
+]
