@@ -7,6 +7,11 @@
 见 [执行记录](docs/evidence/author-proxy-v3-20261008/README.md)。同一 Linux 上的人工机制防护前后见 [R07记录](docs/evidence/r07-linux-20261008/README.md)。实际截图及审批签署仍缺，
 当前材料供项目组审阅修改，不称全部要求验收完成。
 
+2026-10-09的[45页研究补强报告](deliverables/research/aris-report-current-20261009/README.md)
+已纳入官方两项潜在修正的静态核对与[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)。
+一次干净重建后的三个同机新进程支持固定六非零输入的较低中位成本观察，原M01不合并。
+报告经科学与全页视觉核验；R02/R04的真实测量及统计前提、实际截图和本人签署仍需适用证据。
+
 当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、
 成对统计、普通性能及离线HTML导出。构建后从这里开始：
 
