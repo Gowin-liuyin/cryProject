@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-10-09 01:13:36 UTC",
+  "scope": "single_bounded_read_only_resource_revalidation",
+  "commands": [
+    {
+      "label": "kvm",
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=8 cryproject-native-x86 uname -m",
+      "initial_tool_result": {
+        "chunk_id": "efa579",
+        "wall_time_seconds": 1.00353875,
+        "session_id": 27324,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "terminal_tool_result": {
+        "chunk_id": "bf9816",
+        "wall_time_seconds": 0.000007542,
+        "exit_code": 255,
+        "original_token_count": 12,
+        "output": "Connection closed by 119.45.121.134 port 22\r\n"
+      }
+    },
+    {
+      "label": "baremetal",
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=8 nss-marker@10.144.144.5 uname -m",
+      "terminal_tool_result": {
+        "chunk_id": "35f946",
+        "wall_time_seconds": 0.203970542,
+        "exit_code": 255,
+        "original_token_count": 17,
+        "output": "nss-marker@10.144.144.5: Permission denied (publickey,password).\r\n"
+      }
+    }
+  ],
+  "all_processes_terminal": true,
+  "successful_connections": 0,
+  "new_experiments": 0,
+  "private_key_content_read_by_assistant": false,
+  "tool_wait_times_are_not_measurements": true
+}
