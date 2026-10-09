@@ -20,10 +20,28 @@
 
 #if defined(__linux__) && defined(__x86_64__)
 #include <sched.h>
+#include <sys/prctl.h>
 #include <sys/sysmacros.h>
 #define HAS_FREQUENCY_WORKLOAD 1
 #else
 #define HAS_FREQUENCY_WORKLOAD 0
+#endif
+
+#if HAS_FREQUENCY_WORKLOAD
+static bool disable_process_dumping(int *error_number)
+{
+    if (prctl(PR_SET_DUMPABLE, 0L, 0L, 0L, 0L) != 0) {
+        *error_number = errno;
+        return false;
+    }
+    int dumpable = prctl(PR_GET_DUMPABLE, 0L, 0L, 0L, 0L);
+    if (dumpable != 0) {
+        *error_number = dumpable < 0 ? errno : EIO;
+        return false;
+    }
+    *error_number = 0;
+    return true;
+}
 #endif
 
 #define NANOSECONDS_PER_SECOND UINT64_C(1000000000)
@@ -924,11 +942,27 @@ int main(int argument_count, char **arguments)
         }
         return has_success ? 0 : 1;
     }
-    if (argument_count != 1) {
-        fprintf(stderr, "usage: frequency_workload [--selfcheck]\n");
+    bool process_safety_check =
+        argument_count == 2 && strcmp(arguments[1], "--process-safety-check") == 0;
+    if (argument_count != 1 && !process_safety_check) {
+        fprintf(stderr, "usage: frequency_workload [--selfcheck|--process-safety-check]\n");
         return 2;
     }
 #if HAS_FREQUENCY_WORKLOAD
+    // exec会重置此状态，必须在生成秘密和分配采集记录前设置。
+    int process_safety_error = 0;
+    bool process_dumping_disabled = disable_process_dumping(&process_safety_error);
+    if (process_safety_check || !process_dumping_disabled) {
+        printf("{\"type\":\"%s\",\"process_dumping_disabled\":%s,\"errno\":%d,"
+               "\"hardware_read_performed\":false,\"crypto_workload_performed\":false}\n",
+            process_safety_check ? "process_safety_check" : "process_safety_failure",
+            process_dumping_disabled ? "true" : "false",
+            process_safety_error);
+        if (fflush(stdout) != 0 || ferror(stdout)) {
+            return 1;
+        }
+        return process_dumping_disabled ? 0 : 1;
+    }
     return run_workload();
 #else
     printf("{\"status\":\"unsupported_platform\",\"hardware_read_performed\":false,"

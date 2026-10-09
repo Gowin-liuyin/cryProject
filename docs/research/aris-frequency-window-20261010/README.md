@@ -3,6 +3,11 @@
 本模块是下一阶段的独立 C11 候选工具，只链接仓库原有参考 `kernel.c`、`mlkem.c`、
 `random.c`、固定 `baseline_config.h` 和 vendor 原件；不创建内核副本或补丁构建。
 普通模式仅支持 Linux/x86_64，固定当前线程亲和性为 CPU2，核对结果仅含该 CPU。
+普通入口在分配记录、生成密钥或读取 MSR 前设置并回读 Linux 进程自身的
+`PR_SET_DUMPABLE=0`，失败即退出。该状态从 C 入口设置成功时生效，不涵盖动态加载器
+或进入 C 入口前的崩溃；程序随后不再 exec 或切换凭据。外部 guard 还限制 core 和输出大小。
+`--process-safety-check` 仅检查自身 dumpable 状态，不运行密码负载、读 MSR 或改调频配置；
+Linux/x86_64 的 CTest 单独覆盖此入口。`--selfcheck` 仍是原有纯软件算术检查。
 外部管理者负责频率请求、物理核分区、生命周期、恢复和文件保存。本模块不写调频或
 cgroup 配置，不提供部署流程；本轮不得接入真实长 worker，须先完成父端生命周期审查。
 

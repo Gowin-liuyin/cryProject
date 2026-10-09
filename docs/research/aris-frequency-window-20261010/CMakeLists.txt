@@ -58,6 +58,13 @@ set_target_properties(frequency_workload PROPERTIES INTERPROCEDURAL_OPTIMIZATION
 
 if(BUILD_TESTING)
     add_test(NAME frequency_workload_selfcheck COMMAND frequency_workload --selfcheck)
+    if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES
+                                              "^(x86_64|amd64|AMD64)$"
+    )
+        add_test(NAME frequency_workload_process_safety COMMAND frequency_workload
+                                                                --process-safety-check
+        )
+    endif()
     add_executable(
         frequency_reference_kat "${repository_root}/tests/test_mlkem.c"
                                 "${repository_root}/src/inputs.c"
