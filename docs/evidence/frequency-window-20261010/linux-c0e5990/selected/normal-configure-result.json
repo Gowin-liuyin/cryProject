@@ -1,0 +1,18 @@
+{
+  "label": "normal-configure",
+  "arguments": [
+    "/usr/bin/cmake",
+    "-S",
+    "/home/nss-marker/yhr/Cry/window-source-c0e5990/source/docs/research/aris-frequency-window-20261010",
+    "-B",
+    "/home/nss-marker/yhr/Cry/window-source-c0e5990/build-normal",
+    "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DBUILD_TESTING=ON",
+    "-DFREQUENCY_WINDOW_SANITIZERS=OFF"
+  ],
+  "pid": 3665503,
+  "start_ticks": "339039673",
+  "exit_code": 0,
+  "wall_seconds": 0.11381291085854173
+}

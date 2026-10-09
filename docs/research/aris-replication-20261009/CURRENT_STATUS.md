@@ -15,7 +15,7 @@
 | 少量CPU预留及频率请求恢复 | 真实isolated分区2/18，991f154新G1两case仅四min/max请求4300000且恢复；6原PID不存在、32策略/global等基线、CPU0—31归还/锁释放。旧fa1f9a0仍禁用，未签R02或长worker | [新68原件与独立回读](../aris-frequency-control-20261010/RESULTS.md)、[原分区证据](../../evidence/core-partition-20261010/run-b0fd479/README.md) |
 | 云端项目文件归位 | 15个已确认旧临时目录、2502文件及9内部链接已迁入Cry/relocated并独立回读；15旧根均删除；旧KVM身份变化待核验 | [迁移原件及边界](../../evidence/remote-storage-20261009/README.md) |
 | 频率反馈来源与读取能力 | 32策略预检、CPU2/18→C004/C005静态GAS映射、Linux普通/动态自检和单次六读原值已核对；原解码失败保留，没有活动频率窗口或恒频签收 | [结果及三份原归档](../aris-frequency-reader-20261010/RESULTS.md) |
-| 普通参考窗口候选软件 | 7e93048的Linux普通分支完整编译，普通/ASan各2/2、617载荷/138源/4 ELF独立核对；没有普通入口或MSR执行，G2生命周期未接入 | [真实Linux软件预检](../../evidence/frequency-window-20261010/linux-7e93048/README.md) |
+| 普通参考窗口候选软件 | 新c0e5990补入C入口转储禁用，Linux普通/ASan各3/3、617载荷/138源/4 ELF独立核对；无参入口及MSR未执行。G2管理衔接与分析候选准备中，两个实际case各最多一次 | [新软件原件](../../evidence/frequency-window-20261010/linux-c0e5990/README.md)、[固定G2合同](../aris-frequency-window-20261010/EXPERIMENT_PLAN.md) |
 | 后续测试临时目录 | 九处C硬编码/tmp已改为CTest指定根，35项环境配置完整；本地相关10/10及辅助动态检查1/1；Linux仅辅助程序普通与动态检查各1/1 | [本地核验](../../evidence/test-temp-root-20261009/README.md)、[Linux辅助检查](../../evidence/test-temp-linux-20261010/README.md) |
 | 弱均值区间理论 | 补齐设计型无偏/方差恒等式、独立赋值小样本反例、条件渐近及有界有限样本路线；真实适用条件未成立，不签收R04 | [证明与文献边界](WEAK_MEAN_PROOF_PACKAGE.md) |
 | 完整研究及竞赛验收 | partial；R02/R04真实前提及T13真人材料未签收 | [当前全审计](FULL_GOAL_AUDIT.md)、[全要求表](../../full-work-acceptance.md) |

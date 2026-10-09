@@ -62,5 +62,6 @@
 - 本次普通C源为 `eed81a7620a1c929c52e96acb203104917ec3b5d`，root封装为 `acbbd699a4e4e4606a4150ed75e448e0eb688124`；实际仅六次只读MSR，未写调频或隔离配置。结束回读仍为根CPU0—31、隔离空、目标原min/max/EPP/boost；SSH已关闭。证据在 `docs/evidence/frequency-reader-20261010`，不构成活动频率窗口、恒频或R02/R04签收。
 - 2026-10-10频率请求恢复G1：固定管理源 `991f1546c7ee3a7999d6e0b7118d35211a501dfe` 的源码/软件检查在 `Cry/frequency-source-991f154/`；root私有原件在 `Cry/core-frequency-20261010-d05b4396f082/`，同级同名 `.tar` 为可读归档。仅true及normal/controller单进程SIGKILL两路径，policy2/18四个min/max曾请求4300000，随后明确重发原请求并核对全部32策略/global可见原值、六原PID不存在、根0—31/隔离空/锁释放。原件保留，不覆盖复用；不证明隐藏QoS逐位原状、work严格排空或恒频。
 - 下一阶段C11窗口候选固定源 `7e93048f3af885d14f1577b3a198bd3d52b8ee8e` 的源码、普通/动态构建及软件检查在 `Cry/window-source-7e93048/`，完整导出为同级 `window-source-7e93048-software.tar`。每配置2/2已通过；普通入口/MSR/长worker尚未运行。本轮两模块的真实临时和缓存均在各树内，主SSH已关闭。证据分别在 `docs/evidence/frequency-control-20261010`、`docs/evidence/frequency-window-20261010`，R02/R04仍部分签收。
+- 2026-10-10后续窗口候选补入C入口自身转储禁用与回读，固定源 `c0e5990bd4d764fbb08ff6857a2cf6cf21c9b8a2`。新树 `Cry/window-source-c0e5990/` 及同级 `window-source-c0e5990-software.tar` 保留普通/动态构建，Linux各3/3软件检查已通过，正式普通ELF摘要 `023f56460a8dc4971e8132a22c5734ca0844314d3d71b8bc3b129a424e9ee69b`。本次软件预检未执行无参入口、MSR或G2长负载；新合同见 `docs/research/aris-frequency-window-20261010/EXPERIMENT_PLAN.md`，原7e树及证据不改。
 
 R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。

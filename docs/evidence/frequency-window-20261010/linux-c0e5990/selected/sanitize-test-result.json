@@ -1,0 +1,13 @@
+{
+  "label": "sanitize-test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/window-source-c0e5990/build-sanitize",
+    "--output-on-failure"
+  ],
+  "pid": 3665721,
+  "start_ticks": "339039817",
+  "exit_code": 0,
+  "wall_seconds": 0.06370747881010175
+}

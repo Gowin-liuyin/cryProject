@@ -342,3 +342,6 @@ normal controller0/release、parent-loss controller-9/EOF，两case的true已迁
 另完成[窗口候选Linux软件资格](evidence/frequency-window-20261010/linux-7e93048/README.md)：固定7e93048/ead102 C源，GNU13.3普通/ASan各2/2、617载荷/138固定源/4 ELF独立核对；没有普通入口/MSR/长worker执行。原样reference依赖不变，未采集G2数据或统计确认。
 CMake布局另以纯格式2bf2028提交修正，固定格式检查与独立本地configure通过，原Linux执行仍绑定7e原字节。AGENTS和当前状态记录所有Cry根，主SSH已关闭；原数据/用户修改保留。
 G1只签收原请求明确重发与可见恢复，不证明隐藏QoS逐位原状、work排空或恒频。G2生命周期/真实窗口、R02/R04、旧KVM可信身份核验与真人材料仍待，完整目标继续。
+
+2026-10-10补齐[新窗口候选的Linux转储限制检查](evidence/frequency-window-20261010/linux-c0e5990/README.md)：固定c0e5990源在C入口禁用并回读自身dumpable，普通/ASan各3/3含公开KAT；普通ELF023f5646，617载荷/138固定源/四ELF独立核对。
+旧7e源及原件不改；此次没有无参入口、MSR或G2长负载执行。新增[两个实际case的固定合同](research/aris-frequency-window-20261010/EXPERIMENT_PLAN.md)，生命周期和C11分析候选准备中，不升级R02/R04；旧KVM可信身份核验及迁移仍待，密码交互授权保持。

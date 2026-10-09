@@ -1,0 +1,45 @@
+{
+  "preflight": {
+    "chunk_id": "8111f6",
+    "wall_time_seconds": 0.00000775,
+    "exit_code": 0,
+    "original_token_count": 212,
+    "output": "{\"cwd\": \"/home/nss-marker/yhr/Cry\", \"hostname\": \"nss-m\", \"machine\": \"x86_64\", \"kernel\": \"6.17.0-35-generic\", \"disk\": {\"total\": 982240026624, \"used\": 597115846656, \"free\": 375116656640}, \"memory\": [\"MemTotal:       63385244 kB\", \"MemFree:         3384728 kB\", \"MemAvailable:   56627944 kB\"], \"cpu_affinity\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], \"root_cpuset\": \"0-31\", \"isolated\": \"\", \"driver\": \"amd-pstate-epp\", \"global_mode\": \"active\", \"target\": {\"2\": {\"scaling_min_freq\": \"2982259\", \"scaling_max_freq\": \"5756452\", \"scaling_governor\": \"powersave\", \"energy_performance_preference\": \"balance_performance\"}, \"18\": {\"scaling_min_freq\": \"2982259\", \"scaling_max_freq\": \"5756452\", \"scaling_governor\": \"powersave\", \"energy_performance_preference\": \"balance_performance\"}}}\n"
+  },
+  "source_archive": {
+    "chunk_id": "a5c935",
+    "wall_time_seconds": 0.000005458,
+    "exit_code": 0,
+    "original_token_count": 68,
+    "output": "9f9803943f6ae724f895c57cd60c41828d0cba6a71d9deb7eb6f78907d95a8f5  build/frequency-window-dumpable-run-20261010/window-source-c0e5990.tar\n520bdc1bbcc1bbd805674a39c639e1cbcd13e66ae0b44dba78688115f02ef7f0  docs/research/aris-frequency-window-20261010/frequency_workload.c\n"
+  },
+  "upload": {
+    "chunk_id": "428c05",
+    "wall_time_seconds": 0.588162917,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "start": {
+    "chunk_id": "176178",
+    "wall_time_seconds": 1.002574417,
+    "session_id": 61380,
+    "original_token_count": 361,
+    "output": "{\"label\": \"normal-configure\", \"arguments\": [\"/usr/bin/cmake\", \"-S\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/source/docs/research/aris-frequency-window-20261010\", \"-B\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/build-normal\", \"-DCMAKE_C_COMPILER=/usr/bin/gcc\", \"-DCMAKE_BUILD_TYPE=RelWithDebInfo\", \"-DBUILD_TESTING=ON\", \"-DFREQUENCY_WINDOW_SANITIZERS=OFF\"], \"pid\": 3665503, \"start_ticks\": \"339039673\", \"exit_code\": 0, \"wall_seconds\": 0.11381291085854173}\n{\"label\": \"normal-build\", \"arguments\": [\"/usr/bin/cmake\", \"--build\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/build-normal\", \"--parallel\", \"2\"], \"pid\": 3665535, \"start_ticks\": \"339039684\", \"exit_code\": 0, \"wall_seconds\": 0.5144006698392332}\n{\"label\": \"normal-test\", \"arguments\": [\"/usr/bin/ctest\", \"--test-dir\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/build-normal\", \"--output-on-failure\"], \"pid\": 3665610, \"start_ticks\": \"339039736\", \"exit_code\": 0, \"wall_seconds\": 0.03160155704244971}\n{\"label\": \"sanitize-configure\", \"arguments\": [\"/usr/bin/cmake\", \"-S\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/source/docs/research/aris-frequency-window-20261010\", \"-B\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/build-sanitize\", \"-DCMAKE_C_COMPILER=/usr/bin/gcc\", \"-DCMAKE_BUILD_TYPE=RelWithDebInfo\", \"-DBUILD_TESTING=ON\", \"-DFREQUENCY_WINDOW_SANITIZERS=ON\"], \"pid\": 3665615, \"start_ticks\": \"339039739\", \"exit_code\": 0, \"wall_seconds\": 0.11353175528347492}\n"
+  },
+  "completion": {
+    "chunk_id": "3e88d2",
+    "wall_time_seconds": 0.000007584,
+    "exit_code": 0,
+    "original_token_count": 354,
+    "output": "{\"label\": \"sanitize-build\", \"arguments\": [\"/usr/bin/cmake\", \"--build\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/build-sanitize\", \"--parallel\", \"2\"], \"pid\": 3665647, \"start_ticks\": \"339039750\", \"exit_code\": 0, \"wall_seconds\": 0.664470283780247}\n{\"label\": \"sanitize-test\", \"arguments\": [\"/usr/bin/ctest\", \"--test-dir\", \"/home/nss-marker/yhr/Cry/window-source-c0e5990/build-sanitize\", \"--output-on-failure\"], \"pid\": 3665721, \"start_ticks\": \"339039817\", \"exit_code\": 0, \"wall_seconds\": 0.06370747881010175}\n{\"status\": \"linux_software_passed\", \"archive\": \"/home/nss-marker/yhr/Cry/window-source-c0e5990-software.tar\", \"sha256\": \"f487f59544aaab302303944463cd32daa99963725cef54eded4d220c578202e7\", \"members\": 618, \"tree_bytes\": 8327519, \"artifacts\": {\"build-normal/frequency_workload\": {\"sha256\": \"023f56460a8dc4971e8132a22c5734ca0844314d3d71b8bc3b129a424e9ee69b\", \"bytes\": 225384}, \"build-normal/frequency_reference_kat\": {\"sha256\": \"c61afe0eb01ae45355e53ff84d43dd25b0cdc5b60a980124cfde5efcc3429a57\", \"bytes\": 207496}, \"build-sanitize/frequency_workload\": {\"sha256\": \"ba9b0861a0669b86f5f6f59f008f0a1d07023746a9e9ec56694c9ca0a050b509\", \"bytes\": 571976}, \"build-sanitize/frequency_reference_kat\": {\"sha256\": \"f2229d30a2c104773613cd17f8ec0c0b39089adf4f5bf8deabeb860bb79e6d8f\", \"bytes\": 475864}}, \"ordinary_entry_run\": false, \"process_safety_entry_tested\": true, \"msr_read_performed\": false, \"configuration_writes\": 0}\n"
+  },
+  "download": {
+    "chunk_id": "35328e",
+    "wall_time_seconds": 0.000005083,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  }
+}
+

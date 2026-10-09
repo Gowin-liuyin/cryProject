@@ -1,0 +1,14 @@
+{
+  "label": "normal-build",
+  "arguments": [
+    "/usr/bin/cmake",
+    "--build",
+    "/home/nss-marker/yhr/Cry/window-source-c0e5990/build-normal",
+    "--parallel",
+    "2"
+  ],
+  "pid": 3665535,
+  "start_ticks": "339039684",
+  "exit_code": 0,
+  "wall_seconds": 0.5144006698392332
+}

@@ -1,0 +1,14 @@
+{
+  "label": "sanitize-build",
+  "arguments": [
+    "/usr/bin/cmake",
+    "--build",
+    "/home/nss-marker/yhr/Cry/window-source-c0e5990/build-sanitize",
+    "--parallel",
+    "2"
+  ],
+  "pid": 3665647,
+  "start_ticks": "339039750",
+  "exit_code": 0,
+  "wall_seconds": 0.664470283780247
+}

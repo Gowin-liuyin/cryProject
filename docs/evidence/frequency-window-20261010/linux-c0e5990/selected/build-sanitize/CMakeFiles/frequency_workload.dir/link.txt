@@ -1,0 +1,1 @@
+/usr/bin/gcc -O2 -g -DNDEBUG -fsanitize=address,undefined CMakeFiles/frequency_workload.dir/frequency_workload.c.o -o frequency_workload  libfrequency_reference.a 
