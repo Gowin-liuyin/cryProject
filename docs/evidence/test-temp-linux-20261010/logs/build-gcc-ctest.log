@@ -1,0 +1,31 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/DartConfiguration.tcl
+Test project /home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 9
+    Start 9: temp_directory
+
+9: Test command: /home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/test_temp_directory
+9: Working Directory: /home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc
+9: Environment variables: 
+9:  A113_TEST_TMPDIR=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/test-tmp
+9:  TMPDIR=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/test-tmp
+9:  TMP=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/test-tmp
+9:  TEMP=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc/test-tmp
+9: Test timeout computed to be: 1500
+1/1 Test #9: temp_directory ...................   Passed    0.00 sec
+
+The following tests passed:
+	temp_directory
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

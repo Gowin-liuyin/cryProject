@@ -1,0 +1,59 @@
+{
+  "backtraceGraph" : 
+  {
+    "commands" : 
+    [
+      "add_test"
+    ],
+    "files" : 
+    [
+      "/home/nss-marker/yhr/Cry/temp-check-1faf87d/source/CMakeLists.txt"
+    ],
+    "nodes" : 
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 293,
+        "parent" : 0
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" : 
+  [
+    {
+      "backtrace" : 1,
+      "command" : 
+      [
+        "/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc-san/test_temp_directory"
+      ],
+      "name" : "temp_directory",
+      "properties" : 
+      [
+        {
+          "name" : "ENVIRONMENT",
+          "value" : 
+          [
+            "A113_TEST_TMPDIR=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc-san/test-tmp",
+            "TMPDIR=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc-san/test-tmp",
+            "TMP=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc-san/test-tmp",
+            "TEMP=/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc-san/test-tmp"
+          ]
+        },
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/nss-marker/yhr/Cry/temp-check-1faf87d/build-gcc-san"
+        }
+      ]
+    }
+  ],
+  "version" : 
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}
