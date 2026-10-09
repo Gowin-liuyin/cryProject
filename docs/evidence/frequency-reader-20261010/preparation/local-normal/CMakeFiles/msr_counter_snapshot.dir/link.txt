@@ -1,0 +1,1 @@
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/msr_counter_snapshot.dir/msr_counter_snapshot.c.o -o msr_counter_snapshot

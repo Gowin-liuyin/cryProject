@@ -1,0 +1,28 @@
+{
+  "normal": {
+    "build_status": 0,
+    "build_tool_chunk": "146525",
+    "test_tool_chunk": "01b9cf",
+    "tests_passed": 1,
+    "full_build_stdout_archived": false
+  },
+  "sanitize": {
+    "build_status": 0,
+    "build_tool_chunk": "06e4ad",
+    "test_tool_chunk": "360ab0",
+    "tests_passed": 1,
+    "full_build_stdout_archived": false
+  },
+  "source": "Implementing agent actual tool reports and preserved CMake/CTest artifacts; notes are retrospective, not original tool result envelopes.",
+  "initial_mac_compile_failure": {
+    "tool_chunk": "daf9e2",
+    "cause": "CLOCK_MONOTONIC_RAW hidden by POSIX feature macros on macOS; fixed unsupported platform path before final checks",
+    "raw_stdout_archived": false
+  },
+  "format_check": {
+    "parent_tool_chunk": "29ade2",
+    "root_target_exit_code": 0,
+    "reader_clang_format_exit_code": 0
+  },
+  "hardware_read_performed": false
+}

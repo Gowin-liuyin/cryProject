@@ -326,3 +326,7 @@ normal controller0/release、parent-loss controller-9/EOF，两guard经pidfd实�
 2026-10-10完成[频率接口只读预检](research/aris-frequency-20261010/README.md)：指定裸金属密码登录和sudo读取成功，保存32策略、CPU2/18同胞拓扑、当前频率接口及CPPC累计字段；原日志/JSON、精确执行源摘要和实际补充退出回执独立归档。
 没有频率、boost、SMT、IRQ或cgroup写入，没有远端项目文件或新密码计时；SSH已关闭。相同显示值不作独立实频证据，4300MHz标称及单个累计快照不作恒频/活动窗口资格，R02/R04仍部分签收。
 AGENTS补入用户已授权代理密码交互的偏好；旧KVM仍待可信控制台核对变化后的主机指纹，未发送密码、改信任记录或迁移。证据完整性两对原日志/JSON及12文件SHA核对通过，format-check通过。
+
+2026-10-10完成[反馈来源与C11读取模块准备](research/aris-frequency-reader-20261010/EXPERIMENT_PLAN.md)：真实缓存节点确认Linux CPU2/18对应固件C004/UID4、C005/UID5；固定六次只读MSR工具本地普通及ASan/UBSan各1/1通过，未执行硬件入口。
+独立源码审查通过；固件collector初版目录身份、总预算及原件/tar回读三项缺口在执行前修复，源48683448冻结。官方Ubuntu acpica-tools20230628-1包摘要核对，拟仅在Cry提取静态解码器。
+准备原件在[evidence](evidence/frequency-reader-20261010/preparation/README.md)。本次尚未采集固件表、取得Linux编译或实际MSR原值，不升级R02/R04；后续按固定计划执行并另留证，既有匿名包不改。

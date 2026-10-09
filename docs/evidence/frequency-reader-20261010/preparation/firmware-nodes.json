@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-09T21:06:57.484477+00:00",
+  "effective_uid": 1000,
+  "firmware_nodes": {
+    "2": {
+      "realpath": "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0010:00/ACPI0007:04",
+      "path": {
+        "value": "\\_SB_.PLTF.C004"
+      },
+      "uid": {
+        "value": "4"
+      },
+      "hid": {
+        "value": "ACPI0007"
+      }
+    },
+    "18": {
+      "realpath": "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0010:00/ACPI0007:05",
+      "path": {
+        "value": "\\_SB_.PLTF.C005"
+      },
+      "uid": {
+        "value": "5"
+      },
+      "hid": {
+        "value": "ACPI0007"
+      }
+    }
+  },
+  "configuration_writes": 0,
+  "project_file_writes": 0
+}

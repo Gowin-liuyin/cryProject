@@ -1,0 +1,19 @@
+{
+  "inventory": {
+    "chunk_id": "09f8d2",
+    "wall_time_seconds": 0.000010167,
+    "exit_code": 0,
+    "original_token_count": 1054
+  },
+  "firmware_nodes": {
+    "chunk_id": "cf9813",
+    "wall_time_seconds": 0.000010875,
+    "exit_code": 0,
+    "original_token_count": 176
+  },
+  "ssh_target": "nss-marker@10.144.144.5",
+  "working_directory": "/home/nss-marker/yhr/Cry",
+  "python": "/usr/bin/python3 -I -B -c <exact source text>",
+  "source_was_uncommitted": true,
+  "source_commit_at_execution": "b39cacef9019039db4c4dca467493a8f8b3e85a6"
+}
