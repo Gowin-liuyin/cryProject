@@ -11,3 +11,5 @@
 单纯把上下限写成相同、读取瞬时频率或指定taskset都不证明持续控制。CPUFreq的scaling_cur_freq可能反映请求值，应另取得可用的硬件频率反馈及其采样/误差依据，在正式窗口外留证；目标频率允许带和目标计时精度仍须事前定义。低负载快照也不证明独占。依据见[Linux CPU性能缩放文档](https://docs.kernel.org/admin-guide/pm/cpufreq.html)与[AMD P-state文档](https://docs.kernel.org/admin-guide/pm/amd-pstate.html)。
 
 当前待用户确认资源归属/控制窗口，并待实际权限和硬件反馈能力核对。频率方案准备不使R02/R04自动签收，良性参考任务的目标、有效统计方法、容许界和完整预算继续按NEXT_VALIDATION_PROTOCOL确定。没有这些门槛，不启动正式计时。
+
+同日用户进一步提出只用几个核的路线；不再把整机独占作为门槛。后续[单物理核预留方案](CORE_RESERVATION_PLAN.md)限定CPU2/18，已核对本机普通权限、sudo策略与systemd255能力；普通任务预留和内核isolated分区明确区分。尚未执行预留或频率写入，正式窗口的冲突与恢复检查继续保留。

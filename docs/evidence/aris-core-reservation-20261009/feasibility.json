@@ -1,0 +1,35 @@
+{
+  "scope": "read_only_minimal_core_reservation_feasibility",
+  "target": "nss-marker@10.144.144.5",
+  "requested_logical_cpus": [
+    2,
+    18
+  ],
+  "physical_cores": 1,
+  "other_logical_cpus": 30,
+  "kernel": "6.17.0-35-generic",
+  "systemd": "255.4",
+  "cgroup": "v2",
+  "sudo_policy_all_commands": true,
+  "sudo_noninteractive_true_status": 1,
+  "sudo_noninteractive_failure_reason": "password required",
+  "ordinary_cgroup_and_frequency_files_writable": false,
+  "current_user_cpuset_delegated": false,
+  "permission_probe": {
+    "chunk_id": "1db152",
+    "wall_time_seconds": 0.00000925,
+    "exit_code": 0,
+    "original_token_count": 383,
+    "output": "uid=1000(nss-marker) gid=1000(nss-marker) groups=1000(nss-marker),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),125(docker)\n6.17.0-35-generic\nsystemd 255 (255.4-1ubuntu8.17)\n+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified\ncgroup2 /sys/fs/cgroup\n0::/user.slice/user-1000.slice/session-33763.scope\ncgroup.controllers=cpuset cpu io memory hugetlb pids rdma misc dmem\ncgroup.subtree_control=cpuset cpu io memory hugetlb pids rdma misc dmem\ncpuset.cpus.effective=0-31\ncpuset.mems.effective=0\ncpuset.cpus.isolated=\ncpu=2 siblings=2,18\nscaling_min_freq=2982259\nscaling_max_freq=5756452\nscaling_governor=powersave\nfrequency_file_writable=no\ncpu=18 siblings=2,18\nscaling_min_freq=2982259\nscaling_max_freq=5756452\nscaling_governor=powersave\nfrequency_file_writable=no\ncgroup_root_writable=no\nsudo_noninteractive_listing\nMatching Defaults entries for nss-marker on nss-m:\n    env_reset, mail_badpass, secure_path=/usr/local/sbin\\:/usr/local/bin\\:/usr/sbin\\:/usr/bin\\:/sbin\\:/bin\\:/snap/bin, use_pty\n\nUser nss-marker may run the following commands on nss-m:\n    (ALL : ALL) ALL\n    (root) NOPASSWD: /usr/local/sbin/modelsplit-ip-counter-edge start, /usr/local/sbin/modelsplit-ip-counter-edge status, /usr/local/sbin/modelsplit-ip-counter-edge stop\nsudo_listing_status=0\n"
+  },
+  "ancestor_probe": {
+    "chunk_id": "dcc923",
+    "wall_time_seconds": 0.018495792,
+    "exit_code": 0,
+    "original_token_count": 185,
+    "output": "sudo_true_probe\nsudo: a password is required\nsudo_true_status=1\ncurrent_cgroup_and_ancestors\ngroup=/user.slice/user-1000.slice/session-33763.scope\ncgroup.controllers=cpu memory pids\ncgroup.subtree_control=group=/user.slice/user-1000.slice\ncgroup.controllers=cpu memory pids\ncgroup.subtree_control=cpu memory pids\ngroup=/user.slice\ncgroup.controllers=cpuset cpu io memory hugetlb pids rdma misc dmem\ncgroup.subtree_control=cpu memory pids\ncpuset.cpus=\ncpuset.cpus.effective=0-31\ncpuset.cpus.exclusive=\ncpuset.cpus.exclusive.effective=\ncpuset.cpus.partition=member\ngroup=/\ncgroup.controllers=cpuset cpu io memory hugetlb pids rdma misc dmem\ncgroup.subtree_control=cpuset cpu io memory hugetlb pids rdma misc dmem\ncpuset.cpus.effective=0-31\n"
+  },
+  "settings_changed": false,
+  "processes_migrated_or_stopped": false,
+  "password_in_artifact": false
+}
