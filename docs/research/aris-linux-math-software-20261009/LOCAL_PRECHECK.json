@@ -1,0 +1,23 @@
+{
+  "format": "linux_math_software_local_precheck_v1",
+  "execution_platform": "macOS_arm64_existing_tools",
+  "linux_matrix_executed": false,
+  "readonly_ctest_tests": 4,
+  "readonly_ctest_passed": 4,
+  "existing_output_rejection": true,
+  "existing_output_preserved": true,
+  "stage_inventory_and_hashes_passed": true,
+  "relative_path_rejection_passed": true,
+  "fixed_root_rejection_runtime_verified_locally": false,
+  "fixed_root_rejection_local_limitation": "macOS realpath rejects GNU --e before the fixed-root branch; static review only",
+  "new_timing_collection": false,
+  "cryptographic_calls": 0,
+  "stage_archive_sha256": "6b3ba2c6ed62d80ee4ec39824f18e1430185652e9a94c9b979c12703f234d0fc",
+  "relative_path_rejection": true,
+  "script_digests": {
+    "remote-run.sh": "0a78212a08e5ef13c5cafaf2821ace5ef3cdb0358833927ae493575ef66a9c91",
+    "matrix-run.sh": "16f0d5eba2ee01f9d42a7ef5c05dbceeccc1bb0556b34c44c106576115a82c78",
+    "CMakeLists.txt": "affd7b295f4c2b32a7d4b4e7139c8cb999d0c779fde8dd4b73d88870af89ae99",
+    "readonly_check.cmake": "f4236f7da88a831c163cedd5de2c7b335f970c0f37848102b23aa11ad9d9767c"
+  }
+}

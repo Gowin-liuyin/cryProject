@@ -1,0 +1,512 @@
+utc=2026-10-09T02:18:39Z
+nss-m
+Linux 6.17.0-35-generic x86_64
+none
+nss-marker
+32
+MemTotal:       63385244 kB
+MemAvailable:   56601240 kB
+model name	: AMD Ryzen 9 9950X 16-Core Processor
+# The following is the parsable format, which can be fed to other
+# programs. Each different item in every column has an unique ID
+# starting usually from zero.
+# CPU,Core,Socket,Node,Online
+0,0,0,0,Y
+1,1,0,0,Y
+2,2,0,0,Y
+3,3,0,0,Y
+4,4,0,0,Y
+5,5,0,0,Y
+6,6,0,0,Y
+7,7,0,0,Y
+8,8,0,0,Y
+9,9,0,0,Y
+10,10,0,0,Y
+11,11,0,0,Y
+12,12,0,0,Y
+13,13,0,0,Y
+14,14,0,0,Y
+15,15,0,0,Y
+16,0,0,0,Y
+17,1,0,0,Y
+18,2,0,0,Y
+19,3,0,0,Y
+20,4,0,0,Y
+21,5,0,0,Y
+22,6,0,0,Y
+23,7,0,0,Y
+24,8,0,0,Y
+25,9,0,0,Y
+26,10,0,0,Y
+27,11,0,0,Y
+28,12,0,0,Y
+29,13,0,0,Y
+30,14,0,0,Y
+31,15,0,0,Y
+Cpus_allowed_list:	0-31
+0.01 0.04 0.01 1/1369 3531562
+cpu  14836958 13482 4639495 10575653205 1969050 0 157540 0 0 0
+cpu0 308417 109 126209 330466891 122754 0 30047 0 0 0
+cpu1 3999974 6125 1348051 324782571 408858 0 12148 0 0 0
+cpu2 867002 138 352621 329433292 245612 0 3651 0 0 0
+cpu3 3410143 5199 1081201 325092037 401797 0 2907 0 0 0
+cpu4 525853 23 253157 329696350 103660 0 94477 0 0 0
+cpu5 489760 57 183295 330294431 98261 0 929 0 0 0
+cpu6 237378 4 76691 330851088 31156 0 658 0 0 0
+cpu7 186013 43 39087 331012558 16100 0 414 0 0 0
+cpu8 295171 96 158467 330625426 106667 0 758 0 0 0
+cpu9 395583 310 237529 330376244 141326 0 864 0 0 0
+cpu10 222713 22 92007 330875059 50379 0 1405 0 0 0
+cpu11 204112 25 78623 330933047 37880 0 1542 0 0 0
+cpu12 171607 15 48181 331044037 13310 0 1294 0 0 0
+cpu13 159117 2 34048 331089835 7431 0 923 0 0 0
+cpu14 152545 3 23881 331121765 4419 0 454 0 0 0
+cpu15 146798 1 17868 331141244 4184 0 250 0 0 0
+cpu16 162832 11 20141 331085995 8378 0 156 0 0 0
+cpu17 501895 355 114531 330535706 46658 0 331 0 0 0
+cpu18 186613 5 26245 331033517 15497 0 225 0 0 0
+cpu19 495950 796 108030 330544258 49018 0 383 0 0 0
+cpu20 161149 1 17202 331088473 7642 0 196 0 0 0
+cpu21 162996 3 16981 331091374 7173 0 156 0 0 0
+cpu22 145200 0 11686 331133509 2930 0 82 0 0 0
+cpu23 139308 58 9784 331146524 1933 0 42 0 0 0
+cpu24 144080 29 17772 331141237 6351 0 369 0 0 0
+cpu25 150754 17 26205 331116919 8231 0 229 0 0 0
+cpu26 138975 6 18330 331149680 3659 0 373 0 0 0
+cpu27 141063 6 20007 331137269 9606 0 485 0 0 0
+cpu28 137789 2 20125 331146208 3008 0 355 0 0 0
+cpu29 136790 0 23727 331146944 1640 0 332 0 0 0
+cpu30 127362 7 20833 331160090 1448 0 421 0 0 0
+cpu31 132002 1 16965 331159612 2070 0 668 0 0 0
+intr 5361208810 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 19004 1 1 1 15 1 1 0 1 0 1 0 0 0 0 455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9334 0 0 0 0 0 0 0 941 941 0 0 0 0 0 176334 0 0 0 0 0 0 0 0 0 0 0 4185618 4185592 621210079 102 35 96 402 98 32 3 39 369 2773 152 14 15 1 10 43 19 83 84 45 1 2 10 72 4 1910 96 45 28 23 8 23 226561 1922369 1423357 1957554 951634 720764 246845 171025 209925 249578 118338 92270 58118 37520 26523 22453 61803 446829 182007 463950 119720 87021 42794 40075 29156 38834 21251 21140 19035 12545 10864 9622 0 0 0 760 0 368 1436 20428215 57692 0 72450942 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 6046267566
+btime 1788199003
+processes 3531588
+procs_running 1
+procs_blocked 0
+softirq 3143833827 2700 490328352 207848572 1250302944 8557885 0 78766940 813438424 1156176 293431834
+some avg10=0.00 avg60=0.00 avg300=0.00 total=3079044788
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+cmake version 3.28.3
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Filesystem     1024-blocks      Used Available Capacity Mounted on
+/dev/nvme1n1p2   959218776 581039852 368405952      62% /
+policy=/sys/devices/system/cpu/cpufreq/policy0
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=0
+affected_cpus=0
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy1
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=1
+affected_cpus=1
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=4413713
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy10
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=10
+affected_cpus=10
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy11
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=11
+affected_cpus=11
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=4375651
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy12
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=12
+affected_cpus=12
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=4373122
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy13
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=13
+affected_cpus=13
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy14
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=14
+affected_cpus=14
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy15
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=15
+affected_cpus=15
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy16
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=16
+affected_cpus=16
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy17
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=17
+affected_cpus=17
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy18
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=18
+affected_cpus=18
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy19
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=19
+affected_cpus=19
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy2
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=2
+affected_cpus=2
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=4410385
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy20
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=20
+affected_cpus=20
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy21
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=21
+affected_cpus=21
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy22
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=22
+affected_cpus=22
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy23
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=23
+affected_cpus=23
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy24
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=24
+affected_cpus=24
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy25
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=25
+affected_cpus=25
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy26
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=26
+affected_cpus=26
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy27
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=27
+affected_cpus=27
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy28
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=28
+affected_cpus=28
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy29
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=29
+affected_cpus=29
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=4355775
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy3
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=3
+affected_cpus=3
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy30
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=30
+affected_cpus=30
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2183779
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy31
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=31
+affected_cpus=31
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy4
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=4
+affected_cpus=4
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=3087359
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy5
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=5
+affected_cpus=5
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy6
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=6
+affected_cpus=6
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy7
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=7
+affected_cpus=7
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy8
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=8
+affected_cpus=8
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+policy=/sys/devices/system/cpu/cpufreq/policy9
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+related_cpus=9
+affected_cpus=9
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=4360791
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+energy_performance_preference=balance_performance
+/sys/devices/system/cpu/cpufreq/boost=1
+/sys/devices/system/cpu/amd_pstate/status=active
+/sys/devices/system/cpu/smt/active=1
+/sys/devices/system/clocksource/clocksource0/current_clocksource=tsc
+/sys/devices/system/clocksource/clocksource0/available_clocksource=tsc hpet acpi_pm 
+/proc/sys/kernel/perf_event_paranoid=4
+temperature_sensor=/sys/class/hwmon/hwmon3
+/sys/class/hwmon/hwmon3/temp1_label=Tctl
+/sys/class/hwmon/hwmon3/temp3_label=Tccd1
+/sys/class/hwmon/hwmon3/temp4_label=Tccd2
+/sys/class/hwmon/hwmon3/temp1_input=34875
+/sys/class/hwmon/hwmon3/temp3_input=27000
+/sys/class/hwmon/hwmon3/temp4_input=27250
+0.01 0.04 0.01 1/1369 3531911
+cpu  14836962 13482 4639503 10575653644 1969053 0 157540 0 0 0
+cpu0 308417 109 126209 330466905 122754 0 30047 0 0 0
+cpu1 3999977 6125 1348057 324782573 408861 0 12148 0 0 0
+cpu2 867002 138 352621 329433306 245612 0 3651 0 0 0
+cpu3 3410143 5199 1081201 325092051 401797 0 2907 0 0 0
+cpu4 525853 23 253157 329696364 103660 0 94477 0 0 0
+cpu5 489760 57 183295 330294445 98261 0 929 0 0 0
+cpu6 237378 4 76691 330851102 31156 0 658 0 0 0
+cpu7 186013 43 39087 331012572 16100 0 414 0 0 0
+cpu8 295172 96 158467 330625439 106667 0 758 0 0 0
+cpu9 395584 310 237529 330376258 141326 0 864 0 0 0
+cpu10 222713 22 92007 330875073 50379 0 1405 0 0 0
+cpu11 204112 25 78623 330933061 37880 0 1542 0 0 0
+cpu12 171607 15 48181 331044051 13310 0 1294 0 0 0
+cpu13 159117 2 34048 331089849 7431 0 923 0 0 0
+cpu14 152545 3 23881 331121779 4419 0 454 0 0 0
+cpu15 146798 1 17868 331141258 4184 0 250 0 0 0
+cpu16 162832 11 20141 331086009 8378 0 156 0 0 0
+cpu17 501895 355 114531 330535720 46658 0 331 0 0 0
+cpu18 186613 5 26245 331033531 15497 0 225 0 0 0
+cpu19 495950 796 108030 330544272 49018 0 383 0 0 0
+cpu20 161149 1 17202 331088488 7642 0 196 0 0 0
+cpu21 162996 3 16981 331091388 7173 0 156 0 0 0
+cpu22 145200 0 11686 331133523 2930 0 82 0 0 0
+cpu23 139308 58 9784 331146539 1933 0 42 0 0 0
+cpu24 144080 29 17772 331141251 6351 0 369 0 0 0
+cpu25 150754 17 26205 331116933 8231 0 229 0 0 0
+cpu26 138975 6 18330 331149695 3659 0 373 0 0 0
+cpu27 141063 6 20007 331137284 9606 0 485 0 0 0
+cpu28 137789 2 20125 331146222 3008 0 355 0 0 0
+cpu29 136790 0 23728 331146958 1640 0 332 0 0 0
+cpu30 127362 7 20833 331160104 1448 0 421 0 0 0
+cpu31 132002 1 16965 331159626 2070 0 668 0 0 0
+intr 5361212072 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 19004 1 1 1 15 1 1 0 1 0 1 0 0 0 0 455 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9334 0 0 0 0 0 0 0 941 941 0 0 0 0 0 176334 0 0 0 0 0 0 0 0 0 0 0 4185618 4185592 621210289 102 35 96 402 98 32 3 39 369 2773 152 14 15 1 10 43 19 83 84 45 1 2 10 72 4 1910 96 45 28 23 8 23 226561 1922609 1423357 1957554 951634 720764 246845 171025 209925 249578 118338 92270 58118 37520 26523 22453 61803 446829 182007 463950 119720 87021 42794 40075 29156 38834 21251 21140 19035 12545 10864 9622 0 0 0 760 0 368 1436 20428215 57692 0 72450950 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 6046272268
+btime 1788199003
+processes 3531937
+procs_running 1
+procs_blocked 0
+softirq 3143836523 2700 490328421 207848733 1250303224 8557885 0 78766951 813438747 1156176 293433686
+some avg10=0.00 avg60=0.00 avg300=0.00 total=3079047303
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+utc_finish=2026-10-09T02:18:39Z
