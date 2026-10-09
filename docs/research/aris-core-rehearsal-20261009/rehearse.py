@@ -591,6 +591,7 @@ if __name__ == '__main__':
     if sys.argv[1:] == ['--selfcheck']:
         selfcheck()
     else:
+        raise SystemExit('Remote management modes disabled: the old plan writes project files outside /home/nss-marker/yhr/Cry')
         if os.geteuid() != 0 or len(sys.argv) != 3:
             raise SystemExit('Requires root and a bounded management mode/path')
         mode, path = sys.argv[1], Path(sys.argv[2])

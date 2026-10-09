@@ -1,6 +1,9 @@
 #!/bin/sh
 set -eu
 
+printf '旧预演依赖yhr目录外的恢复文件和临时配置，已按2026-10-09存放约定禁用。\n' >&2
+exit 2
+
 project_directory=/Users/yin/code/cryProject
 stage_directory="$project_directory/build/aris-core-rehearsal-20261009/stage"
 reference=$(cat "$stage_directory/PREPARATION_REF")
