@@ -1,0 +1,21 @@
+{
+  "record_type": "post_build_artifact_retrieval_no_rerun",
+  "original_software_result_commit": "fba26b6b5f34389bbc09cfa9784bf16533551d0f",
+  "remote_original_root": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs",
+  "remote_original_hash_revalidation": {
+    "chunk_id": "060f16",
+    "wall_time_seconds": 0.188633792,
+    "exit_code": 0,
+    "original_token_count": 386,
+    "output": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/collector/update_cost: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/summary/process_summary: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/audit/update_cost_result_review: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/update_cost: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/summary/process_summary: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/update_cost_result_review: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/collector/update_cost: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/process_summary: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/audit/update_cost_result_review: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-sanitize/collector/update_cost: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-sanitize/summary/process_summary: OK\n/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-sanitize/audit/update_cost_result_review: OK\n379d63c7fccbef9803643d17c659e5bbf65923ac52f9fa64c2213b2422faa538  artifacts-export.tar.gz\n"
+  },
+  "received_archive_sha256": "379d63c7fccbef9803643d17c659e5bbf65923ac52f9fa64c2213b2422faa538",
+  "regular_elf_files_received": 12,
+  "recompiled": false,
+  "binaries_executed_for_retrieval": false,
+  "new_formal_timing": false,
+  "hardware_settings_changed": false,
+  "credentials_in_artifact": false,
+  "ssh_control_session_closed": true,
+  "scope": "original math software ELF identity supplement; original timing data remains macOS_arm64"
+}

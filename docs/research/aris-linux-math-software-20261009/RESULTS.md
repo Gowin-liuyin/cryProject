@@ -20,3 +20,5 @@
 本次不签收Linux新成本、跨平台加速、R02测量控制、R04真实总体假设或恒时。旧裸金属密码模块的GCC动态失败保持，数学软件通过没有修复或覆盖该历史失败。当前允许的频率范围约2.98至5.76GHz且boost开启，尚没有固定频率和独占资源的证据；正式验证仍按[下一协议](../aris-replication-20261009/NEXT_VALIDATION_PROTOCOL.md)的门槛推进。
 
 原值与执行收据见[证据说明](../../evidence/aris-linux-math-software-20261009/README.md)，限定主张与元数据检查见[独立复核](../../evidence/aris-linux-math-software-20261009/INDEPENDENT_RESULT_REVIEW.md)。
+
+同日后续已[取回并静态核验十二个原ELF](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md)，全部本地摘要匹配最初远端记录，取回tar与成员一致，普通/动态配置的ELF、依赖及符号身份对应正确。没有重建、执行ELF或重跑测试。前述“当时没有本地原件”的范围及原fba26b6审查不回改；这次新补录关闭该身份核验缺口，不改变原计时数据来源或R02/R04状态。

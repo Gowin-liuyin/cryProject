@@ -1,0 +1,664 @@
+{
+  "format": "linux_math_artifact_static_review_v1",
+  "review_date": "2026-10-09",
+  "review_method": "read_only_sha256_ELF_structural_parsing_original_build_metadata_comparison",
+  "claim_supported": "yes",
+  "claim_scope": "local_12_original_Linux_math_ELF_bytes_match_previously_recorded_remote_hashes",
+  "new_binary_executions": 0,
+  "new_builds": 0,
+  "new_formal_observations": 0,
+  "new_timing_collection": false,
+  "cryptographic_calls": 0,
+  "remote_actions_by_this_reviewer": 0,
+  "artifact_archive_sha256": "379d63c7fccbef9803643d17c659e5bbf65923ac52f9fa64c2213b2422faa538",
+  "artifact_count": 12,
+  "all_artifacts_regular_not_symlinks": true,
+  "archive_and_extracted_all_artifact_bytes_match": true,
+  "all_12_local_hashes_match_original_remote_records": true,
+  "all_12_ELF64_x86_64_little_endian_with_Linux_loader": true,
+  "old_evidence_manifest_checked_files": 166,
+  "old_evidence_manifest_all_bytes_unchanged": true,
+  "original_raw_observation_origin": "M01_M02_Darwin_arm64",
+  "source_identity": "SOURCE-MATH-COST-01",
+  "source_identity_kind": "anonymous_source_alias_not_git",
+  "effective_sanitizer_cells": 2,
+  "static_audit_manifest_OFF_field_is_not_effective_sanitizer_state": true,
+  "historical_record_not_rewritten": true,
+  "internal_artifact_not_anonymous_submission": true,
+  "R02": "partial_unchanged",
+  "R04": "partial_unchanged",
+  "whole_research_goal_achieved": false,
+  "artifacts": [
+    {
+      "cell": "gcc-13-normal",
+      "binary_name": "update_cost",
+      "artifact_path": "artifacts-export/gcc-13-normal/update_cost",
+      "artifact_size_bytes": 110128,
+      "sha256": "bb6c11127c54f1831e0547f68d1d1a183c67657bf0624670770f42f77ae9997a",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/collector/update_cost",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/update_cost-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "no_sanitizer_runtime_observed",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/collector/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/collector/CMakeFiles/update_cost.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/update_cost-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "gcc-13-normal",
+      "binary_name": "process_summary",
+      "artifact_path": "artifacts-export/gcc-13-normal/process_summary",
+      "artifact_size_bytes": 50440,
+      "sha256": "4ab94d7847560b572cb2a01e74b113560d8d332fb2a15f11e2a1bb90c5e7ca03",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/summary/process_summary",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/process_summary-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "no_sanitizer_runtime_observed",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/summary/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/summary/CMakeFiles/process_summary.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/process_summary-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "gcc-13-normal",
+      "binary_name": "update_cost_result_review",
+      "artifact_path": "artifacts-export/gcc-13-normal/update_cost_result_review",
+      "artifact_size_bytes": 111904,
+      "sha256": "42140996d60fb50d8b86acd71736c628deab045d59236eb54e118b388e65e6af",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-normal/audit/update_cost_result_review",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/update_cost_result_review-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "no_sanitizer_runtime_observed",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/audit/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/audit/CMakeFiles/update_cost_result_review.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-normal/update_cost_result_review-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "gcc-13-sanitize",
+      "binary_name": "update_cost",
+      "artifact_path": "artifacts-export/gcc-13-sanitize/update_cost",
+      "artifact_size_bytes": 268928,
+      "sha256": "2072548e770d9f6eb9be82ae3cd25bc16e302d018c74005b939fb5e016ff539f",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/collector/update_cost",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/update_cost-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libasan.so.8",
+          "libm.so.6",
+          "libubsan.so.1",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "dynamic_sanitizer_runtime",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 1,
+          "undefined_count": 20,
+          "defined_examples": [
+            "__asan_option_detect_stack_use_after_return"
+          ],
+          "undefined_examples": [
+            "__asan_init",
+            "__asan_poison_stack_memory",
+            "__asan_register_globals"
+          ]
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 8,
+          "defined_examples": [],
+          "undefined_examples": [
+            "__ubsan_handle_add_overflow",
+            "__ubsan_handle_mul_overflow",
+            "__ubsan_handle_negate_overflow"
+          ]
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/collector/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/collector/CMakeFiles/update_cost.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/update_cost-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "gcc-13-sanitize",
+      "binary_name": "process_summary",
+      "artifact_path": "artifacts-export/gcc-13-sanitize/process_summary",
+      "artifact_size_bytes": 143904,
+      "sha256": "da8dce9878b2c50988ec05cdcbf7dc465ab56168c816fd35c9647370c2d3b251",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/summary/process_summary",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/process_summary-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libasan.so.8",
+          "libm.so.6",
+          "libubsan.so.1",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "dynamic_sanitizer_runtime",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 1,
+          "undefined_count": 19,
+          "defined_examples": [
+            "__asan_option_detect_stack_use_after_return"
+          ],
+          "undefined_examples": [
+            "__asan_handle_no_return",
+            "__asan_init",
+            "__asan_poison_stack_memory"
+          ]
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 4,
+          "defined_examples": [],
+          "undefined_examples": [
+            "__ubsan_handle_nonnull_arg",
+            "__ubsan_handle_out_of_bounds",
+            "__ubsan_handle_pointer_overflow"
+          ]
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/summary/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/summary/CMakeFiles/process_summary.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/process_summary-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "gcc-13-sanitize",
+      "binary_name": "update_cost_result_review",
+      "artifact_path": "artifacts-export/gcc-13-sanitize/update_cost_result_review",
+      "artifact_size_bytes": 275128,
+      "sha256": "bed133bdfeda629e2d9def3cf1dd3e48c912c0bc5a720f2df80d88db2142add3",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/gcc-13-sanitize/audit/update_cost_result_review",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/update_cost_result_review-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libasan.so.8",
+          "libm.so.6",
+          "libubsan.so.1",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "dynamic_sanitizer_runtime",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 1,
+          "undefined_count": 17,
+          "defined_examples": [
+            "__asan_option_detect_stack_use_after_return"
+          ],
+          "undefined_examples": [
+            "__asan_handle_no_return",
+            "__asan_init",
+            "__asan_poison_stack_memory"
+          ]
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 5,
+          "defined_examples": [],
+          "undefined_examples": [
+            "__ubsan_handle_add_overflow",
+            "__ubsan_handle_nonnull_arg",
+            "__ubsan_handle_out_of_bounds"
+          ]
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/audit/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/audit/CMakeFiles/update_cost_result_review.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/gcc-13-sanitize/update_cost_result_review-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "clang-18-normal",
+      "binary_name": "update_cost",
+      "artifact_path": "artifacts-export/clang-18-normal/update_cost",
+      "artifact_size_bytes": 89192,
+      "sha256": "71a86519ab697a81b15efa9b2ab7b99d2d162b18fc55828a51fc231ad98bbcbd",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/collector/update_cost",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/update_cost-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "no_sanitizer_runtime_observed",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/collector/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/collector/CMakeFiles/update_cost.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/update_cost-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "clang-18-normal",
+      "binary_name": "process_summary",
+      "artifact_path": "artifacts-export/clang-18-normal/process_summary",
+      "artifact_size_bytes": 45408,
+      "sha256": "32de97aa2f47da42d4d490535f5c1dbcb576e06a95c0d56eaa12f6325d8b67b9",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/summary/process_summary",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/process_summary-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "no_sanitizer_runtime_observed",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/summary/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/summary/CMakeFiles/process_summary.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/process_summary-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "clang-18-normal",
+      "binary_name": "update_cost_result_review",
+      "artifact_path": "artifacts-export/clang-18-normal/update_cost_result_review",
+      "artifact_size_bytes": 77888,
+      "sha256": "50546a3e4d3f174c2210c058cf4f65eb4b41ce63ad0c9000179ed2608dae7ea1",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-normal/audit/update_cost_result_review",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/update_cost_result_review-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "no_sanitizer_runtime_observed",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 0,
+          "undefined_count": 0,
+          "defined_examples": [],
+          "undefined_examples": []
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/audit/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/audit/CMakeFiles/update_cost_result_review.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-normal/update_cost_result_review-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "clang-18-sanitize",
+      "binary_name": "update_cost",
+      "artifact_path": "artifacts-export/clang-18-sanitize/update_cost",
+      "artifact_size_bytes": 1786400,
+      "sha256": "6d33dc0fe7dc1fbf5b61a880b36af6d373cf0b431f70350b66f96936cc6312cd",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-sanitize/collector/update_cost",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/update_cost-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libresolv.so.2",
+          "libgcc_s.so.1",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "embedded_sanitizer_runtime",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 313,
+          "undefined_count": 0,
+          "defined_examples": [
+            "__asan_addr_is_in_fake_stack",
+            "__asan_address_is_poisoned",
+            "__asan_after_dynamic_init"
+          ],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 49,
+          "undefined_count": 1,
+          "defined_examples": [
+            "__ubsan_default_options",
+            "__ubsan_get_current_report_data",
+            "__ubsan_handle_add_overflow"
+          ],
+          "undefined_examples": [
+            "__ubsan_handle_cfi_bad_type"
+          ]
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/collector/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/collector/CMakeFiles/update_cost.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/update_cost-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "clang-18-sanitize",
+      "binary_name": "process_summary",
+      "artifact_path": "artifacts-export/clang-18-sanitize/process_summary",
+      "artifact_size_bytes": 1719104,
+      "sha256": "f389854b75662c61aa578b810e6940b1f116a346363630fe1919dea74b78163b",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-sanitize/summary/process_summary",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/process_summary-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libresolv.so.2",
+          "libgcc_s.so.1",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "embedded_sanitizer_runtime",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 313,
+          "undefined_count": 0,
+          "defined_examples": [
+            "__asan_addr_is_in_fake_stack",
+            "__asan_address_is_poisoned",
+            "__asan_after_dynamic_init"
+          ],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 49,
+          "undefined_count": 1,
+          "defined_examples": [
+            "__ubsan_default_options",
+            "__ubsan_get_current_report_data",
+            "__ubsan_handle_add_overflow"
+          ],
+          "undefined_examples": [
+            "__ubsan_handle_cfi_bad_type"
+          ]
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/summary/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/summary/CMakeFiles/process_summary.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/process_summary-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    },
+    {
+      "cell": "clang-18-sanitize",
+      "binary_name": "update_cost_result_review",
+      "artifact_path": "artifacts-export/clang-18-sanitize/update_cost_result_review",
+      "artifact_size_bytes": 1795440,
+      "sha256": "add9e62cb0f8c2dc96229e90b8b2938e364e341604488f524b32248d3a9b5bb6",
+      "original_remote_path": "/home/nss-marker/yhr/Cry/aris-linux-math-software-20261009-2025b63/outputs/clang-18-sanitize/audit/update_cost_result_review",
+      "original_remote_hash_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/update_cost_result_review-sha256.txt",
+      "hash_matches_original_remote_record": true,
+      "elf": {
+        "elf_magic": "7f454c46",
+        "class": "ELF64",
+        "endianness": "little",
+        "machine": "EM_X86_64",
+        "machine_numeric": 62,
+        "type": "ET_DYN",
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "dt_needed": [
+          "libm.so.6",
+          "libresolv.so.2",
+          "libgcc_s.so.1",
+          "libc.so.6"
+        ],
+        "has_debug_info": true,
+        "symbol_table_present": true
+      },
+      "sanitizer_linkage": "embedded_sanitizer_runtime",
+      "sanitizer_symbols": {
+        "__asan": {
+          "defined_count": 313,
+          "undefined_count": 0,
+          "defined_examples": [
+            "__asan_addr_is_in_fake_stack",
+            "__asan_address_is_poisoned",
+            "__asan_after_dynamic_init"
+          ],
+          "undefined_examples": []
+        },
+        "__ubsan": {
+          "defined_count": 49,
+          "undefined_count": 1,
+          "defined_examples": [
+            "__ubsan_default_options",
+            "__ubsan_get_current_report_data",
+            "__ubsan_handle_add_overflow"
+          ],
+          "undefined_examples": [
+            "__ubsan_handle_cfi_bad_type"
+          ]
+        }
+      },
+      "original_compile_commands_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/audit/compile_commands.json",
+      "original_link_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/audit/CMakeFiles/update_cost_result_review.dir/link.txt",
+      "original_ldd_record": "docs/evidence/aris-linux-math-software-20261009/results/outputs/clang-18-sanitize/update_cost_result_review-ldd.txt",
+      "c11_o2_no_lto_compile_commands_verified": true,
+      "link_flags_and_runtime_match_configuration": true,
+      "dt_needed_supported_by_original_ldd": true
+    }
+  ],
+  "limitations": [
+    "No new software execution, CTest, timing, rebuild, hardware control, or credential action by this reviewer.",
+    "Static flags and runtime symbols verify bounded artifact configuration; they do not establish complete sanitizer coverage or constant-time behavior.",
+    "Original recorded local-ELF absence remains historically accurate before this later retrieval.",
+    "Exported source identity is an alias plus per-source hashes; it is not a Git commit attestation.",
+    "Software artifacts execute on Linux; archived timing observations remain Darwin/arm64.",
+    "Original debug and build paths are retained in this internal evidence set; these ELF files are not added to the anonymous supplementary package."
+  ]
+}

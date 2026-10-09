@@ -224,3 +224,7 @@ nss-m、Linux/x86_64、无虚拟化、32线程、约定工作根存在，观察�
 157份原日志及编译/链接/符号/库记录已取回，stage264路径/263摘要前后不变；没有新计时或密码调用，旧密码GCC失败保留。
 原审计manifest静态OFF与实际动态参数ON的区别已说明，十二个远端ELF摘要尚未在本地重算，不补造该验证。
 [频率控制候选](research/aris-linux-math-software-20261009/FREQUENCY_CONTROL_PROPOSAL.md)已准备，资源窗口问题等待用户回复；未改共享硬件，R02/R04仍部分签收。
+
+2026-10-09补[十二个原Linux数学软件ELF的本地核验](evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md)：
+未重建或执行产物，十二个本地摘要全部匹配最初远端记录，ELF/x86_64及普通/动态依赖和符号身份一致。
+原fba26b6的remote-only字段保持历史身份，旧157文件和166项证据摘要保持；R02/R04、资源窗口及真人材料未因此签收。
