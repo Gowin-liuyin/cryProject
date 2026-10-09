@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/Users/yin/code/cryProject/build/frequency-window-normal",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/frequency_reference.dir/Users/yin/code/cryProject/src/kernel.c.o -c /Users/yin/code/cryProject/src/kernel.c",
+  "file": "/Users/yin/code/cryProject/src/kernel.c",
+  "output": "CMakeFiles/frequency_reference.dir/Users/yin/code/cryProject/src/kernel.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/frequency-window-normal",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/frequency_reference.dir/Users/yin/code/cryProject/src/mlkem.c.o -c /Users/yin/code/cryProject/src/mlkem.c",
+  "file": "/Users/yin/code/cryProject/src/mlkem.c",
+  "output": "CMakeFiles/frequency_reference.dir/Users/yin/code/cryProject/src/mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/frequency-window-normal",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/frequency_reference.dir/Users/yin/code/cryProject/src/random.c.o -c /Users/yin/code/cryProject/src/random.c",
+  "file": "/Users/yin/code/cryProject/src/random.c",
+  "output": "CMakeFiles/frequency_reference.dir/Users/yin/code/cryProject/src/random.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/frequency-window-normal",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/frequency_workload.dir/frequency_workload.c.o -c /Users/yin/code/cryProject/docs/research/aris-frequency-window-20261010/frequency_workload.c",
+  "file": "/Users/yin/code/cryProject/docs/research/aris-frequency-window-20261010/frequency_workload.c",
+  "output": "CMakeFiles/frequency_workload.dir/frequency_workload.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/frequency-window-normal",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/frequency_reference_kat.dir/Users/yin/code/cryProject/tests/test_mlkem.c.o -c /Users/yin/code/cryProject/tests/test_mlkem.c",
+  "file": "/Users/yin/code/cryProject/tests/test_mlkem.c",
+  "output": "CMakeFiles/frequency_reference_kat.dir/Users/yin/code/cryProject/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/Users/yin/code/cryProject/build/frequency-window-normal",
+  "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/frequency_reference_kat.dir/Users/yin/code/cryProject/src/inputs.c.o -c /Users/yin/code/cryProject/src/inputs.c",
+  "file": "/Users/yin/code/cryProject/src/inputs.c",
+  "output": "CMakeFiles/frequency_reference_kat.dir/Users/yin/code/cryProject/src/inputs.c.o"
+}
+]
