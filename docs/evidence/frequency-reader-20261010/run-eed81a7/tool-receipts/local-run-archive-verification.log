@@ -1,0 +1,66 @@
+{
+  "members_checked": 476,
+  "manifested_payloads_checked": 475,
+  "normal_test": {
+    "label": "normal-test",
+    "arguments": [
+      "/usr/bin/ctest",
+      "--test-dir",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/build-normal",
+      "--output-on-failure"
+    ],
+    "cwd": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7",
+    "started_utc": "2026-10-09T21:27:36.918485+00:00",
+    "pid": 3662206,
+    "start_ticks": "338225377",
+    "process_group_id": 3662146,
+    "exit_code": 0,
+    "wall_seconds": 0.007743149995803833
+  },
+  "sanitize_test": {
+    "label": "sanitize-test",
+    "arguments": [
+      "/usr/bin/ctest",
+      "--test-dir",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/build-sanitize",
+      "--output-on-failure"
+    ],
+    "cwd": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7",
+    "started_utc": "2026-10-09T21:27:37.204456+00:00",
+    "pid": 3662265,
+    "start_ticks": "338225405",
+    "process_group_id": 3662146,
+    "exit_code": 0,
+    "wall_seconds": 0.015624358784407377
+  },
+  "initial_decode": {
+    "label": "iasl-disassemble",
+    "arguments": [
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/tools/iasl",
+      "-da",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/DSDT.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT1.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT10.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT11.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT12.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT13.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT2.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT3.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT4.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT5.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT6.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT7.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT8.dat",
+      "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT9.dat"
+    ],
+    "cwd": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode",
+    "started_utc": "2026-10-09T21:27:37.221719+00:00",
+    "pid": 3662270,
+    "start_ticks": "338225407",
+    "process_group_id": 3662146,
+    "exit_code": 255,
+    "wall_seconds": 0.031509223859757185
+  },
+  "fresh_target_decode": 0,
+  "iasl_copyright": "This package was debianized by Mattia Dongili <malattia@debian.org> on\nFri, 14 Oct 2005 19:16:28 +0200.\n\nIt was downloaded from http://www.acpica.org/downloads/\n\nCopyright Holder: \"Moore, Robert\" <robert.moore@intel.com>\n\nLicense: Dual GPLv2/ACPICA Licence\n\n\nFor the GPLv2:\n--------------\n Copyright (C) 2000 - 2006, R. Byron Moore\n All rights reserved.\n \n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions\n are met:\n 1. Redistributions of source code must retain the above copyright\n    notice, this list of conditions, and the following disclaimer,\n    without modification.\n 2. Redistributions in binary form must reproduce at minimum a disclaimer\n    substantially similar to the \"NO WARRANTY\" disclaimer below\n    (\"Disclaimer\") and any redistribution must be conditioned upon\n    including a substantially similar Disclaimer requirement for further\n    binary redistribution.\n 3. Neither the names of the above-listed copyright holders nor the names\n    of any contributors may be used to endorse or promote products derived\n    from this software without specific prior written permission.\n \n Alternatively, this software may be distributed under the terms of the\n GNU General Public License (\"GPL\") version 2 as published by the Free\n Software Foundation.\n \n NO WARRANTY\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR\n A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n HOLDERS OR CONTRIBUTORS BE LIABLE FOR SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS\n OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,\n STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING\n IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n POSSIBILITY OF SUCH DAMAGES.\n \n On Debian systems, the complete text of the GNU General\n Public License can be found in `/usr/share/common-licenses/GPL-2'.\n\n"
+}

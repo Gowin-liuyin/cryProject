@@ -1,0 +1,50 @@
+{
+  "archive": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7-results.tar",
+  "sha256": "b187de98505e70f555d583be9e88add9e7cd603b9d5cf896e95be5862079382a",
+  "members": 476,
+  "tree_payload_bytes": 5188037,
+  "links": 0,
+  "visible_state": {
+    "utc": "2026-10-09T21:40:47.195091+00:00",
+    "policies": {
+      "2": {
+        "scaling_governor": "powersave",
+        "scaling_min_freq": "2982259",
+        "scaling_max_freq": "5756452",
+        "energy_performance_preference": "balance_performance",
+        "boost": "1"
+      },
+      "18": {
+        "scaling_governor": "powersave",
+        "scaling_min_freq": "2982259",
+        "scaling_max_freq": "5756452",
+        "energy_performance_preference": "balance_performance",
+        "boost": "1"
+      }
+    },
+    "amd_pstate_status": "active",
+    "global_boost": "1",
+    "cpuset_root": {
+      "cpuset.cpus.effective": "0-31",
+      "cpuset.cpus.isolated": ""
+    }
+  },
+  "artifacts": {
+    "tools/iasl": {
+      "sha256": "07f0c8166ff1a65f3d11484fc7597dd6f24a22befe77f1bde81d871367a08327",
+      "bytes": 1286592
+    },
+    "tools/copyright": {
+      "sha256": "dee2a9efdb31353a18113771884ce01c7ace26b88cd840e027bcc1e89825a59b",
+      "bytes": 2227
+    },
+    "build-normal/msr_counter_snapshot": {
+      "sha256": "acfa346972dd79dc614927e89697632fe71c3d68b5e2829522faeaa93cc422a7",
+      "bytes": 28688
+    },
+    "build-sanitize/msr_counter_snapshot": {
+      "sha256": "3e9083f1fa57dd30e2b78e67dde54bcd41360f8a3f9803412959b9c732af7b60",
+      "bytes": 76760
+    }
+  }
+}

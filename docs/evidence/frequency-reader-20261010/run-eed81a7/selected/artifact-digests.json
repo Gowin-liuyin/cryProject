@@ -1,0 +1,18 @@
+{
+  "tools/iasl": {
+    "sha256": "07f0c8166ff1a65f3d11484fc7597dd6f24a22befe77f1bde81d871367a08327",
+    "bytes": 1286592
+  },
+  "tools/copyright": {
+    "sha256": "dee2a9efdb31353a18113771884ce01c7ace26b88cd840e027bcc1e89825a59b",
+    "bytes": 2227
+  },
+  "build-normal/msr_counter_snapshot": {
+    "sha256": "acfa346972dd79dc614927e89697632fe71c3d68b5e2829522faeaa93cc422a7",
+    "bytes": 28688
+  },
+  "build-sanitize/msr_counter_snapshot": {
+    "sha256": "3e9083f1fa57dd30e2b78e67dde54bcd41360f8a3f9803412959b9c732af7b60",
+    "bytes": 76760
+  }
+}

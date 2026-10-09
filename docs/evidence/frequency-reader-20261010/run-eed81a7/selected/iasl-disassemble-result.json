@@ -1,0 +1,28 @@
+{
+  "label": "iasl-disassemble",
+  "arguments": [
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/tools/iasl",
+    "-da",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/DSDT.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT1.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT10.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT11.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT12.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT13.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT2.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT3.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT4.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT5.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT6.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT7.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT8.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode/SSDT9.dat"
+  ],
+  "cwd": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode",
+  "started_utc": "2026-10-09T21:27:37.221719+00:00",
+  "pid": 3662270,
+  "start_ticks": "338225407",
+  "process_group_id": 3662146,
+  "exit_code": 255,
+  "wall_seconds": 0.031509223859757185
+}

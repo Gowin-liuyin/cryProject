@@ -1,0 +1,32 @@
+{
+  "c_source_commit": "eed81a7620a1c929c52e96acb203104917ec3b5d",
+  "c_source_archive_sha256": "78572cc80804f2b5d44b0308a8e46ce027f0cb0d70331962568e6dfcdcffdb1c",
+  "root_snapshot_wrapper_commit": "acbbd699a4e4e4606a4150ed75e448e0eb688124",
+  "root_snapshot_wrapper_sha256": "39e50972d7d4ac5ec15be38d46b47c32e1f34f76873c2c6648c4266b3e3c0f26",
+  "build_and_decode": {
+    "tool_chunk": "0b015f",
+    "outer_exit_code": 1,
+    "original_outer_result_envelope_archived": false,
+    "state_source": "Retrospective notes from actual tool return; complete per-step original logs and process results are in the 476-member run archive.",
+    "source_was_uncommitted_at_execution": true,
+    "source_sha256": "29c041a318fd89f2dc42740e6a8242a20dcaa926e2528a93e45416cd436d2b99",
+    "later_committed_as": "acbbd699a4e4e4606a4150ed75e448e0eb688124"
+  },
+  "fresh_decoder": {
+    "source_was_uncommitted_at_execution": true,
+    "source_sha256": "8671b6914d9cd7b36fe817bd830b5c3209eca1049ad1cb6f01814cf7ed74282d",
+    "later_committed_as": "acbbd699a4e4e4606a4150ed75e448e0eb688124"
+  },
+  "export_helper": {
+    "source_was_uncommitted_at_execution": true,
+    "source_saved_exactly_in": "orchestration-source/export_run.py"
+  },
+  "ssh_master_closed": {
+    "tool_chunk": "8936c9",
+    "exit_code": 0,
+    "output": "Exit request sent.\r\n"
+  },
+  "password_recorded": false,
+  "kvm_access_attempted": false,
+  "frequency_settings_written": false
+}

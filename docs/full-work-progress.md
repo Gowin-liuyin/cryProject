@@ -330,3 +330,9 @@ AGENTS补入用户已授权代理密码交互的偏好；旧KVM仍待可信控�
 2026-10-10完成[反馈来源与C11读取模块准备](research/aris-frequency-reader-20261010/EXPERIMENT_PLAN.md)：真实缓存节点确认Linux CPU2/18对应固件C004/UID4、C005/UID5；固定六次只读MSR工具本地普通及ASan/UBSan各1/1通过，未执行硬件入口。
 独立源码审查通过；固件collector初版目录身份、总预算及原件/tar回读三项缺口在执行前修复，源48683448冻结。官方Ubuntu acpica-tools20230628-1包摘要核对，拟仅在Cry提取静态解码器。
 准备原件在[evidence](evidence/frequency-reader-20261010/preparation/README.md)。本次尚未采集固件表、取得Linux编译或实际MSR原值，不升级R02/R04；后续按固定计划执行并另留证，既有匿名包不改。
+
+2026-10-10完成[反馈来源与实际读取](research/aris-frequency-reader-20261010/RESULTS.md)：root取得14张ACPI表282915字节并取回核对；CPU2/18→C004/C005的23项静态_CPC包经DSL和原AML字节独立复核，完整64位E7/E8映射成立于保存的声明。
+固定eed81a7 C源真实Linux普通/ASan-UBSan自检各1/1，root acbbd69封装只运行一次普通ELF，六读各8字节、无超时、退出0；执行ELF与构建ELF相同，反汇编/动态符号为本机静态读取。
+原全体-da解码退出255且保留，仅DSDT产物成功；事前S01另用新进程、原14输入不变、13external+单SSDT3目标退出0，不回填原集合成功。外层build envelope未另存的来源局限明确登记。
+三原归档、476常规成员/475载荷、原值及选取副本核验与实物独立审查通过；全部云端原件在Cry，未写调频/隔离配置，结束可见设置与预检相同、CPU0—31可用/隔离空、SSH已关闭。
+本次只签收静态映射及读取能力；未直接dump内核缓存、建立活动频率窗口、运行密码负载或新统计确认。R02/R04、旧KVM核验迁移及真人材料仍未全部闭合；完整目标继续。

@@ -1,0 +1,49 @@
+{
+  "label": "s01-fresh-target",
+  "arguments": [
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/tools/iasl",
+    "-e",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/DSDT.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT1.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT10.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT11.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT12.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT13.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT2.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT4.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT5.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT6.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT7.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT8.dat",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT9.dat",
+    "-d",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT3.dat"
+  ],
+  "started_utc": "2026-10-09T21:30:09.074192+00:00",
+  "input_sha256": {
+    "DSDT.dat": "06807ff83c2553f2152f068fbc416813bedc966a891405e371a881769bc458fc",
+    "SSDT1.dat": "149c85dac57939045758b2ef3dc996f17e7bcf596651e79aba7ba7179d787f17",
+    "SSDT10.dat": "2c1188da8a10a51889d1414dcb9ede124038dcad67bb66835f96591c6b6c511d",
+    "SSDT11.dat": "3d39676fd1bbd6b4a60493f055143aceec9087b49eb1f1a24853668f57b1dd88",
+    "SSDT12.dat": "fe3131c29877d961e880d272803c5b981846aa9ea03a588c711209b6e2d7bf36",
+    "SSDT13.dat": "bf3188a35ec2bac1b0f231d03d3bf89e6565c757222ee352ccc2a4c5ca996660",
+    "SSDT2.dat": "7b07367ef72a92f9ec60bc836c1cdc7a8a7f32b60ad1041186483927519e3a39",
+    "SSDT3.dat": "c86cb418348be1995a4b743eb43b42c936c647d1c3531a4b71245d137e811e0b",
+    "SSDT4.dat": "78023149133b471a8e49d03e6d3f4b5cad7452246ec2e02a1e0d794cb63f3a6d",
+    "SSDT5.dat": "93fdd9f997f9bde7c201999c7fb2a09f0b22b2b4551e53bf4fa85a7ea4d58af5",
+    "SSDT6.dat": "01e31fe35a7a1a2bf4aed64d435095e9c96ec1cf0fc550ba08ffe283bbaa085c",
+    "SSDT7.dat": "1f30522b3feb6593b7dc8199ad3126abd8c717eb387a46287dd58565e18b157d",
+    "SSDT8.dat": "5e87395f2db479f995ed039ed65fad7311e97010f218c58dfb634d5692bf3d28",
+    "SSDT9.dat": "65152dc1504cf7e45cfc97a90fe70cf2607579986af6cdc44690c90a0ea0c336"
+  },
+  "aml_evaluation_performed": false,
+  "configuration_writes": 0,
+  "pid": 3662308,
+  "start_ticks": "338240592",
+  "exit_code": 0,
+  "wall_seconds": 0.015716638881713152,
+  "dsl": {
+    "bytes": 482653,
+    "sha256": "6528830e0f5d7b5e7933aaf653370f8e7c7754e641916a81c5426ed60b6d5bc7"
+  }
+}

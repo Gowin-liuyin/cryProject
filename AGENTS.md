@@ -58,5 +58,7 @@
 - 拉回副本是 `docs/evidence/baremetal-ryzen-20261008`，单独存放，不并入 `docs/evidence/r07-linux-20261008`。这些记录不是频率锁定、恒时证明或竞赛签收。下次新跑仍以 `/home/nss-marker/yhr/Cry` 为根，另建子目录，保留这次的 `source/` 和 `run/`。
 - 2026-10-10单核分区管理预演：固定源码上传/自检在 `Cry/partition-source-c4bb88a` 和 `Cry/partition-source-b0fd479`；前者前置解析拒绝，后者是提交 `b0fd4797d44d5d79cd0aec84b3996cc5473c190a`。root私有原件在 `Cry/core-partition-20261010-44fee52e576a`，可读归档为同级同名 `.tar`，锁在 `Cry/partition-admin.lock`。以上均在唯一存放边界内，保留原件。
 - 此次仅执行normal和controller单进程SIGKILL两条空任务恢复路径；临时内核分区已删除，CPU0—31归还、原四进程不存在、锁空闲，SSH已关闭。记录在 `docs/evidence/core-partition-20261010`。它不表示当前仍独占、频率已锁定、guard自身死亡可恢复或R02/R04已签收；旧依赖 `/run` 工作文件的方案仍禁用。
+- 2026-10-10反馈读取准备与原件：`Cry/feedback-reader-eed81a7/` 保存固定C源、独立工具、普通/动态构建与两次分开的静态解码；完整导出为同级 `feedback-reader-eed81a7-results.tar`。root私有固件及计数原件分别为 `Cry/feedback-mapping-20261010-62ce88b02a82/`、`Cry/feedback-counter-20261010-16ec7cf0d5fb/`，可读归档为同级同名 `.tar`。均保留，不覆盖复用。
+- 本次普通C源为 `eed81a7620a1c929c52e96acb203104917ec3b5d`，root封装为 `acbbd699a4e4e4606a4150ed75e448e0eb688124`；实际仅六次只读MSR，未写调频或隔离配置。结束回读仍为根CPU0—31、隔离空、目标原min/max/EPP/boost；SSH已关闭。证据在 `docs/evidence/frequency-reader-20261010`，不构成活动频率窗口、恒频或R02/R04签收。
 
 R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。

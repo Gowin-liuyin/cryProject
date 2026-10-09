@@ -1,0 +1,81 @@
+File appears to be binary: found 30274 non-ASCII characters, disassembling
+Binary file appears to be a valid ACPI table, disassembling
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT3.dat, Length 0x9BAE (39854) bytes
+ACPI: SSDT 0x0000000000000000 009BAE (v02 AMD    AMD CPU  00000001 AMD  00000001)
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT9.dat, Length 0x26EF (9967) bytes
+ACPI: SSDT 0x0000000000000000 0026EF (v02 AMD    AOD      00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT8.dat, Length 0xA62A (42538) bytes
+ACPI: SSDT 0x0000000000000000 00A62A (v02 AMD    CPMCMN   00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT7.dat, Length 0x78F (1935) bytes
+ACPI: SSDT 0x0000000000000000 00078F (v02 AMD    CPMDFDG1 00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT6.dat, Length 0x2AA6 (10918) bytes
+ACPI: SSDT 0x0000000000000000 002AA6 (v02 AMD    CDFAAIG2 00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT5.dat, Length 0x169E (5790) bytes
+ACPI: SSDT 0x0000000000000000 00169E (v02 AMD    CPMDFIG2 00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT4.dat, Length 0xC682 (50818) bytes
+ACPI: SSDT 0x0000000000000000 00C682 (v02 AMD    DISCUSB4 00000002 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT2.dat, Length 0x3F1 (1009) bytes
+ACPI: SSDT 0x0000000000000000 0003F1 (v02 ALASKA CPUSSDT  01072009 AMI  01072009)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT13.dat, Length 0x44E (1102) bytes
+ACPI: SSDT 0x0000000000000000 00044E (v02 AMD    AmdTable 00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT12.dat, Length 0x47C (1148) bytes
+ACPI: SSDT 0x0000000000000000 00047C (v02 AMD    AMDWOV   00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT11.dat, Length 0x9E6 (2534) bytes
+ACPI: SSDT 0x0000000000000000 0009E6 (v02 AMD    CPMMSOSC 00000001 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT10.dat, Length 0x500 (1280) bytes
+ACPI: SSDT 0x0000000000000000 000500 (v02 AMD    MEMTOOL0 00000002 INTL 20230331)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT1.dat, Length 0x816C (33132) bytes
+ACPI: SSDT 0x0000000000000000 00816C (v02 AMD    Splinter 00000002 MSFT 05000000)
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Input file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/DSDT.dat, Length 0x13BFA (80890) bytes
+ACPI: DSDT 0x0000000000000000 013BFA (v41 ALASKA A M I    01072009 INTL 20230331)
+Pass 1 parse of [DSDT]
+Pass 2 parse of [DSDT]
+Pass 1 parse of [SSDT]
+Pass 2 parse of [SSDT]
+Parsing Deferred Opcodes (Methods/Buffers/Packages/Regions)
+
+Parsing completed
+Disassembly completed
+ASL Output:    /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT3.dsl - 482653 bytes
+
+Intel ACPI Component Architecture
+ASL+ Optimizing Compiler/Disassembler version 20230628
+Copyright (c) 2000 - 2023 Intel Corporation
+
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT9.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT8.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT7.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT6.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT5.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT4.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT2.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT13.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT12.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT11.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT10.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/SSDT1.dat
+External object resolution file /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/decode-s01/DSDT.dat

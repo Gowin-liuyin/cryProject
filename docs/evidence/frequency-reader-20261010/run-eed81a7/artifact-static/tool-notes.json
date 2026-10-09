@@ -1,0 +1,20 @@
+{
+  "tool": "Apple LLVM llvm-objdump 21.0.0",
+  "host": "macOS/ARM",
+  "operation": "Static read of original Linux x86_64 ELF; no ELF execution on macOS",
+  "binary_sha256": "acfa346972dd79dc614927e89697632fe71c3d68b5e2829522faeaa93cc422a7",
+  "commands": [
+    "xcrun llvm-objdump -d -r build/frequency-reader-20261010/linux-msr_counter_snapshot",
+    "xcrun llvm-objdump --dynamic-syms -R build/frequency-reader-20261010/linux-msr_counter_snapshot"
+  ],
+  "tool_chunks": {
+    "version": "f432ee",
+    "disassembly": "95a867",
+    "dynamic_symbols": "26f8bb"
+  },
+  "exit_codes": [
+    0,
+    0,
+    0
+  ]
+}

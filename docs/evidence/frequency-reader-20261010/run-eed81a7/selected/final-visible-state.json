@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-09T21:40:47.195091+00:00",
+  "policies": {
+    "2": {
+      "scaling_governor": "powersave",
+      "scaling_min_freq": "2982259",
+      "scaling_max_freq": "5756452",
+      "energy_performance_preference": "balance_performance",
+      "boost": "1"
+    },
+    "18": {
+      "scaling_governor": "powersave",
+      "scaling_min_freq": "2982259",
+      "scaling_max_freq": "5756452",
+      "energy_performance_preference": "balance_performance",
+      "boost": "1"
+    }
+  },
+  "amd_pstate_status": "active",
+  "global_boost": "1",
+  "cpuset_root": {
+    "cpuset.cpus.effective": "0-31",
+    "cpuset.cpus.isolated": ""
+  }
+}

@@ -1,0 +1,19 @@
+Start testing: Oct 10 05:27 CST
+----------------------------------------------------------
+1/1 Testing: msr_counter_snapshot_selfcheck
+1/1 Test: msr_counter_snapshot_selfcheck
+Command: "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/build-normal/msr_counter_snapshot" "--selfcheck"
+Directory: /home/nss-marker/yhr/Cry/feedback-reader-eed81a7/build-normal
+"msr_counter_snapshot_selfcheck" start time: Oct 10 05:27 CST
+Output:
+----------------------------------------------------------
+{"selfcheck":"passed","hardware_read_performed":false}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"msr_counter_snapshot_selfcheck" end time: Oct 10 05:27 CST
+"msr_counter_snapshot_selfcheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 05:27 CST

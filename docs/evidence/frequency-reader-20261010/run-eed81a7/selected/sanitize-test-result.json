@@ -1,0 +1,16 @@
+{
+  "label": "sanitize-test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/build-sanitize",
+    "--output-on-failure"
+  ],
+  "cwd": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7",
+  "started_utc": "2026-10-09T21:27:37.204456+00:00",
+  "pid": 3662265,
+  "start_ticks": "338225405",
+  "process_group_id": 3662146,
+  "exit_code": 0,
+  "wall_seconds": 0.015624358784407377
+}

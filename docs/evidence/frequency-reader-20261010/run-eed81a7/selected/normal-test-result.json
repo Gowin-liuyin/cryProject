@@ -1,0 +1,16 @@
+{
+  "label": "normal-test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7/build-normal",
+    "--output-on-failure"
+  ],
+  "cwd": "/home/nss-marker/yhr/Cry/feedback-reader-eed81a7",
+  "started_utc": "2026-10-09T21:27:36.918485+00:00",
+  "pid": 3662206,
+  "start_ticks": "338225377",
+  "process_group_id": 3662146,
+  "exit_code": 0,
+  "wall_seconds": 0.007743149995803833
+}

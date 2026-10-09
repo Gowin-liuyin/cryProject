@@ -1,0 +1,125 @@
+{
+  "archive_sha256": "3457b6f8c729eac6209316f08f353486d5027eb17bc33489af84a8dc9ac2a601",
+  "execution": {
+    "utc": "2026-10-09T21:39:14.609302+00:00",
+    "uname": [
+      "Linux",
+      "nss-m",
+      "6.17.0-35-generic",
+      "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+      "x86_64"
+    ],
+    "effective_uid": 0,
+    "source_commit": "eed81a7620a1c929c52e96acb203104917ec3b5d",
+    "binary_sha256": "acfa346972dd79dc614927e89697632fe71c3d68b5e2829522faeaa93cc422a7",
+    "working_directory": "/home/nss-marker/yhr/Cry/feedback-counter-20261010-16ec7cf0d5fb",
+    "configuration_writes": 0,
+    "frequency_converted": false,
+    "pid": 3662422,
+    "start_ticks": "338295146",
+    "execution_deadline_exceeded": false,
+    "exit_code": 0,
+    "wall_seconds": 0.0006625410169363022
+  },
+  "snapshot": {
+    "schema_version": 1,
+    "platform": "linux_x86_64",
+    "clock": "CLOCK_MONOTONIC_RAW",
+    "configuration_writes": 0,
+    "frequency_converted": false,
+    "cpu_snapshots": [
+      {
+        "cpu_index": 2,
+        "device_path": "/dev/cpu/2/msr",
+        "device_status": "ok",
+        "device_errno": null,
+        "reads": [
+          {
+            "read_name": "mperf_before",
+            "register_offset": "0xe7",
+            "read_status": "ok",
+            "bytes_read": 8,
+            "read_errno": null,
+            "counter_value_u64": "86900763512423",
+            "clock_before_ns": "3382966526403512",
+            "clock_before_errno": null,
+            "clock_after_ns": "3382966526411758",
+            "clock_after_errno": null
+          },
+          {
+            "read_name": "aperf",
+            "register_offset": "0xe8",
+            "read_status": "ok",
+            "bytes_read": 8,
+            "read_errno": null,
+            "counter_value_u64": "76477214044314",
+            "clock_before_ns": "3382966526414223",
+            "clock_before_errno": null,
+            "clock_after_ns": "3382966526420204",
+            "clock_after_errno": null
+          },
+          {
+            "read_name": "mperf_after",
+            "register_offset": "0xe7",
+            "read_status": "ok",
+            "bytes_read": 8,
+            "read_errno": null,
+            "counter_value_u64": "86900763566216",
+            "clock_before_ns": "3382966526420835",
+            "clock_before_errno": null,
+            "clock_after_ns": "3382966526424802",
+            "clock_after_errno": null
+          }
+        ],
+        "close_errno": null
+      },
+      {
+        "cpu_index": 18,
+        "device_path": "/dev/cpu/18/msr",
+        "device_status": "ok",
+        "device_errno": null,
+        "reads": [
+          {
+            "read_name": "mperf_before",
+            "register_offset": "0xe7",
+            "read_status": "ok",
+            "bytes_read": 8,
+            "read_errno": null,
+            "counter_value_u64": "15248241157683",
+            "clock_before_ns": "3382966526428269",
+            "clock_before_errno": null,
+            "clock_after_ns": "3382966526432437",
+            "clock_after_errno": null
+          },
+          {
+            "read_name": "aperf",
+            "register_offset": "0xe8",
+            "read_status": "ok",
+            "bytes_read": 8,
+            "read_errno": null,
+            "counter_value_u64": "14848371467216",
+            "clock_before_ns": "3382966526432908",
+            "clock_before_errno": null,
+            "clock_after_ns": "3382966526436645",
+            "clock_after_errno": null
+          },
+          {
+            "read_name": "mperf_after",
+            "register_offset": "0xe7",
+            "read_status": "ok",
+            "bytes_read": 8,
+            "read_errno": null,
+            "counter_value_u64": "15248241188342",
+            "clock_before_ns": "3382966526437105",
+            "clock_before_errno": null,
+            "clock_after_ns": "3382966526441103",
+            "clock_after_errno": null
+          }
+        ],
+        "close_errno": null
+      }
+    ],
+    "status": "readable_snapshot",
+    "r02_signed_off": false
+  }
+}
