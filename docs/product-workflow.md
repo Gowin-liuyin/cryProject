@@ -77,6 +77,13 @@ CSV/meta/cost并验证资格，再取每块原序0..23作独立后赋标签的�
 差值、双实现尾计数及144个原时间。不重新采集，不修改原时间，不比较原密文类别。
 此项条件错误控制不替代真实密码总体或防护复测，见[合同](reference-label-control-v1.md)。
 
+2026-10-09入口同步：同一Linux上的人工机制防护前后已有[R07记录](evidence/r07-linux-20261008/README.md)，
+与H01历史ARM案例分别解释。新的[M02数学成本复核](research/aris-replication-20261009/RESULTS.md)
+在一次干净重建后完成同机三个新进程，零重试；它不调用密码算法，不与原M01或旧C/SciPy结果合并。
+已有三进程原值可按[只读复算说明](evidence/aris-replication-20261009/REPLAY.md)审计，输出使用新路径。
+[官方潜在修正工作簿](evidence/aris-resume-20261009/official-source-check.md)两项固定路径核对已完成。
+R02/R04、实际截图与本人审批回执仍待适用证据；入口更新不改变旧文件或这些签收状态。
+
 本轮结论使用稳定编号，入口为[离线页面](../deliverables/demo/index.html)及
 [逐项证据索引](../deliverables/demo/evidence-index.md)。每条可直接打开原数据、源/产物、环境、
 日志/退出、分析和缺口；公开核查与固定配置适用性单列。新N01普通性能和旧E02图源保持
