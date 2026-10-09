@@ -1,0 +1,19 @@
+Start testing: Oct 10 06:35 CST
+----------------------------------------------------------
+1/1 Testing: partition_management_selfcheck
+1/1 Test: partition_management_selfcheck
+Command: "/usr/bin/python3" "-I" "-B" "/home/nss-marker/yhr/Cry/frequency-source-991f154/source/docs/research/aris-core-partition-20261010/rehearse_partition.py" "--selfcheck" "/home/nss-marker/yhr/Cry/frequency-source-991f154/build/selfcheck-root"
+Directory: /home/nss-marker/yhr/Cry/frequency-source-991f154/build
+"partition_management_selfcheck" start time: Oct 10 06:35 CST
+Output:
+----------------------------------------------------------
+selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset,frequency_partial,frequency_async,frequency_scope,frequency_conflict,frequency_continue,frequency_manual_repeat,frequency_pending_superseded,frequency_cancel_failure; kernel_writes=none
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"partition_management_selfcheck" end time: Oct 10 06:35 CST
+"partition_management_selfcheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 06:35 CST

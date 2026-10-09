@@ -1,0 +1,13 @@
+{
+  "label": "test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/frequency-source-991f154/build",
+    "--output-on-failure"
+  ],
+  "pid": 3663673,
+  "start_ticks": "338633837",
+  "exit_code": 0,
+  "wall_seconds": 0.36488244589418173
+}

@@ -1,0 +1,38 @@
+Start testing: Oct 10 06:53 CST
+----------------------------------------------------------
+1/2 Testing: frequency_workload_selfcheck
+1/2 Test: frequency_workload_selfcheck
+Command: "/home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize/frequency_workload" "--selfcheck"
+Directory: /home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize
+"frequency_workload_selfcheck" start time: Oct 10 06:53 CST
+Output:
+----------------------------------------------------------
+{"selfcheck":"passed","hardware_read_performed":false,"crypto_workload_performed":false}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"frequency_workload_selfcheck" end time: Oct 10 06:53 CST
+"frequency_workload_selfcheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: frequency_reference_kat
+2/2 Test: frequency_reference_kat
+Command: "/home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize/frequency_reference_kat" "/home/nss-marker/yhr/Cry/window-source-7e93048/source/tests/vectors/mlkem768.txt"
+Directory: /home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize
+"frequency_reference_kat" start time: Oct 10 06:53 CST
+Output:
+----------------------------------------------------------
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"frequency_reference_kat" end time: Oct 10 06:53 CST
+"frequency_reference_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 06:53 CST

@@ -1,0 +1,92 @@
+{
+  "sha256": "3c4951ac57b905b9fa232858f2bf017ef93daaf5f522d8d9a38126e53a7da122",
+  "members": 68,
+  "run": {
+    "success": true,
+    "errors": [],
+    "utc": "2026-10-09T22:36:24.534601+00:00",
+    "configuration_scope": "owned_virtual_cgroups_and_two_policy_frequency_limits",
+    "hardware_frequency_qualified": false
+  },
+  "source_sha256": "b7057c2af9a32ac93491815756eaaf0d964745f56ef4f9c05b59c84ba36c7661",
+  "cases": {
+    "normal": {
+      "terminal_success": true,
+      "reason": "release",
+      "errors": [],
+      "observer_success": true,
+      "controller_exit": 0,
+      "dirty_count": 8,
+      "restored_all_32_policies_equal": true,
+      "active_targets": {
+        "policy2": {
+          "scaling_min_freq": "4300000",
+          "scaling_max_freq": "4300000"
+        },
+        "policy18": {
+          "scaling_min_freq": "4300000",
+          "scaling_max_freq": "4300000"
+        }
+      },
+      "identities": {
+        "guard": {
+          "pid": 3663688,
+          "start_ticks": 338638092,
+          "effective_uid": 0
+        },
+        "controller": {
+          "pid": 3663687,
+          "start_ticks": 338638089
+        },
+        "probe-before-exec": {
+          "pid": 3663698,
+          "start_ticks": 338638102,
+          "cgroup": "0::/a113part-d05b4396f082-normal-probe",
+          "allowed_cpus": [
+            2,
+            18
+          ]
+        }
+      }
+    },
+    "parent-loss": {
+      "terminal_success": true,
+      "reason": "controller_eof",
+      "errors": [],
+      "observer_success": true,
+      "controller_exit": -9,
+      "dirty_count": 8,
+      "restored_all_32_policies_equal": true,
+      "active_targets": {
+        "policy2": {
+          "scaling_min_freq": "4300000",
+          "scaling_max_freq": "4300000"
+        },
+        "policy18": {
+          "scaling_min_freq": "4300000",
+          "scaling_max_freq": "4300000"
+        }
+      },
+      "identities": {
+        "guard": {
+          "pid": 3663709,
+          "start_ticks": 338638119,
+          "effective_uid": 0
+        },
+        "controller": {
+          "pid": 3663707,
+          "start_ticks": 338638116
+        },
+        "probe-before-exec": {
+          "pid": 3663720,
+          "start_ticks": 338638128,
+          "cgroup": "0::/a113part-d05b4396f082-parent-loss-probe",
+          "allowed_cpus": [
+            2,
+            18
+          ]
+        }
+      }
+    }
+  }
+}

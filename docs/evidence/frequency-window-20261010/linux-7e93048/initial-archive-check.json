@@ -1,0 +1,19 @@
+{
+  "members": 618,
+  "payloads_verified": 617,
+  "source_commit": "7e93048f3af885d14f1577b3a198bd3d52b8ee8e",
+  "compiler": "GNU 13.3.0; actual caches/commands in archive",
+  "tests": {
+    "normal": {
+      "passed_tests": 2,
+      "workload_sha256": "a4cb64271735ff40a7a40c8bbf67ad5a08841c4f3e05fb9182bc7e1991de1cfc"
+    },
+    "sanitize": {
+      "passed_tests": 2,
+      "workload_sha256": "f783076bd7fe0e414a5ff293ed6921196861616179e2a63aaf77b5f3b7ce1703"
+    }
+  },
+  "ordinary_entry_run": false,
+  "msr_read_performed": false,
+  "configuration_writes": 0
+}

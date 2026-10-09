@@ -1,0 +1,12 @@
+[ 11%] Building C object CMakeFiles/frequency_reference.dir/home/nss-marker/yhr/Cry/window-source-7e93048/source/src/kernel.c.o
+[ 22%] Building C object CMakeFiles/frequency_reference.dir/home/nss-marker/yhr/Cry/window-source-7e93048/source/src/mlkem.c.o
+[ 33%] Building C object CMakeFiles/frequency_reference.dir/home/nss-marker/yhr/Cry/window-source-7e93048/source/src/random.c.o
+[ 44%] Linking C static library libfrequency_reference.a
+[ 44%] Built target frequency_reference
+[ 55%] Building C object CMakeFiles/frequency_reference_kat.dir/home/nss-marker/yhr/Cry/window-source-7e93048/source/tests/test_mlkem.c.o
+[ 66%] Building C object CMakeFiles/frequency_workload.dir/frequency_workload.c.o
+[ 77%] Building C object CMakeFiles/frequency_reference_kat.dir/home/nss-marker/yhr/Cry/window-source-7e93048/source/src/inputs.c.o
+[ 88%] Linking C executable frequency_reference_kat
+[ 88%] Built target frequency_reference_kat
+[100%] Linking C executable frequency_workload
+[100%] Built target frequency_workload

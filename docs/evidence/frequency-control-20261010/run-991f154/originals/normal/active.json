@@ -1,0 +1,3204 @@
+{
+  "partition": {
+    "cpuset.cpus": "2,18",
+    "cpuset.cpus.effective": "2,18",
+    "cpuset.cpus.exclusive": "2,18",
+    "cpuset.cpus.exclusive.effective": "2,18",
+    "cpuset.cpus.partition": "isolated",
+    "cpuset.mems": "0"
+  },
+  "snapshot": {
+    "utc": "2026-10-09T22:36:24.209687+00:00",
+    "root_effective": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "root_isolated": [
+      2,
+      18
+    ],
+    "groups": {
+      "dev-hugepages.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "dev-mqueue.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "init.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "proc-sys-fs-binfmt_misc.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-fs-fuse-connections.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-kernel-config.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-kernel-debug.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-kernel-tracing.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/ModemManager.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/NetworkManager.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/accounts-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/avahi-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/bolt.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/boot-efi.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/codex-mihomo.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/colord.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/containerd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/cron.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/cups-browsed.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/cups.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/dbus.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker-246003e3f382567ad2101fad76eafab8ca9753a5f594729c1fa87b6e4d81471e.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker-86da72dfd67bc096d1ba46b4574f44fd571e07ec1ffbb42360e8051354e3b6d2.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker-b2eebc0ecbb82cc5f44b7f7a39ef6f82c8ca905bfd59617ba64a9261bbf3de40.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker.socket": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/fail2ban.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/fwupd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/gdm.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/gnome-remote-desktop.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/kerneloops.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/nvidia-persistenced.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/polkit.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/power-profiles-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/rsyslog.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/rtkit-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-bare-5.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-codex-34.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core22-2437.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core22-2955.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core24-1643.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core24-2124.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firefox-8969.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firefox-8995.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firmware\\x2dupdater-226.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firmware\\x2dupdater-258.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d42\\x2d2204-247.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d42\\x2d2204-263.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d46\\x2d2404-153.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d46\\x2d2404-164.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gtk\\x2dcommon\\x2dthemes-1535.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-mesa\\x2d2404-1165.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-mesa\\x2d2404-1839.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snap\\x2dstore-1419.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snap\\x2dstore-1427.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd-27738.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd-28254.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd\\x2ddesktop\\x2dintegration-387.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd\\x2ddesktop\\x2dintegration-391.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snapd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snapd.socket": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/ssh.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/ssh.socket": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/swap.img.swap": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/switcheroo-control.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/system-getty.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/system-modprobe.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/system-systemd\\x2dfsck.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-journald.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-logind.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-oomd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-resolved.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-timesyncd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-udevd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/udisks2.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/unattended-upgrades.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/upower.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/wpa_supplicant.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "user.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-1,3-17,19-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      }
+    },
+    "top_names": [
+      "a113part-d05b4396f082-normal-guard",
+      "a113part-d05b4396f082-normal-probe",
+      "dev-hugepages.mount",
+      "dev-mqueue.mount",
+      "init.scope",
+      "proc-sys-fs-binfmt_misc.mount",
+      "sys-fs-fuse-connections.mount",
+      "sys-kernel-config.mount",
+      "sys-kernel-debug.mount",
+      "sys-kernel-tracing.mount",
+      "system.slice",
+      "user.slice"
+    ]
+  },
+  "frequency_mode": true,
+  "frequency": {
+    "policies": {
+      "policy0": {
+        "identity": {
+          "inode": 38971,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "0",
+          "inode": 38978,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "0",
+          "inode": 38979,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 38981,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 38980,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 38990,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 38993,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 38972,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 38973,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 38976,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 38977,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy1": {
+        "identity": {
+          "inode": 38994,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "1",
+          "inode": 39001,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "1",
+          "inode": 39002,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39004,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39003,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39013,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39016,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 38995,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 38996,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 38999,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39000,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy10": {
+        "identity": {
+          "inode": 39201,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "10",
+          "inode": 39208,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "10",
+          "inode": 39209,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39211,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39210,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39220,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39223,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39202,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39203,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39206,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39207,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy11": {
+        "identity": {
+          "inode": 39224,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "11",
+          "inode": 39231,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "11",
+          "inode": 39232,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39234,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39233,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39243,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39246,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39225,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39226,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39229,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39230,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy12": {
+        "identity": {
+          "inode": 39247,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "12",
+          "inode": 39254,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "12",
+          "inode": 39255,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39257,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39256,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39266,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39269,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39248,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39249,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39252,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39253,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy13": {
+        "identity": {
+          "inode": 39270,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "13",
+          "inode": 39277,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "13",
+          "inode": 39278,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39280,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39279,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39289,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39292,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39271,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39272,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39275,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39276,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy14": {
+        "identity": {
+          "inode": 39293,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "14",
+          "inode": 39300,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "14",
+          "inode": 39301,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39303,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39302,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39312,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39315,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39294,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39295,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39298,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39299,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy15": {
+        "identity": {
+          "inode": 39316,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "15",
+          "inode": 39323,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "15",
+          "inode": 39324,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39326,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39325,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39335,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39338,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39317,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39318,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39321,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39322,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy16": {
+        "identity": {
+          "inode": 39339,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "16",
+          "inode": 39346,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "16",
+          "inode": 39347,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39349,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39348,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39358,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39361,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39340,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39341,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39344,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39345,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy17": {
+        "identity": {
+          "inode": 39362,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "17",
+          "inode": 39369,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "17",
+          "inode": 39370,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39372,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39371,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39381,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39384,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39363,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39364,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39367,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39368,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy18": {
+        "identity": {
+          "inode": 39385,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "18",
+          "inode": 39392,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "18",
+          "inode": 39393,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39395,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39394,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39404,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39407,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39386,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39387,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "4300000",
+          "inode": 39390,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "4300000",
+          "inode": 39391,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy19": {
+        "identity": {
+          "inode": 39408,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "19",
+          "inode": 39415,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "19",
+          "inode": 39416,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39418,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39417,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39427,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39430,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39409,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39410,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39413,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39414,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy2": {
+        "identity": {
+          "inode": 39017,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "2",
+          "inode": 39024,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "2",
+          "inode": 39025,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39027,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39026,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39036,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39039,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39018,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39019,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "4300000",
+          "inode": 39022,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "4300000",
+          "inode": 39023,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy20": {
+        "identity": {
+          "inode": 39431,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "20",
+          "inode": 39438,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "20",
+          "inode": 39439,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39441,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39440,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39450,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39453,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39432,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39433,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39436,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39437,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy21": {
+        "identity": {
+          "inode": 39454,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "21",
+          "inode": 39461,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "21",
+          "inode": 39462,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39464,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39463,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39473,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39476,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39455,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39456,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39459,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39460,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy22": {
+        "identity": {
+          "inode": 39477,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "22",
+          "inode": 39484,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "22",
+          "inode": 39485,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39487,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39486,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39496,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39499,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39478,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39479,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39482,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39483,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy23": {
+        "identity": {
+          "inode": 39500,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "23",
+          "inode": 39507,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "23",
+          "inode": 39508,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39510,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39509,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39519,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39522,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39501,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39502,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39505,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39506,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy24": {
+        "identity": {
+          "inode": 39523,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "24",
+          "inode": 39530,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "24",
+          "inode": 39531,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39533,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39532,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39542,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39545,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39524,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39525,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39528,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39529,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy25": {
+        "identity": {
+          "inode": 39546,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "25",
+          "inode": 39553,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "25",
+          "inode": 39554,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39556,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39555,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39565,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39568,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39547,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39548,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39551,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39552,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy26": {
+        "identity": {
+          "inode": 39569,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "26",
+          "inode": 39576,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "26",
+          "inode": 39577,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39579,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39578,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39588,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39591,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39570,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39571,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39574,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39575,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy27": {
+        "identity": {
+          "inode": 39592,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "27",
+          "inode": 39599,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "27",
+          "inode": 39600,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39602,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39601,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39611,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39614,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39593,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39594,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39597,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39598,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy28": {
+        "identity": {
+          "inode": 39615,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "28",
+          "inode": 39622,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "28",
+          "inode": 39623,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39625,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39624,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39634,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39637,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39616,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39617,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39620,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39621,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy29": {
+        "identity": {
+          "inode": 39638,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "29",
+          "inode": 39645,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "29",
+          "inode": 39646,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39648,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39647,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39657,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39660,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39639,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39640,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39643,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39644,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy3": {
+        "identity": {
+          "inode": 39040,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "3",
+          "inode": 39047,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "3",
+          "inode": 39048,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39050,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39049,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39059,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39062,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39041,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39042,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39045,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39046,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy30": {
+        "identity": {
+          "inode": 39661,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "30",
+          "inode": 39668,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "30",
+          "inode": 39669,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39671,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39670,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39680,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39683,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39662,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39663,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39666,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39667,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy31": {
+        "identity": {
+          "inode": 39684,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "31",
+          "inode": 39691,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "31",
+          "inode": 39692,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39694,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39693,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39703,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39706,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39685,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39686,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39689,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39690,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy4": {
+        "identity": {
+          "inode": 39063,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "4",
+          "inode": 39070,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "4",
+          "inode": 39071,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39073,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39072,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39082,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39085,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39064,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39065,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39068,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39069,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy5": {
+        "identity": {
+          "inode": 39086,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "5",
+          "inode": 39093,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "5",
+          "inode": 39094,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39096,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39095,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39105,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39108,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39087,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39088,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39091,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39092,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy6": {
+        "identity": {
+          "inode": 39109,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "6",
+          "inode": 39116,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "6",
+          "inode": 39117,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39119,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39118,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39128,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39131,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39110,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39111,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39114,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39115,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy7": {
+        "identity": {
+          "inode": 39132,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "7",
+          "inode": 39139,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "7",
+          "inode": 39140,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39142,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39141,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39151,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39154,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39133,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39134,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39137,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39138,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy8": {
+        "identity": {
+          "inode": 39155,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "8",
+          "inode": 39162,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "8",
+          "inode": 39163,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39165,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39164,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39174,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39177,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39156,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39157,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39160,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39161,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      },
+      "policy9": {
+        "identity": {
+          "inode": 39178,
+          "device": 23
+        },
+        "affected_cpus": {
+          "value": "9",
+          "inode": 39185,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "related_cpus": {
+          "value": "9",
+          "inode": 39186,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_driver": {
+          "value": "amd-pstate-epp",
+          "inode": 39188,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_governor": {
+          "value": "powersave",
+          "inode": 39187,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "energy_performance_preference": {
+          "value": "balance_performance",
+          "inode": 39197,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "boost": {
+          "value": "1",
+          "inode": 39200,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "cpuinfo_min_freq": {
+          "value": "624194",
+          "inode": 39179,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "cpuinfo_max_freq": {
+          "value": "5756452",
+          "inode": 39180,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 292
+        },
+        "scaling_min_freq": {
+          "value": "2982259",
+          "inode": 39183,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        },
+        "scaling_max_freq": {
+          "value": "5756452",
+          "inode": 39184,
+          "device": 23,
+          "owner_uid": 0,
+          "mode": 420
+        }
+      }
+    },
+    "global": {
+      "status": {
+        "value": "active",
+        "inode": 39708,
+        "device": 23,
+        "owner_uid": 0,
+        "mode": 420
+      },
+      "boost": {
+        "value": "1",
+        "inode": 38970,
+        "device": 23,
+        "owner_uid": 0,
+        "mode": 420
+      },
+      "prefcore": {
+        "value": "enabled",
+        "inode": 39709,
+        "device": 23,
+        "owner_uid": 0,
+        "mode": 292
+      }
+    },
+    "cpu_links": {
+      "2": "/sys/devices/system/cpu/cpufreq/policy2",
+      "18": "/sys/devices/system/cpu/cpufreq/policy18"
+    },
+    "policy_names": [
+      "policy0",
+      "policy1",
+      "policy10",
+      "policy11",
+      "policy12",
+      "policy13",
+      "policy14",
+      "policy15",
+      "policy16",
+      "policy17",
+      "policy18",
+      "policy19",
+      "policy2",
+      "policy20",
+      "policy21",
+      "policy22",
+      "policy23",
+      "policy24",
+      "policy25",
+      "policy26",
+      "policy27",
+      "policy28",
+      "policy29",
+      "policy3",
+      "policy30",
+      "policy31",
+      "policy4",
+      "policy5",
+      "policy6",
+      "policy7",
+      "policy8",
+      "policy9"
+    ]
+  },
+  "hardware_frequency_qualified": false
+}

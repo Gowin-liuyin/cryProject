@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-09T22:53:22.331140+00:00",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "source_commit": "7e93048f3af885d14f1577b3a198bd3d52b8ee8e",
+  "steps": [
+    {
+      "label": "normal-configure",
+      "arguments": [
+        "/usr/bin/cmake",
+        "-S",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/source/docs/research/aris-frequency-window-20261010",
+        "-B",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/build-normal",
+        "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DBUILD_TESTING=ON",
+        "-DFREQUENCY_WINDOW_SANITIZERS=OFF"
+      ],
+      "pid": 3663966,
+      "start_ticks": "338739767",
+      "exit_code": 0,
+      "wall_seconds": 0.11398907890543342
+    },
+    {
+      "label": "normal-build",
+      "arguments": [
+        "/usr/bin/cmake",
+        "--build",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/build-normal",
+        "--parallel",
+        "2"
+      ],
+      "pid": 3663998,
+      "start_ticks": "338739779",
+      "exit_code": 0,
+      "wall_seconds": 0.5643961550667882
+    },
+    {
+      "label": "normal-test",
+      "arguments": [
+        "/usr/bin/ctest",
+        "--test-dir",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/build-normal",
+        "--output-on-failure"
+      ],
+      "pid": 3664072,
+      "start_ticks": "338739835",
+      "exit_code": 0,
+      "wall_seconds": 0.015465782955288887
+    },
+    {
+      "label": "sanitize-configure",
+      "arguments": [
+        "/usr/bin/cmake",
+        "-S",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/source/docs/research/aris-frequency-window-20261010",
+        "-B",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize",
+        "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DBUILD_TESTING=ON",
+        "-DFREQUENCY_WINDOW_SANITIZERS=ON"
+      ],
+      "pid": 3664076,
+      "start_ticks": "338739837",
+      "exit_code": 0,
+      "wall_seconds": 0.11358634475618601
+    },
+    {
+      "label": "sanitize-build",
+      "arguments": [
+        "/usr/bin/cmake",
+        "--build",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize",
+        "--parallel",
+        "2"
+      ],
+      "pid": 3664108,
+      "start_ticks": "338739848",
+      "exit_code": 0,
+      "wall_seconds": 0.6645228723064065
+    },
+    {
+      "label": "sanitize-test",
+      "arguments": [
+        "/usr/bin/ctest",
+        "--test-dir",
+        "/home/nss-marker/yhr/Cry/window-source-7e93048/build-sanitize",
+        "--output-on-failure"
+      ],
+      "pid": 3664182,
+      "start_ticks": "338739915",
+      "exit_code": 0,
+      "wall_seconds": 0.031619254034012556
+    }
+  ],
+  "ordinary_entry_run": false,
+  "msr_read_performed": false,
+  "configuration_writes": 0,
+  "temporary_environment": {
+    "TMPDIR": "/home/nss-marker/yhr/Cry/window-source-7e93048/tmp",
+    "TMP": "/home/nss-marker/yhr/Cry/window-source-7e93048/tmp",
+    "TEMP": "/home/nss-marker/yhr/Cry/window-source-7e93048/tmp",
+    "XDG_CACHE_HOME": "/home/nss-marker/yhr/Cry/window-source-7e93048/cache",
+    "CCACHE_DIR": "/home/nss-marker/yhr/Cry/window-source-7e93048/cache",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}

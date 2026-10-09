@@ -336,3 +336,9 @@ AGENTS补入用户已授权代理密码交互的偏好；旧KVM仍待可信控�
 原全体-da解码退出255且保留，仅DSDT产物成功；事前S01另用新进程、原14输入不变、13external+单SSDT3目标退出0，不回填原集合成功。外层build envelope未另存的来源局限明确登记。
 三原归档、476常规成员/475载荷、原值及选取副本核验与实物独立审查通过；全部云端原件在Cry，未写调频/隔离配置，结束可见设置与预检相同、CPU0—31可用/隔离空、SSH已关闭。
 本次只签收静态映射及读取能力；未直接dump内核缓存、建立活动频率窗口、运行密码负载或新统计确认。R02/R04、旧KVM核验迁移及真人材料仍未全部闭合；完整目标继续。
+
+2026-10-10完成[G1频率请求与恢复](research/aris-frequency-control-20261010/RESULTS.md)：固定991f154/b7057源，Mac/Linux管理自检各1/1共16类；独立审修复异步dirty需明确取消、取消失败不发布restored、manual核probe终止后才实机。
+normal controller0/release、parent-loss controller-9/EOF，两case的true已迁入2/18并回收；四min/max各请求4300000，八intent/八visible每case，恢复对象完整等32策略/global基线。root独立post六原PID不存在、CPU0—31归还/隔离空/组清空/锁释放、68原件等tar；原档3c4951ac独立实物通过。
+另完成[窗口候选Linux软件资格](evidence/frequency-window-20261010/linux-7e93048/README.md)：固定7e93048/ead102 C源，GNU13.3普通/ASan各2/2、617载荷/138固定源/4 ELF独立核对；没有普通入口/MSR/长worker执行。原样reference依赖不变，未采集G2数据或统计确认。
+CMake布局另以纯格式2bf2028提交修正，固定格式检查与独立本地configure通过，原Linux执行仍绑定7e原字节。AGENTS和当前状态记录所有Cry根，主SSH已关闭；原数据/用户修改保留。
+G1只签收原请求明确重发与可见恢复，不证明隐藏QoS逐位原状、work排空或恒频。G2生命周期/真实窗口、R02/R04、旧KVM可信身份核验与真人材料仍待，完整目标继续。

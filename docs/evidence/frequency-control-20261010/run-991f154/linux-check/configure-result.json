@@ -1,0 +1,15 @@
+{
+  "label": "configure",
+  "arguments": [
+    "/usr/bin/cmake",
+    "-S",
+    "/home/nss-marker/yhr/Cry/frequency-source-991f154/source/docs/research/aris-core-partition-20261010",
+    "-B",
+    "/home/nss-marker/yhr/Cry/frequency-source-991f154/build",
+    "-DPython3_EXECUTABLE=/usr/bin/python3"
+  ],
+  "pid": 3663660,
+  "start_ticks": "338633816",
+  "exit_code": 0,
+  "wall_seconds": 0.21403290517628193
+}

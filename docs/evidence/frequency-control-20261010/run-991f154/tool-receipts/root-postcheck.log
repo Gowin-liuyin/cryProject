@@ -1,0 +1,91 @@
+
+{
+  "utc": "2026-10-09T22:38:46.471832+00:00",
+  "cases": {
+    "normal": {
+      "all_32_policies_and_global_equal_baseline": true,
+      "identities": {
+        "guard": {
+          "pid": 3663688,
+          "original_absent": true
+        },
+        "controller": {
+          "pid": 3663687,
+          "original_absent": true
+        },
+        "probe-before-exec": {
+          "pid": 3663698,
+          "original_absent": true
+        }
+      }
+    },
+    "parent-loss": {
+      "all_32_policies_and_global_equal_baseline": true,
+      "identities": {
+        "guard": {
+          "pid": 3663709,
+          "original_absent": true
+        },
+        "controller": {
+          "pid": 3663707,
+          "original_absent": true
+        },
+        "probe-before-exec": {
+          "pid": 3663720,
+          "original_absent": true
+        }
+      }
+    }
+  },
+  "root_effective": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "root_isolated": [],
+  "owned_groups_absent": true,
+  "lock_acquired_and_released": true,
+  "private_original_files_equal_archive": 68,
+  "archive_sha256": "3c4951ac57b905b9fa232858f2bf017ef93daaf5f522d8d9a38126e53a7da122",
+  "frequency_targets": {
+    "policy2": {
+      "scaling_min_freq": "2982259",
+      "scaling_max_freq": "5756452"
+    },
+    "policy18": {
+      "scaling_min_freq": "2982259",
+      "scaling_max_freq": "5756452"
+    }
+  },
+  "configuration_writes": 0
+}
+Shared connection to 10.144.144.5 closed.

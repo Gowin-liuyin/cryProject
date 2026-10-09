@@ -1,0 +1,18 @@
+{
+  "build-normal/frequency_workload": {
+    "sha256": "a4cb64271735ff40a7a40c8bbf67ad5a08841c4f3e05fb9182bc7e1991de1cfc",
+    "bytes": 224288
+  },
+  "build-normal/frequency_reference_kat": {
+    "sha256": "6fa25c317e80c84ba836e1568fff2817ef8b02929095ab0e27679fd7db0fbf1c",
+    "bytes": 207496
+  },
+  "build-sanitize/frequency_workload": {
+    "sha256": "f783076bd7fe0e414a5ff293ed6921196861616179e2a63aaf77b5f3b7ce1703",
+    "bytes": 569432
+  },
+  "build-sanitize/frequency_reference_kat": {
+    "sha256": "37633cf148ff1251ae08b2cf7ff679af05ed2118d3733f4849c2ceb83c0ef615",
+    "bytes": 475864
+  }
+}

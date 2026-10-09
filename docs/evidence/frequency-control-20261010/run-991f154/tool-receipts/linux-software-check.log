@@ -1,0 +1,39 @@
+{
+  "status": "software_check_passed",
+  "utc": "2026-10-09T22:35:41.891271+00:00",
+  "source_sha256": "b7057c2af9a32ac93491815756eaaf0d964745f56ef4f9c05b59c84ba36c7661",
+  "steps": [
+    {
+      "label": "configure",
+      "arguments": [
+        "/usr/bin/cmake",
+        "-S",
+        "/home/nss-marker/yhr/Cry/frequency-source-991f154/source/docs/research/aris-core-partition-20261010",
+        "-B",
+        "/home/nss-marker/yhr/Cry/frequency-source-991f154/build",
+        "-DPython3_EXECUTABLE=/usr/bin/python3"
+      ],
+      "pid": 3663660,
+      "start_ticks": "338633816",
+      "exit_code": 0,
+      "wall_seconds": 0.21403290517628193
+    },
+    {
+      "label": "test",
+      "arguments": [
+        "/usr/bin/ctest",
+        "--test-dir",
+        "/home/nss-marker/yhr/Cry/frequency-source-991f154/build",
+        "--output-on-failure"
+      ],
+      "pid": 3663673,
+      "start_ticks": "338633837",
+      "exit_code": 0,
+      "wall_seconds": 0.36488244589418173
+    }
+  ],
+  "test_log": "Start testing: Oct 10 06:35 CST\n----------------------------------------------------------\n1/1 Testing: partition_management_selfcheck\n1/1 Test: partition_management_selfcheck\nCommand: \"/usr/bin/python3\" \"-I\" \"-B\" \"/home/nss-marker/yhr/Cry/frequency-source-991f154/source/docs/research/aris-core-partition-20261010/rehearse_partition.py\" \"--selfcheck\" \"/home/nss-marker/yhr/Cry/frequency-source-991f154/build/selfcheck-root\"\nDirectory: /home/nss-marker/yhr/Cry/frequency-source-991f154/build\n\"partition_management_selfcheck\" start time: Oct 10 06:35 CST\nOutput:\n----------------------------------------------------------\nselfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset,frequency_partial,frequency_async,frequency_scope,frequency_conflict,frequency_continue,frequency_manual_repeat,frequency_pending_superseded,frequency_cancel_failure; kernel_writes=none\n<end of output>\nTest time =   0.36 sec\n----------------------------------------------------------\nTest Passed.\n\"partition_management_selfcheck\" end time: Oct 10 06:35 CST\n\"partition_management_selfcheck\" time elapsed: 00:00:00\n----------------------------------------------------------\n\nEnd testing: Oct 10 06:35 CST\n",
+  "tmp_entries": [],
+  "symlinks": [],
+  "configuration_writes": 0
+}

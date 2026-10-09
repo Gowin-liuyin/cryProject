@@ -60,5 +60,7 @@
 - 此次仅执行normal和controller单进程SIGKILL两条空任务恢复路径；临时内核分区已删除，CPU0—31归还、原四进程不存在、锁空闲，SSH已关闭。记录在 `docs/evidence/core-partition-20261010`。它不表示当前仍独占、频率已锁定、guard自身死亡可恢复或R02/R04已签收；旧依赖 `/run` 工作文件的方案仍禁用。
 - 2026-10-10反馈读取准备与原件：`Cry/feedback-reader-eed81a7/` 保存固定C源、独立工具、普通/动态构建与两次分开的静态解码；完整导出为同级 `feedback-reader-eed81a7-results.tar`。root私有固件及计数原件分别为 `Cry/feedback-mapping-20261010-62ce88b02a82/`、`Cry/feedback-counter-20261010-16ec7cf0d5fb/`，可读归档为同级同名 `.tar`。均保留，不覆盖复用。
 - 本次普通C源为 `eed81a7620a1c929c52e96acb203104917ec3b5d`，root封装为 `acbbd699a4e4e4606a4150ed75e448e0eb688124`；实际仅六次只读MSR，未写调频或隔离配置。结束回读仍为根CPU0—31、隔离空、目标原min/max/EPP/boost；SSH已关闭。证据在 `docs/evidence/frequency-reader-20261010`，不构成活动频率窗口、恒频或R02/R04签收。
+- 2026-10-10频率请求恢复G1：固定管理源 `991f1546c7ee3a7999d6e0b7118d35211a501dfe` 的源码/软件检查在 `Cry/frequency-source-991f154/`；root私有原件在 `Cry/core-frequency-20261010-d05b4396f082/`，同级同名 `.tar` 为可读归档。仅true及normal/controller单进程SIGKILL两路径，policy2/18四个min/max曾请求4300000，随后明确重发原请求并核对全部32策略/global可见原值、六原PID不存在、根0—31/隔离空/锁释放。原件保留，不覆盖复用；不证明隐藏QoS逐位原状、work严格排空或恒频。
+- 下一阶段C11窗口候选固定源 `7e93048f3af885d14f1577b3a198bd3d52b8ee8e` 的源码、普通/动态构建及软件检查在 `Cry/window-source-7e93048/`，完整导出为同级 `window-source-7e93048-software.tar`。每配置2/2已通过；普通入口/MSR/长worker尚未运行。本轮两模块的真实临时和缓存均在各树内，主SSH已关闭。证据分别在 `docs/evidence/frequency-control-20261010`、`docs/evidence/frequency-window-20261010`，R02/R04仍部分签收。
 
 R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。

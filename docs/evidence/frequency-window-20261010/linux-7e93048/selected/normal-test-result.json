@@ -1,0 +1,13 @@
+{
+  "label": "normal-test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/window-source-7e93048/build-normal",
+    "--output-on-failure"
+  ],
+  "pid": 3664072,
+  "start_ticks": "338739835",
+  "exit_code": 0,
+  "wall_seconds": 0.015465782955288887
+}
