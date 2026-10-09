@@ -1,0 +1,7 @@
+# 主代理最终封面核对
+
+2026-10-09，主代理实际用view_image original模式打开render-final-date/page-1.png，封面日期为2026年10月9日，原Logo、编号、类别、题名占位、字号和页面家具完整，没有裁切或重叠。
+
+实际文件摘要与最终核验一致：DOCX 4c6ef7de4cfa681dd3550ec570d9a96b248e1a62885fccbdb4f0f6ea4421a7ca，PDF a0a82ac3626ad1e35cb09430f00790e3120796ffe8a9f186eff1c119c3504f44。候选45页已有三段实际逐页审查；最终2至45页的44份PNG与候选逐字及像素一致，身份绑定见cover-date-pixel-comparison.json。
+
+科学文字未因日期修订再变，原候选科学审查的日期待办已闭合。放行范围为45页研究报告的内容与版面，不代替完整竞赛验收。

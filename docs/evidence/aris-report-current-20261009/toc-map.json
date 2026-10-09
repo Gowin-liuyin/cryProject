@@ -1,0 +1,254 @@
+[
+  {
+    "heading": "第1章　研究背景与作品目标",
+    "old_page": 1,
+    "physical_page": 5,
+    "body_page": 1
+  },
+  {
+    "heading": "1.1　后量子密码实现的工程审计需求",
+    "old_page": 1,
+    "physical_page": 5,
+    "body_page": 1
+  },
+  {
+    "heading": "1.2　现有实现与统计工具的能力边界",
+    "old_page": 1,
+    "physical_page": 5,
+    "body_page": 1
+  },
+  {
+    "heading": "1.3　作品目标与总体技术路线",
+    "old_page": 3,
+    "physical_page": 7,
+    "body_page": 3
+  },
+  {
+    "heading": "第2章　ML-KEM实现审计的理论基础",
+    "old_page": 4,
+    "physical_page": 8,
+    "body_page": 4
+  },
+  {
+    "heading": "2.1　ML-KEM-768的接口与功能正确性",
+    "old_page": 4,
+    "physical_page": 8,
+    "body_page": 4
+  },
+  {
+    "heading": "2.2　外部输入检查与隐式拒绝语义",
+    "old_page": 5,
+    "physical_page": 9,
+    "body_page": 5
+  },
+  {
+    "heading": "2.3　执行时间的影响因素与样本单位",
+    "old_page": 6,
+    "physical_page": 10,
+    "body_page": 6
+  },
+  {
+    "heading": "2.4　成对随机化与整数精确检验",
+    "old_page": 6,
+    "physical_page": 10,
+    "body_page": 6
+  },
+  {
+    "heading": "2.5　运行分位数与相对性能开销",
+    "old_page": 7,
+    "physical_page": 11,
+    "body_page": 7
+  },
+  {
+    "heading": "第3章　本地审计与精确复算系统设计",
+    "old_page": 9,
+    "physical_page": 13,
+    "body_page": 9
+  },
+  {
+    "heading": "3.1　系统架构与模块协同",
+    "old_page": 9,
+    "physical_page": 13,
+    "body_page": 9
+  },
+  {
+    "heading": "3.2　固定快照管理与多实现构建隔离",
+    "old_page": 10,
+    "physical_page": 14,
+    "body_page": 10
+  },
+  {
+    "heading": "3.3　普通输入组织与完整解封装计时",
+    "old_page": 11,
+    "physical_page": 15,
+    "body_page": 11
+  },
+  {
+    "heading": "3.4　运行记录组织与来源一致性校验",
+    "old_page": 11,
+    "physical_page": 16,
+    "body_page": 12
+  },
+  {
+    "heading": "3.5　数据资格控制与精确复算实现",
+    "old_page": 13,
+    "physical_page": 17,
+    "body_page": 13
+  },
+  {
+    "heading": "3.6　材料复现流程与离线结果展示",
+    "old_page": 13,
+    "physical_page": 18,
+    "body_page": 14
+  },
+  {
+    "heading": "第4章　实现安全性与审计结论的适用范围",
+    "old_page": 15,
+    "physical_page": 20,
+    "body_page": 16
+  },
+  {
+    "heading": "4.1　本地审计的对象与可见信息",
+    "old_page": 15,
+    "physical_page": 20,
+    "body_page": 16
+  },
+  {
+    "heading": "4.2　标准语义与外部接口保护",
+    "old_page": 16,
+    "physical_page": 21,
+    "body_page": 17
+  },
+  {
+    "heading": "4.3　恒时实现检查与历史案例解释",
+    "old_page": 16,
+    "physical_page": 21,
+    "body_page": 17
+  },
+  {
+    "heading": "4.4　统计资格与条件错误控制",
+    "old_page": 17,
+    "physical_page": 22,
+    "body_page": 18
+  },
+  {
+    "heading": "4.5　复现一致性与研究结论的区分",
+    "old_page": 18,
+    "physical_page": 23,
+    "body_page": 19
+  },
+  {
+    "heading": "第5章　系统测试与实验结果分析",
+    "old_page": 19,
+    "physical_page": 24,
+    "body_page": 20
+  },
+  {
+    "heading": "5.1　原生测试环境与分层验证方案",
+    "old_page": 19,
+    "physical_page": 24,
+    "body_page": 20
+  },
+  {
+    "heading": "5.2　独立向量验收与工程边界检查",
+    "old_page": 20,
+    "physical_page": 25,
+    "body_page": 21
+  },
+  {
+    "heading": "5.3　普通解封装性能与跨运行波动",
+    "old_page": 20,
+    "physical_page": 25,
+    "body_page": 21
+  },
+  {
+    "heading": "5.4　精确复算效率与成本边界复核",
+    "old_page": 23,
+    "physical_page": 28,
+    "body_page": 24
+  },
+  {
+    "heading": "5.5　有限模型下的误拒绝与检出表现",
+    "old_page": 25,
+    "physical_page": 31,
+    "body_page": 27
+  },
+  {
+    "heading": "5.6　真实参考时间的后赋标签控制",
+    "old_page": 27,
+    "physical_page": 32,
+    "body_page": 28
+  },
+  {
+    "heading": "5.7　历史案例审计与封存材料复算",
+    "old_page": 28,
+    "physical_page": 34,
+    "body_page": 30
+  },
+  {
+    "heading": "5.8　同机人工机制的防护前后复测",
+    "old_page": 29,
+    "physical_page": 34,
+    "body_page": 30
+  },
+  {
+    "heading": "第6章　作品特色与应用前景",
+    "old_page": 31,
+    "physical_page": 37,
+    "body_page": 33
+  },
+  {
+    "heading": "6.1　面向固定任务的专用复算效率",
+    "old_page": 31,
+    "physical_page": 37,
+    "body_page": 33
+  },
+  {
+    "heading": "6.2　数据资格与解释范围的一体化设计",
+    "old_page": 31,
+    "physical_page": 37,
+    "body_page": 33
+  },
+  {
+    "heading": "6.3　本地审计与密码工程教学",
+    "old_page": 32,
+    "physical_page": 38,
+    "body_page": 34
+  },
+  {
+    "heading": "第7章　总结与展望",
+    "old_page": 33,
+    "physical_page": 39,
+    "body_page": 35
+  },
+  {
+    "heading": "7.1　工作总结",
+    "old_page": 33,
+    "physical_page": 39,
+    "body_page": 35
+  },
+  {
+    "heading": "7.2　现有限制与后续工作",
+    "old_page": 33,
+    "physical_page": 39,
+    "body_page": 35
+  },
+  {
+    "heading": "参考文献",
+    "old_page": 34,
+    "physical_page": 40,
+    "body_page": 36
+  },
+  {
+    "heading": "附录A　实验材料与结论对应关系",
+    "old_page": 35,
+    "physical_page": 41,
+    "body_page": 37
+  },
+  {
+    "heading": "附录B　普通性能的完整分位数",
+    "old_page": 38,
+    "physical_page": 45,
+    "body_page": 41
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "slot": "本作品面向ML-KEM解封装实现的本地审计需求",
+    "before": "六个非零任务中位比为0.261640至0.319174",
+    "after": "六个非零任务的增量/完整求和中位比为0.261640至0.319174"
+  },
+  {
+    "slot": "原生GCC普通及Clang动态检查各34项通过。",
+    "before": "原M01支持macOS/ARM单构建、单进程的六份非零输入成本收益；M02一次干净重建后的同机三个新进程中，六个非零任务的18个中位比均小于1，240对时钟合格。官方工作簿的两项潜在修正已与固定便携C路径静态核对，不扩大为全标准签收。",
+    "after": "M01的成本收益在M02一次重建后的同机三个新进程重复观察到：六个非零任务的18个中位比小于1，240对时钟合格；仍限macOS/ARM固定输入。官方两项潜在修正已与便携C静态核对。"
+  },
+  {
+    "slot": "[1] NIST. Module-Lattice-Based Key-Encapsulation Mechanism Standard.",
+    "before": "官方潜在修正工作簿：https://csrc.nist.gov/files/pubs/fips/203/final/docs/fips-203-potential-updates.xlsx 。2026年10月9日取得的两项条目已与固定便携C路径静态核对；它们不是已生效的新要求。",
+    "after": "潜在修正工作簿（2026-10-09核对）：https://csrc.nist.gov/files/pubs/fips/203/final/docs/fips-203-potential-updates.xlsx 。"
+  }
+]

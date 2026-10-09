@@ -1,0 +1,49 @@
+{
+  "final_docx_sha256": "4c6ef7de4cfa681dd3550ec570d9a96b248e1a62885fccbdb4f0f6ea4421a7ca",
+  "final_pdf_sha256": "a0a82ac3626ad1e35cb09430f00790e3120796ffe8a9f186eff1c119c3504f44",
+  "pages": 45,
+  "cover_date": "2026-10-09",
+  "source42_docx_sha256": "d2370eeeed170e7eea3c8092b2f7e0b6c7ba419aff080d7fb9cbca77fd405782",
+  "source42_pdf_sha256": "fa1b1cfa7e509b350b187ba2338409889cd4cf7ae0e5af452afd10eaf82b2966",
+  "source42_preserved": true,
+  "reviewed_candidate_docx_sha256": "29d624509038f26f1b0290d385b76e29d52012d9608a96591d7d5a5cc9485f31",
+  "reviewed_candidate_pdf_sha256": "d756ba88ec09dfb472f47e48587c2aed0533dee8e5d8808c31db67fbba83ef5c",
+  "reviewed_candidate_preserved_in_build_history": true,
+  "changed_parts_from_source42": [
+    "docProps/app.xml",
+    "word/document.xml"
+  ],
+  "unchanged_source42_package_parts": 39,
+  "changed_parts_from_reviewed_candidate": [
+    "word/document.xml"
+  ],
+  "candidate_to_final_change": "exactly one cover date byte 8 to9; no other body text/run/style/geometry modification",
+  "original_nonabstract_tables_preserved": 20,
+  "M01_A2_preserved": true,
+  "new_M02_A3_native_table": true,
+  "drawings_preserved": 18,
+  "native_math_preserved": 62,
+  "sections_preserved": 4,
+  "static_toc_entries": 42,
+  "all45_candidate_pages_actually_reviewed": "three actual ranges 1..13,14..30,31..45",
+  "final_page1_actually_reviewed_original_resolution": "passed_by_report_agent",
+  "final_pages2_to45_binding": "exact PNG bytes and pixels identical to previously actually reviewed candidate",
+  "scientific_review_binding": "candidate scientific review read plus exact cover-only byte difference; date todo closed without scientific text change",
+  "privacy_checks": {
+    "docx_actor_path_git_markers": "absent",
+    "creator_last_modified_by": "empty",
+    "custom_properties": "empty",
+    "pdf_author": "empty",
+    "pdf_actor_private_paths": "absent"
+  },
+  "pdf_public_metadata": {
+    "/Title": "ML-KEM 解封装实现的时间侧信道检测与常数时间防护",
+    "/Subject": "CACR2026EA16XZ 作品设计报告",
+    "/Creator": "Writer",
+    "/Producer": "LibreOfficeDev 26.8.0.0.alpha0 (AARCH64)",
+    "/CreationDate": "D:20261009082313+08'00'"
+  },
+  "new_experiments_for_report": 0,
+  "full_research_competition_acceptance": false,
+  "release_status": "report_software_science_visual_gates_passed_project_acceptance_still_partial"
+}
