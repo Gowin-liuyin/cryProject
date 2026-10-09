@@ -1,0 +1,27 @@
+
+{
+  "utc": "2026-10-09T17:25:47.244594+00:00",
+  "effective_uid": 0,
+  "namespaces": {
+    "pid": {
+      "self": "pid:[4026531836]",
+      "init": "pid:[4026531836]"
+    },
+    "cgroup": {
+      "self": "cgroup:[4026531835]",
+      "init": "cgroup:[4026531835]"
+    },
+    "mnt": {
+      "self": "mnt:[4026531832]",
+      "init": "mnt:[4026531832]"
+    }
+  },
+  "root_controllers": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+  "root_effective": "0-31",
+  "root_isolated": "",
+  "cpuset_group_count": 80,
+  "nondefault_groups": [],
+  "read_errors": [],
+  "configuration_writes": 0
+}
+Shared connection to 10.144.144.5 closed.

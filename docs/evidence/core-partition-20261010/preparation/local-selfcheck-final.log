@@ -1,0 +1,25 @@
+UpdateCTestConfiguration  from :/Users/yin/code/cryProject/build/partition-20261010/selfcheck-build/DartConfiguration.tcl
+Parse Config file:/Users/yin/code/cryProject/build/partition-20261010/selfcheck-build/DartConfiguration.tcl
+Test project /Users/yin/code/cryProject/build/partition-20261010/selfcheck-build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: partition_management_selfcheck
+
+1: Test command: /Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 "-I" "-B" "/Users/yin/code/cryProject/docs/research/aris-core-partition-20261010/rehearse_partition.py" "--selfcheck" "/Users/yin/code/cryProject/build/partition-20261010/selfcheck-build/selfcheck-root"
+1: Working Directory: /Users/yin/code/cryProject/build/partition-20261010/selfcheck-build
+1: Environment variables: 
+1:  TMPDIR=/Users/yin/code/cryProject/build/partition-20261010/selfcheck-build/selfcheck-root
+1:  TMP=/Users/yin/code/cryProject/build/partition-20261010/selfcheck-build/selfcheck-root
+1:  TEMP=/Users/yin/code/cryProject/build/partition-20261010/selfcheck-build/selfcheck-root
+1: Test timeout computed to be: 1500
+1: selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset; kernel_writes=none
+1/1 Test #1: partition_management_selfcheck ...   Passed    0.13 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.13 sec

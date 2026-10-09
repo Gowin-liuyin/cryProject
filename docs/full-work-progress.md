@@ -303,3 +303,7 @@ GCC普通及ASan/UBSan仅构建test_temp_directory、各运行CTest一项且1/1�
 实际root已启用cpuset、CPU2/18同胞；检查的三单位member/空请求且无普通用户写权限，不外推全部层级或root不能分配。原输出CRLF、摘要及零写源码经独立只读审查通过。
 Linux6.17本地isolated分区路线经内核文档及独立资源审查成立，可避免逐线程批改的恢复竞态；[候选](research/aris-core-partition-20261010/CONCEPT.md)列出独立guard、Cry内快照及正常/父进程终止恢复门。
 具体实现和管理预演尚未完成，没有预留、锁频、密码计时或R02/R04新签收；所有连接已结束，旧/run609方案继续禁用，完整目标保持。
+
+2026-10-10完成[内核分区管理准备](evidence/core-partition-20261010/preparation/PREPARATION.md)：新的单guard/自有组源码与CMake自检，八类边界检查1/1通过。
+真实root只读预检80组全默认，无配置写入；独立源码审查已关闭原子回执、有限等待、FD路径、manual缺回执、nonce及SIGCHLD边界，不预签实机结果。
+新合同固定normal及controller-SIGKILL各一次，Cry内全部落盘文件；旧609行/run方案保持禁用，Linux分区与恢复预演尚未开始，R02/R04未升级。
