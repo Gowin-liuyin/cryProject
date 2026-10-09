@@ -11,6 +11,8 @@
 | 当前匿名解释闭包 | 327e ZIP870项、714本地链接、原560项保持、只读C输出逐字一致；44606e5提交 | [包入口](../../../deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)、[独立闭包](../../evidence/aris-current-package-20261009/INDEPENDENT_STAGE_REVIEW.md) |
 | 当前展示和讲解 | R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接核对；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
 | R02/R04下一设计 | DESIGN_READY_WITH_REQUIRED_INPUTS；实际NOT_READY_TO_RUN | [下一协议](NEXT_VALIDATION_PROTOCOL.md) |
+| Linux数学软件及产物身份 | 四工具链/动态配置各9/9；十二个原ELF已取回静态核验，没有新计时 | [软件结果](../aris-linux-math-software-20261009/RESULTS.md)、[ELF核验](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md) |
+| 少量CPU预留路线 | CPU2/18单物理核路线及管理员能力已查；固定准备件fa1f9a0和三源stage经审查/逐字核验，实际预演NOT_STARTED，待新的系统提示交互认证 | [准备件](../aris-core-rehearsal-20261009/README.md)、[只读原件](../../evidence/aris-core-conflict-20261009/README.md) |
 | 完整研究及竞赛验收 | partial；R02/R04真实前提及T13真人材料未签收 | [当前全审计](FULL_GOAL_AUDIT.md)、[全要求表](../../full-work-acceptance.md) |
 
 报告、解释包与软件v3各有身份，不以新报告替换原软件或原M01。原42页、59b及56ad件保持；当前解释包明确旧状态的历史日期。外部Codex MCP未提供，同模型不同代理的独立审查不改称外部同行评审。
@@ -22,3 +24,5 @@
 后续已完成[真实Linux数学软件验证](../aris-linux-math-software-20261009/RESULTS.md)：GCC13/Clang18各普通及ASan/UBSan四单元均9/9，16份原M02只读输出逐字一致，未生成新的时间样本。它补软件跨工具链证据，不关闭R02/R04；原审计静态manifest字段与实际动态选项的差别已记录。正式计时的独占资源约束问题仍待答复，未更改共享硬件设置。
 
 十二个原Linux数学软件ELF的[本地静态身份补录](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md)也已完成；原remote-only摘要的历史字段保留。当前没有新的正式实验或频率修改。资源窗口、目标/真值及有效统计依据、实际画面和本人材料仍需适用证据，不能由更多相同软件检查代替。
+
+同日用户提出少量核心独占后，整机独占已不再作为前提。实际只读检查、正常sudo认证与单核管理预演准备分别完成，最新入口见上表；原先等待资源路线答复的描述保留其时点。当前历史读取已不含先前口令且未保存口令，因此提供仅在SSH/sudo系统提示中认证的交互包装，等待实际预留、恢复和结果回收。准备完成不等于配置已生效、已锁频或R02/R04签收；完整目标保持active。
