@@ -228,3 +228,8 @@ nss-m、Linux/x86_64、无虚拟化、32线程、约定工作根存在，观察�
 2026-10-09补[十二个原Linux数学软件ELF的本地核验](evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md)：
 未重建或执行产物，十二个本地摘要全部匹配最初远端记录，ELF/x86_64及普通/动态依赖和符号身份一致。
 原fba26b6的remote-only字段保持历史身份，旧157文件和166项证据摘要保持；R02/R04、资源窗口及真人材料未因此签收。
+
+2026-10-09完成[访问恢复后的完整目标审计](research/aris-linux-math-software-20261009/POST_ACCESS_COMPLETION_AUDIT.md)：
+密码访问、Linux四配置和原ELF本地闭合三个恢复回合均有实质进展，R02/R04及真人材料缺口持续。SSH不再作为不可用理由。
+核心预留窗口问题仍未答复，未改共享硬件；统计目标/精度/真值与有效方法及预算、真人画面/签章/回执仍待适用输入。
+已无必需安全本地动作或存活任务，按新的三回合阻断阈值准备标记blocked，不签收complete；目标和成果保持。
