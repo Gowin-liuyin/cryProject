@@ -1,0 +1,185 @@
+{
+  "scope": "read_only_core_conflict_inventory",
+  "utc_started": "2026-10-09T10:01:49.978569+00:00",
+  "settings_changed": false,
+  "online_before": "0-31",
+  "reserved_cpus": [
+    2,
+    18
+  ],
+  "top_level_units_before": [
+    "dev-hugepages.mount",
+    "dev-mqueue.mount",
+    "init.scope",
+    "proc-sys-fs-binfmt_misc.mount",
+    "sys-fs-fuse-connections.mount",
+    "sys-kernel-config.mount",
+    "sys-kernel-debug.mount",
+    "sys-kernel-tracing.mount",
+    "system.slice",
+    "user.slice"
+  ],
+  "top_level_units": [
+    {
+      "unit": "dev-hugepages.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/dev-hugepages.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=dev-hugepages.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/dev-hugepages.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "dev-mqueue.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/dev-mqueue.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=dev-mqueue.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/dev-mqueue.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "init.scope",
+      "returncode": 0,
+      "properties": "ControlGroup=/init.scope\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=init.scope\nLoadState=loaded\nActiveState=active\nFragmentPath=\nDropInPaths=\nTransient=yes",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "proc-sys-fs-binfmt_misc.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/proc-sys-fs-binfmt_misc.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=proc-sys-fs-binfmt_misc.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "sys-fs-fuse-connections.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/sys-fs-fuse-connections.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=sys-fs-fuse-connections.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/sys-fs-fuse-connections.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "sys-kernel-config.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/sys-kernel-config.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=sys-kernel-config.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/sys-kernel-config.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "sys-kernel-debug.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/sys-kernel-debug.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=sys-kernel-debug.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/sys-kernel-debug.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "sys-kernel-tracing.mount",
+      "returncode": 0,
+      "properties": "ControlGroup=/sys-kernel-tracing.mount\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=sys-kernel-tracing.mount\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/sys-kernel-tracing.mount\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "system.slice",
+      "returncode": 0,
+      "properties": "ControlGroup=/system.slice\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=system.slice\nLoadState=loaded\nActiveState=active\nFragmentPath=\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    },
+    {
+      "unit": "user.slice",
+      "returncode": 0,
+      "properties": "ControlGroup=/user.slice\nEffectiveCPUs=0-31\nAllowedCPUs=\nId=user.slice\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/user.slice\nDropInPaths=\nTransient=no",
+      "stderr": "",
+      "subtree_control": "cpu memory pids",
+      "cpuset_requested": "",
+      "cpuset_effective": "0-31"
+    }
+  ],
+  "cgroup_count": 127,
+  "descendant_requested_conflicts": [],
+  "read_errors": [],
+  "root_subtree_control": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+  "ordinary_threads_checked": 1232,
+  "kernel_threads_skipped": 435,
+  "vanished_threads": 0,
+  "affinity_conflicts": [],
+  "ordinary_threads_outside_top_units": [],
+  "frequency_feedback": {
+    "perf_event_paranoid": "4",
+    "tools": {
+      "turbostat": "/usr/bin/turbostat",
+      "cpupower": "/usr/bin/cpupower",
+      "perf": "/usr/bin/perf"
+    },
+    "msr_cpu2_exists": true,
+    "msr_cpu2_user_readable": false
+  },
+  "frequency_policies": [
+    {
+      "cpu": 2,
+      "resolved_path": "/sys/devices/system/cpu/cpufreq/policy2",
+      "fields": {
+        "related_cpus": "2",
+        "affected_cpus": "2",
+        "scaling_driver": "amd-pstate-epp",
+        "scaling_governor": "powersave",
+        "scaling_min_freq": "2982259",
+        "scaling_max_freq": "5756452",
+        "scaling_cur_freq": "2982259",
+        "cpuinfo_cur_freq": {
+          "error_errno": 2
+        },
+        "energy_performance_preference": "balance_performance"
+      }
+    },
+    {
+      "cpu": 18,
+      "resolved_path": "/sys/devices/system/cpu/cpufreq/policy18",
+      "fields": {
+        "related_cpus": "18",
+        "affected_cpus": "18",
+        "scaling_driver": "amd-pstate-epp",
+        "scaling_governor": "powersave",
+        "scaling_min_freq": "2982259",
+        "scaling_max_freq": "5756452",
+        "scaling_cur_freq": "2982259",
+        "cpuinfo_cur_freq": {
+          "error_errno": 2
+        },
+        "energy_performance_preference": "balance_performance"
+      }
+    }
+  ],
+  "online_after": "0-31",
+  "top_level_units_after": [
+    "dev-hugepages.mount",
+    "dev-mqueue.mount",
+    "init.scope",
+    "proc-sys-fs-binfmt_misc.mount",
+    "sys-fs-fuse-connections.mount",
+    "sys-kernel-config.mount",
+    "sys-kernel-debug.mount",
+    "sys-kernel-tracing.mount",
+    "system.slice",
+    "user.slice"
+  ],
+  "utc_finished": "2026-10-09T10:01:50.068808+00:00",
+  "snapshot_conflicts_observed": false,
+  "reservation_applied": false
+}

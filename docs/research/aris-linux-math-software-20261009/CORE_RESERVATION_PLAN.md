@@ -13,3 +13,7 @@
 本次仅完成权限与机制只读核查，尚未修改运行配置。正式采集前仍需检查实际冲突、正常管理认证、预留有效性和完整恢复；频率控制另按原候选，不改全机boost、SMT或IRQ。预留一个核不能代替R04的目标、真值和有效统计依据。
 
 依据为[Linux6.17 cpuset文档](https://docs.kernel.org/6.17/admin-guide/cgroup-v2.html#cpuset)、[systemd v255管理接口源码](https://raw.githubusercontent.com/systemd/systemd/v255/src/core/dbus-cgroup.c)与[systemd委派说明](https://systemd.io/CGROUP_DELEGATION/)。实际只读结果见[核查记录](../../evidence/aris-core-reservation-20261009/feasibility.json)。
+
+同日继续实际只读核查：第一版枚举127个控制组、1232个普通线程，未记录到亲和性或原始请求完全限于2/18以及未映射普通线程的情形；独立复核发现它不覆盖完整祖先交集。保留第一版并补正清单后，新第二版枚举122个控制组、1054个普通线程，已记录祖先交集/亲和性交集、读取和身份变化列表均为空。两版只是各自顺序读取时点，请求投影未验证partition，ready_to_apply_reservation仍为false，不能把它们作为已经实施或完整准入的证明。正常sudo认证已成功，实际有效UID为0；turbostat的版本及列举接口可用，但尚未采样硬件频率。新[核查原件与边界](../../evidence/aris-core-conflict-20261009/README.md)保留全部版本和回执，不改原先未认证的时点记录。
+
+独立实施审查补充：恢复时还须保存本次属性对应运行时覆盖文件的存在状态、原字节和元数据，不能仅把AllowedCPUs改回同值；systemd v255的set-property可能创建50-AllowedCPUs.conf。各级控制器启用状态也须前后核对。恢复计时器先停止本次控制器，再执行幂等恢复，防止恢复后仍有迟到写入；计时器须先用不改CPU配置的标记验证。空闲子组的显式限制也检查，不能仅检查当前线程。有同期第三方配置变化时保留差异并停止，不盲目覆盖。下一实施限一次/bin/true管理预演，不包含正式计时；上述快照不替代实施前的新检查。[v255写设置源码](https://raw.githubusercontent.com/systemd/systemd/v255/src/core/unit.c)及[Linux6.17亲和性源码](https://raw.githubusercontent.com/torvalds/linux/v6.17/kernel/sched/core.c)支持这些边界。

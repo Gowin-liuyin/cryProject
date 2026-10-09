@@ -1,0 +1,40 @@
+{
+  "inventory": {
+    "chunk_id": "09d00f",
+    "wall_time_seconds": 0.052642916,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "admin": {
+    "chunk_id": "f9768e",
+    "wall_time_seconds": 0.009594333,
+    "exit_code": 0,
+    "original_token_count": 1001,
+    "output": "\r\n{\r\n  \"scope\": \"read_only_admin_feedback_capability\",\r\n  \"utc\": \"2026-10-09T10:06:22.528702+00:00\",\r\n  \"effective_uid\": 0,\r\n  \"cpu_configuration_writes\": false,\r\n  \"measurement_started\": false,\r\n  \"tools\": [\r\n    {\r\n      \"command\": [\r\n        \"/usr/bin/turbostat\",\r\n        \"--version\"\r\n      ],\r\n      \"returncode\": 0,\r\n      \"stdout\": \"\",\r\n      \"stderr\": \"turbostat version 2025.09.09 - Len Brown <lenb@kernel.org>\\n\"\r\n    },\r\n    {\r\n      \"command\": [\r\n        \"/usr/bin/turbostat\",\r\n        \"--list\"\r\n      ],\r\n      \"returncode\": 0,\r\n      \"stdout\": \"usec,Time_Of_Day_Seconds,Die,L3,Core,CPU,APIC,X2APIC,Avg_MHz,Busy%,Bzy_MHz,TSC_MHz,IPC,IRQ,NMI,SMI,POLL-,POLL,C1-,C1,C1+,C2-,C2,C2+,C3-,C3,C3+,POLL%,C1%,C2%,C3%,CorWatt,PkgWatt\\n\",\r\n      \"stderr\": \"\"\r\n    },\r\n    {\r\n      \"command\": [\r\n        \"/usr/bin/perf\",\r\n        \"version\"\r\n      ],\r\n      \"returncode\": 0,\r\n      \"stdout\": \"perf version 6.17.13\\n\",\r\n      \"stderr\": \"\"\r\n    }\r\n  ],\r\n  \"runtime_property_files\": [\r\n    {\r\n      \"path\": \"/run/systemd/system.control/dev-hugepages.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/dev-hugepages.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/dev-mqueue.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/dev-mqueue.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/init.scope.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/init.scope.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/proc-sys-fs-binfmt_misc.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/proc-sys-fs-binfmt_misc.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/sys-fs-fuse-connections.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/sys-fs-fuse-connections.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/sys-kernel-config.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/sys-kernel-config.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/sys-kernel-debug.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/sys-kernel-debug.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/sys-kernel-tracing.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/sys-kernel-tracing.mount.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/system.slice.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/system.slice.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/system.control/user.slice.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    },\r\n    {\r\n      \"path\": \"/run/systemd/transient/user.slice.d/50-AllowedCPUs.conf\",\r\n      \"exists\": false,\r\n      \"symlink\": false\r\n    }\r\n  ]\r\n}\r\nConnection to 10.144.144.5 closed.\r\r\n"
+  },
+  "control_connection_closure": {
+    "closure": {
+      "chunk_id": "f3e0b1",
+      "wall_time_seconds": 0.000006375,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "Exit request sent.\r\n"
+    },
+    "cleanup": {
+      "chunk_id": "c74c0d",
+      "wall_time_seconds": 0.000005625,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "earlier_expired_control_socket_attempt": {
+    "chunk_id": "36dd21",
+    "wall_time_seconds": 0.140774041,
+    "exit_code": 255,
+    "original_token_count": 17,
+    "output": "nss-marker@10.144.144.5: Permission denied (publickey,password).\r\n"
+  },
+  "interpretation": "Earlier control socket had expired; BatchMode failure was not a host availability failure. A new explicit password login completed the read-only inventory. No experiment was restarted."
+}

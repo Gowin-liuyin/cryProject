@@ -1,0 +1,138 @@
+{
+  "scope": "read_only_admin_feedback_capability",
+  "utc": "2026-10-09T10:06:22.528702+00:00",
+  "effective_uid": 0,
+  "cpu_configuration_writes": false,
+  "measurement_started": false,
+  "tools": [
+    {
+      "command": [
+        "/usr/bin/turbostat",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "turbostat version 2025.09.09 - Len Brown <lenb@kernel.org>\n"
+    },
+    {
+      "command": [
+        "/usr/bin/turbostat",
+        "--list"
+      ],
+      "returncode": 0,
+      "stdout": "usec,Time_Of_Day_Seconds,Die,L3,Core,CPU,APIC,X2APIC,Avg_MHz,Busy%,Bzy_MHz,TSC_MHz,IPC,IRQ,NMI,SMI,POLL-,POLL,C1-,C1,C1+,C2-,C2,C2+,C3-,C3,C3+,POLL%,C1%,C2%,C3%,CorWatt,PkgWatt\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/perf",
+        "version"
+      ],
+      "returncode": 0,
+      "stdout": "perf version 6.17.13\n",
+      "stderr": ""
+    }
+  ],
+  "runtime_property_files": [
+    {
+      "path": "/run/systemd/system.control/dev-hugepages.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/dev-hugepages.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/dev-mqueue.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/dev-mqueue.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/init.scope.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/init.scope.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/proc-sys-fs-binfmt_misc.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/proc-sys-fs-binfmt_misc.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/sys-fs-fuse-connections.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/sys-fs-fuse-connections.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/sys-kernel-config.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/sys-kernel-config.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/sys-kernel-debug.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/sys-kernel-debug.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/sys-kernel-tracing.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/sys-kernel-tracing.mount.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/system.slice.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/system.slice.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/system.control/user.slice.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    },
+    {
+      "path": "/run/systemd/transient/user.slice.d/50-AllowedCPUs.conf",
+      "exists": false,
+      "symlink": false
+    }
+  ]
+}
