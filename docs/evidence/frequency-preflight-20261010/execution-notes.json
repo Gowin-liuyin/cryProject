@@ -1,0 +1,37 @@
+{
+  "record_type": "post_execution_notes",
+  "original_stdout": "preflight.log",
+  "normalization": "preflight.json is exactly the JSON object in preflight.log",
+  "initial_root_session_id": 87297,
+  "initial_root_session_exit_code": 0,
+  "initial_root_session_status_provenance": "Observed terminal tool result in the preceding active turn; this file is a later summary, not the original tool result envelope.",
+  "ssh_target": "nss-marker@10.144.144.5",
+  "working_directory": "/home/nss-marker/yhr/Cry",
+  "invocation": "sudo /usr/bin/python3 -I -B -c <exact preflight.py text>",
+  "source_path": "docs/research/aris-frequency-20261010/preflight.py",
+  "source_sha256": "4e6eb918f66925b4100c0b2e545d0ae6dfe37f71746ee420596e89ff5ea7717d",
+  "source_commit_at_execution": "abdf272295cf743266cb92cef485e63c8159d90a",
+  "source_was_uncommitted_new_file": true,
+  "executed_source_string_matches_saved_file": true,
+  "captured_tool_output_matches_saved_log": true,
+  "configuration_writes_field_is_static_declaration": true,
+  "no_write_behavior_independently_source_reviewed": true,
+  "remote_project_files_created": false,
+  "configuration_changes_performed": false,
+  "no_workload_executed": true,
+  "ssh_master_close": {
+    "exit_code": 0,
+    "tool_chunk_id": "3faf9d",
+    "output": "Exit request sent.\r\n"
+  },
+  "expired_master_reuse": {
+    "exit_code": 255,
+    "description": "BatchMode authentication rejected after prior ControlPersist expiry; direct password reauthentication subsequently succeeded.",
+    "raw_result_envelope_preserved": false
+  },
+  "kvm": {
+    "access_attempted_this_turn": false,
+    "password_sent": false,
+    "host_identity_verification_pending": true
+  }
+}

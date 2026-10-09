@@ -1,0 +1,15 @@
+{
+  "chunk_id": "6573e6",
+  "exit_code": 0,
+  "wall_time_seconds": 0.000025709,
+  "ssh_target": "nss-marker@10.144.144.5",
+  "working_directory": "/home/nss-marker/yhr/Cry",
+  "python_invocation": "/usr/bin/python3 -I -B -c <exact cppc_preflight.py>",
+  "ssh_strict_host_checking": true,
+  "ssh_authentication": "password",
+  "password_prompt_only": true,
+  "source_commit_at_execution": "abdf272295cf743266cb92cef485e63c8159d90a",
+  "source_is_uncommitted_new_file": true,
+  "configuration_writes": 0,
+  "remote_project_file_writes": 0
+}

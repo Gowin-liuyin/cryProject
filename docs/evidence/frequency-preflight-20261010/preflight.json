@@ -1,0 +1,3584 @@
+{
+  "utc": "2026-10-09T20:27:29.413406+00:00",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "effective_uid": 0,
+  "configuration_writes": 0,
+  "project_file_writes": 0,
+  "cpu_online": {
+    "value": "0-31",
+    "owner_uid": 0,
+    "mode": "0o444"
+  },
+  "policies": {
+    "policy0": {
+      "affected_cpus": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy1": {
+      "affected_cpus": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "3630797",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "3630797",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy10": {
+      "affected_cpus": {
+        "value": "10",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "10",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "4356252",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "4356252",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy11": {
+      "affected_cpus": {
+        "value": "11",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "11",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy12": {
+      "affected_cpus": {
+        "value": "12",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "12",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy13": {
+      "affected_cpus": {
+        "value": "13",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "13",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy14": {
+      "affected_cpus": {
+        "value": "14",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "14",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy15": {
+      "affected_cpus": {
+        "value": "15",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "15",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy16": {
+      "affected_cpus": {
+        "value": "16",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "16",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy17": {
+      "affected_cpus": {
+        "value": "17",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "17",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy18": {
+      "affected_cpus": {
+        "value": "18",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "18",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy19": {
+      "affected_cpus": {
+        "value": "19",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "19",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy2": {
+      "affected_cpus": {
+        "value": "2",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "2",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy20": {
+      "affected_cpus": {
+        "value": "20",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "20",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy21": {
+      "affected_cpus": {
+        "value": "21",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "21",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy22": {
+      "affected_cpus": {
+        "value": "22",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "22",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy23": {
+      "affected_cpus": {
+        "value": "23",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "23",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy24": {
+      "affected_cpus": {
+        "value": "24",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "24",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy25": {
+      "affected_cpus": {
+        "value": "25",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "25",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy26": {
+      "affected_cpus": {
+        "value": "26",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "26",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2572284",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2572284",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy27": {
+      "affected_cpus": {
+        "value": "27",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "27",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy28": {
+      "affected_cpus": {
+        "value": "28",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "28",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy29": {
+      "affected_cpus": {
+        "value": "29",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "29",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2180352",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2180352",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy3": {
+      "affected_cpus": {
+        "value": "3",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "3",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "3634349",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "3634349",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy30": {
+      "affected_cpus": {
+        "value": "30",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "30",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy31": {
+      "affected_cpus": {
+        "value": "31",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "31",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy4": {
+      "affected_cpus": {
+        "value": "4",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "4",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy5": {
+      "affected_cpus": {
+        "value": "5",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "5",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "4277676",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "4277676",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy6": {
+      "affected_cpus": {
+        "value": "6",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "6",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "3633672",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "3633672",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy7": {
+      "affected_cpus": {
+        "value": "7",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "7",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy8": {
+      "affected_cpus": {
+        "value": "8",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "8",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "2178876",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "2178876",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    },
+    "policy9": {
+      "affected_cpus": {
+        "value": "9",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "related_cpus": {
+        "value": "9",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_driver": {
+        "value": "amd-pstate-epp",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_governor": {
+        "value": "powersave",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_available_governors": {
+        "value": "performance powersave",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_min_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "scaling_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "cpuinfo_min_freq": {
+        "value": "624194",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "cpuinfo_cur_freq": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_avg_freq": {
+        "value": "4359440",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_cur_freq": {
+        "value": "4359440",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "scaling_available_frequencies": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "cpuinfo_transition_latency": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "energy_performance_preference": {
+        "value": "balance_performance",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "energy_performance_available_preferences": {
+        "value": "default performance balance_performance balance_power power",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "boost": {
+        "value": "1",
+        "owner_uid": 0,
+        "mode": "0o644"
+      },
+      "bios_limit": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "base_frequency": {
+        "error_type": "FileNotFoundError",
+        "errno": 2
+      },
+      "amd_pstate_highest_perf": {
+        "value": "166",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_lowest_nonlinear_freq": {
+        "value": "2982259",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "amd_pstate_max_freq": {
+        "value": "5756452",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    }
+  },
+  "cpu_links": {
+    "2": {
+      "cpufreq_realpath": "/sys/devices/system/cpu/cpufreq/policy2",
+      "thread_siblings": {
+        "value": "2,18",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "msr_device_present": true
+    },
+    "18": {
+      "cpufreq_realpath": "/sys/devices/system/cpu/cpufreq/policy18",
+      "thread_siblings": {
+        "value": "2,18",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "msr_device_present": true
+    }
+  },
+  "observation_interfaces": {
+    "cpufreq/boost": {
+      "value": "1",
+      "owner_uid": 0,
+      "mode": "0o644"
+    },
+    "amd_pstate/status": {
+      "value": "active",
+      "owner_uid": 0,
+      "mode": "0o644"
+    },
+    "amd_pstate/prefcore": {
+      "value": "enabled",
+      "owner_uid": 0,
+      "mode": "0o444"
+    },
+    "msr_event_aperf": {
+      "value": "event=0x01",
+      "owner_uid": 0,
+      "mode": "0o444"
+    },
+    "msr_event_mperf": {
+      "value": "event=0x02",
+      "owner_uid": 0,
+      "mode": "0o444"
+    },
+    "msr_event_tsc": {
+      "value": "event=0x00",
+      "owner_uid": 0,
+      "mode": "0o444"
+    }
+  },
+  "thermal": {
+    "hwmon3": {
+      "temp1_input": {
+        "value": "34500",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "temp1_label": {
+        "value": "Tctl",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "temp3_input": {
+        "value": "24750",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "temp3_label": {
+        "value": "Tccd1",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "temp4_input": {
+        "value": "35250",
+        "owner_uid": 0,
+        "mode": "0o444"
+      },
+      "temp4_label": {
+        "value": "Tccd2",
+        "owner_uid": 0,
+        "mode": "0o444"
+      }
+    }
+  },
+  "msr_module_present": true,
+  "perf_event_paranoid": {
+    "value": "4",
+    "owner_uid": 0,
+    "mode": "0o644"
+  },
+  "clocksource": {
+    "value": "tsc",
+    "owner_uid": 0,
+    "mode": "0o644"
+  },
+  "clocksource_available": {
+    "value": "tsc hpet acpi_pm",
+    "owner_uid": 0,
+    "mode": "0o444"
+  },
+  "reported_clock_resolution_seconds": 1e-09,
+  "tools": {
+    "perf": "/usr/bin/perf",
+    "turbostat": "/usr/bin/turbostat",
+    "cpupower": "/usr/bin/cpupower"
+  }
+}

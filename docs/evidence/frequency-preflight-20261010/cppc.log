@@ -1,0 +1,67 @@
+
+{
+  "utc": "2026-10-09T20:53:06.020732+00:00",
+  "effective_uid": 0,
+  "cppc": {
+    "2": {
+      "highest_perf": {
+        "value": "231"
+      },
+      "nominal_perf": {
+        "value": "124"
+      },
+      "lowest_nonlinear_perf": {
+        "value": "86"
+      },
+      "lowest_perf": {
+        "value": "18"
+      },
+      "nominal_freq": {
+        "value": "4300"
+      },
+      "lowest_freq": {
+        "value": "600"
+      },
+      "reference_perf": {
+        "value": "124"
+      },
+      "wraparound_time": {
+        "value": "18446744073709551615"
+      },
+      "feedback_ctrs": {
+        "value": "ref:86844627444315 del:76430118985511"
+      }
+    },
+    "18": {
+      "highest_perf": {
+        "value": "231"
+      },
+      "nominal_perf": {
+        "value": "124"
+      },
+      "lowest_nonlinear_perf": {
+        "value": "86"
+      },
+      "lowest_perf": {
+        "value": "18"
+      },
+      "nominal_freq": {
+        "value": "4300"
+      },
+      "lowest_freq": {
+        "value": "600"
+      },
+      "reference_perf": {
+        "value": "124"
+      },
+      "wraparound_time": {
+        "value": "18446744073709551615"
+      },
+      "feedback_ctrs": {
+        "value": "ref:15244518571229 del:14845306105942"
+      }
+    }
+  },
+  "configuration_writes": 0
+}
+Shared connection to 10.144.144.5 closed.
