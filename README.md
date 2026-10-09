@@ -11,7 +11,7 @@
 在原45页及[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)基础上补入条件均值推断，保留官方潜在修正核对及原数据。
 一次干净重建后的三个同机新进程支持固定六非零输入的较低中位成本观察，原M01不合并。
 报告经科学与全页视觉核验；R02/R04的真实测量及统计前提、实际截图和本人签署仍需适用证据。
-[10月9日匿名解释件](deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)仍对应旧45页；新47页及证明尚待另行闭包。
+[新版匿名研究补充件](deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md)已闭合47页报告、完整均值证明及协议阅读视图；原870项嵌于明确历史子根保持原字节。
 [当前状态与下一协议](docs/research/aris-replication-20261009/CURRENT_STATUS.md)提供复算、单核管理恢复原件及未闭合门槛入口。
 
 当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、

@@ -8,7 +8,7 @@
 | 官方具体补证及提交身份 | T09两项完整工作簿静态适用性、T12用户确认邮箱已关闭 | [本轮官方核对](../../evidence/aris-resume-20261009/official-source-check.md)及原确认记录 |
 | M02一次重建三进程 | 已完成、零重试；18/18非零中位比<1、240/240时钟合格，独立C审计通过 | [RESULTS](RESULTS.md)、[判定](RESULT_TO_CLAIM.md) |
 | 当前47页报告 | 补入条件均值推断，原表图公式保持；全页视觉及独立内容/结构审查通过；R02/R04仍部分签收 | [新报告](../../../deliverables/research/aris-report-weak-mean-20261010/README.md)、[核验](../../evidence/aris-report-weak-mean-20261010/README.md) |
-| 20261009匿名解释闭包 | 原327e ZIP870项、714本地链接闭包保持；对应旧45页，尚未包括新47页与新证明，不冒称新版本已闭包 | [历史包入口](../../../deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)、[原独立闭包](../../evidence/aris-current-package-20261009/INDEPENDENT_STAGE_REVIEW.md) |
+| 当前匿名研究阅读闭包 | ec076 ZIP887项、750本地URL、247MathML；47页、W1—W4及匿名科学协议已闭合，旧870项位于历史子根原字节保持；R02/R04仍partial | [新包入口](../../../deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md)、[最终核验](../../evidence/aris-weak-package-20261010/README.md) |
 | 当前展示和讲解 | R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接核对；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
 | R02/R04下一设计 | DESIGN_READY_WITH_REQUIRED_INPUTS；实际NOT_READY_TO_RUN | [下一协议](NEXT_VALIDATION_PROTOCOL.md) |
 | Linux数学软件及产物身份 | 四工具链/动态配置各9/9；十二个原ELF已取回静态核验，没有新计时 | [软件结果](../aris-linux-math-software-20261009/RESULTS.md)、[ELF核验](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md) |

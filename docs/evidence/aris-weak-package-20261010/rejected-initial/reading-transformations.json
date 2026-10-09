@@ -1,0 +1,45 @@
+[
+  {
+    "source_path": "docs/research/aris-replication-20261009/NEXT_VALIDATION_PROTOCOL.md",
+    "source_sha256": "c462ba7da813cb4ccee14a6de4b322c7b264595e4453240b244c719eb2d6bf6d",
+    "distributed_path": "research/NEXT_VALIDATION_PROTOCOL.md",
+    "operations": [
+      {
+        "kind": "omit_administrative_history",
+        "paragraph_sha256": "8e5290acabd657e8be34881a53ed9d028f729bc11b02bf44b80376611d1372a9"
+      },
+      {
+        "kind": "omit_administrative_history",
+        "paragraph_sha256": "fe29de3f96c5b4d0bbf8feae5b1e086877f98ba0ea20bc31d3144c7e89a56377"
+      },
+      {
+        "kind": "omit_administrative_history",
+        "paragraph_sha256": "4a1999e67e02ac7c40584eca03fa378dafcf8b9dde844c4deb6717a55585fab7"
+      },
+      {
+        "kind": "reading_link_or_explicit_omission",
+        "from": "../aris-20261008/PROOF_PACKAGE.md",
+        "to": "../historical/20261009/research/PROOF_PACKAGE.md",
+        "count": 2
+      },
+      {
+        "kind": "reading_link_or_explicit_omission",
+        "from": "../aris-20261008/FINITE_REFERENCE_BOUNDARY.md",
+        "to": "../historical/20261009/research/FINITE_REFERENCE_BOUNDARY.md",
+        "count": 1
+      },
+      {
+        "kind": "reading_link_or_explicit_omission",
+        "from": "../aris-20261008/DEEP_READING.md",
+        "to": "../historical/20261009/research/DEEP_READING.md",
+        "count": 1
+      },
+      {
+        "kind": "reading_link_or_explicit_omission",
+        "from": "[旧研究合同](../aris-20261008/EXPERIMENT_PLAN.md)",
+        "to": "2026-10-08旧研究合同（原件未随本匿名技术视图新增；其停止路线和旧预算保持）",
+        "count": 1
+      }
+    ]
+  }
+]
