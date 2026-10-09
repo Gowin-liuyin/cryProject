@@ -1,0 +1,10 @@
+
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+  File "frozen_partition.py", line 715, in <module>
+  File "frozen_partition.py", line 542, in run
+  File "frozen_partition.py", line 205, in root_gate
+  File "frozen_partition.py", line 40, in cpu_set
+  File "frozen_partition.py", line 31, in require
+RuntimeError: Bad CPU list
+Shared connection to 10.144.144.5 closed.

@@ -33,9 +33,10 @@ def require(condition, message):
 
 def cpu_set(text):
     result = set()
-    for component in text.split(','):
-        if not component:
-            continue
+    normalized = text.strip()
+    if not normalized:
+        return result
+    for component in normalized.split(','):
         bounds = component.split('-')
         require(len(bounds) <= 2 and all(value.isdigit() for value in bounds), 'Bad CPU list')
         lower, upper = int(bounds[0]), int(bounds[-1])
@@ -624,7 +625,8 @@ def selfcheck(directory):
     from types import SimpleNamespace
     require(Path(directory).is_absolute(), 'Selfcheck requires an explicit absolute build root')
     require(cpu_set(HOUSEKEEPING_TEXT) == HOUSEKEEPING_CPUS, 'CPU parser mismatch')
-    for bad in ('32', '-1', '3-2', '2-3-4', '2;id'):
+    require(cpu_set('2,18\n') == PROBE_CPUS and cpu_set('\n') == set(), 'Kernel newline rejected')
+    for bad in ('32', '-1', '3-2', '2-3-4', '2;id', '2,,18', '2,'):
         try:
             cpu_set(bad)
         except RuntimeError:
