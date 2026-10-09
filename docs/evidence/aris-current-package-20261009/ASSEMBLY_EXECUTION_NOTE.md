@@ -1,0 +1,5 @@
+# 最终装配执行来源
+
+实际最终ZIP由根授权后的一次内联Python装配调用新建，输出327e5221摘要及870项。assembly-tools/create_final_archive.py保存该已执行内联内容的等价排版交接稿，没有再次执行它来生成或验证ZIP；原archive mode x及断言拒绝覆盖已有ZIP。实际CRC、成员对payload逐字和868清单/869摘要核对发生在同一原调用中。
+
+未保存原工具启动/退出UTC，文件时间及当前记录创建时间不冒充启动时间；不从装配等待时间推断实验成本。独立最终ZIP闭合审查另留新记录，最初final-archive-verification中的pending字段保留该阶段身份。

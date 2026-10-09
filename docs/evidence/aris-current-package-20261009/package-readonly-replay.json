@@ -1,0 +1,127 @@
+{
+  "package_readonly_C_replay_passed": true,
+  "per_process_audits": [
+    {
+      "process": 1,
+      "C_audit_returncode": 0,
+      "output_byte_identical_to_original_C_audit": true,
+      "sha256": "e635e7352a00d18e83fcd55fa0ff8057caf1d550cbfafdc409edcd9c7d639dae"
+    },
+    {
+      "process": 2,
+      "C_audit_returncode": 0,
+      "output_byte_identical_to_original_C_audit": true,
+      "sha256": "778cceafca552293e70b3666c604d83b40f50d1a24feeb9719bbd835f6383eab"
+    },
+    {
+      "process": 3,
+      "C_audit_returncode": 0,
+      "output_byte_identical_to_original_C_audit": true,
+      "sha256": "c763b1ae85c0cb4bf74eb933e241c6459738bcd6fd1c90ea4ddf4b2fa6f520a5"
+    }
+  ],
+  "summary_byte_identical_to_original": true,
+  "new_formal_runs": 0,
+  "statistics_enumeration_reexecuted": false,
+  "new_cryptographic_calls": 0,
+  "build_role": "readonly_audit_and_summary_tools_not_original_timing_artifact",
+  "commands": [
+    {
+      "name": "source-digests",
+      "arguments": [
+        "shasum",
+        "-a",
+        "256",
+        "-c",
+        "SHA256SUMS"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "audit-configure",
+      "arguments": [
+        "cmake",
+        "-S",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/source/audit",
+        "-B",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/audit",
+        "-DBUILD_TESTING=OFF"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "audit-build",
+      "arguments": [
+        "cmake",
+        "--build",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/audit",
+        "--parallel",
+        "2"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "summary-configure",
+      "arguments": [
+        "cmake",
+        "-S",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/payload/data/M02_REPLICATION/preparation/summary-source",
+        "-B",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/summary",
+        "-DBUILD_TESTING=OFF",
+        "-DSUMMARY_SANITIZERS=OFF"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "summary-build",
+      "arguments": [
+        "cmake",
+        "--build",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/summary",
+        "--parallel",
+        "2"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "audit-process-1",
+      "arguments": [
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/audit/update_cost_result_review",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/views/process-1",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/payload/data/M02_REPLICATION/preparation/fixed-inputs",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/outputs/process-1.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "audit-process-2",
+      "arguments": [
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/audit/update_cost_result_review",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/views/process-2",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/payload/data/M02_REPLICATION/preparation/fixed-inputs",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/outputs/process-2.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "audit-process-3",
+      "arguments": [
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/audit/update_cost_result_review",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/views/process-3",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/payload/data/M02_REPLICATION/preparation/fixed-inputs",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/outputs/process-3.json"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "summary-existing-records",
+      "arguments": [
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/summary/process_summary",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/payload/data/M02_REPLICATION",
+        "/Users/yin/code/cryProject/build/aris-current-package-20261009/package-readonly-replay/outputs/process-summary.json"
+      ],
+      "returncode": 0
+    }
+  ]
+}
