@@ -2,6 +2,7 @@
 #ifdef __APPLE__
 #define _DARWIN_C_SOURCE
 #endif
+#include "test_temp_directory.h"
 #include <assert.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -49,8 +50,8 @@ static void write_log(const char *log_path, const char *text)
 int main(int argument_count, char **argument_values)
 {
     assert(argument_count == 3);
-    char directory[] = "/tmp/cry-native-digest.XXXXXX";
-    assert(mkdtemp(directory) != NULL);
+    char directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(directory, sizeof(directory), "cry-native-digest") != NULL);
     char input_path[256];
     char log_path[256];
     assert(snprintf(input_path, sizeof(input_path), "%s/input.bin", directory) > 0);

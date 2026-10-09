@@ -1,0 +1,18 @@
+{
+  "scope": "strict_pre_authentication_server_identity_check",
+  "host": "119.45.121.134",
+  "account": "ubuntu",
+  "preferred_authentication": "password",
+  "forced_known_key_algorithm": "ecdsa-sha2-nistp256",
+  "exit_code": 255,
+  "password_sent": false,
+  "known_hosts_modified": false,
+  "relevant_output": [
+    "debug1: Server host key: ecdsa-sha2-nistp256 SHA256:Jxk0ZwlDsmPPHcSPxA8HHZzLj021O0xN2xh5/8y2amE",
+    "The fingerprint for the ECDSA key sent by the remote host is",
+    "SHA256:Jxk0ZwlDsmPPHcSPxA8HHZzLj021O0xN2xh5/8y2amE.",
+    "Offending ECDSA key in /Users/yin/.ssh/known_hosts:55",
+    "Host key for 119.45.121.134 has changed and you have requested strict checking.",
+    "Host key verification failed."
+  ]
+}

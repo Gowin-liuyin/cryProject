@@ -287,6 +287,10 @@ add_dependencies(
 )
 
 if(BUILD_TESTING)
+    add_executable(test_temp_directory tests/test_temp_directory.c)
+    target_link_libraries(test_temp_directory PRIVATE baseline_options)
+    target_compile_options(test_temp_directory PRIVATE -UNDEBUG)
+    add_test(NAME temp_directory COMMAND test_temp_directory)
     add_executable(test_performance_replay tests/test_performance_replay.c)
     target_link_libraries(test_performance_replay PRIVATE mlkem_reference)
     target_compile_options(test_performance_replay PRIVATE -UNDEBUG)
@@ -460,6 +464,23 @@ if(BUILD_TESTING)
                 --output-on-failure -L reference
         DEPENDS reference_baseline reference_test_mlkem reference_test_random_failure
         USES_TERMINAL VERBATIM
+    )
+    set(test_temp_directory "${CMAKE_CURRENT_BINARY_DIR}/test-tmp")
+    if(IS_SYMLINK "${test_temp_directory}")
+        message(FATAL_ERROR "The test temporary directory must not be a symlink")
+    endif()
+    file(MAKE_DIRECTORY "${test_temp_directory}")
+    get_property(
+        registered_tests
+        DIRECTORY
+        PROPERTY TESTS
+    )
+    set_property(
+        TEST ${registered_tests}
+        APPEND
+        PROPERTY ENVIRONMENT "A113_TEST_TMPDIR=${test_temp_directory}"
+                 "TMPDIR=${test_temp_directory}" "TMP=${test_temp_directory}"
+                 "TEMP=${test_temp_directory}"
     )
 endif()
 

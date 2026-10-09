@@ -1,0 +1,24 @@
+{
+  "scope": "strict_pre_authentication_existing_rsa_identity_check",
+  "host": "119.45.121.134",
+  "account": "ubuntu",
+  "recorded_host_key_types": [
+    "ecdsa-sha2-nistp256",
+    "ssh-ed25519",
+    "ssh-rsa"
+  ],
+  "forced_signature_algorithms": [
+    "rsa-sha2-512",
+    "rsa-sha2-256"
+  ],
+  "exit_code": 255,
+  "password_sent": false,
+  "known_hosts_modified": false,
+  "relevant_output": [
+    "debug1: Server host key: ssh-rsa SHA256:AlA2LeJHKojJAzFODk4kdG89EnMRWFWbYOOJt69Nbj4",
+    "SHA256:AlA2LeJHKojJAzFODk4kdG89EnMRWFWbYOOJt69Nbj4.",
+    "Offending ECDSA key in /Users/yin/.ssh/known_hosts:55",
+    "Host key for 119.45.121.134 has changed and you have requested strict checking.",
+    "Host key verification failed."
+  ]
+}

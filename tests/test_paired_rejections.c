@@ -3,6 +3,7 @@
 #define _DARWIN_C_SOURCE
 #endif
 #include "paired_data.h"
+#include "test_temp_directory.h"
 
 #include <assert.h>
 #include <inttypes.h>
@@ -270,8 +271,8 @@ check_confirmation_shapes(const char *parent, const char *generator, const char 
 int main(int argument_count, char **argument_values)
 {
     assert(argument_count == 3);
-    char parent[] = "/tmp/cry-paired-rejections.XXXXXX";
-    assert(mkdtemp(parent) != NULL);
+    char parent[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(parent, sizeof(parent), "cry-paired-rejections") != NULL);
     char directory[4096];
     assert(paired_data_path(directory, sizeof(directory), parent, "fixture") == 0);
     char *create_arguments[] = {argument_values[1], "--write-fixture", directory, NULL};

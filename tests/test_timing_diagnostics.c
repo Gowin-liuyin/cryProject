@@ -2,6 +2,7 @@
 #ifdef __APPLE__
 #define _DARWIN_C_SOURCE
 #endif
+#include "test_temp_directory.h"
 #include "timing_statistics.h"
 
 #include <assert.h>
@@ -28,7 +29,7 @@ int main(int argument_count, char **argument_values)
 {
     struct measurement_record quantile_records[] = {{1, 0}, {2, 0}, {3, 0}, {4, 0}};
     struct sample_series quantile_series = {quantile_records, 4};
-    char test_directory[] = "/tmp/cry-timing-diagnostics.XXXXXX";
+    char test_directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
     char csv_path[256];
     char report_path[256];
     char report_text[8192];
@@ -40,7 +41,9 @@ int main(int argument_count, char **argument_values)
     assert(series_quantile(&quantile_series, 0.5) == 3);
     assert(series_quantile(&quantile_series, 0.9) == 4);
     assert(series_quantile(&quantile_series, 1.0) == 4);
-    assert(mkdtemp(test_directory) != NULL);
+    assert(create_test_temp_directory(test_directory,
+               sizeof(test_directory),
+               "cry-timing-diagnostics") != NULL);
     assert(snprintf(csv_path, sizeof(csv_path), "%s/input.csv", test_directory) > 0);
     assert(snprintf(report_path, sizeof(report_path), "%s/report.txt", test_directory) > 0);
     FILE *csv_file = fopen(csv_path, "w");

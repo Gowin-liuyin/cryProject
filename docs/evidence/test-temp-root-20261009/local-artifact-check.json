@@ -1,0 +1,40 @@
+{
+  "normal": {
+    "compile_entry": {
+      "directory": "/Users/yin/code/cryProject/build/cmake",
+      "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_temp_directory.dir/tests/test_temp_directory.c.o -c /Users/yin/code/cryProject/tests/test_temp_directory.c",
+      "file": "/Users/yin/code/cryProject/tests/test_temp_directory.c",
+      "output": "CMakeFiles/test_temp_directory.dir/tests/test_temp_directory.c.o"
+    },
+    "binary_sha256": "0817977fe77404715804664810574475b751c8b4dfc3ef185f011d1fc447ca33",
+    "link_command": "/usr/bin/cc -O2 -g -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_temp_directory.dir/tests/test_temp_directory.c.o -o test_temp_directory\n"
+  },
+  "sanitize": {
+    "compile_entry": {
+      "directory": "/Users/yin/code/cryProject/build/cmake-sanitize",
+      "command": "/usr/bin/cc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/Users/yin/code/cryProject/include -I/Users/yin/code/cryProject/vendor/mlkem-native/mlkem -g -std=c11 -arch arm64 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/test_temp_directory.dir/tests/test_temp_directory.c.o -c /Users/yin/code/cryProject/tests/test_temp_directory.c",
+      "file": "/Users/yin/code/cryProject/tests/test_temp_directory.c",
+      "output": "CMakeFiles/test_temp_directory.dir/tests/test_temp_directory.c.o"
+    },
+    "binary_sha256": "7abc31997893632d3bf97f55f24d524f3b16de216d3247bc90f893d8023cc450",
+    "link_command": "/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fsanitize=address,undefined CMakeFiles/test_temp_directory.dir/tests/test_temp_directory.c.o -o test_temp_directory\n"
+  },
+  "source_files": {
+    "CMakeLists.txt": "1a3df1255cd2631feba57f4f408bc3d6801972f0eea86428157083070750c93f",
+    "tests/test_temp_directory.h": "49dc6e946191c00df611d0d297e87ace86c4ca65d5bb000dc9d25f4dd6849c6a",
+    "tests/test_temp_directory.c": "af54b48c7a0b29c04e761ac24259968eec9a0830e4ccd75af7d60dfc451be2b1",
+    "tests/test_native_digest.c": "3bb5791be65ecbfa2df48cffc478051481b0c7584e0629c6a0c50496ecaa7da7",
+    "tests/test_paired_prepare.c": "2fa75f3120af52d3051ff6e68478ccc7757d87687aa4859b434f67e86bf92993",
+    "tests/test_performance_replay.c": "944c7cf2f214e19095e767c25770379ed0119b492bfac97a7b015f2f91421b73",
+    "tests/test_paired_rejections.c": "902bf25041633706d536fdf872d293792a3b8c4d0ea7b0c7eba7ef07ce9a3532",
+    "tests/test_timing_diagnostics.c": "e75e4de87c6f90937803a39f70d78518237a83915bca2760b1018a1a40c07661",
+    "tests/test_paired_runner.c": "047ccd9658481a19dd5e3e08d5fe1ba6da90bf029dfaa334ce35dffb76237908",
+    "tests/test_batch_measurement.c": "ec7bd7559c43c63533828cdc7d7b7cbb116f1b0c51a798d555b9744338843533",
+    "tests/test_paired_data.c": "8002464b772f99911345b6623773ae7f9edcb908ba387e1083333dfa9ab97fbc",
+    "tests/test_reference_benchmark.c": "52610ee9d5c5b7d1593d8a1e81992b1aaf45f5d730bb59035a90bb30456bf58c"
+  },
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64"
+  }
+}

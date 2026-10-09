@@ -2,6 +2,7 @@
 #ifdef __APPLE__
 #define _DARWIN_C_SOURCE
 #endif
+#include "test_temp_directory.h"
 #include "timing_statistics.h"
 
 #include <assert.h>
@@ -71,13 +72,15 @@ static void check_metadata(const char *metadata_path)
 
 int main(int argument_count, char **argument_values)
 {
-    char test_directory[] = "/tmp/cry-reference-benchmark.XXXXXX";
+    char test_directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
     char csv_path[2][256];
     char metadata_path[2][256];
     char cost_path[2][256];
     struct measurement_set sets[2] = {0};
     assert(argument_count == 2);
-    assert(mkdtemp(test_directory) != NULL);
+    assert(create_test_temp_directory(test_directory,
+               sizeof(test_directory),
+               "cry-reference-benchmark") != NULL);
     for (size_t run_index = 0; run_index < 2u; ++run_index) {
         assert(snprintf(csv_path[run_index],
                    sizeof(csv_path[run_index]),

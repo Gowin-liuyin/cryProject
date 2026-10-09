@@ -4,6 +4,7 @@
 #endif
 
 #include "inputs.h"
+#include "test_temp_directory.h"
 
 #include <assert.h>
 #include <inttypes.h>
@@ -61,8 +62,10 @@ static void expect_incomplete(const char *program, const char *directory, const 
 int main(int argument_count, char **argument_values)
 {
     assert(argument_count == 2);
-    char test_directory[] = "/tmp/a113-performance-fixture.XXXXXX";
-    assert(mkdtemp(test_directory) != NULL);
+    char test_directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(test_directory,
+               sizeof(test_directory),
+               "a113-performance-fixture") != NULL);
     const char *variants[3] = {"reference", "hardened", "deployable"};
     char csv_path[512];
     char metadata_path[512];

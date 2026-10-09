@@ -4,6 +4,7 @@
 #endif
 #include "build_identity.h"
 #include "paired_data.h"
+#include "test_temp_directory.h"
 
 #include <assert.h>
 #include <fcntl.h>
@@ -283,8 +284,8 @@ static void interrupt_execution(char *program,
 int main(int argument_count, char **argument_values)
 {
     assert(argument_count == 5);
-    char directory[] = "/tmp/cry-paired-runner.XXXXXX";
-    assert(mkdtemp(directory) != NULL);
+    char directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(directory, sizeof(directory), "cry-paired-runner") != NULL);
     char plan_path[4096];
     char shared_path[4096];
     char ledger_path[4096];

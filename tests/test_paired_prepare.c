@@ -3,6 +3,7 @@
 #define _DARWIN_C_SOURCE
 #endif
 #include "paired_data.h"
+#include "test_temp_directory.h"
 
 #include <assert.h>
 #include <stdlib.h>
@@ -53,8 +54,8 @@ int main(int argument_count, char **argument_values)
     *strchr(output, '\n') = '\0';
     uint64_t first_timestamp;
     assert(parse_unsigned_integer(output, &first_timestamp) == 0 && first_timestamp > 0);
-    char directory[] = "/tmp/cry-paired-prepare.XXXXXX";
-    assert(mkdtemp(directory) != NULL);
+    char directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(directory, sizeof(directory), "cry-paired-prepare") != NULL);
     char plans_path[4096];
     char registry_path[4096];
     assert(paired_data_path(plans_path, sizeof(plans_path), directory, "plans") == 0);

@@ -1,0 +1,189 @@
+Start testing: Oct 09 23:46 CST
+----------------------------------------------------------
+9/35 Testing: temp_directory
+9/35 Test: temp_directory
+Command: "/Users/yin/code/cryProject/build/cmake/test_temp_directory"
+Directory: /Users/yin/code/cryProject/build/cmake
+"temp_directory" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.75 sec
+----------------------------------------------------------
+Test Passed.
+"temp_directory" end time: Oct 09 23:46 CST
+"temp_directory" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/35 Testing: performance_replay
+10/35 Test: performance_replay
+Command: "/Users/yin/code/cryProject/build/cmake/test_performance_replay" "/Users/yin/code/cryProject/build/cmake/audit"
+Directory: /Users/yin/code/cryProject/build/cmake
+"performance_replay" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.47 sec
+----------------------------------------------------------
+Test Passed.
+"performance_replay" end time: Oct 09 23:46 CST
+"performance_replay" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/35 Testing: native_digest
+18/35 Test: native_digest
+Command: "/Users/yin/code/cryProject/build/cmake/test_native_digest" "/Users/yin/code/cryProject/build/cmake/native_digest" "/Users/yin/miniconda3/bin/openssl"
+Directory: /Users/yin/code/cryProject/build/cmake
+"native_digest" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+OpenSSL log must contain exactly one complete SHA3-256 digest.
+OpenSSL log must contain exactly one complete SHA3-256 digest.
+OpenSSL log must contain exactly one complete SHA3-256 digest.
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Passed.
+"native_digest" end time: Oct 09 23:46 CST
+"native_digest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/35 Testing: paired_prepare
+19/35 Test: paired_prepare
+Command: "/Users/yin/code/cryProject/build/cmake/test_paired_prepare" "/Users/yin/code/cryProject/build/cmake/paired_prepare" "/Users/yin/code/cryProject/build/cmake/reference/libmlkem.a" "/Users/yin/code/cryProject/build/cmake/paired_runner"
+Directory: /Users/yin/code/cryProject/build/cmake
+"paired_prepare" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+software_prepare_fixture_directory=/Users/yin/code/cryProject/build/cmake/test-tmp/cry-paired-prepare.YYJWHT
+<end of output>
+Test time =   2.15 sec
+----------------------------------------------------------
+Test Passed.
+"paired_prepare" end time: Oct 09 23:46 CST
+"paired_prepare" time elapsed: 00:00:02
+----------------------------------------------------------
+
+20/35 Testing: paired_runner
+20/35 Test: paired_runner
+Command: "/Users/yin/code/cryProject/build/cmake/test_paired_runner" "/Users/yin/code/cryProject/build/cmake/paired_runner" "/Users/yin/code/cryProject/build/cmake" "/Users/yin/code/cryProject/build/cmake/analyze_paired" "/Users/yin/code/cryProject/build/cmake/paired_worker_fixture"
+Directory: /Users/yin/code/cryProject/build/cmake
+"paired_runner" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+Assertion failed: (initialize(argument_values[1], ledger_path, shared_path) == 0), function main, file test_paired_runner.c, line 303.
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Failed.
+"paired_runner" end time: Oct 09 23:46 CST
+"paired_runner" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/35 Testing: paired_data
+22/35 Test: paired_data
+Command: "/Users/yin/code/cryProject/build/cmake/test_paired_data" "/Users/yin/code/cryProject/build/cmake/analyze_paired"
+Directory: /Users/yin/code/cryProject/build/cmake
+"paired_data" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_fixture_directory=/Users/yin/code/cryProject/build/cmake/test-tmp/cry-paired-data.2p1V1V
+<end of output>
+Test time =   0.41 sec
+----------------------------------------------------------
+Test Passed.
+"paired_data" end time: Oct 09 23:46 CST
+"paired_data" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/35 Testing: paired_rejections
+23/35 Test: paired_rejections
+Command: "/Users/yin/code/cryProject/build/cmake/test_paired_rejections" "/Users/yin/code/cryProject/build/cmake/test_paired_data" "/Users/yin/code/cryProject/build/cmake/analyze_paired"
+Directory: /Users/yin/code/cryProject/build/cmake
+"paired_rejections" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_check_failed: paired data/report validation failed; preserve partial output
+software_rejection_fixture_directory=/Users/yin/code/cryProject/build/cmake/test-tmp/cry-paired-rejections.Qaklow/fixture
+<end of output>
+Test time =   0.89 sec
+----------------------------------------------------------
+Test Passed.
+"paired_rejections" end time: Oct 09 23:46 CST
+"paired_rejections" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/35 Testing: batch_measurement
+24/35 Test: batch_measurement
+Command: "/Users/yin/code/cryProject/build/cmake/test_batch_measurement" "/Users/yin/code/cryProject/build/cmake/reference/benchmark" "/Users/yin/code/cryProject/build/cmake/reference/batch_benchmark"
+Directory: /Users/yin/code/cryProject/build/cmake
+"batch_measurement" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+reference: saved 30 raw decapsulation times in ns; no statistical conclusion
+reference: saved raw window totals for 30 decapsulations; no statistical conclusion
+reference: saved raw window totals for 30 decapsulations; no statistical conclusion
+reference: saved raw window totals for 30 decapsulations; no statistical conclusion
+batch size must be 1, 4 or 16
+batch size must be 1, 4 or 16
+batch size must be 1, 4 or 16
+batch size must be 1, 4 or 16
+Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE
+Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE
+measurement failed; check resources and use new output paths
+<end of output>
+Test time =   0.85 sec
+----------------------------------------------------------
+Test Passed.
+"batch_measurement" end time: Oct 09 23:46 CST
+"batch_measurement" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/35 Testing: reference_benchmark
+25/35 Test: reference_benchmark
+Command: "/Users/yin/code/cryProject/build/cmake/test_reference_benchmark" "/Users/yin/code/cryProject/build/cmake/reference/benchmark"
+Directory: /Users/yin/code/cryProject/build/cmake
+"reference_benchmark" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+reference: saved 30 raw decapsulation times in ns; no statistical conclusion
+reference: saved 30 raw decapsulation times in ns; no statistical conclusion
+Usage: measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE (count 1..20000)
+measurement failed; check resources and use new output paths
+measurement failed; check resources and use new output paths
+<end of output>
+Test time =   0.43 sec
+----------------------------------------------------------
+Test Passed.
+"reference_benchmark" end time: Oct 09 23:46 CST
+"reference_benchmark" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/35 Testing: timing_diagnostics
+26/35 Test: timing_diagnostics
+Command: "/Users/yin/code/cryProject/build/cmake/test_timing_diagnostics" "/Users/yin/code/cryProject/build/cmake/inspect_timing"
+Directory: /Users/yin/code/cryProject/build/cmake
+"timing_diagnostics" start time: Oct 09 23:46 CST
+Output:
+----------------------------------------------------------
+timing diagnostics failed; discard any partial report
+timing diagnostics failed; discard any partial report
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"timing_diagnostics" end time: Oct 09 23:46 CST
+"timing_diagnostics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 09 23:46 CST

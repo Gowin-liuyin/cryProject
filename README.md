@@ -46,6 +46,10 @@ build/cmake/audit case
 
 以下命令均在本仓库根目录执行。源码需要保留 Git 历史，构建程序会读取提交号和工作区状态。
 
+测试临时文件统一由CTest放入各构建目录的`test-tmp/`，C和Shell测试共用配置、各建唯一子目录。
+内部C测试缺少`A113_TEST_TMPDIR`时会拒绝创建，不回退`/tmp`；请通过CTest运行。
+云端构建和测试的实际路径遵守AGENTS，只能位于`/home/nss-marker/yhr/Cry`及其子目录。
+
 依赖：CMake **3.21 或更新版本**、Clang/GCC、Make 或 Ninja，以及 Git、patch、sh、awk、shasum。
 默认测试配置还需要提供 SHA3-256 的 OpenSSL，用于独立核对原生准备日志的摘要。
 macOS 可使用 Xcode Command Line Tools 提供的编译器；Linux 需安装对应编译工具和 CMake。

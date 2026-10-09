@@ -1,0 +1,12 @@
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.54.0 (Apple Git-157)")
+-- Configuring incomplete, errors occurred!
+CMake Error at CMakeLists.txt:470 (message):
+  The test temporary directory must not be a symlink
+
+

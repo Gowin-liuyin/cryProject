@@ -4,6 +4,7 @@
 #endif
 #include "paired_data.h"
 #include "paired_statistics.h"
+#include "test_temp_directory.h"
 
 #include <assert.h>
 #include <inttypes.h>
@@ -282,8 +283,8 @@ int main(int argument_count, char **argument_values)
         return 0;
     }
     assert(argument_count == 2);
-    char directory[] = "/tmp/cry-paired-data.XXXXXX";
-    assert(mkdtemp(directory) != NULL);
+    char directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(directory, sizeof(directory), "cry-paired-data") != NULL);
     write_fixture(directory, 0, 4);
     char report_path[4096];
     assert(paired_data_path(report_path, sizeof(report_path), directory, "report.txt") == 0);

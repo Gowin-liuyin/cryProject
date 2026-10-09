@@ -4,6 +4,7 @@
 #endif
 #include "batch_measurement.h"
 #include "inputs.h"
+#include "test_temp_directory.h"
 
 #include <assert.h>
 #include <signal.h>
@@ -183,8 +184,9 @@ int main(int argument_count, char **argument_values)
                decapsulation_key,
                batch_secrets,
                call_statuses) == MLKEM_ERROR_ARGUMENT);
-    char test_directory[] = "/tmp/cry-batch-test.XXXXXX";
-    assert(mkdtemp(test_directory) != NULL);
+    char test_directory[TEST_TEMP_DIRECTORY_CAPACITY_BYTES];
+    assert(create_test_temp_directory(test_directory, sizeof(test_directory), "cry-batch-test") !=
+        NULL);
     char csv_path[256];
     char metadata_path[256];
     char cost_path[256];
