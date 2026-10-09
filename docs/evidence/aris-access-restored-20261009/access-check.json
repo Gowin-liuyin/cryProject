@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-09 01:56:43 UTC",
+  "target": "nss-marker@10.144.144.5",
+  "authentication": "interactive_password",
+  "password_authentication_verified": true,
+  "remote_architecture_verified": "x86_64",
+  "login_result": {
+    "chunk_id": "b12a30",
+    "wall_time_seconds": 0.055698166,
+    "exit_code": 0,
+    "original_token_count": 3,
+    "output": "\r\nx86_64\r\n"
+  },
+  "read_only_environment_result": {
+    "chunk_id": "149221",
+    "wall_time_seconds": 0.00002125,
+    "exit_code": 0,
+    "original_token_count": 26,
+    "output": "nss-m\nLinux 6.17.0-35-generic x86_64\nnone\n32\nMemTotal:       63385244 kB\nwork_root=present\npowersave\n"
+  },
+  "observed_host": "nss-m",
+  "observed_virtualization": "none",
+  "work_root": "/home/nss-marker/yhr/Cry",
+  "work_root_present": true,
+  "governor_observed": "powersave",
+  "frequency_control_verified": false,
+  "new_experiments": 0,
+  "password_in_artifact": false,
+  "previous_failure_scope": "BatchMode authentication without password; previous failed records unchanged"
+}
