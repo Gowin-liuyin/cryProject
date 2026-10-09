@@ -24,6 +24,188 @@ HOUSEKEEPING_CPUS = ALL_CPUS - PROBE_CPUS
 HOUSEKEEPING_TEXT = '0-1,3-17,19-31'
 FIELDS = ('cpuset.cpus', 'cpuset.cpus.effective', 'cpuset.cpus.exclusive',
           'cpuset.cpus.exclusive.effective', 'cpuset.cpus.partition', 'cpuset.mems')
+FREQUENCY_ROOT = Path('/sys/devices/system/cpu/cpufreq')
+FREQUENCY_POLICIES = tuple(sorted('policy' + str(cpu) for cpu in range(32)))
+FREQUENCY_TARGETS = ('policy2', 'policy18')
+FREQUENCY_FIELDS = ('affected_cpus', 'related_cpus', 'scaling_driver', 'scaling_governor',
+                    'energy_performance_preference', 'boost', 'cpuinfo_min_freq',
+                    'cpuinfo_max_freq', 'scaling_min_freq', 'scaling_max_freq')
+FREQUENCY_MUTABLE = ('scaling_min_freq', 'scaling_max_freq')
+FREQUENCY_TARGET_KHZ = '4300000'
+
+
+def frequency_snapshot(policy_names=FREQUENCY_POLICIES):
+    require(all(name in FREQUENCY_POLICIES for name in policy_names), 'Unknown frequency policy')
+
+    def read_attribute(path):
+        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_CLOEXEC)
+        try:
+            metadata = os.fstat(descriptor)
+            require(metadata.st_uid == 0 and stat.S_ISREG(metadata.st_mode),
+                    'Frequency attribute identity differs')
+            contents = os.read(descriptor, 4096)
+            require(len(contents) < 4096, 'Oversized frequency attribute')
+            return {'value': contents.decode().strip(), 'inode': metadata.st_ino,
+                    'device': metadata.st_dev, 'owner_uid': metadata.st_uid,
+                    'mode': stat.S_IMODE(metadata.st_mode)}
+        finally:
+            os.close(descriptor)
+
+    result = {'policies': {}, 'global': {}, 'cpu_links': {
+        str(cpu): str((FREQUENCY_ROOT.parent / ('cpu' + str(cpu)) / 'cpufreq').resolve())
+        for cpu in (2, 18)},
+              'policy_names': sorted(path.name for path in FREQUENCY_ROOT.iterdir() if path.is_dir())}
+    for name, path in (
+            ('status', FREQUENCY_ROOT.parent / 'amd_pstate/status'),
+            ('boost', FREQUENCY_ROOT / 'boost'),
+            ('prefcore', FREQUENCY_ROOT.parent / 'amd_pstate/prefcore')):
+        result['global'][name] = read_attribute(path)
+    for name in policy_names:
+        path = FREQUENCY_ROOT / name
+        metadata = path.stat(follow_symlinks=False)
+        require(metadata.st_uid == 0 and stat.S_ISDIR(metadata.st_mode), 'Policy identity differs')
+        row = {'identity': {'inode': metadata.st_ino, 'device': metadata.st_dev}}
+        row.update({field: read_attribute(path / field) for field in FREQUENCY_FIELDS})
+        result['policies'][name] = row
+    return result
+
+
+def frequency_change(store, state, policy_name, field, value, deadline_seconds, restoring=False):
+    require(policy_name in FREQUENCY_TARGETS and field in FREQUENCY_MUTABLE,
+            'Only the two fixed per-policy frequency limits may be written')
+    baseline = state['baseline']
+    require(value in (FREQUENCY_TARGET_KHZ, baseline['policies'][policy_name][field]['value']),
+            'Frequency value outside this contract')
+    current = frequency_snapshot((policy_name,) if restoring else FREQUENCY_POLICIES)
+    require(current['global'] == baseline['global'], 'Global frequency state changed')
+    require(current['cpu_links'] == baseline['cpu_links'], 'CPU frequency mapping changed')
+    if not restoring:
+        require(current['policy_names'] == baseline['policy_names'], 'Frequency policy set changed')
+    for name, row in current['policies'].items():
+        original = baseline['policies'][name]
+        for key in ('identity',) + FREQUENCY_FIELDS:
+            if name in FREQUENCY_TARGETS and key in FREQUENCY_MUTABLE:
+                require({name: item for name, item in row[key].items() if name != 'value'} ==
+                        {name: item for name, item in original[key].items() if name != 'value'},
+                        'Frequency limit identity changed')
+            else:
+                require(row[key] == original[key], 'Non-target frequency setting changed')
+        pair = [row[key]['value'] for key in FREQUENCY_MUTABLE]
+        if name in FREQUENCY_TARGETS:
+            require(pair in state['known_pairs'][name], 'Unknown frequency limits; no overwrite')
+    before_pair = [current['policies'][policy_name][key]['value'] for key in FREQUENCY_MUTABLE]
+    field_index = FREQUENCY_MUTABLE.index(field)
+    pending_fields = state.setdefault('pending_fields', {name: [] for name in FREQUENCY_TARGETS})
+    if before_pair[field_index] == value and not (restoring and field in pending_fields[policy_name]):
+        return
+    after_pair = before_pair.copy()
+    after_pair[field_index] = value
+    require(int(after_pair[0]) <= int(after_pair[1]), 'Frequency min exceeds max')
+    require(time.monotonic() < deadline_seconds, 'Frequency write deadline')
+    intent = {'sequence': state['sequence'], 'policy_name': policy_name, 'field': field,
+              'before_pair': before_pair, 'after_pair': after_pair}
+    # 首写前持久化意图；写入报错也不能假定内核未接受请求。
+    store.save('frequency-dirty-' + str(state['sequence']).zfill(4) + '.json', intent)
+    state['sequence'] += 1
+    if field not in pending_fields[policy_name]:
+        pending_fields[policy_name].append(field)
+    if after_pair not in state['known_pairs'][policy_name]:
+        state['known_pairs'][policy_name].append(after_pair)
+    descriptor = os.open(FREQUENCY_ROOT / policy_name / field,
+                         os.O_WRONLY | os.O_NOFOLLOW | os.O_CLOEXEC)
+    try:
+        metadata = os.fstat(descriptor)
+        expected = baseline['policies'][policy_name][field]
+        require(stat.S_ISREG(metadata.st_mode) and metadata.st_uid == 0 and
+                metadata.st_ino == expected['inode'] and metadata.st_dev == expected['device'] and
+                stat.S_IMODE(metadata.st_mode) == expected['mode'], 'Write descriptor identity differs')
+        contents = (value + '\n').encode()
+        require(os.write(descriptor, contents) == len(contents), 'Short frequency write')
+    finally:
+        os.close(descriptor)
+    while time.monotonic() < deadline_seconds:
+        observed = frequency_snapshot((policy_name,))
+        require(observed['global'] == baseline['global'], 'Global state changed during apply')
+        require(observed['cpu_links'] == baseline['cpu_links'], 'CPU mapping changed during apply')
+        row = observed['policies'][policy_name]
+        for key in ('identity',) + FREQUENCY_FIELDS:
+            if key not in FREQUENCY_MUTABLE:
+                require(row[key] == baseline['policies'][policy_name][key],
+                        'Policy changed during asynchronous apply')
+            else:
+                require({name: item for name, item in row[key].items() if name != 'value'} ==
+                        {name: item for name, item in baseline['policies'][policy_name][key].items()
+                         if name != 'value'}, 'Limit identity changed during apply')
+        pair = [row[key]['value'] for key in FREQUENCY_MUTABLE]
+        require(pair in state['known_pairs'][policy_name], 'Unknown asynchronous frequency state')
+        if pair == after_pair:
+            store.save('frequency-visible-' + str(intent['sequence']).zfill(4) + '.json',
+                       {'utc': utc_now(), 'policy_name': policy_name, 'limits_khz': pair,
+                        'hardware_frequency_qualified': False})
+            if value == baseline['policies'][policy_name][field]['value']:
+                pending_fields[policy_name].remove(field)
+            return
+        time.sleep(0.01)
+    raise TimeoutError('Frequency request did not reach visible limits')
+
+
+def frequency_restore(store, state, errors, deadline_seconds):
+    if state is None:
+        try:
+            baseline = store.load('frequency-baseline.json')
+            state = {'baseline': baseline, 'sequence': 0,
+                     'pending_fields': {name: [] for name in FREQUENCY_TARGETS}, 'known_pairs': {
+                name: [[baseline['policies'][name][field]['value'] for field in FREQUENCY_MUTABLE]]
+                for name in FREQUENCY_TARGETS}}
+            names = sorted(name for name in os.listdir(store.descriptor)
+                           if re.fullmatch(r'frequency-dirty-[0-9]{4}\.json', name))
+            require(len(names) < 100, 'Too many frequency recovery intents')
+            for name in names:
+                intent = store.load(name)
+                policy_name = intent['policy_name']
+                field = intent['field']
+                require(name == 'frequency-dirty-' + str(state['sequence']).zfill(4) + '.json' and
+                        intent['sequence'] == state['sequence'] and
+                        policy_name in FREQUENCY_TARGETS and field in FREQUENCY_MUTABLE,
+                        'Frequency intent identity differs')
+                require(intent['before_pair'] in state['known_pairs'][policy_name],
+                        'Frequency intent predecessor unknown')
+                after_pair = intent['before_pair'].copy()
+                field_index = FREQUENCY_MUTABLE.index(field)
+                after_pair[field_index] = intent['after_pair'][field_index]
+                require(after_pair == intent['after_pair'] and
+                        after_pair[field_index] in (FREQUENCY_TARGET_KHZ,
+                            baseline['policies'][policy_name][field]['value']) and
+                        int(after_pair[0]) <= int(after_pair[1]), 'Frequency intent value differs')
+                if after_pair not in state['known_pairs'][policy_name]:
+                    state['known_pairs'][policy_name].append(after_pair)
+                if field not in state['pending_fields'][policy_name]:
+                    state['pending_fields'][policy_name].append(field)
+                visible_name = 'frequency-visible-' + str(state['sequence']).zfill(4) + '.json'
+                if after_pair[field_index] == baseline['policies'][policy_name][field]['value'] and store.has(visible_name):
+                    visible = store.load(visible_name)
+                    require(visible['policy_name'] == policy_name and visible['limits_khz'] == after_pair,
+                            'Frequency restoration receipt differs')
+                    state['pending_fields'][policy_name].remove(field)
+                state['sequence'] += 1
+        except Exception as error:
+            errors.append({'step': 'frequency_reconstruct', 'error': repr(error)})
+            return
+    for policy_name in FREQUENCY_TARGETS:
+        for field in FREQUENCY_MUTABLE:
+            attempt(errors, 'restore_' + policy_name + '_' + field,
+                    lambda policy_name=policy_name, field=field: frequency_change(
+                        store, state, policy_name, field,
+                        state['baseline']['policies'][policy_name][field]['value'],
+                        min(deadline_seconds, time.monotonic() + 1), restoring=True))
+    def final_frequency_readback():
+        current = frequency_snapshot()
+        require(not any(state.get('pending_fields', {}).values()),
+                'Dirty frequency request has not been explicitly cancelled')
+        require(current == state['baseline'], 'Visible frequency configuration not restored')
+        store.save('frequency-restored-' + str(state['sequence']).zfill(4) + '-' + os.urandom(6).hex() + '.json',
+                   {'utc': utc_now(), 'snapshot': current, 'hardware_frequency_qualified': False})
+    attempt(errors, 'frequency_final_readback', final_frequency_readback)
 
 
 def require(condition, message):
@@ -300,7 +482,7 @@ def empty_probe(group, store, deadline_seconds):
                 wait_owned_child(waiting_child, time.monotonic() + 1)
 
 
-def guard(store, life_reader, lock_descriptor, token, fallback_inode):
+def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_mode=False):
     deadline_seconds = time.monotonic() + 20
     os.setsid()
     signal.signal(signal.SIGHUP, signal.SIG_IGN)
@@ -316,10 +498,36 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode):
     errors = []
     reason = 'not_started'
     active = False
+    frequency_state = None
     try:
         store.save('guard.json', {'pid': os.getpid(), 'start_ticks': start_ticks(os.getpid()),
                                  'effective_uid': os.geteuid()})
         store.save('baseline.json', snapshot())
+        if frequency_mode:
+            frequency_baseline = frequency_snapshot()
+            require(frequency_baseline['policy_names'] == list(FREQUENCY_POLICIES),
+                    'Expected exactly 32 frequency policies')
+            require(frequency_baseline['cpu_links'] == {
+                str(cpu): str(FREQUENCY_ROOT / ('policy' + str(cpu))) for cpu in (2, 18)},
+                'Initial CPU frequency mapping differs')
+            require({name: row['value'] for name, row in frequency_baseline['global'].items()} ==
+                    {'status': 'active', 'boost': '1', 'prefcore': 'enabled'},
+                    'Unexpected initial global frequency state')
+            for name, row in frequency_baseline['policies'].items():
+                expected_fields = {'affected_cpus': name[6:], 'related_cpus': name[6:],
+                                   'scaling_driver': 'amd-pstate-epp',
+                                   'scaling_governor': 'powersave',
+                                   'energy_performance_preference': 'balance_performance',
+                                   'boost': '1', 'scaling_min_freq': '2982259',
+                                   'scaling_max_freq': '5756452'}
+                require(all(row[field]['value'] == value for field, value in expected_fields.items()),
+                        'Initial frequency policy differs')
+                require(int(row['cpuinfo_min_freq']['value']) <= int(FREQUENCY_TARGET_KHZ) <=
+                        int(row['cpuinfo_max_freq']['value']), 'Target outside CPU capability')
+            store.save('frequency-baseline.json', frequency_baseline)
+            frequency_state = {'baseline': frequency_baseline, 'sequence': 0, 'known_pairs': {
+                name: [[frequency_baseline['policies'][name][field]['value']
+                        for field in FREQUENCY_MUTABLE]] for name in FREQUENCY_TARGETS}}
         guard_group = OwnedGroup('a113part-' + token + '-guard')
         store.save('guard-group.json', {'name': guard_group.name, 'inode': guard_group.inode})
         guard_group.write('cpuset.mems', '0')
@@ -347,11 +555,31 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode):
                     cpu_set(probe_group.read('cpuset.cpus.effective')) == PROBE_CPUS,
                     'Probe partition lost validity')
             snapshot((guard_group.name, probe_group.name), active=True)
+            if frequency_mode and active:
+                require(frequency_snapshot() == expected_frequency,
+                        'Active frequency configuration changed')
 
         monitor()
+        if frequency_mode:
+            for policy_name in FREQUENCY_TARGETS:
+                for field in FREQUENCY_MUTABLE:
+                    frequency_change(store, frequency_state, policy_name, field,
+                                     FREQUENCY_TARGET_KHZ,
+                                     min(deadline_seconds, time.monotonic() + 1))
+            expected_frequency = json.loads(json.dumps(frequency_state['baseline']))
+            for policy_name in FREQUENCY_TARGETS:
+                for field in FREQUENCY_MUTABLE:
+                    expected_frequency['policies'][policy_name][field]['value'] = FREQUENCY_TARGET_KHZ
+            require(frequency_snapshot() == expected_frequency, 'Active frequency request differs')
         empty_probe(probe_group, store, min(deadline_seconds, time.monotonic() + 2))
+        active_frequency = frequency_snapshot() if frequency_mode else None
+        if frequency_mode:
+            require(active_frequency == expected_frequency, 'Frequency changed before active receipt')
         store.save('active.json', {'partition': values(probe_group.path),
-                                  'snapshot': snapshot((guard_group.name, probe_group.name), True)})
+                                  'snapshot': snapshot((guard_group.name, probe_group.name), True),
+                                  'frequency_mode': frequency_mode,
+                                  'frequency': active_frequency,
+                                  'hardware_frequency_qualified': False})
         active = True
         received = wait_byte(life_reader, deadline_seconds, monitor)
         require(received in (b'R', b''), 'Unexpected controller instruction')
@@ -364,11 +592,20 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode):
                 require(not probe_group.read('cgroup.procs') and
                         not any(child.is_dir() for child in probe_group.path.iterdir()),
                         'Unknown member or child prevents probe restoration')
+                if frequency_state is not None and guard_group is not None:
+                    require(guard_group.read('cgroup.procs').split() == [str(os.getpid())] and
+                            not any(child.is_dir() for child in guard_group.path.iterdir()),
+                            'Unknown guard member or child prevents frequency restoration')
             except Exception as error:
                 errors.append({'step': 'probe_empty_check', 'error': repr(error)})
             else:
+                if frequency_state is not None:
+                    frequency_restore(store, frequency_state, errors, time.monotonic() + 6)
                 attempt(errors, 'release_probe', lambda: probe_group.write('cpuset.cpus.partition', 'member'))
                 attempt(errors, 'remove_probe', probe_group.remove)
+        elif frequency_state is not None:
+            attempt(errors, 'frequency_without_probe', lambda: require(
+                frequency_state['sequence'] == 0, 'Frequency write without an owned probe'))
         if guard_group is not None:
             def return_guard():
                 fallback = CGROUP_ROOT / 'init.scope'
@@ -396,7 +633,7 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode):
     os._exit(0 if outcome['success'] else 1)
 
 
-def controller(store, lock_descriptor, token, fallback_inode):
+def controller(store, lock_descriptor, token, fallback_inode, frequency_mode=False):
     signal.signal(signal.SIGCHLD, signal.SIG_DFL)
     store.save('controller.json', {'pid': os.getpid(), 'start_ticks': start_ticks(os.getpid())})
     life_reader, life_writer = os.pipe()
@@ -404,7 +641,7 @@ def controller(store, lock_descriptor, token, fallback_inode):
     if guard_id == 0:
         os.close(life_writer)
         try:
-            guard(store, life_reader, lock_descriptor, token, fallback_inode)
+            guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_mode)
         except BaseException:
             os._exit(2)
     os.close(life_reader)
@@ -453,14 +690,15 @@ def lock_root(work_directory):
     return descriptor
 
 
-def run_case(run_store, mode, lock_descriptor, fallback_inode):
+def run_case(run_store, mode, lock_descriptor, fallback_inode, frequency_mode=False):
     path = run_store.path / mode
     os.mkdir(mode, 0o700, dir_fd=run_store.descriptor)
     store = Store(path)
     token = run_store.path.name.rsplit('-', 1)[1] + '-' + mode
     controller_log = store.open_file('controller.log', os.O_WRONLY | os.O_CREAT | os.O_EXCL)
     process = subprocess.Popen(frozen_command(['controller', str(path), str(store.descriptor),
-                               str(lock_descriptor), token, str(fallback_inode)]),
+                               str(lock_descriptor), token, str(fallback_inode),
+                               'frequency' if frequency_mode else 'partition']),
                                stdin=subprocess.PIPE, stdout=controller_log, stderr=controller_log,
                                pass_fds=(store.descriptor, lock_descriptor))
     os.close(controller_log)
@@ -491,8 +729,14 @@ def run_case(run_store, mode, lock_descriptor, fallback_inode):
                 ('release' if mode == 'normal' else 'controller_eof'), 'Restoration did not pass')
         final = snapshot()
         require(final['top_names'] == store.load('baseline.json')['top_names'], 'Independent readback differs')
+        frequency_final = frequency_snapshot() if frequency_mode else None
+        if frequency_mode:
+            require(frequency_final == store.load('frequency-baseline.json'),
+                    'Independent frequency readback differs')
         store.save('observer.json', {'utc': utc_now(), 'guard_pidfd_exit_observed': True,
-                                    'controller_exit_code': exit_code, 'readback': final, 'success': True})
+                                    'controller_exit_code': exit_code, 'readback': final,
+                                    'frequency_readback': frequency_final,
+                                    'hardware_frequency_qualified': False, 'success': True})
     finally:
         if not process.stdin.closed:
             try:
@@ -538,12 +782,13 @@ def archive_run(store, work_directory):
     return target
 
 
-def run():
+def run(frequency_mode=False):
     signal.signal(signal.SIGCHLD, signal.SIG_DFL)
     fallback_inode = root_gate()
     work_directory = work_descriptor()
     lock_descriptor = lock_root(work_directory)
-    path = WORK_ROOT / ('core-partition-20261010-' + os.urandom(6).hex())
+    prefix = 'core-frequency' if frequency_mode else 'core-partition'
+    path = WORK_ROOT / (prefix + '-20261010-' + os.urandom(6).hex())
     check_work(work_directory)
     os.mkdir(path.name, mode=0o700, dir_fd=work_directory)
     store = Store(path)
@@ -552,11 +797,13 @@ def run():
         store.save('source.json', {'sha256': hashlib.sha256(SOURCE_TEXT.encode()).hexdigest(),
                                   'source': SOURCE_TEXT, 'utc': utc_now()})
         for mode in ('normal', 'parent-loss'):
-            run_case(store, mode, lock_descriptor, fallback_inode)
+            run_case(store, mode, lock_descriptor, fallback_inode, frequency_mode)
     except Exception as error:
         errors.append(repr(error))
     store.save('run.json', {'success': not errors, 'errors': errors, 'utc': utc_now(),
-                          'configuration_scope': 'owned_virtual_cgroups_only'})
+                          'configuration_scope': 'owned_virtual_cgroups_and_two_policy_frequency_limits'
+                          if frequency_mode else 'owned_virtual_cgroups_only',
+                          'hardware_frequency_qualified': False})
     target = archive_run(store, work_directory)
     print(json.dumps({'run_directory': str(path), 'archive': str(target), 'success': not errors,
                       'errors': errors}), flush=True)
@@ -573,13 +820,15 @@ def recover(path):
     store = Store(path)
     require(store.path.name in ('normal', 'parent-loss') and
             store.path.parent.parent == WORK_ROOT and
-            re.fullmatch(r'core-partition-20261010-[0-9a-f]{12}', store.path.parent.name),
+            re.fullmatch(r'core-(partition|frequency)-20261010-[0-9a-f]{12}', store.path.parent.name),
             'Recovery path is not a known case')
     errors = []
     token = store.path.parent.name.rsplit('-', 1)[1] + '-' + store.path.name
     expected_names = ['a113part-' + token + suffix for suffix in ('-probe', '-guard')]
     try:
-        for name in ('guard.json', 'controller.json'):
+        for name in ('guard.json', 'controller.json', 'probe-before-exec.json'):
+            if name == 'probe-before-exec.json' and not store.has(name):
+                continue
             identity = store.load(name)
             try:
                 descriptor = os.pidfd_open(identity['pid'])
@@ -591,6 +840,7 @@ def recover(path):
                             'Original process still live')
             finally:
                 os.close(descriptor)
+        owned_groups = []
         for name, expected_name in zip(('probe-group.json', 'guard-group.json'), expected_names):
             present = (CGROUP_ROOT / expected_name).exists()
             require(store.has(name) or not present, 'Owned path exists without inode receipt')
@@ -602,6 +852,15 @@ def recover(path):
             require(not group.read('cgroup.procs') and
                     not any(child.is_dir() for child in group.path.iterdir()),
                     'Manual recovery refuses unknown members or child groups')
+            owned_groups.append((name, group))
+        if store.path.parent.name.startswith('core-frequency-'):
+            if store.has('frequency-baseline.json'):
+                frequency_restore(store, None, errors, time.monotonic() + 6)
+            else:
+                require(not any((CGROUP_ROOT / name).exists() for name in expected_names) and
+                        not any(name.startswith('frequency-dirty-') for name in os.listdir(store.descriptor)),
+                        'Frequency recovery state missing')
+        for name, group in owned_groups:
             if name == 'probe-group.json':
                 attempt(errors, 'manual_release', lambda: group.write('cpuset.cpus.partition', 'member'))
             attempt(errors, 'manual_remove', group.remove)
@@ -707,7 +966,166 @@ def selfcheck(directory):
             except ChildProcessError:
                 continue
             raise AssertionError('Owned probe child not reaped')
-    print('selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset; kernel_writes=none')
+    for frequency_case in ('partial', 'pending_invisible', 'pending_cancel_failure',
+                           'restore_failure', 'unknown'):
+        baseline = {'global': {'status': {'value': 'active'}},
+                    'cpu_links': {'2': 'policy2', '18': 'policy18'},
+                    'policy_names': list(FREQUENCY_POLICIES), 'policies': {}}
+        for policy_index, policy_name in enumerate(FREQUENCY_POLICIES):
+            row = {'identity': {'inode': policy_index + 1, 'device': 42}}
+            for field_index, field in enumerate(FREQUENCY_FIELDS):
+                value = '2982259' if field == 'scaling_min_freq' else '5756452'
+                row[field] = {'value': value, 'inode': 100 + policy_index * 20 + field_index,
+                              'device': 42, 'owner_uid': 0, 'mode': 0o644}
+            baseline['policies'][policy_name] = row
+        virtual = json.loads(json.dumps(baseline))
+        records = {'frequency-baseline.json': baseline}
+        state = {'baseline': baseline, 'sequence': 0, 'known_pairs': {
+            name: [['2982259', '5756452']] for name in FREQUENCY_TARGETS}}
+        control = {'pending': None, 'opened': None, 'fail': None,
+                   'accept_failure': False, 'writes': [], 'snapshot_count': 0, 'delay': 2}
+
+        def save_frequency_record(name, value):
+            require(name not in records, 'Frequency receipt overwritten')
+            records[name] = json.loads(json.dumps(value))
+
+        fake_store = SimpleNamespace(descriptor=98765, save=save_frequency_record,
+                                     has=lambda name: name in records,
+                                     load=lambda name: json.loads(json.dumps(records[name])))
+
+        def fake_frequency_snapshot(policy_names=FREQUENCY_POLICIES):
+            control['snapshot_count'] += 1
+            if control['pending'] is not None:
+                control['pending'][3] -= 1
+                if control['pending'][3] == 0:
+                    name, field, value, _ = control['pending']
+                    virtual['policies'][name][field]['value'] = value
+                    control['pending'] = None
+            result = json.loads(json.dumps(virtual))
+            result['policies'] = {name: result['policies'][name] for name in policy_names}
+            return result
+
+        def fake_frequency_open(path, flags):
+            path = Path(path)
+            require(path.parent.name in FREQUENCY_TARGETS and path.name in FREQUENCY_MUTABLE and
+                    flags == os.O_WRONLY | os.O_NOFOLLOW | os.O_CLOEXEC,
+                    'Unexpected frequency write path or flags')
+            control['opened'] = (path.parent.name, path.name)
+            return 98766
+
+        def fake_frequency_stat(descriptor):
+            require(descriptor == 98766, 'Unexpected fake frequency descriptor')
+            name, field = control['opened']
+            expected = baseline['policies'][name][field]
+            return SimpleNamespace(st_uid=0, st_mode=stat.S_IFREG | expected['mode'],
+                                   st_ino=expected['inode'], st_dev=expected['device'])
+
+        def fake_frequency_write(descriptor, contents):
+            require(descriptor == 98766, 'Unexpected fake write descriptor')
+            name, field = control['opened']
+            value = contents.decode().strip()
+            latest_name = max(name for name in records if re.fullmatch(
+                r'frequency-dirty-[0-9]{4}\.json', name))
+            latest = records[latest_name]
+            require(latest['policy_name'] == name and latest['field'] == field,
+                    'Write preceded durable intent')
+            control['writes'].append((name, field, value))
+            if control['fail'] == (name, field):
+                control['fail'] = None
+                if control['accept_failure']:
+                    virtual['policies'][name][field]['value'] = value
+                raise OSError('injected frequency write failure')
+            control['pending'] = [name, field, value, control['delay']]
+            return len(contents)
+
+        with patch.object(sys.modules[__name__], 'frequency_snapshot', fake_frequency_snapshot), \
+                patch.object(os, 'open', fake_frequency_open), \
+                patch.object(os, 'fstat', fake_frequency_stat), \
+                patch.object(os, 'write', fake_frequency_write), \
+                patch.object(os, 'close', lambda descriptor: None), \
+                patch.object(os, 'listdir', lambda descriptor: list(records)):
+            for policy_name, field in (('policy2', 'boost'), ('policy0', 'scaling_min_freq')):
+                try:
+                    frequency_change(fake_store, state, policy_name, field, '0', time.monotonic()+1)
+                except RuntimeError:
+                    pass
+                else:
+                    raise AssertionError('Out-of-scope frequency write accepted')
+            require(not control['writes'], 'Rejected frequency write reached syscall')
+            if frequency_case == 'partial':
+                frequency_change(fake_store, state, 'policy2', 'scaling_min_freq',
+                                 FREQUENCY_TARGET_KHZ, time.monotonic()+1)
+                control['fail'] = ('policy2', 'scaling_max_freq')
+                control['accept_failure'] = True
+                try:
+                    frequency_change(fake_store, state, 'policy2', 'scaling_max_freq',
+                                     FREQUENCY_TARGET_KHZ, time.monotonic()+1)
+                except OSError:
+                    pass
+                else:
+                    raise AssertionError('Partial write failure hidden')
+            elif frequency_case in ('pending_invisible', 'pending_cancel_failure'):
+                control['delay'] = 1000000
+                try:
+                    frequency_change(fake_store, state, 'policy2', 'scaling_min_freq',
+                                     FREQUENCY_TARGET_KHZ, time.monotonic()+0.02)
+                except TimeoutError:
+                    pass
+                else:
+                    raise AssertionError('Invisible accepted frequency request did not time out')
+                require(virtual == baseline, 'Delayed request became visible too early')
+                control['delay'] = 2
+                if frequency_case == 'pending_cancel_failure':
+                    control['fail'] = ('policy2', 'scaling_min_freq')
+            else:
+                for policy_name in FREQUENCY_TARGETS:
+                    for field in FREQUENCY_MUTABLE:
+                        frequency_change(fake_store, state, policy_name, field,
+                                         FREQUENCY_TARGET_KHZ, time.monotonic()+1)
+                if frequency_case == 'restore_failure':
+                    control['fail'] = ('policy2', 'scaling_min_freq')
+                else:
+                    virtual['policies']['policy2']['scaling_min_freq']['value'] = '4000000'
+                    virtual['policies']['policy3']['scaling_max_freq']['value'] = '5700000'
+            errors = []
+            frequency_restore(fake_store, state, errors, time.monotonic()+6)
+            require(virtual['policies']['policy18'] == baseline['policies']['policy18'],
+                    'Frequency restoration did not continue to second policy')
+            if frequency_case in ('partial', 'pending_invisible'):
+                require(not errors and virtual == baseline, 'Partial accepted write not restored')
+                if frequency_case == 'pending_invisible':
+                    require(control['writes'] == [('policy2', 'scaling_min_freq', FREQUENCY_TARGET_KHZ),
+                                                  ('policy2', 'scaling_min_freq', '2982259')],
+                            'Invisible dirty request was not explicitly superseded')
+                    if control['pending'] is not None:
+                        control['pending'][3] = 1
+                    require(fake_frequency_snapshot() == baseline, 'Delayed request reappeared')
+                write_count = len(control['writes'])
+                frequency_restore(fake_store, None, errors, time.monotonic()+6)
+                frequency_restore(fake_store, None, errors, time.monotonic()+6)
+                require(not errors and len(control['writes']) == write_count,
+                        'Repeated manual recovery changed a restored policy or overwrote receipt')
+            elif frequency_case == 'restore_failure':
+                require(errors and virtual['policies']['policy2']['scaling_max_freq']['value'] == '5756452',
+                        'Failure prevented remaining frequency restore steps')
+                errors = []
+                frequency_restore(fake_store, None, errors, time.monotonic()+6)
+                require(not errors and virtual == baseline, 'Manual partial-state reconstruction failed')
+            elif frequency_case == 'pending_cancel_failure':
+                require(errors and virtual == baseline and
+                        not any(name.startswith('frequency-restored-') for name in records),
+                        'Pending cancellation failure published a restored receipt')
+                control['pending'][3] = 1
+                require(fake_frequency_snapshot() != baseline, 'Late failed-cancellation request absent')
+                errors = []
+                frequency_restore(fake_store, None, errors, time.monotonic()+6)
+                require(not errors and virtual == baseline, 'Pending manual cancellation failed')
+            else:
+                require(errors and virtual['policies']['policy2']['scaling_min_freq']['value'] == '4000000' and
+                        virtual['policies']['policy3']['scaling_max_freq']['value'] == '5700000',
+                        'Unknown or non-target frequency state overwritten')
+            require(control['snapshot_count'] > len(control['writes']), 'Async readback not exercised')
+    print('selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset,frequency_partial,frequency_async,frequency_scope,frequency_conflict,frequency_continue,frequency_manual_repeat,frequency_pending_superseded,frequency_cancel_failure; kernel_writes=none')
 
 
 if __name__ == '__main__':
@@ -715,9 +1133,13 @@ if __name__ == '__main__':
         selfcheck(sys.argv[2])
     elif sys.argv[1:] == ['run']:
         raise SystemExit(run())
-    elif len(sys.argv) == 7 and sys.argv[1] == 'controller':
+    elif sys.argv[1:] == ['run-frequency']:
+        raise SystemExit(run(frequency_mode=True))
+    elif len(sys.argv) == 8 and sys.argv[1] == 'controller':
+        require(sys.argv[7] in ('partition', 'frequency'), 'Unknown controller mode')
         case_store = Store(sys.argv[2], int(sys.argv[3]))
-        raise SystemExit(controller(case_store, int(sys.argv[4]), sys.argv[5], int(sys.argv[6])))
+        raise SystemExit(controller(case_store, int(sys.argv[4]), sys.argv[5], int(sys.argv[6]),
+                                    sys.argv[7] == 'frequency'))
     elif len(sys.argv) == 3 and sys.argv[1] == 'recover':
         raise SystemExit(recover(sys.argv[2]))
     else:
