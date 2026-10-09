@@ -307,3 +307,8 @@ Linux6.17本地isolated分区路线经内核文档及独立资源审查成立，
 2026-10-10完成[内核分区管理准备](evidence/core-partition-20261010/preparation/PREPARATION.md)：新的单guard/自有组源码与CMake自检，八类边界检查1/1通过。
 真实root只读预检80组全默认，无配置写入；独立源码审查已关闭原子回执、有限等待、FD路径、manual缺回执、nonce及SIGCHLD边界，不预签实机结果。
 新合同固定normal及controller-SIGKILL各一次，Cry内全部落盘文件；旧609行/run方案保持禁用，Linux分区与恢复预演尚未开始，R02/R04未升级。
+
+2026-10-10完成[真实单核分区与恢复预演](evidence/core-partition-20261010/run-b0fd479/README.md)：b0fd479/9a2d源码，Linux八边界自检1/1，两case有效isolated2/18、各一空任务退出0。
+normal controller0/release、parent-loss controller-9/EOF，两guard经pidfd实际终止；独立root回读四原进程absent、全CPU0—31归还、isolated空、ownedgroups无、锁可取。
+32份root私有原件与拉回摘要一致，全部项目文件在Cry内，SSH已关闭。c4bb首次内核换行入口失败于资源修改前，原件及空状态保留，修复另提交不覆盖。
+本次限定资源管理，不是杀整SSH会话/guard、人工恢复或锁频实测，无新密码或统计采集，R02/R04与完整目标仍未完成。

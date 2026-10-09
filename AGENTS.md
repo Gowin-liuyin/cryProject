@@ -54,5 +54,7 @@
   - `run/mechanism`：四变体机制 CSV 与分析报告。
   - `run/performance`：普通性能。`run/collect`：短演示。`run/calibrate`：有限模型。`run/reference-label-control`：后赋标签。`run/replay`：封存历史重放。
 - 拉回副本是 `docs/evidence/baremetal-ryzen-20261008`，单独存放，不并入 `docs/evidence/r07-linux-20261008`。这些记录不是频率锁定、恒时证明或竞赛签收。下次新跑仍以 `/home/nss-marker/yhr/Cry` 为根，另建子目录，保留这次的 `source/` 和 `run/`。
+- 2026-10-10单核分区管理预演：固定源码上传/自检在 `Cry/partition-source-c4bb88a` 和 `Cry/partition-source-b0fd479`；前者前置解析拒绝，后者是提交 `b0fd4797d44d5d79cd0aec84b3996cc5473c190a`。root私有原件在 `Cry/core-partition-20261010-44fee52e576a`，可读归档为同级同名 `.tar`，锁在 `Cry/partition-admin.lock`。以上均在唯一存放边界内，保留原件。
+- 此次仅执行normal和controller单进程SIGKILL两条空任务恢复路径；临时内核分区已删除，CPU0—31归还、原四进程不存在、锁空闲，SSH已关闭。记录在 `docs/evidence/core-partition-20261010`。它不表示当前仍独占、频率已锁定、guard自身死亡可恢复或R02/R04已签收；旧依赖 `/run` 工作文件的方案仍禁用。
 
 R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。

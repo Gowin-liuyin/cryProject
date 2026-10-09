@@ -1,0 +1,179 @@
+
+{
+  "utc": "2026-10-09T18:34:59.857322+00:00",
+  "effective_uid": 0,
+  "root_effective": "0-31",
+  "root_isolated": "",
+  "owned_groups": [],
+  "lock_available": true,
+  "processes": {
+    "normal/guard": "absent",
+    "normal/controller": "absent",
+    "parent-loss/guard": "absent",
+    "parent-loss/controller": "absent"
+  },
+  "original_files": {
+    "normal/active.json": {
+      "sha256": "664e8b82e45412a30f19d0672078a1f0a32ed6daedde37bf51d1df903b72a141",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/baseline.json": {
+      "sha256": "27967becfb01ad65695f536015101a0a1e8925b2d3d677498607af0513e52921",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/controller.json": {
+      "sha256": "30437a83e5d18acb71124b34dd0406c2ec0b6db9646bd73ade1d8acacd6447fe",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/controller.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/guard-group.json": {
+      "sha256": "8ba0b76fefd8313f9d7a2ee6f0a5aa89015710cbef258a7a397cb831e057ef15",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/guard.json": {
+      "sha256": "c7acbcb4fc74e22f8672a515b3b4a57ccc2745b08e3e1236cf70acdbfd5b12e4",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/guard.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/observer-final.json": {
+      "sha256": "018e23791ecd49131f431200f8d4318e5a4d9e18713a0caaee35a6c14d200f71",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/observer-guard.json": {
+      "sha256": "c5eaeeaf2e8b0a2d6feee182fa0dd36cdea19563ff4d1d7a6ca8249f144ee53f",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/observer.json": {
+      "sha256": "140dd5b3af9f68e3c803046417f6036a9716638473e30f708c2de661e55eed6d",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/probe-before-exec.json": {
+      "sha256": "7c76d21ba7e0b9ec7c0240852dddf39545bca93c9bc449d353a0623332e994a2",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/probe-exit.json": {
+      "sha256": "eccb4593babbf3ea291846d0fa607b0e4a74cdf9bd200b1f2da05b375c6caaf6",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/probe-group.json": {
+      "sha256": "0d0df2e92bdded9bf93b87258c36b6bbff1d3bcaa730a998a5cdd2823dcdfd8a",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/ready.json": {
+      "sha256": "2113f7d92fe8519265c19fde902f722ec435576a152a058d256e33f8d2c4804c",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "normal/terminal.json": {
+      "sha256": "986c95aa1f5f022ae0d311389da4edd563c8b5d3b431d43d458192b0dcc7eafd",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/active.json": {
+      "sha256": "033cacf3fe5174781ac84c49ba0b3b321a357e42da26fdc2fb6622c9e8b9324e",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/baseline.json": {
+      "sha256": "fb7c15c637c3755c320a05a97a27669f8b3477194ac788f821752b857ce62f5e",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/controller.json": {
+      "sha256": "931f282e242ded09ea611d85c6c8919e9fe2708339aa9812ac0d38c0bef484f3",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/controller.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/guard-group.json": {
+      "sha256": "9b8ba90b695cd28bc7792d2a90ca37c6203b17c8a4df97a487f7cc4b40067064",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/guard.json": {
+      "sha256": "3f80860ac13e3585be4b305659645f3fb6b61a3499e4b65e3e18fa8cf79fab28",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/guard.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/observer-final.json": {
+      "sha256": "8fcfd179210d934566c716a8638d0a1109e574c9d0e2dcaab9efe59d33f55ad6",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/observer-guard.json": {
+      "sha256": "932ab4a915ad711a8ce7d2430fdbc6cbb794ce1d7d921e1d801703297e314dfb",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/observer.json": {
+      "sha256": "033ebf311bcab3964bf3e554846fa647b7f0c58316040832778a1a4fc70367c9",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/probe-before-exec.json": {
+      "sha256": "78f063709bcc3675519ff39ebeef0ef8f762c0c3f60e6d86871df3cff703f54e",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/probe-exit.json": {
+      "sha256": "9d0ecd8023abe17edce7d66836916c75150a6aea558e757f3ba14b4c4e1e8195",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/probe-group.json": {
+      "sha256": "9229d10da42316918d58bfb3780baa22c6bc338bd9cf6d9bc1df35662085c873",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/ready.json": {
+      "sha256": "a34f9b56a7e428f865644ef4ffdf43090b907eb6e5752a471e3de8aa6b2d9438",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "parent-loss/terminal.json": {
+      "sha256": "e834bf875165423631b6ad823ba080daa388bc64cf5a7e852eda969469b66bc8",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "run.json": {
+      "sha256": "adbe07e698e1632479c54d46436048fbfebf428b6c9234ae3b88656afd3cca0c",
+      "uid": 0,
+      "mode": "0o600"
+    },
+    "source.json": {
+      "sha256": "5c2c290f614d5845a843861ff7b8451e614fe2899ca1876fbee9c1d131160514",
+      "uid": 0,
+      "mode": "0o600"
+    }
+  },
+  "configuration_writes": 0
+}
+Shared connection to 10.144.144.5 closed.
