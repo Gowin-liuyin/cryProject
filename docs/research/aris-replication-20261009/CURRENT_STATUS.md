@@ -12,7 +12,8 @@
 | 当前展示和讲解 | R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接核对；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
 | R02/R04下一设计 | DESIGN_READY_WITH_REQUIRED_INPUTS；实际NOT_READY_TO_RUN | [下一协议](NEXT_VALIDATION_PROTOCOL.md) |
 | Linux数学软件及产物身份 | 四工具链/动态配置各9/9；十二个原ELF已取回静态核验，没有新计时 | [软件结果](../aris-linux-math-software-20261009/RESULTS.md)、[ELF核验](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md) |
-| 少量CPU预留路线 | CPU2/18单物理核路线及管理员能力已查；固定准备件fa1f9a0和三源stage经审查/逐字核验，实际预演NOT_STARTED，待新的系统提示交互认证 | [准备件](../aris-core-rehearsal-20261009/README.md)、[只读原件](../../evidence/aris-core-conflict-20261009/README.md) |
+| 少量CPU预留路线 | 密码交互已实际成功；旧fa1f9a0预演因依赖新边界外项目文件而禁用，未执行；后续资源控制须先符合Cry目录约定 | [准备记录及禁用说明](../aris-core-rehearsal-20261009/README.md)、[只读原件](../../evidence/aris-core-conflict-20261009/README.md) |
+| 云端项目文件归位 | 15个已确认旧临时目录、2502文件及9内部链接已迁入Cry/relocated并独立回读；15旧根均删除；旧KVM身份变化待核验 | [迁移原件及边界](../../evidence/remote-storage-20261009/README.md) |
 | 完整研究及竞赛验收 | partial；R02/R04真实前提及T13真人材料未签收 | [当前全审计](FULL_GOAL_AUDIT.md)、[全要求表](../../full-work-acceptance.md) |
 
 报告、解释包与软件v3各有身份，不以新报告替换原软件或原M01。原42页、59b及56ad件保持；当前解释包明确旧状态的历史日期。外部Codex MCP未提供，同模型不同代理的独立审查不改称外部同行评审。
@@ -30,3 +31,5 @@
 其后的认证执行门已完成[三个连续回合审计](../aris-core-rehearsal-20261009/EXECUTION_GATE_AUDIT.md)：仍无执行回执或确认存活句柄，且没有可独立关闭实际预演、R02/R04前提及T13缺口的动作。已满足blocked条件，完成记录后由目标工具设置；前段active为当时状态，最终以工具返回为准。完整研究目标保留，已有准备、报告和原始证据保持，当前不称全部完成。
 
 2026-10-09用户明确继续由代理使用密码交互登录，已实际成功进入指定主机；认证输入不再作为当前阻断。用户随后收紧云端存放边界为/home/nss-marker/yhr/Cry及其子目录，并授权将本项目边界外资料先搬回、校验后删除旧副本。AGENTS已同步；旧/run预演在包装及Python管理入口禁用，尚未执行，不以旧fa1f9a0审查代替新目录合规。当前先处理存储归位，旧KVM身份密钥变化另待可信核验；R02/R04及真人材料仍未签收。
+
+当前主机15个旧夹具目录已完成先复制、逐项摘要/元数据核验、源不变与活跃引用复核后删除旧副本，并另行回读2502文件和9链接，错误为零。归位根为/home/nss-marker/yhr/Cry/relocated/20261009T152507Z；其他用户项目未动。现有连接已结束。本次是存储维护，不产生新的密码计时、统计或验收结论；旧KVM未核验，不称全部历史云端内容清理完成。

@@ -1,0 +1,28 @@
+{
+  "scope": "independent_post_migration_readback",
+  "receipt_status": "complete",
+  "receipt_sha256": "074a229feb10ee97eea5088d05772ee8af15391f24252decc23f51cbf0d36a98",
+  "source_sha256": "d8c8a25f4698228e6c621dc67525e68c1a65f17fc87a90485469af96f971a0e4",
+  "approved_root": "/home/nss-marker/yhr/Cry",
+  "copied_roots": 15,
+  "regular_files_verified": 2502,
+  "symlinks_verified": 9,
+  "directory_entries_verified": 78,
+  "old_roots_absent": 15,
+  "process_scans": {
+    "before": {
+      "references": [],
+      "read_errors": [],
+      "processes_checked": 553,
+      "threads_checked": 1376
+    },
+    "before_delete": {
+      "references": [],
+      "read_errors": [],
+      "processes_checked": 553,
+      "threads_checked": 1376
+    }
+  },
+  "errors": [],
+  "verification_passed": true
+}

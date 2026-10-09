@@ -1,0 +1,40 @@
+{
+  "execution": {
+    "chunk_id": "a6d377",
+    "wall_time_seconds": 0.000006667,
+    "exit_code": 0,
+    "original_token_count": 82,
+    "output": "{\"destination\": \"/home/nss-marker/yhr/Cry/relocated/20261009T152507Z\", \"receipt\": \"/home/nss-marker/yhr/Cry/relocated/20261009T152507Z/migration.json\", \"status\": \"complete\", \"directories\": 15, \"files\": 2502, \"symlinks\": 9, \"bytes\": 98401772, \"removed_old_directories\": 15, \"errors\": []}\r\nConnection to 10.144.144.5 closed.\r\r\n"
+  },
+  "first_preflight_rejection": {
+    "chunk_id": "d60986",
+    "wall_time_seconds": 0.4428645,
+    "exit_code": 1,
+    "original_token_count": 66,
+    "output": "\r\nTraceback (most recent call last):\r\n  File \"<string>\", line 218, in <module>\r\n  File \"<string>\", line 133, in migrate\r\n  File \"<string>\", line 50, in snapshot\r\nRuntimeError: Symlink or special file requires separate review\r\nConnection to 10.144.144.5 closed.\r\r\n"
+  },
+  "initial_client_failure": {
+    "chunk_id": "56a13c",
+    "wall_time_seconds": 0.00001325,
+    "exit_code": 255,
+    "original_token_count": 10,
+    "output": "^CConnection to 10.144.144.5 closed.\r\r\n"
+  },
+  "read_only_state_before_corrected_channel": {
+    "chunk_id": "4c2df1",
+    "wall_time_seconds": 0.000057875,
+    "exit_code": 0,
+    "original_token_count": 44,
+    "output": "\r\n{\r\n  \"effective_uid\": 0,\r\n  \"old_roots_present\": 15,\r\n  \"receipts\": [],\r\n  \"matching_migration_processes\": [],\r\n  \"changes\": false\r\n}\r\nConnection to 10.144.144.5 closed.\r\r\n"
+  },
+  "kvm_host_key_rejection": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "db5d52",
+      "wall_time_seconds": 0.0000125,
+      "exit_code": 255,
+      "original_token_count": 196,
+      "output": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ED25519 key sent by the remote host is\nSHA256:N/YjUuFZ5EUiCx5f5jVqFrOGZoCjcLTh2pEYA80dXGs.\r\nPlease contact your system administrator.\r\nAdd correct host key in /Users/yin/.ssh/known_hosts to get rid of this message.\r\nOffending ECDSA key in /Users/yin/.ssh/known_hosts:55\r\nHost key for 119.45.121.134 has changed and you have requested strict checking.\r\nHost key verification failed.\r\n"
+    }
+  }
+}

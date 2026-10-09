@@ -1,0 +1,16 @@
+{
+  "scope": "post_migration_known_project_prefix_scan",
+  "approved_root": "/home/nss-marker/yhr/Cry",
+  "scan_roots": [
+    "/home/nss-marker",
+    "/home/nss-marker/yhr",
+    "/tmp",
+    "/var/tmp",
+    "/run",
+    "/run/systemd/transient",
+    "/run/systemd/system.control"
+  ],
+  "outside_candidates": [],
+  "changes": false,
+  "other_yhr_entries_left_untouched": 9
+}
