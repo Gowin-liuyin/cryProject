@@ -15,6 +15,7 @@
 | 少量CPU预留路线 | 密码交互已实际成功；旧fa1f9a0预演因依赖新边界外项目文件而禁用，未执行；后续资源控制须先符合Cry目录约定 | [准备记录及禁用说明](../aris-core-rehearsal-20261009/README.md)、[只读原件](../../evidence/aris-core-conflict-20261009/README.md) |
 | 云端项目文件归位 | 15个已确认旧临时目录、2502文件及9内部链接已迁入Cry/relocated并独立回读；15旧根均删除；旧KVM身份变化待核验 | [迁移原件及边界](../../evidence/remote-storage-20261009/README.md) |
 | 后续测试临时目录 | 九处C硬编码/tmp已改为CTest指定根，35项环境配置完整；本地相关10/10及辅助动态检查1/1；Linux仅辅助程序普通与动态检查各1/1 | [本地核验](../../evidence/test-temp-root-20261009/README.md)、[Linux辅助检查](../../evidence/test-temp-linux-20261010/README.md) |
+| 弱均值区间理论 | 补齐设计型无偏/方差恒等式、独立赋值小样本反例、条件渐近及有界有限样本路线；真实适用条件未成立，不签收R04 | [证明与文献边界](WEAK_MEAN_PROOF_PACKAGE.md) |
 | 完整研究及竞赛验收 | partial；R02/R04真实前提及T13真人材料未签收 | [当前全审计](FULL_GOAL_AUDIT.md)、[全要求表](../../full-work-acceptance.md) |
 
 报告、解释包与软件v3各有身份，不以新报告替换原软件或原M01。原42页、59b及56ad件保持；当前解释包明确旧状态的历史日期。外部Codex MCP未提供，同模型不同代理的独立审查不改称外部同行评审。
