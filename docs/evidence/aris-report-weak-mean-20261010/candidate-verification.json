@@ -1,0 +1,43 @@
+{
+  "source_docx_sha256": "4c6ef7de4cfa681dd3550ec570d9a96b248e1a62885fccbdb4f0f6ea4421a7ca",
+  "original_source_unchanged": true,
+  "candidate_docx": "/Users/yin/code/cryProject/build/aris-report-weak-mean-20261010/CACR2026EA16XZ-作品设计报告-弱均值补充候选版.docx",
+  "candidate_docx_sha256": "9a2b7e92cebc8dc7b4aca677728a7ebb5d2b29c90b265e82d14b926bdb360c3a",
+  "candidate_pdf": "/Users/yin/code/cryProject/build/aris-report-weak-mean-20261010/render-final/CACR2026EA16XZ-作品设计报告-弱均值补充候选版.pdf",
+  "candidate_pdf_sha256": "671d059c0b39924bc7120900154fe2c206892aca50b97664f5a7202de1262a8c",
+  "actual_pages": 47,
+  "all_page_pngs_exist": true,
+  "toc_entries_verified": 42,
+  "original_elements": {
+    "tables": {
+      "count": 22,
+      "all_original_xml_hashes_identical": true
+    },
+    "native_math": {
+      "count": 62,
+      "all_original_xml_hashes_identical": true
+    },
+    "drawings": {
+      "count": 18,
+      "all_original_xml_hashes_identical": true
+    },
+    "sections": {
+      "count": 4,
+      "all_original_xml_hashes_identical": true
+    }
+  },
+  "original_text_or_date_paragraphs_changed": 5,
+  "layout_only_original_paragraphs_changed": 1,
+  "layout_only_original_text_and_math_preserved": true,
+  "unmodified_non_toc_original_paragraphs_verified": 297,
+  "new_paragraphs": 4,
+  "changed_ooxml_parts": [
+    "docProps/app.xml",
+    "word/document.xml"
+  ],
+  "visual_qa_complete": true,
+  "R04_remains_partial": true,
+  "new_cpu_execution_claims": 0,
+  "old_archive_contains_new_proof_claims": 0,
+  "status": "reviewable_candidate"
+}

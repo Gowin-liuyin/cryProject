@@ -1,14 +1,14 @@
 # ARIS当前研究与交付状态
 
-更新：2026-10-09。上一目标回合完成M02真实复核；本回合完成当前报告、匿名解释闭包、展示一致性和下一阶段验证设计。两回合均有实际文件、提交及验证进展，不属于仅重述状态。
+更新：2026-10-10。M02、20261009报告与解释闭包保留；新增条件均值证明、47页报告和实际单核管理恢复预演。完整目标仍未完成。
 
 | 范围 | 当前实际状态 | 权威入口 |
 |---|---|---|
 | 文献与数学依据 | 29项原书目、18同行评审项及阅读深度保持；P1—P6限定论证已审 | [原研究结论](../aris-20261008/RESEARCH_CONCLUSIONS.md)、[证明包](../aris-20261008/PROOF_PACKAGE.md) |
 | 官方具体补证及提交身份 | T09两项完整工作簿静态适用性、T12用户确认邮箱已关闭 | [本轮官方核对](../../evidence/aris-resume-20261009/official-source-check.md)及原确认记录 |
 | M02一次重建三进程 | 已完成、零重试；18/18非零中位比<1、240/240时钟合格，独立C审计通过 | [RESULTS](RESULTS.md)、[判定](RESULT_TO_CLAIM.md) |
-| 当前45页报告 | 内容、原模板结构、全页实际视觉及最终身份绑定通过；2855ec3提交 | [报告目录](../../../deliverables/research/aris-report-current-20261009/README.md)、[核验](../../evidence/aris-report-current-20261009/README.md) |
-| 当前匿名解释闭包 | 327e ZIP870项、714本地链接、原560项保持、只读C输出逐字一致；44606e5提交 | [包入口](../../../deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)、[独立闭包](../../evidence/aris-current-package-20261009/INDEPENDENT_STAGE_REVIEW.md) |
+| 当前47页报告 | 补入条件均值推断，原表图公式保持；全页视觉及独立内容/结构审查通过；R02/R04仍部分签收 | [新报告](../../../deliverables/research/aris-report-weak-mean-20261010/README.md)、[核验](../../evidence/aris-report-weak-mean-20261010/README.md) |
+| 20261009匿名解释闭包 | 原327e ZIP870项、714本地链接闭包保持；对应旧45页，尚未包括新47页与新证明，不冒称新版本已闭包 | [历史包入口](../../../deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)、[原独立闭包](../../evidence/aris-current-package-20261009/INDEPENDENT_STAGE_REVIEW.md) |
 | 当前展示和讲解 | R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接核对；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
 | R02/R04下一设计 | DESIGN_READY_WITH_REQUIRED_INPUTS；实际NOT_READY_TO_RUN | [下一协议](NEXT_VALIDATION_PROTOCOL.md) |
 | Linux数学软件及产物身份 | 四工具链/动态配置各9/9；十二个原ELF已取回静态核验，没有新计时 | [软件结果](../aris-linux-math-software-20261009/RESULTS.md)、[ELF核验](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md) |

@@ -1,0 +1,72 @@
+[
+  {
+    "slot": "cover_date",
+    "base_direct_paragraph_1_based": 22,
+    "paragraph_id": "4EDCC657",
+    "before": "2026 年 10 月 9 日",
+    "after": "2026 年 10 月 10 日"
+  },
+  {
+    "slot": "2.4_historical_bootstrap_scope",
+    "base_direct_paragraph_1_based": 125,
+    "paragraph_id": null,
+    "before": "精确枚举消除的是给定交换空间中的抽样误差，并不会自动消除数据产生过程的偏差。把式（2-7）解释为有效随机化检验，需要对内标签交换依据与无后效条件成立；效应区间则另有运行单位独立同分布等要求。程序可以检查声明是否齐全以及记录是否自洽，但不能凭一个声明字段证明这些条件真实成立。",
+    "after": "精确枚举消除的是给定交换空间中的抽样误差，并不会自动消除数据产生过程的偏差。式（2-7）的有效性仍需交换依据与无后效条件。本报告历史bootstrap探索区间采用运行对独立同分布模型；新设计型均值区间另有前提，见第4.4节。程序核查声明与记录自洽，不能证明真实条件成立。"
+  },
+  {
+    "slot": "3.5_qualification_boundary",
+    "base_direct_paragraph_1_based": 164,
+    "paragraph_id": null,
+    "before": "分析模块先判断记录是否完整，再检查所请求分析的适用范围。对于普通数据，系统输出均值和分位数等描述结果；对于4至20个合格成对单位，才执行第2章定义的完整交换计数。图3.4给出了资格检查与结果输出的关系。",
+    "after": "分析模块先判断记录是否完整，再检查所请求分析的适用范围。对于普通数据，系统输出均值和分位数等描述结果；对于4至20个合格成对单位，才执行第2章定义的完整交换计数。此处资格限于可核查结构及声明，不能认证均值区间所需的反事实条件。图3.4给出了资格检查与结果输出的关系。"
+  },
+  {
+    "slot": "4.4_sharp_null_scope",
+    "base_direct_paragraph_1_based": 193,
+    "paragraph_id": null,
+    "before": "零假设要求：给定交换轨道时，各允许的对内标签组合等概率；仅有零均值不足以保证这一性质。在独立等概率对内交换及无后效条件成立时，包含等值的完整随机化概率具有离散检验的错误控制性质。以  表示这些适用条件，可将需要满足的关系概括为",
+    "after": "零假设要求：给定交换轨道时，各允许的对内标签组合等概率；仅有零均值不足以保证这一性质。对真实事前AB/BA运行，这须由尖锐零假设以及独立等概率赋值、无携带和干扰等前提支持。包含等值的完整随机化概率在这些条件下具有离散检验的错误控制性质。以  表示这些适用条件，可将需要满足的关系概括为",
+    "existing_inline_native_math_preserved": true
+  },
+  {
+    "slot": "4.4_conditional_mean_theory",
+    "inserted_after_base_prefix": "本作品以共同符号模型检查这一边界",
+    "paragraph_id": "CA150001",
+    "characters": 201,
+    "added": "平均时间差与尖锐零假设须分别推断[13]。对事前固定匹配对，独立等概率AB/BA且无携带或干扰时，成对均值无偏、方差估计期望保守[12]，仍不保证小样本覆盖。无主导反事实方差条件可给渐近保守区间；事前真实幅度上界可给有限覆盖[14]。自足证明另列新增技术资料，不把Wu与Ding的大层定理用于每层两时段。现有4—20对尚无渐近误差界；观测最大值和超时不能替代反事实界。等价还需预定容许界及区间严格内含。"
+  },
+  {
+    "slot": "7.2_conditional_mean_readiness",
+    "base_direct_paragraph_1_based": 309,
+    "paragraph_id": null,
+    "before": "研究实质等价需事先规定估计对象、容许界和有效区间。未检出、低自相关或条件标签枚举不能证明差异足够小；依赖与离散方法仍须核实适用条件。",
+    "after": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。新均值路线仍缺真实前提与实现核验，R04仍部分签收。"
+  },
+  {
+    "slot": "4.5_layout_only_keep_intro_with_formula",
+    "base_direct_paragraph_1_based": 206,
+    "paragraph_id": null,
+    "before": "复现一致性关注同一材料和规则能否得到相同输出。设归档文件为 ，固定分析规则为 ，原输出为 ，则逐字复算核对的是",
+    "after": "复现一致性关注同一材料和规则能否得到相同输出。设归档文件为 ，固定分析规则为 ，原输出为 ，则逐字复算核对的是",
+    "layout_only": true,
+    "old_paragraph_xml_sha256": "0a2a83752bb27409aef12f800732377eb7f555426abd9dbb6d7b336dde96cead",
+    "new_paragraph_xml_sha256": "76cd110cbeaf14e65ee962f5821b7af0b50bd2aaf53cc019bb9219869f2dad80",
+    "only_change": "w:pPr/w:keepNext val=1",
+    "authorization": "parent_explicitly_approved_P206_layout_only"
+  },
+  {
+    "slot": "new_reference",
+    "paragraph_id": "CA150002",
+    "added": "[12] Imai K. Variance identification and efficiency analysis in randomized experiments under the matched-pair design. Statistics in Medicine, 2008, 27(24):4857–4873. DOI:10.1002/sim.3337."
+  },
+  {
+    "slot": "new_reference",
+    "paragraph_id": "CA150003",
+    "added": "[13] Wu J, Ding P. Randomization Tests for Weak Null Hypotheses in Randomized Experiments. Journal of the American Statistical Association, 2021, 116(536):1898–1913. DOI:10.1080/01621459.2020.1750415."
+  },
+  {
+    "slot": "new_reference",
+    "paragraph_id": "CA150004",
+    "added": "[14] Hoeffding W. Probability Inequalities for Sums of Bounded Random Variables. Journal of the American Statistical Association, 1963, 58(301):13–30. DOI:10.1080/01621459.1963.10500830."
+  }
+]

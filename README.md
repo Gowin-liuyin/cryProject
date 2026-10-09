@@ -7,12 +7,12 @@
 见 [执行记录](docs/evidence/author-proxy-v3-20261008/README.md)。同一 Linux 上的人工机制防护前后见 [R07记录](docs/evidence/r07-linux-20261008/README.md)。实际截图及审批签署仍缺，
 当前材料供项目组审阅修改，不称全部要求验收完成。
 
-2026-10-09的[45页研究补强报告](deliverables/research/aris-report-current-20261009/README.md)
-已纳入官方两项潜在修正的静态核对与[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)。
+2026-10-10的[47页研究补强报告](deliverables/research/aris-report-weak-mean-20261010/README.md)
+在原45页及[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)基础上补入条件均值推断，保留官方潜在修正核对及原数据。
 一次干净重建后的三个同机新进程支持固定六非零输入的较低中位成本观察，原M01不合并。
 报告经科学与全页视觉核验；R02/R04的真实测量及统计前提、实际截图和本人签署仍需适用证据。
-配套的[当前匿名解释件](deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)
-及[当前状态与下一协议](docs/research/aris-replication-20261009/CURRENT_STATUS.md)提供原值、复算和未闭合门槛入口。
+[10月9日匿名解释件](deliverables/support/CACR2026EA16XZ-aris-current-20261009/README.md)仍对应旧45页；新47页及证明尚待另行闭包。
+[当前状态与下一协议](docs/research/aris-replication-20261009/CURRENT_STATUS.md)提供复算、单核管理恢复原件及未闭合门槛入口。
 
 当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、
 成对统计、普通性能及离线HTML导出。构建后从这里开始：

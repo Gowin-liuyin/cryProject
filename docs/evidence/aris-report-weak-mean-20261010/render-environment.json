@@ -1,0 +1,24 @@
+{
+  "font_config_source": "/Users/yin/code/cryProject/build/aris-research-20261008/fonts.conf",
+  "font_config_source_sha256": "970cfce9121aeef9d523288e540ba9864a83cf7e5166ef8174eb067c36cd172b",
+  "candidate_font_config_sha256": "4d6b9d1197b14e4e4ea7b1442b0f985c223d07bfcbc27fd1dbb279abf0b5b1e6",
+  "only_font_config_change": "cache directory within the candidate build root",
+  "renderer": "/Users/yin/.codex/plugins/cache/openai-primary-runtime/documents/26.1007.11041/skills/documents/render_docx.py",
+  "python": "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "libreoffice_launcher": "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/soffice",
+  "desktop_libreoffice_used": false,
+  "original_pdf_sha256": "a0a82ac3626ad1e35cb09430f00790e3120796ffe8a9f186eff1c119c3504f44",
+  "original_pdf_unchanged": true,
+  "accepted_render_directory": "/Users/yin/code/cryProject/build/aris-report-weak-mean-20261010/render-final",
+  "rejected_or_superseded_render_directories": [
+    "render-initial",
+    "render-final-stable",
+    "render-fonts-initial",
+    "render-reviewed",
+    "render-fit",
+    "render-layout",
+    "render-candidate-final",
+    "render-compact",
+    "render-p125-fit"
+  ]
+}
