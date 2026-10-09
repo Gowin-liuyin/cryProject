@@ -1,0 +1,252 @@
+
+{
+  "utc": "2026-10-09T16:55:27.473830+00:00",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "effective_uid": 1000,
+  "cry_realpath": "/home/nss-marker/yhr/Cry",
+  "configuration_writes": 0,
+  "project_file_writes": 0,
+  "groups": {
+    "": {
+      "cgroup.controllers": {
+        "value": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cgroup.subtree_control": {
+        "value": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus": {
+        "missing": true
+      },
+      "cpuset.cpus.effective": {
+        "value": "0-31",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive": {
+        "missing": true
+      },
+      "cpuset.cpus.exclusive.effective": {
+        "missing": true
+      },
+      "cpuset.cpus.partition": {
+        "missing": true
+      },
+      "cpuset.mems": {
+        "missing": true
+      },
+      "cpuset.mems.effective": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      }
+    },
+    "init.scope": {
+      "cgroup.controllers": {
+        "value": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cgroup.subtree_control": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus.effective": {
+        "value": "0-31",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive.effective": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.partition": {
+        "value": "member",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.mems": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.mems.effective": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      }
+    },
+    "system.slice": {
+      "cgroup.controllers": {
+        "value": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cgroup.subtree_control": {
+        "value": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus.effective": {
+        "value": "0-31",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive.effective": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.partition": {
+        "value": "member",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.mems": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.mems.effective": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      }
+    },
+    "user.slice": {
+      "cgroup.controllers": {
+        "value": "cpuset cpu io memory hugetlb pids rdma misc dmem",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cgroup.subtree_control": {
+        "value": "cpu memory pids",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus.effective": {
+        "value": "0-31",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.cpus.exclusive.effective": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      },
+      "cpuset.cpus.partition": {
+        "value": "member",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.mems": {
+        "value": "",
+        "owner_uid": 0,
+        "mode": "0o644",
+        "caller_writable": false
+      },
+      "cpuset.mems.effective": {
+        "value": "0",
+        "owner_uid": 0,
+        "mode": "0o444",
+        "caller_writable": false
+      }
+    }
+  },
+  "current_cgroup": [
+    "0::/user.slice/user-1000.slice/session-34493.scope"
+  ],
+  "units": {
+    "init.scope": {
+      "exit_code": 0,
+      "stdout": "ControlGroup=/init.scope\nDelegate=no\nDelegateControllers=\nAllowedCPUs=\nStartupAllowedCPUs=\nAllowedMemoryNodes=\n",
+      "stderr": ""
+    },
+    "system.slice": {
+      "exit_code": 0,
+      "stdout": "ControlGroup=/system.slice\nDelegate=no\nDelegateControllers=\nAllowedCPUs=\nStartupAllowedCPUs=\nAllowedMemoryNodes=\n",
+      "stderr": ""
+    },
+    "user.slice": {
+      "exit_code": 0,
+      "stdout": "ControlGroup=/user.slice\nDelegate=no\nDelegateControllers=\nAllowedCPUs=\nStartupAllowedCPUs=\nAllowedMemoryNodes=\n",
+      "stderr": ""
+    }
+  },
+  "top_level_group_count": 10,
+  "cpu_online": "0-31",
+  "reserved_candidate_siblings": {
+    "2": "2,18",
+    "18": "2,18"
+  }
+}

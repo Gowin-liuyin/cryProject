@@ -12,7 +12,7 @@
 | 当前展示和讲解 | R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接核对；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
 | R02/R04下一设计 | DESIGN_READY_WITH_REQUIRED_INPUTS；实际NOT_READY_TO_RUN | [下一协议](NEXT_VALIDATION_PROTOCOL.md) |
 | Linux数学软件及产物身份 | 四工具链/动态配置各9/9；十二个原ELF已取回静态核验，没有新计时 | [软件结果](../aris-linux-math-software-20261009/RESULTS.md)、[ELF核验](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md) |
-| 少量CPU预留路线 | 密码交互已实际成功；旧fa1f9a0预演因依赖新边界外项目文件而禁用，未执行；后续资源控制须先符合Cry目录约定 | [准备记录及禁用说明](../aris-core-rehearsal-20261009/README.md)、[只读原件](../../evidence/aris-core-conflict-20261009/README.md) |
+| 少量CPU预留路线 | 密码交互已实际成功；旧fa1f9a0预演仍禁用。新只读核查确认接口与2/18同胞；内核local分区候选成立，尚未实现或预留 | [旧禁用说明](../aris-core-rehearsal-20261009/README.md)、[新只读原件](../../evidence/core-cpuset-preflight-20261010/README.md)、[候选及恢复门](../aris-core-partition-20261010/CONCEPT.md) |
 | 云端项目文件归位 | 15个已确认旧临时目录、2502文件及9内部链接已迁入Cry/relocated并独立回读；15旧根均删除；旧KVM身份变化待核验 | [迁移原件及边界](../../evidence/remote-storage-20261009/README.md) |
 | 后续测试临时目录 | 九处C硬编码/tmp已改为CTest指定根，35项环境配置完整；本地相关10/10及辅助动态检查1/1；Linux仅辅助程序普通与动态检查各1/1 | [本地核验](../../evidence/test-temp-root-20261009/README.md)、[Linux辅助检查](../../evidence/test-temp-linux-20261010/README.md) |
 | 弱均值区间理论 | 补齐设计型无偏/方差恒等式、独立赋值小样本反例、条件渐近及有界有限样本路线；真实适用条件未成立，不签收R04 | [证明与文献边界](WEAK_MEAN_PROOF_PACKAGE.md) |
