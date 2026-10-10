@@ -1,0 +1,18 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "cpu_count": 10,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+  "cmake": "cmake version 4.3.2\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+  "disk_free_bytes": 193057521664,
+  "cpu_only_supported": true,
+  "GPU_required": false,
+  "actual_hardware_collection_before_plan": false,
+  "collector_only_development_selfchecks_before_plan": {
+    "reported_normal": 1,
+    "reported_sanitize": 1,
+    "final_source_qualification": false
+  },
+  "plan_sha256_before_integrated_execution": "c3ed62a2df52705825ca673ea3c865e81b528d17ecf2efbe6547c0fd0d101974",
+  "recorded_utc": "2026-10-10T09:15:09.186886+00:00"
+}

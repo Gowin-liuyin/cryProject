@@ -1,0 +1,30 @@
+{
+  "source_sha256": {
+    "raw_clock_calibration.c": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+    "analyze_raw_clock.c": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+    "CMakeLists.txt": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e",
+    "ANALYSIS_CONTRACT.md": "693ac31279a88c5c89fde29995979ea1291e5c0fc346d1776874f73742501ce4",
+    "EXPERIMENT_PLAN.md": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+    "README.md": "767ce355b34a14a62d04ad5a5042059c84e7b1f7fd9220f8d828ce8967059021",
+    "SOFTWARE_NOTES.md": "0724cc92fd1ef0fd91383fa8ba1e80157f550f71218f34b8b8a38247334b953f"
+  },
+  "normal_tests_passed": 2,
+  "sanitize_tests_passed": 2,
+  "LSan_claimed": false,
+  "plan_sha256": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+  "strict_remote_preflight_completed": true,
+  "initial_plan_hash_stop_before_any_build": true,
+  "software_history_manifest_counts": {
+    "final-local-20261010T092430Z": 7,
+    "final-local-20261010T092700Z": 501,
+    "repair-cmake-20261010T094757Z": 497
+  },
+  "CMake_formatter_repair": "default build no auto formatter dependency; explicit format-check remains",
+  "hardware_collection_executed": false,
+  "new_cryptographic_calls": 0,
+  "source_review_scope": "collector/analyzer/plan; final CMake removal of optional discovery reviewed by parent and software checks",
+  "remote_project_files_written": false,
+  "R02": "partial",
+  "R04": "partial",
+  "created_utc": "2026-10-10T09:54:33.228993+00:00"
+}

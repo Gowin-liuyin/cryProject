@@ -1,0 +1,7 @@
+{
+  "before_sha256": "c3ed62a2df52705825ca673ea3c865e81b528d17ecf2efbe6547c0fd0d101974",
+  "after_sha256": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+  "change": "quantile terminology only: fixed rounded zero-based position, not nearest-rank definition",
+  "unchanged": "actual numerical formula in ANALYSIS_CONTRACT,counts,budgets,CPU,source,protocol",
+  "before_real_collection": true
+}
