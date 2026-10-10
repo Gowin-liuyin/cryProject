@@ -1,0 +1,2254 @@
+{
+  "kind": "independent_read_only_candidate_verification",
+  "selfcheck": {
+    "ordered_duplicate_subsequence": "passed",
+    "out_of_order_rejected": "passed",
+    "literal_body_ranges_and_self_closing_nodes": "passed",
+    "cell_extraction": "passed",
+    "TOC_numeric_cache_only_and_target_mutation_rejection": "passed"
+  },
+  "checks": [
+    {
+      "name": "49_page_source_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "candidate_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "source_unique_safe_members",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "source_ZIP_CRC",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "candidate_unique_safe_members",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "candidate_ZIP_CRC",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "identical_package_member_names_and_order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only_document_and_app_may_change",
+      "passed": true,
+      "details": [
+        "docProps/app.xml",
+        "word/document.xml"
+      ]
+    },
+    {
+      "name": "initial_source_hash_is_bound",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "initial_original_child_inventory_independently_reproduced",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "modified_targets_exactly_declared",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "retained_indices_are_exact_complement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all_non_target_non_TOC_body_children_preserved_in_order",
+      "passed": true,
+      "details": {
+        "count": 417,
+        "candidate_positions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          25,
+          26,
+          27,
+          52,
+          53,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          270,
+          272,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          405,
+          420,
+          421,
+          422,
+          423,
+          424,
+          425,
+          426,
+          427,
+          428,
+          429,
+          430,
+          431,
+          432,
+          434,
+          435,
+          436,
+          437,
+          438,
+          439,
+          440,
+          441,
+          442,
+          443,
+          444,
+          445,
+          446,
+          447,
+          448,
+          449,
+          452,
+          453,
+          454,
+          455,
+          456,
+          459,
+          460,
+          461,
+          462,
+          463,
+          464,
+          465,
+          466,
+          467,
+          468,
+          469,
+          470,
+          471,
+          472,
+          473,
+          474,
+          475,
+          476,
+          477,
+          479,
+          480,
+          481,
+          482,
+          483,
+          485,
+          486,
+          487,
+          488,
+          489,
+          490,
+          491,
+          492,
+          493,
+          494,
+          495,
+          496,
+          497,
+          498,
+          499,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          507,
+          508,
+          509,
+          510,
+          511,
+          512,
+          513
+        ]
+      }
+    },
+    {
+      "name": "literal_body_range_parser_covers_direct_children",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "non_target_non_TOC_direct_children_literal_XML_bytes_preserved",
+      "passed": true,
+      "details": {
+        "count": 417
+      }
+    },
+    {
+      "name": "supplied_TOC_mapping_binds_this_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all_43_original_TOC_paragraphs_only_numeric_cache_changes_except_B50_title",
+      "passed": true,
+      "details": [
+        {
+          "source_body_index": 28,
+          "anchor": "rw_heading_0",
+          "old_cache": 1,
+          "new_cache": 1,
+          "map_body_page": 1,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 29,
+          "anchor": "rw_heading_1",
+          "old_cache": 1,
+          "new_cache": 1,
+          "map_body_page": 1,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 30,
+          "anchor": "rw_heading_2",
+          "old_cache": 1,
+          "new_cache": 1,
+          "map_body_page": 1,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 31,
+          "anchor": "rw_heading_3",
+          "old_cache": 3,
+          "new_cache": 3,
+          "map_body_page": 3,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 32,
+          "anchor": "rw_heading_4",
+          "old_cache": 4,
+          "new_cache": 4,
+          "map_body_page": 4,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 33,
+          "anchor": "rw_heading_5",
+          "old_cache": 4,
+          "new_cache": 4,
+          "map_body_page": 4,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 34,
+          "anchor": "rw_heading_6",
+          "old_cache": 5,
+          "new_cache": 5,
+          "map_body_page": 5,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 35,
+          "anchor": "rw_heading_7",
+          "old_cache": 6,
+          "new_cache": 6,
+          "map_body_page": 6,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 36,
+          "anchor": "rw_heading_8",
+          "old_cache": 6,
+          "new_cache": 6,
+          "map_body_page": 6,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 37,
+          "anchor": "rw_heading_9",
+          "old_cache": 7,
+          "new_cache": 7,
+          "map_body_page": 7,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 38,
+          "anchor": "rw_heading_10",
+          "old_cache": 9,
+          "new_cache": 9,
+          "map_body_page": 9,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 39,
+          "anchor": "rw_heading_11",
+          "old_cache": 9,
+          "new_cache": 9,
+          "map_body_page": 9,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 40,
+          "anchor": "rw_heading_12",
+          "old_cache": 10,
+          "new_cache": 10,
+          "map_body_page": 10,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 41,
+          "anchor": "rw_heading_13",
+          "old_cache": 11,
+          "new_cache": 11,
+          "map_body_page": 11,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 42,
+          "anchor": "rw_heading_14",
+          "old_cache": 12,
+          "new_cache": 12,
+          "map_body_page": 12,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 43,
+          "anchor": "rw_heading_15",
+          "old_cache": 13,
+          "new_cache": 13,
+          "map_body_page": 13,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 44,
+          "anchor": "rw_heading_16",
+          "old_cache": 14,
+          "new_cache": 14,
+          "map_body_page": 14,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 45,
+          "anchor": "rw_heading_17",
+          "old_cache": 16,
+          "new_cache": 16,
+          "map_body_page": 16,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 46,
+          "anchor": "rw_heading_18",
+          "old_cache": 16,
+          "new_cache": 16,
+          "map_body_page": 16,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 47,
+          "anchor": "rw_heading_19",
+          "old_cache": 17,
+          "new_cache": 17,
+          "map_body_page": 17,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 48,
+          "anchor": "rw_heading_20",
+          "old_cache": 17,
+          "new_cache": 17,
+          "map_body_page": 17,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 49,
+          "anchor": "rw_heading_21",
+          "old_cache": 18,
+          "new_cache": 18,
+          "map_body_page": 18,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 50,
+          "anchor": "rw_heading_22",
+          "old_cache": 20,
+          "new_cache": 21,
+          "map_body_page": 21,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 53,
+          "anchor": "rw_heading_23",
+          "old_cache": 21,
+          "new_cache": 22,
+          "map_body_page": 22,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 54,
+          "anchor": "rw_heading_24",
+          "old_cache": 21,
+          "new_cache": 22,
+          "map_body_page": 22,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 55,
+          "anchor": "rw_heading_25",
+          "old_cache": 22,
+          "new_cache": 23,
+          "map_body_page": 23,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 56,
+          "anchor": "rw_heading_26",
+          "old_cache": 23,
+          "new_cache": 24,
+          "map_body_page": 24,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 57,
+          "anchor": "rw_heading_27",
+          "old_cache": 25,
+          "new_cache": 26,
+          "map_body_page": 26,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 58,
+          "anchor": "rw_heading_28",
+          "old_cache": 28,
+          "new_cache": 29,
+          "map_body_page": 29,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 59,
+          "anchor": "rw_heading_29",
+          "old_cache": 29,
+          "new_cache": 30,
+          "map_body_page": 30,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 60,
+          "anchor": "rw_heading_30",
+          "old_cache": 31,
+          "new_cache": 32,
+          "map_body_page": 32,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 61,
+          "anchor": "rw_heading_31",
+          "old_cache": 31,
+          "new_cache": 32,
+          "map_body_page": 32,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 62,
+          "anchor": "rw_heading_g2_20261010",
+          "old_cache": 34,
+          "new_cache": 35,
+          "map_body_page": 35,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 63,
+          "anchor": "rw_heading_32",
+          "old_cache": 36,
+          "new_cache": 40,
+          "map_body_page": 40,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 64,
+          "anchor": "rw_heading_33",
+          "old_cache": 36,
+          "new_cache": 40,
+          "map_body_page": 40,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 65,
+          "anchor": "rw_heading_34",
+          "old_cache": 36,
+          "new_cache": 40,
+          "map_body_page": 40,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 66,
+          "anchor": "rw_heading_35",
+          "old_cache": 37,
+          "new_cache": 41,
+          "map_body_page": 41,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 67,
+          "anchor": "rw_heading_36",
+          "old_cache": 38,
+          "new_cache": 42,
+          "map_body_page": 42,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 68,
+          "anchor": "rw_heading_37",
+          "old_cache": 38,
+          "new_cache": 42,
+          "map_body_page": 42,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 69,
+          "anchor": "rw_heading_38",
+          "old_cache": 38,
+          "new_cache": 42,
+          "map_body_page": 42,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 70,
+          "anchor": "rw_heading_39",
+          "old_cache": 39,
+          "new_cache": 44,
+          "map_body_page": 44,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 71,
+          "anchor": "rw_heading_40",
+          "old_cache": 41,
+          "new_cache": 46,
+          "map_body_page": 46,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        },
+        {
+          "source_body_index": 72,
+          "anchor": "rw_heading_41",
+          "old_cache": 45,
+          "new_cache": 51,
+          "map_body_page": 51,
+          "only_allowed_cache_or_B50_title_changed": true,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "B144_only_exact_cross_reference_text_expansion",
+      "passed": false,
+      "details": null
+    },
+    {
+      "name": "sections_counts",
+      "passed": true,
+      "details": {
+        "source": 4,
+        "candidate": 4
+      }
+    },
+    {
+      "name": "sections_source_inventory",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "sections_original_serializations_in_order",
+      "passed": true,
+      "details": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "sections_literal_original_XML_bytes_in_order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "drawings_counts",
+      "passed": true,
+      "details": {
+        "source": 19,
+        "candidate": 19
+      }
+    },
+    {
+      "name": "drawings_source_inventory",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "drawings_original_serializations_in_order",
+      "passed": true,
+      "details": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "name": "drawings_literal_original_XML_bytes_in_order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "math_counts",
+      "passed": true,
+      "details": {
+        "source": 64,
+        "candidate": 70
+      }
+    },
+    {
+      "name": "math_source_inventory",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "math_original_serializations_in_order",
+      "passed": true,
+      "details": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "name": "math_literal_original_XML_bytes_in_order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "all_original_bookmarkStart_preserved_in_order",
+      "passed": true,
+      "details": {
+        "source": 88,
+        "candidate": 90
+      }
+    },
+    {
+      "name": "all_original_bookmarkEnd_preserved_in_order",
+      "passed": true,
+      "details": {
+        "source": 88,
+        "candidate": 90
+      }
+    },
+    {
+      "name": "table_counts",
+      "passed": true,
+      "details": {
+        "source": 23,
+        "candidate": 26
+      }
+    },
+    {
+      "name": "21_non_target_tables_preserved_in_order",
+      "passed": true,
+      "details": 21
+    },
+    {
+      "name": "old_index_rows_literal_serialization_preserved",
+      "passed": true,
+      "details": {
+        "old": 11,
+        "new": 15
+      }
+    },
+    {
+      "name": "new_index_rows_exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "only_summary_row_changes_in_abstract_table",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_1.2研究问题",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_1.2研究问题",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_1.3成果预览",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_1.3成果预览",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_2.3样本单位",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_2.3样本单位",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_2.5描述指标",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_2.5描述指标",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_3.3时钟范围",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_3.3时钟范围",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_3.5资格控制",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_3.5资格控制",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_4.4平均时间差与尖锐零假设的衔接",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_4.4平均时间差与尖锐零假设的衔接",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_5.1环境范围",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_5.1环境范围",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_7.1测量成果总结",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_7.1测量成果总结",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_7.1总成果总结",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_7.1总成果总结",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_7.2均值限制",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_7.2均值限制",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_7.2测量限制",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_7.2测量限制",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_mean_cross_reference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_mean_cross_reference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_old_old_4.5_to_4.6",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_edit_new_old_4.5_to_4.6",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170001",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170002",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170003",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170004",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170005",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170006",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170007",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170008",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170009",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA17000A",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA17000B",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA17000C",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170022",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170023",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170024",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170025",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170026",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170027",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170028",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170045",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170046",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170047",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170072",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170073",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170074",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170075",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170076",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "author_added_paragraph_CA170083",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "45_TOC_internal_links_resolve_to_correct_heading",
+      "passed": true,
+      "details": [
+        {
+          "anchor": "rw_heading_0",
+          "link_text": "第1章　研究背景与作品目标",
+          "target_text": "第1章　研究背景与作品目标",
+          "cached_page": 1,
+          "map_body_page": 1,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_1",
+          "link_text": "1.1　后量子密码实现的工程审计需求",
+          "target_text": "1.1　后量子密码实现的工程审计需求",
+          "cached_page": 1,
+          "map_body_page": 1,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_2",
+          "link_text": "1.2　现有实现与统计工具的能力边界",
+          "target_text": "1.2　现有实现与统计工具的能力边界",
+          "cached_page": 1,
+          "map_body_page": 1,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_3",
+          "link_text": "1.3　作品目标与总体技术路线",
+          "target_text": "1.3　作品目标与总体技术路线",
+          "cached_page": 3,
+          "map_body_page": 3,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_4",
+          "link_text": "第2章　ML-KEM实现审计的理论基础",
+          "target_text": "第2章　ML-KEM实现审计的理论基础",
+          "cached_page": 4,
+          "map_body_page": 4,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_5",
+          "link_text": "2.1　ML-KEM-768的接口与功能正确性",
+          "target_text": "2.1　ML-KEM-768的接口与功能正确性",
+          "cached_page": 4,
+          "map_body_page": 4,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_6",
+          "link_text": "2.2　外部输入检查与隐式拒绝语义",
+          "target_text": "2.2　外部输入检查与隐式拒绝语义",
+          "cached_page": 5,
+          "map_body_page": 5,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_7",
+          "link_text": "2.3　执行时间的影响因素与样本单位",
+          "target_text": "2.3　执行时间的影响因素与样本单位",
+          "cached_page": 6,
+          "map_body_page": 6,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_8",
+          "link_text": "2.4　成对随机化与整数精确检验",
+          "target_text": "2.4　成对随机化与整数精确检验",
+          "cached_page": 6,
+          "map_body_page": 6,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_9",
+          "link_text": "2.5　运行分位数与相对性能开销",
+          "target_text": "2.5　运行分位数与相对性能开销",
+          "cached_page": 7,
+          "map_body_page": 7,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_10",
+          "link_text": "第3章　本地审计与精确复算系统设计",
+          "target_text": "第3章　本地审计与精确复算系统设计",
+          "cached_page": 9,
+          "map_body_page": 9,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_11",
+          "link_text": "3.1　系统架构与模块协同",
+          "target_text": "3.1　系统架构与模块协同",
+          "cached_page": 9,
+          "map_body_page": 9,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_12",
+          "link_text": "3.2　固定快照管理与多实现构建隔离",
+          "target_text": "3.2　固定快照管理与多实现构建隔离",
+          "cached_page": 10,
+          "map_body_page": 10,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_13",
+          "link_text": "3.3　普通输入组织与完整解封装计时",
+          "target_text": "3.3　普通输入组织与完整解封装计时",
+          "cached_page": 11,
+          "map_body_page": 11,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_14",
+          "link_text": "3.4　运行记录组织与来源一致性校验",
+          "target_text": "3.4　运行记录组织与来源一致性校验",
+          "cached_page": 12,
+          "map_body_page": 12,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_15",
+          "link_text": "3.5　数据资格控制与精确复算实现",
+          "target_text": "3.5　数据资格控制与精确复算实现",
+          "cached_page": 13,
+          "map_body_page": 13,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_16",
+          "link_text": "3.6　材料复现流程与离线结果展示",
+          "target_text": "3.6　材料复现流程与离线结果展示",
+          "cached_page": 14,
+          "map_body_page": 14,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_17",
+          "link_text": "第4章　实现安全性与审计结论的适用范围",
+          "target_text": "第4章　实现安全性与审计结论的适用范围",
+          "cached_page": 16,
+          "map_body_page": 16,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_18",
+          "link_text": "4.1　本地审计的对象与可见信息",
+          "target_text": "4.1　本地审计的对象与可见信息",
+          "cached_page": 16,
+          "map_body_page": 16,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_19",
+          "link_text": "4.2　标准语义与外部接口保护",
+          "target_text": "4.2　标准语义与外部接口保护",
+          "cached_page": 17,
+          "map_body_page": 17,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_20",
+          "link_text": "4.3　恒时实现检查与历史案例解释",
+          "target_text": "4.3　恒时实现检查与历史案例解释",
+          "cached_page": 17,
+          "map_body_page": 17,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_21",
+          "link_text": "4.4　统计资格与条件错误控制",
+          "target_text": "4.4　统计资格与条件错误控制",
+          "cached_page": 18,
+          "map_body_page": 18,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_finite_20261010",
+          "link_text": "4.5　原均值区间的有限样本覆盖边界",
+          "target_text": "4.5　原均值区间的有限样本覆盖边界",
+          "cached_page": 19,
+          "map_body_page": 19,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_22",
+          "link_text": "4.6　复现一致性与研究结论的区分",
+          "target_text": "4.6　复现一致性与研究结论的区分",
+          "cached_page": 21,
+          "map_body_page": 21,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_23",
+          "link_text": "第5章　系统测试与实验结果分析",
+          "target_text": "第5章　系统测试与实验结果分析",
+          "cached_page": 22,
+          "map_body_page": 22,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_24",
+          "link_text": "5.1　原生测试环境与分层验证方案",
+          "target_text": "5.1　原生测试环境与分层验证方案",
+          "cached_page": 22,
+          "map_body_page": 22,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_25",
+          "link_text": "5.2　独立向量验收与工程边界检查",
+          "target_text": "5.2　独立向量验收与工程边界检查",
+          "cached_page": 23,
+          "map_body_page": 23,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_26",
+          "link_text": "5.3　普通解封装性能与跨运行波动",
+          "target_text": "5.3　普通解封装性能与跨运行波动",
+          "cached_page": 24,
+          "map_body_page": 24,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_27",
+          "link_text": "5.4　精确复算效率与成本边界复核",
+          "target_text": "5.4　精确复算效率与成本边界复核",
+          "cached_page": 26,
+          "map_body_page": 26,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_28",
+          "link_text": "5.5　有限模型下的误拒绝与检出表现",
+          "target_text": "5.5　有限模型下的误拒绝与检出表现",
+          "cached_page": 29,
+          "map_body_page": 29,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_29",
+          "link_text": "5.6　真实参考时间的后赋标签控制",
+          "target_text": "5.6　真实参考时间的后赋标签控制",
+          "cached_page": 30,
+          "map_body_page": 30,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_30",
+          "link_text": "5.7　历史案例审计与封存材料复算",
+          "target_text": "5.7　历史案例审计与封存材料复算",
+          "cached_page": 32,
+          "map_body_page": 32,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_31",
+          "link_text": "5.8　同机人工机制的防护前后复测",
+          "target_text": "5.8　同机人工机制的防护前后复测",
+          "cached_page": 32,
+          "map_body_page": 32,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_g2_20261010",
+          "link_text": "5.9　单次普通参考负载的窗口观察与恢复",
+          "target_text": "5.9　单次普通参考负载的窗口观察与恢复",
+          "cached_page": 35,
+          "map_body_page": 35,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_repeatability_20261010",
+          "link_text": "5.10　RAW空窗与完整调用的有限运行间描述",
+          "target_text": "5.10　RAW空窗与完整调用的有限运行间描述",
+          "cached_page": 37,
+          "map_body_page": 37,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_32",
+          "link_text": "第6章　作品特色与应用前景",
+          "target_text": "第6章　作品特色与应用前景",
+          "cached_page": 40,
+          "map_body_page": 40,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_33",
+          "link_text": "6.1　面向固定任务的专用复算效率",
+          "target_text": "6.1　面向固定任务的专用复算效率",
+          "cached_page": 40,
+          "map_body_page": 40,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_34",
+          "link_text": "6.2　数据资格与解释范围的一体化设计",
+          "target_text": "6.2　数据资格与解释范围的一体化设计",
+          "cached_page": 40,
+          "map_body_page": 40,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_35",
+          "link_text": "6.3　本地审计与密码工程教学",
+          "target_text": "6.3　本地审计与密码工程教学",
+          "cached_page": 41,
+          "map_body_page": 41,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_36",
+          "link_text": "第7章　总结与展望",
+          "target_text": "第7章　总结与展望",
+          "cached_page": 42,
+          "map_body_page": 42,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_37",
+          "link_text": "7.1　工作总结",
+          "target_text": "7.1　工作总结",
+          "cached_page": 42,
+          "map_body_page": 42,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_38",
+          "link_text": "7.2　现有限制与后续工作",
+          "target_text": "7.2　现有限制与后续工作",
+          "cached_page": 42,
+          "map_body_page": 42,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_39",
+          "link_text": "参考文献",
+          "target_text": "参考文献",
+          "cached_page": 44,
+          "map_body_page": 44,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_40",
+          "link_text": "附录A　实验材料与结论对应关系",
+          "target_text": "附录A　实验材料与结论对应关系",
+          "cached_page": 46,
+          "map_body_page": 46,
+          "valid": true
+        },
+        {
+          "anchor": "rw_heading_41",
+          "link_text": "附录B　普通性能的完整分位数",
+          "target_text": "附录B　普通性能的完整分位数",
+          "cached_page": 51,
+          "map_body_page": 51,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "name": "two_new_TOC_anchors_present_once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_18_all_cells_match_original_C",
+      "passed": true,
+      "details": {
+        "actual": [
+          [
+            "阶段",
+            "调用数",
+            "P50/ns",
+            "P90/ns",
+            "P99/ns",
+            "最大/ns",
+            "MAD/ns"
+          ],
+          [
+            "预热",
+            "25280",
+            "39314",
+            "39865",
+            "42099",
+            "61005",
+            "130"
+          ],
+          [
+            "主阶段",
+            "101248",
+            "39274",
+            "39844",
+            "41498",
+            "82996",
+            "90"
+          ]
+        ],
+        "expected": [
+          [
+            "阶段",
+            "调用数",
+            "P50/ns",
+            "P90/ns",
+            "P99/ns",
+            "最大/ns",
+            "MAD/ns"
+          ],
+          [
+            "预热",
+            "25280",
+            "39314",
+            "39865",
+            "42099",
+            "61005",
+            "130"
+          ],
+          [
+            "主阶段",
+            "101248",
+            "39274",
+            "39844",
+            "41498",
+            "82996",
+            "90"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "new_table_18_every_row_cannot_split",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_18_repeat_first_row_only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_18_short_table_kept_together_last_row_releases",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_18_grid_width_8957",
+      "passed": true,
+      "details": [
+        1397,
+        1260,
+        1260,
+        1260,
+        1260,
+        1260,
+        1260
+      ]
+    },
+    {
+      "name": "new_table_19_all_cells_match_original_C",
+      "passed": true,
+      "details": {
+        "actual": [
+          [
+            "进程",
+            "最小/ns",
+            "P50/ns",
+            "P90/ns",
+            "P99/ns",
+            "最大/ns",
+            "MAD/ns"
+          ],
+          [
+            "RAW-1",
+            "10",
+            "20",
+            "20",
+            "21",
+            "2004",
+            "0"
+          ],
+          [
+            "RAW-2",
+            "10",
+            "20",
+            "20",
+            "21",
+            "1603",
+            "0"
+          ],
+          [
+            "RAW-3",
+            "10",
+            "20",
+            "20",
+            "21",
+            "501",
+            "0"
+          ]
+        ],
+        "expected": [
+          [
+            "进程",
+            "最小/ns",
+            "P50/ns",
+            "P90/ns",
+            "P99/ns",
+            "最大/ns",
+            "MAD/ns"
+          ],
+          [
+            "RAW-1",
+            "10",
+            "20",
+            "20",
+            "21",
+            "2004",
+            "0"
+          ],
+          [
+            "RAW-2",
+            "10",
+            "20",
+            "20",
+            "21",
+            "1603",
+            "0"
+          ],
+          [
+            "RAW-3",
+            "10",
+            "20",
+            "20",
+            "21",
+            "501",
+            "0"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "new_table_19_every_row_cannot_split",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_19_repeat_first_row_only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_19_short_table_kept_together_last_row_releases",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_19_grid_width_8957",
+      "passed": true,
+      "details": [
+        1397,
+        1260,
+        1260,
+        1260,
+        1260,
+        1260,
+        1260
+      ]
+    },
+    {
+      "name": "new_table_20_all_cells_match_original_C",
+      "passed": true,
+      "details": {
+        "actual": [
+          [
+            "批次/进程",
+            "P50/ns",
+            "P90/ns",
+            "P99/ns",
+            "最大/ns",
+            "MAD/ns"
+          ],
+          [
+            "E1-P1",
+            "30678",
+            "30728",
+            "32020",
+            "56266",
+            "21"
+          ],
+          [
+            "E1-P2",
+            "30718",
+            "30758",
+            "32070",
+            "52839",
+            "21"
+          ],
+          [
+            "E1-P3",
+            "30707",
+            "30757",
+            "32000",
+            "44915",
+            "30"
+          ],
+          [
+            "E2-P1",
+            "30678",
+            "30737",
+            "32010",
+            "53951",
+            "30"
+          ],
+          [
+            "E2-P2",
+            "30678",
+            "30727",
+            "32000",
+            "59922",
+            "30"
+          ],
+          [
+            "E2-P3",
+            "30687",
+            "30728",
+            "32020",
+            "43862",
+            "29"
+          ]
+        ],
+        "expected": [
+          [
+            "批次/进程",
+            "P50/ns",
+            "P90/ns",
+            "P99/ns",
+            "最大/ns",
+            "MAD/ns"
+          ],
+          [
+            "E1-P1",
+            "30678",
+            "30728",
+            "32020",
+            "56266",
+            "21"
+          ],
+          [
+            "E1-P2",
+            "30718",
+            "30758",
+            "32070",
+            "52839",
+            "21"
+          ],
+          [
+            "E1-P3",
+            "30707",
+            "30757",
+            "32000",
+            "44915",
+            "30"
+          ],
+          [
+            "E2-P1",
+            "30678",
+            "30737",
+            "32010",
+            "53951",
+            "30"
+          ],
+          [
+            "E2-P2",
+            "30678",
+            "30727",
+            "32000",
+            "59922",
+            "30"
+          ],
+          [
+            "E2-P3",
+            "30687",
+            "30728",
+            "32020",
+            "43862",
+            "29"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "new_table_20_every_row_cannot_split",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_20_repeat_first_row_only",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_20_short_table_kept_together_last_row_releases",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "new_table_20_grid_width_8957",
+      "passed": true,
+      "details": [
+        1657,
+        1460,
+        1460,
+        1460,
+        1460,
+        1460
+      ]
+    },
+    {
+      "name": "exactly_five_keywords",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "known_system_number_present",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "anonymous_XML_known_identity_path_email_scan",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "all_visible_full_commit_ids_are_public_third_party",
+      "passed": true,
+      "details": {
+        "7f4d5dc162b77c362a34a0d52949f7a3e1b16d81": "clangover fixed upstream",
+        "b3ba7b32773e657dd37f6f87bce82528459ad8a4": "mlkem-native fixed upstream",
+        "dc269651fb2567e46755cfb2a13d3875592968b5": "dudect fixed upstream"
+      }
+    },
+    {
+      "name": "no_visible_IP_addresses",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "metadata_creator_and_modifier_empty",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "metadata_company_and_manager_empty",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no_comments_or_tracked_identity_changes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "no_external_relationship_identity_leaks",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "source_and_candidate_files_unchanged_by_verifier",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "failures": [
+    "B144_only_exact_cross_reference_text_expansion"
+  ],
+  "scope": {
+    "C_runs": 0,
+    "SSH": false,
+    "rendering": false,
+    "DOCX_mutation": false,
+    "page_numbers_signed_off": false,
+    "visual_signed_off": false,
+    "anonymous_distribution_signed_off": false,
+    "external_peer_review": false
+  },
+  "source": {
+    "path": "/Users/yin/code/cryProject/deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.docx",
+    "sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6",
+    "bytes": 2085314
+  },
+  "candidate": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.docx",
+    "sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+    "bytes": 2093755
+  },
+  "verifier_sha256": "ea0658bf6bbed3d0a4f4f17802df3fd3f04c1088c9983baaed0b115347909a99",
+  "unchanged_package_parts": {
+    "[Content_Types].xml": "2d7fff8ea211f2bb0280f6a4a427869870297c1c1facf738ba37788df77efb98",
+    "docProps/custom.xml": "971fe8d37a8e9a8b3883e211436164aaeb92cb66723fcdc092ee16740fcd051d",
+    "docProps/core.xml": "2d859393978d8ee71cc251eabccc481f59d382e254bfa51a345ef3a9237651f6",
+    "customXml/item1.xml": "0a5906d8085cb9189657f94ab3ea78ddc0a60aaa62b8535ffbd7a6df90a0c7ee",
+    "customXml/item2.xml": "00cf173dbeedf09156c5d26e0c3cd15a0418d786bd83b2a11e61966396caebf3",
+    "customXml/itemProps2.xml": "85bb8dcdb9af8978d48b7ad8748fd84a6321719fd6eba0b9f8567cf89f40aafb",
+    "customXml/itemProps1.xml": "e19fc6990fa9cee722c597ffe6fe4d46fbbedaa636fd107d70027a66fee0e2ba",
+    "_rels/.rels": "a6fd485ee5f43ce867ff5082fd279dca0ef8af452f5dd4f76c66fd8babb24afc",
+    "word/fontTable.xml": "c4447fffd50977d39eb8575b62b12e49f4525ef484bce6444923950849477275",
+    "word/header2.xml": "bf038feaaffbff0d593d55eef1961e8117f01271cf9d41c3c217ed9b8f54b166",
+    "word/header1.xml": "aa654103c0b8757823f4995fdd8e830689d0b71295313aa36a8f2f0654cbe215",
+    "word/settings.xml": "59298fe882105387dfe8dcfa327f76545c04019fd2bf22df8ed352c47ec70244",
+    "word/footer2.xml": "96c2e1da7a17a9878db0a7bdd08bff0db6fd9d12cf4eb9fd1c89ed14df6e1bef",
+    "word/footer1.xml": "024858bb700f0238645a8aef930e0fa037f7a6fdbc4ce77dc19e95b1dfd70e62",
+    "word/styles.xml": "465ed45f0aab276da96bb169ffed33395429344e5b2aaf82c49e54d0a009c35a",
+    "word/theme/theme1.xml": "4490f9dfd985f37288aabd583ca58fbbfe7385ee4168a77684cc5bf4d67457aa",
+    "word/_rels/document.xml.rels": "c54fc6add43d13498e6be57ed45d30e0147be7016e9800faba3c8796e082f874",
+    "word/media/image8.png": "6be6f310b8d61e7b88575534ae121b5531ff921f15abf241de607dfbb0f873e5",
+    "word/media/image9.png": "b48226b74383635d817de44d9cf84eda157a53cfa663d9cb6d601f20420d013d",
+    "word/media/image1.jpeg": "908993f5ce1186b588114ea4a2f30e88691dbf1e7aef9b43a1b7080ff1324b4e",
+    "word/media/image14.png": "fe5b4bdd89823b8bb7a44bda79352ad27b16c139af1e136d26bd7dab27886390",
+    "word/media/image15.png": "b94ad7fde12bf16c44b3381de6ea84a10b02306da8d22e8259f905f1a81f8d1e",
+    "word/media/image17.png": "7b45839097c358a1e2db6458754cfc7845c5d080e24c644f7b8cb041494a6bd3",
+    "word/media/a113-replay-efficiency.png": "d030018147a3c41b08c3740c96705f2507186d206b170297b9e5d90f091a0c75",
+    "word/media/image16.png": "1c4530ace4791d7281a5626f7b19744a3270100881b1ebb262d2bcaa96bdd087",
+    "word/media/image12.png": "d326db3458214ebc7e71052f1683e3bc90e2830d857f8423ee610443a51d42e7",
+    "word/media/image13.png": "e19c724ce9edcefb96d7e8b037812363472c47a9bf912e30aced9ad994294018",
+    "word/media/image11.png": "357de8ad459b49dc93d976d4d655ccb124e9e9ee5ac775a59d75451419248ed8",
+    "word/media/image10.png": "c93394f96f7ebd5502c67cd41c5912aba73ccaff1008a665f287b9e315aaad79",
+    "word/media/image7.png": "cba4e92f5d53824b906017d02effeeaec428595cf40c1d17f5939a22dca4c4fa",
+    "word/media/image6.png": "ae710d39631307010e151d8ff139b5c93f1b90ea0767365e94b80d1b372f95e6",
+    "word/media/a113-architecture.png": "39905015de702f798bd66e309336be08111e60630a909ecbd556813d37f2ccf4",
+    "word/media/image4.png": "1574f944af3c86691a0d9cfbb5c1045c87aa1be89d9f68502a05e858254638d0",
+    "word/media/image5.png": "6e63cd0c28a50e13134445df30455d9c78cfb48262d267252d6daa6a6c71134d",
+    "word/media/a113-native-performance.png": "10d70c060811f84eb3071233e7c8b7d2b168d6b227619ec00dc404c1655c6286",
+    "word/media/image2.png": "b067d1fb7ba64e31ea917f563d97fed2bce69a5f411e29f7a97f36931fca9f0f",
+    "word/media/image3.png": "0d5110c6633a2a06aa85cff7e33d6ee5e618d66dd754ed1cf2671e300c5c23d1",
+    "customXml/_rels/item2.xml.rels": "e9f21b5cbc2113466d6568c3e5253c4771ec6352be856d88a8f4a55133801552",
+    "customXml/_rels/item1.xml.rels": "928b3d0b0ff7fab249f2cfded665b1fa41096f3d709b988064a057cf7850202d",
+    "word/media/figure-g2-20261010.png": "ef47cae6a8767a4090c912ad6e317334b0d059b35946d80b8d2358e87e6cb014"
+  },
+  "contracts": {
+    "initial-structure.json": "60af3093e89d88b7027965877c7971c9d3a5562e011e6df34c72f0c80ffee0cb",
+    "authoring-edits.json": "af3f388d1cdecc4cb546ec23a1f8c60981239b1d9f90a29ebd094f106847af64",
+    "artifact.md": "0a40e76e01e6605c86694145119f5cd6999a8e133b816212a71a8c759b562eb4",
+    "NEW_EVIDENCE_FACT_CHECK.json": "36870b4b70bfaa79cf3663bfb2129e1b6b9b30d7496be1d3c8bb8ffc30385e29",
+    "toc-map.json": "13d3d1c8fb1de649404a74c8b54ff65a842bedf2b60f4245d2706163d9e25cbe"
+  },
+  "TOC_cache_scope": "cache values checked against supplied toc-map only; actual PDF heading pages and final rendered visuals remain independently pending",
+  "anonymity_scope": "candidate DOCX XML/body/metadata/relationships only; public authors, upstream identities/licenses, host application and system number exempt; no packaged evidence or screenshots examined",
+  "status": "failed"
+}

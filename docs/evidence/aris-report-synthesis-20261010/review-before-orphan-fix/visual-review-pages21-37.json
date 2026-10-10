@@ -1,0 +1,462 @@
+{
+  "date": "2026-10-10",
+  "reviewer": "report_synthesis_outline",
+  "review_type": "actual assigned full-page visual review",
+  "source_pdf": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.pdf",
+  "source_pdf_sha256": "3b56b3e966ebc626574d6e85f19b2e3151c576c8c1c11afc12890ac2a69e64d5",
+  "source_pdf_pages_verified": 55,
+  "source_docx_sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+  "assigned_physical_pages": [
+    21,
+    37
+  ],
+  "reviewed_physical_pages": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "page_count_reviewed": 17,
+  "overall_status": "PASS_ASSIGNED_PAGES",
+  "blocking_issues": [],
+  "pages": [
+    {
+      "page": 21,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-21.png",
+      "sha256": "2de2ece9e17ffdd5dad01c93bbe38be365cb098a9a14b43cb2b8a7ef45cb11c5",
+      "bytes": 494594,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 21,
+      "printed_footer_page": 17,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "表4.1五行证据范围完整，三列文字自然换行，表题/粗细横线未裁切。",
+        "4.2标题与三段正文、4.3标题及随后正文均清晰，行间无重叠。",
+        "章4页眉和页脚17清晰；未见缺字或跨页断表。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 22,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-22.png",
+      "sha256": "030e58cfa4fc06a5033163c5a1d649cd9223c04f978a053248197b7f189e3428",
+      "bytes": 546547,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 22,
+      "printed_footer_page": 18,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "历史机制正文续接正常，4.4标题后条件说明可读。",
+        "式4-1的H0下标、条件竖线和≤；式4-2的floor、αM/M均实际显示清晰，没有公式号碰撞。",
+        "正文至页末完整，页脚18清晰。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 23,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-23.png",
+      "sha256": "10ac85b590b6a55acba4269c2e8430f37a2cc2ac91cb6bdefd36fa8f0524a75b",
+      "bytes": 590710,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 23,
+      "printed_footer_page": 19,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "共同符号、弱均值/尖锐零假设及后赋标签三段排版连续，可读。",
+        "式4-3的2^(1−k)上标与编号完整；秩效应量及零差限制未被截去。",
+        "4.5标题位于页下部，随后有两行正文，再在次页续接，不是孤悬标题；页脚19。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 24,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-24.png",
+      "sha256": "b265d83b2fece0eca56e6c37eec4063022841925df12e40be22407b7d09baa51",
+      "bytes": 414036,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 24,
+      "printed_footer_page": 20,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "实际重点检查有限界五式4-4至4-8：θ帽、D上横、V帽、方差分式、闭区间方括号均清晰。",
+        "式4-6的整分式在根号内、z²上标；式4-7指数负分式与min大括号；式4-8的√η和整括号下标+均正常，公式号未压正文。",
+        "模型、Tyurin来源、G=0/η未知/4—20未认证等文字完整，无缺字、重叠或行裁切，页脚20。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 25,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-25.png",
+      "sha256": "80e25487c800f597e1ff714342113328ef338822177eb156e8cf5d025caf61be",
+      "bytes": 185658,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 25,
+      "printed_footer_page": 21,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "4.6标题和F(D)=Y式4-9均正常；图例/表格无跨入此页。",
+        "两段复现范围及截图/审批待办清晰，页脚21。",
+        "章4结束后留白较多，下一页另起第5章，属于章边界留白，未见孤图、断表或漏字。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 26,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-26.png",
+      "sha256": "b9e4eed94fe600af20fa055df636e9ce044948b36a05f3030c4739117c517d71",
+      "bytes": 328271,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 26,
+      "printed_footer_page": 22,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "第5章章标题与5.1小节层次清楚；功能/软件/统计/材料四层图5.1文字在框内完整。",
+        "图题与表5.1标题同页对应，环境表全部九条完整，长CPU型号和最后环境限制均未越界。",
+        "页脚22清晰，未见图、表或页眉裁切。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 27,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-27.png",
+      "sha256": "5994cde6d3db2c69cc120afd33f224a986c255e942578da8e1c73bd0fb0ea4de",
+      "bytes": 534073,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 27,
+      "printed_footer_page": 23,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "CPU型号范围说明及5.2标题均正常。",
+        "表5.2全七项完整，open/read/close和CTest两配置说明可读，单元格文字不相压。",
+        "320用例/34项与统计边界两段完整，页脚23。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 28,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-28.png",
+      "sha256": "23a1de39271d851ea46417e200393de8b00e106ce4e98546843d78a02bcf45ea",
+      "bytes": 335487,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 28,
+      "printed_footer_page": 24,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "5.3标题与54000/1800分母说明排版完整。",
+        "E02图5.2的45—47 μs坐标、三条曲线/标记、图例和非零起点解释清晰。",
+        "表5.3六运行全行同页，18个均值可读，来源注释虽在页底但与页脚24有间隔，无裁切。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 29,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-29.png",
+      "sha256": "f63ad674aefa579010658a15337adb158980bdbcc1ff31d06e7dd89915552982",
+      "bytes": 291892,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 29,
+      "printed_footer_page": 25,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "表5.4两项差值、百分比及99%探索区间可读，负号和区间端点完整。",
+        "N01图5.3曲线、45—49 μs坐标、六运行标签、图例及图题均完整，无图例覆盖数据。",
+        "页脚25，图后留白为下一表续起，无孤悬表题。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 30,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-30.png",
+      "sha256": "45df7ac536c77b0c86dd412f5a3ef20e81efc493a69f0dc82c2ab2192ccc4a85",
+      "bytes": 374199,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 30,
+      "printed_footer_page": 26,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "表5.5两项N01结果完整，长区间数字未重叠。",
+        "5.4标题及强基线、八任务/48进程说明清晰。",
+        "式5-1的ρ下标和Cq/Bq分式、全部比值范围与预算文字正常，页脚26。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 31,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-31.png",
+      "sha256": "07806d8c213eab69776276d96de1f6de22e5dc0db3df9f5654dac56d2ad9fdc6",
+      "bytes": 403080,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 31,
+      "printed_footer_page": 27,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "成本图5.4对数轴0.01—100、两组SciPy/C11柱、图例及预导入成本注释清晰。",
+        "表5.6七行完整，两个成本边界、就绪成本和两中位比对应列能辨读，无相邻列覆盖。",
+        "后续成本解释和同语言段落正常跨页接续，页脚27清晰。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 32,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-32.png",
+      "sha256": "1c064e7f13c9c71880f1c87ce87f17109bbf4177b870c2e1bff92b09037509a6",
+      "bytes": 682598,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 32,
+      "printed_footer_page": 28,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "同语言成本及M02正文密集但行距一致、字形清晰，未越过页边或页脚。",
+        "1000 ns/100000 ns、0.375106/0.426083秒、三个进程240对等数字可读；无表或图中途切断。",
+        "末段接下页属于普通正文续接，页脚28。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 33,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-33.png",
+      "sha256": "c0f46d223370e7ac299fc0e5a65add5bbfe79a01bf8d78822977bde4cf382c9c",
+      "bytes": 325913,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 33,
+      "printed_footer_page": 29,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "M02末段续接正常，5.5标题和式5-2/5-3的希腊字母、下标、4096分母及条件计数清晰。",
+        "图5.5完整，equal/graded曲线与图例可读，效应0/1/2/4/12等距类别及说明显示。",
+        "图题同页且未贴页脚，页脚29。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 34,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-34.png",
+      "sha256": "91de626f533e69f675cc16aa5292b643a800011f5f1805c602d0eb275cc38cff",
+      "bytes": 405369,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 34,
+      "printed_footer_page": 30,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "表5.7五个效应及两列拒绝数同页完整，分母4096标题可读。",
+        "模型低检出和共同符号失配文字完整，5.6标题未孤悬。",
+        "式5-4的条件竖线、Rb/4096分式、标签模型说明均显示，页脚30。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 35,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-35.png",
+      "sha256": "8d7426ac5c9b90fea70ac97241e0fa82cd338dd8c12b0676c1868086bc5fb47b",
+      "bytes": 335464,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 35,
+      "printed_footer_page": 31,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "后赋标签图5.6的六柱40/38差异、0—45轴及条件模型注释完整。",
+        "表5.8六行标签数、拒绝数和12位条件概率均清晰，无数字碰撞或跨页拆分。",
+        "图题、表题和后续有限解释/修复说明均完整，页脚31。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 36,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-36.png",
+      "sha256": "e839c0f923984cefdcf9099cd772e69e8c2642f0fa16121c3e864f2ffa206844",
+      "bytes": 520093,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 36,
+      "printed_footer_page": 32,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "5.7历史审计标题与表5.9完整，10^-4/10^-3原生上标正常，reference/deployable自然换行。",
+        "批次停止与封存v3正文完整，5.8标题有随后多行正文，没有孤悬标题。",
+        "页底亲和性说明正常续接至次页，页脚32。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 37,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-37.png",
+      "sha256": "cbbd0043ec89da2b20f7a398e14df2c9fb424af3eab4e9f300f562b27bee6995",
+      "bytes": 312597,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 37,
+      "printed_footer_page": 33,
+      "actual_full_page_opened": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "displayed_full_resolution": [
+        1414,
+        2000
+      ],
+      "status": "pass",
+      "actual_observations": [
+        "5.8亲和性说明续接正常，名义阈值及秩/均值不一致例子可读，科学计数5.46693e−7和0.350711完整。",
+        "图5.7五种子四变体均值差的−1500—250坐标、四颜色图例及方向说明完整，未把柱形截掉。",
+        "图题与限制注释同页，页脚33；未见裁切、重叠或缺字。"
+      ],
+      "blocking_issues": []
+    }
+  ],
+  "scope": {
+    "actual_original_page_images_opened": true,
+    "all_assigned_images_viewed": true,
+    "thumbnails_or_contact_sheet_used_as_substitute": false,
+    "xml_or_text_extraction_used_as_visual_substitute": false,
+    "all_55_pages_reviewed_by_this_agent": false,
+    "new_anonymous_package_reviewed": false,
+    "c_execution": false,
+    "ssh": false,
+    "document_edits": false,
+    "old_evidence_edits": false,
+    "libreoffice_invoked": false
+  },
+  "nonblocking_observations": [
+    "物理25章末留白较多，对应第5章另起页；未见内容缺失或断表。"
+  ],
+  "not_full_goal_or_competition_signoff": true
+}

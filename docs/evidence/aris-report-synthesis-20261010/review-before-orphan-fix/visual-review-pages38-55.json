@@ -1,0 +1,407 @@
+{
+  "reviewer": "report_requirements_audit",
+  "review_kind": "actual_original_resolution_single_page_visual_review",
+  "created_utc": "2026-10-10T13:44:45.940221+00:00",
+  "pdf": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.pdf",
+    "sha256": "3b56b3e966ebc626574d6e85f19b2e3151c576c8c1c11afc12890ac2a69e64d5",
+    "total_pages": 55
+  },
+  "docx": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.docx",
+    "sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1"
+  },
+  "assigned_physical_pages": [
+    38,
+    55
+  ],
+  "pages_actually_viewed": 18,
+  "all_assigned_pages_opened": true,
+  "contact_sheet_substitution": false,
+  "text_extraction_substitution": false,
+  "full_report_visual_signoff": false,
+  "status": "needs_layout_revision",
+  "issues": [
+    {
+      "physical_page": 54,
+      "printed_body_page": 50,
+      "category": "orphan_tail_page",
+      "severity": "layout_revision_needed",
+      "description": "附录A末尾新增说明仅两行溢出为独立整页，55页另起附录B。",
+      "suggested_minimal_action": "只收短新增末段或调整其流动，保留原表/原段与字号；重新渲染并复查受影响页。",
+      "content_missing": false
+    }
+  ],
+  "notes": [
+    "三新表5.12/5.13/5.14全部完整同页；式5-7完整可读。",
+    "43/47页完整章末段落后的留白可接受；54页两行孤尾须区别处理。",
+    "原式/数学事实与数据准确性不由视觉 alone 代签；本记录仅覆盖18页。",
+    "实际正文页码34—51连续可见；45项TOC实际定位由root另核，不在本记录代签。"
+  ],
+  "no_C_or_SSH_or_LO": true,
+  "DOCX_or_original_evidence_modified": false,
+  "pages": [
+    {
+      "physical_page": 38,
+      "observed_printed_body_page": 34,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-38.png",
+      "sha256": "f084d5f4ba534407a3a499f2f42bba8f2084ae704db33c8687fe25596ff73f9c",
+      "bytes": 305933,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "表5.10的五种子/四形态数据及负号清楚，表头与三线完整；来源注与同机机制限制段落正常。",
+        "正文34页页脚清楚；本页末段完成，无图表裁切、重叠或丢字。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 39,
+      "observed_printed_body_page": 35,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-39.png",
+      "sha256": "be5fa5bfe1314b6a1f3652f20312836928e6fa6f1eab906fc3356f32a8678982",
+      "bytes": 410370,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "5.9标题及实际环境段清楚；原式5-5、5-6的上下标、分式、区间和式号均可读。",
+        "表5.11全部八个指标行完整落本页；长指标标签按行换开，表底在正文35页页脚之上，无裁切。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 40,
+      "observed_printed_body_page": 36,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-40.png",
+      "sha256": "51d024423c7685bebc0c855c37a3fe57254bc482eee830c37793c7c35831ba89",
+      "bytes": 519305,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "图5.8两面板、工程带/图例/首跨界标记及99.4948%几何条均清楚；图注与后续解释分隔正常。",
+        "注册取消与可见恢复末段完整，正文36页页脚正常，页面虽满仍未与页脚相撞。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 41,
+      "observed_printed_body_page": 37,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-41.png",
+      "sha256": "6eaa5448b4cb545ec2a75c5363e9c67651f157751b8dce295da04d0d1aee5666",
+      "bytes": 411942,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "表5.12表头及预热/主两行完整在同页，25280/101248和长尾数字清楚。",
+        "式5-7全式4002203951=3993729753+60+8460192+13946 ns及右侧式号完整同排，没有截字或碰撞。",
+        "5.10标题后保留足够正文；末段引出下页RAW表合理。正文37页页脚正常。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 42,
+      "observed_printed_body_page": 38,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-42.png",
+      "sha256": "604143a67f1c626b351c0efb76066bc5ef4374a0ca3400443415e3d3bc218158",
+      "bytes": 410772,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "表5.13的RAW三行与全部七列完整，20/21ns及2004/1603/501ns可读，没有跨页。",
+        "表5.14完整六行、六列与表头同页，所有P50/P90/P99/max/MAD数值清楚；下方说明仍在页内。",
+        "正文38页页脚正常；三张新增表中两张在本页全部成表，无拆行或裁切。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 43,
+      "observed_printed_body_page": 39,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-43.png",
+      "sha256": "b87ca58caa5993ad77614d261a5ad4c04a97ca1fc9ef12afa2e3f91e0f16f047",
+      "bytes": 207875,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "36行/360统计量、阶段账、两批边界差和R02/R04限制两段完整。",
+        "正文39页下半留白较大；这里是完整5章末段后下一章强制新页，非空白页、孤立标题或溢出两行尾页，当前可接受。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 44,
+      "observed_printed_body_page": 40,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-44.png",
+      "sha256": "570b7c99d23d173d53202f1b06381465f3f5e100aa7db2de00a338a482a10666",
+      "bytes": 588506,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "第6章及6.1/6.2标题层次一致；效率定位、资格/理论层次段落完整。",
+        "正文40页文字行距、页边距和页脚正常，无重叠、裁切或缺字。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 45,
+      "observed_printed_body_page": 41,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-45.png",
+      "sha256": "c5bb9de8f37798b47fccfab9d02c4f4241ecdde16b08e12eca43e24fa7c2bbe8",
+      "bytes": 399024,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "表6.1全部五数据行完整，三列分隔与表头清楚。",
+        "6.3及应用范围段落完整；正文41页下半余白为章末正常留白。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 46,
+      "observed_printed_body_page": 42,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-46.png",
+      "sha256": "225f7e4d6f9394769b4d68171f8bf6ca0d272e97e3e032db3c8f68083dd9442e",
+      "bytes": 577361,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "第7章、7.1/7.2层次清楚；G2与新三/六进程成果及40ns限定在总结中可读。",
+        "局限内容自然接下页，7.2标题后有足够正文，不孤悬；正文42页页脚正常。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 47,
+      "observed_printed_body_page": 43,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-47.png",
+      "sha256": "e3632e1580a675ec18f534969a81ef294a0c93cc4f23fd7f9a8b11570db8a8ba",
+      "bytes": 178737,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "有限覆盖与新测量限制两完整段落可读，未见错符号、缺字或裁切。",
+        "正文43页余白较大但结束完整章末两段、下一页参考文献另起，当前可接受。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 48,
+      "observed_printed_body_page": 44,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-48.png",
+      "sha256": "54dfd10d562aa835a3823a37e690e80daeb27905ddbd8fb9871170b9619886e9",
+      "bytes": 395241,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "参考文献[1]—[11]完整可读，FIPS/工作簿、上游40位版本、多个长URL在页内换行，无越界。",
+        "页脚44正常；最后[11]虽接近正文下界仍完整，未与页脚重叠。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 49,
+      "observed_printed_body_page": 45,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-49.png",
+      "sha256": "380bbf48ad260f6db3016f2cc7f31942c466f87894302408eaab824e566fd501",
+      "bytes": 201562,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "文献[12]—[16]完整；Linux固定v6.17长URL和Tyurin arXiv:0912.0726v1/2009及保守常数1说明清楚。",
+        "参考文献尾部余白为完整条目后的正常结束，页脚45可读，无裁切。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 50,
+      "observed_printed_body_page": 46,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-50.png",
+      "sha256": "5f4ddad1ec1f072ff081dfa9dd58ba7b12e52cd7d061b047d58cf51e3a07ff5b",
+      "bytes": 373927,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "表A.1原索引与四新增行全部在一页，编号与长相对路径完整，没有跨格挤压或截断。",
+        "新增四行分隔较醒目但可读；表后V3-R两条64位摘要仍在页内，正文46页页脚正常。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 51,
+      "observed_printed_body_page": 47,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-51.png",
+      "sha256": "ebfc5c850b99f5602ec04b348bbf430641708c8e9cd38ad027637f970825a109",
+      "bytes": 479057,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "旧裸金属原时点的环境/字段/失败说明完整；较长英文参数和路径分行后仍可辨认，无溢出页边。",
+        "GCC旧失败及未控频限定保留；正文47页页脚未被正文压住。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 52,
+      "observed_printed_body_page": 48,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-52.png",
+      "sha256": "7e6aa7e72c27945d66d45c8c8cbbb6610223dfdffb5f54c1d0037eb8a58446f1",
+      "bytes": 435070,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "接续附录A说明及表A.2八任务行完整，比例区间与表头清楚。",
+        "表后M01范围和多段长路径自然换行，页脚48正常；未见裁切或重叠。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 53,
+      "observed_printed_body_page": 49,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-53.png",
+      "sha256": "a2d28823c98e69066f38038b83a8c0db04f90c4a58b159c5a758dde38323cd35",
+      "bytes": 472737,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "表A.3八行三新进程比例完整且清楚；M02与G2材料说明可读，长相对路径在页内换行。",
+        "新增四研究末段在本页只排部分内容，末行到“实物”后尚有尾句转下一页；本页自身未裁切，但需结合54页判断尾页。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    },
+    {
+      "physical_page": 54,
+      "observed_printed_body_page": 50,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-54.png",
+      "sha256": "b49b8a853ff15ba44549391810e1bc86c4bcf438e042b642808413590b16e9aa",
+      "bytes": 64748,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "正文50页仅有附录A上一页新增末段的两行尾句，说明可读，无缺字；其余几乎整页留白。",
+        "这不是43/47页完整两段式章末留白，是末段两行溢出单独形成的孤尾页；建议压缩该新增末段措辞或调整其流动，保持原表/原段/字号，修后须重新分页与视觉检查。"
+      ],
+      "status": "needs_layout_revision"
+    },
+    {
+      "physical_page": 55,
+      "observed_printed_body_page": 51,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final/page-55.png",
+      "sha256": "72aba2939fcc0dc7f4d84bb963f4f063519a4759853f947207ce80bacc8df1aa",
+      "bytes": 280044,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_opened_single_page": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "inspection_not_from_contact_sheet_or_extraction": true,
+      "observations": [
+        "附录B标题、说明及表B.1全部18个数据行完整在页内，均值/P50/P90/P99及来源注清楚。",
+        "页脚51正常，表底和来源段不碰页脚，未见行拆散、缺字或裁切。"
+      ],
+      "status": "visually_passed_within_page_scope"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "audit_kind": "independent_requirements_and_claim_scope_review",
+  "created_utc": "2026-10-10T13:15:06.493109+00:00",
+  "baseline_commit": "c38523c8e9177bd052a02c53de67d9ffd3c709f7",
+  "scope": {
+    "ssh": false,
+    "new_samples": false,
+    "algorithm_calls": false,
+    "source_or_docs_mutations": false,
+    "sealed_evidence_mutations": false,
+    "commits": false,
+    "visual_review_of_new_report": false,
+    "external_peer_review": false,
+    "same_model_internal_review": true
+  },
+  "official_docx_paragraph_locator": "1-based all descendant w:p in w:body, including empty paragraphs and tables",
+  "official_hash_check": "4/4 pass",
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "9e60fd5d107f00ecfa4af9951760aeb35bd59cc18bdf3e648fcaa4dcd5449fca",
+      "bytes": 16176
+    },
+    {
+      "path": "docs/round-requirements-review.md",
+      "sha256": "7f587749fffb897e5fac747990c8a1d752129944ceb8ab16c16b5bfb47aa8aac",
+      "bytes": 7840
+    },
+    {
+      "path": "docs/full-work-acceptance.md",
+      "sha256": "e9c94a136d0a2e4f5dc0a5954b46d5f572cc73f3c9a16c0487b27801017d7fad",
+      "bytes": 9641
+    },
+    {
+      "path": "docs/research/aris-replication-20261009/FULL_GOAL_AUDIT.md",
+      "sha256": "8cdbef21955c47377e6bbb8f7378bbbfd47173e6ea68872a2237c25adfad8100",
+      "bytes": 18697
+    },
+    {
+      "path": "docs/reference/official-2026/A1-13-original.docx",
+      "sha256": "cf99f23ab1955c530efa97d35b4cd7c7b0dbc5da5bab044f201b38027cf8a67a",
+      "bytes": 18422
+    },
+    {
+      "path": "docs/reference/official-2026/report-template-original.docx",
+      "sha256": "4f81348bf085527f7ebe5de2787fd91ba05e5b5531754916badb005fcfb512c2",
+      "bytes": 47751
+    },
+    {
+      "path": "docs/reference/official-2026/approval-template-original.docx",
+      "sha256": "577e1d07423a204393082378ca80b05543e7da53e1a02b1c1b317ce90304ee1e",
+      "bytes": 18375
+    },
+    {
+      "path": "docs/reference/official-2026/notice-attachments-original.zip",
+      "sha256": "28c701c4668a7074ffe2db9e4ccfdb35ba312a8310fc454e1360d305c193413e",
+      "bytes": 474115
+    },
+    {
+      "path": "docs/template-fidelity.md",
+      "sha256": "d856b49583935eb01a3a6c3710207f1d26dcbe3b179c47a0b941b86097284fe7",
+      "bytes": 2976
+    },
+    {
+      "path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.docx",
+      "sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6",
+      "bytes": 2085314
+    },
+    {
+      "path": "deliverables/research/aris-report-g2-20261010/README.md",
+      "sha256": "feb33c517a15abc495c77edda9d703e2d59a2cf7d6c068a257ab3f62e102ed16",
+      "bytes": 2067
+    },
+    {
+      "path": "docs/research/aris-g2-timing-description-20261010/RESULTS.md",
+      "sha256": "de7e35c89001f82701c52a7e77c7ef590aed3ae050bffcbef0cc39168ab2bfaf",
+      "bytes": 5978
+    },
+    {
+      "path": "docs/research/aris-weak-mean-finite-20261010/PROOF_PACKAGE.md",
+      "sha256": "db69d01bbc4c068f2bbd00292362706b72a6ae01ba1cd1a0f8df1a976be0f0f0",
+      "bytes": 18103
+    },
+    {
+      "path": "docs/research/aris-weak-mean-finite-20261010/README.md",
+      "sha256": "e3052bdea08e4b4da16933340722a95052a0350f10e0a8b7d5f13269056c149f",
+      "bytes": 1821
+    },
+    {
+      "path": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "sha256": "581673b196cc0eeaa4f5cacbac5acc16133a1663a35d461250642a632a30bbde",
+      "bytes": 9036
+    },
+    {
+      "path": "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "sha256": "6d836db02ac09ec9c87e3dbc1cbacd547bf4da9cad1be7e493948b50c951e485",
+      "bytes": 2124
+    },
+    {
+      "path": "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "sha256": "a17ebec83c23f007203d1ac72754fc77d2c5f2689accf2b623f93f41cffed21f",
+      "bytes": 11079
+    },
+    {
+      "path": "docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md",
+      "sha256": "9ae7886ec8184802405737a55ba8a27ca0d3a81ecba14881c24f8b9b0aeb1d76",
+      "bytes": 2149
+    }
+  ],
+  "official_notice": {
+    "url": "https://chinacodes.com.cn/news/lookAllNews.do",
+    "article_title": "2026第十一届全国密码技术竞赛复赛通知",
+    "article_date": "2026-09-23",
+    "read_scope": "first article parsed lines 0-133; subsequent team lists/years not used",
+    "submission_section_lines": [
+      63,
+      91
+    ],
+    "not_observed_in_read_official_materials": [
+      "AI_use_declaration_clause",
+      "page_count_cap",
+      "prescribed_bibliography_style",
+      "citation_count_requirement"
+    ],
+    "absence_scope_limited": true
+  },
+  "requirements": [
+    {
+      "id": "R02",
+      "official_locator": "A1-13-original.docx:P16",
+      "status_recommendation": "partial",
+      "hard_requirement": [
+        "repeatable_high_precision_timing_framework",
+        "processor_os_compiler_optimization_frequency_management_counts_outlier_policy",
+        "minimize_sched_cache_background_interference"
+      ],
+      "not_official_hard_gate": [
+        "per_call_physical_constant_frequency",
+        "traceable_absolute_SI_error_bound",
+        "fixed_nanosecond_threshold",
+        "exclusive_whole_machine"
+      ],
+      "new_evidence_added": "RAW_three_process_empty_windows_and_six_process_full_public_fixture_description",
+      "remaining_claim_specific": "precision/detectability appropriate to any stronger final difference claim"
+    },
+    {
+      "id": "R04",
+      "official_locator": "A1-13-original.docx:P18",
+      "status_recommendation": "partial",
+      "hard_requirement": [
+        "reasonable_statistics_for_input_category_distinguishability",
+        "avoid_small_sample_or_single_test_conclusions"
+      ],
+      "not_official_hard_gate": [
+        "true_population_FPR_TPR_estimates",
+        "all_detection_methods_must_win"
+      ],
+      "new_repeatability_experiment_adds_detection_evidence": false,
+      "remaining_claim_specific": [
+        "null_and_unit_and_assignment_or_dependence_basis",
+        "do_not_equate_nonrejection_with_equivalence",
+        "real_assumptions_not_software_certifiable"
+      ]
+    }
+  ],
+  "mandatory_human_or_authorized_materials": [
+    "actual_software_run_and_test_screenshots",
+    "true_contribution_order_and_roles",
+    "member_signature_commitment",
+    "instructor_recommendation_and_signature",
+    "organization_comment_and_stamp",
+    "actual_platform_submission_and_receipt"
+  ],
+  "known_system_number": "CACR2026EA16XZ",
+  "new_title_approval_gate_created": false,
+  "new_repeatability_scope": {
+    "batches": 2,
+    "processes": 6,
+    "timed_full_decapsulation_calls": 300000,
+    "sampling_clock_reads": 600000,
+    "all_linux_full_algorithm_calls": 300138,
+    "main_p50_ns_min": 30678,
+    "main_p50_ns_max": 30718,
+    "observed_p50_range_ns": 40,
+    "range_is_error_bound": false,
+    "independent_hardware_environments": false,
+    "long_term_stability_certified": false,
+    "new_category_detection_guarantee": false
+  },
+  "prior_four_studies_already_in_49_page_925_member_sealed_deliverables": false,
+  "overall_goal_complete": false,
+  "recommendation": "integrate four actual studies, preserve identities and claim-specific limitations; no automatic R02/R04 upgrade or invented stronger official hard gates",
+  "audit_markdown_sha256": "828d9dbd48b8dd1ec4e62f011d1ea61decf19d8f2131809676acec8fc0164da7"
+}

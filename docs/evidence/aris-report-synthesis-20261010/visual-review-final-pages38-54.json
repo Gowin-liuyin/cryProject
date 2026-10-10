@@ -1,0 +1,411 @@
+{
+  "reviewer": "report_requirements_audit",
+  "review_kind": "actual_original_resolution_single_page_reinspection_after_orphan_fix",
+  "created_utc": "2026-10-10T13:59:32.615261+00:00",
+  "status": "passed_for_assigned_17_pages",
+  "pdf": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.pdf",
+    "sha256": "27e8001b8a374be9636c83196c65295626551277b8aafd961f47e223c174d7f7",
+    "total_pages": 54
+  },
+  "docx": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.docx",
+    "sha256": "95ffce23d02180117fb05ccf9ebc406b7b05ae20038f08042e25d13934e2983f"
+  },
+  "pages_actually_reopened": 17,
+  "assigned_physical_pages": [
+    38,
+    54
+  ],
+  "all_assigned_pages_actually_reopened": true,
+  "prior_55_page_review_identity": {
+    "pdf_sha256": "3b56b3e966ebc626574d6e85f19b2e3151c576c8c1c11afc12890ac2a69e64d5",
+    "review_sha256": "55704bd79b798bec21871df50ae1a0d5122b92e6f5e8594f82736a61495129de",
+    "status": "needs_layout_revision",
+    "record_preserved": true
+  },
+  "resolved_issue": {
+    "old_physical_page": 54,
+    "old_printed_body_page": 50,
+    "type": "two_line_orphan_tail_page",
+    "resolved": true,
+    "actual_new_evidence": "new page53 contains full shortened closing note; new page54 directly begins AppendixB and ends document"
+  },
+  "structure_review": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/delivery-candidate-verification.json",
+    "sha256": "a71d2820b1b4d57ee035d34da7f8c9c653543aa73135b36b58c65779079157a5",
+    "checks_passed": 120
+  },
+  "issues": [],
+  "scope": {
+    "full_report_visual_signoff": false,
+    "other_pages_reviewed_here": false,
+    "actual_45_TOC_PDF_mapping_signed_here": false,
+    "anonymous_distribution_signed_here": false,
+    "C_runs": 0,
+    "SSH": false,
+    "LO": false,
+    "DOCX_edits": false,
+    "old_evidence_edits": false
+  },
+  "pages": [
+    {
+      "physical_page": 38,
+      "observed_printed_body_page": 34,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-38.png",
+      "sha256": "f084d5f4ba534407a3a499f2f42bba8f2084ae704db33c8687fe25596ff73f9c",
+      "bytes": 305933,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看表5.10全部种子行、四形态、正负号、来源注和同机机制限制；内容清楚，无裁切或重叠。",
+        "正文34页页脚及末段正常。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 39,
+      "observed_printed_body_page": 35,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-39.png",
+      "sha256": "be5fa5bfe1314b6a1f3652f20312836928e6fa6f1eab906fc3356f32a8678982",
+      "bytes": 410370,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看5.9环境、式5-5/5-6、表5.11全部指标；分式上下标和式号清楚，长指标换行后仍完整。",
+        "表底与正文35页页脚保持距离，无碰撞。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 40,
+      "observed_printed_body_page": 36,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-40.png",
+      "sha256": "51d024423c7685bebc0c855c37a3fe57254bc482eee830c37793c7c35831ba89",
+      "bytes": 519305,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看图5.8两面板/图例/工程带与几何覆盖，图注和两段解释完整。",
+        "注册取消/恢复段至R02/R04行完整，正文36页页脚正常。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 41,
+      "observed_printed_body_page": 37,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-41.png",
+      "sha256": "6eaa5448b4cb545ec2a75c5363e9c67651f157751b8dce295da04d0d1aee5666",
+      "bytes": 411942,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看表5.12的表头、预热/主两行与全部统计量，完整同页。",
+        "式5-7全整数式与单位/式号完整、未重叠；5.10标题与引导正文正常，正文37页页脚清楚。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 42,
+      "observed_printed_body_page": 38,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-42.png",
+      "sha256": "604143a67f1c626b351c0efb76066bc5ef4374a0ca3400443415e3d3bc218158",
+      "bytes": 410772,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看表5.13三RAW行及全部七列，20/21ns与长尾值完整，无跨页。",
+        "表5.14六进程全部六行/六列完整同页，下方说明与正文38页页脚互不相撞。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 43,
+      "observed_printed_body_page": 39,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-43.png",
+      "sha256": "b87ca58caa5993ad77614d261a5ad4c04a97ca1fc9ef12afa2e3f91e0f16f047",
+      "bytes": 207875,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看36行/360统计量、时间账、两批边界差、内部复核及R02/R04限制两个完整末段。",
+        "正文39页下部为完整第五章结束留白，无新增孤立标题或尾句页。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 44,
+      "observed_printed_body_page": 40,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-44.png",
+      "sha256": "570b7c99d23d173d53202f1b06381465f3f5e100aa7db2de00a338a482a10666",
+      "bytes": 588506,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看第6章、6.1/6.2及新增能力边界段落，字号/行距/层次一致，文字完整。",
+        "正文40页页脚正常，无截字或重叠。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 45,
+      "observed_printed_body_page": 41,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-45.png",
+      "sha256": "c5bb9de8f37798b47fccfab9d02c4f4241ecdde16b08e12eca43e24fa7c2bbe8",
+      "bytes": 399024,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看表6.1五数据行，三列表头和行文字清楚；6.3应用/范围段完整。",
+        "正文41页章末留白合理，无溢出孤尾。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 46,
+      "observed_printed_body_page": 42,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-46.png",
+      "sha256": "225f7e4d6f9394769b4d68171f8bf6ca0d272e97e3e032db3c8f68083dd9442e",
+      "bytes": 577361,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看第7章总结与7.2局限开头，G2数字、新三/六进程和40ns限定可读。",
+        "7.2标题后有足够正文，内容自然续下页，正文42页页脚正常。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 47,
+      "observed_printed_body_page": 43,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-47.png",
+      "sha256": "e3632e1580a675ec18f534969a81ef294a0c93cc4f23fd7f9a8b11570db8a8ba",
+      "bytes": 178737,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看有限覆盖与新测量限制两完整段，R02/R04 partial说明完整。",
+        "正文43页留白为完整第7章结束，参考文献另起，无缺字或裁切。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 48,
+      "observed_printed_body_page": 44,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-48.png",
+      "sha256": "54dfd10d562aa835a3823a37e690e80daeb27905ddbd8fb9871170b9619886e9",
+      "bytes": 395241,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看文献[1]—[11]，FIPS工作簿和上游版本/长URL均在页内换行，字形清楚。",
+        "最末[11]完整，正文44页页脚没有被正文覆盖。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 49,
+      "observed_printed_body_page": 45,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-49.png",
+      "sha256": "380bbf48ad260f6db3016f2cc7f31942c466f87894302408eaab824e566fd501",
+      "bytes": 201562,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看文献[12]—[16]、Linux v6.17长URL及Tyurin固定v1/2009/保守常数1说明，全部可读。",
+        "正文45页页脚正常，文献尾部余白是完整条目后的结束。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 50,
+      "observed_printed_body_page": 46,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-50.png",
+      "sha256": "5f4ddad1ec1f072ff081dfa9dd58ba7b12e52cd7d061b047d58cf51e3a07ff5b",
+      "bytes": 373927,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看表A.1全部原索引及四新增行，全部长相对路径和使用范围完整，无跨格截断。",
+        "表后V3-R两条摘要在页内完整，正文46页页脚清楚。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 51,
+      "observed_printed_body_page": 47,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-51.png",
+      "sha256": "ebfc5c850b99f5602ec04b348bbf430641708c8e9cd38ad027637f970825a109",
+      "bytes": 479057,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看旧裸金属环境、记录字段和旧GCC失败说明；长英文参数/路径自然换行，无越出边界。",
+        "正文47页末段与页脚不冲突，历史时点限定保留。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 52,
+      "observed_printed_body_page": 48,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-52.png",
+      "sha256": "7e6aa7e72c27945d66d45c8c8cbbb6610223dfdffb5f54c1d0037eb8a58446f1",
+      "bytes": 435070,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": true,
+      "observations": [
+        "重新实际查看接续说明及表A.2八任务/比例区间/表注，数据行完整。",
+        "长相对路径与M01范围说明在页内，正文48页页脚正常。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 53,
+      "observed_printed_body_page": 49,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-53.png",
+      "sha256": "300151ffbe9e876fe9a7bfa5b1e8fa6fc0c3f2c5ebadaa3ec8fda5db11a56cf9",
+      "bytes": 434686,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": false,
+      "observations": [
+        "重新实际查看表A.3全部八行三进程比例，以及M02/G2材料说明，均完整可读。",
+        "缩短后的新增末段以两行完整落在本页底部：四项后续研究按各自清单解释，原49页及925项件保持原身份；匿名转换件与内部原件摘要分开核对。末段不再溢出。",
+        "正文49页页脚清楚；旧两行独立孤尾问题已消失。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    },
+    {
+      "physical_page": 54,
+      "observed_printed_body_page": 50,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-54.png",
+      "sha256": "f8206fb2c2575177859c4104c773f6e8d105e334fb2477a0106ca9dd6a43bee6",
+      "bytes": 280291,
+      "dimensions_px": [
+        1414,
+        2000
+      ],
+      "actually_reopened_after_orphan_fix": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "contact_sheet_or_extraction_substitution": false,
+      "same_png_bytes_as_previous_55_page_review": false,
+      "observations": [
+        "实际打开后直接见附录B标题及表B.1，已不是旧附录A两行孤尾页。",
+        "表B.1全部18数据行、各列和来源注完整，页底不与正文50页页脚相撞；文档在该完整附录页结束。"
+      ],
+      "status": "visually_passed_within_assigned_page_scope"
+    }
+  ]
+}

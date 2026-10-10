@@ -1,0 +1,372 @@
+{
+  "date": "2026-10-10",
+  "reviewer": "report_synthesis_outline",
+  "source_docx_sha256": "95ffce23d02180117fb05ccf9ebc406b7b05ae20038f08042e25d13934e2983f",
+  "source_pdf_sha256": "27e8001b8a374be9636c83196c65295626551277b8aafd961f47e223c174d7f7",
+  "source_pdf_page_count": 54,
+  "render_directory": "render-final-v2",
+  "assigned_pages": [
+    21,
+    37
+  ],
+  "reviewed_pages": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "actual_original_page_views_this_round": 17,
+  "old_visual_identity_reused_for_signoff": false,
+  "sha_equality_used_instead_of_opening": false,
+  "pages": [
+    {
+      "page": 21,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-21.png",
+      "sha256": "2de2ece9e17ffdd5dad01c93bbe38be365cb098a9a14b43cb2b8a7ef45cb11c5",
+      "bytes": 494594,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 21,
+      "printed_footer_page": 17,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "重新打开v2全页：表4.1三列五项完整，表题与横线清晰。",
+        "4.2正文与4.3标题后段落无裁切或重叠；页脚17。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 22,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-22.png",
+      "sha256": "030e58cfa4fc06a5033163c5a1d649cd9223c04f978a053248197b7f189e3428",
+      "bytes": 546547,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 22,
+      "printed_footer_page": 18,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "重新看v2历史材料续段和4.4：标题层次及正文换行正常。",
+        "式4-1条件及H0下标、4-2取整/分式显示清晰，公式号分离，页脚18。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 23,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-23.png",
+      "sha256": "10ac85b590b6a55acba4269c2e8430f37a2cc2ac91cb6bdefd36fa8f0524a75b",
+      "bytes": 590710,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 23,
+      "printed_footer_page": 19,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2共同符号/弱均值段和式4-3上标完整。",
+        "4.5标题后有正文两行再续页，无孤悬标题；页脚19。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 24,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-24.png",
+      "sha256": "b265d83b2fece0eca56e6c37eec4063022841925df12e40be22407b7d09baa51",
+      "bytes": 414036,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 24,
+      "printed_footer_page": 20,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "实际重新逐式查看4-4—4-8：θ/V帽、D横线、闭区间、整分式根号、z²、指数负分式、正部下标+均正确显示。",
+        "来源与G=0、η上下界及4—20限制段完整，正文和公式无碰撞，页脚20。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 25,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-25.png",
+      "sha256": "80e25487c800f597e1ff714342113328ef338822177eb156e8cf5d025caf61be",
+      "bytes": 185658,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 25,
+      "printed_footer_page": 21,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2第4.6标题、F(D)=Y与编号4-9清晰，两段复现范围和待真人材料说明完整。",
+        "页脚21；章末留白承接下一页新章，不是断表或丢内容。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 26,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-26.png",
+      "sha256": "b9e4eed94fe600af20fa055df636e9ce044948b36a05f3030c4739117c517d71",
+      "bytes": 328271,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 26,
+      "printed_footer_page": 22,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2第5章/5.1标题分级正常，图5.1四层框内文字完整。",
+        "表5.1全部环境条目同页，包括最后环境限制；表题/图题完整，页脚22。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 27,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-27.png",
+      "sha256": "5994cde6d3db2c69cc120afd33f224a986c255e942578da8e1c73bd0fb0ea4de",
+      "bytes": 534073,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 27,
+      "printed_footer_page": 23,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2型号字符串范围说明、5.2标题和表5.2全部检查条目可读。",
+        "320/34计数区分与统计边界段完整，页脚23。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 28,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-28.png",
+      "sha256": "23a1de39271d851ea46417e200393de8b00e106ce4e98546843d78a02bcf45ea",
+      "bytes": 335487,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 28,
+      "printed_footer_page": 24,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2 E02图5.2坐标/三曲线/图例/非零起点说明完整。",
+        "表5.3六行18个均值清晰，来源注在页底未碰页脚24。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 29,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-29.png",
+      "sha256": "f63ad674aefa579010658a15337adb158980bdbcc1ff31d06e7dd89915552982",
+      "bytes": 291892,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 29,
+      "printed_footer_page": 25,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2表5.4负差/百分比及区间完整可读。",
+        "图5.3 N01六运行曲线、45—49μs轴、图例和题注清晰，页脚25。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 30,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-30.png",
+      "sha256": "45df7ac536c77b0c86dd412f5a3ef20e81efc493a69f0dc82c2ab2192ccc4a85",
+      "bytes": 374199,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 30,
+      "printed_footer_page": 26,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2表5.5两行完整，5.4标题及方法正文分隔自然。",
+        "式5-1的ρq和Cq/Bq、比值范围与预算均清晰，页脚26。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 31,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-31.png",
+      "sha256": "07806d8c213eab69776276d96de1f6de22e5dc0db3df9f5654dac56d2ad9fdc6",
+      "bytes": 403080,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 31,
+      "printed_footer_page": 27,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2图5.4对数轴、两组成本柱和图例/说明完整。",
+        "表5.6七项两成本边界可读，长就绪成本文字未覆盖邻列；正文正常续页，页脚27。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 32,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-32.png",
+      "sha256": "1c064e7f13c9c71880f1c87ce87f17109bbf4177b870c2e1bff92b09037509a6",
+      "bytes": 682598,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 32,
+      "printed_footer_page": 28,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2 M01/M02密集正文清晰，行距及页边正常，未覆盖页脚28。",
+        "1000/100000ns门槛、240对等数字完整，无图表被切断。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 33,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-33.png",
+      "sha256": "c0f46d223370e7ac299fc0e5a65add5bbfe79a01bf8d78822977bde4cf382c9c",
+      "bytes": 325913,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 33,
+      "printed_footer_page": 29,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2 5.5标题与式5-2/5-3希腊字母、下标和4096分母显示完整。",
+        "图5.5 equal/graded与效应等距类别说明、图例/图题可读，页脚29。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 34,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-34.png",
+      "sha256": "91de626f533e69f675cc16aa5292b643a800011f5f1805c602d0eb275cc38cff",
+      "bytes": 405369,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 34,
+      "printed_footer_page": 30,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2表5.7全部五个效应与拒绝计数完整；低检出和共同符号说明可读。",
+        "5.6标题后正文及式5-4的条件/分式无裁切，页脚30。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 35,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-35.png",
+      "sha256": "8d7426ac5c9b90fea70ac97241e0fa82cd338dd8c12b0676c1868086bc5fb47b",
+      "bytes": 335464,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 35,
+      "printed_footer_page": 31,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2图5.6六柱和条件模型注释完整，表5.8六行全部12位条件概率清晰。",
+        "图表题与后续修复范围说明正常，页脚31。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 36,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-36.png",
+      "sha256": "e839c0f923984cefdcf9099cd772e69e8c2642f0fa16121c3e864f2ffa206844",
+      "bytes": 520093,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 36,
+      "printed_footer_page": 32,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2表5.9上标阈值与reference/deployable换行正常，历史停止及封存复算段完整。",
+        "5.8标题有足够随后正文；页末仅普通段落续接，页脚32。"
+      ],
+      "blocking_issues": []
+    },
+    {
+      "page": 37,
+      "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-37.png",
+      "sha256": "cbbd0043ec89da2b20f7a398e14df2c9fb424af3eab4e9f300f562b27bee6995",
+      "bytes": 312597,
+      "width": 1414,
+      "height": 2000,
+      "physical_page": 37,
+      "printed_footer_page": 33,
+      "actual_full_page_opened_again": true,
+      "tool": "view_image",
+      "detail_requested": "original",
+      "status": "pass",
+      "actual_observations": [
+        "v2名义阈值、秩/均值例子、科学计数及Welch值可读。",
+        "图5.7负轴、五种子、四色图例、方向和限制注释完整，页脚33。"
+      ],
+      "blocking_issues": []
+    }
+  ],
+  "conclusion": "PASS_ASSIGNED_FINAL_PAGES",
+  "blocking_issues": [],
+  "nonblocking_observation": "物理25为章末留白，下一页第5章另起。",
+  "scope": {
+    "all_54_pages_by_this_agent": false,
+    "pdf_or_xml_extraction_as_visual_substitute": false,
+    "anonymous_package": false,
+    "docx_edits": false,
+    "c_execution": false,
+    "ssh": false,
+    "libreoffice": false
+  },
+  "not_full_goal_signoff": true
+}

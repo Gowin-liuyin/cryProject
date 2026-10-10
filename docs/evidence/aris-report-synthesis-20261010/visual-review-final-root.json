@@ -1,0 +1,37 @@
+{
+  "docx_sha256": "95ffce23d02180117fb05ccf9ebc406b7b05ae20038f08042e25d13934e2983f",
+  "pdf_sha256": "27e8001b8a374be9636c83196c65295626551277b8aafd961f47e223c174d7f7",
+  "scope": "物理1—4；另实际目视53—54确认孤尾修正，主审38—54由独立代理记录",
+  "method": "每页各自view_image(detail=original)实际打开；平台有显示缩放提示，未用contact-sheet代替",
+  "status": "passed",
+  "pages": [
+    {
+      "physical_page": 1,
+      "png_sha256": "90d75e7fe5f37b0674f9c8dfc5090086248105c73d737d58759cc2acd547f258",
+      "opened_original": true,
+      "passed": true,
+      "observation": "封面编号/类别/日期清楚，无团队身份，保留原模板会标及线条。"
+    },
+    {
+      "physical_page": 2,
+      "png_sha256": "d2cc9a4e272584f94606687188cff5b6703d8fb6a6abf4367ecbba18b17f6f78",
+      "opened_original": true,
+      "passed": true,
+      "observation": "摘要与恰五关键词完整同页，无溢出。"
+    },
+    {
+      "physical_page": 3,
+      "png_sha256": "234f93126a4e3de8b41bbb8e97774f926c264c4af77d542d0e24c96fc7daff25",
+      "opened_original": true,
+      "passed": true,
+      "observation": "第一部分目录含4.5/4.6，点线与页码清楚。"
+    },
+    {
+      "physical_page": 4,
+      "png_sha256": "c24c36afa8fe4448d940e71fc0b5f2fc6c67f0d1e859f1be999dc7ffde11ce75",
+      "opened_original": true,
+      "passed": true,
+      "observation": "续目录含5.10与附录B正文50，实际45项页码check通过。"
+    }
+  ]
+}

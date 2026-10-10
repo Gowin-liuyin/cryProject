@@ -1,0 +1,35 @@
+{
+  "docx_sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+  "pdf_sha256": "3b56b3e966ebc626574d6e85f19b2e3151c576c8c1c11afc12890ac2a69e64d5",
+  "method": "每页单独调用view_image(detail=original)实际打开；平台显示有缩放提示，未以缩略图替代",
+  "pages": [
+    {
+      "physical_page": 1,
+      "png_sha256": "90d75e7fe5f37b0674f9c8dfc5090086248105c73d737d58759cc2acd547f258",
+      "opened_original": true,
+      "passed": true,
+      "observation": "封面编号/类别/日期清楚，无团队身份，原模板线条和会标保留。"
+    },
+    {
+      "physical_page": 2,
+      "png_sha256": "d2cc9a4e272584f94606687188cff5b6703d8fb6a6abf4367ecbba18b17f6f78",
+      "opened_original": true,
+      "passed": true,
+      "observation": "摘要与恰五关键词在同页完整，无溢出。"
+    },
+    {
+      "physical_page": 3,
+      "png_sha256": "234f93126a4e3de8b41bbb8e97774f926c264c4af77d542d0e24c96fc7daff25",
+      "opened_original": true,
+      "passed": true,
+      "observation": "目录第一部分含4.5/4.6，点线与页码清楚。"
+    },
+    {
+      "physical_page": 4,
+      "png_sha256": "9367b2c8acf8a18b31cf066bff8d8dfb044fad23d193e853ceb50007180c67ee",
+      "opened_original": true,
+      "passed": true,
+      "observation": "续目录含5.10及附录，45项实页另经check核对。"
+    }
+  ]
+}

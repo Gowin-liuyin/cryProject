@@ -1,0 +1,76 @@
+{
+  "old_docx_sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+  "old_source_copy": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/round2-reviewed-source.docx",
+  "new_docx_sha256": "95ffce23d02180117fb05ccf9ebc406b7b05ae20038f08042e25d13934e2983f",
+  "pdf_sha256": "27e8001b8a374be9636c83196c65295626551277b8aafd961f47e223c174d7f7",
+  "pdf_pages": 54,
+  "old_members_count": 42,
+  "new_members_count": 42,
+  "added_members": [],
+  "removed_members": [],
+  "changed_members": [
+    "docProps/app.xml",
+    "word/document.xml"
+  ],
+  "body_text_changes": [
+    {
+      "op": "replace",
+      "old": [
+        {
+          "body_index": 74,
+          "type": "p",
+          "text": "附录B　普通性能的完整分位数51"
+        }
+      ],
+      "new": [
+        {
+          "body_index": 74,
+          "type": "p",
+          "text": "附录B　普通性能的完整分位数50"
+        }
+      ]
+    },
+    {
+      "op": "replace",
+      "old": [
+        {
+          "body_index": 506,
+          "type": "p",
+          "text": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "new": [
+        {
+          "body_index": 506,
+          "type": "p",
+          "text": "四项后续研究按各自清单解释，原49页及925项件保持原身份；匿名转换件与内部原件摘要分开核对。"
+        }
+      ]
+    }
+  ],
+  "native_math_sequence_identical": true,
+  "native_math_count": 70,
+  "all_tables_sequence_identical": true,
+  "table_count": 26,
+  "media_all_identical": true,
+  "app_xml_old": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n<Properties xmlns=\"http://schemas.openxmlformats.org/officeDocument/2006/extended-properties\" xmlns:vt=\"http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes\"><Template>Normal</Template><Pages>55</Pages><Words>236</Words><Characters>243</Characters><Lines>3</Lines><Paragraphs>1</Paragraphs><TotalTime>24</TotalTime><ScaleCrop>false</ScaleCrop><LinksUpToDate>false</LinksUpToDate><CharactersWithSpaces>309</CharactersWithSpaces><Application>Office Document</Application><DocSecurity>0</DocSecurity></Properties>",
+  "app_xml_new": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n<Properties xmlns=\"http://schemas.openxmlformats.org/officeDocument/2006/extended-properties\" xmlns:vt=\"http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes\"><Template>Normal</Template><Pages>54</Pages><Words>236</Words><Characters>243</Characters><Lines>3</Lines><Paragraphs>1</Paragraphs><TotalTime>24</TotalTime><ScaleCrop>false</ScaleCrop><LinksUpToDate>false</LinksUpToDate><CharactersWithSpaces>309</CharactersWithSpaces><Application>Office Document</Application><DocSecurity>0</DocSecurity></Properties>",
+  "reviewer": "report_synthesis_outline",
+  "conclusion": "PASS_FINAL_CONTENT_DELTA",
+  "document_xml_changed_body_nodes_only": [
+    74,
+    506
+  ],
+  "document_xml_other_than_allowed_nodes_identical": true,
+  "app_xml_changed_only_Pages_55_to_54": true,
+  "scope": {
+    "source_snapshot_read": true,
+    "docx_edits": false,
+    "c_execution": false,
+    "ssh": false,
+    "libreoffice": false,
+    "new_package_review": false,
+    "assigned_visual_review": "separate new actual page-image record"
+  },
+  "statement": "新孤尾修正只是重复材料说明缩短；正文方法、分母、科学限制、数学/数据及原49/925身份保留。"
+}

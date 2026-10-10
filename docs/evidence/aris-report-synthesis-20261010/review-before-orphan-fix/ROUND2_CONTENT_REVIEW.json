@@ -1,0 +1,2112 @@
+{
+  "date": "2026-10-10",
+  "candidate_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.docx",
+  "candidate_sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+  "reviewed_copy": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/round2-reviewed-source.docx",
+  "reviewed_copy_sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+  "current_path_sha_at_end": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+  "conclusion": "PASS_CONTENT_NO_BLOCKERS",
+  "content_blockers": [],
+  "round1_scope_correction": "C408 closed; only complete-call collector now claims own dumpable disable/readback",
+  "round1_cross_reference": "C146 now 4.4,4.5; closed",
+  "new_changes_reviewed": [
+    "Rademacher explicit independent ±1 with 1/2",
+    "5.10 management prose compressed without numeric/claim drift",
+    "45 TOC actual digits and unique bookmark targets",
+    "4.6 bookmark restored",
+    "app.xml Pages=55 metadata only"
+  ],
+  "math_checks": [
+    {
+      "body_index": 261,
+      "same_as_round1": true,
+      "xml_sha256": "c7603436d03a28b514b4815bb1fce2cce90cc54db87861a2fb5c2926e5b1346c"
+    },
+    {
+      "body_index": 262,
+      "same_as_round1": true,
+      "xml_sha256": "6e624f0b5c6b8a1871d4ed766859a7eb549ab5de9a6ee9b5d9bd904669637a0f"
+    },
+    {
+      "body_index": 264,
+      "same_as_round1": true,
+      "xml_sha256": "69cd8bc93d5b1f3f53ebca79d9121fa9603e9941756e4af45eaf43a2d4e5bd8a"
+    },
+    {
+      "body_index": 265,
+      "same_as_round1": true,
+      "xml_sha256": "f18430e8ffd8d74f45d595589f27cd82ef1a6a2f74a988be6ebc630a2e97eaeb"
+    },
+    {
+      "body_index": 266,
+      "same_as_round1": true,
+      "xml_sha256": "b95811f3ab3b0b556e8d60a98a32336a4234fdf4edd855854cb834a4fe60ec8e"
+    },
+    {
+      "body_index": 403,
+      "same_as_round1": true,
+      "xml_sha256": "9b3f60ea385f19c20c91b6ca1c95e390fb7c7b8bcca39d5457f562bf4ab99053"
+    }
+  ],
+  "table_checks": [
+    {
+      "body_index": 401,
+      "same_numeric_cells_as_verified_round1": true
+    },
+    {
+      "body_index": 411,
+      "same_numeric_cells_as_verified_round1": true
+    },
+    {
+      "body_index": 415,
+      "same_numeric_cells_as_verified_round1": true
+    }
+  ],
+  "toc_check": {
+    "count": 45,
+    "unique_existing_destinations": 45,
+    "issues": [],
+    "duplicate_bookmark_names": 0,
+    "duplicate_start_ids": 0,
+    "4.5_digit": 19,
+    "4.6_digit": 21,
+    "5.10_digit": 37,
+    "pdf_actual_pages_independently_checked": false
+  },
+  "old_identity": [
+    {
+      "role": "old_docx",
+      "path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.docx",
+      "sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6",
+      "unchanged": true
+    },
+    {
+      "role": "old_pdf",
+      "path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.pdf",
+      "sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4",
+      "unchanged": true
+    },
+    {
+      "role": "old_zip",
+      "path": "deliverables/support/CACR2026EA16XZ-g2-windows-20261010/CACR2026EA16XZ-G2窗口与研究材料补充件.zip",
+      "sha256": "d5c7a05c0585890d0442431992ea1b09db459a05c445fb17dcb0c1092e429cd3",
+      "unchanged": true
+    }
+  ],
+  "status_counts": {
+    "PASS_CONTENT": 38,
+    "PENDING_SEPARATE_EVIDENCE": 6,
+    "PENDING_FULL_GOAL_DELIVERY": 1
+  },
+  "checks": [
+    {
+      "id": "M01",
+      "group": "有限界对象",
+      "requirement": "保留原θ=U⁻¹Σθ_j、θ̂=D̄、V̂=Σ(D_j−D̄)²/[U(U−1)]和原学生化闭区间I；不换为已知G的oracle区间。",
+      "expected_evidence": "章4原生公式及定义；对照PROOF_PACKAGE Claim/Notation。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 261,
+          "type": "p",
+          "exact_text_or_rows": "Dj=θj+Rjγj,   θ=ΣθjU,   θ=D(4-4)"
+        },
+        {
+          "body_index_zero_based": 262,
+          "type": "p",
+          "exact_text_or_rows": "V=ΣDj−D2U(U−1),   I=θ−zV, θ+zV(4-5)"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M02",
+      "group": "有限界假设",
+      "requirement": "明确U≥2在结果前固定、固定有限潜在数组、R_j独立等概率±1且独立潜在数组、D_j=θ_j+R_jγ_j；概率仅对真实赋值。",
+      "expected_evidence": "章4模型段逐项核对；若只显示F2而遗漏设计，不通过。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 260,
+          "type": "p",
+          "exact_text_or_rows": "保持登记单位的原平均效应与学生化区间。事前固定U≥2和有限潜在数组，独立等概率AB/BA赋值以独立Rademacher符号R表示，各以1/2取±1；一致性、无赋值相关携带及跨单位干扰等现实条件，须足以支持下列表示。概率仅对赋值计算，不要求时段内调用独立，也不把调用数当作U："
+        },
+        {
+          "body_index_zero_based": 261,
+          "type": "p",
+          "exact_text_or_rows": "Dj=θj+Rjγj,   θ=ΣθjU,   θ=D(4-4)"
+        }
+      ],
+      "review_note": "D260现明确独立Rademacher符号各以1/2取±1；U及潜在数组在前固定，条件保持。"
+    },
+    {
+      "id": "M03",
+      "group": "有限界假设",
+      "requirement": "现实一致性/无赋值相关携带/跨单位干扰等须足以支持该模型；不由低自相关、乱序或C资格自动推出。",
+      "expected_evidence": "章4模型段、7.2限制和资格控制段三处一致。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 260,
+          "type": "p",
+          "exact_text_or_rows": "保持登记单位的原平均效应与学生化区间。事前固定U≥2和有限潜在数组，独立等概率AB/BA赋值以独立Rademacher符号R表示，各以1/2取±1；一致性、无赋值相关携带及跨单位干扰等现实条件，须足以支持下列表示。概率仅对赋值计算，不要求时段内调用独立，也不把调用数当作U："
+        },
+        {
+          "body_index_zero_based": 268,
+          "type": "p",
+          "exact_text_or_rows": "G=0时估计量恰等目标，原区间必覆盖，不定义η。G>0时虽有1/U≤η≤1，却不能用下界1/U代替所需上界；若只有普遍上界1，式（4-8）给出零这个无信息下界，并不表示实际覆盖为零。原无主导条件下的渐近路线因此获得定量补充，但现有4—20单位仍未由该界获得名义覆盖保证。独立赋值、可信η上界及无携带/干扰不是文件资格能认证的事实。可信反事实幅度上界可支持另一条有限覆盖路线[14]，但不能由观测最大值或超时替代。此理论补充尚未作为现有CLI的均值保证实现。"
+        },
+        {
+          "body_index_zero_based": 457,
+          "type": "p",
+          "exact_text_or_rows": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。原均值区间已有显式有限覆盖下界及独立解析复核，但可信反事实主导比例、无携带/干扰等现实前提和相应实现尚未认证；现有4—20单位未由该界获得名义覆盖保证，R04仍部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M04",
+      "group": "有限界假设",
+      "requirement": "不额外要求单位同分布、θ_j相同、H=0、H/G→0或块内调用独立，不无故更换为有界/截断耗时模型。",
+      "expected_evidence": "新正文与抽象证明前提一致；强加这些结构应有明确另行假设并不得倒认证。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 260,
+          "type": "p",
+          "exact_text_or_rows": "保持登记单位的原平均效应与学生化区间。事前固定U≥2和有限潜在数组，独立等概率AB/BA赋值以独立Rademacher符号R表示，各以1/2取±1；一致性、无赋值相关携带及跨单位干扰等现实条件，须足以支持下列表示。概率仅对赋值计算，不要求时段内调用独立，也不把调用数当作U："
+        },
+        {
+          "body_index_zero_based": 267,
+          "type": "p",
+          "exact_text_or_rows": "其中Φ为标准正态分布函数，方括号下标“+”表示与零取最大值。式（4-8）对任意效应异质程度有效，固定采用保守Berry–Esseen常数1，依据Tyurin固定v1的一般独立结果[16]，不把同分布常数用于不等权符号。推导先展开原中心平方和、精确移项覆盖事件，再控制负向方差扰动；对加权独立符号应用正态近似，以CDF左极限保留离散端点，最后用事件包含与并集界组合。两个共享符号事件没有被假定独立；完整代数另存技术资料。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M05",
+      "group": "有限界公式",
+      "requirement": "G>0时η=maxγ_j²/G、0<ε<1、z>0；a0=z√[U(1−ε)/(U−1+z²)]，p0=min{1,η/ε²,exp[−ε²/(2η)]}；下界[2Φ(a0)−1−2√η−p0]+。",
+      "expected_evidence": "逐项对照F2，包括根号范围、分母、负号、指数系数2、正部符号和闭区间。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 263,
+          "type": "p",
+          "exact_text_or_rows": "所有求和均遍历j=1至U。z>0在观察前固定，I包含端点，标准误为零时仍按原闭区间解释。令G为各γ平方之和；G>0时，η为最大γ平方占G的比例。η度量未观测反事实主导程度，不是单次观测最大差。对确定的0<ε<1，定义："
+        },
+        {
+          "body_index_zero_based": 264,
+          "type": "p",
+          "exact_text_or_rows": "aε(0)=zU(1−ε)U−1+z2(4-6)"
+        },
+        {
+          "body_index_zero_based": 265,
+          "type": "p",
+          "exact_text_or_rows": "p0(ε,η)=min1, ηε2, exp−ε22η(4-7)"
+        },
+        {
+          "body_index_zero_based": 266,
+          "type": "p",
+          "exact_text_or_rows": "Pr{θ∈I}≥2Φ(aε(0))−1−2η−p0(ε,η)+(4-8)"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M06",
+      "group": "有限界解释",
+      "requirement": "C_BE=1来自已核一般独立非同分布版本，不将iid常数或未核0.56代入；Tyurin固定v1身份正确。",
+      "expected_evidence": "新引用及公式说明；固定论文来源与REFERENCES.md一致。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 267,
+          "type": "p",
+          "exact_text_or_rows": "其中Φ为标准正态分布函数，方括号下标“+”表示与零取最大值。式（4-8）对任意效应异质程度有效，固定采用保守Berry–Esseen常数1，依据Tyurin固定v1的一般独立结果[16]，不把同分布常数用于不等权符号。推导先展开原中心平方和、精确移项覆盖事件，再控制负向方差扰动；对加权独立符号应用正态近似，以CDF左极限保留离散端点，最后用事件包含与并集界组合。两个共享符号事件没有被假定独立；完整代数另存技术资料。"
+        },
+        {
+          "body_index_zero_based": 478,
+          "type": "p",
+          "exact_text_or_rows": "[16] Tyurin I. New estimates of the convergence rate in the Lyapunov theorem. arXiv:0912.0726v1, 2009. https://arxiv.org/abs/0912.0726v1 . 研究预印本；本文使用一般独立结果所允许的保守常数1，定向核查式(1)与定理7，未重现计算证书。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M07",
+      "group": "有限界解释",
+      "requirement": "η未由一次观测识别；所需可信事前上界不能由η≥1/U、观测max/超时/相近P50替代。",
+      "expected_evidence": "章4/7.2；任何η=1/U实际认证断言为阻断项。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 263,
+          "type": "p",
+          "exact_text_or_rows": "所有求和均遍历j=1至U。z>0在观察前固定，I包含端点，标准误为零时仍按原闭区间解释。令G为各γ平方之和；G>0时，η为最大γ平方占G的比例。η度量未观测反事实主导程度，不是单次观测最大差。对确定的0<ε<1，定义："
+        },
+        {
+          "body_index_zero_based": 268,
+          "type": "p",
+          "exact_text_or_rows": "G=0时估计量恰等目标，原区间必覆盖，不定义η。G>0时虽有1/U≤η≤1，却不能用下界1/U代替所需上界；若只有普遍上界1，式（4-8）给出零这个无信息下界，并不表示实际覆盖为零。原无主导条件下的渐近路线因此获得定量补充，但现有4—20单位仍未由该界获得名义覆盖保证。独立赋值、可信η上界及无携带/干扰不是文件资格能认证的事实。可信反事实幅度上界可支持另一条有限覆盖路线[14]，但不能由观测最大值或超时替代。此理论补充尚未作为现有CLI的均值保证实现。"
+        },
+        {
+          "body_index_zero_based": 457,
+          "type": "p",
+          "exact_text_or_rows": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。原均值区间已有显式有限覆盖下界及独立解析复核，但可信反事实主导比例、无携带/干扰等现实前提和相应实现尚未认证；现有4—20单位未由该界获得名义覆盖保证，R04仍部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M08",
+      "group": "有限界解释",
+      "requirement": "仅知η≤1时本保守界为0；零下界是无信息，不是实际覆盖0；正下界也须与事前目标对照。",
+      "expected_evidence": "章4文字或明确技术资料引用。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 268,
+          "type": "p",
+          "exact_text_or_rows": "G=0时估计量恰等目标，原区间必覆盖，不定义η。G>0时虽有1/U≤η≤1，却不能用下界1/U代替所需上界；若只有普遍上界1，式（4-8）给出零这个无信息下界，并不表示实际覆盖为零。原无主导条件下的渐近路线因此获得定量补充，但现有4—20单位仍未由该界获得名义覆盖保证。独立赋值、可信η上界及无携带/干扰不是文件资格能认证的事实。可信反事实幅度上界可支持另一条有限覆盖路线[14]，但不能由观测最大值或超时替代。此理论补充尚未作为现有CLI的均值保证实现。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "M09",
+      "group": "有限界边界",
+      "requirement": "G=0时原估计恰等θ、覆盖1，不填η/h=0套G>0公式；V̂=0不等于G=0；区间保留闭端点。",
+      "expected_evidence": "章4边界说明；短证明若含CDF须为F(a)−F(−a−)。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 263,
+          "type": "p",
+          "exact_text_or_rows": "所有求和均遍历j=1至U。z>0在观察前固定，I包含端点，标准误为零时仍按原闭区间解释。令G为各γ平方之和；G>0时，η为最大γ平方占G的比例。η度量未观测反事实主导程度，不是单次观测最大差。对确定的0<ε<1，定义："
+        },
+        {
+          "body_index_zero_based": 268,
+          "type": "p",
+          "exact_text_or_rows": "G=0时估计量恰等目标，原区间必覆盖，不定义η。G>0时虽有1/U≤η≤1，却不能用下界1/U代替所需上界；若只有普遍上界1，式（4-8）给出零这个无信息下界，并不表示实际覆盖为零。原无主导条件下的渐近路线因此获得定量补充，但现有4—20单位仍未由该界获得名义覆盖保证。独立赋值、可信η上界及无携带/干扰不是文件资格能认证的事实。可信反事实幅度上界可支持另一条有限覆盖路线[14]，但不能由观测最大值或超时替代。此理论补充尚未作为现有CLI的均值保证实现。"
+        }
+      ],
+      "review_note": "原生I确为闭区间，C263明确零标准误仍按原区间，C268仅对真实G=0另述且不定义η，未以观测零标准误反推G=0。"
+    },
+    {
+      "id": "M10",
+      "group": "有限界当前状态",
+      "requirement": "现有4—20单位未由本界取得名义覆盖；若出现<0.56须指本下界保证值上限；1600只为所选界95%的一项必要条件，非充分或运行建议。",
+      "expected_evidence": "摘要、章4、总结与限制全文一致；不得写“4—20无任何有限界”。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 24,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "基本信息表"
+            ],
+            [
+              "编号：CACR2026EA16XZ"
+            ],
+            [
+              "作品题目：ML-KEM 解封装实现的时间侧信道检测与常数时间防护（暂定题名）"
+            ],
+            [
+              "作品类别：□软件设计   □硬件制作   ■工程实践  □密码技术应用  □其它"
+            ],
+            [
+              "作品内容摘要： | 本作品面向ML-KEM解封装实现的本地审计需求，设计并实现C11审计与精确复算系统。系统采用固定ML-KEM-768便携实现，以独立公开向量及接口检查验证功能，记录完整解封装逐次时间，并关联源码、产物、环境和成本。将数据资格与统计数值分开输出，支持有界成对数据的整数精确复算。八个固定任务与SciPy尾计数及判定一致；预导入流程对照、同语言函数对照及干净重建均支持固定任务的效率改进。有限模型与后赋标签结果通过独立核对；同机人工机制掩码在五个种子的原名义检验里均未再检出。G2保存126528次完整调用，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%。后续分别补入旧原值耗时描述、新RAW空窗三进程及同公开输入、同产物六进程完整调用，保留全部长尾和时间账。原学生化均值区间的条件有限覆盖下界已推导，但不能认证现有4—20单位。作品已完成封存包新目录复算，支持本地审查与离线复核；观察范围、精度和统计保证分别解释，不外推为全库恒时。R02/R04仍部分签收。"
+            ],
+            [
+              "关键词（五个）：ML-KEM；时间侧信道；常数时间；证据资格；可复现性"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 251,
+          "type": "p",
+          "exact_text_or_rows": "平均时间差与尖锐零假设须分别推断[13]。对事前固定匹配对，独立等概率AB/BA且无携带或干扰时，成对均值无偏、方差估计期望保守[12]，仍不保证小样本覆盖。无主导反事实方差条件给出原渐近保守路线；后续有限样本补充保持同一目标及原学生化区间，显式量化该保证的损失，见第4.5节。可信反事实上界仍不能由观测最大值或超时替代；新界也没有认证现有4—20单位。等价另须预定容许界及有效区间严格内含。"
+        },
+        {
+          "body_index_zero_based": 268,
+          "type": "p",
+          "exact_text_or_rows": "G=0时估计量恰等目标，原区间必覆盖，不定义η。G>0时虽有1/U≤η≤1，却不能用下界1/U代替所需上界；若只有普遍上界1，式（4-8）给出零这个无信息下界，并不表示实际覆盖为零。原无主导条件下的渐近路线因此获得定量补充，但现有4—20单位仍未由该界获得名义覆盖保证。独立赋值、可信η上界及无携带/干扰不是文件资格能认证的事实。可信反事实幅度上界可支持另一条有限覆盖路线[14]，但不能由观测最大值或超时替代。此理论补充尚未作为现有CLI的均值保证实现。"
+        },
+        {
+          "body_index_zero_based": 457,
+          "type": "p",
+          "exact_text_or_rows": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。原均值区间已有显式有限覆盖下界及独立解析复核，但可信反事实主导比例、无携带/干扰等现实前提和相应实现尚未认证；现有4—20单位未由该界获得名义覆盖保证，R04仍部分签收。"
+        }
+      ],
+      "review_note": "已明确现有4—20未获名义覆盖；正文未引入<0.56或1600，避免误读，不必为符合清单强行新增该数字。"
+    },
+    {
+      "id": "M11",
+      "group": "有限界实现状态",
+      "requirement": "此次仅数学/来源/解析复核，没有数值枚举、模拟、C实现/测试或新采集；未把理论写成CLI已实现保证或ARIS新方法首创。",
+      "expected_evidence": "3.5/4.5/7.1与技术资料状态；原W1—W4和NOT_READY_TO_RUN协议身份保留。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 202,
+          "type": "p",
+          "exact_text_or_rows": "分析模块先判断记录是否完整，再检查所请求分析的适用范围。对于普通数据，系统输出均值和分位数等描述结果；对于4至20个合格成对单位，才执行第2章定义的完整交换计数。此处资格限于可核查结构及声明，不能认证均值区间所需的反事实条件。图3.4给出了资格检查与结果输出的关系。下文有限均值界是独立理论补充，尚未成为该4—20单位入口的已实现保证；CSV读取、元数据/退出接受和现实统计前提仍由不同层次核对。"
+        },
+        {
+          "body_index_zero_based": 267,
+          "type": "p",
+          "exact_text_or_rows": "其中Φ为标准正态分布函数，方括号下标“+”表示与零取最大值。式（4-8）对任意效应异质程度有效，固定采用保守Berry–Esseen常数1，依据Tyurin固定v1的一般独立结果[16]，不把同分布常数用于不等权符号。推导先展开原中心平方和、精确移项覆盖事件，再控制负向方差扰动；对加权独立符号应用正态近似，以CDF左极限保留离散端点，最后用事件包含与并集界组合。两个共享符号事件没有被假定独立；完整代数另存技术资料。"
+        },
+        {
+          "body_index_zero_based": 268,
+          "type": "p",
+          "exact_text_or_rows": "G=0时估计量恰等目标，原区间必覆盖，不定义η。G>0时虽有1/U≤η≤1，却不能用下界1/U代替所需上界；若只有普遍上界1，式（4-8）给出零这个无信息下界，并不表示实际覆盖为零。原无主导条件下的渐近路线因此获得定量补充，但现有4—20单位仍未由该界获得名义覆盖保证。独立赋值、可信η上界及无携带/干扰不是文件资格能认证的事实。可信反事实幅度上界可支持另一条有限覆盖路线[14]，但不能由观测最大值或超时替代。此理论补充尚未作为现有CLI的均值保证实现。"
+        },
+        {
+          "body_index_zero_based": 451,
+          "type": "p",
+          "exact_text_or_rows": "这些成果共同支持可运行、可检查和可重建的本地审计流程。历史人工案例的局限、未执行的有限批次及不利结果均予以保留，作品不以复算更快代替密码防护更强，也不以检查通过代替全部研究要求已完成。理论补充给出原学生化弱均值区间的条件有限下界；其可能无信息，作用是明确当前推断预算与前提，不是新统计方法或真实R04认证。"
+        },
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "C202/C268明确理论尚非CLI保证，C267说完整代数技术资料，不把解析推导称已跑枚举；正文未虚称新统计方法。"
+    },
+    {
+      "id": "T01",
+      "group": "测量分母",
+      "requirement": "旧G2共126528完整计时调用=预热25280+主101248；本轮只是既有原件离线分析，新增硬件采集和密码调用0。",
+      "expected_evidence": "5.9正文、表5.12及摘要；不把54行当54次实验。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 399,
+          "type": "p",
+          "exact_text_or_rows": "对同一次G2原件补做离线C11耗时描述，没有新增硬件采集。全部126528次包含预热25280次与主阶段101248次；表5.12保留长尾。各分位沿用式（2-9）的固定下标，偶数样本取上中位数，MAD不缩放；四个等调用数段和八输入循环不构成新增独立运行。"
+        },
+        {
+          "body_index_zero_based": 401,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "阶段",
+              "调用数",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "预热",
+              "25280",
+              "39314",
+              "39865",
+              "42099",
+              "61005",
+              "130"
+            ],
+            [
+              "主阶段",
+              "101248",
+              "39274",
+              "39844",
+              "41498",
+              "82996",
+              "90"
+            ]
+          ]
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T02",
+      "group": "测量分母",
+      "requirement": "G2主P50/P90/P99/max/MAD=39274/39844/41498/82996/90 ns；预热=39314/39865/42099/61005/130 ns。",
+      "expected_evidence": "新G2两行表逐单元格比对RESULTS；主均值权威3993729753/101248 ns。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 401,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "阶段",
+              "调用数",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "预热",
+              "25280",
+              "39314",
+              "39865",
+              "42099",
+              "61005",
+              "130"
+            ],
+            [
+              "主阶段",
+              "101248",
+              "39274",
+              "39844",
+              "41498",
+              "82996",
+              "90"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 402,
+          "type": "p",
+          "exact_text_or_rows": "主均值的精确值为3993729753/101248 ns。完整调用窗口总和与首间隙、相邻间隙总和、尾间隙，按顺序构成主墙钟的整数账："
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T03",
+      "group": "测量分母",
+      "requirement": "G2主墙钟4002203951=3993729753+60+8460192+13946 ns；这是调用窗与间隙账，不是APERF几何覆盖分子/缺口。",
+      "expected_evidence": "原生公式与紧邻解释；不写8474198 ns为频率唯一未知时间。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 402,
+          "type": "p",
+          "exact_text_or_rows": "主均值的精确值为3993729753/101248 ns。完整调用窗口总和与首间隙、相邻间隙总和、尾间隙，按顺序构成主墙钟的整数账："
+        },
+        {
+          "body_index_zero_based": 403,
+          "type": "p",
+          "exact_text_or_rows": "4002203951=3993729753+60+8460192+13946 ns(5-7)"
+        },
+        {
+          "body_index_zero_based": 404,
+          "type": "p",
+          "exact_text_or_rows": "式（5-7）不是APERF支持区间的几何分解。窗外时间不等于频率未知部分；主P99与最大值说明平均窗口规则通过时仍存在长尾，不能确定瞬时频率或成因。完整54行描述及原件绑定另存。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T04",
+      "group": "测量分母",
+      "requirement": "RAW为3顺序进程；每进程1000预热+100000主pair，共303000 pair/606000采样读钟，密码调用0。",
+      "expected_evidence": "5.10方法/表/摘要；不能将303000都称主阶段，也不能将pair叫完整解封装。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 409,
+          "type": "p",
+          "exact_text_or_rows": "空窗研究连续执行三个新进程，各1000次预热及100000次主pair；总303000个空pair、606000次采样读钟，密码调用为零。两次读取timespec后才换算；pair内、相邻pair间及组合间隔分别描述，它们共享读钟序列。表5.13列主pair内分布，三进程零值均为0。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T05",
+      "group": "测量数值",
+      "requirement": "RAW主pair内各count100000、min/min_positive10、P50/P90=20/20、P99=21、max2004/1603/501、MAD0、zero0，全部ns。",
+      "expected_evidence": "三行表及零/MAD说明；18行只是每进程两phase×三shared series。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 409,
+          "type": "p",
+          "exact_text_or_rows": "空窗研究连续执行三个新进程，各1000次预热及100000次主pair；总303000个空pair、606000次采样读钟，密码调用为零。两次读取timespec后才换算；pair内、相邻pair间及组合间隔分别描述，它们共享读钟序列。表5.13列主pair内分布，三进程零值均为0。"
+        },
+        {
+          "body_index_zero_based": 411,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "进程",
+              "最小/ns",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "RAW-1",
+              "10",
+              "20",
+              "20",
+              "21",
+              "2004",
+              "0"
+            ],
+            [
+              "RAW-2",
+              "10",
+              "20",
+              "20",
+              "21",
+              "1603",
+              "0"
+            ],
+            [
+              "RAW-3",
+              "10",
+              "20",
+              "20",
+              "21",
+              "501",
+              "0"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 412,
+          "type": "p",
+          "exact_text_or_rows": "声明1 ns、最小正观察10 ns和主空窗P50/P99为20/21 ns属于不同量。空窗增量不是两次API调用的完整总成本；MAD为零不意味着零误差。新结果不倒校准旧G2，也不从任何完整调用减去20 ns。普通与动态软件检查各2/2通过，动态产物未参与实际采样；全部18行C描述与180个统计量由独立整数复核一致。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T06",
+      "group": "测量解释",
+      "requirement": "getres声明1 ns、观察最小正增量10 ns、空窗20/21 ns与绝对精度不同；20 ns不是两次clock_gettime纯总成本、单次成本或可从旧G2扣除量。",
+      "expected_evidence": "3.3、5.10、7.2。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 187,
+          "type": "p",
+          "exact_text_or_rows": "既有普通三类采集使用CLOCK_MONOTONIC，时间单位为纳秒。前置参考测量中，时钟报告分辨率为1 ns，最小正读钟增量观察值为19 ns；每次另存10000个读钟增量和1000个空窗口值。后续G2、RAW空窗及六进程固定输入研究使用CLOCK_MONOTONIC_RAW，各自保存源、产物与时钟上下文。新RAW程序的声明1 ns、最小正增量10 ns及空窗分布仅描述新对象，不倒认旧G2已校准；各研究均保留原始时长，不直接扣减读钟开销。"
+        },
+        {
+          "body_index_zero_based": 412,
+          "type": "p",
+          "exact_text_or_rows": "声明1 ns、最小正观察10 ns和主空窗P50/P99为20/21 ns属于不同量。空窗增量不是两次API调用的完整总成本；MAD为零不意味着零误差。新结果不倒校准旧G2，也不从任何完整调用减去20 ns。普通与动态软件检查各2/2通过，动态产物未参与实际采样；全部18行C描述与180个统计量由独立整数复核一致。"
+        },
+        {
+          "body_index_zero_based": 458,
+          "type": "p",
+          "exact_text_or_rows": "新RAW空窗和固定输入六进程已补有限读钟行为及近邻运行间描述；这些新程序不倒认旧G2已校准，也不提供物理误差界、独立环境或长期稳定性。测量是否适用于最终拟区分的差异量级、正式推断所需设计与依赖前提，仍须按具体主张审计；R02/R04仍部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T07",
+      "group": "测量分母",
+      "requirement": "完整调用为2近邻连接批次×3新进程；每进程25000预热+25000主=50000计时，总300000（主150000+预热150000），600000采样读钟，setup另6。",
+      "expected_evidence": "5.10方法与表；每主表行count25000；不将300000称主调用。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 413,
+          "type": "p",
+          "exact_text_or_rows": "完整调用研究固定公开NIST ML-KEM-768用例tgId=5、tcId=86。两新连接批次各三个顺序进程，共用普通ELF与同一启动期。每进程一次设置调用后，预热与主阶段各计时25000次。窗口含完整封装检查及原生内核；32字节输出在第二次读钟后对照外部预期、消费并擦除，分配与I/O在窗外。调用顺序经普通ELF反汇编核对，程序另禁用并回读自身转储状态。"
+        },
+        {
+          "body_index_zero_based": 415,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "批次/进程",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "E1-P1",
+              "30678",
+              "30728",
+              "32020",
+              "56266",
+              "21"
+            ],
+            [
+              "E1-P2",
+              "30718",
+              "30758",
+              "32070",
+              "52839",
+              "21"
+            ],
+            [
+              "E1-P3",
+              "30707",
+              "30757",
+              "32000",
+              "44915",
+              "30"
+            ],
+            [
+              "E2-P1",
+              "30678",
+              "30737",
+              "32010",
+              "53951",
+              "30"
+            ],
+            [
+              "E2-P2",
+              "30678",
+              "30727",
+              "32000",
+              "59922",
+              "30"
+            ],
+            [
+              "E2-P3",
+              "30687",
+              "30728",
+              "32020",
+              "43862",
+              "29"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 416,
+          "type": "p",
+          "exact_text_or_rows": "表5.14每行25000次，六个主P50观察范围40 ns、主P99范围70 ns；这是有限观察范围，不是误差界、等价界或检出能力。全部300000次计时中预热与主各150000次，均保留；预热最大值达68449 ns。含设置与Linux资格的完整算法入口共300138次：解封装300030、密钥生成54、封装54，不能统称计时解封装。普通与ASan/UBSan资格各5/5通过；第二批不重建或重跑资格，未认证LSan。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T08",
+      "group": "测量分母",
+      "requirement": "若列全Linux调用账，完整算法300138，其中decap300030、keygen54、encap54；资格132含decap24；E1/E2 collector各150003含setup3，非计时资格独立。",
+      "expected_evidence": "正文精简表或完整材料索引；不将300138称全部decap/计时。Mac132须独立计数。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 416,
+          "type": "p",
+          "exact_text_or_rows": "表5.14每行25000次，六个主P50观察范围40 ns、主P99范围70 ns；这是有限观察范围，不是误差界、等价界或检出能力。全部300000次计时中预热与主各150000次，均保留；预热最大值达68449 ns。含设置与Linux资格的完整算法入口共300138次：解封装300030、密钥生成54、封装54，不能统称计时解封装。普通与ASan/UBSan资格各5/5通过；第二批不重建或重跑资格，未认证LSan。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T09",
+      "group": "测量数值",
+      "requirement": "六行P50=30678/30718/30707/30678/30678/30687，P90=30728/30758/30757/30737/30727/30728，P99=32020/32070/32000/32010/32000/32020。",
+      "expected_evidence": "E1-P1至E2-P3逐单元格比对RESULTS。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 415,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "批次/进程",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "E1-P1",
+              "30678",
+              "30728",
+              "32020",
+              "56266",
+              "21"
+            ],
+            [
+              "E1-P2",
+              "30718",
+              "30758",
+              "32070",
+              "52839",
+              "21"
+            ],
+            [
+              "E1-P3",
+              "30707",
+              "30757",
+              "32000",
+              "44915",
+              "30"
+            ],
+            [
+              "E2-P1",
+              "30678",
+              "30737",
+              "32010",
+              "53951",
+              "30"
+            ],
+            [
+              "E2-P2",
+              "30678",
+              "30727",
+              "32000",
+              "59922",
+              "30"
+            ],
+            [
+              "E2-P3",
+              "30687",
+              "30728",
+              "32020",
+              "43862",
+              "29"
+            ]
+          ]
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T10",
+      "group": "测量数值",
+      "requirement": "六行max=56266/52839/44915/53951/59922/43862、MAD=21/21/30/30/30/29 ns；预热max68449也保留于原值；全长尾未删。",
+      "expected_evidence": "主表及材料索引；主max59922不能错误覆盖全部预热+主的68449。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 415,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "批次/进程",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "E1-P1",
+              "30678",
+              "30728",
+              "32020",
+              "56266",
+              "21"
+            ],
+            [
+              "E1-P2",
+              "30718",
+              "30758",
+              "32070",
+              "52839",
+              "21"
+            ],
+            [
+              "E1-P3",
+              "30707",
+              "30757",
+              "32000",
+              "44915",
+              "30"
+            ],
+            [
+              "E2-P1",
+              "30678",
+              "30737",
+              "32010",
+              "53951",
+              "30"
+            ],
+            [
+              "E2-P2",
+              "30678",
+              "30727",
+              "32000",
+              "59922",
+              "30"
+            ],
+            [
+              "E2-P3",
+              "30687",
+              "30728",
+              "32020",
+              "43862",
+              "29"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 416,
+          "type": "p",
+          "exact_text_or_rows": "表5.14每行25000次，六个主P50观察范围40 ns、主P99范围70 ns；这是有限观察范围，不是误差界、等价界或检出能力。全部300000次计时中预热与主各150000次，均保留；预热最大值达68449 ns。含设置与Linux资格的完整算法入口共300138次：解封装300030、密钥生成54、封装54，不能统称计时解封装。普通与ASan/UBSan资格各5/5通过；第二批不重建或重跑资格，未认证LSan。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T11",
+      "group": "测量解释",
+      "requirement": "P50观察范围30678—30718 ns/40 ns，P99范围32000—32070 ns/70 ns，仅已观察有限范围，无CI、误差界、稳定验收或等价界。",
+      "expected_evidence": "摘要、5.10、7.1/7.2；“稳定”“精度”出现时检查限定。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 415,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "批次/进程",
+              "P50/ns",
+              "P90/ns",
+              "P99/ns",
+              "最大/ns",
+              "MAD/ns"
+            ],
+            [
+              "E1-P1",
+              "30678",
+              "30728",
+              "32020",
+              "56266",
+              "21"
+            ],
+            [
+              "E1-P2",
+              "30718",
+              "30758",
+              "32070",
+              "52839",
+              "21"
+            ],
+            [
+              "E1-P3",
+              "30707",
+              "30757",
+              "32000",
+              "44915",
+              "30"
+            ],
+            [
+              "E2-P1",
+              "30678",
+              "30737",
+              "32010",
+              "53951",
+              "30"
+            ],
+            [
+              "E2-P2",
+              "30678",
+              "30727",
+              "32000",
+              "59922",
+              "30"
+            ],
+            [
+              "E2-P3",
+              "30687",
+              "30728",
+              "32020",
+              "43862",
+              "29"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 416,
+          "type": "p",
+          "exact_text_or_rows": "表5.14每行25000次，六个主P50观察范围40 ns、主P99范围70 ns；这是有限观察范围，不是误差界、等价界或检出能力。全部300000次计时中预热与主各150000次，均保留；预热最大值达68449 ns。含设置与Linux资格的完整算法入口共300138次：解封装300030、密钥生成54、封装54，不能统称计时解封装。普通与ASan/UBSan资格各5/5通过；第二批不重建或重跑资格，未认证LSan。"
+        },
+        {
+          "body_index_zero_based": 450,
+          "type": "p",
+          "exact_text_or_rows": "G2单次保存126528次完整调用，主P50/P99为39274/41498 ns，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%；注册取消与可见恢复另核。后续新程序补充RAW空窗三进程及同公开输入、同产物六进程完整调用描述，主P50观察范围40 ns。三类对象分别保留全部长尾、来源和整数时间账，不把40 ns当误差界，不据新旧时长推断算法加速。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T12",
+      "group": "测量上下文",
+      "requirement": "两批同普通ELF/boot/公开NIST tg5 tc86、clocksource=tsc/getres1 ns；E2不重编/重复资格；仅自身CPU2亲和性，无root/MSR/调频/cgroup/IRQ或CPU/SMT独占。",
+      "expected_evidence": "5.10方法和限制；129前后频率文件只是快照，不认证持续恒频或隐藏状态。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 408,
+          "type": "p",
+          "exact_text_or_rows": "后续两项使用Ryzen 9 9950X裸金属、Ubuntu 24.04.4、Linux 6.17.0-35-generic/x86_64、GCC 13.3.0，普通-O2 -g -DNDEBUG产物不含sanitizer。只设各自CPU2亲和性，未作root、MSR、调频或独占操作。各自保存新源、普通ELF与元数据，时钟为CLOCK_MONOTONIC_RAW，clocksource=tsc、声明分辨率1 ns。它们与G2的输入、预热和资源条件不同，约30.7 μs与39.3 μs不构成算法加速比较。"
+        },
+        {
+          "body_index_zero_based": 413,
+          "type": "p",
+          "exact_text_or_rows": "完整调用研究固定公开NIST ML-KEM-768用例tgId=5、tcId=86。两新连接批次各三个顺序进程，共用普通ELF与同一启动期。每进程一次设置调用后，预热与主阶段各计时25000次。窗口含完整封装检查及原生内核；32字节输出在第二次读钟后对照外部预期、消费并擦除，分配与I/O在窗外。调用顺序经普通ELF反汇编核对，程序另禁用并回读自身转储状态。"
+        },
+        {
+          "body_index_zero_based": 416,
+          "type": "p",
+          "exact_text_or_rows": "表5.14每行25000次，六个主P50观察范围40 ns、主P99范围70 ns；这是有限观察范围，不是误差界、等价界或检出能力。全部300000次计时中预热与主各150000次，均保留；预热最大值达68449 ns。含设置与Linux资格的完整算法入口共300138次：解封装300030、密钥生成54、封装54，不能统称计时解封装。普通与ASan/UBSan资格各5/5通过；第二批不重建或重跑资格，未认证LSan。"
+        },
+        {
+          "body_index_zero_based": 417,
+          "type": "p",
+          "exact_text_or_rows": "完整36行C描述、360个统计量、六份摘要及各阶段整数账由独立算术复核一致。阶段墙钟等于pair内与pair间总和，也等于组合增量之和；预热至主阶段边界另保留。两批采样边界约隔346.446秒，来自同启动期RAW值，不是纯认证耗时或跨环境重复。频率文件前后相同只是快照。两连接、六进程及300000条记录不能据此视为独立同分布总体样本或长期稳定性。"
+        }
+      ],
+      "review_note": "D408共同环境已删除合并禁转储断言；D413只对完整调用collector说明自身禁用及回读，与其实际程序相符。"
+    },
+    {
+      "id": "T13",
+      "group": "测量设计",
+      "requirement": "两个SSH批次不是独立随机环境；346446211228 ns来自同boot RAW采样边界，非跨机器UTC差，不能解释纯SSH/CPU空闲或长期重复性。",
+      "expected_evidence": "5.10时间关系；允许正文约346.446 s简写但须保留解释。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 413,
+          "type": "p",
+          "exact_text_or_rows": "完整调用研究固定公开NIST ML-KEM-768用例tgId=5、tcId=86。两新连接批次各三个顺序进程，共用普通ELF与同一启动期。每进程一次设置调用后，预热与主阶段各计时25000次。窗口含完整封装检查及原生内核；32字节输出在第二次读钟后对照外部预期、消费并擦除，分配与I/O在窗外。调用顺序经普通ELF反汇编核对，程序另禁用并回读自身转储状态。"
+        },
+        {
+          "body_index_zero_based": 417,
+          "type": "p",
+          "exact_text_or_rows": "完整36行C描述、360个统计量、六份摘要及各阶段整数账由独立算术复核一致。阶段墙钟等于pair内与pair间总和，也等于组合增量之和；预热至主阶段边界另保留。两批采样边界约隔346.446秒，来自同启动期RAW值，不是纯认证耗时或跨环境重复。频率文件前后相同只是快照。两连接、六进程及300000条记录不能据此视为独立同分布总体样本或长期稳定性。"
+        }
+      ],
+      "review_note": "D417保留同启动期RAW约346.446秒与非纯认证/跨环境重复边界，没有CPU空闲或长期独立性主张；完整来源解释另存。"
+    },
+    {
+      "id": "T14",
+      "group": "测量可比性",
+      "requirement": "新RAW/新完整负载与旧G2产物、输入、预热和资源条件不同，不倒校准、不扣开销、不推出30.7 μs比39.3 μs算法提速。",
+      "expected_evidence": "所有新增表/图、摘要与结论；不制作跨研究加速比。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 100,
+          "type": "p",
+          "exact_text_or_rows": "八个固定确认任务中，C11与SciPy精确尾计数及判定全部一致；预导入复核后，耗时比值中位数为0.001562070。同机人工机制复测中，掩码形态在五个种子的原检验里均未再检出差异。两项成果分别支持固定任务复算效率与特定机制的防护观察，不外推为全库安全保证。新增测量按各自身份解释：旧G2耗时只作原件离线描述，新RAW空窗有三个顺序进程，新完整参考负载有同公开输入与同产物的六个新进程；它们不合并为同一总体或匹配对照。"
+        },
+        {
+          "body_index_zero_based": 187,
+          "type": "p",
+          "exact_text_or_rows": "既有普通三类采集使用CLOCK_MONOTONIC，时间单位为纳秒。前置参考测量中，时钟报告分辨率为1 ns，最小正读钟增量观察值为19 ns；每次另存10000个读钟增量和1000个空窗口值。后续G2、RAW空窗及六进程固定输入研究使用CLOCK_MONOTONIC_RAW，各自保存源、产物与时钟上下文。新RAW程序的声明1 ns、最小正增量10 ns及空窗分布仅描述新对象，不倒认旧G2已校准；各研究均保留原始时长，不直接扣减读钟开销。"
+        },
+        {
+          "body_index_zero_based": 408,
+          "type": "p",
+          "exact_text_or_rows": "后续两项使用Ryzen 9 9950X裸金属、Ubuntu 24.04.4、Linux 6.17.0-35-generic/x86_64、GCC 13.3.0，普通-O2 -g -DNDEBUG产物不含sanitizer。只设各自CPU2亲和性，未作root、MSR、调频或独占操作。各自保存新源、普通ELF与元数据，时钟为CLOCK_MONOTONIC_RAW，clocksource=tsc、声明分辨率1 ns。它们与G2的输入、预热和资源条件不同，约30.7 μs与39.3 μs不构成算法加速比较。"
+        },
+        {
+          "body_index_zero_based": 412,
+          "type": "p",
+          "exact_text_or_rows": "声明1 ns、最小正观察10 ns和主空窗P50/P99为20/21 ns属于不同量。空窗增量不是两次API调用的完整总成本；MAD为零不意味着零误差。新结果不倒校准旧G2，也不从任何完整调用减去20 ns。普通与动态软件检查各2/2通过，动态产物未参与实际采样；全部18行C描述与180个统计量由独立整数复核一致。"
+        },
+        {
+          "body_index_zero_based": 450,
+          "type": "p",
+          "exact_text_or_rows": "G2单次保存126528次完整调用，主P50/P99为39274/41498 ns，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%；注册取消与可见恢复另核。后续新程序补充RAW空窗三进程及同公开输入、同产物六进程完整调用描述，主P50观察范围40 ns。三类对象分别保留全部长尾、来源和整数时间账，不把40 ns当误差界，不据新旧时长推断算法加速。"
+        },
+        {
+          "body_index_zero_based": 458,
+          "type": "p",
+          "exact_text_or_rows": "新RAW空窗和固定输入六进程已补有限读钟行为及近邻运行间描述；这些新程序不倒认旧G2已校准，也不提供物理误差界、独立环境或长期稳定性。测量是否适用于最终拟区分的差异量级、正式推断所需设计与依赖前提，仍须按具体主张审计；R02/R04仍部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "T15",
+      "group": "测量/管理分层",
+      "requirement": "C仅读CSV，其collector退出/元数据/complete接受false原样；管理层另核source/ELF/完整stderr/退出/元数据后接受，科学前提不由前两层自动成立。",
+      "expected_evidence": "3.5或5.10/材料说明，不把false改成true以“统一”输出。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 202,
+          "type": "p",
+          "exact_text_or_rows": "分析模块先判断记录是否完整，再检查所请求分析的适用范围。对于普通数据，系统输出均值和分位数等描述结果；对于4至20个合格成对单位，才执行第2章定义的完整交换计数。此处资格限于可核查结构及声明，不能认证均值区间所需的反事实条件。图3.4给出了资格检查与结果输出的关系。下文有限均值界是独立理论补充，尚未成为该4—20单位入口的已实现保证；CSV读取、元数据/退出接受和现实统计前提仍由不同层次核对。"
+        },
+        {
+          "body_index_zero_based": 418,
+          "type": "p",
+          "exact_text_or_rows": "数值、实物和主张分别内部复核，不称外部同行评审。采集前认证拒绝与计数副记录勘误均留档，未改原值或增加进程。结束时原进程和自有组回收、连接关闭。这两项补充有限测量描述，不新增类别检测、防护效果或总体错误率保证；R02/R04仍部分签收。"
+        }
+      ],
+      "review_note": "C202明确CSV、元数据/退出接受、现实统计前提分层；正文未改写原false字段。尚待实际新包逐字核其JSON。"
+    },
+    {
+      "id": "D01",
+      "group": "指标定义",
+      "requirement": "沿用Qp=x[floor(p(n−1)+0.5)]；若P是0—100百分数则P/100，上中位数、MAD上中位数不缩放、不插值；不改ceil(np) nearest-rank。",
+      "expected_evidence": "式2-9和新表说明；DOCX真实OMML floor存在。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 154,
+          "type": "p",
+          "exact_text_or_rows": "Qp=x(r),  r=p(n−1)+0.5.(2-9)"
+        },
+        {
+          "body_index_zero_based": 155,
+          "type": "p",
+          "exact_text_or_rows": "因此，P50、P90、P99表示在同一次运行中不同位置的典型耗时，能够补充均值无法完整表达的尾部信息。历史输出曾使用不够准确的分位数名称，本作品保留封存数值和复算兼容性，并在方法说明中明确实际定义。各新描述沿用式（2-9）的固定下标并报告未缩放MAD；偶数样本取上中位数。MAD为零、样本最小值和已观察分位数均不构成物理误差界。"
+        },
+        {
+          "body_index_zero_based": 399,
+          "type": "p",
+          "exact_text_or_rows": "对同一次G2原件补做离线C11耗时描述，没有新增硬件采集。全部126528次包含预热25280次与主阶段101248次；表5.12保留长尾。各分位沿用式（2-9）的固定下标，偶数样本取上中位数，MAD不缩放；四个等调用数段和八输入循环不构成新增独立运行。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "D02",
+      "group": "指标定义",
+      "requirement": "原精确检验是|Σd|绝对和值、完整2^m符号空间、含等值上尾、保留0差/并列重数、α0.01、4—20入口；数学算对不认证交换模型。",
+      "expected_evidence": "2.4/4.4原公式与定义语义保留；有限均值区间是另一个目标。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 138,
+          "type": "p",
+          "exact_text_or_rows": "dk=Ak−Bk,  Tobs=k=1mdk.(2-5)"
+        },
+        {
+          "body_index_zero_based": 140,
+          "type": "p",
+          "exact_text_or_rows": "T(ε)=k=1mεkdk,  |Ω|=2m.(2-6)"
+        },
+        {
+          "body_index_zero_based": 142,
+          "type": "p",
+          "exact_text_or_rows": "pexact=ε∈Ω​1​T(ε)≥Tobs2m.(2-7)"
+        },
+        {
+          "body_index_zero_based": 143,
+          "type": "p",
+          "exact_text_or_rows": "该定义保留观测统计量对应的交换状态，不通过随机抽样估计分母，也不对等值边界作浮点近似。本作品将成对单位数限制在4至20之间，并使用固定阈值 α=0.01。在这个范围内，最大交换空间为 220=1048576，能够完整计数。图2.3给出了从成对数据到交换状态的关系。"
+        },
+        {
+          "body_index_zero_based": 244,
+          "type": "p",
+          "exact_text_or_rows": "零假设要求：给定交换轨道时，各允许的对内标签组合等概率；仅有零均值不足以保证这一性质。对真实事前AB/BA运行，这须由尖锐零假设以及独立等概率赋值、无携带和干扰等前提支持。包含等值的完整随机化概率在这些条件下具有离散检验的错误控制性质。以 Q 表示这些适用条件，可将需要满足的关系概括为"
+        },
+        {
+          "body_index_zero_based": 246,
+          "type": "p",
+          "exact_text_or_rows": "式（4-1）是分析所依赖的条件性命题，不是对任意时间序列都成立的保证。完整枚举只保证把给定交换空间数清楚；如果样本仅允许共同改变符号，却按相互独立的符号空间计算，得到的概率就不再对应实际数据模型。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "D03",
+      "group": "指标定义",
+      "requirement": "原pmin≥2^(1−k)且全0为1；≤7非零对在0.01不可能拒绝，8只表示可能；旧秩效应量含半并列而非严格较大概率。",
+      "expected_evidence": "4.4原边界段；不为新finite理论删除不利边界。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 254,
+          "type": "p",
+          "exact_text_or_rows": "pmin≥21−k(4-3)"
+        },
+        {
+          "body_index_zero_based": 255,
+          "type": "p",
+          "exact_text_or_rows": "全零时尾概率为1。在0.01阈值下，七个或更少非零对不可能拒绝；八个非零对仅意味着有拒绝可能。允许4至20对的程序入口包含软件验证规模，不等于每个规模都具备检出能力。零差不能为通过而删除，更多单位也不自动保证真实噪声下的功效。"
+        },
+        {
+          "body_index_zero_based": 256,
+          "type": "p",
+          "exact_text_or_rows": "原秩检验的效应量也须按平均秩解释：第一类严格较大比例加上相等比例的一半。两类均为四个值1、1、2、2时，严格较大比例为0.25、相等比例为0.5，报告系数为0.5。旧字段名称继续保留，不能将它解释为严格大于概率。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "D04",
+      "group": "指标定义",
+      "requirement": "旧效率比值是对应窗口逐次比汇总，中位0.001388504/预导入0.001562070；M01六非零0.261640—0.319174、M02三进程240对/18中位比<1、一次构建不变成三个构建。",
+      "expected_evidence": "原5.4/M01/M02表与总结；不得改为总耗时比或合并独立任务。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 322,
+          "type": "p",
+          "exact_text_or_rows": "原确认中24个对应比值的中位数为0.001388504，范围为0.001139408至0.001734854。这个中位数是逐次比值的汇总，不等同于总耗时之比。确认观察窗口为56.487808 s，开发为14.048571 s，均按原冻结预算记录。"
+        },
+        {
+          "body_index_zero_based": 326,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "项目",
+              "完整进程确认",
+              "SciPy 预导入复核"
+            ],
+            [
+              "固定任务数",
+              "8",
+              "同一8个任务"
+            ],
+            [
+              "两方法进程 / 窗口总数",
+              "48",
+              "48"
+            ],
+            [
+              "SciPy 窗口合计 / s",
+              "56.401718",
+              "49.704188"
+            ],
+            [
+              "C 完整进程合计 / s",
+              "0.080189",
+              "0.079016"
+            ],
+            [
+              "SciPy 就绪成本 / s",
+              "计入完整进程",
+              "6.559904，另列"
+            ],
+            [
+              "逐次比值中位数",
+              "0.001388504",
+              "0.001562070"
+            ],
+            [
+              "精确尾计数及判定",
+              "全部一致",
+              "全部一致"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 330,
+          "type": "p",
+          "exact_text_or_rows": "每方法每任务预热一次，再执行十对正式调用，每对方法先后次序交替，共保存16次预热、160个正式窗口及176次有效结果消费。计时覆盖compute_interval=0的完整统计函数，包括校验、初始化、枚举和结果整理；读取、预热、结果核对、消费及I/O位于窗口外。八任务只有七种不同CSV；任务3与7为字节相同的全零文件，保留但不用于逐状态更新收益主张。六份非零输入的十对增量/完整求和比均小于1，各任务中位比为0.261640至0.319174，八任务完整读数见表A.2。每次尾计数均与归档独立SciPy期待一致；独立C审计进一步核对原始行、比值、摘要及输入副本。"
+        },
+        {
+          "body_index_zero_based": 333,
+          "type": "p",
+          "exact_text_or_rows": "每进程沿用既定八任务和方法次序，保存16次预热、160个正式窗口、176次消费、512个校准值与80个对应比值。时钟分辨率为1000 ns，门槛为100000 ns，三个进程全部240对合格。各正式调用核对原SciPy归档期待尾计数及分母；独立C审计核对原序、计数、消费、读钟、比值、摘要、输入副本和状态，不另枚举全部2^20状态。六个非零任务的18个中位比均小于1，完整八任务见表A.3。它加强一次新构建后三个进程的同机固定输入重复观察；旧M01不合并，三个进程不算三个独立构建或独立同分布样本，不外推任务总体、跨平台或真实误报率。"
+        },
+        {
+          "body_index_zero_based": 498,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "任务",
+              "非零差数量",
+              "增量/完整求和中位比",
+              "十对比值最小—最大"
+            ],
+            [
+              "1",
+              "20",
+              "0.265067",
+              "0.241923—0.275621"
+            ],
+            [
+              "2",
+              "20",
+              "0.318405",
+              "0.309984—0.325525"
+            ],
+            [
+              "3",
+              "0",
+              "0.330575",
+              "0.325333—0.338235"
+            ],
+            [
+              "4",
+              "20",
+              "0.261640",
+              "0.257364—0.266460"
+            ],
+            [
+              "5",
+              "20",
+              "0.298269",
+              "0.292138—0.308256"
+            ],
+            [
+              "6",
+              "20",
+              "0.319174",
+              "0.313590—0.328080"
+            ],
+            [
+              "7",
+              "0",
+              "0.331370",
+              "0.325712—0.335913"
+            ],
+            [
+              "8",
+              "20",
+              "0.296426",
+              "0.291052—0.306987"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 502,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "任务（非零对）",
+              "新进程1",
+              "新进程2",
+              "新进程3"
+            ],
+            [
+              "1（20）",
+              "0.2678",
+              "0.2680",
+              "0.2677"
+            ],
+            [
+              "2（20）",
+              "0.3176",
+              "0.3200",
+              "0.3211"
+            ],
+            [
+              "3（0）",
+              "0.3316",
+              "0.3262",
+              "0.3420"
+            ],
+            [
+              "4（20）",
+              "0.2768",
+              "0.2678",
+              "0.2671"
+            ],
+            [
+              "5（20）",
+              "0.2932",
+              "0.2950",
+              "0.2917"
+            ],
+            [
+              "6（20）",
+              "0.3237",
+              "0.3189",
+              "0.3241"
+            ],
+            [
+              "7（0）",
+              "0.3342",
+              "0.3388",
+              "0.3300"
+            ],
+            [
+              "8（20）",
+              "0.2959",
+              "0.2999",
+              "0.2969"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 503,
+          "type": "p",
+          "exact_text_or_rows": "表中为增量完整统计入口／完整求和入口的每任务十个对应窗口比值中位数，显示四位小数；十二位原值、最小/最大及资格另存。全部24行各十对合格，共240对；六个非零任务的18个中位比均小于1。任务3/7来自同一全零CSV，仅保留，不参与非零成本方向主张。三个进程共用一次新构建和同组输入，不给总体置信区间，不与原M01合并。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "D05",
+      "group": "指标定义",
+      "requirement": "40964有限模型/24576后赋标签及拒绝计数、共同符号失配和低检出全部保留；它们不是真实密码总体FPR/TPR。",
+      "expected_evidence": "原5.5/5.6、摘要和材料索引；统计概率空间不随新数据改变。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 341,
+          "type": "p",
+          "exact_text_or_rows": "全部独立模型及共同符号边界模型共形成40964份数据。数据由 C 生成与验证，单位为合成 ns，不是新采集的密码执行时间；新的解封装调用数为0。现有精确入口与另行实现的整数分布卷积逐份核对，尾计数全部一致，44份预定 SciPy 审计亦一致。"
+        },
+        {
+          "body_index_zero_based": 345,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "效应 / 合成 ns",
+              "equal 拒绝数",
+              "graded 拒绝数"
+            ],
+            [
+              "0",
+              "26",
+              "38"
+            ],
+            [
+              "1",
+              "794",
+              "48"
+            ],
+            [
+              "2",
+              "4096",
+              "91"
+            ],
+            [
+              "4",
+              "4096",
+              "353"
+            ],
+            [
+              "12",
+              "4096",
+              "4096"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 347,
+          "type": "p",
+          "exact_text_or_rows": "共同符号模型则每个仅有两种可能结果。若仍盲用独立交换空间，两个结果均会拒绝，两个模型分别出现2/2；实际入口对四份依赖数据均返回证据不足。该结果说明资格判断的重要性，但没有据此证明真实密码时间序列已被校准，也没有构造与正确配置 dudect 或 RTLF 的检测能力胜负关系。"
+        },
+        {
+          "body_index_zero_based": 354,
+          "type": "p",
+          "exact_text_or_rows": "这一控制固定了时间值，把概率空间明确限定为标签。它允许给定时间之间存在相依，却不表示原采集过程已经实施同样的随机化。程序保存144个原时间及24576份差值和计数，新的解封装调用为0。"
+        },
+        {
+          "body_index_zero_based": 358,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "运行块",
+              "标签组合数",
+              "条件拒绝数",
+              "条件概率"
+            ],
+            [
+              "1",
+              "4096",
+              "40",
+              "0.009765625000"
+            ],
+            [
+              "2",
+              "4096",
+              "40",
+              "0.009765625000"
+            ],
+            [
+              "3",
+              "4096",
+              "40",
+              "0.009765625000"
+            ],
+            [
+              "4",
+              "4096",
+              "38",
+              "0.009277343750"
+            ],
+            [
+              "5",
+              "4096",
+              "40",
+              "0.009765625000"
+            ],
+            [
+              "6",
+              "4096",
+              "38",
+              "0.009277343750"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 359,
+          "type": "p",
+          "exact_text_or_rows": "六块条件概率均不超过0.01。独立逐项求和与排序秩核对、24份预定 SciPy 审计及完整动态运行均与原始结果一致。由于标签空间被完整枚举，这里的概率没有 Monte Carlo 抽样误差；但它仍只针对给定时间下的标签模型，不能解释成真实密码总体误报率估计。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "D06",
+      "group": "指标定义",
+      "requirement": "G2 200反馈pair来自单进程；首跨界pair仍判定但纯主仅199，几何3981985286/4002203951 ns=99.4948%；平均窗口非逐调用恒频，pair非AB/BA。",
+      "expected_evidence": "原5.9图/表/式与新时间账协调，分母不改。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 390,
+          "type": "p",
+          "exact_text_or_rows": "对应两次APERF读点的MPERF增量位于[L,H]；正分母取倒数给出式（5-6）。区间只处理读取错位，不是置信区间或完整物理误差界，解析自洽不认证上述条件。冻结C11分析以整数判定100ΔA≥99H且100ΔA≤101L，并要求CPU2保守线程CPU时间／RAW间隔代理至少80%、三读跨度至多1 ms、相邻快照至多40 ms。全部实际主pair和普通长尾保留；调用、快照、读钟及读取失败台账均为0。"
+        },
+        {
+          "body_index_zero_based": 392,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "指标",
+              "正常进程原值"
+            ],
+            [
+              "全部／主阶段调用",
+              "126528／101248"
+            ],
+            [
+              "快照／检查点",
+              "251／1977"
+            ],
+            [
+              "主观察墙钟",
+              "4002203951 ns"
+            ],
+            [
+              "实际主pair／全部规则通过",
+              "200／200；首个跨界pair 1个仍参加判定"
+            ],
+            [
+              "纯主支持窗口",
+              "199个；跨界pair不计纯主覆盖"
+            ],
+            [
+              "纯主几何覆盖",
+              "3981985286／4002203951 ns，99.4948%"
+            ],
+            [
+              "完整落入纯支持区间的主调用",
+              "100736／101248"
+            ],
+            [
+              "首／尾／内部缺口",
+              "20170432／13224／35009 ns"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 396,
+          "type": "p",
+          "exact_text_or_rows": "这里的pair仅指相邻反馈快照对，不是AB/BA运行对。全部200个CPU2主pair均通过工程规则。空心标记为首个跨界pair，仍参加判定；下条仅为合计几何比例，不是点态时间线。读取对齐区间不是置信区间，平均窗口不认证区间内逐时或逐调用恒频。200窗来自一个进程，不是200次独立重复。反馈解释为活动期平均；线程CPU／RAW仅为活动代理，非精确C0比例。"
+        },
+        {
+          "body_index_zero_based": 397,
+          "type": "p",
+          "exact_text_or_rows": "纯主几何分子不含首个跨界pair；与表5.11三类缺口之和精确等于分母，没有补齐或改分母。CPU18的200个context区间均为边界重叠，仅作上下文，不是第二独立样本或实际高频证据。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "H01",
+      "group": "历史保全",
+      "requirement": "旧49页DOCX/PDF及旧925 ZIP保持原路径与原字节；新报告/新包用新目录，不能就地替换旧件。",
+      "expected_evidence": "基线SHA回读：DOCX96e2de8a…、PDFd5b65e65…、ZIPd5c7a05c…。",
+      "failure_class": "preservation_blocker",
+      "scope": "artifact_identity",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "实际回读旧49页DOCX/PDF及925 ZIP SHA与基线完全一致。"
+    },
+    {
+      "id": "H02",
+      "group": "历史保全",
+      "requirement": "新报告修改日志逐项解释替换/新增/移出；原64OMML/19drawing/23table/43TOC/4section是结构参照，计数不代替公式或数值语义保全。",
+      "expected_evidence": "作者侧编辑记录、原XML与新XML逐项比对；允许摘要压缩重复但原实验数在正文/材料保持。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 24,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "基本信息表"
+            ],
+            [
+              "编号：CACR2026EA16XZ"
+            ],
+            [
+              "作品题目：ML-KEM 解封装实现的时间侧信道检测与常数时间防护（暂定题名）"
+            ],
+            [
+              "作品类别：□软件设计   □硬件制作   ■工程实践  □密码技术应用  □其它"
+            ],
+            [
+              "作品内容摘要： | 本作品面向ML-KEM解封装实现的本地审计需求，设计并实现C11审计与精确复算系统。系统采用固定ML-KEM-768便携实现，以独立公开向量及接口检查验证功能，记录完整解封装逐次时间，并关联源码、产物、环境和成本。将数据资格与统计数值分开输出，支持有界成对数据的整数精确复算。八个固定任务与SciPy尾计数及判定一致；预导入流程对照、同语言函数对照及干净重建均支持固定任务的效率改进。有限模型与后赋标签结果通过独立核对；同机人工机制掩码在五个种子的原名义检验里均未再检出。G2保存126528次完整调用，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%。后续分别补入旧原值耗时描述、新RAW空窗三进程及同公开输入、同产物六进程完整调用，保留全部长尾和时间账。原学生化均值区间的条件有限覆盖下界已推导，但不能认证现有4—20单位。作品已完成封存包新目录复算，支持本地审查与离线复核；观察范围、精度和统计保证分别解释，不外推为全库恒时。R02/R04仍部分签收。"
+            ],
+            [
+              "关键词（五个）：ML-KEM；时间侧信道；常数时间；证据资格；可复现性"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 484,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "编号",
+              "材料与位置",
+              "本文使用范围"
+            ],
+            [
+              "E01",
+              "docs/evidence/native-reference-20261007",
+              "前置普通参考与读钟检查"
+            ],
+            [
+              "E02",
+              "docs/evidence/native-final-20261007/performance",
+              "图5.2；表5.3、5.4；附录B"
+            ],
+            [
+              "N01",
+              "docs/evidence/candidate-round-20261007/native",
+              "图5.3；表5.5；原生检查"
+            ],
+            [
+              "H01",
+              "docs/evidence/statistics-multiseed",
+              "表5.9；历史案例限制"
+            ],
+            [
+              "C01",
+              "docs/evidence/controlled-comparison-20261007",
+              "图5.4；表5.6完整进程"
+            ],
+            [
+              "C02",
+              "docs/evidence/finite-calibration-20261007",
+              "图5.5；表5.7"
+            ],
+            [
+              "C03",
+              "docs/evidence/warm-replay-20261007",
+              "图5.4；表5.6预导入"
+            ],
+            [
+              "C04",
+              "docs/evidence/reference-label-control-20261007",
+              "图5.6；表5.8"
+            ],
+            [
+              "R07",
+              "docs/evidence/r07-linux-20261008",
+              "图5.7；表5.10；同机人工机制复测"
+            ],
+            [
+              "V3-R",
+              "docs/evidence/author-proxy-v3-20261008",
+              "封存v3授权代理重跑"
+            ],
+            [
+              "G2-T",
+              "docs/evidence/g2-timing-description-20261010",
+              "表5.12；式5-7；54行原值描述"
+            ],
+            [
+              "W-F",
+              "docs/research/aris-weak-mean-finite-20261010",
+              "第4.5节；原区间有限下界与解析复核"
+            ],
+            [
+              "RAW-C",
+              "docs/evidence/raw-clock-20261010",
+              "表5.13；303000空pair及18行描述"
+            ],
+            [
+              "REP-6",
+              "docs/evidence/ordinary-repeatability-20261010",
+              "表5.14；两批六进程及36行描述"
+            ]
+          ]
+        }
+      ],
+      "review_note": "原64个oMath子树逐字保留，word/media原字节完全相同，原23表中21表逐字保留；摘要压缩、A.1仅追加4行，其余实验数字保留。"
+    },
+    {
+      "id": "H03",
+      "group": "历史保全",
+      "requirement": "原批次准备失败与未执行K4/K16/20对、H1 4/5、hardened残差1/5、旧sanitize警告失败、取消空未知继续保留。",
+      "expected_evidence": "5.7/附录A/索引；不能用后续成功回填历史。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 366,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "项目",
+              "原有观察",
+              "解释限制"
+            ],
+            [
+              "H1 主比较",
+              "5个种子中4个达到 10−4",
+              "未在全部种子稳定显著"
+            ],
+            [
+              "H2 人工回归",
+              "5/5达到 10−3",
+              "名义概率未修正序列依赖"
+            ],
+            [
+              "H2 reference / deployable",
+              "各5/5未检出",
+              "未检出不等于恒时证明"
+            ],
+            [
+              "H2 hardened",
+              "1/5仍有显著残差",
+              "不能声称差异全部消除"
+            ],
+            [
+              "固定消息组",
+              "少量固定密文重复测量",
+              "调用数不是独立输入数"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 367,
+          "type": "p",
+          "exact_text_or_rows": "有限批次路线在第一次原生准备时因 GCC 结构体初始化编译错误停止。K4/K16 开发、选择和20对确认未执行，40000次共同调用及3600秒预留未闭合。后续可移植性修复和普通验收不回填为该合同成功，也没有从停止记录产生稳定性收益或成本比值。"
+        },
+        {
+          "body_index_zero_based": 382,
+          "type": "p",
+          "exact_text_or_rows": "恒定消息两类仍是重复密文，名义检验对序列依赖的限制继续存在。上游目标函数原本无分支，本轮是已有人工机制的防护对照，不是新上游漏洞修复。旧 Apple M5 档案中的主比较失败和掩码残差仍保留，与本轮 Linux 记录分开解释。最新验收表据这些实际材料将 R07 记为范围内签收，而非全库安全认证。"
+        },
+        {
+          "body_index_zero_based": 398,
+          "type": "p",
+          "exact_text_or_rows": "另一路径在放行后实际约0.255407秒发起预定的注册取消，该数不是恢复耗时。controller与worker均因SIGKILL终止（记录码−9），child已回收；stdout/stderr均0字节表示测量未知，不是零调用。两路径结束独立核对87份原件及归档一致、六原PID不存在、全部32策略及global可见对象等原基线、CPU0—31归还、隔离空、自有组删除且锁释放。回读不是全程原子快照，不证明隐藏QoS或固件内部逐位复原；guard自身死亡、整机及真实磁盘故障未测试。本次仅支持窄工程观察，完整研究与R02/R04仍部分签收。"
+        },
+        {
+          "body_index_zero_based": 493,
+          "type": "p",
+          "exact_text_or_rows": "sanitize-build 退出码为 2。GCC 在 -Werror=sign-conversion 处停止，函数为 baseline_native_poly_frommsg，位置是 vulnerable compress.c:709 与 hardened compress.c:710。这些记录不是频率锁定、恒时证明或竞赛签收。就2026年10月8日上述记录而言，没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。2026年10月10日G2另取得第5.9节所述平均窗口工程观察，不追认旧数据，也不构成整段或逐调用恒频。R02与R04仍为部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "H04",
+      "group": "历史保全",
+      "requirement": "新认证拒绝/执行位拒绝只属启动前失败，无新采样；sidecar旧0勘误为6保留原字节及映射，不改远端证据时点。",
+      "expected_evidence": "新版材料短说明或对应证据索引，无需正文流水账。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 418,
+          "type": "p",
+          "exact_text_or_rows": "数值、实物和主张分别内部复核，不称外部同行评审。采集前认证拒绝与计数副记录勘误均留档，未改原值或增加进程。结束时原进程和自有组回收、连接关闭。这两项补充有限测量描述，不新增类别检测、防护效果或总体错误率保证；R02/R04仍部分签收。"
+        },
+        {
+          "body_index_zero_based": 484,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "编号",
+              "材料与位置",
+              "本文使用范围"
+            ],
+            [
+              "E01",
+              "docs/evidence/native-reference-20261007",
+              "前置普通参考与读钟检查"
+            ],
+            [
+              "E02",
+              "docs/evidence/native-final-20261007/performance",
+              "图5.2；表5.3、5.4；附录B"
+            ],
+            [
+              "N01",
+              "docs/evidence/candidate-round-20261007/native",
+              "图5.3；表5.5；原生检查"
+            ],
+            [
+              "H01",
+              "docs/evidence/statistics-multiseed",
+              "表5.9；历史案例限制"
+            ],
+            [
+              "C01",
+              "docs/evidence/controlled-comparison-20261007",
+              "图5.4；表5.6完整进程"
+            ],
+            [
+              "C02",
+              "docs/evidence/finite-calibration-20261007",
+              "图5.5；表5.7"
+            ],
+            [
+              "C03",
+              "docs/evidence/warm-replay-20261007",
+              "图5.4；表5.6预导入"
+            ],
+            [
+              "C04",
+              "docs/evidence/reference-label-control-20261007",
+              "图5.6；表5.8"
+            ],
+            [
+              "R07",
+              "docs/evidence/r07-linux-20261008",
+              "图5.7；表5.10；同机人工机制复测"
+            ],
+            [
+              "V3-R",
+              "docs/evidence/author-proxy-v3-20261008",
+              "封存v3授权代理重跑"
+            ],
+            [
+              "G2-T",
+              "docs/evidence/g2-timing-description-20261010",
+              "表5.12；式5-7；54行原值描述"
+            ],
+            [
+              "W-F",
+              "docs/research/aris-weak-mean-finite-20261010",
+              "第4.5节；原区间有限下界与解析复核"
+            ],
+            [
+              "RAW-C",
+              "docs/evidence/raw-clock-20261010",
+              "表5.13；303000空pair及18行描述"
+            ],
+            [
+              "REP-6",
+              "docs/evidence/ordinary-repeatability-20261010",
+              "表5.14；两批六进程及36行描述"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "D418压缩后仍明确采集前认证拒绝与副记录勘误留档、未改原值/增加进程；完整失败细节继续在G2-T/RAW-C/REP-6技术资料，匿名实包仍需承接。"
+    },
+    {
+      "id": "H05",
+      "group": "历史保全",
+      "requirement": "新的独立数字、产物与声明审查为同模型内部，各自范围说明，不称跨模型、外部Codex或同行评审。",
+      "expected_evidence": "方法/材料/README；外部Codex pending保持。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 418,
+          "type": "p",
+          "exact_text_or_rows": "数值、实物和主张分别内部复核，不称外部同行评审。采集前认证拒绝与计数副记录勘误均留档，未改原值或增加进程。结束时原进程和自有组回收、连接关闭。这两项补充有限测量描述，不新增类别检测、防护效果或总体错误率保证；R02/R04仍部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "A01",
+      "group": "匿名与分发",
+      "requirement": "新报告进入新实际匿名包并与候选最终DOCX/PDF逐字绑定；旧925只覆盖旧49页及前版范围，不能继承给四补充。",
+      "expected_evidence": "实际新ZIP及member SHA、报告页数/摘要/包README，未组装前保持PENDING。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "PENDING_SEPARATE_EVIDENCE",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "本任务仅内容首审。未收到/核对新实际匿名包或新最终PDF；旧925项及49页证据不得继承。"
+    },
+    {
+      "id": "A02",
+      "group": "匿名与分发",
+      "requirement": "新包完整成员/CRC/路径安全/manifest/SHA、自身除外口径、嵌套归档与成员映射均真实核对；可读子集不冒充完整原树。",
+      "expected_evidence": "真实新ZIP及嵌套数据压缩包；不按预计项数签核。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "PENDING_SEPARATE_EVIDENCE",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "本任务仅内容首审。未收到/核对新实际匿名包或新最终PDF；旧925项及49页证据不得继承。"
+    },
+    {
+      "id": "A03",
+      "group": "匿名与分发",
+      "requirement": "扫描新增文档元数据、可见文本、链接、源文件、嵌套归档的直接身份/私有路径/凭据；作者云端Cry全路径不流入匿名正文。",
+      "expected_evidence": "实际新包递归扫描与人工审查；公开第三方版本保留；不承诺不可关联作者。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "PENDING_SEPARATE_EVIDENCE",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "本任务仅内容首审。未收到/核对新实际匿名包或新最终PDF；旧925项及49页证据不得继承。"
+    },
+    {
+      "id": "A04",
+      "group": "匿名与分发",
+      "requirement": "新公式科学视图与Markdown/HTML/MathML正确展示；全部本地链接/锚点可达，无活动脚本/远端资产，完全离线阅读。",
+      "expected_evidence": "真实新包HTML及浏览/链接核对，不能沿用旧817引用/40HTML/247MathML数量。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "PENDING_SEPARATE_EVIDENCE",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "本任务仅内容首审。未收到/核对新实际匿名包或新最终PDF；旧925项及49页证据不得继承。"
+    },
+    {
+      "id": "A05",
+      "group": "匿名与分发",
+      "requirement": "若承诺新增C离线复算，则仅从实际新包重建/必要CTest/固定输入输出比较；生产者源码审计与独立可运行入口分清。",
+      "expected_evidence": "后续授权执行者实包离线记录；本审查不执行C，也不签该项。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "PENDING_SEPARATE_EVIDENCE",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 505,
+          "type": "p",
+          "exact_text_or_rows": "G2新增材料与旧记录分别封存：匿名分发包的data/g2/保存逐次原值、逐窗口CSV及C摘要；research/g2/保存固定合同、结果到主张、生命周期和科学核对；code/g2-analysis/保存冻结C11离线分析源码。code/g2-collector/为依赖完整固定参考目录的生产者审计源，不是独立离线运行入口。G2-M、G2-C、G2-A分别是管理、普通生产者与分析来源别名，不是Git提交号；源码、普通产物、输入和处理结果按各自清单摘要关联。原47页稿及既有软件和研究包保持原身份。"
+        },
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "本任务仅内容首审。未收到/核对新实际匿名包或新最终PDF；旧925项及49页证据不得继承。"
+    },
+    {
+      "id": "A06",
+      "group": "匿名与分发",
+      "requirement": "新报告真实渲染并逐页视觉审读、目录页码/表式号更新；旧49页视觉QA不能转移，新XML检查不能签视觉。",
+      "expected_evidence": "新PDF及全页覆盖记录；本审查只做内容。",
+      "failure_class": "visual_pending",
+      "scope": "new_report_visual_qa",
+      "candidate_status": "PENDING_SEPARATE_EVIDENCE",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 50,
+          "type": "p",
+          "exact_text_or_rows": "4.5　原均值区间的有限样本覆盖边界19"
+        },
+        {
+          "body_index_zero_based": 64,
+          "type": "p",
+          "exact_text_or_rows": "5.10　RAW空窗与完整调用的有限运行间描述37"
+        }
+      ],
+      "review_note": "45TOC全局唯一目标和起止已核；4.6目标修复，实际DOCX数字/Pages55更新。PDF实际落页及全部PNG仍未由本内容审查核对，视觉独立待核。"
+    },
+    {
+      "id": "R01",
+      "group": "验收范围",
+      "requirement": "R02/R04继续partial；可靠测量与统计推断按官方条文及最终拟主张逐项解释，不自行新增逐调用恒频/绝对误差/真实总体FPR硬门。",
+      "expected_evidence": "摘要、7.2、当前验收表一致；有限yes不升全部签收。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "PASS_CONTENT",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 24,
+          "type": "table",
+          "exact_text_or_rows": [
+            [
+              "基本信息表"
+            ],
+            [
+              "编号：CACR2026EA16XZ"
+            ],
+            [
+              "作品题目：ML-KEM 解封装实现的时间侧信道检测与常数时间防护（暂定题名）"
+            ],
+            [
+              "作品类别：□软件设计   □硬件制作   ■工程实践  □密码技术应用  □其它"
+            ],
+            [
+              "作品内容摘要： | 本作品面向ML-KEM解封装实现的本地审计需求，设计并实现C11审计与精确复算系统。系统采用固定ML-KEM-768便携实现，以独立公开向量及接口检查验证功能，记录完整解封装逐次时间，并关联源码、产物、环境和成本。将数据资格与统计数值分开输出，支持有界成对数据的整数精确复算。八个固定任务与SciPy尾计数及判定一致；预导入流程对照、同语言函数对照及干净重建均支持固定任务的效率改进。有限模型与后赋标签结果通过独立核对；同机人工机制掩码在五个种子的原名义检验里均未再检出。G2保存126528次完整调用，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%。后续分别补入旧原值耗时描述、新RAW空窗三进程及同公开输入、同产物六进程完整调用，保留全部长尾和时间账。原学生化均值区间的条件有限覆盖下界已推导，但不能认证现有4—20单位。作品已完成封存包新目录复算，支持本地审查与离线复核；观察范围、精度和统计保证分别解释，不外推为全库恒时。R02/R04仍部分签收。"
+            ],
+            [
+              "关键词（五个）：ML-KEM；时间侧信道；常数时间；证据资格；可复现性"
+            ]
+          ]
+        },
+        {
+          "body_index_zero_based": 251,
+          "type": "p",
+          "exact_text_or_rows": "平均时间差与尖锐零假设须分别推断[13]。对事前固定匹配对，独立等概率AB/BA且无携带或干扰时，成对均值无偏、方差估计期望保守[12]，仍不保证小样本覆盖。无主导反事实方差条件给出原渐近保守路线；后续有限样本补充保持同一目标及原学生化区间，显式量化该保证的损失，见第4.5节。可信反事实上界仍不能由观测最大值或超时替代；新界也没有认证现有4—20单位。等价另须预定容许界及有效区间严格内含。"
+        },
+        {
+          "body_index_zero_based": 418,
+          "type": "p",
+          "exact_text_or_rows": "数值、实物和主张分别内部复核，不称外部同行评审。采集前认证拒绝与计数副记录勘误均留档，未改原值或增加进程。结束时原进程和自有组回收、连接关闭。这两项补充有限测量描述，不新增类别检测、防护效果或总体错误率保证；R02/R04仍部分签收。"
+        },
+        {
+          "body_index_zero_based": 457,
+          "type": "p",
+          "exact_text_or_rows": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。原均值区间已有显式有限覆盖下界及独立解析复核，但可信反事实主导比例、无携带/干扰等现实前提和相应实现尚未认证；现有4—20单位未由该界获得名义覆盖保证，R04仍部分签收。"
+        },
+        {
+          "body_index_zero_based": 458,
+          "type": "p",
+          "exact_text_or_rows": "新RAW空窗和固定输入六进程已补有限读钟行为及近邻运行间描述；这些新程序不倒认旧G2已校准，也不提供物理误差界、独立环境或长期稳定性。测量是否适用于最终拟区分的差异量级、正式推断所需设计与依赖前提，仍须按具体主张审计；R02/R04仍部分签收。"
+        }
+      ],
+      "review_note": "结合实际候选原文及绑定来源核对；不扩大为视觉、匿名实包或现实统计前提认证。"
+    },
+    {
+      "id": "R02",
+      "group": "验收范围",
+      "requirement": "实际运行截图/演示画面、真实个人贡献/本人审批签署盖章/平台回执和旧KVM可信身份迁移仍未补；结构图不冒充截图。",
+      "expected_evidence": "交付README/进度与本轮内容声明一致；真实材料未见不得写完成。",
+      "failure_class": "delivery_pending",
+      "scope": "full_goal",
+      "candidate_status": "PENDING_FULL_GOAL_DELIVERY",
+      "candidate_anchors": [
+        {
+          "body_index_zero_based": 275,
+          "type": "p",
+          "exact_text_or_rows": "封存包重跑和同机复测已于2026年10月8日完成，分别支持材料重建与特定机制观察，旧ARM统计边界不变。截图与审批签署仍待真实材料，各项验收分别记录。"
+        },
+        {
+          "body_index_zero_based": 504,
+          "type": "p",
+          "exact_text_or_rows": "M02原值、前后源/输入/产物摘要、进程PID、命令和逐进程C审计独立保存在docs/evidence/aris-replication-20261009，复核合同与结果到主张见docs/research/aris-replication-20261009。官方工作簿原件及两项静态适用性核对另存docs/evidence/aris-resume-20261009。旧M01、原报告及既有软件和研究包保持各自身份；本次补证不关闭R02/R04或人员材料。"
+        },
+        {
+          "body_index_zero_based": 506,
+          "type": "p",
+          "exact_text_or_rows": "四项后续研究各有独立来源及清单，不改写原49页报告与925项G2补充件的身份。G2-T仅对既有原值离线分析；W-F为原区间的理论资料；RAW-C与REP-6分别描述新空窗口和固定公开输入完整调用。各自的完整原值、C输出、失败记录、实物与内部复核分层保存；可读子集不冒称完整归档。本文索引为仓库材料位置，匿名副本按另列的实际清单解释，不混用原件与转换件摘要。"
+        }
+      ],
+      "review_note": "候选未声称截图/本人签章等已取得；完整目标交付事项仍以实际材料为准，本首审不签收。"
+    }
+  ],
+  "scope": {
+    "read_actual_candidate_bytes": true,
+    "xml_and_scientific_content": true,
+    "render": false,
+    "visual": false,
+    "new_package": false,
+    "c_execution": false,
+    "ssh": false,
+    "new_collection": false,
+    "report_edits": false,
+    "same_model_internal_review": true,
+    "external_codex": "pending"
+  },
+  "remaining_separate_checks": [
+    "actual final PDF page count and TOC page targets",
+    "all final page PNGs",
+    "actual new anonymous package bytes, nested data and links",
+    "promised new package offline replay evidence",
+    "real screenshots/approval/signatures and wider goal"
+  ],
+  "does_not_sign_full_goal_or_competition": true
+}

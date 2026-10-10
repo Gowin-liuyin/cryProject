@@ -1,0 +1,49 @@
+{
+  "hardware_collections": 0,
+  "C_runs": 0,
+  "SSH": false,
+  "initial_build_failure": "作者脚本复用ZipInfo改变内存偏移，输出后置源读取校验报BadZipFile；源文件实际字节未改。改为写前读取摘要。",
+  "first_candidate_issues": [
+    "旧4.6 TOC书签丢失",
+    "RAW保护层级措辞",
+    "RAW小表跨页"
+  ],
+  "verifier_comparator_rejection": "脱离根XML克隆命名空间差异误拒B144，改用原始XML范围比较，旧记录/脚本保留。",
+  "visual_iterations": [
+    "55页首稿附录A两行孤尾",
+    "第一次精简后仍两行孤尾",
+    "再次缩为不重复的身份说明，54页闭合"
+  ],
+  "candidate_snapshots": [
+    {
+      "build_file": "attempt-01-candidate.docx",
+      "bytes": 2093834,
+      "sha256": "db7a06752acb743a6b0ef9cfbe25d66e7126ac315b1626eb5abe6b3a9fcebca0",
+      "distribution": false
+    },
+    {
+      "build_file": "attempt-02-candidate.docx",
+      "bytes": 2093834,
+      "sha256": "db7a06752acb743a6b0ef9cfbe25d66e7126ac315b1626eb5abe6b3a9fcebca0",
+      "distribution": false
+    },
+    {
+      "build_file": "attempt-03-candidate.docx",
+      "bytes": 2093747,
+      "sha256": "245f04d0cf9181fb89c50d099ac33fa245ad2ed8de2d35c16d9820e472c050ce",
+      "distribution": false
+    },
+    {
+      "build_file": "attempt-05-candidate.docx",
+      "bytes": 2093697,
+      "sha256": "b3fef4e6b3cc776b130154333ea8c3315f5469ef9c3fbef3819ab7722410cb93",
+      "distribution": false
+    },
+    {
+      "build_file": "attempt-04-before-orphan-fix.docx",
+      "bytes": 2093755,
+      "sha256": "07c74d93a8a825078cdfe6d22cdf65497724f0a4a2a93392abf95cc1588d02d1",
+      "distribution": false
+    }
+  ]
+}

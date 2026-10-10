@@ -1,0 +1,357 @@
+{
+  "date": "2026-10-10",
+  "role": "independent same-model editorial/scientific outline review",
+  "worktree_head": "c38523c8e9177bd052a02c53de67d9ffd3c709f7",
+  "scope": {
+    "ssh": false,
+    "new_collection": false,
+    "c_execution": false,
+    "old_report_or_evidence_edits": false,
+    "commit": false,
+    "read_agency_private_directory": false,
+    "pdf_render_or_visual_review": false,
+    "docx_xml_review": true,
+    "external_codex_review": "unavailable / pending"
+  },
+  "source_bindings": [
+    {
+      "path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.docx",
+      "bytes": 2085314,
+      "sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6"
+    },
+    {
+      "path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.pdf",
+      "bytes": 3327598,
+      "sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4"
+    },
+    {
+      "path": "deliverables/research/aris-report-g2-20261010/README.md",
+      "bytes": 2067,
+      "sha256": "feb33c517a15abc495c77edda9d703e2d59a2cf7d6c068a257ab3f62e102ed16"
+    },
+    {
+      "path": "docs/research/aris-g2-timing-description-20261010/RESULTS.md",
+      "bytes": 5978,
+      "sha256": "de7e35c89001f82701c52a7e77c7ef590aed3ae050bffcbef0cc39168ab2bfaf"
+    },
+    {
+      "path": "docs/research/aris-g2-timing-description-20261010/RESULT_TO_CLAIM.md",
+      "bytes": 1635,
+      "sha256": "3823b04c88f3bbf3f45cccb0d06b0e904ad1d9db754ecfa7ebbb4b8cd2a08d01"
+    },
+    {
+      "path": "docs/evidence/g2-timing-description-20261010/run-6b9fa92/INDEPENDENT_NUMERIC_REVIEW.md",
+      "bytes": 6456,
+      "sha256": "cb3b905f9d9d4eec76a1e9431a9982fd622b3810bbef0fe34e09bba190dd48b5"
+    },
+    {
+      "path": "docs/research/aris-weak-mean-finite-20261010/PROOF_PACKAGE.md",
+      "bytes": 18103,
+      "sha256": "db69d01bbc4c068f2bbd00292362706b72a6ae01ba1cd1a0f8df1a976be0f0f0"
+    },
+    {
+      "path": "docs/research/aris-weak-mean-finite-20261010/REFERENCES.md",
+      "bytes": 3034,
+      "sha256": "0b63fc96dda05b49f2be4ceb529fa7731cb5f582ce78be28816481f8264ad2e1"
+    },
+    {
+      "path": "docs/evidence/weak-mean-finite-20261010/INDEPENDENT_REVIEW.md",
+      "bytes": 7295,
+      "sha256": "7c0fdd156a39f8e3df4ffaeb092e8fd1062ec1e435b78287e775a5a079068eaa"
+    },
+    {
+      "path": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "bytes": 9036,
+      "sha256": "581673b196cc0eeaa4f5cacbac5acc16133a1663a35d461250642a632a30bbde"
+    },
+    {
+      "path": "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "bytes": 2124,
+      "sha256": "6d836db02ac09ec9c87e3dbc1cbacd547bf4da9cad1be7e493948b50c951e485"
+    },
+    {
+      "path": "docs/evidence/raw-clock-20261010/run-aa43771/review-claims/RESULT_TO_CLAIM_REVIEW.md",
+      "bytes": 8039,
+      "sha256": "b3f6c131c72e7550737a5d4354d4ecade6608c765561d530733bdeb6c706f75c"
+    },
+    {
+      "path": "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "bytes": 11079,
+      "sha256": "a17ebec83c23f007203d1ac72754fc77d2c5f2689accf2b623f93f41cffed21f"
+    },
+    {
+      "path": "docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md",
+      "bytes": 2149,
+      "sha256": "9ae7886ec8184802405737a55ba8a27ca0d3a81ecba14881c24f8b9b0aeb1d76"
+    },
+    {
+      "path": "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/review-claims/RESULT_TO_CLAIM_REVIEW.md",
+      "bytes": 9481,
+      "sha256": "574099b8a0af0354260c1b92abcd821a33d1e063d02cc0346f6b1f52f9e967a7"
+    }
+  ],
+  "minimum_structure": {
+    "retain_chapters": 7,
+    "new_sections": [
+      {
+        "section": "4.5",
+        "title": "原学生化弱均值区间的有限样本边界",
+        "estimated_pages": [
+          1,
+          1.5
+        ],
+        "old_4_5_moves_to": "4.6"
+      },
+      {
+        "section": "5.10",
+        "title": "RAW空窗口与固定输入完整调用的有限重复性",
+        "estimated_pages": [
+          1.5,
+          2
+        ]
+      }
+    ],
+    "existing_section_expansion": {
+      "5.9": "原位补原G2耗时主/预热两行表及主墙钟恒等式；约0.5页"
+    },
+    "new_tables": 3,
+    "new_figures_required": 0,
+    "new_full_proof_appendix": false,
+    "new_raw_value_appendix": false,
+    "page_budget_note": "估计新增3—4页，不是编译页数承诺；可先压缩原摘要/总结合并重复后实测分页。"
+  },
+  "stale_and_scope_changes": [
+    {
+      "baseline_body_index_zero_based": 24,
+      "location": "摘要表末段（替换最后一条G2句，不再逐项堆叠旧效率数字）",
+      "action": "replace_tail",
+      "old_exact_text": [
+        [
+          "基本信息表"
+        ],
+        [
+          "编号：CACR2026EA16XZ"
+        ],
+        [
+          "作品题目：ML-KEM 解封装实现的时间侧信道检测与常数时间防护（暂定题名）"
+        ],
+        [
+          "作品类别：□软件设计   □硬件制作   ■工程实践  □密码技术应用  □其它"
+        ],
+        [
+          "作品内容摘要： | 本作品面向ML-KEM解封装实现的本地审计需求，设计并实现C11审计与精确复算系统。系统采用固定ML-KEM-768便携实现，以独立公开向量及接口检查验证功能，在完整解封装窗口中记录逐次时间，并关联保存源码、产物、环境和成本。针对结果难以核查的问题，将数据资格与统计数值分开输出，实现有界成对数据的整数精确复算。测试中，八个固定任务与SciPy尾计数及判定一致，预导入对照后的耗时比值中位数为0.001562070。macOS/ARM的M01同语言对照中，六个非零任务的增量/完整求和中位比为0.261640至0.319174；M02在一次干净重建后的同机三个新进程中，六个固定非零任务的18个中位比仍小于1，240对满足时钟资格。40964份有限模型及24576份后赋标签结果均通过独立核对。同机人工机制复测中，掩码形态在五个预定种子的原名义检验里均未再检出差异。官方两项潜在修正已与固定便携C路径静态核对。作品已完成封存包新目录复算，支持本地实现审查及离线复核；统计结果均按对应模型解释，不外推为全库恒时保证。G2单次普通参考进程保存126528次调用，200个主窗口通过工程规则，纯主平均窗口几何覆盖99.4948%；注册取消与可见恢复另核对，R02/R04仍部分签收。"
+        ],
+        [
+          "关键词（五个）：ML-KEM；时间侧信道；常数时间；证据资格；可复现性"
+        ]
+      ],
+      "suggested_text": "G2单次保存126528次完整调用，主P50/P99为39274/41498 ns，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%。另以新产物补充RAW空窗和两近邻连接批次的六进程完整调用描述；声明分辨率、空窗分布、运行间范围及物理误差分别解释。对原学生化均值区间给出条件有限覆盖下界，该界尚不能认证现有4—20单位。R02/R04仍部分签收。",
+      "reason": "原尾句只纳入G2，尚无四项新研究；不把新旧数值并列作提速对照。摘要已有较多数字，可把旧M01/M02细节缩成固定任务成本核验概括，精确数字保留正文。",
+      "not_visual_page_number": true,
+      "old_exact_tail": "G2单次普通参考进程保存126528次调用，200个主窗口通过工程规则，纯主平均窗口几何覆盖99.4948%；注册取消与可见恢复另核对，R02/R04仍部分签收。",
+      "table_locator": "w:body[24]/w:tbl, 第5行摘要单元格，末尾G2句"
+    },
+    {
+      "baseline_body_index_zero_based": 90,
+      "location": "1.2研究问题",
+      "action": "append",
+      "old_exact_text": "本作品的核心研究问题是：在固定 ML-KEM 本地审计任务中，如何让统计对象、实际产物、数据资格和复算成本相互对应。主要实证改进发生在相同统计规则的计算环节；部分资格校验与来源关联为该结果提供可审查的支撑。",
+      "suggested_text": "测量侧另区分接口声明、空窗口行为与完整调用的有限运行间描述；推断侧为原学生化弱均值区间补充可检查、但可能无信息的有限覆盖下界。二者共同说明材料资格、测量能力和统计保证之间仍需对应前提。",
+      "reason": "原核心效率定位不删除；避免把所有新增工作都称新方法。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 98,
+      "location": "1.3成果预览",
+      "action": "append",
+      "old_exact_text": "八个固定确认任务中，C11与SciPy精确尾计数及判定全部一致；预导入复核后，耗时比值中位数为0.001562070。同机人工机制复测中，掩码形态在五个种子的原检验里均未再检出差异。两项成果分别支持固定任务复算效率与特定机制的防护观察，不外推为全库安全保证。",
+      "suggested_text": "新增测量按各自身份解释：旧G2耗时只作原件离线描述，新RAW空窗有三个顺序进程，新完整参考负载有同公开输入与同产物的六个新进程；它们不合并为同一总体或匹配对照。",
+      "reason": "引言必须及早明确研究单位和异条件边界，不把限制全部藏末章。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 131,
+      "location": "2.3样本单位",
+      "action": "append",
+      "old_exact_text": "本作品保留逐次值，同时将一次运行及成对运行作为独立的组织层次。单次调用、运行块和确认任务分别有各自分母：54000条调用记录不能直接写成54000个独立确认任务，八个固定复算任务也不能因为每个重复三次而变成二十四个不同任务。这一划分决定了性能汇总和统计解释的边界。",
+      "suggested_text": "本次六进程研究的300000条计时记录包含预热150000条、主阶段150000条，组织单位仍为六个进程与两近邻连接批次；它们不是300000个独立总体样本，两次连接也不是独立环境。",
+      "reason": "原54000及八任务例子保留，新增样本层级解释。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 153,
+      "location": "2.5描述指标",
+      "action": "append",
+      "old_exact_text": "因此，P50、P90、P99表示在同一次运行中不同位置的典型耗时，能够补充均值无法完整表达的尾部信息。历史输出曾使用不够准确的分位数名称，本作品保留封存数值和复算兼容性，并在方法说明中明确实际定义。",
+      "suggested_text": "各新描述沿用式（2-9）的固定下标并报告未缩放MAD；偶数样本取上中位数。MAD为零、样本最小值和已观察分位数均不构成物理误差界。",
+      "reason": "式2-9真实OMML含floor，原公式无须改写；文本转储未显示定界符不能误判漏floor。不要称另一种nearest-rank。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 185,
+      "location": "3.3时钟范围",
+      "action": "replace",
+      "old_exact_text": "记录使用 CLOCK_MONOTONIC，时间单位为纳秒。纳秒是表示单位，不能代替对时钟分辨率及实际读钟行为的检查。前置参考测量中，时钟报告分辨率为1 ns，最小正读钟增量观察值为19 ns；每次另存10000个读钟增量和1000个空窗口值。系统不将这些开销直接从正式样本中扣除，避免未经验证的逐项校正改变原始记录。",
+      "suggested_text": "既有普通三类采集使用CLOCK_MONOTONIC，时间单位为纳秒。前置参考测量中，时钟报告分辨率为1 ns，最小正读钟增量观察值为19 ns；每次另存10000个读钟增量和1000个空窗口值。后续G2、RAW空窗及六进程固定输入研究使用CLOCK_MONOTONIC_RAW，各自保存源、产物与时钟上下文。新RAW程序的声明1 ns、最小正增量10 ns及空窗分布仅描述新对象，不倒认旧G2已校准；各研究均保留原始时长，不直接扣减读钟开销。",
+      "reason": "原“记录使用CLOCK_MONOTONIC”无范围限定会与新增RAW冲突；保留旧19 ns，不能用新10 ns覆盖。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 200,
+      "location": "3.5资格控制",
+      "action": "append",
+      "old_exact_text": "分析模块先判断记录是否完整，再检查所请求分析的适用范围。对于普通数据，系统输出均值和分位数等描述结果；对于4至20个合格成对单位，才执行第2章定义的完整交换计数。此处资格限于可核查结构及声明，不能认证均值区间所需的反事实条件。图3.4给出了资格检查与结果输出的关系。",
+      "suggested_text": "下文有限均值界是独立理论补充，尚未成为该4—20单位入口的已实现保证；CSV读取、元数据/退出接受和现实统计前提仍由不同层次核对。",
+      "reason": "防止读者把新均值理论误认为C CLI已实现或运行合格。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 249,
+      "location": "4.4平均时间差与尖锐零假设的衔接",
+      "action": "replace",
+      "old_exact_text": "平均时间差与尖锐零假设须分别推断[13]。对事前固定匹配对，独立等概率AB/BA且无携带或干扰时，成对均值无偏、方差估计期望保守[12]，仍不保证小样本覆盖。无主导反事实方差条件可给渐近保守区间；事前真实幅度上界可给有限覆盖[14]。自足证明另列新增技术资料，不把Wu与Ding的大层定理用于每层两时段。现有4—20对尚无渐近误差界；观测最大值和超时不能替代反事实界。等价还需预定容许界及区间严格内含。",
+      "suggested_text": "平均时间差与尖锐零假设须分别推断[13]。对事前固定匹配对，独立等概率AB/BA且无携带或干扰时，成对均值无偏、方差估计期望保守[12]，仍不保证小样本覆盖。无主导反事实方差条件给出原渐近保守路线；后续有限样本补充保持同一目标及原学生化区间，显式量化该保证的损失，见第4.5节。可信反事实上界仍不能由观测最大值或超时替代；新界也没有认证现有4—20单位。等价另须预定容许界及有效区间严格内含。",
+      "reason": "“现有4—20对尚无渐近误差界”未区分已补公式与仍不可认证；替换后不删除原尖锐/弱均值区别。原Hoeffding幅度上界路线在4.5一行说明保留来源[14]。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 274,
+      "location": "5.1环境范围",
+      "action": "replace",
+      "old_exact_text": "表5.1记录既有KVM材料的环境；2026年10月10日G2裸金属普通参考窗口另按第5.9节的机器、产物与观测范围解释。",
+      "suggested_text": "表5.1记录既有KVM材料的环境；2026年10月10日G2裸金属窗口按第5.9节解释，后续RAW空窗及固定输入六进程研究按第5.10节各自的新产物、资源条件和观察范围解释。",
+      "reason": "不得用旧KVM表作为新裸金属结果统一环境表。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 415,
+      "location": "7.1测量成果总结",
+      "action": "replace",
+      "old_exact_text": "G2单次保存126528次完整调用，200个主窗口均通过事前工程规则，纯主平均窗口几何覆盖99.4948%；注册取消、保全及可见恢复另核对，仍不扩大历史防护或统计结论。",
+      "suggested_text": "G2单次保存126528次完整调用，主P50/P99为39274/41498 ns，200个反馈窗口通过工程规则、纯主几何覆盖99.4948%；注册取消与可见恢复另核。后续新程序补充RAW空窗三进程及同公开输入、同产物六进程完整调用描述，主P50观察范围40 ns。三类对象分别保留全部长尾、来源和整数时间账，不把40 ns当误差界，不据新旧时长推断算法加速。",
+      "reason": "旧总结只到G2，需补真实已完成工作；采集总数详表，不必总结再堆全部计数。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 416,
+      "location": "7.1总成果总结",
+      "action": "append",
+      "old_exact_text": "这些成果共同支持可运行、可检查和可重建的本地审计流程。历史人工案例的局限、未执行的有限批次及不利结果均予以保留，作品不以复算更快代替密码防护更强，也不以检查通过代替全部研究要求已完成。",
+      "suggested_text": "理论补充给出原学生化弱均值区间的条件有限下界；其可能无信息，作用是明确当前推断预算与前提，不是新统计方法或真实R04认证。",
+      "reason": "总结必须纳入数学进展，同时保留未签收。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 422,
+      "location": "7.2均值限制",
+      "action": "replace",
+      "old_exact_text": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。新均值路线仍缺真实前提与实现核验，R04仍部分签收。",
+      "suggested_text": "实质等价须预定对象、容许界及有效区间；未检出、低自相关或标签枚举均不构成证明。原均值区间已有显式有限覆盖下界及独立解析复核，但可信反事实主导比例、无携带/干扰等现实前提和相应实现尚未认证；现有4—20单位未由该界获得名义覆盖保证，R04仍部分签收。",
+      "reason": "原句“新均值路线仍缺真实前提与实现核验”仍属实但遗漏已完成有限界；应明确已完成/未完成对象。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 423,
+      "location": "7.2测量限制",
+      "action": "replace",
+      "old_exact_text": "G2仍缺适用目标差异量级的读钟精度、稳定性与统计前提。平均反馈不证明逐调用恒频或物理误差界，R02/R04仍部分签收。",
+      "suggested_text": "新RAW空窗和固定输入六进程已补有限读钟行为及近邻运行间描述；这些新程序不倒认旧G2已校准，也不提供物理误差界、独立环境或长期稳定性。测量是否适用于最终拟区分的差异量级、正式推断所需设计与依赖前提，仍须按具体主张审计；R02/R04仍部分签收。更强的逐调用恒频或真实总体误报/检出不自行追加为官方硬门。",
+      "reason": "不能继续泛称完全缺运行间描述，也不能因未取得更强物理保证就新增竞赛硬门。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 448,
+      "location": "附录A既有材料表",
+      "action": "extend_table",
+      "old_exact_text": [
+        [
+          "编号",
+          "材料与位置",
+          "本文使用范围"
+        ],
+        [
+          "E01",
+          "docs/evidence/native-reference-20261007",
+          "前置普通参考与读钟检查"
+        ],
+        [
+          "E02",
+          "docs/evidence/native-final-20261007/performance",
+          "图5.2；表5.3、5.4；附录B"
+        ],
+        [
+          "N01",
+          "docs/evidence/candidate-round-20261007/native",
+          "图5.3；表5.5；原生检查"
+        ],
+        [
+          "H01",
+          "docs/evidence/statistics-multiseed",
+          "表5.9；历史案例限制"
+        ],
+        [
+          "C01",
+          "docs/evidence/controlled-comparison-20261007",
+          "图5.4；表5.6完整进程"
+        ],
+        [
+          "C02",
+          "docs/evidence/finite-calibration-20261007",
+          "图5.5；表5.7"
+        ],
+        [
+          "C03",
+          "docs/evidence/warm-replay-20261007",
+          "图5.4；表5.6预导入"
+        ],
+        [
+          "C04",
+          "docs/evidence/reference-label-control-20261007",
+          "图5.6；表5.8"
+        ],
+        [
+          "R07",
+          "docs/evidence/r07-linux-20261008",
+          "图5.7；表5.10；同机人工机制复测"
+        ],
+        [
+          "V3-R",
+          "docs/evidence/author-proxy-v3-20261008",
+          "封存v3授权代理重跑"
+        ]
+      ],
+      "suggested_text": "仅追加四行短索引：G2-T（原G2耗时54行与整数账）；W-F（原区间有限下界及独立数学复核）；RAW-C（303000空pair、18行描述与实物审查）；REP-6（两批六进程、36行描述、元数据及归档审查）。",
+      "reason": "只扩已有材料索引，不新增长证明/长逐值附录。匿名分发副本用别名和实际包清单，作者侧路径/私有云路径另存。",
+      "not_visual_page_number": true
+    },
+    {
+      "baseline_body_index_zero_based": 469,
+      "location": "附录A分发说明",
+      "action": "append",
+      "old_exact_text": "G2新增材料与旧记录分别封存：匿名分发包的data/g2/保存逐次原值、逐窗口CSV及C摘要；research/g2/保存固定合同、结果到主张、生命周期和科学核对；code/g2-analysis/保存冻结C11离线分析源码。code/g2-collector/为依赖完整固定参考目录的生产者审计源，不是独立离线运行入口。G2-M、G2-C、G2-A分别是管理、普通生产者与分析来源别名，不是Git提交号；源码、普通产物、输入和处理结果按各自清单摘要关联。原47页稿及既有软件和研究包保持原身份。",
+      "suggested_text": "四项后续研究以新版匿名目录和来源别名独立加入；原49页/925项封存件及旧G2原件保留原身份。新加入的完整数据、C输出、证据审查与定理来源各按自身清单解释；大原值可在归档内保留并提供成员映射，不把可读子集冒称完整树。",
+      "reason": "本处待实际新版包形成后写入真实目录、数量与摘要，不能先填预计数。",
+      "not_visual_page_number": true
+    }
+  ],
+  "non_upgrade_rules": [
+    "No old/new G2 speedup comparison",
+    "No empty-window subtraction",
+    "No 1 ns absolute accuracy",
+    "No 40 ns error bound or equivalence margin",
+    "No iid, independent environments, stationarity, or long-term stability from six processes",
+    "No finite nominal coverage certification for 4–20 units",
+    "No zero bound interpreted as zero actual coverage",
+    "No 1600-unit sufficiency or sampling recommendation",
+    "No external peer review or cross-model claim",
+    "No new official constant-frequency or true-population FPR/TPR gates"
+  ],
+  "claims_to_retain": [
+    "bounded exact-replay efficiency under identical statistical definition",
+    "original finite-model/label-space evidence",
+    "limited historical artificial-mechanism observation",
+    "G2 average-window geometry and explicit recovery scope",
+    "new empty-window/full-call finite description",
+    "conditional original studentized-interval finite lower bound"
+  ]
+}

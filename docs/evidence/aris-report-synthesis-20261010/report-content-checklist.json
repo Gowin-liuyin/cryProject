@@ -1,0 +1,469 @@
+{
+  "date": "2026-10-10",
+  "kind": "pre-candidate content review checklist",
+  "candidate_docx": null,
+  "candidate_pdf": null,
+  "new_package": null,
+  "overall_status": "AWAITING_CANDIDATE",
+  "does_not_create_official_requirement": true,
+  "not_visual_or_distribution_signoff": true,
+  "checks": [
+    {
+      "id": "M01",
+      "group": "有限界对象",
+      "requirement": "保留原θ=U⁻¹Σθ_j、θ̂=D̄、V̂=Σ(D_j−D̄)²/[U(U−1)]和原学生化闭区间I；不换为已知G的oracle区间。",
+      "expected_evidence": "章4原生公式及定义；对照PROOF_PACKAGE Claim/Notation。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M02",
+      "group": "有限界假设",
+      "requirement": "明确U≥2在结果前固定、固定有限潜在数组、R_j独立等概率±1且独立潜在数组、D_j=θ_j+R_jγ_j；概率仅对真实赋值。",
+      "expected_evidence": "章4模型段逐项核对；若只显示F2而遗漏设计，不通过。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M03",
+      "group": "有限界假设",
+      "requirement": "现实一致性/无赋值相关携带/跨单位干扰等须足以支持该模型；不由低自相关、乱序或C资格自动推出。",
+      "expected_evidence": "章4模型段、7.2限制和资格控制段三处一致。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M04",
+      "group": "有限界假设",
+      "requirement": "不额外要求单位同分布、θ_j相同、H=0、H/G→0或块内调用独立，不无故更换为有界/截断耗时模型。",
+      "expected_evidence": "新正文与抽象证明前提一致；强加这些结构应有明确另行假设并不得倒认证。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M05",
+      "group": "有限界公式",
+      "requirement": "G>0时η=maxγ_j²/G、0<ε<1、z>0；a0=z√[U(1−ε)/(U−1+z²)]，p0=min{1,η/ε²,exp[−ε²/(2η)]}；下界[2Φ(a0)−1−2√η−p0]+。",
+      "expected_evidence": "逐项对照F2，包括根号范围、分母、负号、指数系数2、正部符号和闭区间。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M06",
+      "group": "有限界解释",
+      "requirement": "C_BE=1来自已核一般独立非同分布版本，不将iid常数或未核0.56代入；Tyurin固定v1身份正确。",
+      "expected_evidence": "新引用及公式说明；固定论文来源与REFERENCES.md一致。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M07",
+      "group": "有限界解释",
+      "requirement": "η未由一次观测识别；所需可信事前上界不能由η≥1/U、观测max/超时/相近P50替代。",
+      "expected_evidence": "章4/7.2；任何η=1/U实际认证断言为阻断项。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M08",
+      "group": "有限界解释",
+      "requirement": "仅知η≤1时本保守界为0；零下界是无信息，不是实际覆盖0；正下界也须与事前目标对照。",
+      "expected_evidence": "章4文字或明确技术资料引用。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M09",
+      "group": "有限界边界",
+      "requirement": "G=0时原估计恰等θ、覆盖1，不填η/h=0套G>0公式；V̂=0不等于G=0；区间保留闭端点。",
+      "expected_evidence": "章4边界说明；短证明若含CDF须为F(a)−F(−a−)。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M10",
+      "group": "有限界当前状态",
+      "requirement": "现有4—20单位未由本界取得名义覆盖；若出现<0.56须指本下界保证值上限；1600只为所选界95%的一项必要条件，非充分或运行建议。",
+      "expected_evidence": "摘要、章4、总结与限制全文一致；不得写“4—20无任何有限界”。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "M11",
+      "group": "有限界实现状态",
+      "requirement": "此次仅数学/来源/解析复核，没有数值枚举、模拟、C实现/测试或新采集；未把理论写成CLI已实现保证或ARIS新方法首创。",
+      "expected_evidence": "3.5/4.5/7.1与技术资料状态；原W1—W4和NOT_READY_TO_RUN协议身份保留。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T01",
+      "group": "测量分母",
+      "requirement": "旧G2共126528完整计时调用=预热25280+主101248；本轮只是既有原件离线分析，新增硬件采集和密码调用0。",
+      "expected_evidence": "5.9正文、表5.12及摘要；不把54行当54次实验。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T02",
+      "group": "测量分母",
+      "requirement": "G2主P50/P90/P99/max/MAD=39274/39844/41498/82996/90 ns；预热=39314/39865/42099/61005/130 ns。",
+      "expected_evidence": "新G2两行表逐单元格比对RESULTS；主均值权威3993729753/101248 ns。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T03",
+      "group": "测量分母",
+      "requirement": "G2主墙钟4002203951=3993729753+60+8460192+13946 ns；这是调用窗与间隙账，不是APERF几何覆盖分子/缺口。",
+      "expected_evidence": "原生公式与紧邻解释；不写8474198 ns为频率唯一未知时间。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T04",
+      "group": "测量分母",
+      "requirement": "RAW为3顺序进程；每进程1000预热+100000主pair，共303000 pair/606000采样读钟，密码调用0。",
+      "expected_evidence": "5.10方法/表/摘要；不能将303000都称主阶段，也不能将pair叫完整解封装。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T05",
+      "group": "测量数值",
+      "requirement": "RAW主pair内各count100000、min/min_positive10、P50/P90=20/20、P99=21、max2004/1603/501、MAD0、zero0，全部ns。",
+      "expected_evidence": "三行表及零/MAD说明；18行只是每进程两phase×三shared series。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T06",
+      "group": "测量解释",
+      "requirement": "getres声明1 ns、观察最小正增量10 ns、空窗20/21 ns与绝对精度不同；20 ns不是两次clock_gettime纯总成本、单次成本或可从旧G2扣除量。",
+      "expected_evidence": "3.3、5.10、7.2。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T07",
+      "group": "测量分母",
+      "requirement": "完整调用为2近邻连接批次×3新进程；每进程25000预热+25000主=50000计时，总300000（主150000+预热150000），600000采样读钟，setup另6。",
+      "expected_evidence": "5.10方法与表；每主表行count25000；不将300000称主调用。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T08",
+      "group": "测量分母",
+      "requirement": "若列全Linux调用账，完整算法300138，其中decap300030、keygen54、encap54；资格132含decap24；E1/E2 collector各150003含setup3，非计时资格独立。",
+      "expected_evidence": "正文精简表或完整材料索引；不将300138称全部decap/计时。Mac132须独立计数。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T09",
+      "group": "测量数值",
+      "requirement": "六行P50=30678/30718/30707/30678/30678/30687，P90=30728/30758/30757/30737/30727/30728，P99=32020/32070/32000/32010/32000/32020。",
+      "expected_evidence": "E1-P1至E2-P3逐单元格比对RESULTS。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T10",
+      "group": "测量数值",
+      "requirement": "六行max=56266/52839/44915/53951/59922/43862、MAD=21/21/30/30/30/29 ns；预热max68449也保留于原值；全长尾未删。",
+      "expected_evidence": "主表及材料索引；主max59922不能错误覆盖全部预热+主的68449。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T11",
+      "group": "测量解释",
+      "requirement": "P50观察范围30678—30718 ns/40 ns，P99范围32000—32070 ns/70 ns，仅已观察有限范围，无CI、误差界、稳定验收或等价界。",
+      "expected_evidence": "摘要、5.10、7.1/7.2；“稳定”“精度”出现时检查限定。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T12",
+      "group": "测量上下文",
+      "requirement": "两批同普通ELF/boot/公开NIST tg5 tc86、clocksource=tsc/getres1 ns；E2不重编/重复资格；仅自身CPU2亲和性，无root/MSR/调频/cgroup/IRQ或CPU/SMT独占。",
+      "expected_evidence": "5.10方法和限制；129前后频率文件只是快照，不认证持续恒频或隐藏状态。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T13",
+      "group": "测量设计",
+      "requirement": "两个SSH批次不是独立随机环境；346446211228 ns来自同boot RAW采样边界，非跨机器UTC差，不能解释纯SSH/CPU空闲或长期重复性。",
+      "expected_evidence": "5.10时间关系；允许正文约346.446 s简写但须保留解释。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T14",
+      "group": "测量可比性",
+      "requirement": "新RAW/新完整负载与旧G2产物、输入、预热和资源条件不同，不倒校准、不扣开销、不推出30.7 μs比39.3 μs算法提速。",
+      "expected_evidence": "所有新增表/图、摘要与结论；不制作跨研究加速比。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "T15",
+      "group": "测量/管理分层",
+      "requirement": "C仅读CSV，其collector退出/元数据/complete接受false原样；管理层另核source/ELF/完整stderr/退出/元数据后接受，科学前提不由前两层自动成立。",
+      "expected_evidence": "3.5或5.10/材料说明，不把false改成true以“统一”输出。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "D01",
+      "group": "指标定义",
+      "requirement": "沿用Qp=x[floor(p(n−1)+0.5)]；若P是0—100百分数则P/100，上中位数、MAD上中位数不缩放、不插值；不改ceil(np) nearest-rank。",
+      "expected_evidence": "式2-9和新表说明；DOCX真实OMML floor存在。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "D02",
+      "group": "指标定义",
+      "requirement": "原精确检验是|Σd|绝对和值、完整2^m符号空间、含等值上尾、保留0差/并列重数、α0.01、4—20入口；数学算对不认证交换模型。",
+      "expected_evidence": "2.4/4.4原公式与定义语义保留；有限均值区间是另一个目标。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "D03",
+      "group": "指标定义",
+      "requirement": "原pmin≥2^(1−k)且全0为1；≤7非零对在0.01不可能拒绝，8只表示可能；旧秩效应量含半并列而非严格较大概率。",
+      "expected_evidence": "4.4原边界段；不为新finite理论删除不利边界。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "D04",
+      "group": "指标定义",
+      "requirement": "旧效率比值是对应窗口逐次比汇总，中位0.001388504/预导入0.001562070；M01六非零0.261640—0.319174、M02三进程240对/18中位比<1、一次构建不变成三个构建。",
+      "expected_evidence": "原5.4/M01/M02表与总结；不得改为总耗时比或合并独立任务。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "D05",
+      "group": "指标定义",
+      "requirement": "40964有限模型/24576后赋标签及拒绝计数、共同符号失配和低检出全部保留；它们不是真实密码总体FPR/TPR。",
+      "expected_evidence": "原5.5/5.6、摘要和材料索引；统计概率空间不随新数据改变。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "D06",
+      "group": "指标定义",
+      "requirement": "G2 200反馈pair来自单进程；首跨界pair仍判定但纯主仅199，几何3981985286/4002203951 ns=99.4948%；平均窗口非逐调用恒频，pair非AB/BA。",
+      "expected_evidence": "原5.9图/表/式与新时间账协调，分母不改。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "H01",
+      "group": "历史保全",
+      "requirement": "旧49页DOCX/PDF及旧925 ZIP保持原路径与原字节；新报告/新包用新目录，不能就地替换旧件。",
+      "expected_evidence": "基线SHA回读：DOCX96e2de8a…、PDFd5b65e65…、ZIPd5c7a05c…。",
+      "failure_class": "preservation_blocker",
+      "scope": "artifact_identity",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "H02",
+      "group": "历史保全",
+      "requirement": "新报告修改日志逐项解释替换/新增/移出；原64OMML/19drawing/23table/43TOC/4section是结构参照，计数不代替公式或数值语义保全。",
+      "expected_evidence": "作者侧编辑记录、原XML与新XML逐项比对；允许摘要压缩重复但原实验数在正文/材料保持。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "H03",
+      "group": "历史保全",
+      "requirement": "原批次准备失败与未执行K4/K16/20对、H1 4/5、hardened残差1/5、旧sanitize警告失败、取消空未知继续保留。",
+      "expected_evidence": "5.7/附录A/索引；不能用后续成功回填历史。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "H04",
+      "group": "历史保全",
+      "requirement": "新认证拒绝/执行位拒绝只属启动前失败，无新采样；sidecar旧0勘误为6保留原字节及映射，不改远端证据时点。",
+      "expected_evidence": "新版材料短说明或对应证据索引，无需正文流水账。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "H05",
+      "group": "历史保全",
+      "requirement": "新的独立数字、产物与声明审查为同模型内部，各自范围说明，不称跨模型、外部Codex或同行评审。",
+      "expected_evidence": "方法/材料/README；外部Codex pending保持。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "A01",
+      "group": "匿名与分发",
+      "requirement": "新报告进入新实际匿名包并与候选最终DOCX/PDF逐字绑定；旧925只覆盖旧49页及前版范围，不能继承给四补充。",
+      "expected_evidence": "实际新ZIP及member SHA、报告页数/摘要/包README，未组装前保持PENDING。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "A02",
+      "group": "匿名与分发",
+      "requirement": "新包完整成员/CRC/路径安全/manifest/SHA、自身除外口径、嵌套归档与成员映射均真实核对；可读子集不冒充完整原树。",
+      "expected_evidence": "真实新ZIP及嵌套数据压缩包；不按预计项数签核。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "A03",
+      "group": "匿名与分发",
+      "requirement": "扫描新增文档元数据、可见文本、链接、源文件、嵌套归档的直接身份/私有路径/凭据；作者云端Cry全路径不流入匿名正文。",
+      "expected_evidence": "实际新包递归扫描与人工审查；公开第三方版本保留；不承诺不可关联作者。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "A04",
+      "group": "匿名与分发",
+      "requirement": "新公式科学视图与Markdown/HTML/MathML正确展示；全部本地链接/锚点可达，无活动脚本/远端资产，完全离线阅读。",
+      "expected_evidence": "真实新包HTML及浏览/链接核对，不能沿用旧817引用/40HTML/247MathML数量。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "A05",
+      "group": "匿名与分发",
+      "requirement": "若承诺新增C离线复算，则仅从实际新包重建/必要CTest/固定输入输出比较；生产者源码审计与独立可运行入口分清。",
+      "expected_evidence": "后续授权执行者实包离线记录；本审查不执行C，也不签该项。",
+      "failure_class": "distribution_pending",
+      "scope": "new_anonymous_package",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "A06",
+      "group": "匿名与分发",
+      "requirement": "新报告真实渲染并逐页视觉审读、目录页码/表式号更新；旧49页视觉QA不能转移，新XML检查不能签视觉。",
+      "expected_evidence": "新PDF及全页覆盖记录；本审查只做内容。",
+      "failure_class": "visual_pending",
+      "scope": "new_report_visual_qa",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "R01",
+      "group": "验收范围",
+      "requirement": "R02/R04继续partial；可靠测量与统计推断按官方条文及最终拟主张逐项解释，不自行新增逐调用恒频/绝对误差/真实总体FPR硬门。",
+      "expected_evidence": "摘要、7.2、当前验收表一致；有限yes不升全部签收。",
+      "failure_class": "content_blocker",
+      "scope": "new_report_content",
+      "candidate_status": "NOT_YET_INSPECTED"
+    },
+    {
+      "id": "R02",
+      "group": "验收范围",
+      "requirement": "实际运行截图/演示画面、真实个人贡献/本人审批签署盖章/平台回执和旧KVM可信身份迁移仍未补；结构图不冒充截图。",
+      "expected_evidence": "交付README/进度与本轮内容声明一致；真实材料未见不得写完成。",
+      "failure_class": "delivery_pending",
+      "scope": "full_goal",
+      "candidate_status": "NOT_YET_INSPECTED"
+    }
+  ],
+  "sources": [
+    {
+      "path": "docs/full-work-acceptance.md",
+      "sha256": "e9c94a136d0a2e4f5dc0a5954b46d5f572cc73f3c9a16c0487b27801017d7fad",
+      "bytes": 9641
+    },
+    {
+      "path": "docs/research/aris-weak-mean-finite-20261010/PROOF_PACKAGE.md",
+      "sha256": "db69d01bbc4c068f2bbd00292362706b72a6ae01ba1cd1a0f8df1a976be0f0f0",
+      "bytes": 18103
+    },
+    {
+      "path": "docs/research/aris-weak-mean-finite-20261010/REFERENCES.md",
+      "sha256": "0b63fc96dda05b49f2be4ceb529fa7731cb5f582ce78be28816481f8264ad2e1",
+      "bytes": 3034
+    },
+    {
+      "path": "docs/research/aris-g2-timing-description-20261010/RESULTS.md",
+      "sha256": "de7e35c89001f82701c52a7e77c7ef590aed3ae050bffcbef0cc39168ab2bfaf",
+      "bytes": 5978
+    },
+    {
+      "path": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "sha256": "581673b196cc0eeaa4f5cacbac5acc16133a1663a35d461250642a632a30bbde",
+      "bytes": 9036
+    },
+    {
+      "path": "docs/research/aris-raw-clock-20261010/ANALYSIS_CONTRACT.md",
+      "sha256": "693ac31279a88c5c89fde29995979ea1291e5c0fc346d1776874f73742501ce4",
+      "bytes": 6152
+    },
+    {
+      "path": "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "sha256": "a17ebec83c23f007203d1ac72754fc77d2c5f2689accf2b623f93f41cffed21f",
+      "bytes": 11079
+    },
+    {
+      "path": "docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md",
+      "sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+      "bytes": 12712
+    },
+    {
+      "path": "docs/evidence/aris-report-g2-20261010/README.md",
+      "sha256": "cdb0a9f79f2a0e79d234d0829b6e01cb4a9a4e485627a0c92fe4147c5e763e53",
+      "bytes": 1948
+    },
+    {
+      "path": "deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md",
+      "sha256": "fa9f94f5789bfd69eacf79baef1934b33fe54f7eb041ee4d8b2465bd9aa62f46",
+      "bytes": 2040
+    }
+  ]
+}

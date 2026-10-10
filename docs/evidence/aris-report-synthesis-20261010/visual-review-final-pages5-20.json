@@ -1,0 +1,779 @@
+{
+  "schema_version": 2,
+  "reviewer": "synthesis_visual_5_20",
+  "scope": "只读复审：新54页final-v2的物理页5—20；16页均已在本轮重新逐张实际打开。不改DOCX、旧证据，不跑C、SSH、实验或LibreOffice。",
+  "recorded_at_utc": "2026-10-10 13:58:58 UTC",
+  "document": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.docx",
+    "sha256": "95ffce23d02180117fb05ccf9ebc406b7b05ae20038f08042e25d13934e2983f"
+  },
+  "rendered_pdf": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/CACR2026EA16XZ-作品设计报告-四项研究整合候选版.pdf",
+    "sha256": "27e8001b8a374be9636c83196c65295626551277b8aafd961f47e223c174d7f7"
+  },
+  "method": {
+    "document_and_pdf_hashes_verified": true,
+    "page_image_hashes_computed_with": "shasum -a 256",
+    "pages_requested": 16,
+    "pages_actually_opened": 16,
+    "every_page_opened_separately": true,
+    "contact_sheet_used": false,
+    "existing_render_used": true,
+    "preservation_contract": "沿用最终稿的黑色标题、中文正文、三线表、淡色流程图和章间分页；不按通用模板要求重排。",
+    "fidelity_limit": "只核final-v2本组页面的可见排版与风格一致性。虽本组新PNG摘要与修订前完全一致，仍已重新打开全部16页；未将旧文稿/PDF身份套用于本轮，未进行封存49页原稿逐像素比对，也不认证研究结论或统计前提。",
+    "final_identity_verified_before_reopening": true,
+    "new_page_hashes_compared_to_previous_render": true,
+    "assigned_new_png_hashes_equal_previous_render": true,
+    "new_final_reopened_after_hash_comparison": true,
+    "old_receipt_not_used_instead_of_reopening": true
+  },
+  "summary": {
+    "outcome": "pass_visual_for_assigned_final_v2_pages",
+    "physical_page_range": [
+      5,
+      20
+    ],
+    "printed_page_numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "actionable_layout_defects": [],
+    "normal_observations": [
+      "物理页7、12、19为正常章末留白。",
+      "式(2-7)从物理页10引导句续到页11页首，内容完整。"
+    ],
+    "unviewed_pages_marked_as_pass": false,
+    "new_final_reopened_pages": 16
+  },
+  "pages": [
+    {
+      "physical_page": 5,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-5.png",
+      "image_sha256": "c29434d25f166cad54ed120d42e0b00e4602937b1f9006fec09d6bd8c7e6102f",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 1,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "1",
+      "observed_running_header": "第1章 研究背景与作品目标",
+      "visible_elements": [
+        "第1章章标题",
+        "1.1标题及正文",
+        "1.2标题及正文"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "章标题和两个小节标题均与后续正文同页，汉字、英文缩写和引用编号可辨。",
+        "正文未触及页脚，页眉和页码位置正常。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 6,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-6.png",
+      "image_sha256": "74b57fff57bcc845e6b3e14d0663af61d6e87076b7298a0d247cf64d4b50dc64",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 2,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "2",
+      "observed_running_header": "第1章 研究背景与作品目标",
+      "visible_elements": [
+        "相关工作正文",
+        "表1.1相关对象与本作品的工作定位"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "表1.1标题、三列表头和五个数据行同页完整；换行自然，表底线完整。",
+        "表格邻近页面下部但与页码仍有清晰间距，未见溢出或重叠。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 7,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-7.png",
+      "image_sha256": "e00c7ca0b7632a69ead583feccf854954871d5815bac56a72f851500a824276b",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 3,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "3",
+      "observed_running_header": "第1章 研究背景与作品目标",
+      "visible_elements": [
+        "1.3作品目标与总体技术路线"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "1.3标题与三段正文完整，行尾及英文符号清楚。",
+        "章末下半页留白属于正常章间分页，本审查不将其视为缺陷。"
+      ],
+      "normal_chapter_end_whitespace": true,
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 8,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-8.png",
+      "image_sha256": "28f184d7a223d7e1fb4ecf1009d634caeb7b589c82736b3715f87396877d44dc",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 4,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "4",
+      "observed_running_header": "第2章 ML-KEM实现审计的理论基础",
+      "visible_elements": [
+        "第2章章标题",
+        "2.1接口与功能正确性",
+        "公式(2-1)、(2-2)",
+        "图2.1",
+        "表2.1"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "公式的上下标、箭头及右侧编号可辨；图2.1全部节点、箭头和说明完整。",
+        "图注和图同页，表2.1标题、四个对象及长度值完整，未与页脚重叠。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 9,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-9.png",
+      "image_sha256": "491e864683a65f216142cb3641919bc1919eec606a8c709021c610ccac168b8c",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 5,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "5",
+      "observed_running_header": "第2章 ML-KEM实现审计的理论基础",
+      "visible_elements": [
+        "2.1续文",
+        "2.2外部输入检查与隐式拒绝语义",
+        "图2.2"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "2.2标题与解释段、流程图及其图注同页；两类输入边界节点均完整。",
+        "图下注释和后续两段正文分隔清晰，未见缺字或裁切。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 10,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-10.png",
+      "image_sha256": "c8e44e01fa8767322fee8d1a79b84e28943f4d9037d20737eadee1c5dcefc33d",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 6,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "6",
+      "observed_running_header": "第2章 ML-KEM实现审计的理论基础",
+      "visible_elements": [
+        "2.3执行时间的影响因素与样本单位",
+        "公式(2-3)、(2-4)",
+        "2.4成对随机化与整数精确检验",
+        "公式(2-5)、(2-6)"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "上下标、求和号、绝对值和公式编号均可辨，公式未越过正文边界。",
+        "页末“精确概率为”引出式(2-7)，该公式实际续到物理页11页首；这是跨页衔接观察，未见缺失内容。"
+      ],
+      "cross_page_continuation": {
+        "next_physical_page": 11,
+        "content": "式(2-7)精确概率",
+        "classification": "正常续页观察，非标题或图注孤立"
+      },
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 11,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-11.png",
+      "image_sha256": "c97981a37fdb6f73473905e42faf3fa1c80c0170ec19c4045daf962be529a595",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 7,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "7",
+      "observed_running_header": "第2章 ML-KEM实现审计的理论基础",
+      "visible_elements": [
+        "公式(2-7)",
+        "图2.3",
+        "2.5运行分位数与相对性能开销",
+        "公式(2-8)"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "页首式(2-7)承接前页引导句，分式、求和及编号清晰完整。",
+        "图2.3的所有框、箭头与尾部说明完整，图注同页；2.5标题后有正文及式(2-8)，未孤立。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 12,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-12.png",
+      "image_sha256": "923a0156855c08d4a68ee0893a2556ae39d3d72ae18ce57406fe1f1b575235ef",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 8,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "8",
+      "observed_running_header": "第2章 ML-KEM实现审计的理论基础",
+      "visible_elements": [
+        "2.5续文",
+        "公式(2-9)、(2-10)"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "分位数公式与相对开销公式完整，括号、上下标及分式未裁切。",
+        "章末正文后留白正常，页眉及页码未漂移。"
+      ],
+      "normal_chapter_end_whitespace": true,
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 13,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-13.png",
+      "image_sha256": "4f121c493b76c5812a0ac92121acc2b81acd2fa991cca94a423c9298e2ab80e4",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 9,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "9",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "第3章章标题",
+        "3.1系统架构与模块协同",
+        "图3.1"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "章标题、3.1标题、引导段及图3.1有清楚层级。",
+        "总体架构图的五个模块、连接箭头和说明均完整，图注同页，下方正文清晰。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 14,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-14.png",
+      "image_sha256": "d5b09de5c3aa0cbf0eb8131f33a03d2354002e26d90ae7ead8fe61e637e1915d",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 10,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "10",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "表3.1",
+        "3.2固定快照管理与多实现构建隔离"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "表3.1标题、三列表头、六个模块行及表底线完整。",
+        "上游完整版本号在行内显示，无越界；3.2标题与后续多段正文同页，字体和间距延续前页。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 15,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-15.png",
+      "image_sha256": "e5ba87e3a466e3e94f746651d3d363f2d1d4849720fb5a087d22cc7b705deee6",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 11,
+        "forwarded_image_detail": "original",
+        "display_note": "本轮单页original读取后以original图像展示实际观看；未以摘要或旧回执替代。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "11",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "表3.2",
+        "3.3普通输入组织与完整解封装计时",
+        "图3.2"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "表3.2的四类标签及限制均完整，表下正文有清楚间距。",
+        "计时窗口图全部节点、箭头、窗口外说明及CLOCK_MONOTONIC行完整，图注与图同页。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 16,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-16.png",
+      "image_sha256": "0104f2b3f737bd1d1702285e3cb94b8b75a70ccaa9db2bd3e8f955350a0bed95",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 12,
+        "forwarded_image_detail": "auto",
+        "display_note": "本轮单页original读取后实际展示观看；会话工具结果提示展示适配为1334×1888，源图为1414×2000。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "12",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "3.3续文",
+        "3.4运行记录组织与来源一致性校验",
+        "图3.3"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "长时钟名称可辨且未越界；3.4标题与正文同页。",
+        "图3.3三类记录节点、汇合箭头和联合校验节点完整，图注同页，未见文本与图形重叠。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 17,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-17.png",
+      "image_sha256": "3a697007f52a55e2b327b668979fe2e683406f114986d7735e7aadc23795f70c",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 13,
+        "forwarded_image_detail": "auto",
+        "display_note": "本轮单页original读取后实际展示观看；会话工具结果提示展示适配为1334×1888，源图为1414×2000。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "13",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "表3.3",
+        "3.5数据资格控制与精确复算实现"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "表3.3三列、五类记录及各字段内容可辨，没有跨行覆盖。",
+        "3.5标题下有完整段落，中文、4—20单位与CSV等混排清楚，未见孤立标题。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 18,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-18.png",
+      "image_sha256": "cef44e1b5a6dfd5a5128a419061effa2a051639d8fb4f24139b414b4d133935c",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 14,
+        "forwarded_image_detail": "auto",
+        "display_note": "本轮单页original读取后实际展示观看；会话工具结果提示展示适配为1334×1888，源图为1414×2000。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "14",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "图3.4",
+        "公式(3-1)",
+        "3.6材料复现流程与离线结果展示"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "图3.4全部流程框、附加边界框、说明及图注同页完整。",
+        "式(3-1)和编号清晰；3.6标题与引导段同页，图3.5在下一页展示，标题未孤立。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 19,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-19.png",
+      "image_sha256": "eb704c85d2006ca84660ffc48c0ede7e13bfc4d8baf7ed713175da123503c0f0",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 15,
+        "forwarded_image_detail": "auto",
+        "display_note": "本轮单页original读取后实际展示观看；会话工具结果提示展示适配为1334×1888，源图为1414×2000。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "15",
+      "observed_running_header": "第3章 本地审计与精确复算系统设计",
+      "visible_elements": [
+        "图3.5",
+        "3.6续文"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "图3.5全部流程框、辅助框、说明及图注完整，图下两段正文清楚。",
+        "章末留白正常，图注未从图脱离，页脚位置正常。"
+      ],
+      "normal_chapter_end_whitespace": true,
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    },
+    {
+      "physical_page": 20,
+      "image_path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/render-final-v2/page-20.png",
+      "image_sha256": "d5bad8d82bc4675ab43d58fbe54485b078f0caf98dac7466475fcb172e5dda9e",
+      "source_image_dimensions_px": {
+        "width": 1414,
+        "height": 2000
+      },
+      "actual_view_record": {
+        "viewed": true,
+        "review_round": "final-v2-after-appendix-orphan-fix",
+        "tool": "tools.view_image",
+        "requested_detail": "original",
+        "single_page_tool_call": true,
+        "reopened_in_current_round": true,
+        "view_sequence": 16,
+        "forwarded_image_detail": "auto",
+        "display_note": "本轮单页original读取后实际展示观看；会话工具结果提示展示适配为1334×1888，源图为1414×2000。",
+        "recorded_after_view_at_utc": "2026-10-10 13:58:58 UTC"
+      },
+      "observed_printed_page_number": "16",
+      "observed_running_header": "第4章 实现安全性与审计结论的适用范围",
+      "visible_elements": [
+        "第4章章标题",
+        "4.1本地审计的对象与可见信息",
+        "图4.1"
+      ],
+      "checks": {
+        "missing_glyphs_visible": false,
+        "clipping_visible": false,
+        "text_table_figure_overlap_visible": false,
+        "printed_page_number_present_and_in_sequence": true,
+        "isolated_heading_visible": false,
+        "isolated_figure_or_table_caption_visible": false,
+        "typography_and_visual_style_consistent_with_reviewed_final_pages": true
+      },
+      "result": "pass_visual",
+      "observations": [
+        "章标题、4.1标题和两段正文层级清晰，图4.1引用与实图对应。",
+        "证据范围图三个彩色节点和共同要求框均完整，图注同页，未见缺字、裁切或重叠。"
+      ],
+      "image_sha256_verified_for_this_render": true,
+      "image_sha256_equal_previous_render": true
+    }
+  ],
+  "review_round": "final-v2-after-appendix-orphan-fix",
+  "preserved_prior_receipt": {
+    "path": "/Users/yin/code/cryProject/build/aris-report-synthesis-20261010/review-before-orphan-fix/visual-review-pages5-20.json",
+    "sha256": "6dc2b5c64fcaba814781972adecd87bfbd1ba9f3faf9dd6c468df46cc9812f11",
+    "copy_policy": "仅在目标不存在时复制；源回执保持原字节。"
+  }
+}
