@@ -1,0 +1,154 @@
+{
+  "utc": "2026-10-10T00:16:30.029505+00:00",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "python": "3.12.3",
+  "source_commit": "0ba4cd7c1f41c700a7fdef2b277cbf7f39e74bac",
+  "steps": [
+    {
+      "label": "guard-configure",
+      "arguments": [
+        "/usr/bin/cmake",
+        "-S",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/source/docs/research/aris-core-partition-20261010",
+        "-B",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/guard-check",
+        "-DPython3_EXECUTABLE=/usr/bin/python3"
+      ],
+      "pid": 3666152,
+      "start_ticks": "339238415",
+      "exit_code": 0,
+      "wall_seconds": 0.11383958533406258
+    },
+    {
+      "label": "guard-test",
+      "arguments": [
+        "/usr/bin/ctest",
+        "--test-dir",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/guard-check",
+        "--output-on-failure"
+      ],
+      "pid": 3666165,
+      "start_ticks": "339238427",
+      "exit_code": 0,
+      "wall_seconds": 1.2187901958823204
+    },
+    {
+      "label": "normal-configure",
+      "arguments": [
+        "/usr/bin/cmake",
+        "-S",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/source/docs/research/aris-frequency-window-analysis-20261010",
+        "-B",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-normal",
+        "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DBUILD_TESTING=ON",
+        "-DFREQUENCY_ANALYSIS_SANITIZERS=OFF"
+      ],
+      "pid": 3666179,
+      "start_ticks": "339238549",
+      "exit_code": 0,
+      "wall_seconds": 0.11390270432457328
+    },
+    {
+      "label": "normal-build",
+      "arguments": [
+        "/usr/bin/cmake",
+        "--build",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-normal",
+        "--parallel",
+        "2"
+      ],
+      "pid": 3666211,
+      "start_ticks": "339238560",
+      "exit_code": 0,
+      "wall_seconds": 0.4641472287476063
+    },
+    {
+      "label": "normal-test",
+      "arguments": [
+        "/usr/bin/ctest",
+        "--test-dir",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-normal",
+        "--output-on-failure"
+      ],
+      "pid": 3666237,
+      "start_ticks": "339238607",
+      "exit_code": 0,
+      "wall_seconds": 0.015644412022083998
+    },
+    {
+      "label": "sanitize-configure",
+      "arguments": [
+        "/usr/bin/cmake",
+        "-S",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/source/docs/research/aris-frequency-window-analysis-20261010",
+        "-B",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-sanitize",
+        "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DBUILD_TESTING=ON",
+        "-DFREQUENCY_ANALYSIS_SANITIZERS=ON"
+      ],
+      "pid": 3666240,
+      "start_ticks": "339238608",
+      "exit_code": 0,
+      "wall_seconds": 0.11371458088979125
+    },
+    {
+      "label": "sanitize-build",
+      "arguments": [
+        "/usr/bin/cmake",
+        "--build",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-sanitize",
+        "--parallel",
+        "2"
+      ],
+      "pid": 3666272,
+      "start_ticks": "339238620",
+      "exit_code": 0,
+      "wall_seconds": 0.6643256330862641
+    },
+    {
+      "label": "sanitize-test",
+      "arguments": [
+        "/usr/bin/ctest",
+        "--test-dir",
+        "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-sanitize",
+        "--output-on-failure"
+      ],
+      "pid": 3666296,
+      "start_ticks": "339238686",
+      "exit_code": 0,
+      "wall_seconds": 0.01567978924140334
+    }
+  ],
+  "artifacts": {
+    "analysis-normal/analyze_windows": {
+      "sha256": "f25d556a44065b794b967b9e7604a46beb340acc4dcb2c2e3036ad2aa3f06d43",
+      "bytes": 153568
+    },
+    "analysis-sanitize/analyze_windows": {
+      "sha256": "23950d6fe8660436a703416eea84c5ada93a1920523c0af970ae981ea2c8e5c3",
+      "bytes": 638944
+    }
+  },
+  "real_guard_run": false,
+  "crypto_workload_performed": false,
+  "hardware_data_analyzed": false,
+  "configuration_writes": 0,
+  "temporary_environment": {
+    "TMPDIR": "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/tmp",
+    "TMP": "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/tmp",
+    "TEMP": "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/tmp",
+    "XDG_CACHE_HOME": "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/cache",
+    "CCACHE_DIR": "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/cache",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}

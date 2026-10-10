@@ -1,0 +1,13 @@
+{
+  "label": "normal-test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-normal",
+    "--output-on-failure"
+  ],
+  "pid": 3666237,
+  "start_ticks": "339238607",
+  "exit_code": 0,
+  "wall_seconds": 0.015644412022083998
+}

@@ -1,0 +1,18 @@
+{
+  "label": "normal-configure",
+  "arguments": [
+    "/usr/bin/cmake",
+    "-S",
+    "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/source/docs/research/aris-frequency-window-analysis-20261010",
+    "-B",
+    "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-normal",
+    "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DBUILD_TESTING=ON",
+    "-DFREQUENCY_ANALYSIS_SANITIZERS=OFF"
+  ],
+  "pid": 3666179,
+  "start_ticks": "339238549",
+  "exit_code": 0,
+  "wall_seconds": 0.11390270432457328
+}

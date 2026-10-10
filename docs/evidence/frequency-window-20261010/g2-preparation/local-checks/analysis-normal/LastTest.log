@@ -1,0 +1,19 @@
+Start testing: Oct 10 08:06 CST
+----------------------------------------------------------
+1/1 Testing: frequency_analysis_selfcheck
+1/1 Test: frequency_analysis_selfcheck
+Command: "/Users/yin/code/cryProject/build/window-analysis-freeze-normal-20261010/analyze_windows" "--selfcheck"
+Directory: /Users/yin/code/cryProject/build/window-analysis-freeze-normal-20261010
+"frequency_analysis_selfcheck" start time: Oct 10 08:06 CST
+Output:
+----------------------------------------------------------
+{"selfcheck":"passed","fixture_only":true,"hardware_data_analyzed":false}
+<end of output>
+Test time =   0.77 sec
+----------------------------------------------------------
+Test Passed.
+"frequency_analysis_selfcheck" end time: Oct 10 08:06 CST
+"frequency_analysis_selfcheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 08:06 CST

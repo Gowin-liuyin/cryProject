@@ -1,0 +1,16 @@
+{
+  "initial": {
+    "chunk_id": "9a7cf5",
+    "wall_time_seconds": 1.003514167,
+    "session_id": 67478,
+    "original_token_count": 5,
+    "output": "G2_ROOT_PRECHECK: "
+  },
+  "completion": {
+    "chunk_id": "6764af",
+    "wall_time_seconds": 0.000019625,
+    "exit_code": 0,
+    "original_token_count": 164,
+    "output": "\r\n{\"effective_uid\": 0, \"cap_eff\": \"000001ffffffffff\", \"cap_sys_ptrace\": true, \"namespaces\": {\"user\": {\"self\": \"user:[4026531837]\", \"init\": \"user:[4026531837]\"}, \"mnt\": {\"self\": \"mnt:[4026531832]\", \"init\": \"mnt:[4026531832]\"}, \"pid\": {\"self\": \"pid:[4026531836]\", \"init\": \"pid:[4026531836]\"}}, \"devices\": {\"2\": {\"inode\": 540, \"device\": 6, \"owner_uid\": 0, \"mode\": 384, \"major\": 202, \"minor\": 2}, \"18\": {\"inode\": 572, \"device\": 6, \"owner_uid\": 0, \"mode\": 384, \"major\": 202, \"minor\": 18}}, \"disk_free_bytes\": 375096610816, \"root_cpus\": \"0-31\", \"isolated\": \"\", \"configuration_writes\": 0, \"msr_read_performed\": false}\r\nShared connection to 10.144.144.5 closed.\r\r\n"
+  }
+}

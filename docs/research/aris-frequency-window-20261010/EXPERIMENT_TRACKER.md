@@ -9,10 +9,10 @@
 | 本机普通／ASan软件检查 | 各2/2通过 | macOS/ARM，不代替 Linux 分支 |
 | 真实 Linux 普通／ASan软件检查 | 各3/3通过 | [linux-c0e5990](../../evidence/frequency-window-20261010/linux-c0e5990/README.md) |
 | 固定正式 ELF | 已取得 | Cry/window-source-c0e5990/build-normal/frequency_workload；SHA-256 `023f56460a8dc4971e8132a22c5734ca0844314d3d71b8bc3b129a424e9ee69b` |
-| 新管理生命周期与存储降级 | 实现及复核中 | 不能由 G1 的 true 预演替代 |
-| 管理源提交与摘要 | 待冻结 | 首次实际资源写入前登记 |
+| 新管理生命周期与存储降级 | 源码及软件检查通过 | Mac/Linux管理CTest各1/1，包含运行中注册EOF及原回归；实际路径仍待 |
+| 管理源提交与摘要 | 已冻结 | `0ba4cd7c1f41c700a7fdef2b277cbf7f39e74bac`；SHA-256 `8616a0747d7a8e3b28e5af6da86bfdee5b2bf2f84821989c163136ec09479af4` |
 | normal 实际路径 | 未运行 | 最多一次，不以频率结果追加 |
 | parent-loss 实际路径 | 未运行 | 最多一次，需 normal 终止及恢复先核实 |
-| C11 原始窗口分析 | 候选及软件检查中 | 规则在真实数据前冻结 |
+| C11 原始窗口分析 | 源码及软件检查通过 | `dd67390f1e41d76624bf3a8854feacacfb8d1f85`；Mac/Linux普通及ASan各1/1；尚未接触真实窗口 |
 | ARIS 结果到主张 | 尚无 G2 结果 | 外部 Codex MCP 不可用，须标注待该复核 |
 | R02、R04 总体 | 部分签收不变 | 窗口工程诊断不能代替科学及统计前提 |

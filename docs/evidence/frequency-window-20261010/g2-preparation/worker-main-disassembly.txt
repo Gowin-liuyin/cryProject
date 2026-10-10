@@ -1,0 +1,132 @@
+
+window-source-c0e5990/build-normal/frequency_workload:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001300 <main>:
+    1300:	f3 0f 1e fa          	endbr64
+    1304:	41 54                	push   %r12
+    1306:	55                   	push   %rbp
+    1307:	53                   	push   %rbx
+    1308:	83 ff 02             	cmp    $0x2,%edi
+    130b:	0f 84 c3 00 00 00    	je     13d4 <main+0xd4>
+    1311:	45 31 e4             	xor    %r12d,%r12d
+    1314:	31 ed                	xor    %ebp,%ebp
+    1316:	83 ef 01             	sub    $0x1,%edi
+    1319:	0f 85 ef 00 00 00    	jne    140e <main+0x10e>
+    131f:	45 31 c0             	xor    %r8d,%r8d
+    1322:	31 c9                	xor    %ecx,%ecx
+    1324:	31 d2                	xor    %edx,%edx
+    1326:	31 f6                	xor    %esi,%esi
+    1328:	31 c0                	xor    %eax,%eax
+    132a:	bf 04 00 00 00       	mov    $0x4,%edi
+    132f:	e8 4c ff ff ff       	call   1280 <prctl@plt>
+    1334:	85 c0                	test   %eax,%eax
+    1336:	74 69                	je     13a1 <main+0xa1>
+    1338:	e8 83 fe ff ff       	call   11c0 <__errno_location@plt>
+    133d:	bb 01 00 00 00       	mov    $0x1,%ebx
+    1342:	48 8d 0d 28 7d 00 00 	lea    0x7d28(%rip),%rcx        # 9071 <_IO_stdin_used+0x71>
+    1349:	44 8b 00             	mov    (%rax),%r8d
+    134c:	85 ed                	test   %ebp,%ebp
+    134e:	48 8d 05 61 7e 00 00 	lea    0x7e61(%rip),%rax        # 91b6 <_IO_stdin_used+0x1b6>
+    1355:	48 8d 15 6f 7e 00 00 	lea    0x7e6f(%rip),%rdx        # 91cb <_IO_stdin_used+0x1cb>
+    135c:	bf 02 00 00 00       	mov    $0x2,%edi
+    1361:	48 0f 45 d0          	cmovne %rax,%rdx
+    1365:	48 8d 35 9c 85 00 00 	lea    0x859c(%rip),%rsi        # 9908 <_IO_stdin_used+0x908>
+    136c:	31 c0                	xor    %eax,%eax
+    136e:	e8 2d ff ff ff       	call   12a0 <__printf_chk@plt>
+    1373:	48 8b 3d a6 ac 00 00 	mov    0xaca6(%rip),%rdi        # c020 <stdout@GLIBC_2.2.5>
+    137a:	e8 11 ff ff ff       	call   1290 <fflush@plt>
+    137f:	85 c0                	test   %eax,%eax
+    1381:	75 14                	jne    1397 <main+0x97>
+    1383:	48 8b 3d 96 ac 00 00 	mov    0xac96(%rip),%rdi        # c020 <stdout@GLIBC_2.2.5>
+    138a:	e8 41 fe ff ff       	call   11d0 <ferror@plt>
+    138f:	85 c0                	test   %eax,%eax
+    1391:	0f 84 9b 00 00 00    	je     1432 <main+0x132>
+    1397:	b8 01 00 00 00       	mov    $0x1,%eax
+    139c:	5b                   	pop    %rbx
+    139d:	5d                   	pop    %rbp
+    139e:	41 5c                	pop    %r12
+    13a0:	c3                   	ret
+    13a1:	45 31 c0             	xor    %r8d,%r8d
+    13a4:	31 c9                	xor    %ecx,%ecx
+    13a6:	31 d2                	xor    %edx,%edx
+    13a8:	31 f6                	xor    %esi,%esi
+    13aa:	bf 03 00 00 00       	mov    $0x3,%edi
+    13af:	31 c0                	xor    %eax,%eax
+    13b1:	e8 ca fe ff ff       	call   1280 <prctl@plt>
+    13b6:	41 89 c0             	mov    %eax,%r8d
+    13b9:	85 c0                	test   %eax,%eax
+    13bb:	75 7d                	jne    143a <main+0x13a>
+    13bd:	31 db                	xor    %ebx,%ebx
+    13bf:	48 8d 0d a6 7c 00 00 	lea    0x7ca6(%rip),%rcx        # 906c <_IO_stdin_used+0x6c>
+    13c6:	45 84 e4             	test   %r12b,%r12b
+    13c9:	75 81                	jne    134c <main+0x4c>
+    13cb:	5b                   	pop    %rbx
+    13cc:	5d                   	pop    %rbp
+    13cd:	41 5c                	pop    %r12
+    13cf:	e9 bc 0a 00 00       	jmp    1e90 <run_workload>
+    13d4:	48 8b 5e 08          	mov    0x8(%rsi),%rbx
+    13d8:	48 8d 35 03 7e 00 00 	lea    0x7e03(%rip),%rsi        # 91e2 <_IO_stdin_used+0x1e2>
+    13df:	48 89 df             	mov    %rbx,%rdi
+    13e2:	e8 89 fe ff ff       	call   1270 <strcmp@plt>
+    13e7:	85 c0                	test   %eax,%eax
+    13e9:	74 6c                	je     1457 <main+0x157>
+    13eb:	48 8d 35 fc 7d 00 00 	lea    0x7dfc(%rip),%rsi        # 91ee <_IO_stdin_used+0x1ee>
+    13f2:	48 89 df             	mov    %rbx,%rdi
+    13f5:	e8 76 fe ff ff       	call   1270 <strcmp@plt>
+    13fa:	85 c0                	test   %eax,%eax
+    13fc:	75 10                	jne    140e <main+0x10e>
+    13fe:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+    1404:	bd 01 00 00 00       	mov    $0x1,%ebp
+    1409:	e9 11 ff ff ff       	jmp    131f <main+0x1f>
+    140e:	48 8b 3d 2b ac 00 00 	mov    0xac2b(%rip),%rdi        # c040 <stderr@GLIBC_2.2.5>
+    1415:	48 8d 15 ac 84 00 00 	lea    0x84ac(%rip),%rdx        # 98c8 <_IO_stdin_used+0x8c8>
+    141c:	be 02 00 00 00       	mov    $0x2,%esi
+    1421:	31 c0                	xor    %eax,%eax
+    1423:	e8 a8 fe ff ff       	call   12d0 <__fprintf_chk@plt>
+    1428:	b8 02 00 00 00       	mov    $0x2,%eax
+    142d:	e9 6a ff ff ff       	jmp    139c <main+0x9c>
+    1432:	0f b6 c3             	movzbl %bl,%eax
+    1435:	e9 62 ff ff ff       	jmp    139c <main+0x9c>
+    143a:	0f 88 f8 fe ff ff    	js     1338 <main+0x38>
+    1440:	41 b8 05 00 00 00    	mov    $0x5,%r8d
+    1446:	bb 01 00 00 00       	mov    $0x1,%ebx
+    144b:	48 8d 0d 1f 7c 00 00 	lea    0x7c1f(%rip),%rcx        # 9071 <_IO_stdin_used+0x71>
+    1452:	e9 f5 fe ff ff       	jmp    134c <main+0x4c>
+    1457:	e8 34 6a 00 00       	call   7e90 <mlkem_implementation_name>
+    145c:	48 8d 35 30 7c 00 00 	lea    0x7c30(%rip),%rsi        # 9093 <_IO_stdin_used+0x93>
+    1463:	48 89 c7             	mov    %rax,%rdi
+    1466:	e8 05 fe ff ff       	call   1270 <strcmp@plt>
+    146b:	48 8d 15 ec 7d 00 00 	lea    0x7dec(%rip),%rdx        # 925e <_IO_stdin_used+0x25e>
+    1472:	bf 02 00 00 00       	mov    $0x2,%edi
+    1477:	48 8d 35 f2 83 00 00 	lea    0x83f2(%rip),%rsi        # 9870 <_IO_stdin_used+0x870>
+    147e:	83 f8 01             	cmp    $0x1,%eax
+    1481:	0f 92 c3             	setb   %bl
+    1484:	85 c0                	test   %eax,%eax
+    1486:	48 8d 05 22 7d 00 00 	lea    0x7d22(%rip),%rax        # 91af <_IO_stdin_used+0x1af>
+    148d:	48 0f 44 d0          	cmove  %rax,%rdx
+    1491:	31 c0                	xor    %eax,%eax
+    1493:	e8 08 fe ff ff       	call   12a0 <__printf_chk@plt>
+    1498:	48 8b 3d 81 ab 00 00 	mov    0xab81(%rip),%rdi        # c020 <stdout@GLIBC_2.2.5>
+    149f:	e8 ec fd ff ff       	call   1290 <fflush@plt>
+    14a4:	85 c0                	test   %eax,%eax
+    14a6:	0f 85 eb fe ff ff    	jne    1397 <main+0x97>
+    14ac:	48 8b 3d 6d ab 00 00 	mov    0xab6d(%rip),%rdi        # c020 <stdout@GLIBC_2.2.5>
+    14b3:	e8 18 fd ff ff       	call   11d0 <ferror@plt>
+    14b8:	85 c0                	test   %eax,%eax
+    14ba:	0f 85 d7 fe ff ff    	jne    1397 <main+0x97>
+    14c0:	83 f3 01             	xor    $0x1,%ebx
+    14c3:	0f b6 c3             	movzbl %bl,%eax
+    14c6:	e9 d1 fe ff ff       	jmp    139c <main+0x9c>
+
+Disassembly of section .fini:

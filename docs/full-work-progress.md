@@ -345,3 +345,6 @@ G1只签收原请求明确重发与可见恢复，不证明隐藏QoS逐位原状
 
 2026-10-10补齐[新窗口候选的Linux转储限制检查](evidence/frequency-window-20261010/linux-c0e5990/README.md)：固定c0e5990源在C入口禁用并回读自身dumpable，普通/ASan各3/3含公开KAT；普通ELF023f5646，617载荷/138固定源/四ELF独立核对。
 旧7e源及原件不改；此次没有无参入口、MSR或G2长负载执行。新增[两个实际case的固定合同](research/aris-frequency-window-20261010/EXPERIMENT_PLAN.md)，生命周期和C11分析候选准备中，不升级R02/R04；旧KVM可信身份核验及迁移仍待，密码交互授权保持。
+
+2026-10-10完成[G2长worker与分析冻结准备](evidence/frequency-window-20261010/g2-preparation/README.md)：管理0ba4cd7/8616源，固定c0e普通ELF；新增W门、双pidfd、运行中注册EOF/回收及原值恢复例外。Mac/Linux管理各1/1含25边界分组；独立源码和指定ELF实际指令复核通过。
+C11分析dd67390/5c028a在真实数据前固定完整schema、整数入带、首straddle和盲区并集规则，Mac/Linux普通与ASan各1/1；完整手算fixture的4秒gap明确no。Linux八步骤0、609成员/608载荷/六Git源及两ELF独立核对；root只读权限/namespace预检通过，全部云端文件在Cry。实际两个case均尚未运行，R02/R04及完整目标不升级。

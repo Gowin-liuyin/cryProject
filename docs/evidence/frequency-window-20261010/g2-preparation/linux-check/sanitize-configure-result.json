@@ -1,0 +1,18 @@
+{
+  "label": "sanitize-configure",
+  "arguments": [
+    "/usr/bin/cmake",
+    "-S",
+    "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/source/docs/research/aris-frequency-window-analysis-20261010",
+    "-B",
+    "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/analysis-sanitize",
+    "-DCMAKE_C_COMPILER=/usr/bin/gcc",
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DBUILD_TESTING=ON",
+    "-DFREQUENCY_ANALYSIS_SANITIZERS=ON"
+  ],
+  "pid": 3666240,
+  "start_ticks": "339238608",
+  "exit_code": 0,
+  "wall_seconds": 0.11371458088979125
+}

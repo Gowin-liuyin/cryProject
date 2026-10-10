@@ -1,0 +1,13 @@
+{
+  "label": "guard-test",
+  "arguments": [
+    "/usr/bin/ctest",
+    "--test-dir",
+    "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/guard-check",
+    "--output-on-failure"
+  ],
+  "pid": 3666165,
+  "start_ticks": "339238427",
+  "exit_code": 0,
+  "wall_seconds": 1.2187901958823204
+}

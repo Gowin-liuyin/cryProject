@@ -1,0 +1,56 @@
+{
+  "guard_initial": {
+    "chunk_id": "1abfb7",
+    "wall_time_seconds": 1.003044959,
+    "session_id": 78029,
+    "original_token_count": 30,
+    "output": "Test project /Users/yin/code/cryProject/build/window-guard-freeze-20261010\n    Start 1: partition_management_selfcheck\n"
+  },
+  "guard_completion": {
+    "chunk_id": "5e862e",
+    "wall_time_seconds": 0.000004959,
+    "exit_code": 0,
+    "original_token_count": 71,
+    "output": "1/1 Test #1: partition_management_selfcheck ...   Passed    1.46 sec\n\n100% tests passed, 0 tests failed out of 1\n\nTotal Test time (real) =   1.47 sec\n8616a0747d7a8e3b28e5af6da86bfdee5b2bf2f84821989c163136ec09479af4  docs/research/aris-core-partition-20261010/rehearse_partition.py\n"
+  },
+  "analysis_normal_initial": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "0816a6",
+      "wall_time_seconds": 1.001104083,
+      "session_id": 55406,
+      "original_token_count": 145,
+      "output": "-- The C compiler identification is AppleClang 21.0.0.21000334\n-- Detecting C compiler ABI info\n-- Detecting C compiler ABI info - done\n-- Check for working C compiler: /usr/bin/cc - skipped\n-- Detecting C compile features\n-- Detecting C compile features - done\n-- Configuring done (0.5s)\n-- Generating done (0.0s)\n-- Build files have been written to: /Users/yin/code/cryProject/build/window-analysis-freeze-normal-20261010\n[ 50%] Building C object CMakeFiles/analyze_windows.dir/analyze_windows.c.o\n[100%] Linking C executable analyze_windows\n[100%] Built target analyze_windows\n"
+    }
+  },
+  "analysis_normal_completion": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "235ccf",
+      "wall_time_seconds": 0.000003375,
+      "exit_code": 0,
+      "original_token_count": 70,
+      "output": "Test project /Users/yin/code/cryProject/build/window-analysis-freeze-normal-20261010\n    Start 1: frequency_analysis_selfcheck\n1/1 Test #1: frequency_analysis_selfcheck .....   Passed    0.77 sec\n\n100% tests passed, 0 tests failed out of 1\n\nTotal Test time (real) =   0.77 sec\n"
+    }
+  },
+  "analysis_sanitize_initial": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "dae24e",
+      "wall_time_seconds": 1.001117,
+      "session_id": 63592,
+      "original_token_count": 126,
+      "output": "-- The C compiler identification is AppleClang 21.0.0.21000334\n-- Detecting C compiler ABI info\n-- Detecting C compiler ABI info - done\n-- Check for working C compiler: /usr/bin/cc - skipped\n-- Detecting C compile features\n-- Detecting C compile features - done\n-- Configuring done (0.5s)\n-- Generating done (0.0s)\n-- Build files have been written to: /Users/yin/code/cryProject/build/window-analysis-freeze-sanitize-20261010\n[ 50%] Building C object CMakeFiles/analyze_windows.dir/analyze_windows.c.o\n"
+    }
+  },
+  "analysis_sanitize_completion": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "31d6aa",
+      "wall_time_seconds": 0.000003541,
+      "exit_code": 0,
+      "original_token_count": 90,
+      "output": "[100%] Linking C executable analyze_windows\n[100%] Built target analyze_windows\nTest project /Users/yin/code/cryProject/build/window-analysis-freeze-sanitize-20261010\n    Start 1: frequency_analysis_selfcheck\n1/1 Test #1: frequency_analysis_selfcheck .....   Passed    1.04 sec\n\n100% tests passed, 0 tests failed out of 1\n\nTotal Test time (real) =   1.04 sec\n"
+    }
+  }
+}

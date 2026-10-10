@@ -1,0 +1,19 @@
+Start testing: Oct 10 08:16 CST
+----------------------------------------------------------
+1/1 Testing: partition_management_selfcheck
+1/1 Test: partition_management_selfcheck
+Command: "/usr/bin/python3" "-I" "-B" "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/source/docs/research/aris-core-partition-20261010/rehearse_partition.py" "--selfcheck" "/home/nss-marker/yhr/Cry/window-management-0ba4cd7/guard-check/selfcheck-root"
+Directory: /home/nss-marker/yhr/Cry/window-management-0ba4cd7/guard-check
+"partition_management_selfcheck" start time: Oct 10 08:16 CST
+Output:
+----------------------------------------------------------
+selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset,frequency_partial,frequency_async,frequency_scope,frequency_conflict,frequency_continue,frequency_manual_repeat,frequency_pending_superseded,frequency_cancel_failure,frequency_storage,window_normal,window_eof,window_registered_eof,window_release,window_timeout,window_failure,window_receipt,window_output; kernel_writes=none; crypto_workload=none
+<end of output>
+Test time =   1.19 sec
+----------------------------------------------------------
+Test Passed.
+"partition_management_selfcheck" end time: Oct 10 08:16 CST
+"partition_management_selfcheck" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Oct 10 08:16 CST
