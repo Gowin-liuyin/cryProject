@@ -1,0 +1,225 @@
+{
+  "schema": "raw-clock-independent-result-to-claim-review-v1",
+  "reviewer": "raw_clock_claim_review",
+  "review_date": "2026-10-10",
+  "review_type": "same-model internal independent review",
+  "implementation_participation": false,
+  "external_codex_mcp_available": false,
+  "external_codex_review_status": "pending Codex review",
+  "claim_supported": "yes",
+  "claim_scope": "frozen bounded descriptive claim for three nearby ordinary empty-clock processes",
+  "broader_r02_claim_supported": "partial",
+  "r02_signed_off": false,
+  "r04_signed_off": false,
+  "confidence": "high",
+  "source_commit": "aa437714e023e2aef8301a925c33949647790517",
+  "frozen_plan_sha256": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+  "new_sampling_or_c_runs": 0,
+  "ssh_connections_by_reviewer": 0,
+  "directly_checked": {
+    "raw_phase_counts_and_sampling_attempts": true,
+    "full_numeric_recomputation": false,
+    "full_numeric_review_read": true,
+    "statistics_rows_read": 18,
+    "collector_meta_and_analyzer_summary_count": 3,
+    "command_records_read": 29,
+    "all_command_exit_zero": true,
+    "all_command_leaders_reaped_and_groups_gone": true,
+    "distinct_original_pids_in_postcheck": 33,
+    "all_original_pids_absent_in_saved_postcheck": true,
+    "ssh_close_receipt_consistent": true
+  },
+  "cases": [
+    {
+      "case": "P1",
+      "collector_pid": 3675337,
+      "direct_raw_phase_counts": {
+        "warmup": 1000,
+        "main": 100000
+      },
+      "direct_sampling_read_attempts": 202000,
+      "direct_c_main_within_statistics": {
+        "count": 100000,
+        "zero_count": 0,
+        "sum_ns": 1752142,
+        "min_ns": 10,
+        "min_positive_ns": 10,
+        "p50_ns": 20,
+        "p90_ns": 20,
+        "p99_ns": 21,
+        "max_ns": 2004,
+        "mad_ns": 0
+      },
+      "declared_resolution_ns_before_after": [
+        1,
+        1
+      ],
+      "analyzer_complete_metadata_acceptance": false,
+      "management_complete_metadata_acceptance": true
+    },
+    {
+      "case": "P2",
+      "collector_pid": 3675340,
+      "direct_raw_phase_counts": {
+        "warmup": 1000,
+        "main": 100000
+      },
+      "direct_sampling_read_attempts": 202000,
+      "direct_c_main_within_statistics": {
+        "count": 100000,
+        "zero_count": 0,
+        "sum_ns": 1750080,
+        "min_ns": 10,
+        "min_positive_ns": 10,
+        "p50_ns": 20,
+        "p90_ns": 20,
+        "p99_ns": 21,
+        "max_ns": 1603,
+        "mad_ns": 0
+      },
+      "declared_resolution_ns_before_after": [
+        1,
+        1
+      ],
+      "analyzer_complete_metadata_acceptance": false,
+      "management_complete_metadata_acceptance": true
+    },
+    {
+      "case": "P3",
+      "collector_pid": 3675343,
+      "direct_raw_phase_counts": {
+        "warmup": 1000,
+        "main": 100000
+      },
+      "direct_sampling_read_attempts": 202000,
+      "direct_c_main_within_statistics": {
+        "count": 100000,
+        "zero_count": 0,
+        "sum_ns": 1748048,
+        "min_ns": 10,
+        "min_positive_ns": 10,
+        "p50_ns": 20,
+        "p90_ns": 20,
+        "p99_ns": 21,
+        "max_ns": 501,
+        "mad_ns": 0
+      },
+      "declared_resolution_ns_before_after": [
+        1,
+        1
+      ],
+      "analyzer_complete_metadata_acceptance": false,
+      "management_complete_metadata_acceptance": true
+    }
+  ],
+  "actual_pair_count": 303000,
+  "actual_sampling_read_attempts": 606000,
+  "unsupported_claims": [
+    "1ns absolute accuracy",
+    "10ns hardware tick",
+    "MAD0 implies zero measurement error",
+    "P99 deterministic error bound",
+    "subtract empty bracket from historical G2",
+    "cross-session or full-decapsulation repeatability",
+    "iid",
+    "known dynamic libc/vDSO/syscall path",
+    "exclusive CPU2 or continuous constant frequency",
+    "R02/R04 full acceptance"
+  ],
+  "next_action": "supplement complete ordinary reference workload process/session repeatability under a new fixed contract; do not automatically subtract empty brackets",
+  "bound_read_files": {
+    "originals/run-state.json": {
+      "bytes": 3180,
+      "sha256": "1e841bc3504af3cdda67d698beeb0916225066df7b281a80319521624fc9862e"
+    },
+    "originals/commands.json": {
+      "bytes": 49968,
+      "sha256": "4372143b01c88808d41ea425cc7e0a96b43b59c6745f99ff65e340673e887247"
+    },
+    "postcheck.json": {
+      "bytes": 3628,
+      "sha256": "a0593037befa8778fbfc9234deff052e6af2cd9252235e3c736c12488dd049b1"
+    },
+    "ssh-close.json": {
+      "bytes": 127,
+      "sha256": "e3c54ef465a4b65b42a400d89fe2fddcd12fdcd0c8268f1610d967c9087fce74"
+    },
+    "upload.stderr": {
+      "bytes": 66,
+      "sha256": "ed597a4b245a33490183b0b2dea796f486e4f62675ea7517e87b4cba024dc2b5"
+    },
+    "originals/logs/ordinary-ctest.stdout": {
+      "bytes": 511,
+      "sha256": "6be753c1d704283f3a411fc63e858ce68e9f96d069f9b6373e430b2741b36478"
+    },
+    "originals/logs/sanitize-ctest.stdout": {
+      "bytes": 511,
+      "sha256": "456e841ed91189a7908d213efd44e13cfa63f6d9602b18c2d6dcf1d8a19669c0"
+    },
+    "review-numeric/INDEPENDENT_NUMERIC_REVIEW.md": {
+      "bytes": 8886,
+      "sha256": "b6fb51570dacceabd9d2db77dc398ad7081183cdfde911a969594715a787e927"
+    },
+    "review-numeric/verification.json": {
+      "bytes": 20215,
+      "sha256": "5d97574e8ea74d92a7e7e71d7e5f77b3eab15814c42511799b55bf994fd4d53c"
+    },
+    "review-artifact/ARTIFACT_REVIEW.md": {
+      "bytes": 9057,
+      "sha256": "3f4df9049a26e19f0bcd93884d8fbc5745fbafff2fc7794215e841aa37b7f374"
+    },
+    "review-artifact/POSTCHECK_REVIEW.md": {
+      "bytes": 2671,
+      "sha256": "0c2ace10aecf9a80e9850f97c1ed7766a077c332c7cec9a6d45ef098bb24b13f"
+    },
+    "originals/output/P1.csv": {
+      "bytes": 9688106,
+      "sha256": "a157354aa86196cea2bd24e03f66aca8e5b9511a7d9b92bfc62f3b9366fa58ad"
+    },
+    "originals/output/P1.json": {
+      "bytes": 1232,
+      "sha256": "5c410cc0ad671d123722be383494ad9cf3447e7348e5453c4aa7c238c4a23738"
+    },
+    "originals/output/P1-summary.json": {
+      "bytes": 606,
+      "sha256": "5150686b09bb91e3a1893a44939adfcbcf6046ea8215d60e241acadeec138adf"
+    },
+    "originals/output/P1-analysis.csv": {
+      "bytes": 481,
+      "sha256": "ddc8aa6dcc0b11e57b29103eb325a5e233303718bf3d08dd3fb3273fad835a9d"
+    },
+    "originals/output/P2.csv": {
+      "bytes": 9688108,
+      "sha256": "48937d520c06009da5ca5d6be79b8c33f0056107a91f1dbbd5fe73bab31a79c8"
+    },
+    "originals/output/P2.json": {
+      "bytes": 1232,
+      "sha256": "82ff2d47cc1bbcb7273d3f19272bf6e368089ec2c8ffc1e35f095078d3f524a1"
+    },
+    "originals/output/P2-summary.json": {
+      "bytes": 606,
+      "sha256": "ba93f53c9f90f63e1c9cf79316ff357a217ce4fb1369f76f54594677e5cec9a1"
+    },
+    "originals/output/P2-analysis.csv": {
+      "bytes": 481,
+      "sha256": "72144a55a14f722b904892b687276bd43f54fc6497708b498fb9e6bba4faf0eb"
+    },
+    "originals/output/P3.csv": {
+      "bytes": 9688102,
+      "sha256": "d43ca663205c3353c37413e1c9d61b4fef5def5acc6307992fbd5758583d5a0e"
+    },
+    "originals/output/P3.json": {
+      "bytes": 1232,
+      "sha256": "e4f7bbec42ff6cc27aad732d424a51515b21e13e449ea6c9a6f5c2e2aed6edb4"
+    },
+    "originals/output/P3-summary.json": {
+      "bytes": 606,
+      "sha256": "f22cd27b0b3bde671c838e49a57c14c3132a3db8d639ea8616245d7524a01a22"
+    },
+    "originals/output/P3-analysis.csv": {
+      "bytes": 480,
+      "sha256": "a0884ba24f5b482368a8d97a5753a0251c319800a321efccfac31918ced73926"
+    }
+  },
+  "report_sha256": "b3f6c131c72e7550737a5d4354d4ecade6608c765561d530733bdeb6c706f75c"
+}

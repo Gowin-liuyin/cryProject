@@ -1,0 +1,26 @@
+{
+  "checked_utc": "2026-10-10T11:18:36.968408+00:00",
+  "scope": "new local seal and current entrypoints; no SSH, C execution, or hardware collection",
+  "source_commit": "aa437714e023e2aef8301a925c33949647790517",
+  "frozen_inputs_sha256": {
+    "raw_clock_calibration.c": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+    "analyze_raw_clock.c": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+    "CMakeLists.txt": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e",
+    "remote_run.py": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04",
+    "EXPERIMENT_PLAN.md": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+    "ANALYSIS_CONTRACT.md": "693ac31279a88c5c89fde29995979ea1291e5c0fc346d1776874f73742501ce4",
+    "REMOTE_CONTRACT.md": "a3530fd394136a8f605c7935d2ae8b401ec3d331622a3d2052d635375e771ac2"
+  },
+  "archive_sha256": "e6dfd03f03e1e2e4e28a4eb0c251a8f7d684745980727843263e4ad8ff1870e6",
+  "archive_bytes": 4454198,
+  "copied_readable_originals_verified": 71,
+  "local_markdown_links_checked": 177,
+  "local_markdown_links_missing": 0,
+  "root_format_check_observed_exit": 0,
+  "results_sha256": "581673b196cc0eeaa4f5cacbac5acc16133a1663a35d461250642a632a30bbde",
+  "evidence_readme_sha256": "1843d7c762b72088d0336c2172bd6b4638413a9a847597f0e8c87a03c4136a33",
+  "draft_review_sha256": "30956b820c9facb9b78acbf2746c4bfa1b2e28872245f35d9cd348fa5a92e4e1",
+  "draft_verification_sha256": "df75f80b861acc82722cbd7134d9dfa1c8c1c0402434408999042f7f6df3180c",
+  "r02_signed_off": false,
+  "r04_signed_off": false
+}

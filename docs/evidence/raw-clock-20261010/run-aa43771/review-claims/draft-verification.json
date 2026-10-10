@@ -1,0 +1,435 @@
+{
+  "schema": "raw-clock-result-draft-review-v1",
+  "review_type": "same-model internal independent review",
+  "external_codex_review_status": "pending Codex review",
+  "status": "pass_no_open_draft_findings",
+  "reviewed_draft_bindings": {
+    "docs/research/aris-raw-clock-20261010/RESULTS.md": {
+      "bytes": 9036,
+      "sha256": "581673b196cc0eeaa4f5cacbac5acc16133a1663a35d461250642a632a30bbde"
+    },
+    "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md": {
+      "bytes": 2124,
+      "sha256": "6d836db02ac09ec9c87e3dbc1cbacd547bf4da9cad1be7e493948b50c951e485"
+    },
+    "docs/research/aris-raw-clock-20261010/findings.md": {
+      "bytes": 836,
+      "sha256": "b3a4f90ac4200a2de2467ea592d55f86628ea57c731b554b3192a03db25d8600"
+    },
+    "docs/evidence/raw-clock-20261010/run-aa43771/README.md": {
+      "bytes": 6262,
+      "sha256": "1843d7c762b72088d0336c2172bd6b4638413a9a847597f0e8c87a03c4136a33"
+    }
+  },
+  "main_table": [
+    {
+      "case": "P1",
+      "series": "within_pair_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P2",
+      "series": "within_pair_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P3",
+      "series": "within_pair_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P1",
+      "series": "between_pairs_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P2",
+      "series": "between_pairs_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P3",
+      "series": "between_pairs_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P1",
+      "series": "combined_ordered_read_increment_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P2",
+      "series": "combined_ordered_read_increment_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    },
+    {
+      "case": "P3",
+      "series": "combined_ordered_read_increment_ns",
+      "numeric_cells_checked": 7,
+      "matches": true
+    }
+  ],
+  "geometry_table_and_direct_raw_endpoints": [
+    {
+      "case": "P1",
+      "total_span_ns": 4092598,
+      "raw_first_before_ns": 3430078332467337,
+      "raw_last_after_ns": 3430078336559935,
+      "numeric_cells_checked": 8,
+      "matches": true
+    },
+    {
+      "case": "P2",
+      "total_span_ns": 4087268,
+      "raw_first_before_ns": 3430078459517571,
+      "raw_last_after_ns": 3430078463604839,
+      "numeric_cells_checked": 8,
+      "matches": true
+    },
+    {
+      "case": "P3",
+      "total_span_ns": 4093750,
+      "raw_first_before_ns": 3430078586594556,
+      "raw_last_after_ns": 3430078590688306,
+      "numeric_cells_checked": 8,
+      "matches": true
+    }
+  ],
+  "warmup_within_sums": [
+    {
+      "case": "P1",
+      "sum_ns": 17621
+    },
+    {
+      "case": "P2",
+      "sum_ns": 17523
+    },
+    {
+      "case": "P3",
+      "sum_ns": 17672
+    }
+  ],
+  "source_and_ordinary_elf_sha_refs_checked": {
+    "source/raw_clock_calibration.c": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+    "source/analyze_raw_clock.c": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+    "source/CMakeLists.txt": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e",
+    "source/remote_run.py": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04",
+    "build-ordinary/raw_clock_calibration": "f3f873a5b7d333cee70b2128107ed73a4f178e6bb1f966bc7a20253a368d6cd3",
+    "build-ordinary/analyze_raw_clock": "257b046f44a3a2613ea23f5a0943f02f293117a7d28013245063970479538b07"
+  },
+  "frequency_context_files_compared": 129,
+  "archive": {
+    "bytes": 4454198,
+    "sha256": "e6dfd03f03e1e2e4e28a4eb0c251a8f7d684745980727843263e4ad8ff1870e6",
+    "matches_deployment_archive_byte_for_byte": true,
+    "members": 496,
+    "member_bytes": 32404397
+  },
+  "selected_originals_checked_byte_for_byte": 71,
+  "local_links": [
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "ANALYSIS_CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/selected-originals/output/P1-analysis.csv",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/selected-originals/output/P2-analysis.csv",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/selected-originals/output/P3-analysis.csv",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULTS.md",
+      "target": "RESULT_TO_CLAIM.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "target": "RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "target": "EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/review-claims/RESULT_TO_CLAIM_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/findings.md",
+      "target": "RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-raw-clock-20261010/findings.md",
+      "target": "RESULT_TO_CLAIM.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "../../../research/aris-raw-clock-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "remote-originals.tar.gz",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "SELECTED_ORIGINALS.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/manifest.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P1-analysis.csv",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P2-analysis.csv",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P3-analysis.csv",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P1-summary.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P2-summary.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P3-summary.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P1.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P2.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/output/P3.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/run-state.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/commands.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/run-claim.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/before-environment.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/after-environment.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/logs/ordinary-ctest.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/logs/sanitize-ctest.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/build-ordinary/compile_commands.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/build-sanitize/compile_commands.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "selected-originals/logs/ordinary-raw_clock_calibration-objdump.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-artifact/verification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-numeric/INDEPENDENT_NUMERIC_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-numeric/verification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-numeric/independent_numeric_oracle.py",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-artifact/ARTIFACT_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-artifact/POSTCHECK_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-artifact/postcheck-verification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-claims/RESULT_TO_CLAIM_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "review-claims/verification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/deployment.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/upload.stderr",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/upload-reauth.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/remote.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/remote-invocation.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/download.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/archive-byte-verification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/postcheck.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/postcheck.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "transport/ssh-close.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "../preparation/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "../runner-preparation/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/raw-clock-20261010/run-aa43771/README.md",
+      "target": "SHA256SUMS",
+      "exists": true
+    }
+  ],
+  "missing_local_links": [],
+  "editorial_followup": "closed: current bound drafts use 没有密码算法调用",
+  "new_sampling_c_runs_or_ssh": 0,
+  "docs_modified": false,
+  "draft_review_sha256": "30956b820c9facb9b78acbf2746c4bfa1b2e28872245f35d9cd348fa5a92e4e1",
+  "seal_link_followup": "closed: SHA256SUMS local link target exists; final seal bytes not revalidated in this review"
+}

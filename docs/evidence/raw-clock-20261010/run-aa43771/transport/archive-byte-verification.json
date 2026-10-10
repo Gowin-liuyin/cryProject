@@ -1,0 +1,57 @@
+{
+  "tar_members": 496,
+  "manifest_records": 495,
+  "total_payload_bytes": 32404397,
+  "all_original_bytes_verified": true,
+  "state_completed_processes": 3,
+  "accepted_pairs": 303000,
+  "sampling_clock_reads": 606000,
+  "all_command_exits": 0,
+  "commands": 29,
+  "cleanup_confirmed_all": true,
+  "cases": [
+    {
+      "name": "P1",
+      "status": "accepted",
+      "partial_unknown": false,
+      "collector_started": true,
+      "collector_completed": true,
+      "supervisor_pid": 3675336,
+      "pid": 3675337,
+      "csv_sha256": "a157354aa86196cea2bd24e03f66aca8e5b9511a7d9b92bfc62f3b9366fa58ad",
+      "metadata_sha256": "5c410cc0ad671d123722be383494ad9cf3447e7348e5453c4aa7c238c4a23738",
+      "collector_exit_checked": true,
+      "collector_stderr_checked": true,
+      "management_complete_metadata_acceptance": true
+    },
+    {
+      "name": "P2",
+      "status": "accepted",
+      "partial_unknown": false,
+      "collector_started": true,
+      "collector_completed": true,
+      "supervisor_pid": 3675339,
+      "pid": 3675340,
+      "csv_sha256": "48937d520c06009da5ca5d6be79b8c33f0056107a91f1dbbd5fe73bab31a79c8",
+      "metadata_sha256": "82ff2d47cc1bbcb7273d3f19272bf6e368089ec2c8ffc1e35f095078d3f524a1",
+      "collector_exit_checked": true,
+      "collector_stderr_checked": true,
+      "management_complete_metadata_acceptance": true
+    },
+    {
+      "name": "P3",
+      "status": "accepted",
+      "partial_unknown": false,
+      "collector_started": true,
+      "collector_completed": true,
+      "supervisor_pid": 3675342,
+      "pid": 3675343,
+      "csv_sha256": "d43ca663205c3353c37413e1c9d61b4fef5def5acc6307992fbd5758583d5a0e",
+      "metadata_sha256": "e4f7bbec42ff6cc27aad732d424a51515b21e13e449ea6c9a6f5c2e2aed6edb4",
+      "collector_exit_checked": true,
+      "collector_stderr_checked": true,
+      "management_complete_metadata_acceptance": true
+    }
+  ],
+  "originals_dir": "/Users/yin/code/cryProject/build/aris-raw-clock-20261010/deployment-aa43771-fe4ffb3f92f3630e/originals"
+}

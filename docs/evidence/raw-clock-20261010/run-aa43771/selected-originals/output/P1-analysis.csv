@@ -1,0 +1,7 @@
+phase,series,count,zero_count,sum_ns,min_ns,min_positive_ns,p50_ns,p90_ns,p99_ns,max_ns,mad_ns
+warmup,within_pair_ns,1000,0,17621,10,10,20,20,21,50,0
+warmup,between_pairs_ns,999,0,23145,20,20,20,30,31,131,0
+warmup,combined_ordered_read_increment_ns,1999,0,40766,10,10,20,30,31,131,0
+main,within_pair_ns,100000,0,1752142,10,10,20,20,21,2004,0
+main,between_pairs_ns,99999,0,2299670,20,20,20,30,31,1623,0
+main,combined_ordered_read_increment_ns,199999,0,4051812,10,10,20,30,30,2004,0

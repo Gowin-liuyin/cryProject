@@ -1,0 +1,435 @@
+{
+  "scope": "byte-identical readable subset; full 496-member original tree retained in remote-originals.tar.gz",
+  "archive_sha256": "e6dfd03f03e1e2e4e28a4eb0c251a8f7d684745980727843263e4ad8ff1870e6",
+  "complete_archive_members": 496,
+  "complete_manifest_records": 495,
+  "selected_count": 71,
+  "selected_members": [
+    {
+      "archive_member": "after-environment.json",
+      "local_path": "selected-originals/after-environment.json",
+      "sha256": "925cb4b73e67a3db2a782b3ac135dc010b213f40f372160d3a549ae770b00c2b",
+      "bytes": 84326
+    },
+    {
+      "archive_member": "before-environment.json",
+      "local_path": "selected-originals/before-environment.json",
+      "sha256": "b4b730304a66fc9eebaafe131ce755dfe6912ef98e2908114a042785949479e6",
+      "bytes": 84326
+    },
+    {
+      "archive_member": "build-ordinary/CMakeCache.txt",
+      "local_path": "selected-originals/build-ordinary/CMakeCache.txt",
+      "sha256": "138e2f1ba88512eb37052a0d31a67716ce3c5a7e3f5d4b9e406112e62585bd00",
+      "bytes": 14757
+    },
+    {
+      "archive_member": "build-ordinary/Testing/Temporary/LastTest.log",
+      "local_path": "selected-originals/build-ordinary/Testing/Temporary/LastTest.log",
+      "sha256": "c1dccba856e0382c1df066b7708c12d835fa0754dff7fec57b582523307eb6ff",
+      "bytes": 1734
+    },
+    {
+      "archive_member": "build-ordinary/compile_commands.json",
+      "local_path": "selected-originals/build-ordinary/compile_commands.json",
+      "sha256": "6be06abad8b7f00791a2f35f47f9857f55b2c2dd2f436bcf40848d10bef1097d",
+      "bytes": 1140
+    },
+    {
+      "archive_member": "build-sanitize/CMakeCache.txt",
+      "local_path": "selected-originals/build-sanitize/CMakeCache.txt",
+      "sha256": "c960bde2729aeb507738242196f5b115564c051e53b5814292c0e3b10a07f014",
+      "bytes": 14756
+    },
+    {
+      "archive_member": "build-sanitize/Testing/Temporary/LastTest.log",
+      "local_path": "selected-originals/build-sanitize/Testing/Temporary/LastTest.log",
+      "sha256": "27095a75d13bde0055180e95cb0045951c4511f31fc7e9e5bd35a92351b33dcd",
+      "bytes": 1734
+    },
+    {
+      "archive_member": "build-sanitize/compile_commands.json",
+      "local_path": "selected-originals/build-sanitize/compile_commands.json",
+      "sha256": "9c1ed23a14453a0d66b1cb6539108d3d3b96f2de527ff677b406739a8103ef28",
+      "bytes": 1260
+    },
+    {
+      "archive_member": "commands.json",
+      "local_path": "selected-originals/commands.json",
+      "sha256": "4372143b01c88808d41ea425cc7e0a96b43b59c6745f99ff65e340673e887247",
+      "bytes": 49968
+    },
+    {
+      "archive_member": "logs/cmake-version.stderr",
+      "local_path": "selected-originals/logs/cmake-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/cmake-version.stdout",
+      "local_path": "selected-originals/logs/cmake-version.stdout",
+      "sha256": "d3d5b682f3f5ef5b24a79ed8cf4b8c5868fc950dad48cab1be0e3c060a77f8ee",
+      "bytes": 91
+    },
+    {
+      "archive_member": "logs/gcc-version.stderr",
+      "local_path": "selected-originals/logs/gcc-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/gcc-version.stdout",
+      "local_path": "selected-originals/logs/gcc-version.stdout",
+      "sha256": "8497f84b2b8334c413d9c6166bd39d009ba55d2ff60a8f23e66dfa5819c2b048",
+      "bytes": 246
+    },
+    {
+      "archive_member": "logs/ordinary-analyze_raw_clock-nm.stderr",
+      "local_path": "selected-originals/logs/ordinary-analyze_raw_clock-nm.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-analyze_raw_clock-nm.stdout",
+      "local_path": "selected-originals/logs/ordinary-analyze_raw_clock-nm.stdout",
+      "sha256": "14c91ac8c5dae7689d78f1691869c0f938d3a5efb8e2ef8db7235a26e3aab531",
+      "bytes": 2614
+    },
+    {
+      "archive_member": "logs/ordinary-analyze_raw_clock-objdump.stderr",
+      "local_path": "selected-originals/logs/ordinary-analyze_raw_clock-objdump.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-analyze_raw_clock-objdump.stdout",
+      "local_path": "selected-originals/logs/ordinary-analyze_raw_clock-objdump.stdout",
+      "sha256": "0a555bc632d529c6f24148624ef130e350b4dcae47749e73d59ffc96a2fe3bfd",
+      "bytes": 96586
+    },
+    {
+      "archive_member": "logs/ordinary-analyze_raw_clock-readelf.stderr",
+      "local_path": "selected-originals/logs/ordinary-analyze_raw_clock-readelf.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-analyze_raw_clock-readelf.stdout",
+      "local_path": "selected-originals/logs/ordinary-analyze_raw_clock-readelf.stdout",
+      "sha256": "c6b3579d56c9edc2515f650019cf9e2c32da186aa13f1be9dec05ce34aed76aa",
+      "bytes": 10336
+    },
+    {
+      "archive_member": "logs/ordinary-build.stderr",
+      "local_path": "selected-originals/logs/ordinary-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-build.stdout",
+      "local_path": "selected-originals/logs/ordinary-build.stdout",
+      "sha256": "324656bb5142d6ee3114b5094072b2c2f91e491a250737937c624cf931fd8fcd",
+      "bytes": 344
+    },
+    {
+      "archive_member": "logs/ordinary-configure.stderr",
+      "local_path": "selected-originals/logs/ordinary-configure.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-configure.stdout",
+      "local_path": "selected-originals/logs/ordinary-configure.stdout",
+      "sha256": "09d4a9a8942542f8ea760cf25904e062a34da3d8248aabc788295381f41fbd0a",
+      "bytes": 412
+    },
+    {
+      "archive_member": "logs/ordinary-ctest.stderr",
+      "local_path": "selected-originals/logs/ordinary-ctest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-ctest.stdout",
+      "local_path": "selected-originals/logs/ordinary-ctest.stdout",
+      "sha256": "6be753c1d704283f3a411fc63e858ce68e9f96d069f9b6373e430b2741b36478",
+      "bytes": 511
+    },
+    {
+      "archive_member": "logs/ordinary-raw_clock_calibration-nm.stderr",
+      "local_path": "selected-originals/logs/ordinary-raw_clock_calibration-nm.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-raw_clock_calibration-nm.stdout",
+      "local_path": "selected-originals/logs/ordinary-raw_clock_calibration-nm.stdout",
+      "sha256": "eac337673dc2f5597418b4e6d3757bceb3873ce62c7ab0d0d7138d268376451d",
+      "bytes": 2798
+    },
+    {
+      "archive_member": "logs/ordinary-raw_clock_calibration-objdump.stderr",
+      "local_path": "selected-originals/logs/ordinary-raw_clock_calibration-objdump.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-raw_clock_calibration-objdump.stdout",
+      "local_path": "selected-originals/logs/ordinary-raw_clock_calibration-objdump.stdout",
+      "sha256": "57a407bbefd59a439645d8ba4573ab263aacc7ae76eec52fc6fc1dff6bcf15f1",
+      "bytes": 104063
+    },
+    {
+      "archive_member": "logs/ordinary-raw_clock_calibration-readelf.stderr",
+      "local_path": "selected-originals/logs/ordinary-raw_clock_calibration-readelf.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-raw_clock_calibration-readelf.stdout",
+      "local_path": "selected-originals/logs/ordinary-raw_clock_calibration-readelf.stdout",
+      "sha256": "c94717e0c717da12b7eb5a580a7a7455021cba0153d65d775b2d39c7a13c4a9d",
+      "bytes": 11351
+    },
+    {
+      "archive_member": "logs/ordinary-test-inventory.stderr",
+      "local_path": "selected-originals/logs/ordinary-test-inventory.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/ordinary-test-inventory.stdout",
+      "local_path": "selected-originals/logs/ordinary-test-inventory.stdout",
+      "sha256": "e991d8ec3b787a3a40e522ada2f04f5990dfbfddf3b4a1d8fc45115ee72460b8",
+      "bytes": 1490
+    },
+    {
+      "archive_member": "logs/sanitize-analyze_raw_clock-nm.stderr",
+      "local_path": "selected-originals/logs/sanitize-analyze_raw_clock-nm.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-analyze_raw_clock-nm.stdout",
+      "local_path": "selected-originals/logs/sanitize-analyze_raw_clock-nm.stdout",
+      "sha256": "33ac9726d40a7854bad8a209798c97971ea246dd7cb3f0ae8614892689550249",
+      "bytes": 3651
+    },
+    {
+      "archive_member": "logs/sanitize-analyze_raw_clock-objdump.stderr",
+      "local_path": "selected-originals/logs/sanitize-analyze_raw_clock-objdump.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-analyze_raw_clock-objdump.stdout",
+      "local_path": "selected-originals/logs/sanitize-analyze_raw_clock-objdump.stdout",
+      "sha256": "13c1898f453b0d8fa48e8ce601e24d352a2e6b47a0998ac8134c42c6f7a5eb52",
+      "bytes": 390073
+    },
+    {
+      "archive_member": "logs/sanitize-analyze_raw_clock-readelf.stderr",
+      "local_path": "selected-originals/logs/sanitize-analyze_raw_clock-readelf.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-analyze_raw_clock-readelf.stdout",
+      "local_path": "selected-originals/logs/sanitize-analyze_raw_clock-readelf.stdout",
+      "sha256": "e22598518551f564b96589a0fd7814daca70175528797573c09761b095b26e4a",
+      "bytes": 14670
+    },
+    {
+      "archive_member": "logs/sanitize-build.stderr",
+      "local_path": "selected-originals/logs/sanitize-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-build.stdout",
+      "local_path": "selected-originals/logs/sanitize-build.stdout",
+      "sha256": "aa77b3d5357d61adaec59b24460de956e47a14f2cb1fb2d5398942f7a56d8ab7",
+      "bytes": 344
+    },
+    {
+      "archive_member": "logs/sanitize-configure.stderr",
+      "local_path": "selected-originals/logs/sanitize-configure.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-configure.stdout",
+      "local_path": "selected-originals/logs/sanitize-configure.stdout",
+      "sha256": "bf81c74016bc140148f448355b7436bf263035443aa118d3cce1836350373593",
+      "bytes": 412
+    },
+    {
+      "archive_member": "logs/sanitize-ctest.stderr",
+      "local_path": "selected-originals/logs/sanitize-ctest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-ctest.stdout",
+      "local_path": "selected-originals/logs/sanitize-ctest.stdout",
+      "sha256": "456e841ed91189a7908d213efd44e13cfa63f6d9602b18c2d6dcf1d8a19669c0",
+      "bytes": 511
+    },
+    {
+      "archive_member": "logs/sanitize-raw_clock_calibration-nm.stderr",
+      "local_path": "selected-originals/logs/sanitize-raw_clock_calibration-nm.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-raw_clock_calibration-nm.stdout",
+      "local_path": "selected-originals/logs/sanitize-raw_clock_calibration-nm.stdout",
+      "sha256": "9d5c65b086179446f3f36e3bc35a2cf5223a6060a46cda4f35c9e8b0988e6263",
+      "bytes": 4175
+    },
+    {
+      "archive_member": "logs/sanitize-raw_clock_calibration-objdump.stderr",
+      "local_path": "selected-originals/logs/sanitize-raw_clock_calibration-objdump.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-raw_clock_calibration-objdump.stdout",
+      "local_path": "selected-originals/logs/sanitize-raw_clock_calibration-objdump.stdout",
+      "sha256": "1c8fe42485d6820ef983ff69bfb916e916d8bab29daca4b3281cfc9c9d8fed38",
+      "bytes": 448144
+    },
+    {
+      "archive_member": "logs/sanitize-raw_clock_calibration-readelf.stderr",
+      "local_path": "selected-originals/logs/sanitize-raw_clock_calibration-readelf.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-raw_clock_calibration-readelf.stdout",
+      "local_path": "selected-originals/logs/sanitize-raw_clock_calibration-readelf.stdout",
+      "sha256": "c5270bd5b9791346532dbc6b09527f4e0537f0f93f0b83dd7e014e6e35c08dd6",
+      "bytes": 16743
+    },
+    {
+      "archive_member": "logs/sanitize-test-inventory.stderr",
+      "local_path": "selected-originals/logs/sanitize-test-inventory.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/sanitize-test-inventory.stdout",
+      "local_path": "selected-originals/logs/sanitize-test-inventory.stdout",
+      "sha256": "032192aa552c75f9280ba6c5f44c1b105de1327000d6ceebd738973455640d4c",
+      "bytes": 1490
+    },
+    {
+      "archive_member": "logs/timeout-version.stderr",
+      "local_path": "selected-originals/logs/timeout-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_member": "logs/timeout-version.stdout",
+      "local_path": "selected-originals/logs/timeout-version.stdout",
+      "sha256": "bc80753ce6a5fbb15395fa8402c2824993f8ed3fc987fedfefc120091999b1ef",
+      "bytes": 307
+    },
+    {
+      "archive_member": "manifest.json",
+      "local_path": "selected-originals/manifest.json",
+      "sha256": "9b6534f5a743093f8e0df3e5f5104327aee9cb0ef01e656de6da8ca20f63bb35",
+      "bytes": 83358
+    },
+    {
+      "archive_member": "output/P1-analysis.csv",
+      "local_path": "selected-originals/output/P1-analysis.csv",
+      "sha256": "ddc8aa6dcc0b11e57b29103eb325a5e233303718bf3d08dd3fb3273fad835a9d",
+      "bytes": 481
+    },
+    {
+      "archive_member": "output/P1-summary.json",
+      "local_path": "selected-originals/output/P1-summary.json",
+      "sha256": "5150686b09bb91e3a1893a44939adfcbcf6046ea8215d60e241acadeec138adf",
+      "bytes": 606
+    },
+    {
+      "archive_member": "output/P1.json",
+      "local_path": "selected-originals/output/P1.json",
+      "sha256": "5c410cc0ad671d123722be383494ad9cf3447e7348e5453c4aa7c238c4a23738",
+      "bytes": 1232
+    },
+    {
+      "archive_member": "output/P2-analysis.csv",
+      "local_path": "selected-originals/output/P2-analysis.csv",
+      "sha256": "72144a55a14f722b904892b687276bd43f54fc6497708b498fb9e6bba4faf0eb",
+      "bytes": 481
+    },
+    {
+      "archive_member": "output/P2-summary.json",
+      "local_path": "selected-originals/output/P2-summary.json",
+      "sha256": "ba93f53c9f90f63e1c9cf79316ff357a217ce4fb1369f76f54594677e5cec9a1",
+      "bytes": 606
+    },
+    {
+      "archive_member": "output/P2.json",
+      "local_path": "selected-originals/output/P2.json",
+      "sha256": "82ff2d47cc1bbcb7273d3f19272bf6e368089ec2c8ffc1e35f095078d3f524a1",
+      "bytes": 1232
+    },
+    {
+      "archive_member": "output/P3-analysis.csv",
+      "local_path": "selected-originals/output/P3-analysis.csv",
+      "sha256": "a0884ba24f5b482368a8d97a5753a0251c319800a321efccfac31918ced73926",
+      "bytes": 480
+    },
+    {
+      "archive_member": "output/P3-summary.json",
+      "local_path": "selected-originals/output/P3-summary.json",
+      "sha256": "f22cd27b0b3bde671c838e49a57c14c3132a3db8d639ea8616245d7524a01a22",
+      "bytes": 606
+    },
+    {
+      "archive_member": "output/P3.json",
+      "local_path": "selected-originals/output/P3.json",
+      "sha256": "e4f7bbec42ff6cc27aad732d424a51515b21e13e449ea6c9a6f5c2e2aed6edb4",
+      "bytes": 1232
+    },
+    {
+      "archive_member": "run-claim.json",
+      "local_path": "selected-originals/run-claim.json",
+      "sha256": "9f9fef9c9da3b131c3ae8a0736a1c116c6e5179616f94de5ae8fa3bf159f11ad",
+      "bytes": 287
+    },
+    {
+      "archive_member": "run-state.json",
+      "local_path": "selected-originals/run-state.json",
+      "sha256": "1e841bc3504af3cdda67d698beeb0916225066df7b281a80319521624fc9862e",
+      "bytes": 3180
+    },
+    {
+      "archive_member": "source/CMakeLists.txt",
+      "local_path": "selected-originals/source/CMakeLists.txt",
+      "sha256": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e",
+      "bytes": 2655
+    },
+    {
+      "archive_member": "source/analyze_raw_clock.c",
+      "local_path": "selected-originals/source/analyze_raw_clock.c",
+      "sha256": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+      "bytes": 27255
+    },
+    {
+      "archive_member": "source/raw_clock_calibration.c",
+      "local_path": "selected-originals/source/raw_clock_calibration.c",
+      "sha256": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+      "bytes": 28475
+    },
+    {
+      "archive_member": "source/remote_run.py",
+      "local_path": "selected-originals/source/remote_run.py",
+      "sha256": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04",
+      "bytes": 26606
+    }
+  ]
+}

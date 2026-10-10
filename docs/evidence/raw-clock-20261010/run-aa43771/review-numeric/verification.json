@@ -1,0 +1,750 @@
+{
+  "schema": "independent-raw-clock-numeric-v1",
+  "status": "all_checked_values_match",
+  "reviewer": "raw_clock_design_review",
+  "oracle_role": "one-off external arithmetic reference, not a product statistical entry point",
+  "oracle_platform": "darwin",
+  "python_version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "oracle_sha256": "a81169d774f4231c8cbaef8dec6ec144fc9209ca4959eb4528d5c46074e25141",
+  "actual_archive": {
+    "path": "remote-originals.tar.gz",
+    "bytes": 4454198,
+    "sha256": "e6dfd03f03e1e2e4e28a4eb0c251a8f7d684745980727843263e4ad8ff1870e6"
+  },
+  "bound_original_files": {
+    "run-state.json": {
+      "bytes": 3180,
+      "sha256": "1e841bc3504af3cdda67d698beeb0916225066df7b281a80319521624fc9862e"
+    },
+    "commands.json": {
+      "bytes": 49968,
+      "sha256": "4372143b01c88808d41ea425cc7e0a96b43b59c6745f99ff65e340673e887247"
+    },
+    "before-environment.json": {
+      "bytes": 84326,
+      "sha256": "b4b730304a66fc9eebaafe131ce755dfe6912ef98e2908114a042785949479e6"
+    },
+    "after-environment.json": {
+      "bytes": 84326,
+      "sha256": "925cb4b73e67a3db2a782b3ac135dc010b213f40f372160d3a549ae770b00c2b"
+    },
+    "run-claim.json": {
+      "bytes": 287,
+      "sha256": "9f9fef9c9da3b131c3ae8a0736a1c116c6e5179616f94de5ae8fa3bf159f11ad"
+    },
+    "manifest.json": {
+      "bytes": 83358,
+      "sha256": "9b6534f5a743093f8e0df3e5f5104327aee9cb0ef01e656de6da8ca20f63bb35"
+    },
+    "source/raw_clock_calibration.c": {
+      "bytes": 28475,
+      "sha256": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd"
+    },
+    "source/analyze_raw_clock.c": {
+      "bytes": 27255,
+      "sha256": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0"
+    },
+    "source/CMakeLists.txt": {
+      "bytes": 2655,
+      "sha256": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e"
+    },
+    "source/remote_run.py": {
+      "bytes": 26606,
+      "sha256": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04"
+    },
+    "build-ordinary/raw_clock_calibration": {
+      "bytes": 55736,
+      "sha256": "f3f873a5b7d333cee70b2128107ed73a4f178e6bb1f966bc7a20253a368d6cd3"
+    },
+    "build-ordinary/analyze_raw_clock": {
+      "bytes": 54952,
+      "sha256": "257b046f44a3a2613ea23f5a0943f02f293117a7d28013245063970479538b07"
+    },
+    "build-sanitize/raw_clock_calibration": {
+      "bytes": 211448,
+      "sha256": "82251c29ea65ccce81263a1c4b5c04fda2eb500a5f0a30ccea0a674bc924e27d"
+    },
+    "build-sanitize/analyze_raw_clock": {
+      "bytes": 189392,
+      "sha256": "7991ef1a3f8bda8b65a640ad7f87b12a1ca386de2e913c27f1687f0879834e4b"
+    },
+    "output/P1.csv": {
+      "bytes": 9688106,
+      "sha256": "a157354aa86196cea2bd24e03f66aca8e5b9511a7d9b92bfc62f3b9366fa58ad"
+    },
+    "output/P1.json": {
+      "bytes": 1232,
+      "sha256": "5c410cc0ad671d123722be383494ad9cf3447e7348e5453c4aa7c238c4a23738"
+    },
+    "output/P1-analysis.csv": {
+      "bytes": 481,
+      "sha256": "ddc8aa6dcc0b11e57b29103eb325a5e233303718bf3d08dd3fb3273fad835a9d"
+    },
+    "output/P1-summary.json": {
+      "bytes": 606,
+      "sha256": "5150686b09bb91e3a1893a44939adfcbcf6046ea8215d60e241acadeec138adf"
+    },
+    "output/P2.csv": {
+      "bytes": 9688108,
+      "sha256": "48937d520c06009da5ca5d6be79b8c33f0056107a91f1dbbd5fe73bab31a79c8"
+    },
+    "output/P2.json": {
+      "bytes": 1232,
+      "sha256": "82ff2d47cc1bbcb7273d3f19272bf6e368089ec2c8ffc1e35f095078d3f524a1"
+    },
+    "output/P2-analysis.csv": {
+      "bytes": 481,
+      "sha256": "72144a55a14f722b904892b687276bd43f54fc6497708b498fb9e6bba4faf0eb"
+    },
+    "output/P2-summary.json": {
+      "bytes": 606,
+      "sha256": "ba93f53c9f90f63e1c9cf79316ff357a217ce4fb1369f76f54594677e5cec9a1"
+    },
+    "output/P3.csv": {
+      "bytes": 9688102,
+      "sha256": "d43ca663205c3353c37413e1c9d61b4fef5def5acc6307992fbd5758583d5a0e"
+    },
+    "output/P3.json": {
+      "bytes": 1232,
+      "sha256": "e4f7bbec42ff6cc27aad732d424a51515b21e13e449ea6c9a6f5c2e2aed6edb4"
+    },
+    "output/P3-analysis.csv": {
+      "bytes": 480,
+      "sha256": "a0884ba24f5b482368a8d97a5753a0251c319800a321efccfac31918ced73926"
+    },
+    "output/P3-summary.json": {
+      "bytes": 606,
+      "sha256": "f22cd27b0b3bde671c838e49a57c14c3132a3db8d639ea8616245d7524a01a22"
+    }
+  },
+  "raw_records_checked": 303000,
+  "raw_fields_checked": 4545000,
+  "sampling_clock_reads_checked": 606000,
+  "output_rows_checked": 18,
+  "output_metric_fields_checked": 180,
+  "cases": [
+    {
+      "name": "P1",
+      "collector_pid": 3675337,
+      "raw_record_count": 101000,
+      "sampling_clock_read_count": 202000,
+      "clocksource": "tsc",
+      "declared_resolution_ns": 1,
+      "first_before_ns": 3430078332467337,
+      "last_after_ns": 3430078336559935,
+      "rows": [
+        {
+          "phase": "warmup",
+          "series": "within_pair_ns",
+          "count": 1000,
+          "zero_count": 0,
+          "sum_ns": 17621,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 20,
+          "p99_ns": 21,
+          "max_ns": 50,
+          "mad_ns": 0
+        },
+        {
+          "phase": "warmup",
+          "series": "between_pairs_ns",
+          "count": 999,
+          "zero_count": 0,
+          "sum_ns": 23145,
+          "min_ns": 20,
+          "min_positive_ns": 20,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 131,
+          "mad_ns": 0
+        },
+        {
+          "phase": "warmup",
+          "series": "combined_ordered_read_increment_ns",
+          "count": 1999,
+          "zero_count": 0,
+          "sum_ns": 40766,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 131,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "within_pair_ns",
+          "count": 100000,
+          "zero_count": 0,
+          "sum_ns": 1752142,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 20,
+          "p99_ns": 21,
+          "max_ns": 2004,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "between_pairs_ns",
+          "count": 99999,
+          "zero_count": 0,
+          "sum_ns": 2299670,
+          "min_ns": 20,
+          "min_positive_ns": 20,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 1623,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "combined_ordered_read_increment_ns",
+          "count": 199999,
+          "zero_count": 0,
+          "sum_ns": 4051812,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 30,
+          "max_ns": 2004,
+          "mad_ns": 0
+        }
+      ],
+      "quantile_positions_and_exact_means": [
+        {
+          "phase": "warmup",
+          "series": "within_pair_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 500,
+            "90": 899,
+            "99": 989,
+            "100": 999
+          },
+          "exact_mean_ns": {
+            "numerator": 17621,
+            "denominator": 1000
+          }
+        },
+        {
+          "phase": "warmup",
+          "series": "between_pairs_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 499,
+            "90": 898,
+            "99": 988,
+            "100": 998
+          },
+          "exact_mean_ns": {
+            "numerator": 7715,
+            "denominator": 333
+          }
+        },
+        {
+          "phase": "warmup",
+          "series": "combined_ordered_read_increment_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 999,
+            "90": 1798,
+            "99": 1978,
+            "100": 1998
+          },
+          "exact_mean_ns": {
+            "numerator": 40766,
+            "denominator": 1999
+          }
+        },
+        {
+          "phase": "main",
+          "series": "within_pair_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 50000,
+            "90": 89999,
+            "99": 98999,
+            "100": 99999
+          },
+          "exact_mean_ns": {
+            "numerator": 876071,
+            "denominator": 50000
+          }
+        },
+        {
+          "phase": "main",
+          "series": "between_pairs_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 49999,
+            "90": 89998,
+            "99": 98998,
+            "100": 99998
+          },
+          "exact_mean_ns": {
+            "numerator": 2299670,
+            "denominator": 99999
+          }
+        },
+        {
+          "phase": "main",
+          "series": "combined_ordered_read_increment_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 99999,
+            "90": 179998,
+            "99": 197998,
+            "100": 199998
+          },
+          "exact_mean_ns": {
+            "numerator": 4051812,
+            "denominator": 199999
+          }
+        }
+      ],
+      "geometry": {
+        "warmup": {
+          "wall_ns": 40766,
+          "within_sum_ns": 17621,
+          "between_sum_ns": 23145
+        },
+        "main": {
+          "wall_ns": 4051812,
+          "within_sum_ns": 1752142,
+          "between_sum_ns": 2299670
+        },
+        "phase_boundary_gap_ns": 20,
+        "total_wall_ns": 4092598
+      },
+      "c_summary_fields_matched": 22,
+      "complete_metadata_checked_externally": true
+    },
+    {
+      "name": "P2",
+      "collector_pid": 3675340,
+      "raw_record_count": 101000,
+      "sampling_clock_read_count": 202000,
+      "clocksource": "tsc",
+      "declared_resolution_ns": 1,
+      "first_before_ns": 3430078459517571,
+      "last_after_ns": 3430078463604839,
+      "rows": [
+        {
+          "phase": "warmup",
+          "series": "within_pair_ns",
+          "count": 1000,
+          "zero_count": 0,
+          "sum_ns": 17523,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 20,
+          "p99_ns": 21,
+          "max_ns": 50,
+          "mad_ns": 0
+        },
+        {
+          "phase": "warmup",
+          "series": "between_pairs_ns",
+          "count": 999,
+          "zero_count": 0,
+          "sum_ns": 23194,
+          "min_ns": 20,
+          "min_positive_ns": 20,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 341,
+          "mad_ns": 0
+        },
+        {
+          "phase": "warmup",
+          "series": "combined_ordered_read_increment_ns",
+          "count": 1999,
+          "zero_count": 0,
+          "sum_ns": 40717,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 30,
+          "max_ns": 341,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "within_pair_ns",
+          "count": 100000,
+          "zero_count": 0,
+          "sum_ns": 1750080,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 20,
+          "p99_ns": 21,
+          "max_ns": 1603,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "between_pairs_ns",
+          "count": 99999,
+          "zero_count": 0,
+          "sum_ns": 2296451,
+          "min_ns": 20,
+          "min_positive_ns": 20,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 2185,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "combined_ordered_read_increment_ns",
+          "count": 199999,
+          "zero_count": 0,
+          "sum_ns": 4046531,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 30,
+          "max_ns": 2185,
+          "mad_ns": 0
+        }
+      ],
+      "quantile_positions_and_exact_means": [
+        {
+          "phase": "warmup",
+          "series": "within_pair_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 500,
+            "90": 899,
+            "99": 989,
+            "100": 999
+          },
+          "exact_mean_ns": {
+            "numerator": 17523,
+            "denominator": 1000
+          }
+        },
+        {
+          "phase": "warmup",
+          "series": "between_pairs_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 499,
+            "90": 898,
+            "99": 988,
+            "100": 998
+          },
+          "exact_mean_ns": {
+            "numerator": 23194,
+            "denominator": 999
+          }
+        },
+        {
+          "phase": "warmup",
+          "series": "combined_ordered_read_increment_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 999,
+            "90": 1798,
+            "99": 1978,
+            "100": 1998
+          },
+          "exact_mean_ns": {
+            "numerator": 40717,
+            "denominator": 1999
+          }
+        },
+        {
+          "phase": "main",
+          "series": "within_pair_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 50000,
+            "90": 89999,
+            "99": 98999,
+            "100": 99999
+          },
+          "exact_mean_ns": {
+            "numerator": 10938,
+            "denominator": 625
+          }
+        },
+        {
+          "phase": "main",
+          "series": "between_pairs_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 49999,
+            "90": 89998,
+            "99": 98998,
+            "100": 99998
+          },
+          "exact_mean_ns": {
+            "numerator": 56011,
+            "denominator": 2439
+          }
+        },
+        {
+          "phase": "main",
+          "series": "combined_ordered_read_increment_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 99999,
+            "90": 179998,
+            "99": 197998,
+            "100": 199998
+          },
+          "exact_mean_ns": {
+            "numerator": 4046531,
+            "denominator": 199999
+          }
+        }
+      ],
+      "geometry": {
+        "warmup": {
+          "wall_ns": 40717,
+          "within_sum_ns": 17523,
+          "between_sum_ns": 23194
+        },
+        "main": {
+          "wall_ns": 4046531,
+          "within_sum_ns": 1750080,
+          "between_sum_ns": 2296451
+        },
+        "phase_boundary_gap_ns": 20,
+        "total_wall_ns": 4087268
+      },
+      "c_summary_fields_matched": 22,
+      "complete_metadata_checked_externally": true
+    },
+    {
+      "name": "P3",
+      "collector_pid": 3675343,
+      "raw_record_count": 101000,
+      "sampling_clock_read_count": 202000,
+      "clocksource": "tsc",
+      "declared_resolution_ns": 1,
+      "first_before_ns": 3430078586594556,
+      "last_after_ns": 3430078590688306,
+      "rows": [
+        {
+          "phase": "warmup",
+          "series": "within_pair_ns",
+          "count": 1000,
+          "zero_count": 0,
+          "sum_ns": 17672,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 20,
+          "p99_ns": 21,
+          "max_ns": 50,
+          "mad_ns": 0
+        },
+        {
+          "phase": "warmup",
+          "series": "between_pairs_ns",
+          "count": 999,
+          "zero_count": 0,
+          "sum_ns": 22723,
+          "min_ns": 20,
+          "min_positive_ns": 20,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 130,
+          "mad_ns": 0
+        },
+        {
+          "phase": "warmup",
+          "series": "combined_ordered_read_increment_ns",
+          "count": 1999,
+          "zero_count": 0,
+          "sum_ns": 40395,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 30,
+          "max_ns": 130,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "within_pair_ns",
+          "count": 100000,
+          "zero_count": 0,
+          "sum_ns": 1748048,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 20,
+          "p99_ns": 21,
+          "max_ns": 501,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "between_pairs_ns",
+          "count": 99999,
+          "zero_count": 0,
+          "sum_ns": 2305287,
+          "min_ns": 20,
+          "min_positive_ns": 20,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 31,
+          "max_ns": 2415,
+          "mad_ns": 0
+        },
+        {
+          "phase": "main",
+          "series": "combined_ordered_read_increment_ns",
+          "count": 199999,
+          "zero_count": 0,
+          "sum_ns": 4053335,
+          "min_ns": 10,
+          "min_positive_ns": 10,
+          "p50_ns": 20,
+          "p90_ns": 30,
+          "p99_ns": 30,
+          "max_ns": 2415,
+          "mad_ns": 0
+        }
+      ],
+      "quantile_positions_and_exact_means": [
+        {
+          "phase": "warmup",
+          "series": "within_pair_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 500,
+            "90": 899,
+            "99": 989,
+            "100": 999
+          },
+          "exact_mean_ns": {
+            "numerator": 2209,
+            "denominator": 125
+          }
+        },
+        {
+          "phase": "warmup",
+          "series": "between_pairs_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 499,
+            "90": 898,
+            "99": 988,
+            "100": 998
+          },
+          "exact_mean_ns": {
+            "numerator": 22723,
+            "denominator": 999
+          }
+        },
+        {
+          "phase": "warmup",
+          "series": "combined_ordered_read_increment_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 999,
+            "90": 1798,
+            "99": 1978,
+            "100": 1998
+          },
+          "exact_mean_ns": {
+            "numerator": 40395,
+            "denominator": 1999
+          }
+        },
+        {
+          "phase": "main",
+          "series": "within_pair_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 50000,
+            "90": 89999,
+            "99": 98999,
+            "100": 99999
+          },
+          "exact_mean_ns": {
+            "numerator": 109253,
+            "denominator": 6250
+          }
+        },
+        {
+          "phase": "main",
+          "series": "between_pairs_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 49999,
+            "90": 89998,
+            "99": 98998,
+            "100": 99998
+          },
+          "exact_mean_ns": {
+            "numerator": 256143,
+            "denominator": 11111
+          }
+        },
+        {
+          "phase": "main",
+          "series": "combined_ordered_read_increment_ns",
+          "quantile_positions": {
+            "0": 0,
+            "50": 99999,
+            "90": 179998,
+            "99": 197998,
+            "100": 199998
+          },
+          "exact_mean_ns": {
+            "numerator": 4053335,
+            "denominator": 199999
+          }
+        }
+      ],
+      "geometry": {
+        "warmup": {
+          "wall_ns": 40395,
+          "within_sum_ns": 17672,
+          "between_sum_ns": 22723
+        },
+        "main": {
+          "wall_ns": 4053335,
+          "within_sum_ns": 1748048,
+          "between_sum_ns": 2305287
+        },
+        "phase_boundary_gap_ns": 20,
+        "total_wall_ns": 4093750
+      },
+      "c_summary_fields_matched": 22,
+      "complete_metadata_checked_externally": true
+    }
+  ],
+  "input_bytes_unchanged": true,
+  "mismatches": [],
+  "primary_c_invocations_by_reviewer": 0,
+  "collector_invocations_by_reviewer": 0,
+  "ssh_invocations_by_reviewer": 0,
+  "new_sampling_reads_by_reviewer": 0,
+  "archive_member_audit_performed_here": false,
+  "clock_precision_certified": false,
+  "iid_claimed": false,
+  "r02_signed_off": false,
+  "r04_signed_off": false
+}

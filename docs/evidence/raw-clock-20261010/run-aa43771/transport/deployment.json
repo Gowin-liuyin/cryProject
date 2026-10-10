@@ -1,0 +1,21 @@
+{
+  "source_commit": "aa437714e023e2aef8301a925c33949647790517",
+  "nonce": "fe4ffb3f92f3630e",
+  "remote_root": "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e",
+  "remote_upload": "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e.upload.tar",
+  "source_archive_sha256": "ed7d049f6fe304b791b6d74aa16fcca78c4d4c92aa7bc6af3119f004872689de",
+  "source_archive_bytes": 92160,
+  "source_files_sha256": {
+    "raw_clock_calibration.c": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+    "analyze_raw_clock.c": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+    "CMakeLists.txt": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e",
+    "remote_run.py": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04"
+  },
+  "started_utc": "2026-10-10T10:36:37.819529+00:00",
+  "stage": "source_staged",
+  "SSH_password_recorded": false,
+  "upload_exit": 255,
+  "upload_after_password_login_exit": 0,
+  "initial_upload_failure": "authentication rejected before remote helper, cached connection absent; no hardware launched",
+  "ssh_socket": "/Users/yin/code/cryProject/build/aris-raw-clock-20261010/control-2.sock"
+}

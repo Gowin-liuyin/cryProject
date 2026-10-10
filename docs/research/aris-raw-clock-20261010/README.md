@@ -1,4 +1,6 @@
-# 同路径RAW空窗口校准候选
+# RAW空窗口测量与严格描述
+
+2026-10-10已完成指定裸金属三个普通进程的真实采集与独立全量核验：303000pair、606000次采样读钟；主pair内P50均20ns、P99均21ns，长尾保留。见[实际结果](RESULTS.md)、[结果到声明](RESULT_TO_CLAIM.md)及[完整证据](../../evidence/raw-clock-20261010/run-aa43771/README.md)。限定描述主张支持，R02/R04仍partial；下文说明固定工具和边界。
 
 本模块测量同一线程相邻两次`CLOCK_MONOTONIC_RAW`读取的空窗口，并提供[严格C11离线描述](ANALYSIS_CONTRACT.md)。
 collector不链接密码实现，不读取MSR，不写调频、cgroup或其他全局配置。Linux/x86_64
@@ -62,8 +64,8 @@ ctest --test-dir build/raw-clock-normal --output-on-failure
 timespec、纳秒边界、uint64溢出、有效零、逆序/缺失、CSV原值及未尝试状态、容量/阶段
 边界、JSON转义和短缓冲区；不调用实际clock、文件、亲和性或密码函数。第二项CTest核对分析器的严格解析、分位/MAD及整数守恒手算夹具。
 
-显式指定clang-format 21路径后可运行本模块`format-check`目标。实际Linux预检、正式
-采集、产物摘要、编译命令和反汇编仍由外部证据记录确认，本README不声称已经执行。
+显式指定clang-format 21路径后可运行本模块`format-check`目标。实际Linux普通与动态
+CTest各2/2，只有普通产物采样；产物摘要、编译命令和反汇编见上述实际证据。
 云端源码、构建、临时目录、缓存、CSV、JSON及其他项目文件全部只能位于
 `/home/nss-marker/yhr/Cry`及其物理子目录，不通过符号链接越界；不新建`/tmp`或`/run`
 项目文件。每次进程与每轮证据使用新目录，原G2证据和封存包不改写。

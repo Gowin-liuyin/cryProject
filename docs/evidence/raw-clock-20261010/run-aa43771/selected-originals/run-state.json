@@ -1,0 +1,75 @@
+{
+  "schema": "raw-clock-remote-v1",
+  "source_commit": "aa437714e023e2aef8301a925c33949647790517",
+  "source_sha256": {
+    "raw_clock_calibration.c": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+    "analyze_raw_clock.c": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+    "CMakeLists.txt": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e"
+  },
+  "runner_sha256": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04",
+  "frozen_plan_sha256": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+  "started_utc": "2026-10-10T10:44:25.233833+00:00",
+  "supervisor_pid": 3675161,
+  "planned_processes": 3,
+  "planned_pairs_per_process": 101000,
+  "launched_supervisors": 3,
+  "completed_processes": 3,
+  "accepted_pairs": 303000,
+  "cleanup_unconfirmed": false,
+  "status": "completed",
+  "cases": [
+    {
+      "name": "P1",
+      "status": "accepted",
+      "partial_unknown": false,
+      "collector_started": true,
+      "collector_completed": true,
+      "supervisor_pid": 3675336,
+      "pid": 3675337,
+      "csv_sha256": "a157354aa86196cea2bd24e03f66aca8e5b9511a7d9b92bfc62f3b9366fa58ad",
+      "metadata_sha256": "5c410cc0ad671d123722be383494ad9cf3447e7348e5453c4aa7c238c4a23738",
+      "collector_exit_checked": true,
+      "collector_stderr_checked": true,
+      "management_complete_metadata_acceptance": true
+    },
+    {
+      "name": "P2",
+      "status": "accepted",
+      "partial_unknown": false,
+      "collector_started": true,
+      "collector_completed": true,
+      "supervisor_pid": 3675339,
+      "pid": 3675340,
+      "csv_sha256": "48937d520c06009da5ca5d6be79b8c33f0056107a91f1dbbd5fe73bab31a79c8",
+      "metadata_sha256": "82ff2d47cc1bbcb7273d3f19272bf6e368089ec2c8ffc1e35f095078d3f524a1",
+      "collector_exit_checked": true,
+      "collector_stderr_checked": true,
+      "management_complete_metadata_acceptance": true
+    },
+    {
+      "name": "P3",
+      "status": "accepted",
+      "partial_unknown": false,
+      "collector_started": true,
+      "collector_completed": true,
+      "supervisor_pid": 3675342,
+      "pid": 3675343,
+      "csv_sha256": "d43ca663205c3353c37413e1c9d61b4fef5def5acc6307992fbd5758583d5a0e",
+      "metadata_sha256": "e4f7bbec42ff6cc27aad732d424a51515b21e13e449ea6c9a6f5c2e2aed6edb4",
+      "collector_exit_checked": true,
+      "collector_stderr_checked": true,
+      "management_complete_metadata_acceptance": true
+    }
+  ],
+  "archive_status": "see_supervisor_stdout",
+  "supervisor_start_ticks": 343006206,
+  "binary_sha256": {
+    "build-ordinary/raw_clock_calibration": "f3f873a5b7d333cee70b2128107ed73a4f178e6bb1f966bc7a20253a368d6cd3",
+    "build-ordinary/analyze_raw_clock": "257b046f44a3a2613ea23f5a0943f02f293117a7d28013245063970479538b07",
+    "build-sanitize/raw_clock_calibration": "82251c29ea65ccce81263a1c4b5c04fda2eb500a5f0a30ccea0a674bc924e27d",
+    "build-sanitize/analyze_raw_clock": "7991ef1a3f8bda8b65a640ad7f87b12a1ca386de2e913c27f1687f0879834e4b"
+  },
+  "supervisor_work_stopped_utc": "2026-10-10T10:44:26.573065+00:00",
+  "all_child_work_stopped": true,
+  "work_elapsed_seconds": 1.3392638200893998
+}

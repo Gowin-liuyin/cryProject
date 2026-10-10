@@ -1,0 +1,16 @@
+{
+  "oracle_command": [
+    "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/Users/yin/code/cryProject/build/aris-raw-clock-20261010/deployment-aa43771-fe4ffb3f92f3630e/review-numeric/independent_numeric_oracle.py"
+  ],
+  "observed_tool_chunk_id": "e453ca",
+  "observed_tool_exit_code": 0,
+  "oracle_invocations_this_review": 1,
+  "primary_c_invocations": 0,
+  "collector_invocations": 0,
+  "ssh_invocations": 0,
+  "status": "all_checked_values_match",
+  "raw_records_checked": 303000,
+  "output_metric_fields_checked": 180,
+  "oracle_sha256": "a81169d774f4231c8cbaef8dec6ec144fc9209ca4959eb4528d5c46074e25141"
+}

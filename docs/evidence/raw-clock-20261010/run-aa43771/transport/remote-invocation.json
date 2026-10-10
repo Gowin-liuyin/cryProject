@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "ControlPath=/Users/yin/code/cryProject/build/aris-raw-clock-20261010/control-2.sock",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=15",
+    "-o",
+    "ServerAliveCountMax=3",
+    "-T",
+    "nss-marker@10.144.144.5",
+    "python3 -B /home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e/source/remote_run.py /home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e aa437714e023e2aef8301a925c33949647790517"
+  ],
+  "source_commit": "aa437714e023e2aef8301a925c33949647790517",
+  "remote_root": "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e",
+  "started_utc": "2026-10-10T10:44:24.769711+00:00",
+  "status": "SSH_terminal",
+  "actual_ssh_pid": 32029,
+  "remote_claim": {
+    "event": "supervisor_started",
+    "root": "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e",
+    "source_commit": "aa437714e023e2aef8301a925c33949647790517",
+    "pid": 3675161,
+    "start_ticks": 343006206,
+    "collector_processes_started": null,
+    "actual_accepted_pairs": 0
+  },
+  "exit_code": 0,
+  "password_in_command_or_log": false,
+  "finished_utc": "2026-10-10T10:44:27.670874+00:00"
+}

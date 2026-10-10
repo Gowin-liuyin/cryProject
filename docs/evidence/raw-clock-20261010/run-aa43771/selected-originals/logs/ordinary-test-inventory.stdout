@@ -1,0 +1,75 @@
+{
+  "backtraceGraph" : 
+  {
+    "commands" : 
+    [
+      "add_test"
+    ],
+    "files" : 
+    [
+      "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e/source/CMakeLists.txt"
+    ],
+    "nodes" : 
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 71,
+        "parent" : 0
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 72,
+        "parent" : 2
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" : 
+  [
+    {
+      "backtrace" : 1,
+      "command" : 
+      [
+        "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e/build-ordinary/raw_clock_calibration",
+        "--selfcheck"
+      ],
+      "name" : "raw_clock_calibration_selfcheck",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e/build-ordinary"
+        }
+      ]
+    },
+    {
+      "backtrace" : 3,
+      "command" : 
+      [
+        "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e/build-ordinary/analyze_raw_clock",
+        "--selfcheck"
+      ],
+      "name" : "raw_clock_analysis_selfcheck",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/nss-marker/yhr/Cry/raw-clock-aa43771-fe4ffb3f92f3630e/build-ordinary"
+        }
+      ]
+    }
+  ],
+  "version" : 
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}

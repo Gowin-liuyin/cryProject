@@ -1,0 +1,276 @@
+{
+  "review_scope": "actual archive, build and lifecycle; no C execution, SSH, or statistic recomputation",
+  "reviewer_authored_runner": false,
+  "reviewer_authored_analyzer": true,
+  "started_utc": "2026-10-10T10:52:08.556723+00:00",
+  "external_pid_absence_checked": false,
+  "final_ssh_closed_checked": false,
+  "r02_signed_off": false,
+  "r04_signed_off": false,
+  "archive": {
+    "bytes": 4454198,
+    "sha256": "e6dfd03f03e1e2e4e28a4eb0c251a8f7d684745980727843263e4ad8ff1870e6"
+  },
+  "gzip": {
+    "crc32_verified": true,
+    "crc32_hex": "7dac6e63",
+    "uncompressed_bytes": 33331200,
+    "isize_verified": true
+  },
+  "tar": {
+    "regular_members": 496,
+    "duplicate_names": 0,
+    "unsafe_paths": 0,
+    "header_checksums_valid": true,
+    "manifest_payloads": 495,
+    "payload_sha256_and_lengths_valid": true,
+    "originals_all_byte_identical": true,
+    "no_original_symlink": true
+  },
+  "source_binding": {
+    "commit": "aa437714e023e2aef8301a925c33949647790517",
+    "git_byte_identical": {
+      "raw_clock_calibration.c": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd",
+      "analyze_raw_clock.c": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0",
+      "CMakeLists.txt": "28d264a993558d1aad66dd6ffd2671c0a3ea18054fda6d6ec91b06a7c312816e",
+      "remote_run.py": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04"
+    },
+    "plan_sha256": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+    "remote_git_commit_independently_resolved": false
+  },
+  "commands": {
+    "count": 29,
+    "zero_exit_and_cleanup_confirmed": 29,
+    "sequential_timestamps": true,
+    "all_log_hashes_verified": true,
+    "temporary_and_cache_env_under_physical_root": true,
+    "labels": [
+      "gcc-version",
+      "cmake-version",
+      "timeout-version",
+      "ordinary-configure",
+      "ordinary-build",
+      "ordinary-test-inventory",
+      "ordinary-ctest",
+      "ordinary-raw_clock_calibration-objdump",
+      "ordinary-raw_clock_calibration-readelf",
+      "ordinary-raw_clock_calibration-nm",
+      "ordinary-analyze_raw_clock-objdump",
+      "ordinary-analyze_raw_clock-readelf",
+      "ordinary-analyze_raw_clock-nm",
+      "sanitize-configure",
+      "sanitize-build",
+      "sanitize-test-inventory",
+      "sanitize-ctest",
+      "sanitize-raw_clock_calibration-objdump",
+      "sanitize-raw_clock_calibration-readelf",
+      "sanitize-raw_clock_calibration-nm",
+      "sanitize-analyze_raw_clock-objdump",
+      "sanitize-analyze_raw_clock-readelf",
+      "sanitize-analyze_raw_clock-nm",
+      "P1",
+      "P1-analysis",
+      "P2",
+      "P2-analysis",
+      "P3",
+      "P3-analysis"
+    ]
+  },
+  "elf": {
+    "build-ordinary/raw_clock_calibration": {
+      "class": "ELF64",
+      "endianness": "little",
+      "machine": 62,
+      "architecture": "x86_64",
+      "type": "PIE",
+      "needed": [
+        "libc.so.6"
+      ],
+      "sha256": "f3f873a5b7d333cee70b2128107ed73a4f178e6bb1f966bc7a20253a368d6cd3",
+      "bytes": 55736
+    },
+    "build-ordinary/analyze_raw_clock": {
+      "class": "ELF64",
+      "endianness": "little",
+      "machine": 62,
+      "architecture": "x86_64",
+      "type": "PIE",
+      "needed": [
+        "libc.so.6"
+      ],
+      "sha256": "257b046f44a3a2613ea23f5a0943f02f293117a7d28013245063970479538b07",
+      "bytes": 54952
+    },
+    "build-sanitize/raw_clock_calibration": {
+      "class": "ELF64",
+      "endianness": "little",
+      "machine": 62,
+      "architecture": "x86_64",
+      "type": "PIE",
+      "needed": [
+        "libasan.so.8",
+        "libubsan.so.1",
+        "libc.so.6"
+      ],
+      "sha256": "82251c29ea65ccce81263a1c4b5c04fda2eb500a5f0a30ccea0a674bc924e27d",
+      "bytes": 211448
+    },
+    "build-sanitize/analyze_raw_clock": {
+      "class": "ELF64",
+      "endianness": "little",
+      "machine": 62,
+      "architecture": "x86_64",
+      "type": "PIE",
+      "needed": [
+        "libasan.so.8",
+        "libubsan.so.1",
+        "libc.so.6"
+      ],
+      "sha256": "7991ef1a3f8bda8b65a640ad7f87b12a1ca386de2e913c27f1687f0879834e4b",
+      "bytes": 189392
+    }
+  },
+  "qualification": {
+    "ordinary": {
+      "registered": 2,
+      "actual_passed": 2,
+      "failures": 0,
+      "asan_ubsan": false,
+      "lsan_enabled_in_environment": true
+    },
+    "sanitize": {
+      "registered": 2,
+      "actual_passed": 2,
+      "failures": 0,
+      "asan_ubsan": true,
+      "lsan_enabled_in_environment": true
+    }
+  },
+  "toolchain": {
+    "gcc": "Ubuntu GCC 13.3.0",
+    "cmake": "3.28.3",
+    "ordinary_flags": "-O2 -g -DNDEBUG -std=c11 with strict warnings, no LTO",
+    "sanitize_flags": "-O2 then -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer",
+    "ordinary_asan_environment_has_no_instrumentation_effect": true
+  },
+  "cases": [
+    {
+      "name": "P1",
+      "collector_pid": 3675337,
+      "timeout_leader_pid": 3675336,
+      "record_count": 101000,
+      "csv_sha256": "a157354aa86196cea2bd24e03f66aca8e5b9511a7d9b92bfc62f3b9366fa58ad",
+      "metadata_sha256": "5c410cc0ad671d123722be383494ad9cf3447e7348e5453c4aa7c238c4a23738",
+      "status": "accepted",
+      "non_sanitized_collector": true
+    },
+    {
+      "name": "P2",
+      "collector_pid": 3675340,
+      "timeout_leader_pid": 3675339,
+      "record_count": 101000,
+      "csv_sha256": "48937d520c06009da5ca5d6be79b8c33f0056107a91f1dbbd5fe73bab31a79c8",
+      "metadata_sha256": "82ff2d47cc1bbcb7273d3f19272bf6e368089ec2c8ffc1e35f095078d3f524a1",
+      "status": "accepted",
+      "non_sanitized_collector": true
+    },
+    {
+      "name": "P3",
+      "collector_pid": 3675343,
+      "timeout_leader_pid": 3675342,
+      "record_count": 101000,
+      "csv_sha256": "d43ca663205c3353c37413e1c9d61b4fef5def5acc6307992fbd5758583d5a0e",
+      "metadata_sha256": "e4f7bbec42ff6cc27aad732d424a51515b21e13e449ea6c9a6f5c2e2aed6edb4",
+      "status": "accepted",
+      "non_sanitized_collector": true
+    }
+  ],
+  "lifecycle": {
+    "supervisor_pid": 3675161,
+    "supervisor_start_ticks": 343006206,
+    "initial_claim_not_collector_completion": true,
+    "completed_cases": 3,
+    "accepted_pairs_recorded": 303000,
+    "commands_leaders_reaped": 29,
+    "command_groups_confirmed_gone": 29,
+    "external_os_postcheck_pending": true,
+    "signal_timeout_failure_paths_actually_exercised": false
+  },
+  "context": {
+    "frequency_visible_files_before_after_equal": 129,
+    "ordinary_uid": 1000,
+    "management_affinity_before_after": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "clocksource": "tsc",
+    "declared_raw_getres_ns": 1,
+    "clocksource_proves_vdso_or_syscall": false,
+    "before_utc": "2026-10-10T10:44:25.234156+00:00",
+    "after_utc": "2026-10-10T10:44:26.586129+00:00",
+    "physical_absolute_precision_certified": false,
+    "exclusive_cpu_or_frequency_lock_claimed": false
+  },
+  "static_mechanism": {
+    "binary_sha256": "f3f873a5b7d333cee70b2128107ed73a4f178e6bb1f966bc7a20253a368d6cd3",
+    "sampling_function": "run_collection",
+    "raw_clock_id_argument": 4,
+    "first_clock_gettime_plt_call": "0x2155",
+    "second_clock_gettime_plt_call": "0x219f",
+    "after_second_read_conversion_calls": [
+      "0x2a07",
+      "0x2a15"
+    ],
+    "conversion_entry": "0x1710",
+    "old_g2_artifact_revalidated": false,
+    "libc_vdso_resolution_observed": false,
+    "absolute_path_accuracy_proved": false
+  },
+  "administrative_boundaries": {
+    "initial_upload_authentication_exit": 255,
+    "subsequent_upload_exit": 0,
+    "remote_supervisor_exit": 0,
+    "initial_auth_rejection_is_before_remote_command_not_failed_sampling_case": true,
+    "all_manifested_project_paths_relative_to_cry_root": true,
+    "runner_checks_physical_roots_and_rejects_symlinks": true,
+    "outside_project_writes_os_wide_independently_traced": false,
+    "old_kvm_contacted_by_review": false,
+    "new_ssh_or_program_execution_by_review": false,
+    "source_upload_tar_git_matched_members": 4,
+    "source_upload_tar_sha256": "ed7d049f6fe304b791b6d74aa16fcca78c4d4c92aa7bc6af3119f004872689de",
+    "final_archive_receipt_hash_and_path_matched": true,
+    "remote_stdout_event_count": 2
+  },
+  "status": "bounded_artifact_review_passed",
+  "finished_utc": "2026-10-10T10:52:08.785044+00:00"
+}
