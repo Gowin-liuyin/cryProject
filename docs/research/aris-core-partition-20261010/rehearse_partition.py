@@ -1,4 +1,5 @@
 import datetime
+import errno
 import fcntl
 import hashlib
 import io
@@ -7,6 +8,7 @@ import os
 from pathlib import Path
 import pwd
 import re
+import resource
 import select
 import signal
 import stat
@@ -32,6 +34,37 @@ FREQUENCY_FIELDS = ('affected_cpus', 'related_cpus', 'scaling_driver', 'scaling_
                     'cpuinfo_max_freq', 'scaling_min_freq', 'scaling_max_freq')
 FREQUENCY_MUTABLE = ('scaling_min_freq', 'scaling_max_freq')
 FREQUENCY_TARGET_KHZ = '4300000'
+WINDOW_WORKER_PATH = WORK_ROOT / 'window-source-c0e5990/build-normal/frequency_workload'
+WINDOW_WORKER_SHA256 = '023f56460a8dc4971e8132a22c5734ca0844314d3d71b8bc3b129a424e9ee69b'
+WINDOW_FILE_LIMIT = 120 * 1024 * 1024
+WINDOW_CASE_LIMIT = 256 * 1024 * 1024
+WINDOW_REQUIRED_FREE = 2 * 1024 * 1024 * 1024
+
+
+def frequency_receipt(store, state, name, value, restoring):
+    try:
+        store.save(name, value)
+        return True
+    except OSError as error:
+        plan = state.get('recovery_plan')
+        if not (restoring and error.errno in (errno.ENOSPC, errno.EDQUOT) and plan is not None):
+            raise
+        require(plan.get('profile') == 'window' and plan.get('state_path') == str(store.path) and
+                store.path.name in ('normal', 'parent-loss') and store.path.parent.parent == WORK_ROOT and
+                re.fullmatch(r'core-window-20261010-[0-9a-f]{12}', store.path.parent.name) and
+                store.load('frequency-recovery-plan.json') == plan and
+                plan['baseline_sha256'] == hashlib.sha256(json.dumps(
+                    state['baseline'], sort_keys=True).encode()).hexdigest() and
+                plan['original_values'] == {policy_name: {
+                    field: state['baseline']['policies'][policy_name][field]['value']
+                    for field in FREQUENCY_MUTABLE} for policy_name in FREQUENCY_TARGETS},
+                'Storage failure is not an authorized original-value recovery')
+        state['evidence_complete'] = False
+        state.setdefault('storage_errors', []).append({'receipt': name, 'errno': error.errno})
+        if store.has(name):
+            require(store.load(name) == value, 'Partially published recovery receipt differs')
+            return True
+        return False
 
 
 def frequency_snapshot(policy_names=FREQUENCY_POLICIES):
@@ -76,6 +109,8 @@ def frequency_change(store, state, policy_name, field, value, deadline_seconds, 
     baseline = state['baseline']
     require(value in (FREQUENCY_TARGET_KHZ, baseline['policies'][policy_name][field]['value']),
             'Frequency value outside this contract')
+    require(not restoring or value == baseline['policies'][policy_name][field]['value'],
+            'Recovery can only resend the original value')
     current = frequency_snapshot((policy_name,) if restoring else FREQUENCY_POLICIES)
     require(current['global'] == baseline['global'], 'Global frequency state changed')
     require(current['cpu_links'] == baseline['cpu_links'], 'CPU frequency mapping changed')
@@ -105,8 +140,10 @@ def frequency_change(store, state, policy_name, field, value, deadline_seconds, 
     intent = {'sequence': state['sequence'], 'policy_name': policy_name, 'field': field,
               'before_pair': before_pair, 'after_pair': after_pair}
     # 首写前持久化意图；写入报错也不能假定内核未接受请求。
-    store.save('frequency-dirty-' + str(state['sequence']).zfill(4) + '.json', intent)
-    state['sequence'] += 1
+    is_persisted = frequency_receipt(store, state,
+        'frequency-dirty-' + str(state['sequence']).zfill(4) + '.json', intent, restoring)
+    if is_persisted:
+        state['sequence'] += 1
     if field not in pending_fields[policy_name]:
         pending_fields[policy_name].append(field)
     if after_pair not in state['known_pairs'][policy_name]:
@@ -139,9 +176,12 @@ def frequency_change(store, state, policy_name, field, value, deadline_seconds, 
         pair = [row[key]['value'] for key in FREQUENCY_MUTABLE]
         require(pair in state['known_pairs'][policy_name], 'Unknown asynchronous frequency state')
         if pair == after_pair:
-            store.save('frequency-visible-' + str(intent['sequence']).zfill(4) + '.json',
+            visible_name = 'frequency-visible-' + str(intent['sequence']).zfill(4) + '.json'
+            if not is_persisted:
+                visible_name = 'frequency-unlogged-visible-' + os.urandom(6).hex() + '.json'
+            frequency_receipt(store, state, visible_name,
                        {'utc': utc_now(), 'policy_name': policy_name, 'limits_khz': pair,
-                        'hardware_frequency_qualified': False})
+                        'hardware_frequency_qualified': False}, restoring)
             if value == baseline['policies'][policy_name][field]['value']:
                 pending_fields[policy_name].remove(field)
             return
@@ -157,6 +197,19 @@ def frequency_restore(store, state, errors, deadline_seconds):
                      'pending_fields': {name: [] for name in FREQUENCY_TARGETS}, 'known_pairs': {
                 name: [[baseline['policies'][name][field]['value'] for field in FREQUENCY_MUTABLE]]
                 for name in FREQUENCY_TARGETS}}
+            if store.has('frequency-recovery-plan.json'):
+                plan = store.load('frequency-recovery-plan.json')
+                require(plan.get('profile') == 'window' and plan.get('state_path') == str(store.path) and
+                        store.path.name in ('normal', 'parent-loss') and store.path.parent.parent == WORK_ROOT and
+                        re.fullmatch(r'core-window-20261010-[0-9a-f]{12}', store.path.parent.name) and
+                        plan['baseline_sha256'] == hashlib.sha256(json.dumps(
+                            baseline, sort_keys=True).encode()).hexdigest() and
+                        plan['original_values'] == {policy_name: {
+                            field: baseline['policies'][policy_name][field]['value']
+                            for field in FREQUENCY_MUTABLE} for policy_name in FREQUENCY_TARGETS},
+                        'Stored recovery authorization differs')
+                state['recovery_plan'] = plan
+                state['evidence_complete'] = False
             names = sorted(name for name in os.listdir(store.descriptor)
                            if re.fullmatch(r'frequency-dirty-[0-9]{4}\.json', name))
             require(len(names) < 100, 'Too many frequency recovery intents')
@@ -179,6 +232,13 @@ def frequency_restore(store, state, errors, deadline_seconds):
                         int(after_pair[0]) <= int(after_pair[1]), 'Frequency intent value differs')
                 if after_pair not in state['known_pairs'][policy_name]:
                     state['known_pairs'][policy_name].append(after_pair)
+                if 'recovery_plan' in state:
+                    for pair in state['known_pairs'][policy_name].copy():
+                        for recovery_index, recovery_field in enumerate(FREQUENCY_MUTABLE):
+                            projected = pair.copy()
+                            projected[recovery_index] = baseline['policies'][policy_name][recovery_field]['value']
+                            if projected not in state['known_pairs'][policy_name]:
+                                state['known_pairs'][policy_name].append(projected)
                 if field not in state['pending_fields'][policy_name]:
                     state['pending_fields'][policy_name].append(field)
                 visible_name = 'frequency-visible-' + str(state['sequence']).zfill(4) + '.json'
@@ -188,6 +248,9 @@ def frequency_restore(store, state, errors, deadline_seconds):
                             'Frequency restoration receipt differs')
                     state['pending_fields'][policy_name].remove(field)
                 state['sequence'] += 1
+            if 'recovery_plan' in state:
+                for policy_name in FREQUENCY_TARGETS:
+                    state['pending_fields'][policy_name] = list(FREQUENCY_MUTABLE)
         except Exception as error:
             errors.append({'step': 'frequency_reconstruct', 'error': repr(error)})
             return
@@ -203,8 +266,10 @@ def frequency_restore(store, state, errors, deadline_seconds):
         require(not any(state.get('pending_fields', {}).values()),
                 'Dirty frequency request has not been explicitly cancelled')
         require(current == state['baseline'], 'Visible frequency configuration not restored')
-        store.save('frequency-restored-' + str(state['sequence']).zfill(4) + '-' + os.urandom(6).hex() + '.json',
-                   {'utc': utc_now(), 'snapshot': current, 'hardware_frequency_qualified': False})
+        state['restoration_visible'] = True
+        frequency_receipt(store, state,
+                   'frequency-restored-' + str(state['sequence']).zfill(4) + '-' + os.urandom(6).hex() + '.json',
+                   {'utc': utc_now(), 'snapshot': current, 'hardware_frequency_qualified': False}, True)
     attempt(errors, 'frequency_final_readback', final_frequency_readback)
 
 
@@ -482,7 +547,271 @@ def empty_probe(group, store, deadline_seconds):
                 wait_owned_child(waiting_child, time.monotonic() + 1)
 
 
-def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_mode=False):
+def prepare_window_worker(store):
+    require(isinstance(WINDOW_WORKER_SHA256, str) and
+            re.fullmatch(r'[0-9a-f]{64}', WINDOW_WORKER_SHA256), 'Window worker is not frozen')
+    descriptor = os.open(WINDOW_WORKER_PATH, os.O_RDONLY | os.O_NOFOLLOW | os.O_CLOEXEC)
+    try:
+        before = os.fstat(descriptor)
+        require(stat.S_ISREG(before.st_mode) and before.st_uid == pwd.getpwnam('nss-marker').pw_uid and
+                0 < before.st_size < 1024 * 1024 and
+                Path(os.readlink('/proc/self/fd/' + str(descriptor))) == WINDOW_WORKER_PATH,
+                'Window source executable identity differs')
+        contents = bytearray()
+        while len(contents) < before.st_size:
+            chunk = os.read(descriptor, before.st_size - len(contents))
+            require(bool(chunk), 'Short window source read')
+            contents.extend(chunk)
+        after = os.fstat(descriptor)
+        require((before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns) ==
+                (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns) and
+                hashlib.sha256(contents).hexdigest() == WINDOW_WORKER_SHA256 and
+                contents[:6] == b'\x7fELF\x02\x01' and contents[18:20] == b'>\x00',
+                'Window source bytes changed or digest differs')
+    finally:
+        os.close(descriptor)
+    output_descriptor = store.open_file('worker.bin', os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+    try:
+        completed = 0
+        while completed < len(contents):
+            written = os.write(output_descriptor, contents[completed:])
+            require(written > 0, 'Short protected worker write')
+            completed += written
+        os.fchmod(output_descriptor, 0o500)
+        os.fsync(output_descriptor)
+    finally:
+        os.close(output_descriptor)
+    os.fsync(store.descriptor)
+    descriptor = store.open_file('worker.bin', os.O_RDONLY)
+    metadata = os.fstat(descriptor)
+    require(stat.S_IMODE(metadata.st_mode) == 0o500 and metadata.st_size == len(contents),
+            'Protected worker identity differs')
+    identity = {'path': str(store.path / 'worker.bin'), 'inode': metadata.st_ino,
+                'device': metadata.st_dev, 'sha256': WINDOW_WORKER_SHA256, 'bytes': metadata.st_size,
+                'source_path': str(WINDOW_WORKER_PATH), 'source_owner_uid': before.st_uid,
+                'source_inode': before.st_ino, 'source_device': before.st_dev}
+    store.save('worker-binary.json', identity)
+    return descriptor, identity
+
+
+def spawn_window_worker(group, store, life_reader, lock_descriptor, prepared_worker):
+    signal.signal(signal.SIGCHLD, signal.SIG_DFL)
+    binary_descriptor, binary_identity = prepared_worker
+    stdout_descriptor = store.open_file('worker.stdout.jsonl', os.O_RDWR | os.O_CREAT | os.O_EXCL)
+    stderr_descriptor = store.open_file('worker.stderr.log', os.O_RDWR | os.O_CREAT | os.O_EXCL)
+    read_gate, write_gate = os.pipe()
+    child_id = os.fork()
+    if child_id == 0:
+        try:
+            os.close(write_gate)
+            for descriptor in (life_reader, lock_descriptor, store.descriptor):
+                os.close(descriptor)
+            os.dup2(stdout_descriptor, 1)
+            os.dup2(stderr_descriptor, 2)
+            os.close(stdout_descriptor)
+            os.close(stderr_descriptor)
+            null_descriptor = os.open('/dev/null', os.O_RDONLY)
+            os.dup2(null_descriptor, 0)
+            if null_descriptor != 0:
+                os.close(null_descriptor)
+            resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+            resource.setrlimit(resource.RLIMIT_FSIZE, (WINDOW_FILE_LIMIT, WINDOW_FILE_LIMIT))
+            signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
+            if os.read(read_gate, 1) != b'A':
+                os._exit(3)
+            os.close(read_gate)
+            os.execve(binary_descriptor, [binary_identity['path']],
+                      {'PATH': '/usr/bin:/bin', 'LC_ALL': 'C', 'TMPDIR': str(store.path)})
+        except BaseException as error:
+            try:
+                os.write(2, (repr(error) + '\n').encode())
+            except OSError:
+                pass
+            os._exit(4)
+    spawn_errors = []
+    for descriptor in (read_gate, binary_descriptor):
+        try:
+            os.close(descriptor)
+        except OSError as error:
+            spawn_errors.append(repr(error))
+    return {'pid': child_id, 'gate': write_gate, 'stdout_descriptor': stdout_descriptor,
+            'stderr_descriptor': stderr_descriptor, 'binary': binary_identity,
+            'reaped': False, 'released': False, 'exit_code': None, 'spawn_errors': spawn_errors}
+
+
+def window_output_status(worker):
+    result = {'measurement_complete': False, 'outputs': {}}
+    for name in ('stdout', 'stderr'):
+        descriptor = worker[name + '_descriptor']
+        os.fsync(descriptor)
+        size = os.fstat(descriptor).st_size
+        require(size <= WINDOW_FILE_LIMIT, 'Worker output exceeds file budget')
+        digest = hashlib.sha256()
+        position = 0
+        while position < size:
+            contents = os.pread(descriptor, min(1024 * 1024, size - position), position)
+            require(bool(contents), 'Short worker output read')
+            digest.update(contents)
+            position += len(contents)
+        result['outputs'][name] = {'bytes': size, 'sha256': digest.hexdigest()}
+    if worker['exit_code'] == 0:
+        descriptor = worker['stdout_descriptor']
+        size = result['outputs']['stdout']['bytes']
+        first = os.pread(descriptor, min(size, 65536), 0).split(b'\n', 1)[0]
+        tail = os.pread(descriptor, min(size, 65536), max(0, size - 65536))
+        require(tail.endswith(b'\n'), 'Worker output has no complete final line')
+        contract = json.loads(first)
+        summary = json.loads(tail.splitlines()[-1])
+        require(contract['type'] == 'contract' and contract['implementation'] == 'reference' and
+                contract['warmup_target_ns'] == '1000000000' and
+                contract['main_target_ns'] == '4000000000' and
+                summary['type'] == 'summary' and summary['status'] == 'completed' and
+                summary['valid_final_snapshot'] is True, 'Worker completion envelope differs')
+        result['measurement_complete'] = True
+    return result
+
+
+def window_worker(group, store, life_reader, lock_descriptor, deadline_seconds, monitor,
+                  prepared_worker):
+    worker = None
+    result = {'reason': 'not_started', 'measurement_complete': False, 'evidence_complete': True,
+              'cancel_while_running': False, 'registered_cancel': False, 'errors': [], 'reaped': False}
+    try:
+        worker = spawn_window_worker(group, store, life_reader, lock_descriptor, prepared_worker)
+        prepared_worker = None
+        require(not worker['spawn_errors'], 'Worker parent descriptor close failed')
+        group.write('cgroup.procs', worker['pid'])
+        os.sched_setaffinity(worker['pid'], {2})
+        identity = {'pid': worker['pid'], 'start_ticks': start_ticks(worker['pid']),
+                    'cgroup': process_group(worker['pid']),
+                    'allowed_cpus': sorted(os.sched_getaffinity(worker['pid'])),
+                    'binary': worker['binary']}
+        require(identity['cgroup'] == '0::/' + group.name and identity['allowed_cpus'] == [2],
+                'Window worker did not remain gated in the probe')
+        store.save('probe-before-exec.json', identity)
+        store.save('worker-ready.json', identity)
+        require(wait_byte(life_reader, deadline_seconds, monitor) == b'W', 'Window release not received')
+        os.write(worker['gate'], b'A')
+        os.close(worker['gate'])
+        worker['gate'] = None
+        worker['released'] = True
+        released_at = time.monotonic()
+        store.save('worker-released.json', {'utc': utc_now(), 'pid': worker['pid'],
+                                           'released_monotonic_seconds': released_at})
+        worker_deadline = min(deadline_seconds, released_at + 12)
+        running_observed = False
+        while True:
+            ended_id, status_code = os.waitpid(worker['pid'], os.WNOHANG)
+            if ended_id:
+                worker['reaped'] = True
+                worker['exit_code'] = os.waitstatus_to_exitcode(status_code)
+                result['reason'] = 'worker_exited'
+                break
+            if time.monotonic() >= worker_deadline:
+                result['reason'] = 'worker_timeout'
+                break
+            monitor()
+            require(set(group.read('cgroup.procs').split()) <= {str(worker['pid'])},
+                    'Unknown process entered the window probe')
+            sizes = [os.fstat(worker[name + '_descriptor']).st_size for name in ('stdout', 'stderr')]
+            require(sum(sizes) <= WINDOW_CASE_LIMIT and all(size <= WINDOW_FILE_LIMIT for size in sizes),
+                    'Worker output budget exceeded')
+            require(sum(os.stat(name, dir_fd=store.descriptor, follow_symlinks=False).st_size
+                        for name in os.listdir(store.descriptor)) <= WINDOW_CASE_LIMIT,
+                    'Window case file budget exceeded')
+            if not running_observed:
+                executable = Path('/proc/' + str(worker['pid']) + '/exe')
+                try:
+                    metadata = executable.stat()
+                    running_observed = (metadata.st_ino == worker['binary']['inode'] and
+                                        metadata.st_dev == worker['binary']['device'] and
+                                        os.readlink(executable) == worker['binary']['path'])
+                except FileNotFoundError:
+                    pass
+                if running_observed:
+                    ended_id, status_code = os.waitpid(worker['pid'], os.WNOHANG)
+                    if ended_id:
+                        worker['reaped'] = True
+                        worker['exit_code'] = os.waitstatus_to_exitcode(status_code)
+                        result['reason'] = 'worker_exited'
+                        break
+                    store.save('worker-running.json', dict(identity, utc=utc_now(),
+                        released_monotonic_seconds=released_at, executable_observed=True,
+                        alive_at_check=True, running_check_monotonic_seconds=time.monotonic()))
+            if select.select([life_reader], [], [], 0.02)[0]:
+                instruction = os.read(life_reader, 1)
+                require(instruction in (b'R', b''), 'Unexpected running worker instruction')
+                ended_id, status_code = os.waitpid(worker['pid'], os.WNOHANG)
+                if ended_id:
+                    worker['reaped'] = True
+                    worker['exit_code'] = os.waitstatus_to_exitcode(status_code)
+                result['cancel_while_running'] = ended_id == 0 and worker['released']
+                result['registered_cancel'] = (result['cancel_while_running'] and running_observed and
+                                               time.monotonic() >= released_at + 0.25)
+                result['reason'] = 'controller_eof' if instruction == b'' else 'running_release'
+                break
+    except BaseException as error:
+        result['errors'].append(repr(error))
+        result['evidence_complete'] = False
+        result['reason'] = 'worker_error'
+    finally:
+        if prepared_worker is not None:
+            try:
+                os.close(prepared_worker[0])
+            except OSError:
+                pass
+        if worker is not None:
+            if worker['gate'] is not None:
+                try:
+                    os.close(worker['gate'])
+                except OSError as error:
+                    result['errors'].append(repr(error))
+                    result['evidence_complete'] = False
+                worker['gate'] = None
+            if not worker['reaped']:
+                try:
+                    os.kill(worker['pid'], signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                except OSError as error:
+                    result['errors'].append(repr(error))
+                    result['evidence_complete'] = False
+                try:
+                    status_code = wait_owned_child(worker['pid'], time.monotonic() + 2)
+                    worker['exit_code'] = os.waitstatus_to_exitcode(status_code)
+                    worker['reaped'] = True
+                except Exception as error:
+                    result['errors'].append(repr(error))
+            result.update({'pid': worker['pid'], 'reaped': worker['reaped'],
+                           'worker_exit_code': worker['exit_code']})
+            if worker['reaped']:
+                try:
+                    result.update(window_output_status(worker))
+                except Exception as error:
+                    result['errors'].append(repr(error))
+                    result['evidence_complete'] = False
+            if result['reason'] != 'worker_exited':
+                result['measurement_complete'] = False
+            result['data_role'] = 'complete' if result['measurement_complete'] else 'partial_or_unknown'
+            try:
+                store.save('worker-exit.json', dict(result, utc=utc_now()))
+            except Exception as error:
+                result['errors'].append(repr(error))
+                result['evidence_complete'] = False
+            for name in ('stdout', 'stderr'):
+                try:
+                    os.close(worker[name + '_descriptor'])
+                except OSError as error:
+                    result['errors'].append(repr(error))
+                    result['evidence_complete'] = False
+        else:
+            result['reaped'] = True
+            result['no_child_created'] = True
+    return result
+
+
+def guard(store, life_reader, lock_descriptor, token, fallback_inode,
+          frequency_mode=False, window_mode=False):
     deadline_seconds = time.monotonic() + 20
     os.setsid()
     signal.signal(signal.SIGHUP, signal.SIG_IGN)
@@ -499,6 +828,9 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
     reason = 'not_started'
     active = False
     frequency_state = None
+    worker_result = None
+    prepared_worker = None
+    restoration_errors = []
     try:
         store.save('guard.json', {'pid': os.getpid(), 'start_ticks': start_ticks(os.getpid()),
                                  'effective_uid': os.geteuid()})
@@ -528,6 +860,20 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
             frequency_state = {'baseline': frequency_baseline, 'sequence': 0, 'known_pairs': {
                 name: [[frequency_baseline['policies'][name][field]['value']
                         for field in FREQUENCY_MUTABLE]] for name in FREQUENCY_TARGETS}}
+            if window_mode:
+                plan = {'profile': 'window', 'state_path': str(store.path),
+                        'baseline_sha256': hashlib.sha256(json.dumps(
+                            frequency_baseline, sort_keys=True).encode()).hexdigest(),
+                        'original_values': {policy_name: {
+                            field: frequency_baseline['policies'][policy_name][field]['value']
+                            for field in FREQUENCY_MUTABLE} for policy_name in FREQUENCY_TARGETS}}
+                store.save('frequency-recovery-plan.json', plan)
+                frequency_state['recovery_plan'] = plan
+                frequency_state['evidence_complete'] = True
+                available = os.fstatvfs(store.descriptor)
+                require(available.f_bavail * available.f_frsize >= WINDOW_REQUIRED_FREE,
+                        'Cry disk reserve is below the window requirement')
+                prepared_worker = prepare_window_worker(store)
         guard_group = OwnedGroup('a113part-' + token + '-guard')
         store.save('guard-group.json', {'name': guard_group.name, 'inode': guard_group.inode})
         guard_group.write('cpuset.mems', '0')
@@ -571,7 +917,8 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
                 for field in FREQUENCY_MUTABLE:
                     expected_frequency['policies'][policy_name][field]['value'] = FREQUENCY_TARGET_KHZ
             require(frequency_snapshot() == expected_frequency, 'Active frequency request differs')
-        empty_probe(probe_group, store, min(deadline_seconds, time.monotonic() + 2))
+        if not window_mode:
+            empty_probe(probe_group, store, min(deadline_seconds, time.monotonic() + 2))
         active_frequency = frequency_snapshot() if frequency_mode else None
         if frequency_mode:
             require(active_frequency == expected_frequency, 'Frequency changed before active receipt')
@@ -581,12 +928,26 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
                                   'frequency': active_frequency,
                                   'hardware_frequency_qualified': False})
         active = True
-        received = wait_byte(life_reader, deadline_seconds, monitor)
-        require(received in (b'R', b''), 'Unexpected controller instruction')
-        reason = 'release' if received == b'R' else 'controller_eof'
+        if window_mode:
+            current_worker = prepared_worker
+            prepared_worker = None
+            worker_result = window_worker(probe_group, store, life_reader, lock_descriptor,
+                                          deadline_seconds, monitor, current_worker)
+            reason = worker_result['reason']
+            if reason == 'worker_exited':
+                received = wait_byte(life_reader, deadline_seconds, monitor)
+                require(received in (b'R', b''), 'Unexpected completed worker instruction')
+                reason = 'release' if received == b'R' else 'controller_eof'
+        else:
+            received = wait_byte(life_reader, deadline_seconds, monitor)
+            require(received in (b'R', b''), 'Unexpected controller instruction')
+            reason = 'release' if received == b'R' else 'controller_eof'
     except BaseException as error:
         errors.append({'step': 'guard', 'error': repr(error)})
     finally:
+        if prepared_worker is not None:
+            attempt(restoration_errors, 'close_prepared_worker', lambda: os.close(prepared_worker[0]))
+        cleanup_errors = restoration_errors if window_mode else errors
         if probe_group is not None:
             try:
                 require(not probe_group.read('cgroup.procs') and
@@ -596,15 +957,17 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
                     require(guard_group.read('cgroup.procs').split() == [str(os.getpid())] and
                             not any(child.is_dir() for child in guard_group.path.iterdir()),
                             'Unknown guard member or child prevents frequency restoration')
+                if window_mode and worker_result is not None:
+                    require(worker_result['reaped'], 'Window worker has not been reaped')
             except Exception as error:
-                errors.append({'step': 'probe_empty_check', 'error': repr(error)})
+                cleanup_errors.append({'step': 'probe_empty_check', 'error': repr(error)})
             else:
                 if frequency_state is not None:
-                    frequency_restore(store, frequency_state, errors, time.monotonic() + 6)
-                attempt(errors, 'release_probe', lambda: probe_group.write('cpuset.cpus.partition', 'member'))
-                attempt(errors, 'remove_probe', probe_group.remove)
+                    frequency_restore(store, frequency_state, cleanup_errors, time.monotonic() + 6)
+                attempt(cleanup_errors, 'release_probe', lambda: probe_group.write('cpuset.cpus.partition', 'member'))
+                attempt(cleanup_errors, 'remove_probe', probe_group.remove)
         elif frequency_state is not None:
-            attempt(errors, 'frequency_without_probe', lambda: require(
+            attempt(cleanup_errors, 'frequency_without_probe', lambda: require(
                 frequency_state['sequence'] == 0, 'Frequency write without an owned probe'))
         if guard_group is not None:
             def return_guard():
@@ -612,18 +975,34 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
                 require(fallback.stat().st_ino == fallback_inode, 'Fallback inode differs')
                 (fallback / 'cgroup.procs').write_text(str(os.getpid()) + '\n')
                 require(process_group(os.getpid()) == '0::/init.scope', 'Guard return failed')
-            attempt(errors, 'return_guard', return_guard)
-            attempt(errors, 'remove_guard', guard_group.remove)
+            attempt(cleanup_errors, 'return_guard', return_guard)
+            attempt(cleanup_errors, 'remove_guard', guard_group.remove)
         restored = None
         try:
             restored = snapshot()
             baseline = store.load('baseline.json')
             require(restored['top_names'] == baseline['top_names'], 'Top groups differ after restore')
         except Exception as error:
-            errors.append({'step': 'final_readback', 'error': repr(error)})
+            cleanup_errors.append({'step': 'final_readback', 'error': repr(error)})
+        restoration_visible = active and not cleanup_errors and (not window_mode or (
+            worker_result is not None and worker_result['reaped'] and
+            frequency_state is not None and frequency_state.get('restoration_visible', False)))
+        evidence_complete = not errors and (worker_result is None or worker_result['evidence_complete']) and (
+            frequency_state is None or frequency_state.get('evidence_complete', True))
+        measurement_complete = bool(worker_result and worker_result['measurement_complete'])
+        window_passed = bool(worker_result and (measurement_complete if reason == 'release' else (
+            reason == 'controller_eof' and worker_result['cancel_while_running'] and
+            worker_result['registered_cancel'] and
+            worker_result['worker_exit_code'] == -signal.SIGKILL)))
         outcome = {'utc': utc_now(), 'pid': os.getpid(), 'active_observed': active,
                    'reason': reason, 'errors': errors, 'restored': restored,
-                   'success': active and not errors}
+                   'restoration_errors': restoration_errors,
+                   'restoration_visible': restoration_visible,
+                   'evidence_complete': evidence_complete,
+                   'measurement_complete': measurement_complete,
+                   'worker': worker_result,
+                   'success': (restoration_visible and evidence_complete and window_passed)
+                   if window_mode else active and not errors}
         try:
             store.save('terminal.json', outcome)
         except Exception:
@@ -633,7 +1012,8 @@ def guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_
     os._exit(0 if outcome['success'] else 1)
 
 
-def controller(store, lock_descriptor, token, fallback_inode, frequency_mode=False):
+def controller(store, lock_descriptor, token, fallback_inode,
+               frequency_mode=False, window_mode=False):
     signal.signal(signal.SIGCHLD, signal.SIG_DFL)
     store.save('controller.json', {'pid': os.getpid(), 'start_ticks': start_ticks(os.getpid())})
     life_reader, life_writer = os.pipe()
@@ -641,7 +1021,7 @@ def controller(store, lock_descriptor, token, fallback_inode, frequency_mode=Fal
     if guard_id == 0:
         os.close(life_writer)
         try:
-            guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_mode)
+            guard(store, life_reader, lock_descriptor, token, fallback_inode, frequency_mode, window_mode)
         except BaseException:
             os._exit(2)
     os.close(life_reader)
@@ -649,7 +1029,7 @@ def controller(store, lock_descriptor, token, fallback_inode, frequency_mode=Fal
     try:
         while True:
             instruction = os.read(0, 1)
-            if instruction not in (b'A', b'R'):
+            if instruction not in ((b'A', b'W', b'R') if window_mode else (b'A', b'R')):
                 break
             os.write(life_writer, instruction)
             if instruction == b'R':
@@ -675,6 +1055,7 @@ def frozen_command(arguments):
     source_text = globals().get('SOURCE_TEXT')
     require(source_text is not None, 'Root execution requires frozen in-memory source')
     bootstrap = 'SOURCE_TEXT=' + repr(source_text) + ';exec(compile(SOURCE_TEXT,"frozen_partition.py","exec"))'
+    require(len(bootstrap.encode()) + 1 < 128 * 1024, 'Frozen controller source exceeds one Linux argument')
     return [sys.executable, '-I', '-B', '-c', bootstrap] + arguments
 
 
@@ -690,7 +1071,8 @@ def lock_root(work_directory):
     return descriptor
 
 
-def run_case(run_store, mode, lock_descriptor, fallback_inode, frequency_mode=False):
+def run_case(run_store, mode, lock_descriptor, fallback_inode,
+             frequency_mode=False, window_mode=False):
     path = run_store.path / mode
     os.mkdir(mode, 0o700, dir_fd=run_store.descriptor)
     store = Store(path)
@@ -698,12 +1080,13 @@ def run_case(run_store, mode, lock_descriptor, fallback_inode, frequency_mode=Fa
     controller_log = store.open_file('controller.log', os.O_WRONLY | os.O_CREAT | os.O_EXCL)
     process = subprocess.Popen(frozen_command(['controller', str(path), str(store.descriptor),
                                str(lock_descriptor), token, str(fallback_inode),
-                               'frequency' if frequency_mode else 'partition']),
+                               'window' if window_mode else 'frequency' if frequency_mode else 'partition']),
                                stdin=subprocess.PIPE, stdout=controller_log, stderr=controller_log,
                                pass_fds=(store.descriptor, lock_descriptor))
     os.close(controller_log)
     guard_descriptor = None
     guard_identity = None
+    worker_descriptor = None
     try:
         guard_identity = wait_record(store, 'guard.json')
         guard_descriptor = os.pidfd_open(guard_identity['pid'])
@@ -713,30 +1096,83 @@ def run_case(run_store, mode, lock_descriptor, fallback_inode, frequency_mode=Fa
         process.stdin.write(b'A')
         process.stdin.flush()
         wait_record(store, 'active.json', guard_descriptor)
+        if window_mode:
+            worker_identity = wait_record(store, 'worker-ready.json', guard_descriptor)
+            worker_descriptor = os.pidfd_open(worker_identity['pid'])
+            require(start_ticks(worker_identity['pid']) == worker_identity['start_ticks'] and
+                    not select.select([worker_descriptor], [], [], 0)[0] and
+                    process_group(worker_identity['pid']) == '0::/a113part-' + token + '-probe' and
+                    os.sched_getaffinity(worker_identity['pid']) == {2}, 'Gated worker identity differs')
+            store.save('observer-worker.json', {'identity': worker_identity,
+                       'pidfd_opened_before_release': True})
+            process.stdin.write(b'W')
+            process.stdin.flush()
+            running = wait_record(store, 'worker-running.json', guard_descriptor)
+            require(running['pid'] == worker_identity['pid'] and
+                    running['start_ticks'] == worker_identity['start_ticks'] and running['alive_at_check'],
+                    'Running worker identity differs')
         if mode == 'normal':
+            if window_mode:
+                worker_exit = wait_record(store, 'worker-exit.json', guard_descriptor)
+                require(worker_exit['reaped'] and select.select([worker_descriptor], [], [], 0)[0],
+                        'Worker exit was not observed before release')
             process.stdin.write(b'R')
             process.stdin.flush()
         else:
+            if window_mode:
+                while time.monotonic() < running['released_monotonic_seconds'] + 0.25:
+                    require(not select.select([worker_descriptor, guard_descriptor], [], [], 0.02)[0],
+                            'Worker or guard ended before registered cancellation')
+                executable = Path('/proc/' + str(worker_identity['pid']) + '/exe')
+                metadata = executable.stat()
+                require(start_ticks(worker_identity['pid']) == worker_identity['start_ticks'] and
+                        process_group(worker_identity['pid']) == '0::/a113part-' + token + '-probe' and
+                        os.sched_getaffinity(worker_identity['pid']) == {2} and
+                        metadata.st_ino == worker_identity['binary']['inode'] and
+                        metadata.st_dev == worker_identity['binary']['device'],
+                        'Worker changed before cancellation')
+                store.save('observer-cancel.json', {'utc': utc_now(), 'identity': worker_identity,
+                           'check_monotonic_seconds': time.monotonic(), 'minimum_release_age_seconds': 0.25})
+                require(not select.select([worker_descriptor], [], [], 0)[0],
+                        'Worker ended before controller SIGKILL')
             require(process.poll() is None, 'Controller already ended')
             process.kill()
         process.stdin.close()
         require(select.select([guard_descriptor], [], [], 35)[0], 'Guard still live; do not restart')
         exit_code = process.wait(timeout=3)
         expected_code = 0 if mode == 'normal' else -signal.SIGKILL
-        require(exit_code == expected_code, 'Controller exit differs')
-        terminal = store.load('terminal.json')
-        require(terminal['success'] and terminal['reason'] ==
-                ('release' if mode == 'normal' else 'controller_eof'), 'Restoration did not pass')
+        if not window_mode:
+            require(exit_code == expected_code, 'Controller exit differs')
+        terminal = store.load('terminal.json') if store.has('terminal.json') else None
+        worker_exit_observed = False
+        if window_mode:
+            worker_exit_observed = bool(select.select([worker_descriptor], [], [], 0)[0])
+            require(worker_exit_observed, 'Window worker remained live after guard exit')
+        if not window_mode:
+            require(terminal['success'] and terminal['reason'] ==
+                    ('release' if mode == 'normal' else 'controller_eof'), 'Restoration did not pass')
         final = snapshot()
         require(final['top_names'] == store.load('baseline.json')['top_names'], 'Independent readback differs')
         frequency_final = frequency_snapshot() if frequency_mode else None
         if frequency_mode:
             require(frequency_final == store.load('frequency-baseline.json'),
                     'Independent frequency readback differs')
+        case_success = bool(terminal and terminal['success'] and exit_code == expected_code and (
+            not window_mode or (terminal['worker'] is not None and
+                terminal['worker']['pid'] == worker_identity['pid'] and terminal['worker']['reaped'])))
         store.save('observer.json', {'utc': utc_now(), 'guard_pidfd_exit_observed': True,
                                     'controller_exit_code': exit_code, 'readback': final,
                                     'frequency_readback': frequency_final,
-                                    'hardware_frequency_qualified': False, 'success': True})
+                                    'terminal': terminal, 'window_mode': window_mode,
+                                    'worker_pidfd_exit_observed': worker_exit_observed,
+                                    'restoration_visible': True,
+                                    'hardware_frequency_qualified': False,
+                                    'success': case_success if window_mode else True})
+        if window_mode:
+            require(case_success and terminal is not None and terminal['success'] and
+                    terminal['restoration_visible'] and terminal['evidence_complete'] and
+                    terminal['reason'] == ('release' if mode == 'normal' else 'controller_eof'),
+                    'Window case incomplete; independent resource readback is retained')
     finally:
         if not process.stdin.closed:
             try:
@@ -749,6 +1185,8 @@ def run_case(run_store, mode, lock_descriptor, fallback_inode, frequency_mode=Fa
                        'guard_exit_observed': exited, 'artifact_role':
                        'terminal_snapshot' if exited else 'partial_snapshot_live_guard'})
             os.close(guard_descriptor)
+        if worker_descriptor is not None:
+            os.close(worker_descriptor)
         os.close(store.descriptor)
 
 
@@ -763,6 +1201,10 @@ def archive_run(store, work_directory):
             if not directory.exists():
                 continue
             current = Store(directory)
+            if store.path.name.startswith('core-window-') and directory != store.path:
+                require(sum(os.stat(name, dir_fd=current.descriptor, follow_symlinks=False).st_size
+                            for name in os.listdir(current.descriptor)) <= WINDOW_CASE_LIMIT,
+                        'Window case exceeds archive budget')
             for name in sorted(os.listdir(current.descriptor)):
                 metadata = os.stat(name, dir_fd=current.descriptor, follow_symlinks=False)
                 if stat.S_ISDIR(metadata.st_mode):
@@ -782,12 +1224,18 @@ def archive_run(store, work_directory):
     return target
 
 
-def run(frequency_mode=False):
+def run(frequency_mode=False, window_mode=False):
     signal.signal(signal.SIGCHLD, signal.SIG_DFL)
     fallback_inode = root_gate()
     work_directory = work_descriptor()
+    if window_mode:
+        require(frequency_mode and os.execve in os.supports_fd and
+                re.fullmatch(r'[0-9a-f]{64}', WINDOW_WORKER_SHA256 or ''),
+                'Window execution requires a frozen native worker and descriptor exec')
+        available = os.fstatvfs(work_directory)
+        require(available.f_bavail * available.f_frsize >= WINDOW_REQUIRED_FREE, 'Cry disk reserve too small')
     lock_descriptor = lock_root(work_directory)
-    prefix = 'core-frequency' if frequency_mode else 'core-partition'
+    prefix = 'core-window' if window_mode else 'core-frequency' if frequency_mode else 'core-partition'
     path = WORK_ROOT / (prefix + '-20261010-' + os.urandom(6).hex())
     check_work(work_directory)
     os.mkdir(path.name, mode=0o700, dir_fd=work_directory)
@@ -797,7 +1245,7 @@ def run(frequency_mode=False):
         store.save('source.json', {'sha256': hashlib.sha256(SOURCE_TEXT.encode()).hexdigest(),
                                   'source': SOURCE_TEXT, 'utc': utc_now()})
         for mode in ('normal', 'parent-loss'):
-            run_case(store, mode, lock_descriptor, fallback_inode, frequency_mode)
+            run_case(store, mode, lock_descriptor, fallback_inode, frequency_mode, window_mode)
     except Exception as error:
         errors.append(repr(error))
     store.save('run.json', {'success': not errors, 'errors': errors, 'utc': utc_now(),
@@ -820,12 +1268,15 @@ def recover(path):
     store = Store(path)
     require(store.path.name in ('normal', 'parent-loss') and
             store.path.parent.parent == WORK_ROOT and
-            re.fullmatch(r'core-(partition|frequency)-20261010-[0-9a-f]{12}', store.path.parent.name),
+            re.fullmatch(r'core-(partition|frequency|window)-20261010-[0-9a-f]{12}', store.path.parent.name),
             'Recovery path is not a known case')
     errors = []
     token = store.path.parent.name.rsplit('-', 1)[1] + '-' + store.path.name
     expected_names = ['a113part-' + token + suffix for suffix in ('-probe', '-guard')]
     try:
+        if store.path.parent.name.startswith('core-window-'):
+            require(store.has('probe-before-exec.json') or not store.has('active.json'),
+                    'Window worker identity is uncertain; manual recovery refuses')
         for name in ('guard.json', 'controller.json', 'probe-before-exec.json'):
             if name == 'probe-before-exec.json' and not store.has(name):
                 continue
@@ -853,7 +1304,7 @@ def recover(path):
                     not any(child.is_dir() for child in group.path.iterdir()),
                     'Manual recovery refuses unknown members or child groups')
             owned_groups.append((name, group))
-        if store.path.parent.name.startswith('core-frequency-'):
+        if store.path.parent.name.startswith(('core-frequency-', 'core-window-')):
             if store.has('frequency-baseline.json'):
                 frequency_restore(store, None, errors, time.monotonic() + 6)
             else:
@@ -883,6 +1334,15 @@ def selfcheck(directory):
     from unittest.mock import patch
     from types import SimpleNamespace
     require(Path(directory).is_absolute(), 'Selfcheck requires an explicit absolute build root')
+    with patch.dict(globals(), {'SOURCE_TEXT': "print('benign')\n"}):
+        require(frozen_command([])[1:3] == ['-I', '-B'], 'Frozen controller lost isolated flags')
+    with patch.dict(globals(), {'SOURCE_TEXT': '文' * 50000}):
+        try:
+            frozen_command([])
+        except RuntimeError:
+            pass
+        else:
+            raise AssertionError('Oversized UTF-8 controller argument accepted')
     require(cpu_set(HOUSEKEEPING_TEXT) == HOUSEKEEPING_CPUS, 'CPU parser mismatch')
     require(cpu_set('2,18\n') == PROBE_CPUS and cpu_set('\n') == set(), 'Kernel newline rejected')
     for bad in ('32', '-1', '3-2', '2-3-4', '2;id', '2,,18', '2,'):
@@ -967,7 +1427,8 @@ def selfcheck(directory):
                 continue
             raise AssertionError('Owned probe child not reaped')
     for frequency_case in ('partial', 'pending_invisible', 'pending_cancel_failure',
-                           'restore_failure', 'unknown'):
+                           'restore_failure', 'unknown', 'storage_dirty', 'storage_visible',
+                           'storage_published_dirty'):
         baseline = {'global': {'status': {'value': 'active'}},
                     'cpu_links': {'2': 'policy2', '18': 'policy18'},
                     'policy_names': list(FREQUENCY_POLICIES), 'policies': {}}
@@ -987,9 +1448,17 @@ def selfcheck(directory):
 
         def save_frequency_record(name, value):
             require(name not in records, 'Frequency receipt overwritten')
+            failure = control.get('storage_failure')
+            if failure and name.startswith('frequency-' + failure.replace('published_', '') + '-'):
+                control['storage_failure'] = None
+                if failure == 'published_dirty':
+                    records[name] = json.loads(json.dumps(value))
+                raise OSError(control.get('storage_errno', errno.ENOSPC), 'injected recovery allocation failure')
             records[name] = json.loads(json.dumps(value))
 
-        fake_store = SimpleNamespace(descriptor=98765, save=save_frequency_record,
+        fake_store = SimpleNamespace(descriptor=98765,
+                                     path=WORK_ROOT/'core-window-20261010-000000000000'/'normal',
+                                     save=save_frequency_record,
                                      has=lambda name: name in records,
                                      load=lambda name: json.loads(json.dumps(records[name])))
 
@@ -1027,8 +1496,10 @@ def selfcheck(directory):
             latest_name = max(name for name in records if re.fullmatch(
                 r'frequency-dirty-[0-9]{4}\.json', name))
             latest = records[latest_name]
-            require(latest['policy_name'] == name and latest['field'] == field,
-                    'Write preceded durable intent')
+            if not (latest['policy_name'] == name and latest['field'] == field):
+                require('recovery_plan' in state and state.get('evidence_complete') is False and
+                        value == baseline['policies'][name][field]['value'],
+                        'Write preceded neither durable intent nor fixed recovery plan')
             control['writes'].append((name, field, value))
             if control['fail'] == (name, field):
                 control['fail'] = None
@@ -1084,9 +1555,63 @@ def selfcheck(directory):
                                          FREQUENCY_TARGET_KHZ, time.monotonic()+1)
                 if frequency_case == 'restore_failure':
                     control['fail'] = ('policy2', 'scaling_min_freq')
-                else:
+                elif frequency_case == 'unknown':
                     virtual['policies']['policy2']['scaling_min_freq']['value'] = '4000000'
                     virtual['policies']['policy3']['scaling_max_freq']['value'] = '5700000'
+                elif frequency_case.startswith('storage_'):
+                    plan = {'profile': 'window', 'state_path': str(fake_store.path),
+                            'baseline_sha256': hashlib.sha256(json.dumps(baseline, sort_keys=True).encode()).hexdigest(),
+                            'original_values': {policy_name: {
+                                field: baseline['policies'][policy_name][field]['value']
+                                for field in FREQUENCY_MUTABLE} for policy_name in FREQUENCY_TARGETS}}
+                    records['frequency-recovery-plan.json'] = plan
+                    state['recovery_plan'] = plan
+                    state['evidence_complete'] = True
+                    original_plan = json.loads(json.dumps(plan))
+                    for wrong_plan in ('path', 'profile'):
+                        bad_plan = json.loads(json.dumps(original_plan))
+                        bad_plan['state_path' if wrong_plan == 'path' else 'profile'] = 'incorrect'
+                        records['frequency-recovery-plan.json'] = bad_plan
+                        state['recovery_plan'] = bad_plan
+                        control['storage_failure'] = 'dirty'
+                        prior_write_count = len(control['writes'])
+                        try:
+                            frequency_change(fake_store, state, 'policy2', 'scaling_min_freq',
+                                             '2982259', time.monotonic()+1, restoring=True)
+                        except RuntimeError:
+                            pass
+                        else:
+                            raise AssertionError('Wrong recovery plan authorized a fallback write')
+                        require(len(control['writes']) == prior_write_count, 'Invalid plan reached a write')
+                    records['frequency-recovery-plan.json'] = original_plan
+                    state['recovery_plan'] = original_plan
+                    for storage_errno in (errno.EACCES, errno.EIO):
+                        control['storage_failure'] = 'dirty'
+                        control['storage_errno'] = storage_errno
+                        prior_write_count = len(control['writes'])
+                        try:
+                            frequency_change(fake_store, state, 'policy2', 'scaling_min_freq',
+                                             '2982259', time.monotonic()+1, restoring=True)
+                        except OSError as error:
+                            require(error.errno == storage_errno, 'Storage error was changed')
+                        else:
+                            raise AssertionError('Non-allocation failure used the recovery exception')
+                        require(len(control['writes']) == prior_write_count, 'Invalid storage fallback wrote')
+                    control['storage_errno'] = errno.ENOSPC
+                    original_pair = [virtual['policies']['policy2'][field]['value'] for field in FREQUENCY_MUTABLE]
+                    for field in FREQUENCY_MUTABLE:
+                        virtual['policies']['policy2'][field]['value'] = baseline['policies']['policy2'][field]['value']
+                    control['storage_failure'] = 'dirty'
+                    try:
+                        frequency_change(fake_store, state, 'policy2', 'scaling_min_freq',
+                                         FREQUENCY_TARGET_KHZ, time.monotonic()+1)
+                    except OSError as error:
+                        require(error.errno == errno.ENOSPC, 'Apply storage error was changed')
+                    else:
+                        raise AssertionError('Apply used the original-value recovery exception')
+                    for field_index, field in enumerate(FREQUENCY_MUTABLE):
+                        virtual['policies']['policy2'][field]['value'] = original_pair[field_index]
+                    control['storage_failure'] = frequency_case.removeprefix('storage_')
             errors = []
             frequency_restore(fake_store, state, errors, time.monotonic()+6)
             require(virtual['policies']['policy18'] == baseline['policies']['policy18'],
@@ -1120,12 +1645,135 @@ def selfcheck(directory):
                 errors = []
                 frequency_restore(fake_store, None, errors, time.monotonic()+6)
                 require(not errors and virtual == baseline, 'Pending manual cancellation failed')
-            else:
+            elif frequency_case == 'unknown':
                 require(errors and virtual['policies']['policy2']['scaling_min_freq']['value'] == '4000000' and
                         virtual['policies']['policy3']['scaling_max_freq']['value'] == '5700000',
                         'Unknown or non-target frequency state overwritten')
+            else:
+                require(not errors and virtual == baseline and state['restoration_visible'] and
+                        state['evidence_complete'] is False, 'Allocation failure blocked original-value recovery')
+                frequency_restore(fake_store, None, errors, time.monotonic()+6)
+                require(not errors and virtual == baseline, 'Recovery plan could not reconstruct a missing intent')
             require(control['snapshot_count'] > len(control['writes']), 'Async readback not exercised')
-    print('selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset,frequency_partial,frequency_async,frequency_scope,frequency_conflict,frequency_continue,frequency_manual_repeat,frequency_pending_superseded,frequency_cancel_failure; kernel_writes=none')
+
+    for window_case in ('normal', 'eof', 'registered_eof', 'release', 'timeout', 'failure', 'receipt', 'output'):
+        with tempfile.TemporaryDirectory(dir=directory, prefix='window-selfcheck-') as temporary:
+            test_store = object.__new__(Store)
+            test_store.path = Path(temporary)
+            test_store.descriptor = os.open(temporary, os.O_RDONLY | os.O_DIRECTORY)
+            test_store.check = lambda: None
+            test_store.open_file = lambda name, flags: os.open(name, flags, 0o600,
+                                                               dir_fd=test_store.descriptor)
+            real_save = test_store.save
+            def save_window_record(name, value):
+                if window_case == 'receipt' and name == 'worker-released.json':
+                    raise OSError(errno.ENOSPC, 'injected worker receipt failure')
+                real_save(name, value)
+            test_store.save = save_window_record
+            reader, writer = os.pipe()
+            os.write(writer, b'WR' if window_case == 'release' else b'W')
+            if window_case == 'eof':
+                os.close(writer)
+                writer = None
+            control = {'worker': None}
+            fake_group = SimpleNamespace(name='a113part-window-selfcheck-probe')
+            def move_window_child(name, process_id):
+                require(name == 'cgroup.procs' and os.waitpid(process_id, os.WNOHANG)[0] == 0,
+                        'Window test child escaped gate')
+            fake_group.write = move_window_child
+            fake_group.read = lambda name: str(control['worker']['pid'])
+            def spawn_benign_window(group, store, life_reader, lock_descriptor, prepared_worker):
+                stdout_descriptor = store.open_file('worker.stdout.jsonl', os.O_RDWR | os.O_CREAT | os.O_EXCL)
+                stderr_descriptor = store.open_file('worker.stderr.log', os.O_RDWR | os.O_CREAT | os.O_EXCL)
+                read_gate, write_gate = os.pipe()
+                child_id = os.fork()
+                if child_id == 0:
+                    os.close(write_gate)
+                    os.close(life_reader)
+                    if writer is not None:
+                        os.close(writer)
+                    os.close(store.descriptor)
+                    try:
+                        if os.read(read_gate, 1) != b'A':
+                            os._exit(3)
+                        select.select([], [], [], 0.03 if window_case in ('normal', 'failure') else 4)
+                        if window_case == 'failure':
+                            os._exit(7)
+                        contents = (json.dumps({'type': 'contract', 'implementation': 'reference',
+                            'warmup_target_ns': '1000000000', 'main_target_ns': '4000000000'}) + '\n' +
+                            json.dumps({'type': 'summary', 'status': 'completed', 'valid_final_snapshot': True}) + '\n')
+                        os.write(stdout_descriptor, contents.encode())
+                        os._exit(0)
+                    except BaseException:
+                        os._exit(8)
+                os.close(read_gate)
+                worker = {'pid': child_id, 'gate': write_gate, 'stdout_descriptor': stdout_descriptor,
+                          'stderr_descriptor': stderr_descriptor,
+                          'binary': {'path': '/benign-selfcheck', 'inode': 7, 'device': 42},
+                          'reaped': False, 'released': False, 'exit_code': None, 'spawn_errors': []}
+                control['worker'] = worker
+                return worker
+            original_stat = Path.stat
+            original_readlink = os.readlink
+            original_fstat = os.fstat
+            def window_stat(path, *arguments, **keywords):
+                if str(path).startswith('/proc/') and str(path).endswith('/exe'):
+                    return SimpleNamespace(st_ino=7, st_dev=42)
+                return original_stat(path, *arguments, **keywords)
+            def window_readlink(path, *arguments, **keywords):
+                if str(path).startswith('/proc/') and str(path).endswith('/exe'):
+                    return '/benign-selfcheck'
+                return original_readlink(path, *arguments, **keywords)
+            def window_fstat(descriptor):
+                worker = control['worker']
+                if window_case == 'output' and worker is not None and worker['released'] and descriptor == worker['stdout_descriptor']:
+                    return SimpleNamespace(st_size=WINDOW_FILE_LIMIT + 1)
+                return original_fstat(descriptor)
+            def benign_monitor():
+                nonlocal writer
+                if window_case == 'registered_eof' and control['worker']['released'] and writer is not None:
+                    released = test_store.load('worker-released.json')['released_monotonic_seconds']
+                    if time.monotonic() >= released + 0.26:
+                        os.close(writer)
+                        writer = None
+            with patch.object(sys.modules[__name__], 'spawn_window_worker', spawn_benign_window), \
+                    patch.object(sys.modules[__name__], 'start_ticks', lambda process_id: 123), \
+                    patch.object(sys.modules[__name__], 'process_group', lambda process_id: '0::/' + fake_group.name), \
+                    patch.object(os, 'sched_setaffinity', lambda *arguments: None, create=True), \
+                    patch.object(os, 'sched_getaffinity', lambda process_id: {2}, create=True), \
+                    patch.object(Path, 'stat', window_stat), \
+                    patch.object(os, 'readlink', window_readlink), \
+                    patch.object(os, 'fstat', window_fstat):
+                result = window_worker(fake_group, test_store, reader, -1,
+                                       time.monotonic() + (0.06 if window_case == 'timeout' else 2),
+                                       benign_monitor, None)
+            require(result['reaped'], 'Benign window worker was not reaped')
+            try:
+                os.waitpid(result['pid'], os.WNOHANG)
+            except ChildProcessError:
+                pass
+            else:
+                raise AssertionError('Benign worker remained an unreaped child')
+            if window_case == 'normal':
+                require(result['measurement_complete'] and result['worker_exit_code'] == 0,
+                        'Benign normal window did not complete')
+            else:
+                require(not result['measurement_complete'], 'Cancelled or failed worker signed complete')
+            if window_case in ('eof', 'registered_eof', 'release', 'timeout', 'receipt', 'output'):
+                require(result['worker_exit_code'] == -signal.SIGKILL,
+                        'Cancelled benign worker was not killed and reaped')
+            if window_case == 'registered_eof':
+                require(result['reason'] == 'controller_eof' and result['cancel_while_running'] and
+                        result['registered_cancel'], 'Registered live-worker cancellation not exercised')
+            elif window_case == 'eof':
+                require(not result['registered_cancel'], 'Early EOF signed a registered cancellation')
+            if window_case in ('receipt', 'output'):
+                require(not result['evidence_complete'], 'Failed worker output/receipt signed complete')
+            os.close(reader)
+            if writer is not None:
+                os.close(writer)
+            os.close(test_store.descriptor)
+    print('selfcheck=pass; cpu_parser,cleanup_continuation,pipe_eof,wrong_inode,atomic_receipt,probe_gate,failure_reap,sigchld_reset,frequency_partial,frequency_async,frequency_scope,frequency_conflict,frequency_continue,frequency_manual_repeat,frequency_pending_superseded,frequency_cancel_failure,frequency_storage,window_normal,window_eof,window_registered_eof,window_release,window_timeout,window_failure,window_receipt,window_output; kernel_writes=none; crypto_workload=none')
 
 
 if __name__ == '__main__':
@@ -1135,11 +1783,13 @@ if __name__ == '__main__':
         raise SystemExit(run())
     elif sys.argv[1:] == ['run-frequency']:
         raise SystemExit(run(frequency_mode=True))
+    elif sys.argv[1:] == ['run-window']:
+        raise SystemExit(run(frequency_mode=True, window_mode=True))
     elif len(sys.argv) == 8 and sys.argv[1] == 'controller':
-        require(sys.argv[7] in ('partition', 'frequency'), 'Unknown controller mode')
+        require(sys.argv[7] in ('partition', 'frequency', 'window'), 'Unknown controller mode')
         case_store = Store(sys.argv[2], int(sys.argv[3]))
         raise SystemExit(controller(case_store, int(sys.argv[4]), sys.argv[5], int(sys.argv[6]),
-                                    sys.argv[7] == 'frequency'))
+                                    sys.argv[7] in ('frequency', 'window'), sys.argv[7] == 'window'))
     elif len(sys.argv) == 3 and sys.argv[1] == 'recover':
         raise SystemExit(recover(sys.argv[2]))
     else:
