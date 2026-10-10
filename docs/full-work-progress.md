@@ -348,3 +348,7 @@ G1只签收原请求明确重发与可见恢复，不证明隐藏QoS逐位原状
 
 2026-10-10完成[G2长worker与分析冻结准备](evidence/frequency-window-20261010/g2-preparation/README.md)：管理0ba4cd7/8616源，固定c0e普通ELF；新增W门、双pidfd、运行中注册EOF/回收及原值恢复例外。Mac/Linux管理各1/1含25边界分组；独立源码和指定ELF实际指令复核通过。
 C11分析dd67390/5c028a在真实数据前固定完整schema、整数入带、首straddle和盲区并集规则，Mac/Linux普通与ASan各1/1；完整手算fixture的4秒gap明确no。Linux八步骤0、609成员/608载荷/六Git源及两ELF独立核对；root只读权限/namespace预检通过，全部云端文件在Cry。实际两个case均尚未运行，R02/R04及完整目标不升级。
+
+2026-10-10完成[G2实际窗口、注册取消与恢复](research/aris-frequency-window-20261010/RESULTS.md)：固定0ba4cd7/8616管理源及c0e/023f普通ELF，两case各一次无重跑。normal0保存126528调用／251快照／1977检查点；parent-loss运行中0.255407秒注册取消、controller与worker均-9且回收，0字节输出保持未知。
+实际87原件/TAR7c902223全字节及root post独立核对通过，六原PID不存在、32策略/global等基线、CPU0—31归还／隔离空／组删／锁释放，SSH已关闭，云端全部在Cry。C固定dd67390/5c028a离线原值分析和不同代理全量整数核对均通过：200个CPU2主pair全部工程达标，首straddle不剔除但不计纯覆盖，几何覆盖3981985286/4002203951ns=99.4948%，其余缺口精确守恒；CPU18全为宽context区间。
+结果图矢量PDF/300dpiPNG经独立目视复核，图注保留单进程、非CI／非时间线／非点态恒频限制。窄工程主张yes，完整研究partial，外部Codex仍pending；R02/R04不升级。47页报告与887项匿名包仍为前一版，尚未整合G2新结果；旧KVM可信身份核验迁移、真实画面及本人材料仍待，完整目标继续。

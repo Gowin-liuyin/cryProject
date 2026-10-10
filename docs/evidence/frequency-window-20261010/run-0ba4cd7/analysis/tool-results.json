@@ -1,0 +1,22 @@
+{
+  "normal": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "2ffd44",
+      "wall_time_seconds": 0.000005834,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "parent_loss": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "0369bc",
+      "wall_time_seconds": 0.000004958,
+      "exit_code": 1,
+      "original_token_count": 0,
+      "output": ""
+    }
+  }
+}

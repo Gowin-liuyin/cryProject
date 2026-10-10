@@ -1,0 +1,29 @@
+{
+  "analyzer_source_commit": "dd67390f1e41d76624bf3a8854feacacfb8d1f85",
+  "analyzer_c_sha256": "5c028abf419df5b5459c167469f44724faba12542b446799c5c5fc6b02d5a9f4",
+  "analyzer_binary_sha256": "7b583f56c6fe32836d7ec18cb6987b101eb74f0f20572899cbfd58b472b81842",
+  "analysis_machine": "arm64",
+  "analysis_system": "Darwin",
+  "input_role": "original_linux_x86_64_measurement_analyzed_offline",
+  "normal_expected_exit": 0,
+  "parent_loss_expected_exit": 1,
+  "parent_loss_role": "partial_or_unknown_not_a_zero_call_measurement",
+  "files": {
+    "normal-windows.csv": {
+      "bytes": 105661,
+      "sha256": "9927e729dc3ccb64d8dbf658eea396d9e5258c80aecdf20b243395991a948a06"
+    },
+    "normal-summary.json": {
+      "bytes": 1355,
+      "sha256": "6f37ab32330c267898b6ff7e9f5ad2b326e9a0ecdde4164a50e69454dda4f518"
+    },
+    "parent-loss-windows.csv": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "parent-loss-summary.json": {
+      "bytes": 165,
+      "sha256": "08550731ca7ab0bc91aff7925b13b3ae0314d8be7fbf2529ba5e48b4ae1728c0"
+    }
+  }
+}

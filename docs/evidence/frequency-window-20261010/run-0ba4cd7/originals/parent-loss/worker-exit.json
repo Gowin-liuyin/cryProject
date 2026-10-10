@@ -1,0 +1,23 @@
+{
+  "reason": "controller_eof",
+  "measurement_complete": false,
+  "evidence_complete": true,
+  "cancel_while_running": true,
+  "registered_cancel": true,
+  "errors": [],
+  "reaped": true,
+  "pid": 3666414,
+  "worker_exit_code": -9,
+  "outputs": {
+    "stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "data_role": "partial_or_unknown",
+  "utc": "2026-10-10T00:22:34.904649+00:00"
+}

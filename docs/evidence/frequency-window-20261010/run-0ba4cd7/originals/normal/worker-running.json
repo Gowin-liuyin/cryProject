@@ -1,0 +1,24 @@
+{
+  "pid": 3666393,
+  "start_ticks": 339274610,
+  "cgroup": "0::/a113part-51d37af52b90-normal-probe",
+  "allowed_cpus": [
+    2
+  ],
+  "binary": {
+    "path": "/home/nss-marker/yhr/Cry/core-window-20261010-51d37af52b90/normal/worker.bin",
+    "inode": 27539492,
+    "device": 66309,
+    "sha256": "023f56460a8dc4971e8132a22c5734ca0844314d3d71b8bc3b129a424e9ee69b",
+    "bytes": 225384,
+    "source_path": "/home/nss-marker/yhr/Cry/window-source-c0e5990/build-normal/frequency_workload",
+    "source_owner_uid": 1000,
+    "source_inode": 27536709,
+    "source_device": 66309
+  },
+  "utc": "2026-10-10T00:22:29.304082+00:00",
+  "released_monotonic_seconds": 3392746.142771539,
+  "executable_observed": true,
+  "alive_at_check": true,
+  "running_check_monotonic_seconds": 3392746.156878807
+}

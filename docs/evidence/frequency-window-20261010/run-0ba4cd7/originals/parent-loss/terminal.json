@@ -1,0 +1,726 @@
+{
+  "utc": "2026-10-10T00:22:34.959833+00:00",
+  "pid": 3666405,
+  "active_observed": true,
+  "reason": "controller_eof",
+  "errors": [],
+  "restored": {
+    "utc": "2026-10-10T00:22:34.959666+00:00",
+    "root_effective": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "root_isolated": [],
+    "groups": {
+      "dev-hugepages.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "dev-mqueue.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "init.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "proc-sys-fs-binfmt_misc.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-fs-fuse-connections.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-kernel-config.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-kernel-debug.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "sys-kernel-tracing.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/ModemManager.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/NetworkManager.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/accounts-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/avahi-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/bolt.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/boot-efi.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/codex-mihomo.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/colord.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/containerd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/cron.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/cups-browsed.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/cups.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/dbus.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker-246003e3f382567ad2101fad76eafab8ca9753a5f594729c1fa87b6e4d81471e.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker-86da72dfd67bc096d1ba46b4574f44fd571e07ec1ffbb42360e8051354e3b6d2.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker-b2eebc0ecbb82cc5f44b7f7a39ef6f82c8ca905bfd59617ba64a9261bbf3de40.scope": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/docker.socket": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/fail2ban.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/fwupd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/gdm.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/gnome-remote-desktop.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/kerneloops.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/nvidia-persistenced.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/polkit.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/power-profiles-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/rsyslog.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/rtkit-daemon.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-bare-5.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-codex-34.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core22-2437.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core22-2955.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core24-1643.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-core24-2124.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firefox-8969.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firefox-8995.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firmware\\x2dupdater-226.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-firmware\\x2dupdater-258.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d42\\x2d2204-247.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d42\\x2d2204-263.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d46\\x2d2404-153.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gnome\\x2d46\\x2d2404-164.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-gtk\\x2dcommon\\x2dthemes-1535.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-mesa\\x2d2404-1165.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-mesa\\x2d2404-1839.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snap\\x2dstore-1419.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snap\\x2dstore-1427.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd-27738.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd-28254.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd\\x2ddesktop\\x2dintegration-387.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snap-snapd\\x2ddesktop\\x2dintegration-391.mount": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snapd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/snapd.socket": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/ssh.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/ssh.socket": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/swap.img.swap": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/switcheroo-control.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/system-getty.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/system-modprobe.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/system-systemd\\x2dfsck.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-journald.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-logind.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-oomd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-resolved.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-timesyncd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/systemd-udevd.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/udisks2.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/unattended-upgrades.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/upower.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "system.slice/wpa_supplicant.service": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      },
+      "user.slice": {
+        "cpuset.cpus": "",
+        "cpuset.cpus.effective": "0-31",
+        "cpuset.cpus.exclusive": "",
+        "cpuset.cpus.exclusive.effective": "",
+        "cpuset.cpus.partition": "member",
+        "cpuset.mems": ""
+      }
+    },
+    "top_names": [
+      "dev-hugepages.mount",
+      "dev-mqueue.mount",
+      "init.scope",
+      "proc-sys-fs-binfmt_misc.mount",
+      "sys-fs-fuse-connections.mount",
+      "sys-kernel-config.mount",
+      "sys-kernel-debug.mount",
+      "sys-kernel-tracing.mount",
+      "system.slice",
+      "user.slice"
+    ]
+  },
+  "restoration_errors": [],
+  "restoration_visible": true,
+  "evidence_complete": true,
+  "measurement_complete": false,
+  "worker": {
+    "reason": "controller_eof",
+    "measurement_complete": false,
+    "evidence_complete": true,
+    "cancel_while_running": true,
+    "registered_cancel": true,
+    "errors": [],
+    "reaped": true,
+    "pid": 3666414,
+    "worker_exit_code": -9,
+    "outputs": {
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "data_role": "partial_or_unknown"
+  },
+  "success": true
+}

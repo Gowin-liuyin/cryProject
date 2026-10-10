@@ -64,5 +64,6 @@
 - 下一阶段C11窗口候选固定源 `7e93048f3af885d14f1577b3a198bd3d52b8ee8e` 的源码、普通/动态构建及软件检查在 `Cry/window-source-7e93048/`，完整导出为同级 `window-source-7e93048-software.tar`。每配置2/2已通过；普通入口/MSR/长worker尚未运行。本轮两模块的真实临时和缓存均在各树内，主SSH已关闭。证据分别在 `docs/evidence/frequency-control-20261010`、`docs/evidence/frequency-window-20261010`，R02/R04仍部分签收。
 - 2026-10-10后续窗口候选补入C入口自身转储禁用与回读，固定源 `c0e5990bd4d764fbb08ff6857a2cf6cf21c9b8a2`。新树 `Cry/window-source-c0e5990/` 及同级 `window-source-c0e5990-software.tar` 保留普通/动态构建，Linux各3/3软件检查已通过，正式普通ELF摘要 `023f56460a8dc4971e8132a22c5734ca0844314d3d71b8bc3b129a424e9ee69b`。本次软件预检未执行无参入口、MSR或G2长负载；新合同见 `docs/research/aris-frequency-window-20261010/EXPERIMENT_PLAN.md`，原7e树及证据不改。
 - 2026-10-10 G2管理与分析准备：管理源 `0ba4cd7c1f41c700a7fdef2b277cbf7f39e74bac`、分析源 `dd67390f1e41d76624bf3a8854feacacfb8d1f85`；源码、Linux管理自检与分析普通/动态构建在 `Cry/window-management-0ba4cd7/`，完整导出为同级 `window-management-0ba4cd7-software.tar`。三组CTest各1/1，尚无实际长窗口；新 `run-window` 仅用新 `Cry/core-window-20261010-<nonce>` 原件，不复用旧根。冻结准备见 `docs/evidence/frequency-window-20261010/g2-preparation/`。
+- 2026-10-10 G2实际两路径完成：root私有原件在 `Cry/core-window-20261010-51d37af52b90/`，同级同名 `.tar` 保留87份原件。normal保存126528调用，parent-loss运行中注册取消并回收，空输出保持未知；两case仅四min/max请求后明确恢复，结束六原PID不存在、32策略/global等原基线、CPU0—31归还、隔离空、自有组删除、锁释放，主SSH已关闭。C离线分析与独立全量核对确认200个CPU2主pair通过工程规则，纯主平均窗口几何覆盖99.4948%；不是整段或逐调用恒频／物理精度／统计认证，R02/R04仍部分。实际副本见 `docs/evidence/frequency-window-20261010/run-0ba4cd7/`，不得覆盖或并入旧G1证据。
 
-R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。
+R02 与 R04 仍为部分签收：已有单进程反馈工程窗口数据，尚无整段或逐调用恒频、适用短调用精度及真实密文总体误报率或检出率的完整证据。

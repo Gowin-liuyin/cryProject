@@ -1,0 +1,44 @@
+{
+  "initial": {
+    "chunk_id": "13a871",
+    "wall_time_seconds": 1.001827333,
+    "session_id": 63074,
+    "original_token_count": 4,
+    "output": "G2_WINDOW_RUN: "
+  },
+  "after_auth": {
+    "chunk_id": "99a442",
+    "wall_time_seconds": 1.004001541,
+    "session_id": 63074,
+    "original_token_count": 1,
+    "output": "\r\n"
+  },
+  "completion": {
+    "chunk_id": "22a809",
+    "wall_time_seconds": 0.000010834,
+    "exit_code": 0,
+    "original_token_count": 59,
+    "output": "{\"run_directory\": \"/home/nss-marker/yhr/Cry/core-window-20261010-51d37af52b90\", \"archive\": \"/home/nss-marker/yhr/Cry/core-window-20261010-51d37af52b90.tar\", \"success\": true, \"errors\": []}\r\nShared connection to 10.144.144.5 closed.\r\r\n"
+  },
+  "archive_download_initial": {
+    "chunk_id": "0ba1d3",
+    "wall_time_seconds": 1.003188542,
+    "session_id": 68786,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "postcheck_initial": {
+    "chunk_id": "883705",
+    "wall_time_seconds": 1.003125791,
+    "session_id": 11021,
+    "original_token_count": 4,
+    "output": "G2_POSTCHECK: "
+  },
+  "postcheck_completion": {
+    "chunk_id": "b93d89",
+    "wall_time_seconds": 0.073853,
+    "exit_code": 0,
+    "original_token_count": 698,
+    "output": "\r\n{\"status\": \"postcheck_passed\", \"source_sha256\": \"8616a0747d7a8e3b28e5af6da86bfdee5b2bf2f84821989c163136ec09479af4\", \"run_directory\": \"/home/nss-marker/yhr/Cry/core-window-20261010-51d37af52b90\", \"archive\": \"/home/nss-marker/yhr/Cry/core-window-20261010-51d37af52b90.tar\", \"archive_sha256\": \"7c902223592dfc0705bfb28c2e7352b42febf15075528091ed9dc45a887c8191\", \"original_files_equal_archive\": 87, \"original_processes_checked\": 6, \"root_cpus\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], \"isolated\": [], \"all32_frequency_and_global_equal_baseline\": true, \"owned_groups_absent\": true, \"lock_acquired_and_released\": true, \"cases\": {\"normal\": {\"identities\": {\"controller\": {\"pid\": 3666381, \"start_ticks\": 339274595, \"state\": \"absent\"}, \"guard\": {\"pid\": 3666382, \"start_ticks\": 339274598, \"state\": \"absent\"}, \"probe-before-exec\": {\"pid\": 3666393, \"start_ticks\": 339274610, \"state\": \"absent\"}}, \"reason\": \"release\", \"controller_exit_code\": 0, \"worker_exit_code\": 0, \"restoration_visible\": true, \"guard_pidfd_exit_observed\": true, \"worker_pidfd_exit_observed\": true, \"measurement_complete\": true, \"cancel_while_running\": false, \"registered_cancel\": false, \"outputs\": {\"stdout\": {\"bytes\": 29266316, \"sha256\": \"c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028\"}, \"stderr\": {\"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}}, \"summary\": {\"type\": \"summary\", \"status\": \"completed\", \"call_records\": 126528, \"snapshot_records\": 251, \"checkpoint_records\": 1977, \"prepared_input_count\": 8, \"input_operation_status\": 0, \"affinity_verified\": true, \"affinity_errno\": null, \"allocation_errnos\": [null, null, null], \"warmup_start_ns\": \"3392761246181934\", \"main_start_ns\": \"3392762246994691\", \"valid_final_snapshot\": true, \"r02_signed_off\": false}}, \"parent-loss\": {\"identities\": {\"controller\": {\"pid\": 3666404, \"start_ticks\": 339275131, \"state\": \"absent\"}, \"guard\": {\"pid\": 3666405, \"start_ticks\": 339275134, \"state\": \"absent\"}, \"probe-before-exec\": {\"pid\": 3666414, \"start_ticks\": 339275144, \"state\": \"absent\"}}, \"reason\": \"controller_eof\", \"controller_exit_code\": -9, \"worker_exit_code\": -9, \"restoration_visible\": true, \"guard_pidfd_exit_observed\": true, \"worker_pidfd_exit_observed\": true, \"measurement_complete\": false, \"cancel_while_running\": true, \"registered_cancel\": true, \"outputs\": {\"stdout\": {\"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, \"stderr\": {\"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}}, \"summary\": null}}, \"configuration_writes\": 0, \"hardware_frequency_qualified\": false, \"r02_signed_off\": false, \"r04_signed_off\": false}\r\nShared connection to 10.144.144.5 closed.\r\r\n"
+  }
+}

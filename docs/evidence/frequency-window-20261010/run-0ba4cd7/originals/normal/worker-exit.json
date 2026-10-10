@@ -1,0 +1,23 @@
+{
+  "reason": "worker_exited",
+  "measurement_complete": true,
+  "evidence_complete": true,
+  "cancel_while_running": false,
+  "registered_cancel": false,
+  "errors": [],
+  "reaped": true,
+  "pid": 3666393,
+  "worker_exit_code": 0,
+  "outputs": {
+    "stdout": {
+      "bytes": 29266316,
+      "sha256": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "data_role": "complete",
+  "utc": "2026-10-10T00:22:34.372975+00:00"
+}
