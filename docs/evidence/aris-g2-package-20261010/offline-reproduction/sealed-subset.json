@@ -1,0 +1,31 @@
+{
+  "scope": "selected original logs,outputs,binary; full generated build tree remains local build only",
+  "files": {
+    "analyze_windows-macos-arm64": "052dc79453c715b5f4bcbc2d8fafdf861097d15dd5961e12f03f4032e5aca4ed",
+    "extraction.json": "232fe05a7516ee027348f53f54c8d436a57c51f1f9bcd353fc770a3b1a862d27",
+    "logs/build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/build.stdout.log": "3df6e95f91fe590ad751ea0e3d3e166c109994c5c46c3d383c39da12afa3c199",
+    "logs/cmake-version.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/cmake-version.stdout.log": "49da5b8c6869fe4b385bd4d095bf446bc9e6f32d0f6a86b437022e99e19f4ef7",
+    "logs/commands.json": "83914ef235c01f8d3da1acb50f933ca482cad82e42388fe92783033f294c90cd",
+    "logs/compiler-version.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/compiler-version.stdout.log": "d23e1e266991777af51323c8a611147c28082ac12f936caa38bc345779f78483",
+    "logs/configure.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/configure.stdout.log": "e7d592cd65aa36590d1bb6bf9161bb6a2a295e4736f7e551924d3b69402d34bb",
+    "logs/cpu.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/cpu.stdout.log": "f9d7a546b03366dd3062484310314bc2bb036ac3ab6cc75f3d28f1c799d55a96",
+    "logs/ctest.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/ctest.stdout.log": "4bf11e699de37b7104c742a53a7966094d74dbd92a00908816dfd867424b0b0c",
+    "logs/environment.json": "ce8fec70e04724d6513f631122f22f64e33ea8ca14b568a44aaef0d6a0e900ba",
+    "logs/macos-version.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/macos-version.stdout.log": "cd5d6399b3785b04ceaae75045a9ca9f80f0bbc3526eff9d0c36b170ed1ec348",
+    "logs/uname.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/uname.stdout.log": "6bb6f06438cb4fd1bf9bb7d6f412e606f208316128c643d52b1dc0d1922e5a95",
+    "original-run-SHA256SUMS": "c2e9f1ea321b9559a4909c7e2dec260f2335b76e018e2273a5dd3de22d4f06fa",
+    "outputs/normal-summary.json": "6f37ab32330c267898b6ff7e9f5ad2b326e9a0ecdde4164a50e69454dda4f518",
+    "outputs/normal-windows.csv": "9927e729dc3ccb64d8dbf658eea396d9e5258c80aecdf20b243395991a948a06",
+    "outputs/parent-loss-summary.json": "08550731ca7ab0bc91aff7925b13b3ae0314d8be7fbf2529ba5e48b4ae1728c0",
+    "outputs/parent-loss-windows.csv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result.json": "7ff7fdd7790edd03a4ee3f7a6390cfdf4a9534041446a2e03c495a7a9710248b"
+  }
+}

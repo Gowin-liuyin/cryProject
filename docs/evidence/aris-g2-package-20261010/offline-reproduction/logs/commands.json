@@ -1,0 +1,171 @@
+[
+  {
+    "label": "cmake-version",
+    "command": [
+      "cmake",
+      "--version"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.117243+00:00",
+    "stdout": "logs/cmake-version.stdout.log",
+    "stderr": "logs/cmake-version.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:29.237640+00:00",
+    "stdout_sha256": "49da5b8c6869fe4b385bd4d095bf446bc9e6f32d0f6a86b437022e99e19f4ef7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "uname",
+    "command": [
+      "uname",
+      "-a"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.238016+00:00",
+    "stdout": "logs/uname.stdout.log",
+    "stderr": "logs/uname.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:29.240501+00:00",
+    "stdout_sha256": "6bb6f06438cb4fd1bf9bb7d6f412e606f208316128c643d52b1dc0d1922e5a95",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "macos-version",
+    "command": [
+      "sw_vers"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.240691+00:00",
+    "stdout": "logs/macos-version.stdout.log",
+    "stderr": "logs/macos-version.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:29.252488+00:00",
+    "stdout_sha256": "cd5d6399b3785b04ceaae75045a9ca9f80f0bbc3526eff9d0c36b170ed1ec348",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "cpu",
+    "command": [
+      "sysctl",
+      "-n",
+      "machdep.cpu.brand_string"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.252783+00:00",
+    "stdout": "logs/cpu.stdout.log",
+    "stderr": "logs/cpu.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:29.256857+00:00",
+    "stdout_sha256": "f9d7a546b03366dd3062484310314bc2bb036ac3ab6cc75f3d28f1c799d55a96",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "configure",
+    "command": [
+      "cmake",
+      "-S",
+      "code/g2-analysis",
+      "-B",
+      "reproduction/g2-analysis",
+      "-DBUILD_TESTING=ON"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.257055+00:00",
+    "stdout": "logs/configure.stdout.log",
+    "stderr": "logs/configure.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:29.814255+00:00",
+    "stdout_sha256": "e7d592cd65aa36590d1bb6bf9161bb6a2a295e4736f7e551924d3b69402d34bb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "compiler-version",
+    "command": [
+      "/usr/bin/cc",
+      "--version"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.814682+00:00",
+    "stdout": "logs/compiler-version.stdout.log",
+    "stderr": "logs/compiler-version.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:29.824916+00:00",
+    "stdout_sha256": "d23e1e266991777af51323c8a611147c28082ac12f936caa38bc345779f78483",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "build",
+    "command": [
+      "cmake",
+      "--build",
+      "reproduction/g2-analysis",
+      "--parallel",
+      "4"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:29.825182+00:00",
+    "stdout": "logs/build.stdout.log",
+    "stderr": "logs/build.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:30.312088+00:00",
+    "stdout_sha256": "3df6e95f91fe590ad751ea0e3d3e166c109994c5c46c3d383c39da12afa3c199",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "ctest",
+    "command": [
+      "ctest",
+      "--test-dir",
+      "reproduction/g2-analysis",
+      "--output-on-failure"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:30.312496+00:00",
+    "stdout": "logs/ctest.stdout.log",
+    "stderr": "logs/ctest.stderr.log",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:31.238727+00:00",
+    "stdout_sha256": "4bf11e699de37b7104c742a53a7966094d74dbd92a00908816dfd867424b0b0c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "normal-replay",
+    "command": [
+      "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/g2-analysis/analyze_windows",
+      "data/g2/normal.stdout.jsonl"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 0,
+    "started_utc": "2026-10-10T03:05:31.239479+00:00",
+    "stdout": "package/reproduction/g2-output/normal-windows.csv",
+    "stderr": "package/reproduction/g2-output/normal-summary.json",
+    "exit_code": 0,
+    "completed_utc": "2026-10-10T03:05:31.284442+00:00",
+    "stdout_sha256": "9927e729dc3ccb64d8dbf658eea396d9e5258c80aecdf20b243395991a948a06",
+    "stderr_sha256": "6f37ab32330c267898b6ff7e9f5ad2b326e9a0ecdde4164a50e69454dda4f518"
+  },
+  {
+    "label": "parent-loss-replay",
+    "command": [
+      "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/g2-analysis/analyze_windows",
+      "data/g2/parent-loss.stdout.jsonl"
+    ],
+    "cwd": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "expected_exit_code": 1,
+    "started_utc": "2026-10-10T03:05:31.284930+00:00",
+    "stdout": "package/reproduction/g2-output/parent-loss-windows.csv",
+    "stderr": "package/reproduction/g2-output/parent-loss-summary.json",
+    "exit_code": 1,
+    "completed_utc": "2026-10-10T03:05:31.287855+00:00",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "08550731ca7ab0bc91aff7925b13b3ae0314d8be7fbf2529ba5e48b4ae1728c0"
+  }
+]

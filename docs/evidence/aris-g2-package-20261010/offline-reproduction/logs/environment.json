@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-10-10T03:05:29.072180+00:00",
+  "system": "Darwin",
+  "machine": "arm64",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "package_physical_path": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+  "reproduction_physical_path": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction",
+  "environment_overrides": {
+    "PWD": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package",
+    "TMPDIR": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/tmp",
+    "TMP": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/tmp",
+    "TEMP": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/tmp",
+    "XDG_CACHE_HOME": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/cache",
+    "CCACHE_DIR": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/offline-reproduction-final-g2/package/reproduction/cache/ccache"
+  },
+  "input_sha256_before": {
+    "data/g2/normal.stdout.jsonl": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+    "data/g2/parent-loss.stdout.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "archive_sha256": "d5c7a05c0585890d0442431992ea1b09db459a05c445fb17dcb0c1092e429cd3",
+  "commands_follow_actual_extracted_README": true,
+  "source_alias": "G2-A",
+  "collector_extracted": false,
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "ssh_used": false
+}

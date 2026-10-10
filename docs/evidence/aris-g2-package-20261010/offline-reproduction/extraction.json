@@ -1,0 +1,59 @@
+{
+  "archive_sha256": "d5c7a05c0585890d0442431992ea1b09db459a05c445fb17dcb0c1092e429cd3",
+  "extracted_members": [
+    {
+      "member": "code/g2-analysis/analyze_windows.c",
+      "byte_count": 87063,
+      "sha256": "5c028abf419df5b5459c167469f44724faba12542b446799c5c5fc6b02d5a9f4"
+    },
+    {
+      "member": "code/g2-analysis/CMakeLists.txt",
+      "byte_count": 1379,
+      "sha256": "77bf9057451b767cabef888e9d5acaeada64a76d6de292f7dfee6c8e64444c61"
+    },
+    {
+      "member": "code/g2-analysis/README.md",
+      "byte_count": 2988,
+      "sha256": "df9b358ab1fca8bc701828e5738f0c8bd589f73580dac4a77b89f06bb9cd016d"
+    },
+    {
+      "member": "data/g2/normal.stdout.jsonl",
+      "byte_count": 29266316,
+      "sha256": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028"
+    },
+    {
+      "member": "data/g2/parent-loss.stdout.jsonl",
+      "byte_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "data/g2/normal-windows.csv",
+      "byte_count": 105661,
+      "sha256": "9927e729dc3ccb64d8dbf658eea396d9e5258c80aecdf20b243395991a948a06"
+    },
+    {
+      "member": "data/g2/normal-summary.json",
+      "byte_count": 1355,
+      "sha256": "6f37ab32330c267898b6ff7e9f5ad2b326e9a0ecdde4164a50e69454dda4f518"
+    },
+    {
+      "member": "data/g2/parent-loss-windows.csv",
+      "byte_count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "data/g2/parent-loss-summary.json",
+      "byte_count": 165,
+      "sha256": "08550731ca7ab0bc91aff7925b13b3ae0314d8be7fbf2529ba5e48b4ae1728c0"
+    }
+  ],
+  "source": "actual_final_ZIP_only",
+  "source_alias": "G2-A",
+  "collector_extracted": false,
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "ssh_used": false,
+  "system": "Darwin",
+  "machine": "arm64",
+  "created_utc": "2026-10-10T03:04:05.570903+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "docs/research/aris-g2-package-20261010/verify_package.py",
+    "/Users/yin/code/cryProject/build/aris-g2-package-20261010/assembled-payload-final-g2.zip",
+    "/Users/yin/code/cryProject/build/aris-g2-package-20261010/verification-final-g2.json",
+    "--private-map",
+    "/Users/yin/code/cryProject/build/aris-g2-package-20261010/payload-final-g2-private-substitution-map.json",
+    "--report-binding",
+    "/Users/yin/code/cryProject/build/aris-g2-package-20261010/report-binding.json"
+  ],
+  "started_utc": "2026-10-10T03:01:47.004236+00:00"
+}

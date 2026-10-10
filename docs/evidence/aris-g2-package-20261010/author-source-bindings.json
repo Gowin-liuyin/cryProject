@@ -1,0 +1,111 @@
+[
+  {
+    "source_id": "G2_EXPERIMENT_PLAN",
+    "source_path": "docs/research/aris-frequency-window-20261010/EXPERIMENT_PLAN.md",
+    "source_sha256": "0c9261a50df9a55aa80e640ad6f746a56df0194c5763e79f52d68031bd94f67e"
+  },
+  {
+    "source_id": "G2_RESULTS",
+    "source_path": "docs/research/aris-frequency-window-20261010/RESULTS.md",
+    "source_sha256": "823bcc32883191a1b6220e749ac8aeb783ec5121489941a8b782a218249495f9"
+  },
+  {
+    "source_id": "G2_RESULT_TO_CLAIM",
+    "source_path": "docs/research/aris-frequency-window-20261010/RESULT_TO_CLAIM.md",
+    "source_sha256": "7a6067595e28c3408ab6b3fee96c301fb14829d1d8e12af72e1dff33a2142189"
+  },
+  {
+    "source_id": "G2_TOOL_CONTRACT",
+    "source_path": "docs/research/aris-frequency-window-20261010/README.md",
+    "source_sha256": "a3bd75a9e616b1ff4487c8b0e7d526eb5aa87a7a52ff858b3ef4010b9ed38732"
+  },
+  {
+    "source_id": "G2_SCIENTIFIC_REVIEW",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/SCIENTIFIC_REVIEW.md",
+    "source_sha256": "a0a2ce23aba5387a22fc685a910857dad89401d19a62ae7862f40c25df30cba5"
+  },
+  {
+    "source_id": "G2_ARTIFACT_REVIEW",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/ARTIFACT_REVIEW.md",
+    "source_sha256": "0c7b4f509fa28e79e12de60026c58a8b636f7751cec2060e36e630f545f0e43c"
+  },
+  {
+    "source_id": "G2_FIGURE_CAPTION",
+    "source_path": "docs/research/aris-frequency-window-20261010/figures/fig-g2-window-qualification.caption.md",
+    "source_sha256": "178b18b2baf5ae06708ed802838c634cba1b7b48a4d523591efd59455fefbc64"
+  },
+  {
+    "source_id": "G2_NORMAL_RAW",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/originals/normal/worker.stdout.jsonl",
+    "source_sha256": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028"
+  },
+  {
+    "source_id": "G2_NORMAL_WINDOWS",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/analysis/normal-windows.csv",
+    "source_sha256": "9927e729dc3ccb64d8dbf658eea396d9e5258c80aecdf20b243395991a948a06"
+  },
+  {
+    "source_id": "G2_NORMAL_SUMMARY",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/analysis/normal-summary.json",
+    "source_sha256": "6f37ab32330c267898b6ff7e9f5ad2b326e9a0ecdde4164a50e69454dda4f518"
+  },
+  {
+    "source_id": "G2_PARENT_LOSS_RAW",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/originals/parent-loss/worker.stdout.jsonl",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_id": "G2_PARENT_LOSS_WINDOWS",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/analysis/parent-loss-windows.csv",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source_id": "G2_PARENT_LOSS_SUMMARY",
+    "source_path": "docs/evidence/frequency-window-20261010/run-0ba4cd7/analysis/parent-loss-summary.json",
+    "source_sha256": "08550731ca7ab0bc91aff7925b13b3ae0314d8be7fbf2529ba5e48b4ae1728c0"
+  },
+  {
+    "source_id": "G2_FIGURE_PDF",
+    "source_path": "docs/research/aris-frequency-window-20261010/figures/fig-g2-window-qualification.pdf",
+    "source_sha256": "ff5735eded7807651a829a828c4615a34a17e4a0a6ec905c854940ee01e71906"
+  },
+  {
+    "source_id": "G2_FIGURE_PNG",
+    "source_path": "docs/research/aris-frequency-window-20261010/figures/fig-g2-window-qualification.png",
+    "source_sha256": "ef47cae6a8767a4090c912ad6e317334b0d059b35946d80b8d2358e87e6cb014"
+  },
+  {
+    "source_id": "G2_A_ANALYZER",
+    "source_path": "docs/research/aris-frequency-window-analysis-20261010/analyze_windows.c",
+    "source_sha256": "5c028abf419df5b5459c167469f44724faba12542b446799c5c5fc6b02d5a9f4",
+    "source_commit": "dd67390f1e41d76624bf3a8854feacacfb8d1f85"
+  },
+  {
+    "source_id": "G2_A_CMAKE",
+    "source_path": "docs/research/aris-frequency-window-analysis-20261010/CMakeLists.txt",
+    "source_sha256": "77bf9057451b767cabef888e9d5acaeada64a76d6de292f7dfee6c8e64444c61",
+    "source_commit": "dd67390f1e41d76624bf3a8854feacacfb8d1f85"
+  },
+  {
+    "source_id": "G2_C_COLLECTOR",
+    "source_path": "docs/research/aris-frequency-window-20261010/frequency_workload.c",
+    "source_sha256": "520bdc1bbcc1bbd805674a39c639e1cbcd13e66ae0b44dba78688115f02ef7f0",
+    "source_commit": "c0e5990bd4d764fbb08ff6857a2cf6cf21c9b8a2"
+  },
+  {
+    "source_id": "G2_C_CMAKE",
+    "source_path": "docs/research/aris-frequency-window-20261010/CMakeLists.txt",
+    "source_sha256": "e4202fa76f6f82b04914096978ae18c7fc0db5255c43eced2c32fb3a9d45c792",
+    "source_commit": "c0e5990bd4d764fbb08ff6857a2cf6cf21c9b8a2"
+  },
+  {
+    "source_id": "CURRENT_REPORT_DOCX",
+    "source_path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.docx",
+    "source_sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6"
+  },
+  {
+    "source_id": "CURRENT_REPORT_PDF",
+    "source_path": "deliverables/research/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-匿名版.pdf",
+    "source_sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4"
+  }
+]

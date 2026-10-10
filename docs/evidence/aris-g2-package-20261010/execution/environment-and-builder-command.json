@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-10-10T03:01:24.374216+00:00",
+  "system": "Darwin",
+  "machine": "arm64",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "repository_physical_path": "/Users/yin/code/cryProject",
+  "environment_overrides": {
+    "TMPDIR": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/execution-final-g2/tmp",
+    "TMP": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/execution-final-g2/tmp",
+    "TEMP": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/execution-final-g2/tmp",
+    "XDG_CACHE_HOME": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/execution-final-g2/cache",
+    "CCACHE_DIR": "/Users/yin/code/cryProject/build/aris-g2-package-20261010/execution-final-g2/cache/ccache"
+  },
+  "git_head": "b5860f6a18875942f935f438d1ce3a3b0eeb93f6",
+  "role": "packaging_and_bounded_offline_reproduction_only",
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "ssh_used": false,
+  "builder_command": [
+    "/Users/yin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "docs/research/aris-g2-package-20261010/build_package.py",
+    "payload-final-g2",
+    "--report-binding",
+    "/Users/yin/code/cryProject/build/aris-g2-package-20261010/report-binding.json"
+  ]
+}
