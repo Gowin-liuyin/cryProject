@@ -379,3 +379,6 @@ Tyurin固定v1式1/定理7条件与0.5606原文经独立核查，采用保守常
 2026-10-10完成[RAW空窗口采集前资格](evidence/raw-clock-20261010/preparation/README.md)：独立C11 collector逐字复用G2结构/五helper，纠正两次timespec后转换边界；新严格CSV分析器给pair内/间/原序6行与阶段守恒，冻结三进程各1000+100000的诊断合同，非密码采集/绝对精度证明。
 本机两目标最终普通/ASan-UBSan各2/2、格式/只读FD/Mac unsupported通过；计划术语摘要变更前置停止、stderr关闭修复和CMake正常构建不依赖formatter的修正均分时点保留。最终C ed538f43/analyzer c67d1dbd/CMake28d264a9/plan7499b60b，全部源/产物/命令/SHA及独立评语归档。
 指定裸金属严格主机核对及密码只读预检成功：nss-m/Linuxx86_64、32线程/CPU2可用、物理Cry可写、tsc；尚未上传/编译/真实采样，本次新密码调用0。旧KVM不连接；R02/R04 partial，下一步实际Linux资格与三纯读钟进程仍待执行。
+
+2026-10-10完成[RAW工具单次远端管理准备](evidence/raw-clock-20261010/runner-preparation/README.md)：固定3源SHA、双配置/双CTest、P1—P3普通工具各一次及C分析、300s工作/30s导出和Cry物理路径门；内存selfcheck与独立最终审查通过。修正timeout supervisor与collector启动计数混淆、C分析前未知状态过早清除、未确认leader/组退出仍封存三项；HOME保留、实际PID/tick启动声明及归档回执分开。
+原拒绝与最终评语/源码/合同摘要各留证，尚未启动Linux管理/编译/真实pair，无配置修改或密码调用；下一动作固定提交后单次执行，不重跑旧G2，R02/R04 partial。

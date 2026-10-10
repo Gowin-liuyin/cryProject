@@ -1,0 +1,13 @@
+{
+  "runner_sha256": "bf34389f2cb39348ac1baa2a3c2b159ad69cb473414ff3b6b7b97850d0431d04",
+  "contract_sha256": "a3530fd394136a8f605c7935d2ae8b401ec3d331622a3d2052d635375e771ac2",
+  "plan_sha256": "7499b60b7a32b0a5e82e2acbc07144b6b0062b5d1f344aeb4af9ff4208e6927a",
+  "final_source_review_sha256": "23e17a0c11d46ce69ce56f9d8e566075403b5dcb1410c20fe70e4ff3052297a5",
+  "selfcheck_exit": 0,
+  "selfcheck_scope": "pure path/schema/cleanup-state fixtures, no filesystem/process/clock execution",
+  "Linux_execution_started": false,
+  "launched_counter_scope": "GNU timeout supervisors; collector start remains unknown absent completed metadata",
+  "unknown_cleanup_blocks_frozen_export": true,
+  "HOME_preserved": true,
+  "whole_goal_complete": false
+}
