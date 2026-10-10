@@ -1,0 +1,28 @@
+{
+  "baseline_commit": "ae63007fa700efd1ba31cda1cf5adc62755af939",
+  "review_sha256": "6b0e71b0ffed925874a14a62d4e9dc60082421fc47530316ff96a31132994ef7",
+  "files": {
+    "README.md": "d1bd1a620c73062bc875ad2def7793815d2242ab8a8351af64b00ea61c6b9caf",
+    "deliverables/support/README.md": "550ff4c814892bcf8d7d2940fc0b1df3081a480f4b1fe4fb00d5d82fdf458c69",
+    "deliverables/demo/index.html": "d584b3d35ab01cfa4b6034ebd2d02defd7be9ac1639858dbfefa93cc10343f85",
+    "deliverables/demo/evidence-index.md": "c76822aaf8829a45b433241582c2165179ec7c4d4c28a383d3b4fbb2f3c62576",
+    "docs/research/aris-replication-20261009/CURRENT_STATUS.md": "fae689609f16dfc0966f48e3d42b0cd6ec394ea976e477067b6fb2649d6b3d4e",
+    "docs/research/aris-replication-20261009/FULL_GOAL_AUDIT.md": "d8fba9cdcb4f3fdb23e95514b1fc3f804c5969afe261577046be3faa686789a1",
+    "docs/full-work-acceptance.md": "abe1e6be618f8e921bfb2d46477078b9d28ef7375206186fee05056b6fb8547b"
+  },
+  "new_and_current_local_references_checked_by_independent_agent": 72,
+  "reference_failures": [],
+  "original_named_HTML_sections_preserved": 17,
+  "new_named_HTML_sections": [
+    "G2"
+  ],
+  "new_cryptographic_calls": 0,
+  "new_hardware_runs": 0,
+  "new_ssh": false,
+  "browser_UI_or_screenshot_review": false,
+  "scope": "current seven entrypoint diffs only; historical links not recertified",
+  "external_Codex_review": "pending",
+  "R02": "partial",
+  "R04": "partial",
+  "whole_goal_complete": false
+}

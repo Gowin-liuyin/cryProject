@@ -360,3 +360,6 @@ C11分析dd67390/5c028a在真实数据前固定完整schema、整数入带、首
 2026-10-10完成[925项G2匿名研究补充件](../deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md)：实际ZIPd5c7a05c/32,122,709B，旧887项独立历史子根原字节保持，新增38项绑定49页报告、G2原值、完整科学视图及固定C/CMake。923manifest/924SHA、817本地引用、40HTML/247MathML、707直接身份标记及元数据核验0错误0命中；另一代理实际ZIP独立审查通过，正式副本字节相同。
 只从实际ZIP提取G2-A在Mac/ARM普通C11重建，唯一CTest1/1，normal0/parent-loss1且四CSV/JSON逐字匹配、原输入保持。原126528调用为导入；本次没有生产者、密码、硬件或SSH执行，取消未知不补造。完整[组装与复算原件](evidence/aris-g2-package-20261010/README.md)另封存，九负例实际自检与format-check通过。
 本地同模型审查不冒称外部同行评审，外部Codexpending；旧47页/887件及软件v3不改。R02/R04、适用测量和统计前提、旧KVM可信身份核查迁移、真实画面及本人签章仍待，完整目标继续。
+
+2026-10-10完成当前七入口同步：根README、支撑入口、demo HTML/文字索引、CURRENT_STATUS/FULL_GOAL_AUDIT及官方验收表指向49页和925项实包，旧47/887/v3按历史时点保留。原17具名HTML节不改，新增G2第18节；独立代理核查新增/当前72处本地引用及锚点均可达，七实际文件hash绑定与[独立评语](evidence/aris-g2-entrypoints-20261010/README.md)另封存。
+R02仍partial，澄清官方高精度可重复要求与更强逐调用物理恒频主张；G2几何与单进程、Mac/ARM离线复算、新旧平台不混淆。本次仅当前入口整理，无浏览器/截图、密码、硬件或SSH，format-check及diff通过。旧KVM可信身份迁移、测量/统计前提及真人材料继续待证，不把旧blocked直接沿用或把已闭合报告/包继续列为未完成。

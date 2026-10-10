@@ -1,26 +1,29 @@
 # ARIS当前研究与交付状态
 
-更新：2026-10-10。M02、20261009报告与解释闭包保留；新增条件均值证明、47页报告和实际单核管理恢复预演。完整目标仍未完成。
+更新：2026-10-10。当前研究交付为49页G2报告及已核验的925项匿名补充件；M02、条件均值证明、旧47页/887项闭包及更早材料保持各自身份。完整目标仍未完成。
 
 | 范围 | 当前实际状态 | 权威入口 |
 |---|---|---|
 | 文献与数学依据 | 29项原书目、18同行评审项及阅读深度保持；P1—P6限定论证已审 | [原研究结论](../aris-20261008/RESEARCH_CONCLUSIONS.md)、[证明包](../aris-20261008/PROOF_PACKAGE.md) |
 | 官方具体补证及提交身份 | T09两项完整工作簿静态适用性、T12用户确认邮箱已关闭 | [本轮官方核对](../../evidence/aris-resume-20261009/official-source-check.md)及原确认记录 |
 | M02一次重建三进程 | 已完成、零重试；18/18非零中位比<1、240/240时钟合格，独立C审计通过 | [RESULTS](RESULTS.md)、[判定](RESULT_TO_CLAIM.md) |
-| 当前47页报告 | 补入条件均值推断，原表图公式保持；全页视觉及独立内容/结构审查通过；R02/R04仍部分签收 | [新报告](../../../deliverables/research/aris-report-weak-mean-20261010/README.md)、[核验](../../evidence/aris-report-weak-mean-20261010/README.md) |
-| 当前匿名研究阅读闭包 | ec076 ZIP887项、750本地URL、247MathML；47页、W1—W4及匿名科学协议已闭合，旧870项位于历史子根原字节保持；R02/R04仍partial | [新包入口](../../../deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md)、[最终核验](../../evidence/aris-weak-package-20261010/README.md) |
-| 当前展示和讲解 | R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接核对；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
+| 当前49页报告 | 条件均值推断与G2窗口/取消恢复整合；原62公式、18图、4分节及21个非摘要表按序保持；全页视觉及内容/结构核验通过，R02/R04仍部分签收 | [新报告](../../../deliverables/research/aris-report-g2-20261010/README.md)、[作者侧核验](../../evidence/aris-report-g2-20261010/README.md) |
+| 当前925项匿名研究阅读闭包 | 实际ZIP d5c7a05c、32122709字节，817本地引用、40HTML、247MathML及独立实包审查通过；仅从ZIP提取G2-A完成macOS/ARM C11/CTest1/1，normal退出0、parent-loss退出1，四CSV/JSON逐字一致、原输入保持；不是新硬件采集 | [正式补充件](../../../deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md)、[作者侧核验与实际离线复算](../../evidence/aris-g2-package-20261010/README.md) |
+| 2026-10-10较早47页及887项闭包 | ec076 ZIP887项、750本地URL、247MathML；47页、W1—W4及匿名科学协议按当时范围闭合，旧887项及其中870项历史子根在新版保持原字节 | [旧47页报告](../../../deliverables/research/aris-report-weak-mean-20261010/README.md)、[旧887项件](../../../deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md) |
+| 展示和讲解的既有核验 | 2026-10-09 R07/M02/S01入口及旧矛盾修正，50个报告/讲解本地链接按该次核验记录；0704c39、056cb9f提交 | demo/index、evidence-index、演示说明及根README |
 | R02/R04下一设计 | DESIGN_READY_WITH_REQUIRED_INPUTS；实际NOT_READY_TO_RUN | [下一协议](NEXT_VALIDATION_PROTOCOL.md) |
 | Linux数学软件及产物身份 | 四工具链/动态配置各9/9；十二个原ELF已取回静态核验，没有新计时 | [软件结果](../aris-linux-math-software-20261009/RESULTS.md)、[ELF核验](../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md) |
 | 少量CPU预留及频率请求恢复 | G1两空任务及新G2正常／运行中注册取消均完成；两次仅四min/max请求后恢复，G2六原PID不存在、32策略/global等基线、CPU0—31归还/锁释放。没有持续预留；旧fa1f9a0仍禁用 | [G2实际87原件](../aris-frequency-window-20261010/RESULTS.md)、[G1](../aris-frequency-control-20261010/RESULTS.md) |
 | 云端项目文件归位 | 15个已确认旧临时目录、2502文件及9内部链接已迁入Cry/relocated并独立回读；15旧根均删除；旧KVM身份变化待核验 | [迁移原件及边界](../../evidence/remote-storage-20261009/README.md) |
-| 频率反馈来源与读取能力 | 32策略预检、CPU2/18→C004/C005静态GAS映射、Linux普通/动态自检和单次六读原值已核对；原解码失败保留，没有活动频率窗口或恒频签收 | [结果及三份原归档](../aris-frequency-reader-20261010/RESULTS.md) |
-| 普通参考窗口实际验证 | c0e5990/023f正式ELF单次完成126528调用；固定C分析200个CPU2主pair全部工程通过，纯主平均窗口几何覆盖99.4948%。另一次注册取消输出为空保持未知；全量独立核对通过，R02/R04不升级 | [结果与图](../aris-frequency-window-20261010/RESULTS.md)、[结果到主张](../aris-frequency-window-20261010/RESULT_TO_CLAIM.md) |
+| 频率反馈来源与读取能力 | 32策略预检、CPU2/18→C004/C005静态GAS映射、Linux普通/动态自检和单次六读原值已核对；原解码失败保留，该六读准备阶段未形成活动窗口，后续G2另见下行，恒频仍未签收 | [结果及三份原归档](../aris-frequency-reader-20261010/RESULTS.md) |
+| 普通参考窗口实际验证 | c0e5990/023f正式ELF单次完成126528调用；固定C分析200个CPU2主pair全部工程通过，纯主平均窗口几何覆盖99.4948%。200窗来自一个完成进程，不是独立重复；另一次注册取消输出为空保持未知。全量核对通过不证明整段/逐调用恒频、物理精度或统计总体保证，R02/R04不升级 | [结果与图](../aris-frequency-window-20261010/RESULTS.md)、[结果到主张](../aris-frequency-window-20261010/RESULT_TO_CLAIM.md) |
 | 后续测试临时目录 | 九处C硬编码/tmp已改为CTest指定根，35项环境配置完整；本地相关10/10及辅助动态检查1/1；Linux仅辅助程序普通与动态检查各1/1 | [本地核验](../../evidence/test-temp-root-20261009/README.md)、[Linux辅助检查](../../evidence/test-temp-linux-20261010/README.md) |
 | 弱均值区间理论 | 补齐设计型无偏/方差恒等式、独立赋值小样本反例、条件渐近及有界有限样本路线；真实适用条件未成立，不签收R04 | [证明与文献边界](WEAK_MEAN_PROOF_PACKAGE.md) |
 | 完整研究及竞赛验收 | partial；R02/R04真实前提及T13真人材料未签收 | [当前全审计](FULL_GOAL_AUDIT.md)、[全要求表](../../full-work-acceptance.md) |
 
-报告、解释包与软件v3各有身份，不以新报告替换原软件或原M01。原42页、59b及56ad件保持；当前解释包明确旧状态的历史日期。外部Codex MCP未提供，同模型不同代理的独立审查不改称外部同行评审。
+报告、解释包与软件v3各有身份，不以新报告替换原软件或原M01。原42页、47页、59b、56ad及887项件保持；当前925项件明确旧状态的历史日期。R02/R04适用测量与统计前提、旧KVM可信主机身份核查和迁移、真实运行画面及本人审批签名盖章仍待实际材料。外部Codex MCP未提供，同模型不同代理的独立审查不改称外部同行评审。
+
+以下保留各阶段原记录；“当前”“等待”“尚未”等按各段形成时点解释，最新执行与交付状态以上表为准，不逐段追改历史。
 
 剩余依赖是适用的真实测量条件、统计目标参数/依据、真实画面及本人签章回执。10月9日随后用户明确正常使用密码登录，密码认证已实际成功：nss-m、Linux/x86_64、无虚拟化、32线程、约定裸金属工作目录存在；[成功记录](../../evidence/aris-access-restored-20261009/access-check.json)不含密码。先前255记录仅对应免交互认证失败，原字节保持。本次只读核验未启动新实验，powersave名称不证明锁频，R02/R04条件仍需确认。新协议给出必填门槛、功效和全预算设计，未虚构已取得的数据、次数或精度。设计不足的字段须在任何正式执行前完成，不能从旧结果反推阈值。
 

@@ -7,17 +7,21 @@
 见 [执行记录](docs/evidence/author-proxy-v3-20261008/README.md)。同一 Linux 上的人工机制防护前后见 [R07记录](docs/evidence/r07-linux-20261008/README.md)。实际截图及审批签署仍缺，
 当前材料供项目组审阅修改，不称全部要求验收完成。
 
-2026-10-10的[47页研究补强报告](deliverables/research/aris-report-weak-mean-20261010/README.md)
-在原45页及[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)基础上补入条件均值推断，保留官方潜在修正核对及原数据。
+当前研究交付为2026-10-10的[49页G2补充报告](deliverables/research/aris-report-g2-20261010/README.md)
+与[925项匿名研究补充件](deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md)。
+新版保留条件均值推断、[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)、官方潜在修正核对及原数据，纳入G2的实际窗口与恢复证据。
 一次干净重建后的三个同机新进程支持固定六非零输入的较低中位成本观察，原M01不合并。
-报告经科学与全页视觉核验；R02/R04的真实测量及统计前提、实际截图和本人签署仍需适用证据。
-[新版匿名研究补充件](deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md)已闭合47页报告、完整均值证明及协议阅读视图；原870项嵌于明确历史子根保持原字节。
+49页报告经内容、结构及全页视觉核验；925项实际ZIP的原字节、匿名、链接与独立实包审查通过。
+仅从实包提取G2-A，在macOS/ARM普通C11配置中通过唯一CTest，正常复算退出0、中断退出1，四份CSV/JSON逐字一致、原输入保持；这不是新Linux硬件采集。
+[报告作者侧核验](docs/evidence/aris-report-g2-20261010/README.md)与[实包核验及离线复算](docs/evidence/aris-g2-package-20261010/README.md)分别留证。
+同日较早的[47页报告](deliverables/research/aris-report-weak-mean-20261010/README.md)和[887项均值推断补充件](deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md)保持原身份；旧887项及其中870项历史子根在新版中保持原字节。
 [当前状态与下一协议](docs/research/aris-replication-20261009/CURRENT_STATUS.md)提供复算、单核管理恢复原件及未闭合门槛入口。
 
 2026-10-10新增[G2普通参考窗口验证](docs/research/aris-frequency-window-20261010/RESULTS.md)：
 单次正常采集126528调用，200个主反馈窗口满足事前工程规则，纯主平均窗口几何覆盖99.4948%；
-另一次运行中注册取消、原件保全和可见资源恢复独立核对通过。完整主阶段恒频、物理精度及R02/R04
-仍未签收；新证据与图单独保存，尚未改写上述47页报告或匿名包。
+200窗来自一个完成进程，不能当作200次独立重复；另一次运行中注册取消、原件保全和可见资源恢复独立核对通过。
+新证据与图已纳入49页报告和925项补充件，不证明整段或逐调用恒频、物理精度或统计总体保证，R02/R04仍部分签收。
+适用测量与统计前提、旧KVM可信主机身份核查、真实运行画面及本人审批签名盖章仍待实际材料。
 
 当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、
 成对统计、普通性能及离线HTML导出。构建后从这里开始：

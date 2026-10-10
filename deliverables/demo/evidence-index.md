@@ -1,6 +1,6 @@
 # 结论与证据索引
 
-入口更新：2026-10-09；历史条目保留各自日期。E01/E02/H01/C01–C04稳定编号保持；A01保留旧展示R01别名，
+入口更新：2026-10-10；历史条目保留各自日期。E01/E02/H01/C01–C04稳定编号保持；A01保留旧展示R01别名，
 避免与官方R01混淆。U01/D01/N01/A02为本轮索引。A03是所有者授权的封存v3重跑，计入R11。
 I01仍记录截图与审批签署缺口。历史34项和旧复算仍按原执行解释。
 
@@ -350,7 +350,7 @@ H01单次历史分布摘要，直接读取原报告category字段，不新增统
 | 5 | [CSV](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block5.csv) / [meta](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block5.meta) / [cost](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block5.csv.cost) / [日志](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block5.log) | [CSV](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block5.csv) / [meta](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block5.meta) / [cost](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block5.csv.cost) / [日志](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block5.log) | [CSV](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block5.csv) / [meta](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block5.meta) / [cost](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block5.csv.cost) / [日志](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block5.log) |
 | 6 | [CSV](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block6.csv) / [meta](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block6.meta) / [cost](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block6.csv.cost) / [日志](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-reference-block6.log) | [CSV](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block6.csv) / [meta](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block6.meta) / [cost](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block6.csv.cost) / [日志](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-hardened-block6.log) | [CSV](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block6.csv) / [meta](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block6.meta) / [cost](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block6.csv.cost) / [日志](../../docs/evidence/candidate-round-20261007/native/perf/ordinary-deployable-block6.log) |
 
-## 最新匿名成品验收
+## 软件v2/v3历史验收
 
 [候选终版v2](../support/candidate-round-20261007-v2/README.md)使用独立源清单601a1020…，
 同一成品在Linux新目录GCC与Clang ASan/UBSan各34项、25步骤全部0。五类旧主结果
@@ -381,3 +381,24 @@ H01单次历史分布摘要，直接读取原报告category字段，不新增统
 ## S01 官方潜在修正附件核对
 
 本轮从官方地址正常取得[原工作簿](../../docs/evidence/aris-resume-20261009/official-source/fips-203-potential-updates.xlsx)，HTTP 200、23849字节、摘要edf899c…。全表仅附录A索引0说明和算法15注释v改w两项潜在修正；固定便携C路径无需据此修补。[具体核对与原件摘要](../../docs/evidence/aris-resume-20261009/official-source-check.md)不扩大为全标准、其他后端、模块认证或恒时签收，潜在修正不作为已实施的新标准要求。
+
+
+## G2 · 普通参考窗口、原值与恢复
+
+状态：一次正常参考进程与另一次运行中注册取消均已核对；窄工程观察，R02/R04仍部分签收。
+
+**对应要求：** R02可靠测量的工程证据，关联R11原值复算；不增加总体检测或恒时声明。
+
+**结论与范围：** 全采集126528调用，主阶段101248调用；200个CPU2相邻反馈pair均通过事前工程规则，含首跨界。199个纯主支持区间几何覆盖3981985286/4002203951ns=99.4948%。200窗来自一个进程，不是独立重复，CPU18仅上下文。
+
+**方法及前提：** [事前合同](../../docs/research/aris-frequency-window-20261010/EXPERIMENT_PLAN.md)、[结果到主张](../../docs/research/aris-frequency-window-20261010/RESULT_TO_CLAIM.md)、[实际图与完整图注](../../docs/research/aris-frequency-window-20261010/figures/fig-g2-window-qualification.caption.md)。读取对齐区间不是置信区间或完整物理误差界；几何覆盖不推出逐时或逐调用恒频。
+
+**源码、构建与产物：** 普通生产者c0e5990、Linux正式ELF023f5646；固定分析dd67390。完整绑定见[封存原件](../../docs/evidence/frequency-window-20261010/run-0ba4cd7/README.md)；匿名G2-C依赖完整固定参考目录，仅静态审计，G2-A为包内离线分析。
+
+**机器、时间与执行者：** 2026-10-10、作者代理，Ryzen 9 9950X裸金属、Ubuntu 24.04.4/Linux x86_64；CPU2工作、CPU2/18同胞临时预留，结束已经归还，未持续独占。
+
+**原数据、日志与退出：** [87原件与执行](../../docs/evidence/frequency-window-20261010/run-0ba4cd7/README.md)、[科学全量核对](../../docs/evidence/frequency-window-20261010/run-0ba4cd7/SCIENTIFIC_REVIEW.md)、[实际生命周期审查](../../docs/evidence/frequency-window-20261010/run-0ba4cd7/ARTIFACT_REVIEW.md)。取消在放行后约0.255407秒发起，非恢复耗时；0字节输出未知，不能解释为零调用。六原PID不存在、32策略/global可见等原基线、根CPU0—31、隔离空、自有组删和锁释放分别核对。
+
+**分析与复算入口：** [49页报告](../research/aris-report-g2-20261010/README.md)与[925项匿名补充件](../support/CACR2026EA16XZ-g2-windows-20261010/README.md)已闭合。实际ZIP提取G2-A在Mac/ARM普通C11重建，唯一CTest1/1、normal0/parent-loss1、四输出逐字一致且原输入保持；该复算没有新增密码、硬件或Linux采集。
+
+**当前证据缺口：** 适用时间差量级的读钟精度、稳定性及真实统计前提仍待。可见恢复不是全程原子状态或隐藏QoS保证，guard死亡/整机及真实磁盘故障未测试。旧KVM可信身份核查迁移、真实画面和本人审批签名盖章未完成；当前交付闭包不签收完整目标。
