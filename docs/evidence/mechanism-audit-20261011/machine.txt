@@ -1,0 +1,13 @@
+machine=nss-m
+address=10.144.144.5
+work_root=/home/nss-marker/yhr/Cry/mechanism-audit-20261011
+Linux 6.17.0-35-generic x86_64
+virt=none
+compiler=gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake=cmake version 3.28.3
+objdump=GNU objdump (GNU Binutils for Ubuntu) 2.42
+3ce202eebcc590f02b401dadd09f81fa79eb6d74da820f5ef701a4543d649224  /home/nss-marker/yhr/Cry/mechanism-audit-20261011/build/cmake/CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+object=/home/nss-marker/yhr/Cry/mechanism-audit-20261011/build/cmake/CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+build_type=RelWithDebInfo
+sanitizers=OFF
+cc=gcc

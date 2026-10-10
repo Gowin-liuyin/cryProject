@@ -1,0 +1,9 @@
+artifact_sha256=3ce202eebcc590f02b401dadd09f81fa79eb6d74da820f5ef701a4543d649224
+compiler_command=/usr/bin/gcc
+compiler_flags= -O2 -g -DNDEBUG -std=c11
+compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+configuration=RelWithDebInfo
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+mechanism kyber_slash_division status=absent source=vendor/mlkem-native/mlkem/src/compress.c:737 symbol=mlk_poly_compress_d4_c,mlk_poly_compress_d10_c,mlk_poly_decompress_d4_c,mlk_poly_decompress_d10_c,baseline_native_poly_compress_d4,baseline_native_poly_compress_d10,baseline_native_poly_decompress_d4,baseline_native_poly_decompress_d10,baseline_native_poly_frommsg,baseline_native_poly_tomsg division_instructions=0 secret_conditional_branches=0 loop_bound_branches=0 leak_if_present=message_bit observed=neither
+mechanism clangover_message_branch status=absent source=vendor/mlkem-native/mlkem/src/compress.c:697 symbol=baseline_native_poly_frommsg division_instructions=0 secret_conditional_branches=0 loop_bound_branches=2 leak_if_present=message_bit observed=neither
+mechanism fo_compare_rejection status=absent source=vendor/mlkem-native/mlkem/src/kem.c:403 symbol=baseline_native_dec division_instructions=0 secret_conditional_branches=0 loop_bound_branches=2 leak_if_present=rejection_flag observed=neither

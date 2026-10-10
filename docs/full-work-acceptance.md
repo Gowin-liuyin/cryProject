@@ -1,5 +1,15 @@
 # 完整作品最终验收表
 
+2026-10-11 固定便携解封装的三类机制审计不改变下表签收状态。
+文献机制、观察者可见量、本产物是否存在、以及因此未做的修复，写在
+[mechanism-audit-20261011](evidence/mechanism-audit-20261011/README.md)
+和 [报告补充](../deliverables/submission/CACR2026EA16XZ/mechanism-audit-20261011/README.md)。
+KyberSlash 类除法对应消息比特，clangover 类分支也对应消息比特，FO 比较或拒绝选择对应比较或拒绝标志。
+授权裸金属 GCC 13.3.0 RelWithDebInfo 的参考内核
+`3ce202eebcc590f02b401dadd09f81fa79eb6d74da820f5ef701a4543d649224` 上三项均为不存在，
+所以没有新的常数时间补丁，也没有防护前后原始样本或统计结论。
+历史人工消息分支仍是历史案例。R02、R04 保持部分签收。已封存证据目录未改。
+
 依据2026官方题面12项原文，编号沿用R01–R12。工程/软件、实验执行、研究结论与比赛达标分开。
 题面与原模板保存在reference/official-2026；用户要求编号、正式题名、人员分工先占位。
 

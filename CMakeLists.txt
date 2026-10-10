@@ -33,6 +33,7 @@ find_program(PATCH_EXECUTABLE patch REQUIRED)
 find_program(SH_EXECUTABLE sh REQUIRED)
 find_program(SHASUM_EXECUTABLE shasum REQUIRED)
 find_program(AWK_EXECUTABLE awk REQUIRED)
+find_program(OBJDUMP_EXECUTABLE objdump REQUIRED)
 
 set(vendor_root "${CMAKE_CURRENT_SOURCE_DIR}/vendor/mlkem-native/mlkem")
 set(encoder_patch_vulnerable "${CMAKE_CURRENT_SOURCE_DIR}/docs/patches/message-branch.patch")
@@ -273,6 +274,12 @@ add_executable(audit src/audit.c)
 target_link_libraries(audit PRIVATE controlled_statistics)
 target_include_directories(audit PRIVATE "${identity_directory}")
 set_target_properties(audit PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+add_executable(mechanism_audit src/mechanism_audit.c)
+target_link_libraries(mechanism_audit PRIVATE baseline_options)
+target_include_directories(mechanism_audit PRIVATE "${identity_directory}")
+target_compile_definitions(mechanism_audit PRIVATE "MECHANISM_OBJDUMP=\"${OBJDUMP_EXECUTABLE}\"")
+add_dependencies(mechanism_audit build_identity mlkem_reference)
+set_target_properties(mechanism_audit PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
 add_dependencies(
     audit
     reference_baseline
@@ -447,6 +454,15 @@ if(BUILD_TESTING)
     )
     set_tests_properties(
         analysis_round1_replay PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    add_executable(test_mechanism_audit tests/test_mechanism_audit.c)
+    target_link_libraries(test_mechanism_audit PRIVATE mlkem_reference)
+    target_compile_options(test_mechanism_audit PRIVATE -UNDEBUG)
+    add_test(NAME mechanism_audit
+             COMMAND test_mechanism_audit
+                     "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt"
+                     $<TARGET_FILE:mechanism_audit> "${CMAKE_CURRENT_SOURCE_DIR}"
+                     "${SHASUM_EXECUTABLE}" $<TARGET_OBJECTS:mlkem_reference>
     )
     add_test(NAME vector_integrity COMMAND "${SHASUM_EXECUTABLE}" -a 256 -c
                                            tests/vectors/SHA256SUMS

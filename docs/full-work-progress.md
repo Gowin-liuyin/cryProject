@@ -1,5 +1,25 @@
 # 完整作品进度
 
+2026-10-11完成固定便携解封装的三类时序机制产物审计。
+在 `nss-m` 裸金属、GCC 13.3.0、RelWithDebInfo 上，参考 `kernel.c.o`
+摘要 `3ce202eebcc590f02b401dadd09f81fa79eb6d74da820f5ef701a4543d649224`。
+KyberSlash 类除法、clangover 类消息分支、FO 比较或拒绝选择分支均为不存在；
+没有制造前后计时。记录见 [mechanism-audit-20261011](evidence/mechanism-audit-20261011/README.md)。
+R02、R04 不因此升级。历史人工消息分支保持原身份。
+
+2026-10-08完成[文献研究与研究路线](../deliverables/research/mlkem-literature-20261008/README.md)：
+29项来源、16页研究笔记、BibTeX及结构化文献卡，逐项标明阅读深度与适用范围。
+补入SILENT、编译器恒时研究、精确随机化理论、性能方法和工具可用性；核对RTLF勘误与SILENT条件。
+此轮为文献研究，原39页报告、实验原始材料及验收状态不改；新研究问题未计作已执行实验。
+
+
+2026-10-08完成[获奖报告风格重写版](../deliverables/submission/CACR2026EA16XZ/rewrite-20261008/README.md)：
+39页DOCX/PDF，重新设计七章与32节标题；16幅PPT原生图、19张编号表、17个原生公式。
+同机R07与授权封存复算按最新已归档状态纳入，旧ARM/E02/N01/C01—C04范围分别保留。
+本次为报告与图源制作，无新实验、无原数据变更，不自动升级其他验收项；旧14页版及封存包未覆盖。
+[文稿/图源核验](evidence/report-rewrite-20261008/README.md)：全页视觉、目录42项、公式、原生工作簿及关键数据通过，format-check通过。
+
+
 2026-10-08所有者指示授权代理完成封存 v3 的新目录执行，并计入执行项。
 日志在 [author-proxy-v3-20261008](evidence/author-proxy-v3-20261008/README.md)：包 58d6a604、源清单 601a1020、26 步全 0、GCC/Clang 各 34 项、五类主结果逐字一致、60 条短演示。
 执行模板中由先前会话写入的空白表和附加限制已删除。运行当时的 result.meta 未改。
