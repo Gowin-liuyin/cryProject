@@ -1,0 +1,63 @@
+{
+  "source_commit": "6b9fa923cdd4747f0f9fd38b86b4ab40f9dde680",
+  "source_sha256": "81565a4502b1212c9d33466be3747632025b6fcdc222f58d032ee0b5f85e6bd9",
+  "CMake_sha256": "57c4060a6a41b6110999a8c729ed4e156c14975f3ecb53aef907640e4076596c",
+  "plan_sha256": "eb2d57f21eaa4859dfe28988c9aeaea6e95d956a3675520f70aefeed41b16eb4",
+  "ordinary_binary_sha256": "3b235081eeec4be6d2e774fcab758e2312b654893e12fe7cb3f83a4f824fccfa",
+  "input_sha256_before": {
+    "normal": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+    "parent-loss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "ssh_used": false,
+  "existing_call_records_analyzed": 126528,
+  "formal_normal_description_runs": 1,
+  "partial_unknown_rejection_runs": 1,
+  "timeout_seconds_per_case": 30,
+  "started_utc": "2026-10-10T04:20:07.209247+00:00",
+  "commands": [
+    {
+      "case": "normal",
+      "argv": [
+        "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/software/run-20261010T040826Z/build-normal/analyze_windows",
+        "--timing-description",
+        "/Users/yin/code/cryProject/docs/evidence/frequency-window-20261010/run-0ba4cd7/originals/normal/worker.stdout.jsonl"
+      ],
+      "expected_exit_code": 0,
+      "stdout_file": "normal-timing.csv",
+      "stderr_file": "normal-timing-summary.json",
+      "C_process_started": true,
+      "pid": 26955,
+      "exit_code": 0,
+      "wall_seconds": 0.07493058301042765,
+      "stdout_sha256": "56cb264b75390a14fba236c44abb53b87e1dcaadabb6e9b03c4c55c02bc34b67",
+      "stderr_sha256": "d6743f69077df23e256c705e1203f46f2650b3820aa09c513687dbd51d5d4d58"
+    },
+    {
+      "case": "parent-loss",
+      "argv": [
+        "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/software/run-20261010T040826Z/build-normal/analyze_windows",
+        "--timing-description",
+        "/Users/yin/code/cryProject/docs/evidence/frequency-window-20261010/run-0ba4cd7/originals/parent-loss/worker.stdout.jsonl"
+      ],
+      "expected_exit_code": 1,
+      "stdout_file": "parent-loss-timing.csv",
+      "stderr_file": "parent-loss-timing-summary.json",
+      "C_process_started": true,
+      "pid": 26956,
+      "exit_code": 1,
+      "wall_seconds": 0.0030036669922992587,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c60fba3b80a8341bb587203e4bccabe22b462b38b7dabf20c4440876343c734c"
+    }
+  ],
+  "status": "completed_pending_independent_full_numeric_review",
+  "earlier_launch_rejected_before_process_start": "../analysis-run-6b9fa92/execution.json",
+  "binary_selection_correction": "use original executable build artifact, identical bytes; no permission mutation or rebuild",
+  "input_sha256_after": {
+    "normal": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+    "parent-loss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "completed_utc": "2026-10-10T04:20:07.301446+00:00"
+}

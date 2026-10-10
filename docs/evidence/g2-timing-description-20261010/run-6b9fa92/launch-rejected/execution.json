@@ -1,0 +1,30 @@
+{
+  "source_commit": "6b9fa923cdd4747f0f9fd38b86b4ab40f9dde680",
+  "source_sha256": "81565a4502b1212c9d33466be3747632025b6fcdc222f58d032ee0b5f85e6bd9",
+  "CMake_sha256": "57c4060a6a41b6110999a8c729ed4e156c14975f3ecb53aef907640e4076596c",
+  "plan_sha256": "eb2d57f21eaa4859dfe28988c9aeaea6e95d956a3675520f70aefeed41b16eb4",
+  "ordinary_binary_sha256": "3b235081eeec4be6d2e774fcab758e2312b654893e12fe7cb3f83a4f824fccfa",
+  "input_sha256_before": {
+    "normal": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+    "parent-loss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "ssh_used": false,
+  "existing_call_records_analyzed": 126528,
+  "formal_normal_description_runs": 0,
+  "partial_unknown_rejection_runs": 0,
+  "timeout_seconds_per_case": 30,
+  "started_utc": "2026-10-10T04:18:42.702577+00:00",
+  "commands": [],
+  "status": "launch_rejected_before_C_process_started",
+  "planned_formal_normal_description_runs": 1,
+  "planned_partial_unknown_rejection_runs": 1,
+  "launch_error": "PermissionError EACCES: archival byte-copy lacks executable mode",
+  "C_process_started": false,
+  "outputs_allocated_but_no_child_output": true,
+  "input_sha256_after": {
+    "normal": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+    "parent-loss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

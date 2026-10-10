@@ -74,6 +74,7 @@ fixture；完整解析／完整性／调度／原窗口链由已有128调用自�
 软件资格已完成：普通与ASan/UBSan各2/2、旧normal/parent-loss四输出逐字保持，以及只读stdout失败检查。
 动态首轮在测试体前因macOS不支持的detect_leaks=1失败，原件保留；同一动态产物仅改detect_leaks=0后通过，不宣称LSan覆盖。
 完整[准备证据](../../evidence/g2-timing-description-20261010/preparation/README.md)分别保存源、合同、产物及失败/修复日志。
-真实新描述入口仍未执行，随后须另绑定提交源、普通二进制和实际输出。新增描述不会证明短调用精度、恒频、总体误报率
+随后真实新描述已完成一次normal及一次empty拒绝，54行输出、主墙钟账和全量独立参照均一致，见[结果](RESULTS.md)和[主张判定](RESULT_TO_CLAIM.md)。
+实际[执行原件](../../evidence/g2-timing-description-20261010/run-6b9fa92/README.md)绑定提交源及普通产物；新增描述不会证明短调用精度、恒频、总体误报率
 或检出率；R02/R04不因此签收。若在云端执行，源码、输入、构建、缓存、临时文件和输出的
 真实路径全部只能位于`/home/nss-marker/yhr/Cry`或其子目录，不能用符号链接越出。

@@ -1,0 +1,17 @@
+{
+  "source_commit": "6b9fa923cdd4747f0f9fd38b86b4ab40f9dde680",
+  "C_source_sha256": "81565a4502b1212c9d33466be3747632025b6fcdc222f58d032ee0b5f85e6bd9",
+  "ordinary_binary_sha256": "3b235081eeec4be6d2e774fcab758e2312b654893e12fe7cb3f83a4f824fccfa",
+  "binary_copy_in": "../preparation/software-qualification.zip:initial/artifacts/analyze_windows-macos-arm64-normal",
+  "raw_input_in": "../../frequency-window-20261010/run-0ba4cd7/originals/normal/worker.stdout.jsonl",
+  "raw_sha256": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+  "normal_CSV_sha256": "56cb264b75390a14fba236c44abb53b87e1dcaadabb6e9b03c4c55c02bc34b67",
+  "normal_JSON_sha256": "d6743f69077df23e256c705e1203f46f2650b3820aa09c513687dbd51d5d4d58",
+  "one_successful_C_normal_description": true,
+  "launch_rejection_did_not_enter_C_program": true,
+  "raw_input_unchanged": true,
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "R02": "partial",
+  "R04": "partial"
+}

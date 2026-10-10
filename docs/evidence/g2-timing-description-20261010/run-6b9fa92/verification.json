@@ -1,0 +1,225 @@
+{
+  "status": "passed",
+  "review_kind": "independent_standard_library_integer_fraction_cross_reference",
+  "reviewer": "timing_precision_audit",
+  "external_codex_review": "pending",
+  "source_commit": "6b9fa923cdd4747f0f9fd38b86b4ab40f9dde680",
+  "new_C_description_runs_by_oracle": 0,
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "ssh_used": false,
+  "original_input_lines_checked": 128768,
+  "all_original_decaps_checked": 126528,
+  "raw_clock_values_checked_in_event_order": 258547,
+  "thread_clock_values_checked_in_event_order": 502,
+  "description_rows_checked": 54,
+  "integer_CSV_fields_checked": 432,
+  "grouping_fields_per_row_checked": 4,
+  "mean_display_rows_checked": 54,
+  "mean_authority": "exact sum_elapsed_ns/count; decimal display only",
+  "mean_display_allowance": "half binary64 ULP at exact mean plus half 10^-12 ns; not physical precision",
+  "maximum_mean_absolute_error_ns_exact": "1563/395500000000000",
+  "maximum_mean_display_allowance_ns_exact": "277695057/67108864000000000000",
+  "quantile_reference": "Fraction rank floor(p*(n-1)+1/2); upper median, no interpolation",
+  "main_quarter_boundaries": [
+    0,
+    25312,
+    50624,
+    75936,
+    101248
+  ],
+  "main_ledger": {
+    "call_records": 126528,
+    "warmup_call_records": 25280,
+    "main_call_records": 101248,
+    "main_start_ns": "3392762246994691",
+    "main_end_ns": "3392766249198642",
+    "main_wall_ns": "4002203951",
+    "main_call_elapsed_sum_ns": "3993729753",
+    "main_outside_call_windows_ns": "8474198",
+    "main_head_outside_ns": "60",
+    "main_intercall_gap_sum_ns": "8460192",
+    "main_tail_outside_ns": "13946",
+    "main_intercall_gap_count": 101247
+  },
+  "record_position_counts": {
+    "snapshots": {
+      "all": 251,
+      "warmup_phase": 51,
+      "main_phase": 200,
+      "main_head": 0,
+      "main_interior": 199,
+      "main_tail": 1
+    },
+    "checkpoints": {
+      "all": 1977,
+      "warmup_phase": 395,
+      "main_phase": 1582,
+      "main_head": 0,
+      "main_interior": 1581,
+      "main_tail": 1
+    }
+  },
+  "normal_all": {
+    "scope": "whole_phase",
+    "phase": "main",
+    "quarter_index": "all",
+    "input_index": "all",
+    "count": 101248,
+    "sum_elapsed_ns": 3993729753,
+    "min_ns": 37911,
+    "p50_ns": 39274,
+    "p90_ns": 39844,
+    "p99_ns": 41498,
+    "max_ns": 82996,
+    "mad_ns": 90
+  },
+  "warmup_all": {
+    "scope": "whole_phase",
+    "phase": "warmup",
+    "quarter_index": "all",
+    "input_index": "all",
+    "count": 25280,
+    "sum_elapsed_ns": 998749725,
+    "min_ns": 38282,
+    "p50_ns": 39314,
+    "p90_ns": 39865,
+    "p99_ns": 42099,
+    "max_ns": 61005,
+    "mad_ns": 130
+  },
+  "main_quarters_all": [
+    {
+      "scope": "main_quarter",
+      "phase": "main",
+      "quarter_index": "0",
+      "input_index": "all",
+      "count": 25312,
+      "sum_elapsed_ns": 998603010,
+      "min_ns": 38132,
+      "p50_ns": 39274,
+      "p90_ns": 39835,
+      "p99_ns": 41698,
+      "max_ns": 56436,
+      "mad_ns": 100
+    },
+    {
+      "scope": "main_quarter",
+      "phase": "main",
+      "quarter_index": "1",
+      "input_index": "all",
+      "count": 25312,
+      "sum_elapsed_ns": 998786964,
+      "min_ns": 37911,
+      "p50_ns": 39283,
+      "p90_ns": 39865,
+      "p99_ns": 41678,
+      "max_ns": 82996,
+      "mad_ns": 120
+    },
+    {
+      "scope": "main_quarter",
+      "phase": "main",
+      "quarter_index": "2",
+      "input_index": "all",
+      "count": 25312,
+      "sum_elapsed_ns": 998355855,
+      "min_ns": 38442,
+      "p50_ns": 39273,
+      "p90_ns": 39834,
+      "p99_ns": 41547,
+      "max_ns": 54562,
+      "mad_ns": 79
+    },
+    {
+      "scope": "main_quarter",
+      "phase": "main",
+      "quarter_index": "3",
+      "input_index": "all",
+      "count": 25312,
+      "sum_elapsed_ns": 997983924,
+      "min_ns": 38422,
+      "p50_ns": 39273,
+      "p90_ns": 39825,
+      "p99_ns": 41197,
+      "max_ns": 69039,
+      "mad_ns": 79
+    }
+  ],
+  "parent_loss_remains_unknown": true,
+  "raw_bytes_unchanged": true,
+  "earlier_launch_rejection_interpretation": "record says EACCES before process creation; not a completed or failed C numerical run",
+  "causal_overhead_identified": false,
+  "iid_asserted": false,
+  "stationarity_asserted": false,
+  "physical_precision_certified": false,
+  "r02_signed_off": false,
+  "r04_signed_off": false,
+  "identities": {
+    "raw_normal": {
+      "path": "/Users/yin/code/cryProject/docs/evidence/frequency-window-20261010/run-0ba4cd7/originals/normal/worker.stdout.jsonl",
+      "sha256": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+      "bytes": 29266316
+    },
+    "raw_parent_loss": {
+      "path": "/Users/yin/code/cryProject/docs/evidence/frequency-window-20261010/run-0ba4cd7/originals/parent-loss/worker.stdout.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "C_source": {
+      "path": "/Users/yin/code/cryProject/docs/research/aris-frequency-window-analysis-20261010/analyze_windows.c",
+      "sha256": "81565a4502b1212c9d33466be3747632025b6fcdc222f58d032ee0b5f85e6bd9",
+      "bytes": 113581
+    },
+    "CMake": {
+      "path": "/Users/yin/code/cryProject/docs/research/aris-frequency-window-analysis-20261010/CMakeLists.txt",
+      "sha256": "57c4060a6a41b6110999a8c729ed4e156c14975f3ecb53aef907640e4076596c",
+      "bytes": 1480
+    },
+    "frozen_plan": {
+      "path": "/Users/yin/code/cryProject/docs/research/aris-g2-timing-description-20261010/EXPERIMENT_PLAN.md",
+      "sha256": "eb2d57f21eaa4859dfe28988c9aeaea6e95d956a3675520f70aefeed41b16eb4",
+      "bytes": 4654
+    },
+    "normal_CSV": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92-01/normal-timing.csv",
+      "sha256": "56cb264b75390a14fba236c44abb53b87e1dcaadabb6e9b03c4c55c02bc34b67",
+      "bytes": 5006
+    },
+    "normal_JSON": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92-01/normal-timing-summary.json",
+      "sha256": "d6743f69077df23e256c705e1203f46f2650b3820aa09c513687dbd51d5d4d58",
+      "bytes": 1216
+    },
+    "parent_loss_CSV": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92-01/parent-loss-timing.csv",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "parent_loss_JSON": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92-01/parent-loss-timing-summary.json",
+      "sha256": "c60fba3b80a8341bb587203e4bccabe22b462b38b7dabf20c4440876343c734c",
+      "bytes": 220
+    },
+    "ordinary_binary": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/software/run-20261010T040826Z/build-normal/analyze_windows",
+      "sha256": "3b235081eeec4be6d2e774fcab758e2312b654893e12fe7cb3f83a4f824fccfa",
+      "bytes": 88656
+    },
+    "execution_record": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92-01/execution.json",
+      "sha256": "6af26b2aa0d6ecdd3dd7c9cd6ff76a28b4bb7a95150f4f5509333e640e9fff86",
+      "bytes": 3062
+    },
+    "earlier_execution_record": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92/execution.json",
+      "sha256": "40379209875db8c765c9a48d99cde2f6489ee837acaa0f4f8f7f0a7a8f195cf6",
+      "bytes": 1450
+    },
+    "oracle_source": {
+      "path": "/Users/yin/code/cryProject/build/aris-g2-timing-description-20261010/analysis-run-6b9fa92-01/independent_numeric_oracle.py",
+      "sha256": "b60a543682dbbbe992efd29c3fe6ee153def725e978d6bd277a6126fd6d41a8f",
+      "bytes": 21324
+    }
+  }
+}
