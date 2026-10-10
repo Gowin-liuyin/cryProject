@@ -1,0 +1,21 @@
+{
+  "target": "local_CPU_only_C11_offline_G2_description",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "logical_cpu_count": 10,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+  "cmake": "cmake version 4.3.2\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+  "disk_free_bytes": 191151755264,
+  "required_disk_bytes": 536870912,
+  "compute_available": true,
+  "GPU_required": false,
+  "remote_needed": false,
+  "input_sha256": "c29a9ca0e28ffad53aaeb0e0c0097fd560d048f5eee4803885cb56850a989028",
+  "input_bytes": 29266316,
+  "plan_sha256_before_execution": "eb2d57f21eaa4859dfe28988c9aeaea6e95d956a3675520f70aefeed41b16eb4",
+  "real_duration_distribution_read": false,
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "existing_archived_call_records": 126528,
+  "initial_preflight_attempt": "existing shared work directory rejected before commands; new qualification subdirectory used; no compute unavailability"
+}

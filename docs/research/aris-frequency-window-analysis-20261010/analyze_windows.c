@@ -19,6 +19,8 @@
 #define SOFT_LIMIT_NS UINT64_C(6000000000)
 #define MAX_GAP_NS UINT64_C(40000000)
 #define MAX_TRIPLE_NS UINT64_C(1000000)
+#define TIMING_QUARTER_COUNT 4U
+#define TIMING_ROW_COUNT ((2U + TIMING_QUARTER_COUNT) * (INPUT_COUNT + 1U))
 
 enum phase {
     PHASE_WARMUP,
@@ -193,6 +195,39 @@ struct coverage {
     bool clock_sequence_anomaly;
     struct optional_u64 main_end;
     struct optional_u64 main_wall;
+};
+
+struct timing_row {
+    enum phase phase;
+    size_t quarter_index;
+    size_t input_index;
+    size_t count;
+    uint64_t sum_elapsed_ns;
+    uint64_t minimum_ns;
+    uint64_t p50_ns;
+    uint64_t p90_ns;
+    uint64_t p99_ns;
+    uint64_t maximum_ns;
+    uint64_t mad_ns;
+};
+
+struct timing_description {
+    struct timing_row rows[TIMING_ROW_COUNT];
+    size_t row_count;
+    size_t warmup_call_records;
+    size_t main_call_records;
+    size_t snapshot_phase_counts[2];
+    size_t checkpoint_phase_counts[2];
+    size_t main_snapshot_position_counts[3];
+    size_t main_checkpoint_position_counts[3];
+    uint64_t main_start_ns;
+    uint64_t main_end_ns;
+    uint64_t main_wall_ns;
+    uint64_t main_call_elapsed_sum_ns;
+    uint64_t main_outside_call_windows_ns;
+    uint64_t main_head_outside_ns;
+    uint64_t main_intercall_gap_sum_ns;
+    uint64_t main_tail_outside_ns;
 };
 
 static bool reject(struct parser *parser, const char *reason)
@@ -1690,6 +1725,360 @@ static void print_analysis_summary(const struct input_data *data, const struct c
         coverage->geometry_available ? "true" : "false");
 }
 
+static int compare_elapsed_ns(const void *left, const void *right)
+{
+    uint64_t left_ns = *(const uint64_t *)left;
+    uint64_t right_ns = *(const uint64_t *)right;
+    return (left_ns > right_ns) - (left_ns < right_ns);
+}
+
+static uint64_t timing_quantile(const uint64_t *sorted_ns, size_t count, unsigned int percentile)
+{
+    /* 与series_quantile同用最近秩；固定容量内的整数索引不引入浮点边界。 */
+    size_t sample_index = ((count - 1U) * percentile + 50U) / 100U;
+    return sorted_ns[sample_index];
+}
+
+static bool timing_series_statistics(uint64_t *elapsed_ns,
+    size_t count,
+    uint64_t *deviation_ns,
+    struct timing_row *row)
+{
+    if (count == 0 || count > CALL_CAPACITY) {
+        return false;
+    }
+    row->count = count;
+    row->sum_elapsed_ns = 0;
+    for (size_t sample_index = 0; sample_index < count; ++sample_index) {
+        if (!checked_add(row->sum_elapsed_ns, elapsed_ns[sample_index], &row->sum_elapsed_ns)) {
+            return false;
+        }
+    }
+    qsort(elapsed_ns, count, sizeof(*elapsed_ns), compare_elapsed_ns);
+    row->minimum_ns = elapsed_ns[0];
+    row->p50_ns = timing_quantile(elapsed_ns, count, 50U);
+    row->p90_ns = timing_quantile(elapsed_ns, count, 90U);
+    row->p99_ns = timing_quantile(elapsed_ns, count, 99U);
+    row->maximum_ns = elapsed_ns[count - 1U];
+    for (size_t sample_index = 0; sample_index < count; ++sample_index) {
+        uint64_t sample_ns = elapsed_ns[sample_index];
+        deviation_ns[sample_index] =
+            sample_ns >= row->p50_ns ? sample_ns - row->p50_ns : row->p50_ns - sample_ns;
+    }
+    qsort(deviation_ns, count, sizeof(*deviation_ns), compare_elapsed_ns);
+    row->mad_ns = timing_quantile(deviation_ns, count, 50U);
+    return true;
+}
+
+static bool append_timing_rows(const struct input_data *data,
+    size_t call_begin,
+    size_t call_end,
+    enum phase phase,
+    size_t quarter_index,
+    uint64_t *elapsed_ns,
+    uint64_t *deviation_ns,
+    struct timing_description *description)
+{
+    for (size_t group_index = 0; group_index <= INPUT_COUNT; ++group_index) {
+        if (description->row_count >= TIMING_ROW_COUNT) {
+            return false;
+        }
+        struct timing_row *row = &description->rows[description->row_count];
+        row->phase = phase;
+        row->quarter_index = quarter_index;
+        row->input_index = group_index == 0 ? SIZE_MAX : group_index - 1U;
+        size_t sample_count = 0;
+        for (size_t call_index = call_begin; call_index < call_end; ++call_index) {
+            if (row->input_index == SIZE_MAX || call_index % INPUT_COUNT == row->input_index) {
+                elapsed_ns[sample_count++] = data->calls[call_index].elapsed.value;
+            }
+        }
+        if (!timing_series_statistics(elapsed_ns, sample_count, deviation_ns, row)) {
+            return false;
+        }
+        ++description->row_count;
+    }
+    return true;
+}
+
+static size_t timing_quarter_boundary(size_t main_call_count, size_t quarter_boundary)
+{
+    return (main_call_count / TIMING_QUARTER_COUNT) * quarter_boundary +
+        ((main_call_count % TIMING_QUARTER_COUNT) * quarter_boundary) / TIMING_QUARTER_COUNT;
+}
+
+static bool timing_main_ledger(const struct input_data *data,
+    size_t main_call_begin,
+    struct timing_description *description)
+{
+    if (main_call_begin >= data->call_record_count ||
+        description->main_call_records != data->call_record_count - main_call_begin) {
+        return false;
+    }
+    uint64_t previous_after_ns = description->main_start_ns;
+    for (size_t call_index = main_call_begin; call_index < data->call_record_count; ++call_index) {
+        const struct call *call = &data->calls[call_index];
+        if (!call->operation_performed || call->operation_status != 0 || !call->elapsed.present ||
+            !clock_span(&call->before, &call->after) ||
+            call->elapsed.value != call->after.ns.value - call->before.ns.value ||
+            call->before.ns.value < previous_after_ns ||
+            call->after.ns.value > description->main_end_ns ||
+            !checked_add(description->main_call_elapsed_sum_ns,
+                call->elapsed.value,
+                &description->main_call_elapsed_sum_ns)) {
+            return false;
+        }
+        uint64_t gap_ns = call->before.ns.value - previous_after_ns;
+        if (call_index == main_call_begin) {
+            description->main_head_outside_ns = gap_ns;
+        } else if (!checked_add(description->main_intercall_gap_sum_ns,
+                       gap_ns,
+                       &description->main_intercall_gap_sum_ns)) {
+            return false;
+        }
+        previous_after_ns = call->after.ns.value;
+    }
+    if (description->main_call_records == 0 ||
+        description->main_end_ns < description->main_start_ns ||
+        previous_after_ns > description->main_end_ns ||
+        description->main_wall_ns != description->main_end_ns - description->main_start_ns ||
+        description->main_call_elapsed_sum_ns > description->main_wall_ns) {
+        return false;
+    }
+    description->main_tail_outside_ns = description->main_end_ns - previous_after_ns;
+    description->main_outside_call_windows_ns =
+        description->main_wall_ns - description->main_call_elapsed_sum_ns;
+    uint64_t outside_sum_ns = 0;
+    uint64_t wall_sum_ns = 0;
+    return checked_add(description->main_head_outside_ns,
+               description->main_intercall_gap_sum_ns,
+               &outside_sum_ns) &&
+        checked_add(outside_sum_ns, description->main_tail_outside_ns, &outside_sum_ns) &&
+        outside_sum_ns == description->main_outside_call_windows_ns &&
+        checked_add(description->main_call_elapsed_sum_ns, outside_sum_ns, &wall_sum_ns) &&
+        wall_sum_ns == description->main_wall_ns;
+}
+
+static void timing_record_position(size_t call_boundary,
+    size_t main_call_begin,
+    size_t call_record_count,
+    size_t counts[3])
+{
+    if (call_boundary == main_call_begin) {
+        ++counts[0];
+    } else if (call_boundary > main_call_begin && call_boundary < call_record_count) {
+        ++counts[1];
+    } else if (call_boundary == call_record_count) {
+        ++counts[2];
+    }
+}
+
+static bool analyze_timing_description(const struct input_data *data,
+    size_t boundary_index,
+    const struct coverage *coverage,
+    struct timing_description *description,
+    const char **error)
+{
+    if (!coverage->producer_completed || coverage->clock_sequence_anomaly ||
+        !data->summary.main_start.present || !coverage->main_end.present ||
+        !coverage->main_wall.present || boundary_index >= data->frame_count ||
+        data->call_record_count > CALL_CAPACITY) {
+        *error = "timing_requires_complete_successful_original_values";
+        return false;
+    }
+    size_t main_call_begin = data->frames[boundary_index].call_record_count;
+    if (main_call_begin == 0 || main_call_begin >= data->call_record_count ||
+        coverage->main_call_records != data->call_record_count - main_call_begin) {
+        *error = "timing_phase_count_mismatch";
+        return false;
+    }
+    description->warmup_call_records = main_call_begin;
+    description->main_call_records = data->call_record_count - main_call_begin;
+    description->main_start_ns = data->summary.main_start.value;
+    description->main_end_ns = coverage->main_end.value;
+    description->main_wall_ns = coverage->main_wall.value;
+    for (size_t call_index = 0; call_index < data->call_record_count; ++call_index) {
+        const struct call *call = &data->calls[call_index];
+        enum phase expected_phase = call_index < main_call_begin ? PHASE_WARMUP : PHASE_MAIN;
+        if (call->phase != expected_phase || !call->operation_performed ||
+            call->operation_status != 0 || !call->elapsed.present ||
+            !clock_span(&call->before, &call->after) ||
+            call->elapsed.value != call->after.ns.value - call->before.ns.value) {
+            *error = "timing_call_or_clock_failure";
+            return false;
+        }
+    }
+    if (!timing_main_ledger(data, main_call_begin, description)) {
+        *error = "timing_main_boundary_or_conservation_failure";
+        return false;
+    }
+    for (size_t frame_index = 0; frame_index < data->frame_count; ++frame_index) {
+        const struct frame *frame = &data->frames[frame_index];
+        ++description->snapshot_phase_counts[frame->phase];
+        if (frame->phase == PHASE_MAIN) {
+            timing_record_position(frame->call_record_count,
+                main_call_begin,
+                data->call_record_count,
+                description->main_snapshot_position_counts);
+        }
+    }
+    for (size_t checkpoint_index = 0; checkpoint_index < data->checkpoint_count;
+        ++checkpoint_index) {
+        const struct checkpoint *checkpoint = &data->checkpoints[checkpoint_index];
+        ++description->checkpoint_phase_counts[checkpoint->phase];
+        if (checkpoint->phase == PHASE_MAIN) {
+            timing_record_position(checkpoint->call_record_count,
+                main_call_begin,
+                data->call_record_count,
+                description->main_checkpoint_position_counts);
+        }
+    }
+    size_t assigned_snapshots = description->main_snapshot_position_counts[0] +
+        description->main_snapshot_position_counts[1] +
+        description->main_snapshot_position_counts[2];
+    size_t assigned_checkpoints = description->main_checkpoint_position_counts[0] +
+        description->main_checkpoint_position_counts[1] +
+        description->main_checkpoint_position_counts[2];
+    if (assigned_snapshots != description->snapshot_phase_counts[PHASE_MAIN] ||
+        assigned_checkpoints != description->checkpoint_phase_counts[PHASE_MAIN]) {
+        *error = "timing_record_position_count_mismatch";
+        return false;
+    }
+    uint64_t *elapsed_ns = calloc(CALL_CAPACITY, sizeof(*elapsed_ns));
+    uint64_t *deviation_ns = calloc(CALL_CAPACITY, sizeof(*deviation_ns));
+    bool passed = elapsed_ns != NULL && deviation_ns != NULL;
+    if (!passed) {
+        *error = "timing_allocation_failed";
+    } else {
+        passed = append_timing_rows(data,
+                     0,
+                     main_call_begin,
+                     PHASE_WARMUP,
+                     SIZE_MAX,
+                     elapsed_ns,
+                     deviation_ns,
+                     description) &&
+            append_timing_rows(data,
+                main_call_begin,
+                data->call_record_count,
+                PHASE_MAIN,
+                SIZE_MAX,
+                elapsed_ns,
+                deviation_ns,
+                description);
+        for (size_t quarter_index = 0; passed && quarter_index < TIMING_QUARTER_COUNT;
+            ++quarter_index) {
+            size_t call_begin = main_call_begin +
+                timing_quarter_boundary(description->main_call_records, quarter_index);
+            size_t call_end = main_call_begin +
+                timing_quarter_boundary(description->main_call_records, quarter_index + 1U);
+            passed = append_timing_rows(data,
+                call_begin,
+                call_end,
+                PHASE_MAIN,
+                quarter_index,
+                elapsed_ns,
+                deviation_ns,
+                description);
+        }
+        passed = passed && description->row_count == TIMING_ROW_COUNT &&
+            description->rows[INPUT_COUNT + 1U].sum_elapsed_ns ==
+                description->main_call_elapsed_sum_ns;
+        if (!passed) {
+            *error = "timing_empty_group_or_sum_overflow";
+        }
+    }
+    free(deviation_ns);
+    free(elapsed_ns);
+    return passed;
+}
+
+static void print_timing_csv(const struct timing_description *description)
+{
+    printf("scope,phase,quarter_index,input_index,count,sum_elapsed_ns,mean_ns,min_ns,"
+           "p50_ns,p90_ns,p99_ns,max_ns,mad_ns\n");
+    for (size_t row_index = 0; row_index < description->row_count; ++row_index) {
+        const struct timing_row *row = &description->rows[row_index];
+        printf("%s,%s,",
+            row->quarter_index == SIZE_MAX ? "whole_phase" : "main_quarter",
+            row->phase == PHASE_WARMUP ? "warmup" : "main");
+        if (row->quarter_index == SIZE_MAX) {
+            printf("all,");
+        } else {
+            printf("%zu,", row->quarter_index);
+        }
+        if (row->input_index == SIZE_MAX) {
+            printf("all,");
+        } else {
+            printf("%zu,", row->input_index);
+        }
+        printf("%zu,%" PRIu64 ",%.12Lf,%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64
+               ",%" PRIu64 "\n",
+            row->count,
+            row->sum_elapsed_ns,
+            (long double)row->sum_elapsed_ns / (long double)row->count,
+            row->minimum_ns,
+            row->p50_ns,
+            row->p90_ns,
+            row->p99_ns,
+            row->maximum_ns,
+            row->mad_ns);
+    }
+}
+
+static void print_timing_summary(const struct input_data *data,
+    const struct timing_description *description)
+{
+    fprintf(stderr,
+        "{\"validation\":\"passed\",\"mode\":\"timing_description\",\"descriptive_only\":true,"
+        "\"producer_completed\":true,\"timing_rows\":%zu,\"call_records\":%zu,"
+        "\"warmup_call_records\":%zu,\"main_call_records\":%zu,"
+        "\"main_start_ns\":\"%" PRIu64 "\",\"main_end_ns\":\"%" PRIu64
+        "\",\"main_wall_ns\":\"%" PRIu64 "\",\"main_call_elapsed_sum_ns\":\"%" PRIu64
+        "\",\"main_outside_call_windows_ns\":\"%" PRIu64 "\","
+        "\"main_head_outside_ns\":\"%" PRIu64 "\",\"main_intercall_gap_sum_ns\":\"%" PRIu64
+        "\",\"main_tail_outside_ns\":\"%" PRIu64 "\",\"main_intercall_gap_count\":%zu,"
+        "\"main_wall_conservation_exact\":true,",
+        description->row_count,
+        data->call_record_count,
+        description->warmup_call_records,
+        description->main_call_records,
+        description->main_start_ns,
+        description->main_end_ns,
+        description->main_wall_ns,
+        description->main_call_elapsed_sum_ns,
+        description->main_outside_call_windows_ns,
+        description->main_head_outside_ns,
+        description->main_intercall_gap_sum_ns,
+        description->main_tail_outside_ns,
+        description->main_call_records - 1U);
+    fprintf(stderr,
+        "\"record_position_counts\":{\"snapshots\":{\"all\":%zu,\"warmup_phase\":%zu,"
+        "\"main_phase\":%zu,\"main_head\":%zu,\"main_interior\":%zu,\"main_tail\":%zu},"
+        "\"checkpoints\":{\"all\":%zu,\"warmup_phase\":%zu,\"main_phase\":%zu,"
+        "\"main_head\":%zu,\"main_interior\":%zu,\"main_tail\":%zu}},"
+        "\"record_positions_are_call_boundary_allocations_only\":true,"
+        "\"causal_overhead_identified\":false,\"long_tails_removed\":0,"
+        "\"quantile_rule\":\"floor(percentile*(count-1)/100+1/2),no_interpolation\","
+        "\"mad_rule\":\"same_p50_of_absolute_deviations_from_p50\","
+        "\"mean_decimal_places\":12,\"mean_is_display_only\":true,"
+        "\"iid_asserted\":false,\"stationarity_asserted\":false,"
+        "\"physical_precision_certified\":false,\"r02_signed_off\":false,"
+        "\"r04_signed_off\":false}\n",
+        data->frame_count,
+        description->snapshot_phase_counts[PHASE_WARMUP],
+        description->snapshot_phase_counts[PHASE_MAIN],
+        description->main_snapshot_position_counts[0],
+        description->main_snapshot_position_counts[1],
+        description->main_snapshot_position_counts[2],
+        data->checkpoint_count,
+        description->checkpoint_phase_counts[PHASE_WARMUP],
+        description->checkpoint_phase_counts[PHASE_MAIN],
+        description->main_checkpoint_position_counts[0],
+        description->main_checkpoint_position_counts[1],
+        description->main_checkpoint_position_counts[2]);
+}
+
 static struct frame fixture_frame(uint64_t origin_ns, uint64_t count, uint64_t cpu_ns)
 {
     struct frame frame = {0};
@@ -2111,6 +2500,177 @@ static bool selfcheck(void)
         whole_fixture(2) && whole_fixture(3) && whole_fixture(4);
 }
 
+static bool timing_fixture(void)
+{
+    struct call calls[40] = {0};
+    struct frame frames[4] = {0};
+    struct checkpoint checkpoints[3] = {0};
+    struct input_data data = {.calls = calls,
+        .frames = frames,
+        .checkpoints = checkpoints,
+        .call_record_count = 40,
+        .frame_count = 4,
+        .checkpoint_count = 3};
+    data.summary.main_start = (struct optional_u64){200, true};
+    frames[0].phase = PHASE_WARMUP;
+    frames[1].phase = PHASE_WARMUP;
+    frames[1].call_record_count = 8;
+    frames[2].phase = PHASE_MAIN;
+    frames[2].call_record_count = 24;
+    frames[3].phase = PHASE_MAIN;
+    frames[3].call_record_count = 40;
+    checkpoints[0].phase = PHASE_WARMUP;
+    checkpoints[0].call_record_count = 8;
+    checkpoints[1].phase = PHASE_MAIN;
+    checkpoints[1].call_record_count = 24;
+    checkpoints[2].phase = PHASE_MAIN;
+    checkpoints[2].call_record_count = 40;
+    for (size_t call_index = 0; call_index < data.call_record_count; ++call_index) {
+        struct call *call = &calls[call_index];
+        bool main_phase = call_index >= 8U;
+        uint64_t before_ns = main_phase ? 203U + (call_index - 8U) * 11U : 20U + call_index * 10U;
+        uint64_t elapsed_ns = call_index % INPUT_COUNT + 1U;
+        call->phase = main_phase ? PHASE_MAIN : PHASE_WARMUP;
+        call->operation_performed = true;
+        call->before.ns = (struct optional_u64){before_ns, true};
+        call->after.ns = (struct optional_u64){before_ns + elapsed_ns, true};
+        call->elapsed = (struct optional_u64){elapsed_ns, true};
+    }
+    struct coverage coverage = {.producer_completed = true,
+        .main_call_records = 32,
+        .main_end = {560, true},
+        .main_wall = {360, true}};
+    struct timing_description description = {0};
+    const char *error = NULL;
+    if (!analyze_timing_description(&data, 1, &coverage, &description, &error) || error != NULL ||
+        description.row_count != 54U || description.warmup_call_records != 8U ||
+        description.main_call_records != 32U || description.main_call_elapsed_sum_ns != 144U ||
+        description.main_outside_call_windows_ns != 216U ||
+        description.main_head_outside_ns != 3U || description.main_intercall_gap_sum_ns != 205U ||
+        description.main_tail_outside_ns != 8U || description.snapshot_phase_counts[0] != 2U ||
+        description.snapshot_phase_counts[1] != 2U ||
+        description.checkpoint_phase_counts[0] != 1U ||
+        description.checkpoint_phase_counts[1] != 2U ||
+        description.main_snapshot_position_counts[0] != 0 ||
+        description.main_snapshot_position_counts[1] != 1U ||
+        description.main_snapshot_position_counts[2] != 1U ||
+        description.main_checkpoint_position_counts[0] != 0 ||
+        description.main_checkpoint_position_counts[1] != 1U ||
+        description.main_checkpoint_position_counts[2] != 1U) {
+        return false;
+    }
+    for (size_t block_index = 0; block_index < 6U; ++block_index) {
+        size_t row_begin = block_index * (INPUT_COUNT + 1U);
+        const struct timing_row *all = &description.rows[row_begin];
+        size_t repetitions = block_index == 1U ? 4U : 1U;
+        if (all->input_index != SIZE_MAX || all->count != INPUT_COUNT * repetitions ||
+            all->sum_elapsed_ns != 36U * repetitions || all->minimum_ns != 1U ||
+            all->p50_ns != 5U || all->p90_ns != (repetitions == 4U ? 8U : 7U) ||
+            all->p99_ns != 8U || all->maximum_ns != 8U || all->mad_ns != 2U ||
+            all->phase != (block_index == 0 ? PHASE_WARMUP : PHASE_MAIN) ||
+            all->quarter_index != (block_index < 2U ? SIZE_MAX : block_index - 2U)) {
+            return false;
+        }
+        for (size_t input_index = 0; input_index < INPUT_COUNT; ++input_index) {
+            const struct timing_row *row = &description.rows[row_begin + input_index + 1U];
+            uint64_t duration_ns = input_index + 1U;
+            if (row->input_index != input_index || row->count != repetitions ||
+                row->sum_elapsed_ns != duration_ns * repetitions ||
+                row->minimum_ns != duration_ns || row->p50_ns != duration_ns ||
+                row->p90_ns != duration_ns || row->p99_ns != duration_ns ||
+                row->maximum_ns != duration_ns || row->mad_ns != 0) {
+                return false;
+            }
+        }
+    }
+    description = (struct timing_description){0};
+    calls[0].before.error_number = EIO;
+    if (analyze_timing_description(&data, 1, &coverage, &description, &error)) {
+        return false;
+    }
+    calls[0].before.error_number = 0;
+    description = (struct timing_description){0};
+    calls[39].operation_status = 1;
+    if (analyze_timing_description(&data, 1, &coverage, &description, &error)) {
+        return false;
+    }
+    calls[39].operation_status = 0;
+    description = (struct timing_description){0};
+    coverage.clock_sequence_anomaly = true;
+    if (analyze_timing_description(&data, 1, &coverage, &description, &error)) {
+        return false;
+    }
+    coverage.clock_sequence_anomaly = false;
+    description = (struct timing_description){0};
+    coverage.main_end.value = 551;
+    coverage.main_wall.value = 351;
+    if (analyze_timing_description(&data, 1, &coverage, &description, &error)) {
+        return false;
+    }
+    coverage.main_end.value = 560;
+    coverage.main_wall.value = 359;
+    description = (struct timing_description){0};
+    if (analyze_timing_description(&data, 1, &coverage, &description, &error)) {
+        return false;
+    }
+    coverage.main_wall.value = 360;
+    coverage.producer_completed = false;
+    description = (struct timing_description){0};
+    if (analyze_timing_description(&data, 1, &coverage, &description, &error)) {
+        return false;
+    }
+    description = (struct timing_description){.main_call_records = 32,
+        .main_start_ns = 204,
+        .main_end_ns = 560,
+        .main_wall_ns = 356};
+    if (timing_main_ledger(&data, 8, &description)) {
+        return false;
+    }
+    description = (struct timing_description){.main_call_records = 32,
+        .main_start_ns = 200,
+        .main_end_ns = 560,
+        .main_wall_ns = 360};
+    calls[9].before.ns.value = calls[8].after.ns.value - 1U;
+    calls[9].elapsed.value = calls[9].after.ns.value - calls[9].before.ns.value;
+    return !timing_main_ledger(&data, 8, &description);
+}
+
+static bool timing_selfcheck(void)
+{
+    uint64_t odd_ns[] = {9, 1, 7, 1, 3};
+    uint64_t even_ns[] = {10, 2, 8, 4};
+    uint64_t single_ns[] = {UINT64_MAX};
+    uint64_t extremes_ns[] = {0, UINT64_MAX};
+    uint64_t overflowing_ns[] = {UINT64_MAX, 1};
+    uint64_t deviation_ns[5] = {0};
+    struct timing_row row = {0};
+    if (!timing_series_statistics(odd_ns, 5, deviation_ns, &row) || row.sum_elapsed_ns != 21U ||
+        row.minimum_ns != 1U || row.p50_ns != 3U || row.p90_ns != 9U || row.p99_ns != 9U ||
+        row.maximum_ns != 9U || row.mad_ns != 2U ||
+        !timing_series_statistics(even_ns, 4, deviation_ns, &row) || row.sum_elapsed_ns != 24U ||
+        row.minimum_ns != 2U || row.p50_ns != 8U || row.p90_ns != 10U || row.p99_ns != 10U ||
+        row.maximum_ns != 10U || row.mad_ns != 4U ||
+        !timing_series_statistics(single_ns, 1, deviation_ns, &row) ||
+        row.sum_elapsed_ns != UINT64_MAX || row.p50_ns != UINT64_MAX || row.mad_ns != 0 ||
+        !timing_series_statistics(extremes_ns, 2, deviation_ns, &row) ||
+        row.sum_elapsed_ns != UINT64_MAX || row.p50_ns != UINT64_MAX || row.mad_ns != UINT64_MAX ||
+        timing_series_statistics(overflowing_ns, 2, deviation_ns, &row) ||
+        timing_series_statistics(single_ns, 0, deviation_ns, &row)) {
+        return false;
+    }
+    static const size_t expected_boundaries[] = {0, 2, 5, 8, 11};
+    for (size_t boundary_index = 0; boundary_index <= TIMING_QUARTER_COUNT; ++boundary_index) {
+        if (timing_quarter_boundary(11, boundary_index) != expected_boundaries[boundary_index]) {
+            return false;
+        }
+    }
+    size_t positions[3] = {0};
+    timing_record_position(8, 8, 40, positions);
+    timing_record_position(24, 8, 40, positions);
+    timing_record_position(40, 8, 40, positions);
+    return positions[0] == 1U && positions[1] == 1U && positions[2] == 1U && timing_fixture();
+}
+
 int main(int argument_count, char **arguments)
 {
     if (argument_count == 2 && strcmp(arguments[1], "--selfcheck") == 0) {
@@ -2119,8 +2679,19 @@ int main(int argument_count, char **arguments)
             valid ? "passed" : "failed");
         return valid && fflush(stdout) == 0 && !ferror(stdout) ? 0 : 1;
     }
-    if (argument_count != 2) {
-        fprintf(stderr, "usage: analyze_windows INPUT.jsonl | --selfcheck\n");
+    if (argument_count == 2 && strcmp(arguments[1], "--timing-selfcheck") == 0) {
+        bool valid = selfcheck() && timing_selfcheck();
+        printf("{\"timing_selfcheck\":\"%s\",\"fixture_only\":true,"
+               "\"hardware_data_analyzed\":false}\n",
+            valid ? "passed" : "failed");
+        return valid && fflush(stdout) == 0 && !ferror(stdout) ? 0 : 1;
+    }
+    bool timing_mode = argument_count == 3 && strcmp(arguments[1], "--timing-description") == 0;
+    if ((argument_count != 2 && !timing_mode) ||
+        (argument_count == 2 && strcmp(arguments[1], "--timing-description") == 0)) {
+        fprintf(stderr,
+            "usage: analyze_windows INPUT.jsonl | --timing-description INPUT.jsonl | "
+            "--selfcheck | --timing-selfcheck\n");
         return 2;
     }
     struct input_data data = {0};
@@ -2133,7 +2704,7 @@ int main(int argument_count, char **arguments)
     if (data.frames == NULL || data.checkpoints == NULL || data.calls == NULL) {
         error = "allocation_failed";
     } else {
-        input = fopen(arguments[1], "rb");
+        input = fopen(arguments[timing_mode ? 2 : 1], "rb");
         if (input == NULL) {
             error = "input_open_failed";
         }
@@ -2175,9 +2746,29 @@ int main(int argument_count, char **arguments)
         error = "coverage_arithmetic_or_overlap";
     }
     coverage.clock_sequence_anomaly = clock_anomaly;
+    struct timing_description description = {0};
+    if (error == NULL && timing_mode &&
+        !analyze_timing_description(&data, boundary_index, &coverage, &description, &error)) {
+        if (error == NULL) {
+            error = "timing_description_failed";
+        }
+    }
     if (error == NULL) {
-        print_analysis_csv(&data, boundary_index, &coverage);
-        print_analysis_summary(&data, &coverage);
+        if (timing_mode) {
+            print_timing_csv(&description);
+            print_timing_summary(&data, &description);
+        } else {
+            print_analysis_csv(&data, boundary_index, &coverage);
+            print_analysis_summary(&data, &coverage);
+        }
+    } else if (timing_mode) {
+        fprintf(stderr,
+            "{\"validation\":\"failed\",\"mode\":\"timing_description\",\"reason\":\"%s\","
+            "\"line\":%zu,\"column\":%zu,\"timing_description\":\"unknown\","
+            "\"partial_or_unknown\":true,\"r02_signed_off\":false,\"r04_signed_off\":false}\n",
+            error,
+            data.line_count,
+            column);
     } else {
         fprintf(stderr,
             "{\"validation\":\"failed\",\"reason\":\"%s\",\"line\":%zu,\"column\":%zu,"

@@ -363,3 +363,6 @@ C11分析dd67390/5c028a在真实数据前固定完整schema、整数入带、首
 
 2026-10-10完成当前七入口同步：根README、支撑入口、demo HTML/文字索引、CURRENT_STATUS/FULL_GOAL_AUDIT及官方验收表指向49页和925项实包，旧47/887/v3按历史时点保留。原17具名HTML节不改，新增G2第18节；独立代理核查新增/当前72处本地引用及锚点均可达，七实际文件hash绑定与[独立评语](evidence/aris-g2-entrypoints-20261010/README.md)另封存。
 R02仍partial，澄清官方高精度可重复要求与更强逐调用物理恒频主张；G2几何与单进程、Mac/ARM离线复算、新旧平台不混淆。本次仅当前入口整理，无浏览器/截图、密码、硬件或SSH，format-check及diff通过。旧KVM可信身份迁移、测量/统计前提及真人材料继续待证，不把旧blocked直接沿用或把已闭合报告/包继续列为未完成。
+
+2026-10-10完成[G2逐调用计时描述增量的软件资格](evidence/g2-timing-description-20261010/preparation/README.md)：复用原严格C11解析/完整性/调度/窗口链，旧61非main函数保持，新增54行近邻分位/MAD与主墙钟整数守恒账；冻结[离线合同](research/aris-g2-timing-description-20261010/EXPERIMENT_PLAN.md)，尚未执行真实新描述。
+Mac/ARM普通2/2，动态首轮误设不支持的detect_leaks=1在测试体前拒绝并保留；同一动态产物仅改为0后2/2，不宣称LSan。普通旧normal0/parentloss1四输出逐字保持、只读stdout fixture1；首452与修复20载荷原件保持，静态独立审查/format-check/clang-format21通过。C81565a45/CMake57c4060a，普通3b235081/动态35fa8f91；新密码/硬件/SSH0，不升级R02/R04。

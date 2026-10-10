@@ -1,0 +1,21 @@
+{
+  "C_source_sha256": "81565a4502b1212c9d33466be3747632025b6fcdc222f58d032ee0b5f85e6bd9",
+  "CMake_sha256": "57c4060a6a41b6110999a8c729ed4e156c14975f3ecb53aef907640e4076596c",
+  "frozen_plan_sha256": "eb2d57f21eaa4859dfe28988c9aeaea6e95d956a3675520f70aefeed41b16eb4",
+  "normal_binary_sha256": "3b235081eeec4be6d2e774fcab758e2312b654893e12fe7cb3f83a4f824fccfa",
+  "sanitized_binary_sha256": "35fa8f91a3a68e5e73847a2256dcabbb9da43c32e2bf18464a17e70ee51ad074",
+  "normal_ctest_passed": 2,
+  "sanitized_first_attempt": "runtime_initialization_rejected_detect_leaks_1",
+  "sanitized_repair_ctest_passed": 2,
+  "LSan_claimed": false,
+  "four_legacy_outputs_identical": true,
+  "readonly_stdout_fixture_exit": 1,
+  "initial_manifest_payloads": 452,
+  "repair_manifest_payloads": 20,
+  "archive_bytes_originals_verified": true,
+  "new_timing_description_real_runs": 0,
+  "new_cryptographic_calls": 0,
+  "new_hardware_collection": false,
+  "R02": "partial",
+  "R04": "partial"
+}

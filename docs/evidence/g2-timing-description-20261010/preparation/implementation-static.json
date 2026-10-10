@@ -1,0 +1,33 @@
+{
+  "source_path": "docs/research/aris-frequency-window-analysis-20261010/analyze_windows.c",
+  "base_source_sha256": "5c028abf419df5b5459c167469f44724faba12542b446799c5c5fc6b02d5a9f4",
+  "new_source_sha256": "81565a4502b1212c9d33466be3747632025b6fcdc222f58d032ee0b5f85e6bd9",
+  "old_function_count": 62,
+  "old_functions_changed": [
+    "main"
+  ],
+  "new_functions": [
+    "analyze_timing_description",
+    "append_timing_rows",
+    "compare_elapsed_ns",
+    "print_timing_csv",
+    "print_timing_summary",
+    "timing_fixture",
+    "timing_main_ledger",
+    "timing_quantile",
+    "timing_quarter_boundary",
+    "timing_record_position",
+    "timing_selfcheck",
+    "timing_series_statistics"
+  ],
+  "legacy_non_main_functions_byte_identical": true,
+  "manual_fixture_integer_oracle": "passed",
+  "compiled": false,
+  "c_selfchecks_executed": false,
+  "real_g2_distribution_read": false,
+  "new_cmake_sha256": "57c4060a6a41b6110999a8c729ed4e156c14975f3ecb53aef907640e4076596c",
+  "new_readme_sha256": "6a5add49e90b3c7263f31030097989f5cc09496ea66bbaa83ba07a4fea243b5a",
+  "format_version": "Apple clang-format 21.0.0",
+  "format_check": "passed",
+  "diff_whitespace_check": "passed"
+}
