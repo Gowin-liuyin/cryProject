@@ -1,0 +1,33 @@
+{
+  "schema": "public-nist-fixture-extraction-v1",
+  "source": "fixed existing NIST JSON originals and converted vector; one-off administrative extraction, not a runtime input generator",
+  "nist_acvp_commit": "975de31eb83d87039ec88934fdc47d8c312b892d",
+  "group_id": 5,
+  "case_id": 86,
+  "source_files_sha256": {
+    "tests/vectors/encdec-prompt.json": "998e22dfb12efb14ce9fdff911ca634b13612819a1806f25da69adba7e16db91",
+    "tests/vectors/encdec-expected.json": "9089ec6ff2424da9f2782b89b2f831a329a3e28d6e5e24b802b78ff36ac61cdf",
+    "tests/vectors/mlkem768.txt": "c94dda2717eb370dddfe5b7ca7a7f58d789e0f63238a486e464ce40c673817f4"
+  },
+  "header_sha256_before_format": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+  "fields": [
+    {
+      "name": "public_fixture_decapsulation_key",
+      "bytes": 2400,
+      "sha256": "03eb53081c6f20e013ab6195bd2f18a25e02201c2fb5790687aa709bb2a48f35"
+    },
+    {
+      "name": "public_fixture_ciphertext",
+      "bytes": 1088,
+      "sha256": "3a1da6c03645a6b211942c58fe3b1fb7896cb8814de2a9e478a6faed8f20be23"
+    },
+    {
+      "name": "public_fixture_expected_secret",
+      "bytes": 32,
+      "sha256": "ca4b36ac6565fbe8993b8cd84495a09f7104201008f529f3bc3f57a5c13727d2"
+    }
+  ],
+  "all_field_bytes_equal_original_json_and_converted": true,
+  "cryptographic_operations_executed": 0,
+  "preparatory_extraction_note": "First text-line lookup rejected because converted records span lines; corrected to unique token sequence and original JSON byte equality before header creation. No algorithm executed."
+}

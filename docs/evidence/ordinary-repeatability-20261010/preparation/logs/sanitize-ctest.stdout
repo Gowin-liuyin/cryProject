@@ -1,0 +1,48 @@
+UpdateCTestConfiguration  from :/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/DartConfiguration.tcl
+Parse Config file:/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/DartConfiguration.tcl
+Test project /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: reference_repeatability_selfcheck
+
+1: Test command: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/reference_repeatability "--selfcheck"
+1: Working Directory: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize
+1: Test timeout computed to be: 1500
+1: {"selfcheck":"passed","crypto_calls":0,"real_clock_reads":0}
+1/4 Test #1: reference_repeatability_selfcheck ............   Passed    0.58 sec
+test 2
+    Start 2: reference_repeatability_analysis_selfcheck
+
+2: Test command: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/analyze_reference_repeatability "--selfcheck"
+2: Working Directory: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize
+2: Test timeout computed to be: 1500
+2: {"status":"selfcheck_passed","schema":"reference-repeatability-analysis-v1","real_clock_reads":0,"clock_precision_certified":false,"r02_signed_off":false,"r04_signed_off":false}
+2/4 Test #2: reference_repeatability_analysis_selfcheck ...   Passed    0.37 sec
+test 3
+    Start 3: reference_repeatability_fixture_check
+
+3: Test command: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/reference_repeatability "--fixture-check"
+3: Working Directory: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize
+3: Test timeout computed to be: 1500
+3: {"fixture_check":"passed","fixture_group_id":5,"fixture_case_id":86,"crypto_calls":1,"operation_status":0,"output_matches_fixture":true,"process_dumping_disabled":null,"reference_identity_verified":true}
+3/4 Test #3: reference_repeatability_fixture_check ........   Passed    0.01 sec
+test 4
+    Start 4: reference_repeatability_nist_kat
+
+4: Test command: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/reference_repeatability_kat "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+4: Working Directory: /Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize
+4: Test timeout computed to be: 1500
+4: NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+4: reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+4: NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+4: public argument boundaries and system-random roundtrip passed
+4/4 Test #4: reference_repeatability_nist_kat .............   Passed    0.41 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   1.37 sec

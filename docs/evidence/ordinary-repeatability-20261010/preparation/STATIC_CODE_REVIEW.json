@@ -1,0 +1,199 @@
+{
+  "schema": "ordinary-repeatability-independent-static-review-v1",
+  "reviewer": "raw_clock_claim_review",
+  "implementation_participation": false,
+  "review_type": "same-model internal independent bounded source review",
+  "external_codex_review_status": "pending Codex review",
+  "status": "pass_for_software_qualification",
+  "blocking_findings": [],
+  "nonblocking_findings": [],
+  "bound_module_files": {
+    "docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md": {
+      "bytes": 12712,
+      "sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/reference_repeatability.c": {
+      "bytes": 40675,
+      "sha256": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/analyze_reference_repeatability.c": {
+      "bytes": 28268,
+      "sha256": "f9fd89c8641d56a9f279ef397e11df11a3f4ab9d44a8f62c2644914ded12e6bc"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/CMakeLists.txt": {
+      "bytes": 4868,
+      "sha256": "403c99108fe604b0e2a4a584dd9b503c475ac909e75526bee53ae04606b6c2ab"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/public_valid_decap_fixture.h": {
+      "bytes": 22764,
+      "sha256": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a"
+    }
+  },
+  "bound_related_files": {
+    "src/mlkem.c": {
+      "bytes": 4242,
+      "sha256": "132857244937f7b75a95d3a4e1d785c6b50327913b274781d580785b4cb8739b"
+    },
+    "src/kernel.c": {
+      "bytes": 26,
+      "sha256": "460df8a1ab60c699388fadf21f196adc03da833026b8d1fc7227a87695275432"
+    },
+    "src/random.c": {
+      "bytes": 1440,
+      "sha256": "d5997d997ea6f28160670a2cc9d6a3d43b6661f3628e32804416e16881e8cc20"
+    },
+    "include/mlkem.h": {
+      "bytes": 1341,
+      "sha256": "d2370cd5d17703f64ddd8a1a315536804709998c39ea61178e9949b0abc5c4e5"
+    },
+    "include/baseline_config.h": {
+      "bytes": 187,
+      "sha256": "862e311313ac2b7892665ada1c09c9ac03f43e6b42226b5ee2521ef1a4e4f477"
+    },
+    "tests/test_mlkem.c": {
+      "bytes": 12425,
+      "sha256": "280515c1231da8dd2b771fac916c3bc6db1b24da713557557bc25b03c53dece8"
+    },
+    "tests/vectors/encdec-prompt.json": {
+      "bytes": 624189,
+      "sha256": "998e22dfb12efb14ce9fdff911ca634b13612819a1806f25da69adba7e16db91"
+    },
+    "tests/vectors/encdec-expected.json": {
+      "bytes": 190940,
+      "sha256": "9089ec6ff2424da9f2782b89b2f831a329a3e28d6e5e24b802b78ff36ac61cdf"
+    },
+    "tests/vectors/mlkem768.txt": {
+      "bytes": 442350,
+      "sha256": "c94dda2717eb370dddfe5b7ca7a7f58d789e0f63238a486e464ce40c673817f4"
+    },
+    "vendor/mlkem-native/mlkem/src/kem.c": {
+      "bytes": 15010,
+      "sha256": "3922156826521429eb250ccb3d54d7beacce14adce26bb3be6d1ef7864342dd3"
+    },
+    "vendor/mlkem-native/mlkem/src/symmetric.h": {
+      "bytes": 2596,
+      "sha256": "168d0ec3bf50bd45cb0a103d7984e9ccf52f78697718b7e85efdf1beda7abc95"
+    },
+    "docs/research/aris-raw-clock-20261010/raw_clock_calibration.c": {
+      "bytes": 28475,
+      "sha256": "ed538f4322fba985aea9cfa78e0b2109f79caed49064e68eaa3884b4fa10f0dd"
+    },
+    "docs/research/aris-raw-clock-20261010/analyze_raw_clock.c": {
+      "bytes": 27255,
+      "sha256": "c67d1dbd89034a75600d3d13a28aa5c7fb4a163b5649fa910c7eea624c7544e0"
+    },
+    "build/aris-ordinary-repeatability-20261010/public-fixture-acceptance-qualification.json": {
+      "bytes": 1563,
+      "sha256": "1e7bf1bedd4fe3a35d50e280bdd3f1e438aacdd945d7f5b3ba37f8b98b2c946c"
+    }
+  },
+  "fixture_mapping": [
+    {
+      "array": "public_fixture_decapsulation_key",
+      "bytes": 2400,
+      "sha256": "03eb53081c6f20e013ab6195bd2f18a25e02201c2fb5790687aa709bb2a48f35",
+      "matches_nist_json_and_converted_vector": true
+    },
+    {
+      "array": "public_fixture_ciphertext",
+      "bytes": 1088,
+      "sha256": "3a1da6c03645a6b211942c58fe3b1fb7896cb8814de2a9e478a6faed8f20be23",
+      "matches_nist_json_and_converted_vector": true
+    },
+    {
+      "array": "public_fixture_expected_secret",
+      "bytes": 32,
+      "sha256": "ca4b36ac6565fbe8993b8cd84495a09f7104201008f529f3bc3f57a5c13727d2",
+      "matches_nist_json_and_converted_vector": true
+    }
+  ],
+  "public_fixture_rejection_reference": {
+    "full_decapsulation_executed": false,
+    "expected_differs_from_J_z_c": true,
+    "rejection_value_sha256": "77e3410e3d8a9f969d59200acd8064921c8003817a3f8481fb95dc059bfd48a3",
+    "qualification_requires_future_full_reference_output_match": true
+  },
+  "g2_clock_structure_and_five_helpers_exact": true,
+  "clock_helper_exact_comparison": {
+    "timespec_to_nanoseconds": true,
+    "clock_span_is_valid": true,
+    "check_clock_order": true,
+    "read_clock_timespec": true,
+    "convert_clock_reading": true
+  },
+  "raw_statistic_helper_exact_comparison": {
+    "add_nanoseconds": true,
+    "sift_down": true,
+    "sort_values": true,
+    "percentile_index": true,
+    "summarize_values": true,
+    "summarize_phase": true,
+    "phase_boundary_is_conserved": true
+  },
+  "static_checks": {
+    "full_wrapper_inside_raw_read_window": true,
+    "both_conversions_after_second_read_in_source": true,
+    "output_check_consumption_erase_and_counters_outside_window": true,
+    "first_read_failure_skips_operation": true,
+    "second_read_failure_preserves_operation_state": true,
+    "last_failed_row_cannot_promote_completed": true,
+    "setup_call_separate_maximum_one": true,
+    "timed_calls_maximum": 50000,
+    "setup_plus_timed_maximum": 50001,
+    "dumping_disabled_and_readback_before_collection_preparation": true,
+    "mac_collect_unsupported": true,
+    "pure_selfcheck_no_crypto_or_real_clock": true,
+    "exact_18_fields_and_50000_rows": true,
+    "phase_counts": [
+      25000,
+      25000
+    ],
+    "per_phase_series_counts": [
+      25000,
+      24999,
+      49999
+    ],
+    "percentile_and_upper_median_mad_and_conservation_unchanged": true,
+    "analyzer_explicit_array_bytes": 1599984,
+    "compile_time_analysis_storage_limit_bytes": 16777216,
+    "reference_only_cmake_no_added_variant_or_ipo": true,
+    "cmake_ctest_inventory_expected_mac": 4,
+    "cmake_ctest_inventory_expected_linux": 5,
+    "collect_not_registered_in_ctest": true
+  },
+  "planned_direct_call_accounting": {
+    "kat_per_config": {
+      "keygen": 27,
+      "encap": 27,
+      "decap": 11,
+      "full_calls": 65,
+      "parameter_rejections": 18,
+      "direct_key_checks": 20,
+      "public_shake_references": 10
+    },
+    "standalone_fixture_per_config": {
+      "decap": 1
+    },
+    "software_two_configs_full_calls": 132,
+    "linux_planned_full_calls": 300138,
+    "linux_planned_decap_calls": 300030
+  },
+  "reviewer_execution": {
+    "c_or_cmake_or_ctest_runs": 0,
+    "ssh_connections": 0,
+    "collectors": 0,
+    "full_crypto_operations": 0,
+    "public_offline_SHAKE256_reference": 1,
+    "docs_modified": false,
+    "commits": 0
+  },
+  "pending": [
+    "software qualification on final source",
+    "actual ordinary and sanitizer binaries/flags/CTest inventory",
+    "ordinary machine-code window and output handling",
+    "actual fixture result and metadata",
+    "remote manager path and lifecycle review",
+    "real measurements and independent numeric/result-to-claim review"
+  ],
+  "report_sha256": "2b26938d8872d2a5f2dccf3a107c8493ec4a7b221476f6ac6a898dcfffa82953"
+}

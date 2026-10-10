@@ -1,0 +1,125 @@
+{
+  "backtraceGraph" : 
+  {
+    "commands" : 
+    [
+      "add_test"
+    ],
+    "files" : 
+    [
+      "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/CMakeLists.txt"
+    ],
+    "nodes" : 
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 94,
+        "parent" : 0
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 95,
+        "parent" : 2
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 98,
+        "parent" : 4
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 107,
+        "parent" : 6
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" : 
+  [
+    {
+      "backtrace" : 1,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/reference_repeatability",
+        "--selfcheck"
+      ],
+      "name" : "reference_repeatability_selfcheck",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize"
+        }
+      ]
+    },
+    {
+      "backtrace" : 3,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/analyze_reference_repeatability",
+        "--selfcheck"
+      ],
+      "name" : "reference_repeatability_analysis_selfcheck",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize"
+        }
+      ]
+    },
+    {
+      "backtrace" : 5,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/reference_repeatability",
+        "--fixture-check"
+      ],
+      "name" : "reference_repeatability_fixture_check",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize"
+        }
+      ]
+    },
+    {
+      "backtrace" : 7,
+      "command" : 
+      [
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize/reference_repeatability_kat",
+        "/Users/yin/code/cryProject/tests/vectors/mlkem768.txt"
+      ],
+      "name" : "reference_repeatability_nist_kat",
+      "properties" : 
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize"
+        }
+      ]
+    }
+  ],
+  "version" : 
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}

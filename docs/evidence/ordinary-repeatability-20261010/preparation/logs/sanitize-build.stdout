@@ -1,0 +1,15 @@
+[ 36%] Building C object CMakeFiles/analyze_reference_repeatability.dir/analyze_reference_repeatability.c.o
+[ 36%] Building C object CMakeFiles/repeatability_reference.dir/Users/yin/code/cryProject/src/random.c.o
+[ 36%] Building C object CMakeFiles/repeatability_reference.dir/Users/yin/code/cryProject/src/kernel.c.o
+[ 36%] Building C object CMakeFiles/repeatability_reference.dir/Users/yin/code/cryProject/src/mlkem.c.o
+[ 45%] Linking C executable analyze_reference_repeatability
+[ 45%] Built target analyze_reference_repeatability
+[ 54%] Linking C static library librepeatability_reference.a
+[ 54%] Built target repeatability_reference
+[ 81%] Building C object CMakeFiles/reference_repeatability_kat.dir/Users/yin/code/cryProject/src/inputs.c.o
+[ 81%] Building C object CMakeFiles/reference_repeatability_kat.dir/Users/yin/code/cryProject/tests/test_mlkem.c.o
+[ 81%] Building C object CMakeFiles/reference_repeatability.dir/reference_repeatability.c.o
+[ 90%] Linking C executable reference_repeatability_kat
+[100%] Linking C executable reference_repeatability
+[100%] Built target reference_repeatability_kat
+[100%] Built target reference_repeatability

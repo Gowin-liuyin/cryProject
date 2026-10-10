@@ -1,0 +1,593 @@
+{
+  "schema": "ordinary-repeatability-preparation-final-independent-review-v1",
+  "review_date": "2026-10-10",
+  "reviewer": "raw_clock_claim_review",
+  "review_type": "same-model internal independent bounded artifact review",
+  "status": "passed_with_planned_final_seal_order",
+  "external_codex_review_status": "pending Codex review",
+  "blocking_findings": [],
+  "archive": {
+    "path": "docs/evidence/ordinary-repeatability-20261010/preparation/qualification-originals.zip",
+    "bytes": 1120265,
+    "sha256": "77b6cbb65412f08a466f9db24ac30be3cfce38a30570b8c48373374f946d333d",
+    "members": 527,
+    "uncompressed_bytes": 3576381,
+    "all_zip_crc32_match": true,
+    "member_paths_safe_unique_regular": true,
+    "member_set_equals_actual_qualification_tree": true,
+    "all_527_member_bytes_equal_actual_tree": true
+  },
+  "tested_source_copies": {
+    "reference_repeatability.c": {
+      "bytes": 40675,
+      "sha256": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+      "matches_current_module_and_qualification_pin": true
+    },
+    "analyze_reference_repeatability.c": {
+      "bytes": 28268,
+      "sha256": "f9fd89c8641d56a9f279ef397e11df11a3f4ab9d44a8f62c2644914ded12e6bc",
+      "matches_current_module_and_qualification_pin": true
+    },
+    "public_valid_decap_fixture.h": {
+      "bytes": 22764,
+      "sha256": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+      "matches_current_module_and_qualification_pin": true
+    },
+    "CMakeLists.txt": {
+      "bytes": 4868,
+      "sha256": "403c99108fe604b0e2a4a584dd9b503c475ac909e75526bee53ae04606b6c2ab",
+      "matches_current_module_and_qualification_pin": true
+    },
+    "EXPERIMENT_PLAN.md": {
+      "bytes": 12712,
+      "sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+      "matches_current_module_and_qualification_pin": true
+    }
+  },
+  "dependency_records_length_sha_and_baseline_git_bytes_checked": 135,
+  "vendor_dependency_records": 125,
+  "actual_binaries": [
+    {
+      "configuration": "ordinary",
+      "path": "build-ordinary/reference_repeatability",
+      "bytes": 111144,
+      "sha256": "eb46053fcbbe42043a396425d2fce21cc5ea1ef604e55ac85cde354c7c63f5c5",
+      "format": "Mach-O64 arm64 executable",
+      "dylibs": [
+        "/usr/lib/libSystem.B.dylib"
+      ],
+      "asan_symbol_strings_present": false,
+      "ubsan_symbol_strings_present": false
+    },
+    {
+      "configuration": "ordinary",
+      "path": "build-ordinary/analyze_reference_repeatability",
+      "bytes": 35968,
+      "sha256": "95d48759b90c0109408c7048333d0390457847cbe9e16aad6635599582c9e4f0",
+      "format": "Mach-O64 arm64 executable",
+      "dylibs": [
+        "/usr/lib/libSystem.B.dylib"
+      ],
+      "asan_symbol_strings_present": false,
+      "ubsan_symbol_strings_present": false
+    },
+    {
+      "configuration": "ordinary",
+      "path": "build-ordinary/reference_repeatability_kat",
+      "bytes": 128376,
+      "sha256": "22310b789edfab783e22ad997beefdd1133139b7b31c960552e143938b46e255",
+      "format": "Mach-O64 arm64 executable",
+      "dylibs": [
+        "/usr/lib/libSystem.B.dylib"
+      ],
+      "asan_symbol_strings_present": false,
+      "ubsan_symbol_strings_present": false
+    },
+    {
+      "configuration": "sanitize",
+      "path": "build-sanitize/reference_repeatability",
+      "bytes": 205512,
+      "sha256": "596108ad34ae811df5e2547a346bb6e03ead5255d8176f240aa6a6924dca305f",
+      "format": "Mach-O64 arm64 executable",
+      "dylibs": [
+        "@rpath/libclang_rt.asan_osx_dynamic.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ],
+      "asan_symbol_strings_present": true,
+      "ubsan_symbol_strings_present": true
+    },
+    {
+      "configuration": "sanitize",
+      "path": "build-sanitize/analyze_reference_repeatability",
+      "bytes": 100224,
+      "sha256": "43735de5fe664b394afff4766e622bd3dbf70d64a0ea81aa11c9c6e7da731d46",
+      "format": "Mach-O64 arm64 executable",
+      "dylibs": [
+        "@rpath/libclang_rt.asan_osx_dynamic.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ],
+      "asan_symbol_strings_present": true,
+      "ubsan_symbol_strings_present": true
+    },
+    {
+      "configuration": "sanitize",
+      "path": "build-sanitize/reference_repeatability_kat",
+      "bytes": 194104,
+      "sha256": "798fd2ad82abfaf51ca28b4601cf6976312920d6a7ed83ed30348b4b5e9300eb",
+      "format": "Mach-O64 arm64 executable",
+      "dylibs": [
+        "@rpath/libclang_rt.asan_osx_dynamic.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ],
+      "asan_symbol_strings_present": true,
+      "ubsan_symbol_strings_present": true
+    }
+  ],
+  "actual_compile_records_checked": 14,
+  "actual_management_commands": 10,
+  "all_commands_exit_zero": true,
+  "inventory_and_complete_verbose_tests": {
+    "ordinary": 4,
+    "sanitize": 4
+  },
+  "two_public_fixture_outputs_matched": true,
+  "mac_fixture_dumping_disabled_value": null,
+  "static_review_original_bytes_preserved": true,
+  "full_algorithm_call_accounting": {
+    "method": "derived from fixed source and completed test paths; not per-call dynamic instrumentation",
+    "keygen": 54,
+    "encap": 54,
+    "decap": 24,
+    "total": 132,
+    "direct_key_checks": 40,
+    "parameter_rejections": 36,
+    "public_test_SHAKE_references": 20
+  },
+  "qualification_timed_calls": 0,
+  "qualification_hardware_sampling_runs": 0,
+  "asan_detect_leaks_recorded": 0,
+  "per_child_environment_dump_saved": false,
+  "lsan_claimed": false,
+  "linux_qualification_executed": false,
+  "preflight": {
+    "saved_stdout_equals_actual_context": true,
+    "remote_project_writes_reported": 0,
+    "remote_crypto_calls_reported": 0,
+    "remote_sampling_reads_reported": 0,
+    "preflight_exit": 0,
+    "close_exit": 0,
+    "socket_exists_after_close": false,
+    "reviewer_did_not_repeat_remote_or_trace_global_writes": true
+  },
+  "bound_document_snapshots": {
+    "docs/research/aris-ordinary-repeatability-20261010/SOFTWARE_NOTES.md": {
+      "bytes": 4593,
+      "sha256": "6dffb582c10b377ab52eeb41c2580bdcee22efb14a145765d0a1a0d38c008b7e"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_TRACKER.md": {
+      "bytes": 1153,
+      "sha256": "b9394bd425ab49d11514531d681cae67f7f8d4efa1e46e75a88f133eb23e7b5b"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/README.md": {
+      "bytes": 1714,
+      "sha256": "17e5a992a25f6e2f0e18f21a89cd2972db626d11f71737a82842bc6e310eb99f"
+    },
+    "docs/research/aris-replication-20261009/CURRENT_STATUS.md": {
+      "bytes": 12752,
+      "sha256": "7dc3e386a4f693aa0971cf9ad98a2712d8fa2a7dbf5e75feba884f2a2b709677"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/README.md": {
+      "bytes": 3644,
+      "sha256": "c48ffe3ee3e304c9071b0716f942ae3476651a9a02430c617de093bea7c5efd8"
+    }
+  },
+  "local_links_checked": [
+    {
+      "file": "docs/research/aris-ordinary-repeatability-20261010/SOFTWARE_NOTES.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_TRACKER.md",
+      "target": "EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_TRACKER.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-ordinary-repeatability-20261010/README.md",
+      "target": "EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-ordinary-repeatability-20261010/README.md",
+      "target": "EXPERIMENT_TRACKER.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-ordinary-repeatability-20261010/README.md",
+      "target": "SOFTWARE_NOTES.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-20261008/RESEARCH_CONCLUSIONS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-20261008/PROOF_PACKAGE.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/aris-resume-20261009/official-source-check.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "RESULT_TO_CLAIM.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../../deliverables/research/aris-report-g2-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/aris-report-g2-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../../deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/aris-g2-package-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../../deliverables/research/aris-report-weak-mean-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../../deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "NEXT_VALIDATION_PROTOCOL.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-linux-math-software-20261009/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-frequency-window-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-frequency-control-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/remote-storage-20261009/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-frequency-reader-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-frequency-window-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-frequency-window-20261010/RESULT_TO_CLAIM.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-g2-timing-description-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/g2-timing-description-20261010/run-6b9fa92/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-raw-clock-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/raw-clock-20261010/run-aa43771/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-raw-clock-20261010/RESULT_TO_CLAIM.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-ordinary-repeatability-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/test-temp-root-20261009/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/test-temp-linux-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "WEAK_MEAN_PROOF_PACKAGE.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-weak-mean-finite-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/weak-mean-finite-20261010/README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "FULL_GOAL_AUDIT.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../full-work-acceptance.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/aris-access-restored-20261009/access-check.json",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-linux-math-software-20261009/RESULTS.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../../evidence/aris-linux-math-artifacts-20261009/INDEPENDENT_ARTIFACT_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/research/aris-replication-20261009/CURRENT_STATUS.md",
+      "target": "../aris-core-rehearsal-20261009/EXECUTION_GATE_AUDIT.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "../../../research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "../../../research/aris-ordinary-repeatability-20261010/SOFTWARE_NOTES.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "../../../research/aris-ordinary-repeatability-20261010/EXPERIMENT_TRACKER.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "qualification-originals.zip",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "qualification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "logs/ordinary-ctest.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "logs/sanitize-ctest.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "logs/ordinary-inventory.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "logs/sanitize-inventory.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "code-survey.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "candidate-dependencies.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "design-review.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "CONTRACT_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "CONTRACT_REVIEW.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "CONTRACT_FINAL_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "CONTRACT_FINAL_REVIEW.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "STATIC_CODE_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "STATIC_CODE_REVIEW.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "fixture-extraction.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "public-fixture-acceptance-qualification.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "COMPUTE_PREFLIGHT.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "compute-preflight.stdout",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "preflight-close.stderr",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "PREPARATION_VERIFICATION.json",
+      "exists": true
+    },
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "SHA256SUMS",
+      "exists": false
+    }
+  ],
+  "planned_final_seal_link_targets": [
+    {
+      "file": "docs/evidence/ordinary-repeatability-20261010/preparation/README.md",
+      "target": "SHA256SUMS",
+      "exists": false
+    }
+  ],
+  "unresolved_link_findings": [],
+  "bound_read_receipts": {
+    "docs/evidence/ordinary-repeatability-20261010/preparation/qualification.json": {
+      "bytes": 6797,
+      "sha256": "5fd3cc40d030ca385b9c28d1c50d98b3afd3fd45102f4e05d9e957912c50c82a"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/PREPARATION_VERIFICATION.json": {
+      "bytes": 1460,
+      "sha256": "ddd949a0c1e69da33157e78e4858489609892cd26a5ab6270730a748898c4cf8"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/COMPUTE_PREFLIGHT.json": {
+      "bytes": 4350,
+      "sha256": "0b2d04e9355b7fec20d52e0a63b695ced61a9fd1c23ac3e555636b7806988ce8"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/compute-preflight.stdout": {
+      "bytes": 3110,
+      "sha256": "d91df2261acf32b0b52f10a65c5e66cc24d0a5560e04d825aefa50cb71d30669"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/preflight-close.stderr": {
+      "bytes": 19,
+      "sha256": "748c9f993f5dbd096f309bb50f8deb41d93c0743b59186f195774cf93e564eba"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/candidate-dependencies.json": {
+      "bytes": 26868,
+      "sha256": "de23ce40a5ae00a2098209a036a98ffe220def1abd1d279d73143b58ad882f80"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/STATIC_CODE_REVIEW.md": {
+      "bytes": 7732,
+      "sha256": "2b26938d8872d2a5f2dccf3a107c8493ec4a7b221476f6ac6a898dcfffa82953"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/STATIC_CODE_REVIEW.json": {
+      "bytes": 7406,
+      "sha256": "59aed1733a9e6119b602d9edc9e007fff745e4e8bba1f9bb903f011c81960d86"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/CONTRACT_FINAL_REVIEW.md": {
+      "bytes": 4527,
+      "sha256": "3353be61f0322dd41cb3f71a8c856b0e5328e89e0fc9f0d07daf3e90bcf93d0a"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/preparation/CONTRACT_FINAL_REVIEW.json": {
+      "bytes": 6211,
+      "sha256": "7cca60f7470eb1c4dacfdbf2c5ed2c3230e63f0951c8e118a61d546acd1ae8bf"
+    }
+  },
+  "reviewer_execution": {
+    "c_cmake_ctest_runs": 0,
+    "ssh": 0,
+    "collectors": 0,
+    "full_crypto": 0,
+    "new_public_SHAKE_reference": 0,
+    "docs_edits": 0,
+    "commits": 0
+  },
+  "r02_signed_off": false,
+  "r04_signed_off": false,
+  "report_sha256": "4f5b4363c3ba039e7e3ceaf95714778e658c53b994210bfd7a94718869c8089b"
+}

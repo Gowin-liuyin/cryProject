@@ -1,0 +1,183 @@
+{
+  "schema": "reference-repeatability-local-qualification-v1",
+  "status": "passed",
+  "platform": "macOS/ARM",
+  "started_utc": "2026-10-10T11:35:27.225367+00:00",
+  "source_sha256": {
+    "reference_repeatability.c": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+    "analyze_reference_repeatability.c": "f9fd89c8641d56a9f279ef397e11df11a3f4ab9d44a8f62c2644914ded12e6bc",
+    "public_valid_decap_fixture.h": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+    "CMakeLists.txt": "403c99108fe604b0e2a4a584dd9b503c475ac909e75526bee53ae04606b6c2ab",
+    "EXPERIMENT_PLAN.md": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec"
+  },
+  "commands": [
+    {
+      "label": "ordinary-configure",
+      "argv": [
+        "cmake",
+        "-S",
+        "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010",
+        "-B",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-ordinary",
+        "-DREFERENCE_REPEATABILITY_SANITIZERS=OFF",
+        "-DCLANG_FORMAT_EXECUTABLE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-format"
+      ],
+      "started_utc": "2026-10-10T11:35:27.226398+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:27.819097+00:00"
+    },
+    {
+      "label": "ordinary-build",
+      "argv": [
+        "cmake",
+        "--build",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-ordinary",
+        "--parallel",
+        "4"
+      ],
+      "started_utc": "2026-10-10T11:35:27.819230+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:28.787640+00:00"
+    },
+    {
+      "label": "ordinary-inventory",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-ordinary",
+        "--show-only=json-v1"
+      ],
+      "started_utc": "2026-10-10T11:35:28.787771+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:28.860967+00:00"
+    },
+    {
+      "label": "ordinary-ctest",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-ordinary",
+        "--verbose"
+      ],
+      "started_utc": "2026-10-10T11:35:28.861138+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:30.553537+00:00"
+    },
+    {
+      "label": "ordinary-format-check",
+      "argv": [
+        "cmake",
+        "--build",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-ordinary",
+        "--target",
+        "format-check"
+      ],
+      "started_utc": "2026-10-10T11:35:30.553676+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:30.691468+00:00"
+    },
+    {
+      "label": "sanitize-configure",
+      "argv": [
+        "cmake",
+        "-S",
+        "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010",
+        "-B",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize",
+        "-DREFERENCE_REPEATABILITY_SANITIZERS=ON",
+        "-DCLANG_FORMAT_EXECUTABLE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-format"
+      ],
+      "started_utc": "2026-10-10T11:35:30.691836+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:31.032776+00:00"
+    },
+    {
+      "label": "sanitize-build",
+      "argv": [
+        "cmake",
+        "--build",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize",
+        "--parallel",
+        "4"
+      ],
+      "started_utc": "2026-10-10T11:35:31.032934+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:31.579279+00:00"
+    },
+    {
+      "label": "sanitize-inventory",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize",
+        "--show-only=json-v1"
+      ],
+      "started_utc": "2026-10-10T11:35:31.579545+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:31.637798+00:00"
+    },
+    {
+      "label": "sanitize-ctest",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize",
+        "--verbose"
+      ],
+      "started_utc": "2026-10-10T11:35:31.637976+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:33.065254+00:00"
+    },
+    {
+      "label": "sanitize-format-check",
+      "argv": [
+        "cmake",
+        "--build",
+        "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/qualification-initial/build-sanitize",
+        "--target",
+        "format-check"
+      ],
+      "started_utc": "2026-10-10T11:35:33.065438+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-10T11:35:33.195772+00:00"
+    }
+  ],
+  "timed_decapsulation_calls": 0,
+  "hardware_collection_runs": 0,
+  "full_algorithm_calls_if_both_CTests_complete": 132,
+  "asan_detect_leaks": 0,
+  "ordinary": {
+    "registered_tests": [
+      "reference_repeatability_selfcheck",
+      "reference_repeatability_analysis_selfcheck",
+      "reference_repeatability_fixture_check",
+      "reference_repeatability_nist_kat"
+    ],
+    "passed": 4,
+    "full_algorithm_calls_by_planned_CTest_paths": 66,
+    "timed_calls": 0,
+    "binaries_sha256": {
+      "reference_repeatability": "eb46053fcbbe42043a396425d2fce21cc5ea1ef604e55ac85cde354c7c63f5c5",
+      "analyze_reference_repeatability": "95d48759b90c0109408c7048333d0390457847cbe9e16aad6635599582c9e4f0",
+      "reference_repeatability_kat": "22310b789edfab783e22ad997beefdd1133139b7b31c960552e143938b46e255"
+    }
+  },
+  "sanitize": {
+    "registered_tests": [
+      "reference_repeatability_selfcheck",
+      "reference_repeatability_analysis_selfcheck",
+      "reference_repeatability_fixture_check",
+      "reference_repeatability_nist_kat"
+    ],
+    "passed": 4,
+    "full_algorithm_calls_by_planned_CTest_paths": 66,
+    "timed_calls": 0,
+    "binaries_sha256": {
+      "reference_repeatability": "596108ad34ae811df5e2547a346bb6e03ead5255d8176f240aa6a6924dca305f",
+      "analyze_reference_repeatability": "43735de5fe664b394afff4766e622bd3dbf70d64a0ea81aa11c9c6e7da731d46",
+      "reference_repeatability_kat": "798fd2ad82abfaf51ca28b4601cf6976312920d6a7ed83ed30348b4b5e9300eb"
+    }
+  },
+  "full_algorithm_calls_by_completed_CTest_paths": 132,
+  "finished_utc": "2026-10-10T11:35:33.196251+00:00"
+}

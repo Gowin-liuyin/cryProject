@@ -1,0 +1,152 @@
+{
+  "schema": "ordinary-repeatability-independent-final-contract-review-v1",
+  "written_utc": "2026-10-10T11:37:55.519081+00:00",
+  "status": "contract_pass_two_original_conditions_closed",
+  "reviewed_plan_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+  "original_conditional_review_files_preserved": {
+    "CONTRACT_REVIEW.md": "dbed808799f8196788be994b0c6138a381d20644fad658878b3ebea5cb87f9ab",
+    "CONTRACT_REVIEW.json": "b53e0d18a9c8750c60d9b2d283bd11fd9d89d14538bce0be4a7a267e3dc7d6d7"
+  },
+  "closed_findings": {
+    "C1_three_to_six_typo": true,
+    "C2_public_valid_fixture_basis": true
+  },
+  "closure_basis": {
+    "final_contract_six_originals_wording": true,
+    "VAL_alone_explicitly_not_classifier": true,
+    "public_J_reference_receipt_reports_inequality": true,
+    "J_receipt_sha256": "1e7bf1bedd4fe3a35d50e280bdd3f1e438aacdd945d7f5b3ba37f8b98b2c946c",
+    "source_rejection_form_read": true,
+    "fixture_helper_complete_32_byte_comparison_read": true,
+    "actual_two_config_fixture_checks_match_external_answer": {
+      "ordinary": {
+        "fixture_check": "passed",
+        "fixture_group_id": 5,
+        "fixture_case_id": 86,
+        "crypto_calls": 1,
+        "operation_status": 0,
+        "output_matches_fixture": true,
+        "process_dumping_disabled": null,
+        "reference_identity_verified": true
+      },
+      "sanitize": {
+        "fixture_check": "passed",
+        "fixture_group_id": 5,
+        "fixture_case_id": 86,
+        "crypto_calls": 1,
+        "operation_status": 0,
+        "output_matches_fixture": true,
+        "process_dumping_disabled": null,
+        "reference_identity_verified": true
+      }
+    },
+    "J_reference_independently_recomputed_by_this_reviewer": false
+  },
+  "receipts": {
+    "qualification_sha256": "5fd3cc40d030ca385b9c28d1c50d98b3afd3fd45102f4e05d9e957912c50c82a",
+    "logs": {
+      "ordinary": {
+        "stdout_sha256": "cbe2a29d3691b90386d706f5d0957df96d265af35cb822f70644936c8bd9f8d6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_bytes": 0,
+        "inventory_sha256": "e949e4cb855d87332681922eb9f11c1e4971c9ff558456cb46bb3544d55c69b2",
+        "four_of_four_reported": true,
+        "source_and_receipt_platform": "macOS/ARM"
+      },
+      "sanitize": {
+        "stdout_sha256": "52137c2501dbab1a9f71230f10024e37d49dd02e3ec42c66f7f054aaf677e14e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_bytes": 0,
+        "inventory_sha256": "95bccd3203667e4d3705bcaad00be1d563a1518058716d985f2a24108f6e6339",
+        "four_of_four_reported": true,
+        "source_and_receipt_platform": "macOS/ARM"
+      }
+    },
+    "inventories": {
+      "ordinary": [
+        "reference_repeatability_selfcheck",
+        "reference_repeatability_analysis_selfcheck",
+        "reference_repeatability_fixture_check",
+        "reference_repeatability_nist_kat"
+      ],
+      "sanitize": [
+        "reference_repeatability_selfcheck",
+        "reference_repeatability_analysis_selfcheck",
+        "reference_repeatability_fixture_check",
+        "reference_repeatability_nist_kat"
+      ]
+    },
+    "source_bindings": {
+      "reference_repeatability.c": {
+        "receipt_sha256": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+        "current_sha256": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+        "matches_at_review": true
+      },
+      "analyze_reference_repeatability.c": {
+        "receipt_sha256": "f9fd89c8641d56a9f279ef397e11df11a3f4ab9d44a8f62c2644914ded12e6bc",
+        "current_sha256": "f9fd89c8641d56a9f279ef397e11df11a3f4ab9d44a8f62c2644914ded12e6bc",
+        "matches_at_review": true
+      },
+      "public_valid_decap_fixture.h": {
+        "receipt_sha256": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+        "current_sha256": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+        "matches_at_review": true
+      },
+      "CMakeLists.txt": {
+        "receipt_sha256": "403c99108fe604b0e2a4a584dd9b503c475ac909e75526bee53ae04606b6c2ab",
+        "current_sha256": "403c99108fe604b0e2a4a584dd9b503c475ac909e75526bee53ae04606b6c2ab",
+        "matches_at_review": true
+      },
+      "EXPERIMENT_PLAN.md": {
+        "receipt_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+        "current_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+        "matches_at_review": true
+      }
+    },
+    "acceptance_source_hashes_match": {
+      "vendor/mlkem-native/mlkem/src/kem.c": true,
+      "vendor/mlkem-native/mlkem/src/symmetric.h": true,
+      "src/mlkem.c": true,
+      "tests/vectors/encdec-prompt.json": true,
+      "tests/vectors/encdec-expected.json": true
+    },
+    "six_binary_hashes_match": {
+      "ordinary": {
+        "reference_repeatability": true,
+        "analyze_reference_repeatability": true,
+        "reference_repeatability_kat": true
+      },
+      "sanitize": {
+        "reference_repeatability": true,
+        "analyze_reference_repeatability": true,
+        "reference_repeatability_kat": true
+      }
+    },
+    "all_ten_commands_exit_zero": true,
+    "local_full_algorithm_calls_by_completed_paths": 132,
+    "local_timed_decap_calls": 0,
+    "local_hardware_collection_runs": 0,
+    "asan_detect_leaks": 0
+  },
+  "reviewer_actions": {
+    "ssh": 0,
+    "c_program_runs": 0,
+    "ctest_runs": 0,
+    "new_shake_calculations": 0,
+    "hardware_collection_runs": 0,
+    "source_docs_edits": 0,
+    "commits": 0,
+    "full_software_implementation_review_completed": false,
+    "management_implementation_review_completed": false,
+    "linux_qualification_review_completed": false,
+    "external_codex_review_completed": false
+  },
+  "boundaries": {
+    "r02_total_acceptance": false,
+    "r04_new_evidence": false,
+    "six_collectors_executed_by_local_qualification": false,
+    "mac_qualification_is_linux_qualification": false,
+    "remaining_management_deadline_enforcement_review": true
+  },
+  "final_report_sha256": "3353be61f0322dd41cb3f71a8c856b0e5328e89e0fc9f0d07daf3e90bcf93d0a"
+}

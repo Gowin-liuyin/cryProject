@@ -1,0 +1,105 @@
+{
+  "schema": "ordinary-repeatability-independent-contract-review-v1",
+  "written_utc": "2026-10-10T11:33:43.838111+00:00",
+  "reviewed_repository_head": "22a7b9065984cb1f2c6361c4553b23589f88d1fb",
+  "status": "conditional_contract_pass_before_text_and_fixture_label_resolution",
+  "reviewed_hashes": {
+    "EXPERIMENT_PLAN.md": "b618d5122ec1a96448b1fef4e4d9a8388325d39e30dc3b992342b8bf106ecd05",
+    "EXPERIMENT_TRACKER.md": "7021e06f54b35a8f8a656ce47796ac0177e382ada88f0fc0afe7290288a6e0cf",
+    "README.md": "ff1cc9d6725771feddbe2591afebaaba82fc156d44eec748a2ea2a3f9aa2e7af"
+  },
+  "current_files_still_match_reviewed_hashes": {
+    "EXPERIMENT_PLAN.md": true,
+    "EXPERIMENT_TRACKER.md": true,
+    "README.md": true
+  },
+  "scope": {
+    "contract_read": true,
+    "current_test_mlkem_and_selftest_call_ledger_read": true,
+    "source_implementation_review": false,
+    "remote_management_implementation_review": false,
+    "local_ssh_calls": 0,
+    "cryptographic_algorithm_calls": 0,
+    "sample_clock_reads": 0,
+    "software_test_runs": 0,
+    "source_or_docs_edits": 0,
+    "commits": 0,
+    "external_codex_review": false,
+    "nist_originals_refetched": false
+  },
+  "fixed_input": {
+    "group_id": 5,
+    "case_id": 86,
+    "original_json_converted_header_bytes_equal": true,
+    "declared_byte_lengths": [
+      2400,
+      1088,
+      32
+    ],
+    "header_sha256_at_review": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+    "valid_ciphertext_basis_independently_verified_in_this_review": false
+  },
+  "count_checks": {
+    "connection_batches": 2,
+    "processes_per_batch": 3,
+    "processes_total": 6,
+    "warmup_per_process": 25000,
+    "main_per_process": 25000,
+    "timed_decap_total": 300000,
+    "setup_decap_total": 6,
+    "sampling_clock_reads_total": 600000,
+    "nist_kat_keygen_per_configuration": 27,
+    "nist_kat_encap_per_configuration": 27,
+    "nist_kat_decap_per_configuration": 11,
+    "nist_kat_total_per_configuration": 65,
+    "fixture_check_decap_per_configuration": 1,
+    "all_qualification_calls_per_configuration": 66,
+    "remote_qualification_calls": 132,
+    "remote_complete_algorithm_calls_planned": 300138,
+    "remote_complete_decap_calls_planned": 300030,
+    "local_final_qualification_calls_planned": 132,
+    "local_initial_plus_two_repair_round_upper_limit": 396,
+    "guard_rejections_per_configuration": 18,
+    "key_checks_per_configuration": 20,
+    "public_rejection_reference_shake_per_configuration": 10,
+    "description_rows_total": 36,
+    "stage_pair_inside_count": 25000,
+    "stage_between_pair_count": 24999,
+    "stage_combined_count": 49999,
+    "ledger_matches": true
+  },
+  "bounded_executability": {
+    "per_collector_timeout_seconds": 15,
+    "kill_after_seconds": 2,
+    "manager_wait_seconds": 20,
+    "per_batch_work_seconds": 300,
+    "per_batch_export_seconds": 30,
+    "per_file_hard_limit_bytes": 67108864,
+    "phase_boundary_tree_budget_bytes": 268435456,
+    "minimum_free_bytes": 1073741824,
+    "global_deadline_must_bound_per_command_remaining_time": true,
+    "manager_enforcement_not_yet_reviewed": true
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "severity": "minor",
+      "finding": "Three-new-originals text conflicts with six-process design; correct to six before freeze."
+    },
+    {
+      "id": "C2",
+      "severity": "source_label_binding",
+      "finding": "Byte equality of public NIST expected does not alone prove accepted/valid ciphertext; bind existing public-fixture validity basis or use neutral fixture wording."
+    }
+  ],
+  "claim_scope": {
+    "limited_process_descriptive_evidence_design_supported": true,
+    "iid_supported": false,
+    "independent_environments_supported": false,
+    "absolute_timing_error_supported": false,
+    "stable_equivalence_supported": false,
+    "r02_total_acceptance_supported": false,
+    "r04_new_evidence_supported": false
+  },
+  "report_sha256": "dbed808799f8196788be994b0c6138a381d20644fad658878b3ebea5cb87f9ab"
+}

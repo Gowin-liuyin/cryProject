@@ -385,3 +385,6 @@ Tyurin固定v1式1/定理7条件与0.5606原文经独立核查，采用保守常
 
 2026-10-10完成[RAW空窗口真实采集](research/aris-raw-clock-20261010/RESULTS.md)：aa43771四源原字节在指定裸金属Linux普通/ASan-UBSan各CTest2/2；只执行普通collector三新进程，各1000预热+100000主pair，共303000pair/606000次采样读钟，无密码算法调用或补跑。主pair内P50均20ns/P99均21ns，max2004/1603/501ns和全部原值保留；声明1ns、经验最小正值10ns分列，不扣旧G2、不认证绝对精度或完整调用重复性。
 完整4454198字节tar/e6dfd03f、496成员/495清单及71可读原件子集封存；独立全量303000行/4545000字段/18行180数值/三摘要一致，源/四ELF/29命令及管理接受另核，第三代理独立判定有限描述yes。首次复用连接认证拒绝在helper前、计数未增加；密码重登后单次执行，33原PID不存在、调用者0—31、SSH关闭，云端三原路径均在Cry。外部Codexpending、R02/R04 partial；当前入口及AGENTS同步，49页/925项件和旧G2保持，下一有效工作为另冻完整普通参考的运行间重复性。
+
+2026-10-10完成[完整普通参考重复性软件准备](research/aris-ordinary-repeatability-20261010/README.md)：只固定NISTtg5/tc86公开有效fixture、完整mlkem_decapsulate、25000预热+25000主调用、两近邻连接批次各三新进程；十八列原值明确操作/失败/匹配，严格C6行及守恒，五helper/统计复用已独立核对。新collector a895575c、analyzer f9fd89c8、CMake403c9910、合同90ced1f1，旧工具/核心/vendor/向量不改。
+本机Mac/ARM普通及ASan-UBSan各4/4初次通过，按完成测试路径132完整算法调用、零计时/硬件采集，detect_leaks=0不称LSan；公开fixture与原JSON/转换向量逐字一致，拒绝参照不等式及新完整输出匹配共同支持该固定有效样例。指定Linux只读CPU2/Cry/工具/空间预检通过，首次本机socket过长失败保留，重认后回读及SSH关闭完成，无远端项目写入。源码/独立合同与代码审查/527成员77b6cbb6完整软件ZIP封存，Linux5项资格、远端管理和六collector仍未执行；R02/R04 partial，完整目标继续。

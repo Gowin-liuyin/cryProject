@@ -1,0 +1,34 @@
+{
+  "sealed_utc": "2026-10-10T11:38:53.228218+00:00",
+  "source_baseline_commit": "22a7b9065984cb1f2c6361c4553b23589f88d1fb",
+  "tested_module_was_new_uncommitted_source": true,
+  "tested_source_sha256": {
+    "reference_repeatability.c": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+    "analyze_reference_repeatability.c": "f9fd89c8641d56a9f279ef397e11df11a3f4ab9d44a8f62c2644914ded12e6bc",
+    "public_valid_decap_fixture.h": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+    "CMakeLists.txt": "403c99108fe604b0e2a4a584dd9b503c475ac909e75526bee53ae04606b6c2ab",
+    "EXPERIMENT_PLAN.md": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec"
+  },
+  "qualification_archive": {
+    "name": "qualification-originals.zip",
+    "bytes": 1120265,
+    "sha256": "77b6cbb65412f08a466f9db24ac30be3cfce38a30570b8c48373374f946d333d",
+    "members": 527,
+    "crc_and_all_member_source_bytes_verified": true
+  },
+  "same_model_independent_static_review": "passed",
+  "same_model_independent_contract_final_review": "passed",
+  "actual_configs": {
+    "ordinary": 4,
+    "sanitize": 4
+  },
+  "full_algorithm_calls_from_completed_CTest_paths": 132,
+  "timed_calls": 0,
+  "linux_qualification_executed": false,
+  "remote_project_files_written": false,
+  "remote_collectors_started": 0,
+  "preflight_ssh_closed": true,
+  "external_Codex_MCP_available": false,
+  "r02_signed_off": false,
+  "r04_signed_off": false
+}

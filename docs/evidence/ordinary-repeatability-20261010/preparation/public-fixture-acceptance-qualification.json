@@ -1,0 +1,20 @@
+{
+  "checked_utc": "2026-10-10T11:33:28.400191+00:00",
+  "scope": "one-off external arithmetic reference on public NIST test bytes; not a runtime classifier",
+  "group_id": 5,
+  "case_id": 86,
+  "published_expected_differs_from_implicit_rejection_J_z_c": true,
+  "public_rejection_value_sha256": "77e3410e3d8a9f969d59200acd8064921c8003817a3f8481fb95dc059bfd48a3",
+  "public_expected_value_sha256": "ca4b36ac6565fbe8993b8cd84495a09f7104201008f529f3bc3f57a5c13727d2",
+  "source_files_sha256": {
+    "vendor/mlkem-native/mlkem/src/kem.c": "3922156826521429eb250ccb3d54d7beacce14adce26bb3be6d1ef7864342dd3",
+    "vendor/mlkem-native/mlkem/src/symmetric.h": "168d0ec3bf50bd45cb0a103d7984e9ccf52f78697718b7e85efdf1beda7abc95",
+    "src/mlkem.c": "132857244937f7b75a95d3a4e1d785c6b50327913b274781d580785b4cb8739b",
+    "tests/vectors/encdec-prompt.json": "998e22dfb12efb14ce9fdff911ca634b13612819a1806f25da69adba7e16db91",
+    "tests/vectors/encdec-expected.json": "9089ec6ff2424da9f2782b89b2f831a329a3e28d6e5e24b802b78ff36ac61cdf"
+  },
+  "existing_source_rejection_form": "mlk_kem_dec copies final sk bytes z then ciphertext into tmp, calls mlk_hash_j(ss, tmp, MLKEM_SYMBYTES + MLKEM_INDCCA_CIPHERTEXTBYTES), and mlk_ct_cmov_zero copies kr when comparison fail is zero",
+  "valid_ciphertext_qualification": "requires future same-reference full decapsulation output equal published expected, together with fixed rejection form and inequality; return zero alone insufficient",
+  "full_decapsulation_executed_in_this_check": false,
+  "runtime_originals_modified": false
+}
