@@ -1,0 +1,602 @@
+{
+  "schema": "independent-repeatability-draft-numeric-review-v1",
+  "status": "all_reviewed_values_and_scope_match",
+  "reviewer": "ordinary_repeatability_numeric",
+  "draft_bindings": {
+    "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md": {
+      "bytes": 11079,
+      "sha256": "a17ebec83c23f007203d1ac72754fc77d2c5f2689accf2b623f93f41cffed21f"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md": {
+      "bytes": 2149,
+      "sha256": "9ae7886ec8184802405737a55ba8a27ca0d3a81ecba14881c24f8b9b0aeb1d76"
+    },
+    "docs/research/aris-ordinary-repeatability-20261010/findings.md": {
+      "bytes": 1290,
+      "sha256": "06af9f995e9926bcc3d145675346bdbe6f60d2b82c7d8381e3386f3547662547"
+    }
+  },
+  "full_numeric_verification_sha256": "955aca13da882c236dfdd63365c64b6ad787daab3e3bae098304b005b4fe63ca",
+  "checks": [
+    {
+      "label": "sealed numeric record identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "five numeric markdown tables",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C table unchanged E1 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C summary unchanged E1 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw fixed row count E1 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "summary equals raw phase boundaries E1 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw total conservation E1 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "C raw false flags intact E1 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C table unchanged E1 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C summary unchanged E1 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw fixed row count E1 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "summary equals raw phase boundaries E1 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw total conservation E1 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "C raw false flags intact E1 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C table unchanged E1 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C summary unchanged E1 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw fixed row count E1 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "summary equals raw phase boundaries E1 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw total conservation E1 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "C raw false flags intact E1 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C table unchanged E2 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C summary unchanged E2 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw fixed row count E2 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "summary equals raw phase boundaries E2 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw total conservation E2 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "C raw false flags intact E2 P1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C table unchanged E2 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C summary unchanged E2 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw fixed row count E2 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "summary equals raw phase boundaries E2 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw total conservation E2 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "C raw false flags intact E2 P2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C table unchanged E2 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "selected C summary unchanged E2 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw fixed row count E2 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "summary equals raw phase boundaries E2 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "raw total conservation E2 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "C raw false flags intact E2 P3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "all six main table rows exact",
+      "passed": true,
+      "details": {
+        "rows": 6,
+        "numeric_fields": 42
+      }
+    },
+    {
+      "label": "all six warmup table rows exact",
+      "passed": true,
+      "details": {
+        "rows": 6,
+        "numeric_fields": 18
+      }
+    },
+    {
+      "label": "all six phase timebook rows exact",
+      "passed": true,
+      "details": {
+        "rows": 6,
+        "numeric_fields": 48
+      }
+    },
+    {
+      "label": "five gaps equal actual raw boundaries",
+      "passed": true,
+      "details": [
+        [
+          "E1 P1 到 E1 P2",
+          "126629004"
+        ],
+        [
+          "E1 P2 到 E1 P3",
+          "125380602"
+        ],
+        [
+          "E1 P3 到 E2 P1",
+          "346446211228"
+        ],
+        [
+          "E2 P1 到 E2 P2",
+          "129427774"
+        ],
+        [
+          "E2 P2 到 E2 P3",
+          "128424252"
+        ]
+      ]
+    },
+    {
+      "label": "all observed range and warmup maximum assertions",
+      "passed": true,
+      "details": {
+        "main_p50_min_ns": 30678,
+        "main_p50_max_ns": 30718,
+        "main_p50_range_ns": 40,
+        "main_p99_min_ns": 32000,
+        "main_p99_max_ns": 32070,
+        "main_p99_range_ns": 70,
+        "e1_p50_range_ns": 40,
+        "e2_p50_range_ns": 9,
+        "warmup_max_ns": 68449
+      }
+    },
+    {
+      "label": "batch timed calls e1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "management acceptance distinct from C flags e1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "batch timed calls e2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "management acceptance distinct from C flags e2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "actual two manager durations reproduced",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "manager timer includes preflight from entry",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "duration exclusions and unequal work scope stated",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "Mac 132 completed qualification paths",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "Mac actual successful test paths ordinary",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "Mac actual successful test paths sanitize",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "Linux 132 qualification and zero E2 repeat",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "full Linux entry-account table",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "300270 unit and dynamic-instrumentation boundary",
+      "passed": true,
+      "details": {
+        "mac_full_algorithm_calls": 132,
+        "linux_full_algorithm_calls": 300138,
+        "combined_full_algorithm_calls": 300270,
+        "linux_decapsulation_calls": 300030,
+        "linux_keygen_calls": 54,
+        "linux_encapsulation_calls": 54,
+        "timed_calls": 300000,
+        "setup_calls": 6,
+        "sampling_clock_reads": 600000
+      }
+    },
+    {
+      "label": "four source and two primary ELF hashes exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "current evidence archive identity e1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "current evidence archive identity e2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "label": "all local links in the three reviewed drafts exist",
+      "passed": true,
+      "details": {
+        "checked_links": 9,
+        "pending_final_manifest": []
+      }
+    },
+    {
+      "label": "reviewed draft bytes unchanged during audit",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "main_table_rows_checked": 6,
+  "warmup_table_rows_checked": 6,
+  "timebook_rows_checked": 6,
+  "raw_boundary_gaps_checked": 5,
+  "observed_ranges": {
+    "main_p50_min_ns": 30678,
+    "main_p50_max_ns": 30718,
+    "main_p50_range_ns": 40,
+    "main_p99_min_ns": 32000,
+    "main_p99_max_ns": 32070,
+    "main_p99_range_ns": 70,
+    "e1_p50_range_ns": 40,
+    "e2_p50_range_ns": 9,
+    "warmup_max_ns": 68449
+  },
+  "call_account": {
+    "mac_full_algorithm_calls": 132,
+    "linux_full_algorithm_calls": 300138,
+    "combined_full_algorithm_calls": 300270,
+    "linux_decapsulation_calls": 300030,
+    "linux_keygen_calls": 54,
+    "linux_encapsulation_calls": 54,
+    "timed_calls": 300000,
+    "setup_calls": 6,
+    "sampling_clock_reads": 600000
+  },
+  "c_scope_flags": [
+    {
+      "case": "E1 P1",
+      "collector_stderr_checked": false,
+      "collector_exit_checked": false,
+      "complete_metadata_acceptance": false
+    },
+    {
+      "case": "E1 P2",
+      "collector_stderr_checked": false,
+      "collector_exit_checked": false,
+      "complete_metadata_acceptance": false
+    },
+    {
+      "case": "E1 P3",
+      "collector_stderr_checked": false,
+      "collector_exit_checked": false,
+      "complete_metadata_acceptance": false
+    },
+    {
+      "case": "E2 P1",
+      "collector_stderr_checked": false,
+      "collector_exit_checked": false,
+      "complete_metadata_acceptance": false
+    },
+    {
+      "case": "E2 P2",
+      "collector_stderr_checked": false,
+      "collector_exit_checked": false,
+      "complete_metadata_acceptance": false
+    },
+    {
+      "case": "E2 P3",
+      "collector_stderr_checked": false,
+      "collector_exit_checked": false,
+      "complete_metadata_acceptance": false
+    }
+  ],
+  "manual_scope_review": {
+    "40_and_70_ns_are_observed_ranges_not_error_bounds": true,
+    "maximum_warmup_68449_ns_preserved": true,
+    "fixed_25000_warmup_not_claimed_as_one_second": true,
+    "manager_durations_not_fair_efficiency_or_end_to_end_claim": true,
+    "same_boot_batch_gap_not_independence_or_idle_time": true,
+    "no_old_G2_algorithm_improvement_or_empty_window_subtraction": true,
+    "no_iid_CI_pvalue_or_safety_equivalence_claim": true,
+    "R02_R04_remain_partial": true,
+    "same_model_internal_review_external_Codex_pending": true,
+    "C_false_flags_separate_from_management_acceptance": true
+  },
+  "bound_numeric_inputs": {
+    "build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e1-originals/batches/e1/output/P1.csv": {
+      "bytes": 5274717,
+      "sha256": "63326fddec5d1e180c532e6ffcdbe27ba9f01319aadcadea48b563182eceab3f"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/output/P1-analysis.csv": {
+      "bytes": 563,
+      "sha256": "3fc1b73de5bc43ae98124cabdc2e1e26c7fcdd0907a60216d07651ecc10624a3"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/output/P1-summary.json": {
+      "bytes": 633,
+      "sha256": "445d0300b2cdfbcf504df8faf310e9ecb929501ee2d97b13a5cf35f85770dbf1"
+    },
+    "build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e1-originals/batches/e1/output/P2.csv": {
+      "bytes": 5281949,
+      "sha256": "e65e1d2cafa196853c819b86a8f66fa8a59d5153fa6914e8c4071e87038228d2"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/output/P2-analysis.csv": {
+      "bytes": 561,
+      "sha256": "e05ba063b6dc5f8dd3bb41ea029bfdaebab5d8e9e01a1a776bfafe87c686ea5e"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/output/P2-summary.json": {
+      "bytes": 633,
+      "sha256": "82395d00165437bb88311fd19a2ee31893fcecc054ec14e3927f45d847dd1f75"
+    },
+    "build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e1-originals/batches/e1/output/P3.csv": {
+      "bytes": 5274725,
+      "sha256": "60f14d3a4d77aca600dfd4428d5b7456b4f4ff3aa8d0f58ee5b2694c059e52f0"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/output/P3-analysis.csv": {
+      "bytes": 561,
+      "sha256": "395d9453d73f09de8ed365b442faba28f55acd8024820f7babe8b35005e6b674"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/output/P3-summary.json": {
+      "bytes": 633,
+      "sha256": "13659de47306c5c296b03a2b3eed24b265c58c53d2003b096e80c4fe4213d4dd"
+    },
+    "build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e2-originals/batches/e2/output/P1.csv": {
+      "bytes": 5274711,
+      "sha256": "1855988719a5d01049f5ea42df2e87895c7cba5b0807345f20dd1d7e09b0a920"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/output/P1-analysis.csv": {
+      "bytes": 561,
+      "sha256": "a295702c9111ce8ceb9472a17089ce6f80871d2900738e4976dfa086dc26a1b1"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/output/P1-summary.json": {
+      "bytes": 633,
+      "sha256": "82f3ba7d7e1b5bc30042caa851e8df646f3cd2f31a3f3d03e225f8c1a471efbe"
+    },
+    "build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e2-originals/batches/e2/output/P2.csv": {
+      "bytes": 5275389,
+      "sha256": "ce1cec23e0eeb1252acba412353ceb900069d8add5453ba829c7893d9470fcc8"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/output/P2-analysis.csv": {
+      "bytes": 563,
+      "sha256": "8b28e0f0ed2468be70888c38a1821f748436f6efc5b734570c3c8b394165575e"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/output/P2-summary.json": {
+      "bytes": 633,
+      "sha256": "eceb9f4072e5df0167a8f740f755673350f23a913f5cdc70c5674d1b08809e44"
+    },
+    "build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e2-originals/batches/e2/output/P3.csv": {
+      "bytes": 5281941,
+      "sha256": "6dcee4e0fb6e02f7440b9e71041b5bf638d74bc2f8fcc837d7e66d7f7603b979"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/output/P3-analysis.csv": {
+      "bytes": 563,
+      "sha256": "b3a6ef1495c2baaaa5a865bb53fd95da9c3bc43669e19931e97f0dbaa4da7c84"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/output/P3-summary.json": {
+      "bytes": 633,
+      "sha256": "758393b6955a4a63242e43f2f2df2fc963b2eeba6775b9f7c68bc7e9d5ce0c16"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e1/run-state.json": {
+      "bytes": 64872,
+      "sha256": "5030ba428cb312764e66df2cf8050c8029e62fba6664a01c63125b18029d63d4"
+    },
+    "docs/evidence/ordinary-repeatability-20261010/run-7ca9320/selected-originals/batches/e2/run-state.json": {
+      "bytes": 66022,
+      "sha256": "1c46c859d07526d4382fc4673f6e995420e680d9b988b5dc4b4d316c8647a202"
+    }
+  },
+  "local_links": [
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/run-7ca9320/README.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/evidence/ordinary-repeatability-20261010/run-7ca9320/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/run-7ca9320/review-numeric/INDEPENDENT_NUMERIC_REVIEW.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/evidence/ordinary-repeatability-20261010/run-7ca9320/review-numeric/INDEPENDENT_NUMERIC_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "target": "EXPERIMENT_PLAN.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md",
+      "target": "RESULTS.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md",
+      "target": "EXPERIMENT_PLAN.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/run-7ca9320/review-claims/RESULT_TO_CLAIM_REVIEW.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/evidence/ordinary-repeatability-20261010/run-7ca9320/review-claims/RESULT_TO_CLAIM_REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/findings.md",
+      "target": "RESULTS.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/RESULTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/findings.md",
+      "target": "RESULT_TO_CLAIM.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/RESULT_TO_CLAIM.md",
+      "exists": true
+    },
+    {
+      "source": "docs/research/aris-ordinary-repeatability-20261010/findings.md",
+      "target": "../../evidence/ordinary-repeatability-20261010/run-7ca9320/README.md",
+      "resolved_path": "/Users/yin/code/cryProject/docs/evidence/ordinary-repeatability-20261010/run-7ca9320/README.md",
+      "exists": true
+    }
+  ],
+  "missing_links": [],
+  "pending_final_manifest_links": [],
+  "errors": [],
+  "C_invocations": 0,
+  "SSH_invocations": 0,
+  "collector_invocations": 0,
+  "new_sampling_reads": 0,
+  "documents_modified_by_reviewer": 0
+}

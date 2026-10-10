@@ -1,0 +1,216 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0xa5a0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          192424 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         41
+  Section header string table index: 40
+
+Dynamic section at offset 0x16c20 contains 31 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libasan.so.8]
+ 0x0000000000000001 (NEEDED)             Shared library: [libubsan.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0xa000
+ 0x000000000000000d (FINI)               0x118c0
+ 0x0000000000000020 (PREINIT_ARRAY)      0x168f8
+ 0x0000000000000021 (PREINIT_ARRAYSZ)    8 (bytes)
+ 0x0000000000000019 (INIT_ARRAY)         0x16900
+ 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x16910
+ 0x000000000000001c (FINI_ARRAYSZ)       16 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x3b0
+ 0x0000000000000005 (STRTAB)             0x8c8
+ 0x0000000000000006 (SYMTAB)             0x3e8
+ 0x000000000000000a (STRSZ)              972 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x16e50
+ 0x0000000000000002 (PLTRELSZ)           1032 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x9b78
+ 0x0000000000000007 (RELA)               0xd40
+ 0x0000000000000008 (RELASZ)             36408 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000000000001e (FLAGS)              BIND_NOW
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW PIE
+ 0x000000006ffffffe (VERNEED)            0xd00
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0xc94
+ 0x000000006ffffff9 (RELACOUNT)          1508
+ 0x0000000000000000 (NULL)               0x0
+
+Symbol table '.dynsym' contains 52 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_register_globals
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load_n
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_0
+     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_poison_stack_memory
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_9
+     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk
+     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_1
+    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_9
+    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_load_invalid_value
+    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp
+    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_pointer_overflow
+    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34 (3)
+    15: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk
+    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memset
+    17: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fflush
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen
+    19: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memchr
+    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store8
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unregister_globals
+    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (4)
+    23: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_init
+    24: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_sub_overflow
+    25: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND malloc
+    26: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc
+    27: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load1
+    28: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store1
+    29: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy
+    30: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load8
+    31: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unpoison_stack_memory
+    32: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose
+    33: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_2
+    34: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_out_of_bounds
+    35: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fgets
+    36: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_type_mismatch_v1
+    37: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strstr
+    38: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strchr
+    39: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_version_mismatch_check_v8
+    40: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputs
+    41: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_nonnull_arg
+    42: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    43: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store_n
+    44: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_3
+    45: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5 (2)
+    46: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    47: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    48: 0000000000020fc0     8 OBJECT  GLOBAL DEFAULT   28 stdout@GLIBC_2.2.5 (2)
+    49: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (2)
+    50: 0000000000020fe8     4 OBJECT  GLOBAL DEFAULT   28 __asan_option_detect_stack_use_after_return
+    51: 0000000000020fe0     8 OBJECT  GLOBAL DEFAULT   28 stderr@GLIBC_2.2.5 (2)
+
+Symbol table '.symtab' contains 104 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Scrt1.o
+     2: 000000000000038c    32 OBJECT  LOCAL  DEFAULT    4 __abi_tag
+     3: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+     4: 000000000000a5d0     0 FUNC    LOCAL  DEFAULT   16 deregister_tm_clones
+     5: 000000000000a600     0 FUNC    LOCAL  DEFAULT   16 register_tm_clones
+     6: 000000000000a640     0 FUNC    LOCAL  DEFAULT   16 __do_global_dtors_aux
+     7: 0000000000020fec     1 OBJECT  LOCAL  DEFAULT   28 completed.0
+     8: 0000000000016918     0 OBJECT  LOCAL  DEFAULT   23 __do_global_dtors_aux_fini_array_entry
+     9: 000000000000a680     0 FUNC    LOCAL  DEFAULT   16 frame_dummy
+    10: 0000000000016908     0 OBJECT  LOCAL  DEFAULT   22 __frame_dummy_init_array_entry
+    11: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS asan_preinit.cpp
+    12: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS analyze_reference_repeatability.c
+    13: 000000000000a689    93 FUNC    LOCAL  DEFAULT   16 add_nanoseconds
+    14: 000000000000a6e6   498 FUNC    LOCAL  DEFAULT   16 parse_unsigned_decimal
+    15: 000000000000a8d8   821 FUNC    LOCAL  DEFAULT   16 sift_down
+    16: 000000000000ac0d   423 FUNC    LOCAL  DEFAULT   16 sort_values
+    17: 000000000000adb4  1224 FUNC    LOCAL  DEFAULT   16 phase_boundary_is_conserved
+    18: 000000000000b27c   659 FUNC    LOCAL  DEFAULT   16 format_summary
+    19: 000000000000b50f  1534 FUNC    LOCAL  DEFAULT   16 parse_successful_clock
+    20: 000000000000bb0d   142 FUNC    LOCAL  DEFAULT   16 report_unknown
+    21: 000000000000bb9b  2499 FUNC    LOCAL  DEFAULT   16 parse_pair_record
+    22: 000000000000c55e   420 FUNC    LOCAL  DEFAULT   16 normalize_input_line
+    23: 000000000000c702   173 FUNC    LOCAL  DEFAULT   16 read_input_line
+    24: 000000000000c7af  2322 FUNC    LOCAL  DEFAULT   16 format_csv
+    25: 0000000000014fc0    96 OBJECT  LOCAL  DEFAULT   18 output_header
+    26: 0000000000016920    24 OBJECT  LOCAL  DEFAULT   24 series_names.0
+    27: 000000000000d0c1  2985 FUNC    LOCAL  DEFAULT   16 summarize_values
+    28: 000000000000dc6a  4349 FUNC    LOCAL  DEFAULT   16 summarize_phase
+    29: 0000000000015040   269 OBJECT  LOCAL  DEFAULT   18 input_header
+    30: 0000000000016960   648 OBJECT  LOCAL  DEFAULT   24 fixtures.2
+    31: 00000000000143a0    80 OBJECT  LOCAL  DEFAULT   18 records.1
+    32: 000000000001187f    27 FUNC    LOCAL  DEFAULT   16 _sub_D_00099_0
+    33: 000000000001189a    37 FUNC    LOCAL  DEFAULT   16 _sub_I_00099_1
+    34: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    35: 00000000000159a0     0 OBJECT  LOCAL  DEFAULT   20 __FRAME_END__
+    36: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    37: 0000000000015570     0 NOTYPE  LOCAL  DEFAULT   19 __GNU_EH_FRAME_HDR
+    38: 0000000000016c20     0 OBJECT  LOCAL  DEFAULT   25 _DYNAMIC
+    39: 0000000000016e50     0 OBJECT  LOCAL  DEFAULT   26 _GLOBAL_OFFSET_TABLE_
+    40: 0000000000020fc0     8 OBJECT  GLOBAL DEFAULT   28 stdout@GLIBC_2.2.5
+    41: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen
+    42: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_register_globals
+    43: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free
+    44: 0000000000020fc0     0 NOTYPE  GLOBAL DEFAULT   27 _edata
+    45: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load_n
+    46: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_0
+    47: 0000000000017000     0 NOTYPE  WEAK   DEFAULT   27 data_start
+    48: 0000000000012000     4 OBJECT  GLOBAL DEFAULT   18 _IO_stdin_used
+    49: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_poison_stack_memory
+    50: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5
+    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_9
+    52: 000000000000ed67 11032 FUNC    GLOBAL DEFAULT   16 main
+    53: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk
+    54: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_1
+    55: 0000000000017008     0 OBJECT  GLOBAL HIDDEN    27 __dso_handle
+    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_9
+    57: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_load_invalid_value
+    58: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp
+    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_pointer_overflow
+    60: 00000000000118c0     0 FUNC    GLOBAL HIDDEN    17 _fini
+    61: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34
+    62: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk
+    63: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memset
+    64: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fflush
+    65: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen
+    66: 00000000000168f8     8 OBJECT  GLOBAL HIDDEN    21 __local_asan_preinit
+    67: 000000000000a5a0    38 FUNC    GLOBAL DEFAULT   16 _start
+    68: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memchr
+    69: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store8
+    70: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unregister_globals
+    71: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4
+    72: 000000000000a000     0 FUNC    GLOBAL HIDDEN    12 _init
+    73: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_init
+    74: 0000000000020fc0     0 OBJECT  GLOBAL HIDDEN    27 __TMC_END__
+    75: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_sub_overflow
+    76: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND malloc
+    77: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc
+    78: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load1
+    79: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store1
+    80: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy
+    81: 0000000000020fe0     8 OBJECT  GLOBAL DEFAULT   28 stderr@GLIBC_2.2.5
+    82: 0000000000017000     0 NOTYPE  GLOBAL DEFAULT   27 __data_start
+    83: 0000000000020ff0     0 NOTYPE  GLOBAL DEFAULT   28 _end
+    84: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load8
+    85: 0000000000020fc0     0 NOTYPE  GLOBAL DEFAULT   28 __bss_start
+    86: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unpoison_stack_memory
+    87: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose
+    88: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_2
+    89: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_out_of_bounds
+    90: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fgets
+    91: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_type_mismatch_v1
+    92: 0000000000020fe8     4 OBJECT  GLOBAL DEFAULT   28 __asan_option_detect_stack_use_after_return
+    93: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strstr
+    94: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strchr
+    95: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_version_mismatch_check_v8
+    96: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputs
+    97: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_nonnull_arg
+    98: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    99: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store_n
+   100: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_3
+   101: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5
+   102: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+   103: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable

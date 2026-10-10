@@ -1,0 +1,7 @@
+phase,series,count,zero_count,sum_ns,min_ns,min_positive_ns,p50_ns,p90_ns,p99_ns,max_ns,mad_ns
+warmup,within_pair_ns,25000,0,768932590,30367,30367,30717,30758,32080,63519,29
+warmup,between_pairs_ns,24999,0,1532291,50,50,60,61,80,401,0
+warmup,combined_ordered_read_increment_ns,49999,0,770464881,50,50,30367,30747,31930,63519,29966
+main,within_pair_ns,25000,0,769027941,30577,30577,30718,30758,32070,52839,21
+main,between_pairs_ns,24999,0,1531287,50,50,60,61,80,170,0
+main,combined_ordered_read_increment_ns,49999,0,770559228,50,50,30577,30748,31900,52839,22262

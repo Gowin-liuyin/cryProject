@@ -1,5 +1,7 @@
 # 两批远端执行的固定准备
 
+本页保留7ca9320提交前的准备时点；其后两批已实际完成，当前执行、核验及结束状态见[RESULTS](RESULTS.md)，以下“尚未”“下一顺序”按形成时点阅读。
+
 固定管理源`857d30a018662251cfdba7e9070a5dd1c9aa6132be1f2a86cee7b218a31e6ae7`及[管理合同](REMOTE_CONTRACT.md)已完成限定独立审查、修复和纯内存检查。[完整准备证据](../../evidence/ordinary-repeatability-20261010/runner-preparation/README.md)保存初版问题、修复前后源码、最终评语、上传辅助及142成员候选包；尚未上传或执行Linux资格、E1/E2采集。
 
 初版两项归属/原件绑定问题和生成器要求均已闭合。最终版本将前置核验纳入同一300秒软预算，取得batch归属后才可写收尾；accepted CSV、metadata、analysis和summary的原长度/SHA不被新字节覆盖，任何缺失或变化阻止冻结。清理未确认、空输出和未启动/未完成的collector保持未知。文件系统阻塞、manager遭SIGKILL或SSH观察结束仍不构成硬实时/完整恢复保证。

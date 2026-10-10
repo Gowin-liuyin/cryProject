@@ -1,0 +1,553 @@
+{
+  "schema": "ordinary-repeatability-independent-result-to-claim-review-v1",
+  "written_utc": "2026-10-10T12:47:14.912568+00:00",
+  "claim_supported": "yes",
+  "confidence": "high",
+  "claim_scope": "frozen plan finite description: six new processes, one fixed public valid fixture and same ordinary reference ELF on recorded machine/context; preserve/recompute raw records and integer time accounting, compare each process separately",
+  "pending_external_codex_review": true,
+  "what_results_support": [
+    "Six new processes completed 25000 warmup + 25000 main timed full decapsulations and one setup each, with public external expected output match.",
+    "Observed per-process main P50/P99/long-tail distributions and integer geometry preserved.",
+    "Two actual connection execution batches with recorded same boot/RAW context and exact 346446211228 ns sample boundary gap."
+  ],
+  "what_results_dont_support": [
+    "iid or independent environments",
+    "long-term/cross-day/cross-machine/all-input generality",
+    "absolute physical accuracy or deterministic error/noise bound",
+    "target-difference detection, security equivalence or constant-time certification",
+    "CPU exclusivity or physical fixed frequency",
+    "algorithm improvement relative to old G2 or subtracting old empty-window cost",
+    "new FPR/TPR evidence or total R02/R04 sign-off"
+  ],
+  "missing_evidence": {
+    "additional_same_sampling_for_frozen_claim": "none",
+    "full_artifact_audit": "separate independent report; not repeated by this reviewer",
+    "broader_claims": "Audit final target difference scale, measurement/error assumptions and permitted null/exchangeability/dependence design; only add justified new study if retaining such a claim."
+  },
+  "suggested_claim_revision": "Keep original limited description wording; do not convert observed closeness into formal stability or a stronger universal claim.",
+  "next_experiments_needed": [],
+  "next_actions": [
+    "Seal and publish actual results and scopes.",
+    "Update R02 wording to acknowledge completed limited six-process description without automatic total sign-off.",
+    "Integrate four scientific supplements into a new report/support version, preserving old sealed 49-page/925-member identities.",
+    "Prioritize offline claim-to-assumption/data-unit/null/exchangeability audit before launching different stronger experiments."
+  ],
+  "primary_cases": [
+    {
+      "batch": "e1",
+      "process": "P1",
+      "pid": 3676354,
+      "warmup": 25000,
+      "main": 25000,
+      "setup": 1,
+      "main_statistics": {
+        "phase": "main",
+        "series": "within_pair_ns",
+        "count": 25000,
+        "zero_count": 0,
+        "sum_ns": 768134438,
+        "min_ns": 30547,
+        "min_positive_ns": 30547,
+        "p50_ns": 30678,
+        "p90_ns": 30728,
+        "p99_ns": 32020,
+        "max_ns": 56266,
+        "mad_ns": 21
+      },
+      "main_mean_ns_exact": {
+        "numerator": 768134438,
+        "denominator": 25000
+      },
+      "main_wall_ns": 769667375,
+      "source_and_fixture_identity_recorded": true,
+      "cpu_affinity_before_after": [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "clocksource_before_after": [
+        "tsc",
+        "tsc"
+      ],
+      "getres_ns_before_after": [
+        1,
+        1
+      ],
+      "c_conservation_flags": [
+        true,
+        true
+      ],
+      "c_scope_false_flags": {
+        "clock_precision_certified": false,
+        "iid_claimed": false,
+        "collector_stderr_checked": false,
+        "collector_exit_checked": false,
+        "complete_metadata_acceptance": false,
+        "r02_signed_off": false,
+        "r04_signed_off": false
+      }
+    },
+    {
+      "batch": "e1",
+      "process": "P2",
+      "pid": 3676357,
+      "warmup": 25000,
+      "main": 25000,
+      "setup": 1,
+      "main_statistics": {
+        "phase": "main",
+        "series": "within_pair_ns",
+        "count": 25000,
+        "zero_count": 0,
+        "sum_ns": 769027941,
+        "min_ns": 30577,
+        "min_positive_ns": 30577,
+        "p50_ns": 30718,
+        "p90_ns": 30758,
+        "p99_ns": 32070,
+        "max_ns": 52839,
+        "mad_ns": 21
+      },
+      "main_mean_ns_exact": {
+        "numerator": 769027941,
+        "denominator": 25000
+      },
+      "main_wall_ns": 770559228,
+      "source_and_fixture_identity_recorded": true,
+      "cpu_affinity_before_after": [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "clocksource_before_after": [
+        "tsc",
+        "tsc"
+      ],
+      "getres_ns_before_after": [
+        1,
+        1
+      ],
+      "c_conservation_flags": [
+        true,
+        true
+      ],
+      "c_scope_false_flags": {
+        "clock_precision_certified": false,
+        "iid_claimed": false,
+        "collector_stderr_checked": false,
+        "collector_exit_checked": false,
+        "complete_metadata_acceptance": false,
+        "r02_signed_off": false,
+        "r04_signed_off": false
+      }
+    },
+    {
+      "batch": "e1",
+      "process": "P3",
+      "pid": 3676360,
+      "warmup": 25000,
+      "main": 25000,
+      "setup": 1,
+      "main_statistics": {
+        "phase": "main",
+        "series": "within_pair_ns",
+        "count": 25000,
+        "zero_count": 0,
+        "sum_ns": 768552061,
+        "min_ns": 30567,
+        "min_positive_ns": 30567,
+        "p50_ns": 30707,
+        "p90_ns": 30757,
+        "p99_ns": 32000,
+        "max_ns": 44915,
+        "mad_ns": 30
+      },
+      "main_mean_ns_exact": {
+        "numerator": 768552061,
+        "denominator": 25000
+      },
+      "main_wall_ns": 770084637,
+      "source_and_fixture_identity_recorded": true,
+      "cpu_affinity_before_after": [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "clocksource_before_after": [
+        "tsc",
+        "tsc"
+      ],
+      "getres_ns_before_after": [
+        1,
+        1
+      ],
+      "c_conservation_flags": [
+        true,
+        true
+      ],
+      "c_scope_false_flags": {
+        "clock_precision_certified": false,
+        "iid_claimed": false,
+        "collector_stderr_checked": false,
+        "collector_exit_checked": false,
+        "complete_metadata_acceptance": false,
+        "r02_signed_off": false,
+        "r04_signed_off": false
+      }
+    },
+    {
+      "batch": "e2",
+      "process": "P1",
+      "pid": 3676537,
+      "warmup": 25000,
+      "main": 25000,
+      "setup": 1,
+      "main_statistics": {
+        "phase": "main",
+        "series": "within_pair_ns",
+        "count": 25000,
+        "zero_count": 0,
+        "sum_ns": 768126160,
+        "min_ns": 30557,
+        "min_positive_ns": 30557,
+        "p50_ns": 30678,
+        "p90_ns": 30737,
+        "p99_ns": 32010,
+        "max_ns": 53951,
+        "mad_ns": 30
+      },
+      "main_mean_ns_exact": {
+        "numerator": 768126160,
+        "denominator": 25000
+      },
+      "main_wall_ns": 769660452,
+      "source_and_fixture_identity_recorded": true,
+      "cpu_affinity_before_after": [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "clocksource_before_after": [
+        "tsc",
+        "tsc"
+      ],
+      "getres_ns_before_after": [
+        1,
+        1
+      ],
+      "c_conservation_flags": [
+        true,
+        true
+      ],
+      "c_scope_false_flags": {
+        "clock_precision_certified": false,
+        "iid_claimed": false,
+        "collector_stderr_checked": false,
+        "collector_exit_checked": false,
+        "complete_metadata_acceptance": false,
+        "r02_signed_off": false,
+        "r04_signed_off": false
+      }
+    },
+    {
+      "batch": "e2",
+      "process": "P2",
+      "pid": 3676540,
+      "warmup": 25000,
+      "main": 25000,
+      "setup": 1,
+      "main_statistics": {
+        "phase": "main",
+        "series": "within_pair_ns",
+        "count": 25000,
+        "zero_count": 0,
+        "sum_ns": 767972449,
+        "min_ns": 30547,
+        "min_positive_ns": 30547,
+        "p50_ns": 30678,
+        "p90_ns": 30727,
+        "p99_ns": 32000,
+        "max_ns": 59922,
+        "mad_ns": 30
+      },
+      "main_mean_ns_exact": {
+        "numerator": 767972449,
+        "denominator": 25000
+      },
+      "main_wall_ns": 769505571,
+      "source_and_fixture_identity_recorded": true,
+      "cpu_affinity_before_after": [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "clocksource_before_after": [
+        "tsc",
+        "tsc"
+      ],
+      "getres_ns_before_after": [
+        1,
+        1
+      ],
+      "c_conservation_flags": [
+        true,
+        true
+      ],
+      "c_scope_false_flags": {
+        "clock_precision_certified": false,
+        "iid_claimed": false,
+        "collector_stderr_checked": false,
+        "collector_exit_checked": false,
+        "complete_metadata_acceptance": false,
+        "r02_signed_off": false,
+        "r04_signed_off": false
+      }
+    },
+    {
+      "batch": "e2",
+      "process": "P3",
+      "pid": 3676543,
+      "warmup": 25000,
+      "main": 25000,
+      "setup": 1,
+      "main_statistics": {
+        "phase": "main",
+        "series": "within_pair_ns",
+        "count": 25000,
+        "zero_count": 0,
+        "sum_ns": 768117596,
+        "min_ns": 30557,
+        "min_positive_ns": 30557,
+        "p50_ns": 30687,
+        "p90_ns": 30728,
+        "p99_ns": 32020,
+        "max_ns": 43862,
+        "mad_ns": 29
+      },
+      "main_mean_ns_exact": {
+        "numerator": 768117596,
+        "denominator": 25000
+      },
+      "main_wall_ns": 769651755,
+      "source_and_fixture_identity_recorded": true,
+      "cpu_affinity_before_after": [
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "clocksource_before_after": [
+        "tsc",
+        "tsc"
+      ],
+      "getres_ns_before_after": [
+        1,
+        1
+      ],
+      "c_conservation_flags": [
+        true,
+        true
+      ],
+      "c_scope_false_flags": {
+        "clock_precision_certified": false,
+        "iid_claimed": false,
+        "collector_stderr_checked": false,
+        "collector_exit_checked": false,
+        "complete_metadata_acceptance": false,
+        "r02_signed_off": false,
+        "r04_signed_off": false
+      }
+    }
+  ],
+  "observed_ranges_ns": {
+    "p50_min": 30678,
+    "p50_max": 30718,
+    "p50_range": 40,
+    "p99_min": 32000,
+    "p99_max": 32070,
+    "p99_range": 70,
+    "max_value_min": 43862,
+    "max_value_max": 59922,
+    "mean_min_fraction": [
+      767972449,
+      25000
+    ],
+    "mean_max_fraction": [
+      769027941,
+      25000
+    ],
+    "mean_range_fraction": [
+      1055492,
+      25000
+    ]
+  },
+  "sampling_gap": {
+    "raw_anchors": {
+      "e1": {
+        "case": "P3",
+        "first_before_ns": 3436206896854527,
+        "last_after_ns": 3436208436176042
+      },
+      "e2": {
+        "case": "P1",
+        "first_before_ns": 3436554882387270,
+        "last_after_ns": 3436556420907172
+      }
+    },
+    "gap_ns": 346446211228,
+    "seconds_exact_text": "346.446211228",
+    "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+    "same_boot": true,
+    "all_metadata_clocksource": "tsc",
+    "all_metadata_getres_ns": 1,
+    "independence_or_long_term_inference": false
+  },
+  "count_checks": {
+    "e1_exact_full_algorithm_calls": 150135,
+    "e2_exact_full_algorithm_calls": 150003,
+    "combined_full_algorithm_calls": 300138,
+    "combined_decap_calls": 300030,
+    "combined_timed_calls": 300000,
+    "warmup_timed_calls": 150000,
+    "main_timed_calls": 150000,
+    "combined_sampling_clock_reads": 600000,
+    "e1_qualification_calls": 132,
+    "e2_qualification_calls": 0,
+    "unique_new_processes": 6,
+    "e2_repeated_e1_files_counted_again": false
+  },
+  "direct_identity_checks": {
+    "two_plan_collector_fixture_runner_copies_match": true,
+    "actual_six_elf_each_batch_match_state_and_each_other": true,
+    "accepted_24_outputs_match_original_hashes": true,
+    "both_archives_actual_local_sha_match_receipts": true,
+    "two_times_129_frequency_files_before_after_available_equal_directly_checked": true
+  },
+  "numeric_review_separate_scope": {
+    "status": "all_checked_values_match",
+    "raw_records_checked": 300000,
+    "raw_fields_checked": 5400000,
+    "sampling_clock_reads_checked": 600000,
+    "output_rows_checked": 36,
+    "output_metric_fields_checked": 360,
+    "complete_c_summaries_byte_compared": 6,
+    "mismatches": []
+  },
+  "lifecycle_and_admin_receipts": {
+    "recorded_pid_count": 52,
+    "recorded_groups_count": 44,
+    "all_recorded_pids_absent_receipt": true,
+    "all_recorded_groups_absent_receipt": true,
+    "caller_mask_0_through_31": true,
+    "query_exit_zero": true,
+    "source_of_pid_set_complete_audit": "separate independent artifact reviewer",
+    "e1_closed_before_real_new_e2_password_prompt_controller_receipt": true,
+    "e2_closed_socket_absent_receipt": true,
+    "cross_machine_utc_values_not_directly_sorted": true,
+    "sidecar_old_zero_preserved_corrected_to_six_from_primary_states": true,
+    "sidecar_correction_hashes_match": true,
+    "extra_sampling_from_sidecar_correction": false
+  },
+  "reviewer_scope": {
+    "c_invocations": 0,
+    "collector_invocations": 0,
+    "real_manager_invocations": 0,
+    "ssh_invocations": 0,
+    "new_sampling_reads": 0,
+    "new_complete_algorithm_calls": 0,
+    "full_raw_numeric_parse_repeated": false,
+    "full_gzip_tar_junit_all_commands_lifecycle_audit_repeated": false,
+    "docs_or_source_edits": 0,
+    "commits": 0
+  },
+  "r02_total_acceptance": false,
+  "r04_new_statistical_evidence": false,
+  "no_new_physical_constant_frequency_or_real_population_fpr_hard_gate_invented": true,
+  "input_sha256": {
+    "e1-originals/batches/e1/run-state.json": "5030ba428cb312764e66df2cf8050c8029e62fba6664a01c63125b18029d63d4",
+    "e1-originals/batches/e1/before-environment.json": "e8546668d82c72f363cbff6365b18db33c59549a09a7dcbc7111eb051c05a5fa",
+    "e1-originals/batches/e1/after-environment.json": "7563a75e1acd47349e77cbedae5bb442b49eb1c8d999f0d35817b3d1f649e3c5",
+    "e1-originals/source/docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+    "e1-originals/source/docs/research/aris-ordinary-repeatability-20261010/reference_repeatability.c": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+    "e1-originals/source/docs/research/aris-ordinary-repeatability-20261010/public_valid_decap_fixture.h": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+    "e1-originals/source/docs/research/aris-ordinary-repeatability-20261010/remote_run.py": "857d30a018662251cfdba7e9070a5dd1c9aa6132be1f2a86cee7b218a31e6ae7",
+    "e1-originals/build-ordinary/reference_repeatability": "9324a4369a17818ed3d69c93cd8fc18856518e8f983a07834c511464e244e47c",
+    "e1-originals/build-ordinary/analyze_reference_repeatability": "6757778a301e3a0aaa49d3ee4507ab1fb39a75eb8220daeda35eab1cfa341230",
+    "e1-originals/build-ordinary/reference_repeatability_kat": "a93c5eb509678c84c4900c0344e4d34b3cf4c4f5891bd388630643fd4ace95a3",
+    "e1-originals/build-sanitize/reference_repeatability": "a9cd010b240861dee98f3f8c5f951e80fe9887af31098ff12cf99c31836062f2",
+    "e1-originals/build-sanitize/analyze_reference_repeatability": "cc47215b976e2cfedf5ac1f64daa883a6630cb1985625325cb505588eb1b8e04",
+    "e1-originals/build-sanitize/reference_repeatability_kat": "0632edd8362c40781bf4e738d02e34e29eec8481bf1162ff9b349b6a2821aa4a",
+    "e1-originals/batches/e1/output/P1.csv": "63326fddec5d1e180c532e6ffcdbe27ba9f01319aadcadea48b563182eceab3f",
+    "e1-originals/batches/e1/output/P1.json": "76ca0c305b1fb9c211c8d29049521805c3ad9bab16cb4f5362bd03689d29f7aa",
+    "e1-originals/batches/e1/output/P1-analysis.csv": "3fc1b73de5bc43ae98124cabdc2e1e26c7fcdd0907a60216d07651ecc10624a3",
+    "e1-originals/batches/e1/output/P1-summary.json": "445d0300b2cdfbcf504df8faf310e9ecb929501ee2d97b13a5cf35f85770dbf1",
+    "e1-originals/batches/e1/output/P2.csv": "e65e1d2cafa196853c819b86a8f66fa8a59d5153fa6914e8c4071e87038228d2",
+    "e1-originals/batches/e1/output/P2.json": "d12dbf07b7826888bc068cd9d1786d844af25398926b192a3df097defb4ec646",
+    "e1-originals/batches/e1/output/P2-analysis.csv": "e05ba063b6dc5f8dd3bb41ea029bfdaebab5d8e9e01a1a776bfafe87c686ea5e",
+    "e1-originals/batches/e1/output/P2-summary.json": "82395d00165437bb88311fd19a2ee31893fcecc054ec14e3927f45d847dd1f75",
+    "e1-originals/batches/e1/output/P3.csv": "60f14d3a4d77aca600dfd4428d5b7456b4f4ff3aa8d0f58ee5b2694c059e52f0",
+    "e1-originals/batches/e1/output/P3.json": "a94416b7f612a545fe1a06837be290d4b43a3cbe34024226939f600c5bdafeae",
+    "e1-originals/batches/e1/output/P3-analysis.csv": "395d9453d73f09de8ed365b442faba28f55acd8024820f7babe8b35005e6b674",
+    "e1-originals/batches/e1/output/P3-summary.json": "13659de47306c5c296b03a2b3eed24b265c58c53d2003b096e80c4fe4213d4dd",
+    "e2-originals/batches/e2/run-state.json": "1c46c859d07526d4382fc4673f6e995420e680d9b988b5dc4b4d316c8647a202",
+    "e2-originals/batches/e2/before-environment.json": "56650c377d16b15e91ea53502ce011f1eb449dde2207d3d96a8415fc8e46e0e8",
+    "e2-originals/batches/e2/after-environment.json": "96f2b90d8458d3bf7bc091b87be995f47efe0e4d678e819eb6380d99f065b58f",
+    "e2-originals/source/docs/research/aris-ordinary-repeatability-20261010/EXPERIMENT_PLAN.md": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+    "e2-originals/source/docs/research/aris-ordinary-repeatability-20261010/reference_repeatability.c": "a895575cc8c58856df7dab19ea204338f3af073df698e0f3f73f3eb75a0de1a1",
+    "e2-originals/source/docs/research/aris-ordinary-repeatability-20261010/public_valid_decap_fixture.h": "9226f4016239ca54cca800f80d73850abcfb2e89d38cc6b5e7cc86e4d105657a",
+    "e2-originals/source/docs/research/aris-ordinary-repeatability-20261010/remote_run.py": "857d30a018662251cfdba7e9070a5dd1c9aa6132be1f2a86cee7b218a31e6ae7",
+    "e2-originals/build-ordinary/reference_repeatability": "9324a4369a17818ed3d69c93cd8fc18856518e8f983a07834c511464e244e47c",
+    "e2-originals/build-ordinary/analyze_reference_repeatability": "6757778a301e3a0aaa49d3ee4507ab1fb39a75eb8220daeda35eab1cfa341230",
+    "e2-originals/build-ordinary/reference_repeatability_kat": "a93c5eb509678c84c4900c0344e4d34b3cf4c4f5891bd388630643fd4ace95a3",
+    "e2-originals/build-sanitize/reference_repeatability": "a9cd010b240861dee98f3f8c5f951e80fe9887af31098ff12cf99c31836062f2",
+    "e2-originals/build-sanitize/analyze_reference_repeatability": "cc47215b976e2cfedf5ac1f64daa883a6630cb1985625325cb505588eb1b8e04",
+    "e2-originals/build-sanitize/reference_repeatability_kat": "0632edd8362c40781bf4e738d02e34e29eec8481bf1162ff9b349b6a2821aa4a",
+    "e2-originals/batches/e2/output/P1.csv": "1855988719a5d01049f5ea42df2e87895c7cba5b0807345f20dd1d7e09b0a920",
+    "e2-originals/batches/e2/output/P1.json": "f1d678fa9aa649e8a686f1ee66c9966ede09fe47ed7c886259eee07aba364b58",
+    "e2-originals/batches/e2/output/P1-analysis.csv": "a295702c9111ce8ceb9472a17089ce6f80871d2900738e4976dfa086dc26a1b1",
+    "e2-originals/batches/e2/output/P1-summary.json": "82f3ba7d7e1b5bc30042caa851e8df646f3cd2f31a3f3d03e225f8c1a471efbe",
+    "e2-originals/batches/e2/output/P2.csv": "ce1cec23e0eeb1252acba412353ceb900069d8add5453ba829c7893d9470fcc8",
+    "e2-originals/batches/e2/output/P2.json": "4afd7b9fb41d0cf22b6d317d2541ea511b7f7bd068e991c56da8f65e4b914f0d",
+    "e2-originals/batches/e2/output/P2-analysis.csv": "8b28e0f0ed2468be70888c38a1821f748436f6efc5b734570c3c8b394165575e",
+    "e2-originals/batches/e2/output/P2-summary.json": "eceb9f4072e5df0167a8f740f755673350f23a913f5cdc70c5674d1b08809e44",
+    "e2-originals/batches/e2/output/P3.csv": "6dcee4e0fb6e02f7440b9e71041b5bf638d74bc2f8fcc837d7e66d7f7603b979",
+    "e2-originals/batches/e2/output/P3.json": "8a6f73e634dd1bea0e0fd045721189ae3afba5ec205ec13a3492a61ed3621ca9",
+    "e2-originals/batches/e2/output/P3-analysis.csv": "b3a6ef1495c2baaaa5a865bb53fd95da9c3bc43669e19931e97f0dbaa4da7c84",
+    "e2-originals/batches/e2/output/P3-summary.json": "758393b6955a4a63242e43f2f2df2fc963b2eeba6775b9f7c68bc7e9d5ce0c16",
+    "e1-invocation.json": "3918d7ea8ed7248b9fad86becc04d4b97652b1f4615c56f54f4d44a07de8c69d",
+    "e2-invocation.json": "bd50863c683df365971458c31d1c3aa42528c56d108fbc3d30ea1ea2a9fd690b",
+    "e1-login.json": "ee8d1abdecba34cdd75a9074ff82890d720304f22f303e7da5d8152036b37c10",
+    "e2-login.json": "c200d0ac8b38c6e41fcfdd8d647d5f33ecc77770fe78970973e7b3511f924e3c",
+    "e1-close.json": "d546d9c95b58a1cb99b8d23508c8f0c14f59221f8fc682d7222180c439575694",
+    "e2-close.json": "920b809d09b1dc92b7a5a394ba757aa967359295a4e5c62c9d0ee6729be70d7a",
+    "final-postcheck.json": "4a5431b18f412f91caa85879fed0b65ced267e3bfcf5d1f6384b39258fef59cc",
+    "e1-download-verification.json": "7cf27e511c671953e0e4ac95d98de7ce415394f3c9c1f3cb5bc7c88e38a29b25",
+    "e2-download-verification.json": "9ca7e5a16a75cf14bc64714f92ad4b980762b3e078cfb6ff8f1aa34b694997f9",
+    "deployment.json": "a24df713d6630c7c711510eac3f1515a8ee309655e54185539d1e2b54e9031ab",
+    "deployment-before-count-correction.json": "25615f25359170c8ec0aa0b65986167cdd6c42337cf74a1822c83f07393426b5",
+    "deployment-sidecar-correction.json": "7805e9f23c77bf140197c5b2b5e77a741eacd1d919b818818339d4e15202d2ed",
+    "review-numeric/INDEPENDENT_NUMERIC_REVIEW.md": "4c1ff10642c92f7719dc26691cba4d1c5999f445745c1549b303aeb593957e94",
+    "review-numeric/verification.json": "955aca13da882c236dfdd63365c64b6ad787daab3e3bae098304b005b4fe63ca",
+    "review-numeric/clock-context-addendum.json": "d90755ccc813150ad0f1b392268377232b447e4a57ed0a48bdba441a533b6fc4",
+    "e1-originals.tar.gz": "f53d0a8e22cc7b9c27d5390ef31ec98ae333a4404afda3bb6c1c4f4ec2d763d1",
+    "e2-originals.tar.gz": "58dad05265dc0c4c3d02285060dc344518d44366ffe3c45118a0023610d5ac28"
+  },
+  "report_sha256": "574099b8a0af0354260c1b92abcd821a33d1e063d02cc0346f6b1f52f9e967a7"
+}

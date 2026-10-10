@@ -1,0 +1,15 @@
+[  9%] Building C object CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/kernel.c.o
+[ 18%] Building C object CMakeFiles/analyze_reference_repeatability.dir/analyze_reference_repeatability.c.o
+[ 27%] Linking C executable analyze_reference_repeatability
+[ 27%] Built target analyze_reference_repeatability
+[ 36%] Building C object CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/mlkem.c.o
+[ 45%] Building C object CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/random.c.o
+[ 54%] Linking C static library librepeatability_reference.a
+[ 54%] Built target repeatability_reference
+[ 63%] Building C object CMakeFiles/reference_repeatability.dir/reference_repeatability.c.o
+[ 72%] Building C object CMakeFiles/reference_repeatability_kat.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/test_mlkem.c.o
+[ 81%] Building C object CMakeFiles/reference_repeatability_kat.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/inputs.c.o
+[ 90%] Linking C executable reference_repeatability_kat
+[ 90%] Built target reference_repeatability_kat
+[100%] Linking C executable reference_repeatability
+[100%] Built target reference_repeatability

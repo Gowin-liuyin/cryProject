@@ -1,0 +1,59 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/DartConfiguration.tcl
+Parse Config file:/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/DartConfiguration.tcl
+Test project /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: reference_repeatability_selfcheck
+
+1: Test command: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability "--selfcheck"
+1: Working Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+1: Test timeout computed to be: 1500
+1: {"selfcheck":"passed","crypto_calls":0,"real_clock_reads":0}
+1/5 Test #1: reference_repeatability_selfcheck ............   Passed    0.00 sec
+test 2
+    Start 2: reference_repeatability_analysis_selfcheck
+
+2: Test command: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/analyze_reference_repeatability "--selfcheck"
+2: Working Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+2: Test timeout computed to be: 1500
+2: {"status":"selfcheck_passed","schema":"reference-repeatability-analysis-v1","real_clock_reads":0,"clock_precision_certified":false,"r02_signed_off":false,"r04_signed_off":false}
+2/5 Test #2: reference_repeatability_analysis_selfcheck ...   Passed    0.00 sec
+test 3
+    Start 3: reference_repeatability_fixture_check
+
+3: Test command: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability "--fixture-check"
+3: Working Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+3: Test timeout computed to be: 1500
+3: {"fixture_check":"passed","fixture_group_id":5,"fixture_case_id":86,"crypto_calls":1,"operation_status":0,"output_matches_fixture":true,"process_dumping_disabled":true,"reference_identity_verified":true}
+3/5 Test #3: reference_repeatability_fixture_check ........   Passed    0.00 sec
+test 4
+    Start 4: reference_repeatability_nist_kat
+
+4: Test command: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability_kat "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/vectors/mlkem768.txt"
+4: Working Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+4: Test timeout computed to be: 1500
+4: NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+4: reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+4: NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+4: public argument boundaries and system-random roundtrip passed
+4/5 Test #4: reference_repeatability_nist_kat .............   Passed    0.02 sec
+test 5
+    Start 5: reference_repeatability_process_safety
+
+5: Test command: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability "--process-safety-check"
+5: Working Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+5: Test timeout computed to be: 1500
+5: {"process_safety_check":"passed","crypto_calls":0,"dumpable_set_succeeded":true,"dumpable_set_errno":0,"dumpable_read_errno":0,"dumpable_readback":0}
+5/5 Test #5: reference_repeatability_process_safety .......   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   0.03 sec

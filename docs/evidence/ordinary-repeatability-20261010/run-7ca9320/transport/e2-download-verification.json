@@ -1,0 +1,32 @@
+{
+  "verified_utc": "2026-10-10T12:34:05.019025+00:00",
+  "archive_sha256": "58dad05265dc0c4c3d02285060dc344518d44366ffe3c45118a0023610d5ac28",
+  "archive_bytes": 8278790,
+  "gzip_full_crc_check_passed": true,
+  "tar_members": 732,
+  "manifest_records": 731,
+  "all_member_bytes_verified": true,
+  "E1_old_original_files_unchanged_in_E2_archive": 708,
+  "E1_archive_sha256_bound_unchanged": true,
+  "source_commit_and_runner_match": true,
+  "same_six_ELF_and_boot_id": true,
+  "E2_commands": 9,
+  "E2_all_exit_and_cleanup_passed": true,
+  "E2_accepted_timed_calls": 150000,
+  "E2_complete_full_algorithm_calls": 150003,
+  "E2_additional_functional_qualification_calls": 0,
+  "combined_timed_calls": 300000,
+  "combined_sampling_clock_reads": 600000,
+  "combined_full_algorithm_calls": 300138,
+  "six_distinct_collector_PIDs": [
+    3676354,
+    3676357,
+    3676360,
+    3676537,
+    3676540,
+    3676543
+  ],
+  "originals": "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/e2-originals",
+  "new_sampling_on_download": false,
+  "independent_numeric_review_pending": true
+}

@@ -1,0 +1,155 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1de0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          52600 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         40
+  Section header string table index: 39
+
+Dynamic section at offset 0x4d28 contains 27 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x1000
+ 0x000000000000000d (FINI)               0x2bcc
+ 0x0000000000000019 (INIT_ARRAY)         0x5a70
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x5a78
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x3b0
+ 0x0000000000000005 (STRTAB)             0x650
+ 0x0000000000000006 (SYMTAB)             0x3e0
+ 0x000000000000000a (STRSZ)              329 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x5f18
+ 0x0000000000000002 (PLTRELSZ)           432 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0xbf0
+ 0x0000000000000007 (RELA)               0x830
+ 0x0000000000000008 (RELASZ)             960 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000000000001e (FLAGS)              BIND_NOW
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW PIE
+ 0x000000006ffffffe (VERNEED)            0x7d0
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x79a
+ 0x000000006ffffff9 (RELACOUNT)          33
+ 0x0000000000000000 (NULL)               0x0
+
+Symbol table '.dynsym' contains 26 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.3.4 (2)
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free@GLIBC_2.2.5 (3)
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34 (4)
+     4: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5 (3)
+     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose@GLIBC_2.2.5 (3)
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.2.5 (3)
+     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (5)
+     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strchr@GLIBC_2.2.5 (3)
+    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputs@GLIBC_2.2.5 (3)
+    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memchr@GLIBC_2.2.5 (3)
+    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fgets@GLIBC_2.2.5 (3)
+    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc@GLIBC_2.2.5 (3)
+    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.2.5 (3)
+    15: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@GLIBC_2.14 (6)
+    17: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND malloc@GLIBC_2.2.5 (3)
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fflush@GLIBC_2.2.5 (3)
+    19: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen@GLIBC_2.2.5 (3)
+    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk@GLIBC_2.3.4 (2)
+    21: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strstr@GLIBC_2.2.5 (3)
+    23: 0000000000006020     8 OBJECT  GLOBAL DEFAULT   27 stdout@GLIBC_2.2.5 (3)
+    24: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (3)
+    25: 0000000000006040     8 OBJECT  GLOBAL DEFAULT   27 stderr@GLIBC_2.2.5 (3)
+
+Symbol table '.symtab' contains 73 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Scrt1.o
+     2: 000000000000038c    32 OBJECT  LOCAL  DEFAULT    4 __abi_tag
+     3: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS analyze_reference_repeatability.c
+     4: 0000000000001ed0   110 FUNC    LOCAL  DEFAULT   16 sift_down
+     5: 0000000000001f40    79 FUNC    LOCAL  DEFAULT   16 sort_values
+     6: 0000000000001f90   299 FUNC    LOCAL  DEFAULT   16 summarize_values
+     7: 00000000000020c0   508 FUNC    LOCAL  DEFAULT   16 summarize_phase
+     8: 00000000000022c0    56 FUNC    LOCAL  DEFAULT   16 phase_boundary_is_conserved
+     9: 0000000000002300   123 FUNC    LOCAL  DEFAULT   16 normalize_input_line
+    10: 0000000000002380    55 FUNC    LOCAL  DEFAULT   16 report_unknown
+    11: 00000000000023c0   104 FUNC    LOCAL  DEFAULT   16 parse_unsigned_decimal.part.0
+    12: 0000000000002430    80 FUNC    LOCAL  DEFAULT   16 format_summary.constprop.0
+    13: 0000000000002480   455 FUNC    LOCAL  DEFAULT   16 format_csv.constprop.0
+    14: 0000000000003e60    96 OBJECT  LOCAL  DEFAULT   18 output_header
+    15: 0000000000005a80    24 OBJECT  LOCAL  DEFAULT   23 series_names.0
+    16: 0000000000002650   222 FUNC    LOCAL  DEFAULT   16 read_input_line.constprop.0
+    17: 0000000000002730   549 FUNC    LOCAL  DEFAULT   16 parse_successful_clock
+    18: 0000000000002960   618 FUNC    LOCAL  DEFAULT   16 parse_pair_record
+    19: 0000000000003ec0   269 OBJECT  LOCAL  DEFAULT   18 input_header
+    20: 0000000000005aa0   648 OBJECT  LOCAL  DEFAULT   23 fixtures.2
+    21: 0000000000003e00    80 OBJECT  LOCAL  DEFAULT   18 records.1
+    22: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    23: 0000000000001e10     0 FUNC    LOCAL  DEFAULT   16 deregister_tm_clones
+    24: 0000000000001e40     0 FUNC    LOCAL  DEFAULT   16 register_tm_clones
+    25: 0000000000001e80     0 FUNC    LOCAL  DEFAULT   16 __do_global_dtors_aux
+    26: 0000000000006048     1 OBJECT  LOCAL  DEFAULT   27 completed.0
+    27: 0000000000005a78     0 OBJECT  LOCAL  DEFAULT   22 __do_global_dtors_aux_fini_array_entry
+    28: 0000000000001ec0     0 FUNC    LOCAL  DEFAULT   16 frame_dummy
+    29: 0000000000005a70     0 OBJECT  LOCAL  DEFAULT   21 __frame_dummy_init_array_entry
+    30: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    31: 0000000000004484     0 OBJECT  LOCAL  DEFAULT   20 __FRAME_END__
+    32: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    33: 0000000000005d28     0 OBJECT  LOCAL  DEFAULT   24 _DYNAMIC
+    34: 0000000000004020     0 NOTYPE  LOCAL  DEFAULT   19 __GNU_EH_FRAME_HDR
+    35: 0000000000005f18     0 OBJECT  LOCAL  DEFAULT   25 _GLOBAL_OFFSET_TABLE_
+    36: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk@GLIBC_2.3.4
+    37: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free@GLIBC_2.2.5
+    38: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34
+    39: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    40: 0000000000006020     8 OBJECT  GLOBAL DEFAULT   27 stdout@GLIBC_2.2.5
+    41: 0000000000006000     0 NOTYPE  WEAK   DEFAULT   26 data_start
+    42: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5
+    43: 0000000000006010     0 NOTYPE  GLOBAL DEFAULT   26 _edata
+    44: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose@GLIBC_2.2.5
+    45: 0000000000002bcc     0 FUNC    GLOBAL HIDDEN    17 _fini
+    46: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.2.5
+    47: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4
+    48: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strchr@GLIBC_2.2.5
+    49: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputs@GLIBC_2.2.5
+    50: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memchr@GLIBC_2.2.5
+    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fgets@GLIBC_2.2.5
+    52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc@GLIBC_2.2.5
+    53: 0000000000006000     0 NOTYPE  GLOBAL DEFAULT   26 __data_start
+    54: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.2.5
+    55: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    56: 0000000000006008     0 OBJECT  GLOBAL HIDDEN    26 __dso_handle
+    57: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@GLIBC_2.14
+    58: 0000000000003000     4 OBJECT  GLOBAL DEFAULT   18 _IO_stdin_used
+    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND malloc@GLIBC_2.2.5
+    60: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fflush@GLIBC_2.2.5
+    61: 0000000000006050     0 NOTYPE  GLOBAL DEFAULT   27 _end
+    62: 0000000000001de0    38 FUNC    GLOBAL DEFAULT   16 _start
+    63: 0000000000006020     0 NOTYPE  GLOBAL DEFAULT   27 __bss_start
+    64: 0000000000001280  2899 FUNC    GLOBAL DEFAULT   16 main
+    65: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen@GLIBC_2.2.5
+    66: 0000000000006010     0 OBJECT  GLOBAL HIDDEN    26 __TMC_END__
+    67: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk@GLIBC_2.3.4
+    68: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    69: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5
+    70: 0000000000001000     0 FUNC    GLOBAL HIDDEN    12 _init
+    71: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strstr@GLIBC_2.2.5
+    72: 0000000000006040     8 OBJECT  GLOBAL DEFAULT   27 stderr@GLIBC_2.2.5

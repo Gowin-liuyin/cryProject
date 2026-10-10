@@ -1,0 +1,21 @@
+{
+  "schema": "external-numeric-oracle-preparation-v1",
+  "started_utc": "2026-10-10T12:29:19.785506+00:00",
+  "ended_utc": "2026-10-10T12:29:19.863876+00:00",
+  "argv": [
+    "/Users/yin/miniconda3/bin/python3",
+    "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/independent_numeric_oracle.py",
+    "--selfcheck"
+  ],
+  "exit_code": 0,
+  "oracle_sha256": "42f6c658d999b1fef1cd41e61ee038e885bedebe643b3748059c2b458aed86e0",
+  "stdout_sha256": "4bf55aec2a825affed7cceb7731c5d0c4e6581540325c49fd20366014a8352c1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "source_commit": "7ca9320f6aeb525daba6169ffb0135be0c31779a",
+  "actual_archives_read": 0,
+  "actual_data_verified": false,
+  "product_c_invocations": 0,
+  "collector_invocations": 0,
+  "ssh_invocations": 0,
+  "new_sampling_clock_reads": 0
+}

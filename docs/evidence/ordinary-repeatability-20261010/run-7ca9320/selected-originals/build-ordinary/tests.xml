@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-gcc"
+	tests="5"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="nss-m"
+	time="0"
+	timestamp="2026-10-10T20:26:29"
+	>
+	<testcase name="reference_repeatability_selfcheck" classname="reference_repeatability_selfcheck" time="0.000619796" status="run">
+		<properties/>
+		<system-out>{"selfcheck":"passed","crypto_calls":0,"real_clock_reads":0}
+</system-out>
+	</testcase>
+	<testcase name="reference_repeatability_analysis_selfcheck" classname="reference_repeatability_analysis_selfcheck" time="0.000713936" status="run">
+		<properties/>
+		<system-out>{"status":"selfcheck_passed","schema":"reference-repeatability-analysis-v1","real_clock_reads":0,"clock_precision_certified":false,"r02_signed_off":false,"r04_signed_off":false}
+</system-out>
+	</testcase>
+	<testcase name="reference_repeatability_fixture_check" classname="reference_repeatability_fixture_check" time="0.000760345" status="run">
+		<properties/>
+		<system-out>{"fixture_check":"passed","fixture_group_id":5,"fixture_case_id":86,"crypto_calls":1,"operation_status":0,"output_matches_fixture":true,"process_dumping_disabled":true,"reference_identity_verified":true}
+</system-out>
+	</testcase>
+	<testcase name="reference_repeatability_nist_kat" classname="reference_repeatability_nist_kat" time="0.0115402" status="run">
+		<properties/>
+		<system-out>NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+</system-out>
+	</testcase>
+	<testcase name="reference_repeatability_process_safety" classname="reference_repeatability_process_safety" time="0.000681054" status="run">
+		<properties/>
+		<system-out>{"process_safety_check":"passed","crypto_calls":0,"dumpable_set_succeeded":true,"dumpable_set_errno":0,"dumpable_read_errno":0,"dumpable_readback":0}
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,70 @@
+{
+  "schema": "independent-repeatability-clock-context-v1",
+  "scope": "read-only context needed for same-boot RAW sampling-boundary arithmetic; not a full metadata/absolute-clock audit",
+  "clock_context_checks": [
+    {
+      "batch": "e1",
+      "name": "P1",
+      "metadata_sha256": "76ca0c305b1fb9c211c8d29049521805c3ad9bab16cb4f5362bd03689d29f7aa",
+      "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+      "before_clocksource": "tsc",
+      "after_clocksource": "tsc",
+      "before_declared_resolution_ns": 1,
+      "after_declared_resolution_ns": 1
+    },
+    {
+      "batch": "e1",
+      "name": "P2",
+      "metadata_sha256": "d12dbf07b7826888bc068cd9d1786d844af25398926b192a3df097defb4ec646",
+      "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+      "before_clocksource": "tsc",
+      "after_clocksource": "tsc",
+      "before_declared_resolution_ns": 1,
+      "after_declared_resolution_ns": 1
+    },
+    {
+      "batch": "e1",
+      "name": "P3",
+      "metadata_sha256": "a94416b7f612a545fe1a06837be290d4b43a3cbe34024226939f600c5bdafeae",
+      "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+      "before_clocksource": "tsc",
+      "after_clocksource": "tsc",
+      "before_declared_resolution_ns": 1,
+      "after_declared_resolution_ns": 1
+    },
+    {
+      "batch": "e2",
+      "name": "P1",
+      "metadata_sha256": "f1d678fa9aa649e8a686f1ee66c9966ede09fe47ed7c886259eee07aba364b58",
+      "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+      "before_clocksource": "tsc",
+      "after_clocksource": "tsc",
+      "before_declared_resolution_ns": 1,
+      "after_declared_resolution_ns": 1
+    },
+    {
+      "batch": "e2",
+      "name": "P2",
+      "metadata_sha256": "4afd7b9fb41d0cf22b6d317d2541ea511b7f7bd068e991c56da8f65e4b914f0d",
+      "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+      "before_clocksource": "tsc",
+      "after_clocksource": "tsc",
+      "before_declared_resolution_ns": 1,
+      "after_declared_resolution_ns": 1
+    },
+    {
+      "batch": "e2",
+      "name": "P3",
+      "metadata_sha256": "8a6f73e634dd1bea0e0fd045721189ae3afba5ec205ec13a3492a61ed3621ca9",
+      "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+      "before_clocksource": "tsc",
+      "after_clocksource": "tsc",
+      "before_declared_resolution_ns": 1,
+      "after_declared_resolution_ns": 1
+    }
+  ],
+  "same_boot_and_clocksource_context": true,
+  "real_clock_reads": 0,
+  "ssh_invocations": 0,
+  "collector_invocations": 0
+}

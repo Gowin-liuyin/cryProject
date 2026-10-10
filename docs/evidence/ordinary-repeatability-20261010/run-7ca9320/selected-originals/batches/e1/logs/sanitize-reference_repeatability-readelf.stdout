@@ -1,0 +1,380 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1d9a0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          615856 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         40
+  Section header string table index: 39
+
+Dynamic section at offset 0x3db38 contains 31 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libasan.so.8]
+ 0x0000000000000001 (NEEDED)             Shared library: [libubsan.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x1d000
+ 0x000000000000000d (FINI)               0x343ac
+ 0x0000000000000020 (PREINIT_ARRAY)      0x3eae0
+ 0x0000000000000021 (PREINIT_ARRAYSZ)    8 (bytes)
+ 0x0000000000000019 (INIT_ARRAY)         0x3eae8
+ 0x000000000000001b (INIT_ARRAYSZ)       40 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x3eb10
+ 0x000000000000001c (FINI_ARRAYSZ)       40 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x3b0
+ 0x0000000000000005 (STRTAB)             0xbc8
+ 0x0000000000000006 (SYMTAB)             0x3e8
+ 0x000000000000000a (STRSZ)              1521 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x3ed68
+ 0x0000000000000002 (PLTRELSZ)           1800 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x1bc68
+ 0x0000000000000007 (RELA)               0x12c8
+ 0x0000000000000008 (RELASZ)             108960 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000000000001e (FLAGS)              BIND_NOW
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW PIE
+ 0x000000006ffffffe (VERNEED)            0x1268
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x11ba
+ 0x000000006ffffff9 (RELACOUNT)          4531
+ 0x0000000000000000 (NULL)               0x0
+
+Symbol table '.dynsym' contains 84 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store4
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __errno_location@GLIBC_2.2.5 (2)
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_7
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __sched_cpucount@GLIBC_2.6 (3)
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_register_globals
+     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_8
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free
+     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sched_getaffinity
+     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load_n
+    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_0
+    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND uname
+    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_poison_stack_memory
+    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_8
+    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND clock_getres
+    15: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store16
+    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getuid@GLIBC_2.2.5 (2)
+    17: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_1
+    19: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load4
+    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND geteuid@GLIBC_2.2.5 (2)
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND snprintf
+    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sysconf@GLIBC_2.2.5 (2)
+    23: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_load_invalid_value
+    24: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fread
+    25: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp
+    26: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_6
+    27: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_pointer_overflow
+    28: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@GLIBC_2.2.5 (2)
+    29: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34 (4)
+    30: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk
+    31: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sched_setaffinity@GLIBC_2.3.4 (5)
+    32: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memset
+    33: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read
+    34: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_mul_overflow
+    35: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fflush
+    36: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen
+    37: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_7
+    38: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_shift_out_of_bounds
+    39: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fwrite
+    40: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memchr
+    41: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcmp
+    42: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store8
+    43: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load2
+    44: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unregister_globals
+    45: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (6)
+    46: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_init
+    47: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_sub_overflow
+    48: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_4
+    49: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc
+    50: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputc@GLIBC_2.2.5 (2)
+    51: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load1
+    52: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store1
+    53: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy
+    54: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sched_getcpu@GLIBC_2.6 (3)
+    55: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_5
+    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND clock_gettime
+    57: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getpid@GLIBC_2.2.5 (2)
+    58: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load8
+    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store2
+    60: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unpoison_stack_memory
+    61: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_5
+    62: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose
+    63: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_2
+    64: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_out_of_bounds
+    65: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_type_mismatch_v1
+    66: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_version_mismatch_check_v8
+    67: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputs
+    68: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_nonnull_arg
+    69: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    70: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store_n
+    71: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_6
+    72: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND prctl
+    73: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_3
+    74: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5 (2)
+    75: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    76: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_negate_overflow
+    77: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    78: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_add_overflow
+    79: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND close@GLIBC_2.2.5 (2)
+    80: 000000000005e4c0     8 OBJECT  GLOBAL DEFAULT   27 stdout@GLIBC_2.2.5 (2)
+    81: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (2)
+    82: 000000000005e4e8     4 OBJECT  GLOBAL DEFAULT   27 __asan_option_detect_stack_use_after_return
+    83: 000000000005e4e0     8 OBJECT  GLOBAL DEFAULT   27 stderr@GLIBC_2.2.5 (2)
+
+Symbol table '.symtab' contains 236 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Scrt1.o
+     2: 000000000000038c    32 OBJECT  LOCAL  DEFAULT    4 __abi_tag
+     3: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+     4: 000000000001d9d0     0 FUNC    LOCAL  DEFAULT   16 deregister_tm_clones
+     5: 000000000001da00     0 FUNC    LOCAL  DEFAULT   16 register_tm_clones
+     6: 000000000001da40     0 FUNC    LOCAL  DEFAULT   16 __do_global_dtors_aux
+     7: 000000000005e4ec     1 OBJECT  LOCAL  DEFAULT   27 completed.0
+     8: 000000000003eb30     0 OBJECT  LOCAL  DEFAULT   23 __do_global_dtors_aux_fini_array_entry
+     9: 000000000001da80     0 FUNC    LOCAL  DEFAULT   16 frame_dummy
+    10: 000000000003eb08     0 OBJECT  LOCAL  DEFAULT   22 __frame_dummy_init_array_entry
+    11: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS asan_preinit.cpp
+    12: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS reference_repeatability.c
+    13: 000000000001da89  2023 FUNC    LOCAL  DEFAULT   16 format_json_string
+    14: 00000000000396a0    17 OBJECT  LOCAL  DEFAULT   18 hex_digits.0
+    15: 000000000001e270   640 FUNC    LOCAL  DEFAULT   16 environment_error_number
+    16: 000000000001e4f0   955 FUNC    LOCAL  DEFAULT   16 disable_process_dumping
+    17: 000000000001e8ab   516 FUNC    LOCAL  DEFAULT   16 read_clock_timespec
+    18: 000000000001eaaf   450 FUNC    LOCAL  DEFAULT   16 stop_collection
+    19: 000000000001ec71   493 FUNC    LOCAL  DEFAULT   16 finish_check_output
+    20: 000000000001ee5e   601 FUNC    LOCAL  DEFAULT   16 output_affinity
+    21: 000000000001f0b7   712 FUNC    LOCAL  DEFAULT   16 clock_span_is_valid
+    22: 000000000001f37f   889 FUNC    LOCAL  DEFAULT   16 check_clock_order
+    23: 000000000001f6f8   734 FUNC    LOCAL  DEFAULT   16 convert_clock_reading
+    24: 000000000001f9d6  3513 FUNC    LOCAL  DEFAULT   16 capture_environment
+    25: 000000000002078f  1149 FUNC    LOCAL  DEFAULT   16 format_clock_csv
+    26: 0000000000020c0c  2518 FUNC    LOCAL  DEFAULT   16 format_pair_csv
+    27: 00000000000215e2   720 FUNC    LOCAL  DEFAULT   16 check_public_fixture
+    28: 0000000000039b80  2400 OBJECT  LOCAL  DEFAULT   18 public_fixture_decapsulation_key
+    29: 0000000000039720  1088 OBJECT  LOCAL  DEFAULT   18 public_fixture_ciphertext
+    30: 00000000000396e0    32 OBJECT  LOCAL  DEFAULT   18 public_fixture_expected_secret
+    31: 00000000000218b2   655 FUNC    LOCAL  DEFAULT   16 target_cpu_is_verified
+    32: 0000000000021b41   425 FUNC    LOCAL  DEFAULT   16 environment_is_valid
+    33: 0000000000021cea  3534 FUNC    LOCAL  DEFAULT   16 output_environment
+    34: 0000000000022ab8 12340 FUNC    LOCAL  DEFAULT   16 run_collection
+    35: 000000000005e500     1 OBJECT  LOCAL  DEFAULT   27 result_sink
+    36: 0000000000025aec  5347 FUNC    LOCAL  DEFAULT   16 selfcheck
+    37: 0000000000027c33    27 FUNC    LOCAL  DEFAULT   16 _sub_D_00099_0
+    38: 0000000000027c4e    37 FUNC    LOCAL  DEFAULT   16 _sub_I_00099_1
+    39: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS mlkem.c
+    40: 00000000000282e4    27 FUNC    LOCAL  DEFAULT   16 _sub_D_00099_0
+    41: 00000000000282ff    37 FUNC    LOCAL  DEFAULT   16 _sub_I_00099_1
+    42: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS random.c
+    43: 0000000000028509    27 FUNC    LOCAL  DEFAULT   16 _sub_D_00099_0
+    44: 0000000000028524    37 FUNC    LOCAL  DEFAULT   16 _sub_I_00099_1
+    45: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS kernel.c
+    46: 0000000000028549   526 FUNC    LOCAL  DEFAULT   16 mlk_poly_decompress_d4_c
+    47: 0000000000028757   382 FUNC    LOCAL  DEFAULT   16 mlk_poly_tomont_c
+    48: 00000000000288d5   532 FUNC    LOCAL  DEFAULT   16 mlk_poly_reduce_c
+    49: 0000000000028ae9  1285 FUNC    LOCAL  DEFAULT   16 mlk_poly_mulcache_compute_c
+    50: 000000000003b880   256 OBJECT  LOCAL  DEFAULT   18 mlk_zetas
+    51: 0000000000028fee  1092 FUNC    LOCAL  DEFAULT   16 mlk_ntt_layer
+    52: 0000000000029432  1869 FUNC    LOCAL  DEFAULT   16 mlk_polyvec_basemul_acc_montgomery_cached_c
+    53: 0000000000029b7f  7270 FUNC    LOCAL  DEFAULT   16 mlk_keccakf1600_permute_c
+    54: 000000000003b7a0   192 OBJECT  LOCAL  DEFAULT   18 mlk_KeccakF_RoundConstants
+    55: 000000000002b7e5  1868 FUNC    LOCAL  DEFAULT   16 mlk_poly_compress_d4_c
+    56: 000000000002bf31  1870 FUNC    LOCAL  DEFAULT   16 mlk_poly_compress_d10_c
+    57: 000000000002c67f  1934 FUNC    LOCAL  DEFAULT   16 mlk_poly_decompress_d10_c
+    58: 000000000002ce0d   752 FUNC    LOCAL  DEFAULT   16 mlk_poly_tobytes_c
+    59: 000000000002d0fd   761 FUNC    LOCAL  DEFAULT   16 mlk_poly_frombytes_c
+    60: 000000000002d3f6  1905 FUNC    LOCAL  DEFAULT   16 mlk_poly_invntt_tomont_c
+    61: 000000000002db67   980 FUNC    LOCAL  DEFAULT   16 mlk_rej_uniform_c
+    62: 000000000002fc68   229 FUNC    LOCAL  DEFAULT   16 mlk_keccakf1600x4_extract_bytes_c
+    63: 000000000002fddd   119 FUNC    LOCAL  DEFAULT   16 mlk_keccak_squeeze_once
+    64: 000000000002ffd2   229 FUNC    LOCAL  DEFAULT   16 mlk_keccakf1600x4_xor_bytes_c
+    65: 00000000000300b7   672 FUNC    LOCAL  DEFAULT   16 mlk_keccak_absorb_once
+    66: 00000000000313fc   774 FUNC    LOCAL  DEFAULT   16 mlk_keccak_absorb_once_x4
+    67: 000000000003179b   329 FUNC    LOCAL  DEFAULT   16 mlk_keccak_squeezeblocks_x4
+    68: 000000000003436c    27 FUNC    LOCAL  DEFAULT   16 _sub_D_00099_0
+    69: 0000000000034387    37 FUNC    LOCAL  DEFAULT   16 _sub_I_00099_1
+    70: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    71: 000000000003d058     0 OBJECT  LOCAL  DEFAULT   20 __FRAME_END__
+    72: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    73: 000000000003b9a0     0 NOTYPE  LOCAL  DEFAULT   19 __GNU_EH_FRAME_HDR
+    74: 000000000003eb38     0 OBJECT  LOCAL  DEFAULT   24 _DYNAMIC
+    75: 000000000003ed68     0 OBJECT  LOCAL  DEFAULT   25 _GLOBAL_OFFSET_TABLE_
+    76: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store4
+    77: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __errno_location@GLIBC_2.2.5
+    78: 00000000000283b9   336 FUNC    GLOBAL DEFAULT   16 system_random_bytes
+    79: 000000000002e907   270 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_tobytes
+    80: 000000000005e4c0     8 OBJECT  GLOBAL DEFAULT   27 stdout@GLIBC_2.2.5
+    81: 000000000002f69d   148 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_tomont
+    82: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_7
+    83: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __sched_cpucount@GLIBC_2.6
+    84: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_register_globals
+    85: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_8
+    86: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND free
+    87: 000000000005e4c0     0 NOTYPE  GLOBAL DEFAULT   26 _edata
+    88: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sched_getaffinity
+    89: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load_n
+    90: 000000000002e161   517 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_tomsg
+    91: 0000000000030dd6   956 FUNC    GLOBAL DEFAULT   16 baseline_native_check_sk
+    92: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_0
+    93: 000000000003367a  1841 FUNC    GLOBAL DEFAULT   16 baseline_native_dec
+    94: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND uname
+    95: 000000000003f000     0 NOTYPE  WEAK   DEFAULT   26 data_start
+    96: 0000000000035000     4 OBJECT  GLOBAL DEFAULT   18 _IO_stdin_used
+    97: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_poison_stack_memory
+    98: 000000000002f0d0   148 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_reduce
+    99: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_8
+   100: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND clock_getres
+   101: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5
+   102: 000000000002df95   460 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_frommsg
+   103: 000000000002800b    81 FUNC    GLOBAL DEFAULT   16 mlkem_decapsulate
+   104: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store16
+   105: 000000000002e6ec   270 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_compress_du
+   106: 0000000000026fcf  3172 FUNC    GLOBAL DEFAULT   16 main
+   107: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getuid@GLIBC_2.2.5
+   108: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk
+   109: 000000000002eb22   187 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_ntt
+   110: 00000000000307d6  1134 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_getnoise_eta1_4x
+   111: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_1
+   112: 0000000000028324   149 FUNC    GLOBAL DEFAULT   16 erase_secret_bytes
+   113: 000000000002e375    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_reduce
+   114: 000000000003f008     0 OBJECT  GLOBAL HIDDEN    26 __dso_handle
+   115: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load4
+   116: 000000000002df59    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_decompress_d4
+   117: 0000000000033454   550 FUNC    GLOBAL DEFAULT   16 baseline_native_enc_derand
+   118: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND geteuid@GLIBC_2.2.5
+   119: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND snprintf
+   120: 0000000000030c44   402 FUNC    GLOBAL DEFAULT   16 baseline_native_sha3_256
+   121: 000000000002ebdd   148 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_invntt_tomont
+   122: 000000000002facd     5 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_init
+   123: 000000000003195c  1357 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_rej_uniform_x4
+   124: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sysconf@GLIBC_2.2.5
+   125: 000000000002e688    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_mulcache_compute
+   126: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_load_invalid_value
+   127: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fread
+   128: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp
+   129: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_6
+   130: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_pointer_overflow
+   131: 000000000002f164  1012 FUNC    GLOBAL DEFAULT   16 baseline_native_check_pk
+   132: 00000000000343ac     0 FUNC    GLOBAL HIDDEN    17 _fini
+   133: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@GLIBC_2.2.5
+   134: 000000000002e697    70 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_ntt
+   135: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34
+   136: 0000000000032bb3   378 FUNC    GLOBAL DEFAULT   16 baseline_native_keypair_derand
+   137: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __snprintf_chk
+   138: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sched_setaffinity@GLIBC_2.3.4
+   139: 000000000002df3b    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_compress_d4
+   140: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memset
+   141: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read
+   142: 000000000002ec80   325 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_mulcache_compute
+   143: 0000000000031ea9  1956 FUNC    GLOBAL DEFAULT   16 baseline_native_gen_matrix
+   144: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_mul_overflow
+   145: 000000000002e366    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_tomont
+   146: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fflush
+   147: 0000000000027c7f   411 FUNC    GLOBAL DEFAULT   16 mlkem_generate_key_pair
+   148: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen
+   149: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_7
+   150: 000000000003264d  1382 FUNC    GLOBAL DEFAULT   16 baseline_native_indcpa_keypair_derand
+   151: 000000000002fb0d   347 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600_extract_bytes
+   152: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_shift_out_of_bounds
+   153: 000000000003eae0     8 OBJECT  GLOBAL HIDDEN    21 __local_asan_preinit
+   154: 000000000001d9a0    38 FUNC    GLOBAL DEFAULT   16 _start
+   155: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fwrite
+   156: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memchr
+   157: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcmp
+   158: 0000000000030357    90 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_absorb_once
+   159: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store8
+   160: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load2
+   161: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unregister_globals
+   162: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4
+   163: 000000000001d000     0 FUNC    GLOBAL HIDDEN    12 _init
+   164: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_init
+   165: 000000000002ec71    15 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_basemul_acc_montgomery_cached
+   166: 000000000005e4c0     0 OBJECT  GLOBAL HIDDEN    26 __TMC_END__
+   167: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_sub_overflow
+   168: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_4
+   169: 00000000000318e4   120 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_squeezeblocks
+   170: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND calloc
+   171: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputc@GLIBC_2.2.5
+   172: 000000000002fa92    59 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_release
+   173: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load1
+   174: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store1
+   175: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy
+   176: 000000000002df68    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_decompress_d10
+   177: 000000000002e7fa   269 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_decompress_du
+   178: 000000000002df4a    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_compress_d10
+   179: 0000000000030657   383 FUNC    GLOBAL DEFAULT   16 baseline_native_shake256
+   180: 000000000002ea15   269 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_frombytes
+   181: 000000000005e4e0     8 OBJECT  GLOBAL DEFAULT   27 stderr@GLIBC_2.2.5
+   182: 000000000003f000     0 NOTYPE  GLOBAL DEFAULT   26 __data_start
+   183: 0000000000031702   153 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_absorb_once
+   184: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND sched_getcpu@GLIBC_2.6
+   185: 000000000005e540     0 NOTYPE  GLOBAL DEFAULT   27 _end
+   186: 000000000002df86    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_frombytes
+   187: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_5
+   188: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND clock_gettime
+   189: 000000000002df77    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_tobytes
+   190: 000000000002fe54   382 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600_xor_bytes
+   191: 000000000003135a   162 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600x4_permute
+   192: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND getpid@GLIBC_2.2.5
+   193: 00000000000303b1   678 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_rej_uniform
+   194: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_load8
+   195: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store2
+   196: 000000000005e4c0     0 NOTYPE  GLOBAL DEFAULT   27 __bss_start
+   197: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_unpoison_stack_memory
+   198: 000000000002fa8d     5 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_init
+   199: 000000000002e6dd    15 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_invntt_tomont
+   200: 000000000002e506   386 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_sub
+   201: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_5
+   202: 0000000000027e1a   497 FUNC    GLOBAL DEFAULT   16 mlkem_encapsulate
+   203: 0000000000031192   402 FUNC    GLOBAL DEFAULT   16 baseline_native_sha3_512
+   204: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose
+   205: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_2
+   206: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_out_of_bounds
+   207: 0000000000031324    27 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600x4_extract_bytes
+   208: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_type_mismatch_v1
+   209: 000000000005e4e8     4 OBJECT  GLOBAL DEFAULT   27 __asan_option_detect_stack_use_after_return
+   210: 000000000003133f    27 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600x4_xor_bytes
+   211: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_version_mismatch_check_v8
+   212: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fputs
+   213: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_nonnull_arg
+   214: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+   215: 000000000002805c   648 FUNC    GLOBAL DEFAULT   16 mlkem_self_test
+   216: 0000000000032d2d  1831 FUNC    GLOBAL DEFAULT   16 baseline_native_indcpa_enc
+   217: 000000000002fd4d   144 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_squeezeblocks
+   218: 000000000002f558   325 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_add
+   219: 000000000002edc5   779 FUNC    GLOBAL DEFAULT   16 baseline_native_indcpa_dec
+   220: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_report_store_n
+   221: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_free_6
+   222: 0000000000027c73    12 FUNC    GLOBAL DEFAULT   16 mlkem_implementation_name
+   223: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND prctl
+   224: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __asan_stack_malloc_3
+   225: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5
+   226: 000000000002fad2    59 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_release
+   227: 000000000003435d    15 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600_permute
+   228: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+   229: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_negate_overflow
+   230: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+   231: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __ubsan_handle_add_overflow
+   232: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND close@GLIBC_2.2.5
+   233: 0000000000033dab  1458 FUNC    GLOBAL DEFAULT   16 baseline_native_shake256x4
+   234: 000000000002e384   386 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_add
+   235: 000000000002f731   860 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_cbd2

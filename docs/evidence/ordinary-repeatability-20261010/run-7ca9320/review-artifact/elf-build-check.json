@@ -1,0 +1,70 @@
+{
+  "six_ELF": [
+    {
+      "path": "build-ordinary/reference_repeatability",
+      "bytes": 234112,
+      "sha256": "9324a4369a17818ed3d69c93cd8fc18856518e8f983a07834c511464e244e47c",
+      "format": "ELF64 little endian x86_64 PIE",
+      "needed": [
+        "libc.so.6"
+      ]
+    },
+    {
+      "path": "build-ordinary/analyze_reference_repeatability",
+      "bytes": 55160,
+      "sha256": "6757778a301e3a0aaa49d3ee4507ab1fb39a75eb8220daeda35eab1cfa341230",
+      "format": "ELF64 little endian x86_64 PIE",
+      "needed": [
+        "libc.so.6"
+      ]
+    },
+    {
+      "path": "build-ordinary/reference_repeatability_kat",
+      "bytes": 207824,
+      "sha256": "a93c5eb509678c84c4900c0344e4d34b3cf4c4f5891bd388630643fd4ace95a3",
+      "format": "ELF64 little endian x86_64 PIE",
+      "needed": [
+        "libc.so.6"
+      ]
+    },
+    {
+      "path": "build-sanitize/reference_repeatability",
+      "bytes": 618416,
+      "sha256": "a9cd010b240861dee98f3f8c5f951e80fe9887af31098ff12cf99c31836062f2",
+      "format": "ELF64 little endian x86_64 PIE",
+      "needed": [
+        "libasan.so.8",
+        "libubsan.so.1",
+        "libc.so.6"
+      ]
+    },
+    {
+      "path": "build-sanitize/analyze_reference_repeatability",
+      "bytes": 195048,
+      "sha256": "cc47215b976e2cfedf5ac1f64daa883a6630cb1985625325cb505588eb1b8e04",
+      "format": "ELF64 little endian x86_64 PIE",
+      "needed": [
+        "libasan.so.8",
+        "libubsan.so.1",
+        "libc.so.6"
+      ]
+    },
+    {
+      "path": "build-sanitize/reference_repeatability_kat",
+      "bytes": 476184,
+      "sha256": "0632edd8362c40781bf4e738d02e34e29eec8481bf1162ff9b349b6a2821aa4a",
+      "format": "ELF64 little endian x86_64 PIE",
+      "needed": [
+        "libasan.so.8",
+        "libubsan.so.1",
+        "libc.so.6"
+      ]
+    }
+  ],
+  "compile_records": 14,
+  "link_records": 6,
+  "actual_ctest": {
+    "ordinary": 5,
+    "sanitize": 5
+  }
+}

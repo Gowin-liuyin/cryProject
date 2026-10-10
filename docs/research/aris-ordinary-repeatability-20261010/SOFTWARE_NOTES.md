@@ -1,5 +1,7 @@
 # 普通参考重复性软件资格
 
+本页保留采集前Mac资格及准备时点；其后Linux资格与六进程已经完成，当前实测见[RESULTS](RESULTS.md)，下文未执行状态不追改为当时已取得。
+
 2026-10-10，真实采集前的本机普通及ASan/UBSan配置各4/4项CTest通过，初次执行没有修复重跑。实际平台为macOS/ARM、Apple Clang21、CMake4.3.2；这不替代Linux/x86_64资格或实际采集。完整源、构建、六个Mach-O、编译命令、CTest库存及verbose日志见[准备证据](../../evidence/ordinary-repeatability-20261010/preparation/README.md)。
 
 ## 固定源和测试范围

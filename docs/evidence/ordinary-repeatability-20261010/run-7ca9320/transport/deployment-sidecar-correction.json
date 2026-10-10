@@ -1,0 +1,15 @@
+{
+  "recorded_local_utc": "2026-10-10T12:40:36.808253+00:00",
+  "scope": "administrative local mutable deployment sidecar, not remote original run-state or raw data",
+  "field": "remote_collectors_started",
+  "old_value": 0,
+  "corrected_value": 6,
+  "source": "e1/e2 original run-state confirmed_collector_starts 3+3",
+  "before_sha256": "25615f25359170c8ec0aa0b65986167cdd6c42337cf74a1822c83f07393426b5",
+  "before_file": "deployment-before-count-correction.json",
+  "after_sha256": "a24df713d6630c7c711510eac3f1515a8ee309655e54185539d1e2b54e9031ab",
+  "actual_sampling_increased": false,
+  "remote_originals_modified": false,
+  "cross_machine_UTC_ordering_claimed": false,
+  "operation_order_basis": "controller executed and checked successful postcheck subprocess before invoking SSH -O exit; remote query UTC and local close UTC are distinct clock domains"
+}

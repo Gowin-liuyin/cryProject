@@ -1,0 +1,28 @@
+{
+  "e1": {
+    "archive_bytes": 5377139,
+    "archive_sha256": "f53d0a8e22cc7b9c27d5390ef31ec98ae333a4404afda3bb6c1c4f4ec2d763d1",
+    "gzip_crc32": "12ac336b",
+    "gzip_uncompressed_bytes": 28559360,
+    "tar_headers_checked_including_PAX": 1416,
+    "regular_members": 708,
+    "member_payload_bytes": 27237675,
+    "manifest_records": 707,
+    "manifest_sha256": "2714912bba6a719ba8fc25a5ae36841d08a744552281bd9eae752346aa2118a3",
+    "all_extracted_bytes_equal": true
+  },
+  "e2": {
+    "archive_bytes": 8278790,
+    "archive_sha256": "58dad05265dc0c4c3d02285060dc344518d44366ffe3c45118a0023610d5ac28",
+    "gzip_crc32": "f3e2b53b",
+    "gzip_uncompressed_bytes": 44830720,
+    "tar_headers_checked_including_PAX": 1464,
+    "regular_members": 732,
+    "member_payload_bytes": 43460892,
+    "manifest_records": 731,
+    "manifest_sha256": "8c4253e7114e9fd35f6fb28da075e71c1b7c46cc4738836d21fe928933c07286",
+    "all_extracted_bytes_equal": true
+  },
+  "E1_old_files_unchanged_in_E2": 708,
+  "source_files_git_and_source_tar_equal": 142
+}

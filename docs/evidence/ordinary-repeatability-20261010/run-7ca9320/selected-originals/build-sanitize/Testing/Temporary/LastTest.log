@@ -1,0 +1,86 @@
+Start testing: Oct 10 20:26 CST
+----------------------------------------------------------
+1/5 Testing: reference_repeatability_selfcheck
+1/5 Test: reference_repeatability_selfcheck
+Command: "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability" "--selfcheck"
+Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+"reference_repeatability_selfcheck" start time: Oct 10 20:26 CST
+Output:
+----------------------------------------------------------
+{"selfcheck":"passed","crypto_calls":0,"real_clock_reads":0}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"reference_repeatability_selfcheck" end time: Oct 10 20:26 CST
+"reference_repeatability_selfcheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: reference_repeatability_analysis_selfcheck
+2/5 Test: reference_repeatability_analysis_selfcheck
+Command: "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/analyze_reference_repeatability" "--selfcheck"
+Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+"reference_repeatability_analysis_selfcheck" start time: Oct 10 20:26 CST
+Output:
+----------------------------------------------------------
+{"status":"selfcheck_passed","schema":"reference-repeatability-analysis-v1","real_clock_reads":0,"clock_precision_certified":false,"r02_signed_off":false,"r04_signed_off":false}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"reference_repeatability_analysis_selfcheck" end time: Oct 10 20:26 CST
+"reference_repeatability_analysis_selfcheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: reference_repeatability_fixture_check
+3/5 Test: reference_repeatability_fixture_check
+Command: "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability" "--fixture-check"
+Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+"reference_repeatability_fixture_check" start time: Oct 10 20:26 CST
+Output:
+----------------------------------------------------------
+{"fixture_check":"passed","fixture_group_id":5,"fixture_case_id":86,"crypto_calls":1,"operation_status":0,"output_matches_fixture":true,"process_dumping_disabled":true,"reference_identity_verified":true}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"reference_repeatability_fixture_check" end time: Oct 10 20:26 CST
+"reference_repeatability_fixture_check" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: reference_repeatability_nist_kat
+4/5 Test: reference_repeatability_nist_kat
+Command: "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability_kat" "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/vectors/mlkem768.txt"
+Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+"reference_repeatability_nist_kat" start time: Oct 10 20:26 CST
+Output:
+----------------------------------------------------------
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"reference_repeatability_nist_kat" end time: Oct 10 20:26 CST
+"reference_repeatability_nist_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: reference_repeatability_process_safety
+5/5 Test: reference_repeatability_process_safety
+Command: "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize/reference_repeatability" "--process-safety-check"
+Directory: /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-sanitize
+"reference_repeatability_process_safety" start time: Oct 10 20:26 CST
+Output:
+----------------------------------------------------------
+{"process_safety_check":"passed","crypto_calls":0,"dumpable_set_succeeded":true,"dumpable_set_errno":0,"dumpable_read_errno":0,"dumpable_readback":0}
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"reference_repeatability_process_safety" end time: Oct 10 20:26 CST
+"reference_repeatability_process_safety" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 10 20:26 CST

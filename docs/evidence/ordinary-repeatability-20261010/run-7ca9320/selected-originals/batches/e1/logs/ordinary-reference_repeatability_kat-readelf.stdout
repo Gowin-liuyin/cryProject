@@ -1,0 +1,233 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1340
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          205264 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         40
+  Section header string table index: 39
+
+Dynamic section at offset 0xad28 contains 27 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x1000
+ 0x000000000000000d (FINI)               0x7944
+ 0x0000000000000019 (INIT_ARRAY)         0xbcf0
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0xbcf8
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x3b0
+ 0x0000000000000005 (STRTAB)             0x648
+ 0x0000000000000006 (SYMTAB)             0x3d8
+ 0x000000000000000a (STRSZ)              340 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0xbf18
+ 0x0000000000000002 (PLTRELSZ)           456 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x980
+ 0x0000000000000007 (RELA)               0x830
+ 0x0000000000000008 (RELASZ)             336 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000000000001e (FLAGS)              BIND_NOW
+ 0x000000006ffffffb (FLAGS_1)            Flags: NOW PIE
+ 0x000000006ffffffe (VERNEED)            0x7d0
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x79c
+ 0x000000006ffffff9 (RELACOUNT)          8
+ 0x0000000000000000 (NULL)               0x0
+
+Symbol table '.dynsym' contains 26 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34 (2)
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __errno_location@GLIBC_2.2.5 (3)
+     3: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __isoc99_fscanf@GLIBC_2.7 (4)
+     5: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5 (3)
+     6: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5 (3)
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose@GLIBC_2.2.5 (3)
+     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.2.5 (3)
+     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (5)
+    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND close@GLIBC_2.2.5 (3)
+    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strspn@GLIBC_2.2.5 (3)
+    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read@GLIBC_2.2.5 (3)
+    13: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcmp@GLIBC_2.2.5 (3)
+    14: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strtoull@GLIBC_2.2.5 (3)
+    15: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.2.5 (3)
+    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND feof@GLIBC_2.2.5 (3)
+    17: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __isoc99_sscanf@GLIBC_2.7 (4)
+    19: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@GLIBC_2.3.4 (6)
+    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@GLIBC_2.2.5 (3)
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen@GLIBC_2.2.5 (3)
+    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk@GLIBC_2.3.4 (6)
+    23: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    24: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5 (3)
+    25: 000000000000c020     8 OBJECT  GLOBAL DEFAULT   27 stderr@GLIBC_2.2.5 (3)
+
+Symbol table '.symtab' contains 151 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Scrt1.o
+     2: 000000000000038c    32 OBJECT  LOCAL  DEFAULT    4 __abi_tag
+     3: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS test_mlkem.c
+     4: 0000000000001430   249 FUNC    LOCAL  DEFAULT   16 read_hex_bytes
+     5: 0000000000001530  1072 FUNC    LOCAL  DEFAULT   16 check_public_arguments
+     6: 0000000000001960  2719 FUNC    LOCAL  DEFAULT   16 check_vectors
+     7: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+     8: 0000000000001370     0 FUNC    LOCAL  DEFAULT   16 deregister_tm_clones
+     9: 00000000000013a0     0 FUNC    LOCAL  DEFAULT   16 register_tm_clones
+    10: 00000000000013e0     0 FUNC    LOCAL  DEFAULT   16 __do_global_dtors_aux
+    11: 000000000000c028     1 OBJECT  LOCAL  DEFAULT   27 completed.0
+    12: 000000000000bcf8     0 OBJECT  LOCAL  DEFAULT   22 __do_global_dtors_aux_fini_array_entry
+    13: 0000000000001420     0 FUNC    LOCAL  DEFAULT   16 frame_dummy
+    14: 000000000000bcf0     0 OBJECT  LOCAL  DEFAULT   21 __frame_dummy_init_array_entry
+    15: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS inputs.c
+    16: 000000000000bd00    40 OBJECT  LOCAL  DEFAULT   23 category_names.0
+    17: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS kernel.c
+    18: 0000000000002870   527 FUNC    LOCAL  DEFAULT   16 mlk_poly_compress_d4_c
+    19: 0000000000002a80   273 FUNC    LOCAL  DEFAULT   16 mlk_poly_compress_d10_c
+    20: 0000000000002ba0    72 FUNC    LOCAL  DEFAULT   16 mlk_poly_decompress_d4_c
+    21: 0000000000002bf0   293 FUNC    LOCAL  DEFAULT   16 mlk_poly_decompress_d10_c
+    22: 0000000000002d20    57 FUNC    LOCAL  DEFAULT   16 mlk_poly_tobytes_c
+    23: 0000000000002d60    75 FUNC    LOCAL  DEFAULT   16 mlk_poly_frombytes_c
+    24: 0000000000002db0    79 FUNC    LOCAL  DEFAULT   16 mlk_poly_reduce_c
+    25: 0000000000002e00   105 FUNC    LOCAL  DEFAULT   16 mlk_poly_mulcache_compute_c
+    26: 0000000000009580   256 OBJECT  LOCAL  DEFAULT   18 mlk_zetas
+    27: 0000000000002e70   451 FUNC    LOCAL  DEFAULT   16 mlk_poly_invntt_tomont_c
+    28: 0000000000003040   214 FUNC    LOCAL  DEFAULT   16 mlk_polyvec_basemul_acc_montgomery_cached_c
+    29: 0000000000003120   165 FUNC    LOCAL  DEFAULT   16 mlk_keccakf1600x4_xor_bytes_c
+    30: 00000000000031d0  2254 FUNC    LOCAL  DEFAULT   16 mlk_keccakf1600_permute_c
+    31: 00000000000094c0   192 OBJECT  LOCAL  DEFAULT   18 mlk_KeccakF_RoundConstants
+    32: 0000000000003aa0   258 FUNC    LOCAL  DEFAULT   16 mlk_keccak_absorb_once
+    33: 0000000000003bb0   161 FUNC    LOCAL  DEFAULT   16 mlk_rej_uniform_c.constprop.0
+    34: 0000000000003c60   192 FUNC    LOCAL  DEFAULT   16 mlk_poly_ntt_c
+    35: 0000000000003d20   411 FUNC    LOCAL  DEFAULT   16 mlk_keccak_absorb_once_x4.constprop.0
+    36: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS mlkem.c
+    37: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS random.c
+    38: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    39: 000000000000a7f0     0 OBJECT  LOCAL  DEFAULT   20 __FRAME_END__
+    40: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    41: 000000000000bd28     0 OBJECT  LOCAL  DEFAULT   24 _DYNAMIC
+    42: 0000000000009698     0 NOTYPE  LOCAL  DEFAULT   19 __GNU_EH_FRAME_HDR
+    43: 000000000000bf18     0 OBJECT  LOCAL  DEFAULT   25 _GLOBAL_OFFSET_TABLE_
+    44: 0000000000007490    12 FUNC    GLOBAL DEFAULT   16 mlkem_implementation_name
+    45: 0000000000003f00     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_tobytes
+    46: 0000000000005430    87 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_squeezeblocks
+    47: 0000000000006a40     5 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_init
+    48: 0000000000005410    26 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_absorb_once
+    49: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.34
+    50: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __errno_location@GLIBC_2.2.5
+    51: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+    52: 000000000000c000     0 NOTYPE  WEAK   DEFAULT   26 data_start
+    53: 0000000000003ee0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_decompress_d4
+    54: 0000000000004610    38 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_invntt_tomont
+    55: 0000000000004800  1994 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_rej_uniform_x4
+    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __isoc99_fscanf@GLIBC_2.7
+    57: 0000000000006a50    54 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_release
+    58: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5
+    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ferror@GLIBC_2.2.5
+    60: 0000000000004650    53 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_mulcache_compute
+    61: 0000000000007550   196 FUNC    GLOBAL DEFAULT   16 mlkem_encapsulate
+    62: 0000000000005610   502 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_getnoise_eta1_4x
+    63: 00000000000044c0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_invntt_tomont
+    64: 0000000000007480     9 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600_permute
+    65: 000000000000c010     0 NOTYPE  GLOBAL DEFAULT   26 _edata
+    66: 00000000000054e0   292 FUNC    GLOBAL DEFAULT   16 baseline_native_shake256
+    67: 0000000000004710   232 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_tomont
+    68: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fclose@GLIBC_2.2.5
+    69: 0000000000006910   304 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_squeezeblocks
+    70: 0000000000007944     0 FUNC    GLOBAL HIDDEN    17 _fini
+    71: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strlen@GLIBC_2.2.5
+    72: 0000000000007440    50 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600x4_permute
+    73: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4
+    74: 0000000000004360   200 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_tomont
+    75: 0000000000007330    41 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600_extract_bytes
+    76: 0000000000006390   281 FUNC    GLOBAL DEFAULT   16 baseline_native_keypair_derand
+    77: 0000000000002530   133 FUNC    GLOBAL DEFAULT   16 expand_test_seed
+    78: 0000000000007360    43 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600_xor_bytes
+    79: 0000000000006a90  2206 FUNC    GLOBAL DEFAULT   16 baseline_native_shake256x4
+    80: 0000000000004470    43 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_sub
+    81: 00000000000044a0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_mulcache_compute
+    82: 00000000000065d0   734 FUNC    GLOBAL DEFAULT   16 baseline_native_dec
+    83: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND close@GLIBC_2.2.5
+    84: 00000000000044b0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_ntt
+    85: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strspn@GLIBC_2.2.5
+    86: 0000000000007830    32 FUNC    GLOBAL DEFAULT   16 erase_secret_bytes
+    87: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read@GLIBC_2.2.5
+    88: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcmp@GLIBC_2.2.5
+    89: 00000000000046c0    67 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_add
+    90: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strtoull@GLIBC_2.2.5
+    91: 00000000000064b0   278 FUNC    GLOBAL DEFAULT   16 baseline_native_enc_derand
+    92: 000000000000c000     0 NOTYPE  GLOBAL DEFAULT   26 __data_start
+    93: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND strcmp@GLIBC_2.2.5
+    94: 0000000000002670   511 FUNC    GLOBAL DEFAULT   16 generate_test_ciphertext
+    95: 00000000000054a0    54 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_release
+    96: 00000000000045a0    53 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_frombytes
+    97: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND feof@GLIBC_2.2.5
+    98: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    99: 000000000000c008     0 OBJECT  GLOBAL HIDDEN    26 __dso_handle
+   100: 0000000000008000     4 OBJECT  GLOBAL DEFAULT   18 _IO_stdin_used
+   101: 00000000000025c0   173 FUNC    GLOBAL DEFAULT   16 generate_test_key_pair
+   102: 0000000000004520    55 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_decompress_du
+   103: 00000000000074a0   164 FUNC    GLOBAL DEFAULT   16 mlkem_generate_key_pair
+   104: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __isoc99_sscanf@GLIBC_2.7
+   105: 000000000000c030     0 NOTYPE  GLOBAL DEFAULT   27 _end
+   106: 0000000000001340    38 FUNC    GLOBAL DEFAULT   16 _start
+   107: 0000000000007850   242 FUNC    GLOBAL DEFAULT   16 system_random_bytes
+   108: 00000000000041b0   420 FUNC    GLOBAL DEFAULT   16 baseline_native_check_pk
+   109: 0000000000003ec0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_compress_d4
+   110: 0000000000005ee0  1195 FUNC    GLOBAL DEFAULT   16 baseline_native_indcpa_keypair_derand
+   111: 000000000000c020     0 NOTYPE  GLOBAL DEFAULT   27 __bss_start
+   112: 00000000000012a0   147 FUNC    GLOBAL DEFAULT   16 main
+   113: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __printf_chk@GLIBC_2.3.4
+   114: 0000000000005c90   137 FUNC    GLOBAL DEFAULT   16 baseline_native_sha3_256
+   115: 00000000000045e0    38 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_ntt
+   116: 0000000000002420    95 FUNC    GLOBAL DEFAULT   16 parse_input_category
+   117: 00000000000051e0   437 FUNC    GLOBAL DEFAULT   16 baseline_native_gen_matrix
+   118: 0000000000005d20   277 FUNC    GLOBAL DEFAULT   16 baseline_native_check_sk
+   119: 0000000000003f70    86 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_tomsg
+   120: 0000000000003f10     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_frombytes
+   121: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@GLIBC_2.2.5
+   122: 0000000000007670   434 FUNC    GLOBAL DEFAULT   16 mlkem_self_test
+   123: 0000000000003f20    75 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_frommsg
+   124: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fopen@GLIBC_2.2.5
+   125: 0000000000004430     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_reduce
+   126: 0000000000004640     9 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_basemul_acc_montgomery_cached
+   127: 0000000000005e40   156 FUNC    GLOBAL DEFAULT   16 baseline_native_sha3_512
+   128: 0000000000004fd0   517 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_rej_uniform
+   129: 0000000000007390   151 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600x4_extract_bytes
+   130: 0000000000002400    30 FUNC    GLOBAL DEFAULT   16 input_category_name
+   131: 0000000000004690    36 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_reduce
+   132: 0000000000005810  1141 FUNC    GLOBAL DEFAULT   16 baseline_native_indcpa_enc
+   133: 0000000000007430     9 FUNC    GLOBAL DEFAULT   16 baseline_native_keccakf1600x4_xor_bytes
+   134: 0000000000003fd0   480 FUNC    GLOBAL DEFAULT   16 baseline_native_indcpa_dec
+   135: 000000000000c010     0 OBJECT  GLOBAL HIDDEN    26 __TMC_END__
+   136: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk@GLIBC_2.3.4
+   137: 0000000000004560    53 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_tobytes
+   138: 0000000000007620    70 FUNC    GLOBAL DEFAULT   16 mlkem_decapsulate
+   139: 00000000000053a0   102 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_cbd2
+   140: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+   141: 00000000000068b0    92 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128x4_absorb_once
+   142: 0000000000004440    43 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_add
+   143: 0000000000003ef0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_decompress_d10
+   144: 0000000000003ed0     9 FUNC    GLOBAL DEFAULT   16 baseline_native_poly_compress_d10
+   145: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.2.5
+   146: 0000000000001000     0 FUNC    GLOBAL HIDDEN    12 _init
+   147: 0000000000005490     5 FUNC    GLOBAL DEFAULT   16 baseline_native_shake128_init
+   148: 00000000000044d0    65 FUNC    GLOBAL DEFAULT   16 baseline_native_polyvec_compress_du
+   149: 000000000000c020     8 OBJECT  GLOBAL DEFAULT   27 stderr@GLIBC_2.2.5
+   150: 0000000000002480   165 FUNC    GLOBAL DEFAULT   16 parse_unsigned_integer

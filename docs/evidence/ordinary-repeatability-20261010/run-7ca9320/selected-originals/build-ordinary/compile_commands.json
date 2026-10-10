@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/kernel.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/kernel.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/kernel.c",
+  "output": "CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/kernel.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/mlkem.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/mlkem.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/mlkem.c",
+  "output": "CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/mlkem.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/random.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/random.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/random.c",
+  "output": "CMakeFiles/repeatability_reference.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/random.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/reference_repeatability.dir/reference_repeatability.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/docs/research/aris-ordinary-repeatability-20261010/reference_repeatability.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/docs/research/aris-ordinary-repeatability-20261010/reference_repeatability.c",
+  "output": "CMakeFiles/reference_repeatability.dir/reference_repeatability.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/analyze_reference_repeatability.dir/analyze_reference_repeatability.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/docs/research/aris-ordinary-repeatability-20261010/analyze_reference_repeatability.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/docs/research/aris-ordinary-repeatability-20261010/analyze_reference_repeatability.c",
+  "output": "CMakeFiles/analyze_reference_repeatability.dir/analyze_reference_repeatability.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/reference_repeatability_kat.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/test_mlkem.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/test_mlkem.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/test_mlkem.c",
+  "output": "CMakeFiles/reference_repeatability_kat.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/tests/test_mlkem.c.o"
+},
+{
+  "directory": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/build-ordinary",
+  "command": "/usr/bin/gcc -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/include -I/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Wformat=2 -Werror -o CMakeFiles/reference_repeatability_kat.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/inputs.c.o -c /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/inputs.c",
+  "file": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/inputs.c",
+  "output": "CMakeFiles/reference_repeatability_kat.dir/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/src/inputs.c.o"
+}
+]

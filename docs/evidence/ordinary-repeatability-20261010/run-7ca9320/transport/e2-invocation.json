@@ -1,0 +1,49 @@
+{
+  "argv": [
+    "ssh",
+    "-o",
+    "ControlPath=/Users/yin/code/cryProject/build/orr-e2.sock",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ServerAliveInterval=15",
+    "-o",
+    "ServerAliveCountMax=3",
+    "-T",
+    "nss-marker@10.144.144.5",
+    "python3 -B /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880/source/docs/research/aris-ordinary-repeatability-20261010/remote_run.py /home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880 7ca9320f6aeb525daba6169ffb0135be0c31779a e2"
+  ],
+  "source_commit": "7ca9320f6aeb525daba6169ffb0135be0c31779a",
+  "batch": "e2",
+  "root": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880",
+  "started_utc": "2026-10-10T12:32:21.615790+00:00",
+  "status": "SSH_terminal",
+  "password_recorded": false,
+  "actual_ssh_pid": 71160,
+  "remote_claim": {
+    "event": "supervisor_started",
+    "root": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880",
+    "batch": "e2",
+    "source_commit": "7ca9320f6aeb525daba6169ffb0135be0c31779a",
+    "pid": 3676531,
+    "start_ticks": 343653938,
+    "collector_processes_started": null,
+    "actual_accepted_timed_calls": 0
+  },
+  "remote_receipt": {
+    "root": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880",
+    "batch": "e2",
+    "archive": "/home/nss-marker/yhr/Cry/reference-repeatability-7ca9320-8509a8fb4e43b880.e2.tar.gz",
+    "archive_sha256": "58dad05265dc0c4c3d02285060dc344518d44366ffe3c45118a0023610d5ac28",
+    "archive_status": "archived",
+    "manifest": "batches/e2/manifest.json",
+    "manifest_sha256": "8c4253e7114e9fd35f6fb28da075e71c1b7c46cc4738836d21fe928933c07286",
+    "status": "completed"
+  },
+  "exit_code": 0,
+  "finished_utc": "2026-10-10T12:32:29.886330+00:00"
+}

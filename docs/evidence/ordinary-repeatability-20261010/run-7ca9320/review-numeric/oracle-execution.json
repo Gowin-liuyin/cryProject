@@ -1,0 +1,22 @@
+{
+  "schema": "external-numeric-oracle-execution-v1",
+  "argv": [
+    "/Users/yin/miniconda3/bin/python3",
+    "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/review-numeric/independent_numeric_oracle.py",
+    "--spec",
+    "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/review-numeric/input-spec.json",
+    "--output-directory",
+    "/Users/yin/code/cryProject/build/aris-ordinary-repeatability-20261010/deployment-7ca9320-8509a8fb4e43b880/review-numeric"
+  ],
+  "started_utc": "2026-10-10T12:35:19.230099+00:00",
+  "ended_utc": "2026-10-10T12:35:20.504058+00:00",
+  "exit_code": 0,
+  "oracle_sha256": "42f6c658d999b1fef1cd41e61ee038e885bedebe643b3748059c2b458aed86e0",
+  "spec_sha256": "84f4b91cefa73144850fc85b497c8265c9cf6f5f3166256931ffc52695bd3221",
+  "stdout_sha256": "0495018059c64ee428f0d5934ed095db688e007425bb27bf272b1ecb60631be2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "product_c_invocations": 0,
+  "collector_invocations": 0,
+  "ssh_invocations": 0,
+  "new_sampling_clock_reads": 0
+}
