@@ -1,0 +1,7 @@
+First authoring attempt stopped before candidate DOCX output was written.
+The one-time artifact marker succeeded; it was not repeated for the repair.
+Observed exception: ValueError: invalid literal for int() with base 10: 'A113Figure1'.
+Location: builder relationship_id allocation assumed every rId suffix was numeric.
+The unchanged source contains a custom rIdA113Figure1 relationship.
+Repair: numeric rId allocation ignores named IDs and checks the new ID is unused.
+Original47-page DOCX was not modified; base copy was created and digest-checked.

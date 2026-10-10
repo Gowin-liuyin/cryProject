@@ -1,0 +1,263 @@
+{
+  "reviewer": "Codex subagent g2_report_structure",
+  "human_review": false,
+  "scope": "Final report physical pages 5 through 20 only",
+  "pdf_path": "/Users/yin/code/cryProject/build/aris-report-g2-20261010/render-final/CACR2026EA16XZ-作品设计报告-G2补充候选版.pdf",
+  "pdf_sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4",
+  "page_count": 49,
+  "reviewed_pages": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "all_assigned_pages_individually_viewed": true,
+  "all_pages_individually_viewed": true,
+  "contact_sheet_used": false,
+  "page_png_sha256": {
+    "5": "c29434d25f166cad54ed120d42e0b00e4602937b1f9006fec09d6bd8c7e6102f",
+    "6": "2d5c6da9fcad4218373e559b1af2e227d0e4390acb152226456815ef98cb100e",
+    "7": "5441230e8755225464e85f16e514916e358a65bde32e194b06ed015ddd3030a4",
+    "8": "28f184d7a223d7e1fb4ecf1009d634caeb7b589c82736b3715f87396877d44dc",
+    "9": "491e864683a65f216142cb3641919bc1919eec606a8c709021c610ccac168b8c",
+    "10": "7035b3cd21cb893d2bbec0a933fde759b3f266159c5a3b3d4091d4c36e0eb10e",
+    "11": "dec8fdf4c3a6f5334a1f760c63b8b71dc934fa54f6b964b4fd00d192339847e3",
+    "12": "20d1f64677e98b0333192b14290d2fa9ee59970a56c699d9b5285b24e5417334",
+    "13": "4f121c493b76c5812a0ac92121acc2b81acd2fa991cca94a423c9298e2ab80e4",
+    "14": "45ffd42be9a1247c1a7474197537ba01472d754dd7be8325e6cdbf49859100fc",
+    "15": "e5ba87e3a466e3e94f746651d3d363f2d1d4849720fb5a087d22cc7b705deee6",
+    "16": "f316f96b9747c39d003f7993e26c4f73b76339e0794241d735a8c13e8bdcdb8d",
+    "17": "a0b12ef9623311ffe04a5ce45da09185564ad5a8e6d6fa22651af2397d17d406",
+    "18": "7fd2883cbddb3b2bc87f49624ba2886224ca9c1cc5624678679e9249082f107b",
+    "19": "eb704c85d2006ca84660ffc48c0ede7e13bfc4d8baf7ed713175da123503c0f0",
+    "20": "d5bad8d82bc4675ab43d58fbe54485b078f0caf98dac7466475fcb172e5dda9e"
+  },
+  "page_reviews": [
+    {
+      "physical_page": 5,
+      "logical_page": 1,
+      "png_sha256": "c29434d25f166cad54ed120d42e0b00e4602937b1f9006fec09d6bd8c7e6102f",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "第1章标题及1.1、1.2层级清楚；中英文正文、引用和加粗结论完整，底部正文与逻辑页码1有充分间距，无裁切或碰撞。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 6,
+      "logical_page": 2,
+      "png_sha256": "2d5c6da9fcad4218373e559b1af2e227d0e4390acb152226456815ef98cb100e",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "1.2续文排版连续；表1.1表头、五个对象和三列文字均完整，单元格换行自然，表底线与逻辑页码2分离。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 7,
+      "logical_page": 3,
+      "png_sha256": "5441230e8755225464e85f16e514916e358a65bde32e194b06ed015ddd3030a4",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "1.3标题与三个完整段落同页，无孤立标题；章末留白延续原模板，第2章另起页，逻辑页码3正常。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 8,
+      "logical_page": 4,
+      "png_sha256": "28f184d7a223d7e1fb4ecf1009d634caeb7b589c82736b3715f87396877d44dc",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "第2章及2.1标题完整；式2-1、2-2及编号清晰；图2.1三算法和输出框、箭头及图题同页；表2.1四行长度可读，无下沿裁切。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 9,
+      "logical_page": 5,
+      "png_sha256": "491e864683a65f216142cb3641919bc1919eec606a8c709021c610ccac168b8c",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "2.1续文与2.2衔接清楚；图2.2校验边界各框、箭头及图题完整；后续接口和随机源段落均在正文边界内。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 10,
+      "logical_page": 6,
+      "png_sha256": "7035b3cd21cb893d2bbec0a933fde759b3f266159c5a3b3d4091d4c36e0eb10e",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "2.3、2.4标题与引导文字配对；式2-3至2-7的上下标、求和、绝对值和分式完整，编号靠右且未与公式重叠；底部2-7与页码6分离。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 11,
+      "logical_page": 7,
+      "png_sha256": "dec8fdf4c3a6f5334a1f760c63b8b71dc934fa54f6b964b4fd00d192339847e3",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "图2.3所有成对框、状态枚举框和公式标签可读，图题不孤立；bootstrap限制段完整；2.5与式2-8、2-9同页且无碰撞。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 12,
+      "logical_page": 8,
+      "png_sha256": "20d1f64677e98b0333192b14290d2fa9ee59970a56c699d9b5285b24e5417334",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "分位数续文完整；式2-10双指标及分母、求和上下限、编号可读；解释段没有截断，章末较大留白为原有章节分页。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 13,
+      "logical_page": 9,
+      "png_sha256": "4f121c493b76c5812a0ac92121acc2b81acd2fa991cca94a423c9298e2ab80e4",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "第3章和3.1标题清楚；图3.1入口、验收、记录、分析和离线交付各框及箭头完整；图题及后续两段在页内，底部无裁切。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 14,
+      "logical_page": 10,
+      "png_sha256": "45ffd42be9a1247c1a7474197537ba01472d754dd7be8325e6cdbf49859100fc",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "表3.1六行模块、职责和输出均完整，三线表清晰；3.2标题及固定版本、官方潜在修正和历史标签段落没有缺字，长提交号未越界。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 15,
+      "logical_page": 11,
+      "png_sha256": "e5ba87e3a466e3e94f746651d3d363f2d1d4849720fb5a087d22cc7b705deee6",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "表3.2四个实现标签及三列限定均可读；正文与3.3标题衔接正常；图3.2计时窗内外标签、时钟说明及图题同页且与页码11分离。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 16,
+      "logical_page": 12,
+      "png_sha256": "f316f96b9747c39d003f7993e26c4f73b76339e0794241d735a8c13e8bdcdb8d",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "读钟单位、原值及长尾说明段落完整；3.4标题与解释同页；图3.3的CSV、META、COST及联合校验框和箭头清晰，图题保持配对。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 17,
+      "logical_page": 13,
+      "png_sha256": "a0b12ef9623311ffe04a5ce45da09185564ad5a8e6d6fa22651af2397d17d406",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "表3.3五类记录和三列内容完整，边界清晰；两个校验解释段连续；3.5标题后保留完整引导段，没有孤立标题或页脚碰撞。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 18,
+      "logical_page": 14,
+      "png_sha256": "7fd2883cbddb3b2bc87f49624ba2886224ca9c1cc5624678679e9249082f107b",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "图3.4的四流程框、两类不足说明及图题完整；式3-1的撇号和下标正确可见，编号未碰撞；3.6标题及引导段没有孤立在页尾。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 19,
+      "logical_page": 15,
+      "png_sha256": "eb704c85d2006ca84660ffc48c0ede7e13bfc4d8baf7ed713175da123503c0f0",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "图3.5四个流程框、两个交付框及共同留证说明可读，图题与图同页；离线展示和授权复算两段完整，章末留白正常。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 20,
+      "logical_page": 16,
+      "png_sha256": "d5bad8d82bc4675ab43d58fbe54485b078f0caf98dac7466475fcb172e5dda9e",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "requested_image_detail": "original",
+      "observations": "第4章和4.1标题正常；对象及能力边界两段完整；图4.1三类证据和共同要求框、图题均可读，无超出边界或页眉页脚碰撞。",
+      "blocking_layout_findings": []
+    }
+  ],
+  "blocking_layout_findings": [],
+  "status": "pass_for_assigned_pages",
+  "retained_layout_traits": [
+    "原有章末留白保留；未因本次审阅调整文字、字体或分页。"
+  ],
+  "candidate_or_script_changes": false
+}

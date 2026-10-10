@@ -1,0 +1,239 @@
+{
+  "reviewer": "/root",
+  "review_kind": "local_agent_visual_review",
+  "pdf_sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4",
+  "page_count": 49,
+  "reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "all_assigned_pages_individually_viewed": true,
+  "contact_sheet_used": false,
+  "blocking_layout_findings": [],
+  "page_png_sha256": {
+    "1": "90d75e7fe5f37b0674f9c8dfc5090086248105c73d737d58759cc2acd547f258",
+    "2": "6322bc64b352150c441fc18b950e51acd38203cb9e3a008335aa0dd77194ad12",
+    "3": "92707fc1ed5d641a7dc640521100427a408a9547251878419cae985a9fc1ae11",
+    "4": "1ee954daa739c7889ff722df0796a6aecd15bedfe73a72ef99cfbc4a89d65e1e",
+    "38": "e1265bbbace4d6ef61efc5a368d253257ebfeabf9e25e2842a8c4584189185ce",
+    "39": "1251638b0203e84c7908a4cd74b9ff37da2fadbd744b2c2603e844ed975aed1e",
+    "40": "d9a458eb63c60851bdc315d33d5e22667a09d82129805485a0700866124310bf",
+    "41": "6dfea768d0613492644be70375ca0ac1388abb9e28817a5b5c8ace6c778a72f1",
+    "42": "34b0e530244ef577a85270d48fb0a30d134c8f20c14cb5b512bfa89784ad22d8",
+    "43": "f817030c907fc96de2b2a9f03bd7c19f334375ef04a0e0bdd5aa4fe1593ac81c",
+    "44": "98ae98a4cf1c3fa6a5cd590cb492a2287d33baa76a58e73d68dcd11385895400",
+    "45": "bca7f7d88b1034d80c03d7434a9a12679cf3208e31af17be82975fc25958099c",
+    "46": "cfb8c9793317607aa2ee697592156ba0b5d95c735b36dda0f6766ebf202ecbf0",
+    "47": "dc925a8b705a23dacf7622d9942b07862371b6511ea981612e3aef1bec6ce8f1",
+    "48": "5346167b113f0468ccbac369d4215082441d5d6e8211c6186369c9d3aeecd931",
+    "49": "a0ccad2c651327fe91afccb2eb0a9bedd83010df3a47cdc03a598c23d1833d65"
+  },
+  "page_reviews": [
+    {
+      "physical_page": 1,
+      "png_sha256": "90d75e7fe5f37b0674f9c8dfc5090086248105c73d737d58759cc2acd547f258",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "官方封面编号、类别、题名及日期完整，无越界或重叠；暂定题名沿用基版，不新增审批门。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 2,
+      "png_sha256": "6322bc64b352150c441fc18b950e51acd38203cb9e3a008335aa0dd77194ad12",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "摘要表完整容纳G2追加句，末行与关键词区清楚，未跨页或裁切。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 3,
+      "png_sha256": "92707fc1ed5d641a7dc640521100427a408a9547251878419cae985a9fc1ae11",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "目录前半的点引导、43项中前部条目及罗马页码清楚。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 4,
+      "png_sha256": "1ee954daa739c7889ff722df0796a6aecd15bedfe73a72ef99cfbc4a89d65e1e",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "目录后半新增5.9与后续页码完整，附录页码均可读。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 38,
+      "png_sha256": "e1265bbbace4d6ef61efc5a368d253257ebfeabf9e25e2842a8c4584189185ce",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "新5.9标题、两式上下标及原生分式、9行三线表完整，末行与页码分离。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 39,
+      "png_sha256": "1251638b0203e84c7908a4cd74b9ff37da2fadbd744b2c2603e844ed975aed1e",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "新图5.8坐标、图例、两面板及完整图题可读；工程/统计边界和恢复段落全部同页，无裁切。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 40,
+      "png_sha256": "d9a458eb63c60851bdc315d33d5e22667a09d82129805485a0700866124310bf",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "第6章与6.1/6.2正文完整，章题层级和段落间距清楚。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 41,
+      "png_sha256": "6dfea768d0613492644be70375ca0ac1388abb9e28817a5b5c8ace6c778a72f1",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "表6.1及6.3正文完整，章末留白保留，无图题孤立。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 42,
+      "png_sha256": "34b0e530244ef577a85270d48fb0a30d134c8f20c14cb5b512bfa89784ad22d8",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "第7章总结与7.2限制完整同页，原流程尾注移至交付说明后未留下孤立页。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 43,
+      "png_sha256": "f817030c907fc96de2b2a9f03bd7c19f334375ef04a0e0bdd5aa4fe1593ac81c",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "参考文献1—11完整，长URL及固定公开提交号换行在页内。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 44,
+      "png_sha256": "98ae98a4cf1c3fa6a5cd590cb492a2287d33baa76a58e73d68dcd11385895400",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "参考文献12—15完整，新增固定Linux v6.17引用及访问日期清楚。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 45,
+      "png_sha256": "bca7f7d88b1034d80c03d7434a9a12679cf3208e31af17be82975fc25958099c",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "附录A标题、表A.1及旧Ryzen环境说明完整；末段自然续页。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 46,
+      "png_sha256": "cfb8c9793317607aa2ee697592156ba0b5d95c735b36dda0f6766ebf202ecbf0",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "附录A原结果和未锁频时点、新G2限制完整，长字段正常换行，无页脚碰撞。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 47,
+      "png_sha256": "dc925a8b705a23dacf7622d9942b07862371b6511ea981612e3aef1bec6ce8f1",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "表A.2全部8任务行与固定成本边界完整，原图源范围说明可读。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 48,
+      "png_sha256": "5346167b113f0468ccbac369d4215082441d5d6e8211c6186369c9d3aeecd931",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "表A.3全部8行及新G2匿名来源索引完整，段尾与页码分离。",
+      "blocking_layout_findings": []
+    },
+    {
+      "physical_page": 49,
+      "png_sha256": "a0ccad2c651327fe91afccb2eb0a9bedd83010df3a47cdc03a598c23d1833d65",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "viewed_individually": true,
+      "detail": "original",
+      "observations": "附录B全部18运行分位数及来源段完整，表底线和页码清楚。",
+      "blocking_layout_findings": []
+    }
+  ]
+}

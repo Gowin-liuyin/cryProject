@@ -1,0 +1,240 @@
+[
+  {
+    "slot": "abstract_g2_append",
+    "table_1_based": 1,
+    "row_1_based": 5,
+    "cell_1_based": 1,
+    "cell_paragraph_1_based": 2,
+    "paragraph_id": "CA140001",
+    "before": "本作品面向ML-KEM解封装实现的本地审计需求，设计并实现C11审计与精确复算系统。系统采用固定ML-KEM-768便携实现，以独立公开向量及接口检查验证功能，在完整解封装窗口中记录逐次时间，并关联保存源码、产物、环境和成本。针对结果难以核查的问题，将数据资格与统计数值分开输出，实现有界成对数据的整数精确复算。测试中，八个固定任务与SciPy尾计数及判定一致，预导入对照后的耗时比值中位数为0.001562070。macOS/ARM的M01同语言对照中，六个非零任务的增量/完整求和中位比为0.261640至0.319174；M02在一次干净重建后的同机三个新进程中，六个固定非零任务的18个中位比仍小于1，240对满足时钟资格。40964份有限模型及24576份后赋标签结果均通过独立核对。同机人工机制复测中，掩码形态在五个预定种子的原名义检验里均未再检出差异。官方两项潜在修正已与固定便携C路径静态核对。作品已完成封存包新目录复算，支持本地实现审查及离线复核；统计结果均按对应模型解释，不外推为全库恒时保证。",
+    "after": "本作品面向ML-KEM解封装实现的本地审计需求，设计并实现C11审计与精确复算系统。系统采用固定ML-KEM-768便携实现，以独立公开向量及接口检查验证功能，在完整解封装窗口中记录逐次时间，并关联保存源码、产物、环境和成本。针对结果难以核查的问题，将数据资格与统计数值分开输出，实现有界成对数据的整数精确复算。测试中，八个固定任务与SciPy尾计数及判定一致，预导入对照后的耗时比值中位数为0.001562070。macOS/ARM的M01同语言对照中，六个非零任务的增量/完整求和中位比为0.261640至0.319174；M02在一次干净重建后的同机三个新进程中，六个固定非零任务的18个中位比仍小于1，240对满足时钟资格。40964份有限模型及24576份后赋标签结果均通过独立核对。同机人工机制复测中，掩码形态在五个预定种子的原名义检验里均未再检出差异。官方两项潜在修正已与固定便携C路径静态核对。作品已完成封存包新目录复算，支持本地实现审查及离线复核；统计结果均按对应模型解释，不外推为全库恒时保证。G2单次普通参考进程保存126528次调用，200个主窗口通过工程规则，纯主平均窗口几何覆盖99.4948%；注册取消与可见恢复另核对，R02/R04仍部分签收。",
+    "added": "G2单次普通参考进程保存126528次调用，200个主窗口通过工程规则，纯主平均窗口几何覆盖99.4948%；注册取消与可见恢复另核对，R02/R04仍部分签收。",
+    "all_original_abstract_run_hashes_preserved": true
+  },
+  {
+    "slot": "5.1_environment_scope",
+    "paragraph_id": "CA160001",
+    "added": "表5.1记录既有KVM材料的环境；2026年10月10日G2裸金属普通参考窗口另按第5.9节的机器、产物与观测范围解释。",
+    "inserted_after_base_direct_paragraph_1_based": 217
+  },
+  {
+    "slot": "5.9_heading",
+    "paragraph_id": "CA160002",
+    "added": "5.9　单次普通参考负载的窗口观察与恢复"
+  },
+  {
+    "slot": "5.9_execution_scope",
+    "paragraph_id": "CA160003",
+    "added": "2026年10月10日，在Ryzen 9 9950X裸金属上运行G2；Ubuntu 24.04.4、Linux 6.17.0-35-generic/x86_64，GCC 13.3、-O2 -g -DNDEBUG，sanitizer关闭。正常与注册取消各一次，无补跑；临时预留同胞逻辑线程CPU2/18，普通reference进程仅CPU2，八个有效密文循环；1秒预热后以4秒为主观察目标。仅四个min/max请求4300000 kHz，不改boost、EPP、governor或IRQ。"
+  },
+  {
+    "slot": "5.9_counter_conditions",
+    "paragraph_id": "CA160004",
+    "added": "APERF/MPERF须结合参考性能标尺解释[15]，本次4300 MHz标尺来自固件核对。设相邻APERF差为ΔA，MPERF在APERF前后读取为M⁻、M⁺；prev、next为前后快照。同一时期内两计数单调、无回绕或重置时，读取对齐边界为："
+  },
+  {
+    "slot": "5.9_formula_L_H",
+    "paragraph_id": "CA160005",
+    "added": "(5-5)",
+    "native_omml": true,
+    "math_text": "L=Mnext−−Mprev+,   H=Mnext+−Mprev−"
+  },
+  {
+    "slot": "5.9_formula_interval",
+    "paragraph_id": "CA160006",
+    "added": "(5-6)",
+    "native_omml": true,
+    "math_text": "I=4300ΔAH, 4300ΔAL MHz,   L>0"
+  },
+  {
+    "slot": "5.9_engineering_rules",
+    "paragraph_id": "CA160007",
+    "added": "对应两次APERF读点的MPERF增量位于[L,H]；正分母取倒数给出式（5-6）。区间只处理读取错位，不是置信区间或完整物理误差界，解析自洽不认证上述条件。冻结C11分析以整数判定100ΔA≥99H且100ΔA≤101L，并要求CPU2保守线程CPU时间／RAW间隔代理至少80%、三读跨度至多1 ms、相邻快照至多40 ms。全部实际主pair和普通长尾保留；调用、快照、读钟及读取失败台账均为0。"
+  },
+  {
+    "slot": "5.9_table_caption",
+    "paragraph_id": "CA160008",
+    "added": "表5.11　G2正常进程的完整计数与几何覆盖"
+  },
+  {
+    "slot": "5.9_table",
+    "new_table_label": "5.11",
+    "source_table_1_based": 8,
+    "column_widths_twips": [
+      2948,
+      6009
+    ],
+    "source_font_points": 11,
+    "data_rows": [
+      [
+        "全部／主阶段调用",
+        "126528／101248"
+      ],
+      [
+        "快照／检查点",
+        "251／1977"
+      ],
+      [
+        "主观察墙钟",
+        "4002203951 ns"
+      ],
+      [
+        "实际主pair／全部规则通过",
+        "200／200；首个跨界pair 1个仍参加判定"
+      ],
+      [
+        "纯主支持窗口",
+        "199个；跨界pair不计纯主覆盖"
+      ],
+      [
+        "纯主几何覆盖",
+        "3981985286／4002203951 ns，99.4948%"
+      ],
+      [
+        "完整落入纯支持区间的主调用",
+        "100736／101248"
+      ],
+      [
+        "首／尾／内部缺口",
+        "20170432／13224／35009 ns"
+      ]
+    ],
+    "new_table_xml_sha256": "29626dfcddc71b8d48a19c20e8cfaba596ca0f0c44953581a212bd518c23068d",
+    "paragraph_ids": [
+      "CA160009",
+      "CA16000A",
+      "CA16000B",
+      "CA16000C",
+      "CA16000D",
+      "CA16000E",
+      "CA16000F",
+      "CA160010",
+      "CA160011",
+      "CA160012",
+      "CA160013",
+      "CA160014",
+      "CA160015",
+      "CA160016",
+      "CA160017",
+      "CA160018",
+      "CA160019",
+      "CA16001A"
+    ],
+    "repeat_header": true,
+    "all_rows_at_least_and_cant_split": true,
+    "new_body_cell_keep_next_removed": true
+  },
+  {
+    "slot": "5.9_figure_intro",
+    "paragraph_id": "CA16001B",
+    "added": "图5.8保留本次全部CPU2主观察窗口，并另列纯主阶段的平均窗口几何占比。"
+  },
+  {
+    "slot": "5.9_figure",
+    "paragraph_id": "CA16001C",
+    "added": "",
+    "image_part": "word/media/figure-g2-20261010.png",
+    "image_sha256": "ef47cae6a8767a4090c912ad6e317334b0d059b35946d80b8d2358e87e6cb014",
+    "relationship_id": "rId28",
+    "docPr_id": "87",
+    "width_emu": 5688000,
+    "height_emu": 3737828,
+    "alt_text": "一次普通参考进程的CPU2主观察窗口及纯主阶段平均窗口几何覆盖比例"
+  },
+  {
+    "slot": "5.9_figure_caption",
+    "paragraph_id": "CA16001D",
+    "added": "图5.8　单次普通参考进程的窗口工程观察与几何覆盖"
+  },
+  {
+    "slot": "5.9_figure_boundary",
+    "paragraph_id": "CA16001E",
+    "added": "这里的pair仅指相邻反馈快照对，不是AB/BA运行对。全部200个CPU2主pair均通过工程规则。空心标记为首个跨界pair，仍参加判定；下条仅为合计几何比例，不是点态时间线。读取对齐区间不是置信区间，平均窗口不认证区间内逐时或逐调用恒频。200窗来自一个进程，不是200次独立重复。反馈解释为活动期平均；线程CPU／RAW仅为活动代理，非精确C0比例。"
+  },
+  {
+    "slot": "5.9_geometry_and_context",
+    "paragraph_id": "CA16001F",
+    "added": "纯主几何分子不含首个跨界pair；与表5.11三类缺口之和精确等于分母，没有补齐或改分母。CPU18的200个context区间均为边界重叠，仅作上下文，不是第二独立样本或实际高频证据。"
+  },
+  {
+    "slot": "5.9_cancel_restore_and_claim",
+    "paragraph_id": "CA160020",
+    "added": "另一路径在放行后实际约0.255407秒发起预定的注册取消，该数不是恢复耗时。controller与worker均因SIGKILL终止（记录码−9），child已回收；stdout/stderr均0字节表示测量未知，不是零调用。两路径结束独立核对87份原件及归档一致、六原PID不存在、全部32策略及global可见对象等原基线、CPU0—31归还、隔离空、自有组删除且锁释放。回读不是全程原子快照，不证明隐藏QoS或固件内部逐位复原；guard自身死亡、整机及真实磁盘故障未测试。本次仅支持窄工程观察，完整研究与R02/R04仍部分签收。"
+  },
+  {
+    "slot": "toc_5.9",
+    "paragraph_id": "CA160021",
+    "added": "5.9　单次普通参考负载的窗口观察与恢复34",
+    "bookmark": "rw_heading_g2_20261010",
+    "placeholder_page": 34,
+    "actual_pagination_pending": true
+  },
+  {
+    "slot": "7.1_g2_summary",
+    "paragraph_id": "CA160022",
+    "added": "G2单次保存126528次完整调用，200个主窗口均通过事前工程规则，纯主平均窗口几何覆盖99.4948%；注册取消、保全及可见恢复另核对，仍不扩大历史防护或统计结论。",
+    "inserted_after_base_direct_paragraph_1_based": 305
+  },
+  {
+    "slot": "7.1_condense_redundant_history_summary",
+    "base_direct_paragraph_1_based": 305,
+    "paragraph_id": "CA140006",
+    "before": "原生GCC普通及Clang动态检查各34项通过。普通探索区间在KVM的E02/N01跨零，在Ryzen裸金属不跨零。八个固定任务与SciPy的尾计数及判定一致，预导入复核仍见流程成本差异。M02一次重建后的同机三个新进程中，六个非零任务的18个中位比均小于1、240对时钟合格；M01保留，均限macOS/ARM固定输入。40964份有限模型与24576份后赋标签结果分别核对计算正确性和条件边界。封存软件v3已完成授权代理新目录复算。同机Linux人工机制的五种子复测中，掩码形态在原名义检验里均未再检出；局限与历史记录保留。",
+    "after": "八任务与SciPy尾计数一致，M01/M02的效率观察仍限macOS/ARM固定输入。有限模型及后赋标签控制另核计算与条件边界；人工机制掩码在五种子原名义检验里未再检出。旧ARM残差、失败和封存v3复算分别留档。",
+    "old_xml_sha256": "3ec0857c66f8d0131f245eaeb95776d17fc6fd7a3bc9bf94860a5b5e796d394b",
+    "new_xml_sha256": "45e23ed336f9a28914e45328a1d2dbbf51e4b2c5d62a470daa3eb37daafe9c13"
+  },
+  {
+    "slot": "7.2_g2_limits",
+    "paragraph_id": "CA160023",
+    "added": "G2仍缺适用目标差异量级的读钟精度、稳定性与统计前提。平均反馈不证明逐调用恒频或物理误差界，R02/R04仍部分签收。",
+    "inserted_after_base_direct_paragraph_1_based": 310
+  },
+  {
+    "slot": "7.2_editorial_note_to_delivery_readme",
+    "base_direct_paragraph_1_based": 311,
+    "paragraph_id": null,
+    "before": "实际界面截图、正式题名与审批签署仍需团队完成。本文沿用已提供编号和暂定题名，后续按真实材料更新，各项验收分别记录。",
+    "old_xml_sha256": "4bae625eb86a88a3dafeb52ed3ebf819e646895e0417dad74c827a58833c7bfd",
+    "removed": true,
+    "relocated_to": "authoring_log_and_delivery_README",
+    "reason": "流程性备注移出科学正文，真实画面与本人审批缺口保留在交付说明；不引入题名额外批准门"
+  },
+  {
+    "slot": "appendix_old_Ryzen_frequency_time_scope",
+    "base_direct_paragraph_1_based": 338,
+    "paragraph_id": "CA160024",
+    "before": "sanitize-build 退出码为 2。GCC 在 -Werror=sign-conversion 处停止，函数为 baseline_native_poly_frommsg，位置是 vulnerable compress.c:709 与 hardened compress.c:710。这些记录不是频率锁定、恒时证明或竞赛签收。R02 与 R04 仍为部分签收：没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。",
+    "after": "sanitize-build 退出码为 2。GCC 在 -Werror=sign-conversion 处停止，函数为 baseline_native_poly_frommsg，位置是 vulnerable compress.c:709 与 hardened compress.c:710。这些记录不是频率锁定、恒时证明或竞赛签收。就2026年10月8日上述记录而言，没有锁定频率的数据集，也没有真实密文总体的误报率或检出率。2026年10月10日G2另取得第5.9节所述平均窗口工程观察，不追认旧数据，也不构成整段或逐调用恒频。R02与R04仍为部分签收。",
+    "old_xml_sha256": "3c4ee1c1d117c14e2755febf1652444f549383043464c3a8442c594dc2b16f91",
+    "new_xml_sha256": "1d0b6210906f9b67985def653971d6b9b92e6b11c9a410381405a52c2a560efc"
+  },
+  {
+    "slot": "appendix_original_figure_scope",
+    "base_direct_paragraph_1_based": 339,
+    "paragraph_id": "CA160025",
+    "before": "自有源码使用匿名来源别名，不是 Git 提交号；第三方固定版本保持不变。公开来源与固定版本适用性分别见 docs/upstream-security-review.md 与 docs/current-version-defense-review.md；最新验收状态见 docs/full-work-acceptance.md。本报告引用重写期间已归档的新R07记录，没有为绘图额外运行密码采集，也未改动原始数字。图源以独立 PowerPoint 文件交付，各数据图保留可编辑图表和工作簿，结构图保留原生图形与文字。",
+    "after": "自有源码使用匿名来源别名，不是 Git 提交号；第三方固定版本保持不变。公开来源与固定版本适用性分别见 docs/upstream-security-review.md 与 docs/current-version-defense-review.md；最新验收状态见 docs/full-work-acceptance.md。本报告引用重写期间已归档的新R07记录，没有为绘图额外运行密码采集，也未改动原始数字。原有图源以独立 PowerPoint 文件交付，原有数据图保留可编辑图表和工作簿，结构图保留原生图形与文字。新增G2图以PNG和PDF单列，绘图源码另存作者归档，不称可编辑PowerPoint图表。",
+    "old_xml_sha256": "705dd3b91d9c49253ac60d398820aa867a94cb2d5b32d6f9113f91fd8cb5b3e8",
+    "new_xml_sha256": "8f7c56b8121e0fcc5038226c6cc7dfc64385ac00432d7feb66da00ca3a28265c"
+  },
+  {
+    "slot": "appendix_g2_sources",
+    "paragraph_id": "CA160026",
+    "added": "G2新增材料与旧记录分别封存：匿名分发包的data/g2/保存逐次原值、逐窗口CSV及C摘要；research/g2/保存固定合同、结果到主张、生命周期和科学核对；code/g2-analysis/保存冻结C11离线分析源码。code/g2-collector/为依赖完整固定参考目录的生产者审计源，不是独立离线运行入口。G2-M、G2-C、G2-A分别是管理、普通生产者与分析来源别名，不是Git提交号；源码、普通产物、输入和处理结果按各自清单摘要关联。原47页稿及既有软件和研究包保持原身份。",
+    "inserted_after_base_direct_paragraph_1_based": 345
+  },
+  {
+    "slot": "reference_15",
+    "paragraph_id": "CA160027",
+    "added": "[15] Linux kernel contributors. arch/x86/kernel/cpu/aperfmperf.c, fixed tag v6.17. https://raw.githubusercontent.com/torvalds/linux/v6.17/arch/x86/kernel/cpu/aperfmperf.c (accessed 2026-10-10).",
+    "inserted_after_base_direct_paragraph_1_based": 326
+  },
+  {
+    "slot": "settings_update_fields",
+    "part": "word/settings.xml",
+    "added": "w:updateFields w:val=true",
+    "all_original_settings_children_preserved": true,
+    "cached_page_numbers_finalized_separately": true
+  }
+]

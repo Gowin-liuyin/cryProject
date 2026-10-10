@@ -1,0 +1,62 @@
+{
+  "source_path": "/Users/yin/code/cryProject/deliverables/research/aris-report-weak-mean-20261010/CACR2026EA16XZ-作品设计报告-匿名版.docx",
+  "source_sha256": "9a2b7e92cebc8dc7b4aca677728a7ebb5d2b29c90b265e82d14b926bdb360c3a",
+  "candidate_path": "/Users/yin/code/cryProject/build/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-G2补充候选版.docx",
+  "candidate_before_toc_sha256": "5c89b239b947823914b5b553adbc5682cd035aa51f5261538ffb23a92c14f03f",
+  "source_47_page_docx_unchanged": true,
+  "changed_parts_before_toc": [
+    "word/document.xml",
+    "word/settings.xml",
+    "word/_rels/document.xml.rels"
+  ],
+  "new_package_parts": [
+    "word/media/figure-g2-20261010.png"
+  ],
+  "untouched_package_parts_verified": 38,
+  "all_original_native_math_preserved_in_order": 62,
+  "all_original_drawings_preserved_in_order": 18,
+  "all_original_sections_preserved_in_order": 4,
+  "all_original_tables_except_abstract_preserved_in_order": 21,
+  "original_abstract_runs_preserved": 1,
+  "original_direct_paragraphs": 349,
+  "modified_original_direct_paragraph_numbers": [
+    305,
+    338,
+    339
+  ],
+  "removed_original_direct_paragraph_numbers": [
+    311
+  ],
+  "removed_editorial_note_retained_verbatim_in_authoring_log": true,
+  "unmodified_original_direct_paragraphs_verified_in_order": 345,
+  "new_direct_paragraphs": 19,
+  "new_native_math": 2,
+  "new_drawings": 1,
+  "new_tables": 1,
+  "resulting_counts": {
+    "tables": 23,
+    "native_math": 64,
+    "drawings": 19,
+    "sections": 4
+  },
+  "toc_entries": 43,
+  "new_bookmark_id": "542",
+  "new_bookmark": "rw_heading_g2_20261010",
+  "image_sha256": "ef47cae6a8767a4090c912ad6e317334b0d059b35946d80b8d2358e87e6cb014",
+  "G2_completed_processes": 1,
+  "G2_all_calls": 126528,
+  "G2_main_calls": 101248,
+  "G2_observed_main_pairs": 200,
+  "G2_engineering_pass_pairs": 200,
+  "G2_pure_geometry_numerator_ns": 3981985286,
+  "G2_main_wall_denominator_ns": 4002203951,
+  "G2_geometry_percent_display": "99.4948",
+  "full_main_or_per_call_constant_frequency_claim": false,
+  "physical_precision_certified": false,
+  "independent_window_samples_claim": false,
+  "R02": "partial",
+  "R04": "partial",
+  "external_review_status": "pending Codex review",
+  "pagination_and_all_page_visual_review_pending": true,
+  "status": "candidate_before_render_review"
+}

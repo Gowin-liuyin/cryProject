@@ -1,0 +1,41 @@
+{
+  "one_time_document_marker_succeeded": true,
+  "marker_count": 1,
+  "attempt_1": "builder rejected custom rId suffix before any candidate output; original failure retained",
+  "layout_iterations": [
+    {
+      "render": "render-initial",
+      "pages": 50,
+      "docx_sha256": "369116db1d785b8c2c6042e1096e2b792cce9a32818880f5e5e649a6e31d822e"
+    },
+    {
+      "render": "render-refit",
+      "pages": 50,
+      "docx_sha256": "0a5778ba82ae5c119d0f410c0d6d75bef712d89daa2ce66ddd99fe03adad0ac5"
+    },
+    {
+      "render": "render-compact",
+      "pages": 50,
+      "docx_sha256": "be1131f148ca8ea2f0b35ed678765a4f19c97bbab57281cd0655ac9b0bb625c1"
+    },
+    {
+      "render": "render-reviewed",
+      "pages": 49,
+      "docx_sha256": "5c89b239b947823914b5b553adbc5682cd035aa51f5261538ffb23a92c14f03f"
+    }
+  ],
+  "verifier_failures_repaired": [
+    {
+      "reason": "deepcopy of detached paragraph changed namespace serialization; compare attached nodes under full copied root",
+      "report_changed": false
+    },
+    {
+      "reason": "preexisting public clangover commit omitted from allowlist; restored exactly the original reference version",
+      "report_changed": false
+    }
+  ],
+  "final_docx_sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6",
+  "final_pdf_sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4",
+  "final_pages": 49,
+  "scientific_or_table_data_deleted": false
+}

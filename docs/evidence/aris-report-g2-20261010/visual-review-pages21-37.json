@@ -1,0 +1,350 @@
+{
+  "reviewer": "/root/g2_narrative_round2",
+  "review_kind": "same_model_local_independent_visual_review",
+  "scope": "physical_pages_21_to_37_only",
+  "review_date": "2026-10-10",
+  "docx_path": "build/aris-report-g2-20261010/CACR2026EA16XZ-作品设计报告-G2补充候选版.docx",
+  "docx_sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6",
+  "pdf_path": "build/aris-report-g2-20261010/render-final/CACR2026EA16XZ-作品设计报告-G2补充候选版.pdf",
+  "pdf_sha256": "d5b65e65f66cd3ade42fee58502112be34ab97716b587657e41e2d246a1e60a4",
+  "pdf_pages": 49,
+  "assigned_pages": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "reviewed_pages": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "all_assigned_pages_individually_viewed": true,
+  "contact_sheet_used_instead_of_pages": false,
+  "blocking_layout_findings": [],
+  "page_png_sha256": {
+    "21": "2de2ece9e17ffdd5dad01c93bbe38be365cb098a9a14b43cb2b8a7ef45cb11c5",
+    "22": "030e58cfa4fc06a5033163c5a1d649cd9223c04f978a053248197b7f189e3428",
+    "23": "62ffa859bfbeba032dacb69fa86c2331507efedf1f0d58a28514b17ef5cefb9d",
+    "24": "e455d101a212df02bbe21ac506b2348112174e095239dbfc5c1fa1fcb76eb376",
+    "25": "61054cf8df6dadfe6724a921cb552a46949fccabc837a02a9a1a8f25beb152c0",
+    "26": "656e617ad50dc259275306c6bb61cd73fdb8c897033d8b2734751c61e538b078",
+    "27": "f572c50f039015212c836700c60c9cb9cd691c3b4c6bfeba7bf0a8038369c871",
+    "28": "7af7e40b752def89b29f22e89eb665298237bb64694eae34cd1eebf11b9681a6",
+    "29": "0126521ca0ab671e9a9ebe39cb66de1b36004d009b0fc2b39cc6369771d80c03",
+    "30": "bf3a6dc78510e009f5c285cad8b43092216d694293da6a27a2fe0e4196b6d507",
+    "31": "fd952cf7948e7820fbe1a5c3445d0efe028f41a22e07c81adb4b32de8f372fa7",
+    "32": "641616418284fd4f60829c600082dbf8a628a26b070f16765322ac8fd9e3fb4a",
+    "33": "236b91ef458187cc7ab3b44d056079ad6deed404114e3746f5633ad681933f6a",
+    "34": "1aa0dbb502bc49c720ea947ab4306a0e7f1347a397ea065a919708571b8276c8",
+    "35": "45750c0594979c9645863c90d65a77262daad4a06f89f60a7e30a0f95ac4d059",
+    "36": "ea2de58eadd7b75170b81ffb73eab1e7118e49b92d9f713e6e0e5206f7cbae95",
+    "37": "16cdc1066555c26ec7ab7bbd8c6bda0584daba01c2f4d67402159d0b481cb34e"
+  },
+  "pages": [
+    {
+      "physical_page": 21,
+      "displayed_footer_page": 17,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-21.png",
+      "png_sha256": "2de2ece9e17ffdd5dad01c93bbe38be365cb098a9a14b43cb2b8a7ef45cb11c5",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "表4.1三列边界与4.2/4.3正文清楚，表线及页底文字完整，无重叠。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 22,
+      "displayed_footer_page": 18,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-22.png",
+      "png_sha256": "030e58cfa4fc06a5033163c5a1d649cd9223c04f978a053248197b7f189e3428",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "历史人工案例限制与4.4正文完整，式4-1/4-2上下标、条件符号及分式可辨，无截断。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 23,
+      "displayed_footer_page": 19,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-23.png",
+      "png_sha256": "62ffa859bfbeba032dacb69fa86c2331507efedf1f0d58a28514b17ef5cefb9d",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "共同符号反例、均值路线限制及式4-3完整，页底效应量解释清楚。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 24,
+      "displayed_footer_page": 20,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-24.png",
+      "png_sha256": "e455d101a212df02bbe21ac506b2348112174e095239dbfc5c1fa1fcb76eb376",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "4.5与式4-4清楚；章尾保留空白以使第5章另起页，不是内容丢失或意外空白页。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 25,
+      "displayed_footer_page": 21,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-25.png",
+      "png_sha256": "61054cf8df6dadfe6724a921cb552a46949fccabc837a02a9a1a8f25beb152c0",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "第5章标题、图5.1和表5.1同页清楚；表尾环境限制完整，未压住页码。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 26,
+      "displayed_footer_page": 22,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-26.png",
+      "png_sha256": "656e617ad50dc259275306c6bb61cd73fdb8c897033d8b2734751c61e538b078",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "新增G2与旧KVM环境范围句可读；表5.2行高及数据完整，无裁切。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 27,
+      "displayed_footer_page": 23,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-27.png",
+      "png_sha256": "f572c50f039015212c836700c60c9cb9cd691c3b4c6bfeba7bf0a8038369c871",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "图5.2非零纵轴、图例、注释与表5.3数值均清楚，图表配对正确。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 28,
+      "displayed_footer_page": 24,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-28.png",
+      "png_sha256": "7af7e40b752def89b29f22e89eb665298237bb64694eae34cd1eebf11b9681a6",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "表5.4区间完整，图5.3及非零纵轴说明清楚，未出现图例遮挡。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 29,
+      "displayed_footer_page": 25,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-29.png",
+      "png_sha256": "0126521ca0ab671e9a9ebe39cb66de1b36004d009b0fc2b39cc6369771d80c03",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "表5.5数值和5.4标题/正文清楚，式5-1分式及编号完整。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 30,
+      "displayed_footer_page": 26,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-30.png",
+      "png_sha256": "bf3a6dc78510e009f5c285cad8b43092216d694293da6a27a2fe0e4196b6d507",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "图5.4对数坐标说明、表5.6和边界解释完整；末段自然续至下一页，无裁切。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 31,
+      "displayed_footer_page": 27,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-31.png",
+      "png_sha256": "fd952cf7948e7820fbe1a5c3445d0efe028f41a22e07c81adb4b32de8f372fa7",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "M01/M02密集正文仍可读，页底续句在页32承接，未遮挡页码。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 32,
+      "displayed_footer_page": 28,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-32.png",
+      "png_sha256": "641616418284fd4f60829c600082dbf8a628a26b070f16765322ac8fd9e3fb4a",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "M02续句与5.5完整，式5-2/5-3原生数学和图5.5标签均清楚。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 33,
+      "displayed_footer_page": 29,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-33.png",
+      "png_sha256": "236b91ef458187cc7ab3b44d056079ad6deed404114e3746f5633ad681933f6a",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "表5.7、5.6正文及式5-4清楚；合成模型和后赋标签范围说明完整。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 34,
+      "displayed_footer_page": 30,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-34.png",
+      "png_sha256": "1aa0dbb502bc49c720ea947ab4306a0e7f1347a397ea065a919708571b8276c8",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "图5.6及表5.8数据可读，页底资格校验修正说明完整，无溢出。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 35,
+      "displayed_footer_page": 31,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-35.png",
+      "png_sha256": "45750c0594979c9645863c90d65a77262daad4a06f89f60a7e30a0f95ac4d059",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "5.7、表5.9和5.8起始内容清楚；历史限制和新测试计数没有行截断。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 36,
+      "displayed_footer_page": 32,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-36.png",
+      "png_sha256": "ea2de58eadd7b75170b81ffb73eab1e7118e49b92d9f713e6e0e5206f7cbae95",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "5.8续文与图5.7均完整，图例及均值差方向说明可辨，无图表重叠。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    },
+    {
+      "physical_page": 37,
+      "displayed_footer_page": 33,
+      "png_path": "build/aris-report-g2-20261010/render-final/page-37.png",
+      "png_sha256": "16cdc1066555c26ec7ab7bbd8c6bda0584daba01c2f4d67402159d0b481cb34e",
+      "pixel_dimensions": [
+        1414,
+        2000
+      ],
+      "individually_viewed": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "表5.10全部五种子行完整，来源和人工机制局限清楚；章节尾留白自然，未出现孤立标题。",
+      "blocking_findings": [],
+      "nonblocking_findings": []
+    }
+  ],
+  "limitations": [
+    "Only the 17 assigned physical pages were visually inspected by this reviewer.",
+    "Content review additionally read DOCX XML and frozen G2 evidence, but did not re-execute full raw-data integer analysis or experiments.",
+    "External Codex review remains pending."
+  ]
+}

@@ -1,0 +1,507 @@
+{
+  "actual_pdf_pages": 49,
+  "first_body_physical_page": 5,
+  "old_app_pages": "47",
+  "new_app_pages": "49",
+  "toc_entries": 43,
+  "changed_toc_numbers": 11,
+  "dynamic_pagination": true,
+  "headings_joined_across_pdf_lines": true,
+  "source_docx_sha256": "9a2b7e92cebc8dc7b4aca677728a7ebb5d2b29c90b265e82d14b926bdb360c3a",
+  "candidate_before_toc_sha256": "5c89b239b947823914b5b553adbc5682cd035aa51f5261538ffb23a92c14f03f",
+  "candidate_after_toc_sha256": "96e2de8af1238518f8d754cd9f969a4e82499d8b89552e143128aeba8da861e6",
+  "authoring_edits_sha256": "71141ba354e38041599205ac315201e027dbddc6d09168221817b413abc57ea4",
+  "before_document_xml_sha256": "6f5b5e72f2646f9397be19832b69b3c7ad41a755f0b3790eadcc2c8914a6d656",
+  "after_document_xml_sha256": "055581cb87bc5d9de82b059bf6e09c2c6e09de6ac84ce2e53c1da9f5feb8e73f",
+  "pagination_pdf_sha256": "b58c0b95b47c849819562e4a001fdce8cd98fee73c09ac280ee14edfd64ac259",
+  "registered_new_paragraphs_before_toc": [
+    {
+      "slot": "5.1_environment_scope",
+      "paragraph_id": "CA160001",
+      "xml_sha256": "1aaeb697754795c77e97dd7efa5288f4fefcfcf664459b123e39d849ada1eb5b"
+    },
+    {
+      "slot": "5.9_heading",
+      "paragraph_id": "CA160002",
+      "xml_sha256": "bb12e62cc2e65b1c9c51d6ab528e47de4898605847803f830899b03d0482359c"
+    },
+    {
+      "slot": "5.9_execution_scope",
+      "paragraph_id": "CA160003",
+      "xml_sha256": "f094fa03763f62526e2536ca602da3bd50725434102468a66975d10b1455db71"
+    },
+    {
+      "slot": "5.9_counter_conditions",
+      "paragraph_id": "CA160004",
+      "xml_sha256": "92d90af6bedd197a607f11be90ca9675e54783bb51d9db824854ec6da4f39655"
+    },
+    {
+      "slot": "5.9_formula_L_H",
+      "paragraph_id": "CA160005",
+      "xml_sha256": "167249a0632ea7ec900f40ab33b0c0d64f9f9d5b18451b9f1877eaf46838ea60"
+    },
+    {
+      "slot": "5.9_formula_interval",
+      "paragraph_id": "CA160006",
+      "xml_sha256": "8c045f3a222b952f18350b5d3f887a694eaf2ae0b2ee545eda90e1fcb57f5f9e"
+    },
+    {
+      "slot": "5.9_engineering_rules",
+      "paragraph_id": "CA160007",
+      "xml_sha256": "a6d5d68e7ea5c76c298d7e9a76f9e209eeef56da1b90e3c01f4b0d3ef1303182"
+    },
+    {
+      "slot": "5.9_table_caption",
+      "paragraph_id": "CA160008",
+      "xml_sha256": "cbeb587867c3a3fa6c5eeb7f3d5f3724625dd8c935d3ab4407429ae4a5a3afc2"
+    },
+    {
+      "slot": "5.9_figure_intro",
+      "paragraph_id": "CA16001B",
+      "xml_sha256": "557e75d15a8999206b85b07d845ae497bbfc920112465809f37ac23a72e00bf1"
+    },
+    {
+      "slot": "5.9_figure",
+      "paragraph_id": "CA16001C",
+      "xml_sha256": "c2158a3b4a2b58f54dd33c9c239c12ab9cec31f3bae44aa3978fffc280097c4d"
+    },
+    {
+      "slot": "5.9_figure_caption",
+      "paragraph_id": "CA16001D",
+      "xml_sha256": "643e27b62b379190791faa90795d29f1746b9ce3089b31eaa67a66e97ea28482"
+    },
+    {
+      "slot": "5.9_figure_boundary",
+      "paragraph_id": "CA16001E",
+      "xml_sha256": "3a6b44c4aa3213db9ac20b2f8a0c15cf70381493a132930e16d7af9544be6088"
+    },
+    {
+      "slot": "5.9_geometry_and_context",
+      "paragraph_id": "CA16001F",
+      "xml_sha256": "4656bbb12202a3d207269ed2213ba8a5b53e383a04cca5c8d14708517ddcb8fd"
+    },
+    {
+      "slot": "5.9_cancel_restore_and_claim",
+      "paragraph_id": "CA160020",
+      "xml_sha256": "ebd7095917498d5b2f01cdc7dfd1c80b11b93e200864ba620866a235717b47af"
+    },
+    {
+      "slot": "toc_5.9",
+      "paragraph_id": "CA160021",
+      "xml_sha256": "9d8a8a1b8df25d78a2809d828c19f4965b17afd4dc1ce7f3d4814b3cd562a5d6"
+    },
+    {
+      "slot": "7.1_g2_summary",
+      "paragraph_id": "CA160022",
+      "xml_sha256": "19a201c19716b8d122a0ed5acfea8f1b20b252e2d2484b3c144c5f2e2ff8f87b"
+    },
+    {
+      "slot": "7.2_g2_limits",
+      "paragraph_id": "CA160023",
+      "xml_sha256": "6373369b7f10d72249d529471e1266f542e8af99972eff4b969a541c5098ff37"
+    },
+    {
+      "slot": "appendix_g2_sources",
+      "paragraph_id": "CA160026",
+      "xml_sha256": "404279648e8265b03b47d57ef7e7527df34e243fb4284a173c24f76b2743a94f"
+    },
+    {
+      "slot": "reference_15",
+      "paragraph_id": "CA160027",
+      "xml_sha256": "b02a96a158cc2020b44a5d077b365a6f12810170c30d2aeb21ed52e1e01019dd"
+    }
+  ],
+  "changed_parts": [
+    "docProps/app.xml",
+    "word/document.xml"
+  ],
+  "mapping": [
+    {
+      "entry_1_based": 1,
+      "heading": "第1章　研究背景与作品目标",
+      "anchor": "rw_heading_0",
+      "paragraph_id": null,
+      "old_page": 1,
+      "physical_page": 5,
+      "body_page": 1
+    },
+    {
+      "entry_1_based": 2,
+      "heading": "1.1　后量子密码实现的工程审计需求",
+      "anchor": "rw_heading_1",
+      "paragraph_id": null,
+      "old_page": 1,
+      "physical_page": 5,
+      "body_page": 1
+    },
+    {
+      "entry_1_based": 3,
+      "heading": "1.2　现有实现与统计工具的能力边界",
+      "anchor": "rw_heading_2",
+      "paragraph_id": null,
+      "old_page": 1,
+      "physical_page": 5,
+      "body_page": 1
+    },
+    {
+      "entry_1_based": 4,
+      "heading": "1.3　作品目标与总体技术路线",
+      "anchor": "rw_heading_3",
+      "paragraph_id": null,
+      "old_page": 3,
+      "physical_page": 7,
+      "body_page": 3
+    },
+    {
+      "entry_1_based": 5,
+      "heading": "第2章　ML-KEM实现审计的理论基础",
+      "anchor": "rw_heading_4",
+      "paragraph_id": null,
+      "old_page": 4,
+      "physical_page": 8,
+      "body_page": 4
+    },
+    {
+      "entry_1_based": 6,
+      "heading": "2.1　ML-KEM-768的接口与功能正确性",
+      "anchor": "rw_heading_5",
+      "paragraph_id": null,
+      "old_page": 4,
+      "physical_page": 8,
+      "body_page": 4
+    },
+    {
+      "entry_1_based": 7,
+      "heading": "2.2　外部输入检查与隐式拒绝语义",
+      "anchor": "rw_heading_6",
+      "paragraph_id": null,
+      "old_page": 5,
+      "physical_page": 9,
+      "body_page": 5
+    },
+    {
+      "entry_1_based": 8,
+      "heading": "2.3　执行时间的影响因素与样本单位",
+      "anchor": "rw_heading_7",
+      "paragraph_id": null,
+      "old_page": 6,
+      "physical_page": 10,
+      "body_page": 6
+    },
+    {
+      "entry_1_based": 9,
+      "heading": "2.4　成对随机化与整数精确检验",
+      "anchor": "rw_heading_8",
+      "paragraph_id": null,
+      "old_page": 6,
+      "physical_page": 10,
+      "body_page": 6
+    },
+    {
+      "entry_1_based": 10,
+      "heading": "2.5　运行分位数与相对性能开销",
+      "anchor": "rw_heading_9",
+      "paragraph_id": null,
+      "old_page": 7,
+      "physical_page": 11,
+      "body_page": 7
+    },
+    {
+      "entry_1_based": 11,
+      "heading": "第3章　本地审计与精确复算系统设计",
+      "anchor": "rw_heading_10",
+      "paragraph_id": null,
+      "old_page": 9,
+      "physical_page": 13,
+      "body_page": 9
+    },
+    {
+      "entry_1_based": 12,
+      "heading": "3.1　系统架构与模块协同",
+      "anchor": "rw_heading_11",
+      "paragraph_id": null,
+      "old_page": 9,
+      "physical_page": 13,
+      "body_page": 9
+    },
+    {
+      "entry_1_based": 13,
+      "heading": "3.2　固定快照管理与多实现构建隔离",
+      "anchor": "rw_heading_12",
+      "paragraph_id": null,
+      "old_page": 10,
+      "physical_page": 14,
+      "body_page": 10
+    },
+    {
+      "entry_1_based": 14,
+      "heading": "3.3　普通输入组织与完整解封装计时",
+      "anchor": "rw_heading_13",
+      "paragraph_id": null,
+      "old_page": 11,
+      "physical_page": 15,
+      "body_page": 11
+    },
+    {
+      "entry_1_based": 15,
+      "heading": "3.4　运行记录组织与来源一致性校验",
+      "anchor": "rw_heading_14",
+      "paragraph_id": null,
+      "old_page": 12,
+      "physical_page": 16,
+      "body_page": 12
+    },
+    {
+      "entry_1_based": 16,
+      "heading": "3.5　数据资格控制与精确复算实现",
+      "anchor": "rw_heading_15",
+      "paragraph_id": null,
+      "old_page": 13,
+      "physical_page": 17,
+      "body_page": 13
+    },
+    {
+      "entry_1_based": 17,
+      "heading": "3.6　材料复现流程与离线结果展示",
+      "anchor": "rw_heading_16",
+      "paragraph_id": null,
+      "old_page": 14,
+      "physical_page": 18,
+      "body_page": 14
+    },
+    {
+      "entry_1_based": 18,
+      "heading": "第4章　实现安全性与审计结论的适用范围",
+      "anchor": "rw_heading_17",
+      "paragraph_id": null,
+      "old_page": 16,
+      "physical_page": 20,
+      "body_page": 16
+    },
+    {
+      "entry_1_based": 19,
+      "heading": "4.1　本地审计的对象与可见信息",
+      "anchor": "rw_heading_18",
+      "paragraph_id": null,
+      "old_page": 16,
+      "physical_page": 20,
+      "body_page": 16
+    },
+    {
+      "entry_1_based": 20,
+      "heading": "4.2　标准语义与外部接口保护",
+      "anchor": "rw_heading_19",
+      "paragraph_id": null,
+      "old_page": 17,
+      "physical_page": 21,
+      "body_page": 17
+    },
+    {
+      "entry_1_based": 21,
+      "heading": "4.3　恒时实现检查与历史案例解释",
+      "anchor": "rw_heading_20",
+      "paragraph_id": null,
+      "old_page": 17,
+      "physical_page": 21,
+      "body_page": 17
+    },
+    {
+      "entry_1_based": 22,
+      "heading": "4.4　统计资格与条件错误控制",
+      "anchor": "rw_heading_21",
+      "paragraph_id": null,
+      "old_page": 18,
+      "physical_page": 22,
+      "body_page": 18
+    },
+    {
+      "entry_1_based": 23,
+      "heading": "4.5　复现一致性与研究结论的区分",
+      "anchor": "rw_heading_22",
+      "paragraph_id": null,
+      "old_page": 20,
+      "physical_page": 24,
+      "body_page": 20
+    },
+    {
+      "entry_1_based": 24,
+      "heading": "第5章　系统测试与实验结果分析",
+      "anchor": "rw_heading_23",
+      "paragraph_id": null,
+      "old_page": 21,
+      "physical_page": 25,
+      "body_page": 21
+    },
+    {
+      "entry_1_based": 25,
+      "heading": "5.1　原生测试环境与分层验证方案",
+      "anchor": "rw_heading_24",
+      "paragraph_id": null,
+      "old_page": 21,
+      "physical_page": 25,
+      "body_page": 21
+    },
+    {
+      "entry_1_based": 26,
+      "heading": "5.2　独立向量验收与工程边界检查",
+      "anchor": "rw_heading_25",
+      "paragraph_id": null,
+      "old_page": 22,
+      "physical_page": 26,
+      "body_page": 22
+    },
+    {
+      "entry_1_based": 27,
+      "heading": "5.3　普通解封装性能与跨运行波动",
+      "anchor": "rw_heading_26",
+      "paragraph_id": null,
+      "old_page": 22,
+      "physical_page": 27,
+      "body_page": 23
+    },
+    {
+      "entry_1_based": 28,
+      "heading": "5.4　精确复算效率与成本边界复核",
+      "anchor": "rw_heading_27",
+      "paragraph_id": null,
+      "old_page": 25,
+      "physical_page": 29,
+      "body_page": 25
+    },
+    {
+      "entry_1_based": 29,
+      "heading": "5.5　有限模型下的误拒绝与检出表现",
+      "anchor": "rw_heading_28",
+      "paragraph_id": null,
+      "old_page": 28,
+      "physical_page": 32,
+      "body_page": 28
+    },
+    {
+      "entry_1_based": 30,
+      "heading": "5.6　真实参考时间的后赋标签控制",
+      "anchor": "rw_heading_29",
+      "paragraph_id": null,
+      "old_page": 29,
+      "physical_page": 33,
+      "body_page": 29
+    },
+    {
+      "entry_1_based": 31,
+      "heading": "5.7　历史案例审计与封存材料复算",
+      "anchor": "rw_heading_30",
+      "paragraph_id": null,
+      "old_page": 31,
+      "physical_page": 35,
+      "body_page": 31
+    },
+    {
+      "entry_1_based": 32,
+      "heading": "5.8　同机人工机制的防护前后复测",
+      "anchor": "rw_heading_31",
+      "paragraph_id": null,
+      "old_page": 31,
+      "physical_page": 35,
+      "body_page": 31
+    },
+    {
+      "entry_1_based": 33,
+      "heading": "5.9　单次普通参考负载的窗口观察与恢复",
+      "anchor": "rw_heading_g2_20261010",
+      "paragraph_id": "CA160021",
+      "old_page": 34,
+      "physical_page": 38,
+      "body_page": 34
+    },
+    {
+      "entry_1_based": 34,
+      "heading": "第6章　作品特色与应用前景",
+      "anchor": "rw_heading_32",
+      "paragraph_id": null,
+      "old_page": 34,
+      "physical_page": 40,
+      "body_page": 36
+    },
+    {
+      "entry_1_based": 35,
+      "heading": "6.1　面向固定任务的专用复算效率",
+      "anchor": "rw_heading_33",
+      "paragraph_id": null,
+      "old_page": 34,
+      "physical_page": 40,
+      "body_page": 36
+    },
+    {
+      "entry_1_based": 36,
+      "heading": "6.2　数据资格与解释范围的一体化设计",
+      "anchor": "rw_heading_34",
+      "paragraph_id": null,
+      "old_page": 34,
+      "physical_page": 40,
+      "body_page": 36
+    },
+    {
+      "entry_1_based": 37,
+      "heading": "6.3　本地审计与密码工程教学",
+      "anchor": "rw_heading_35",
+      "paragraph_id": null,
+      "old_page": 35,
+      "physical_page": 41,
+      "body_page": 37
+    },
+    {
+      "entry_1_based": 38,
+      "heading": "第7章　总结与展望",
+      "anchor": "rw_heading_36",
+      "paragraph_id": null,
+      "old_page": 36,
+      "physical_page": 42,
+      "body_page": 38
+    },
+    {
+      "entry_1_based": 39,
+      "heading": "7.1　工作总结",
+      "anchor": "rw_heading_37",
+      "paragraph_id": null,
+      "old_page": 36,
+      "physical_page": 42,
+      "body_page": 38
+    },
+    {
+      "entry_1_based": 40,
+      "heading": "7.2　现有限制与后续工作",
+      "anchor": "rw_heading_38",
+      "paragraph_id": null,
+      "old_page": 36,
+      "physical_page": 42,
+      "body_page": 38
+    },
+    {
+      "entry_1_based": 41,
+      "heading": "参考文献",
+      "anchor": "rw_heading_39",
+      "paragraph_id": null,
+      "old_page": 37,
+      "physical_page": 43,
+      "body_page": 39
+    },
+    {
+      "entry_1_based": 42,
+      "heading": "附录A　实验材料与结论对应关系",
+      "anchor": "rw_heading_40",
+      "paragraph_id": null,
+      "old_page": 39,
+      "physical_page": 45,
+      "body_page": 41
+    },
+    {
+      "entry_1_based": 43,
+      "heading": "附录B　普通性能的完整分位数",
+      "anchor": "rw_heading_41",
+      "paragraph_id": null,
+      "old_page": 43,
+      "physical_page": 49,
+      "body_page": 45
+    }
+  ]
+}
