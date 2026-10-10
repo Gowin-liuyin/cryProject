@@ -1,0 +1,87 @@
+{
+  "schema": "ordinary-repeatability-manager-final-independent-repair-review-v1",
+  "reviewer": "raw_clock_claim_review",
+  "review_type": "same-model internal independent bounded delta/control-flow review",
+  "implementation_participation": false,
+  "external_codex_review_status": "pending Codex review",
+  "status": "passed_for_planned_deployment_qualification",
+  "bound_final_files": {
+    "remote_run.py": "00ba8794453f462d4a398b70692049db8e63dcd886f19c27a74b53159794f1a9",
+    "SOURCE_MANIFEST.json": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+    "REMOTE_CONTRACT.md": "ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2",
+    "EXPERIMENT_PLAN.md": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec"
+  },
+  "initial_runner_sha256": "40b74f05bf8ec9d29e80d5788a9c7fe447c771bdd35c97c542c3abd649088938",
+  "initial_review_preserved": true,
+  "findings_closed": [
+    {
+      "initial_id": 1,
+      "status": "closed",
+      "source_lines": [
+        624,
+        629,
+        635,
+        703,
+        709
+      ],
+      "basis": "signal-masked exclusive mkdir/ownership transition; no-owner finally returns without batch or archive writes"
+    },
+    {
+      "initial_id": 2,
+      "status": "closed",
+      "source_lines": [
+        689,
+        693,
+        747,
+        756,
+        776,
+        785
+      ],
+      "basis": "four accepted length/SHA pins retained; physical regular/length/SHA final comparison; mismatch blocks manifest/archive"
+    }
+  ],
+  "new_findings": [],
+  "pure_final_selfcheck": {
+    "reviewer_runs": 1,
+    "actual_exit_code": 0,
+    "selfcheck": true,
+    "real_clock_reads": 0,
+    "file_data_reads": 0,
+    "ssh_calls": 0,
+    "crypto_calls": 0
+  },
+  "extracted_pure_predicates": {
+    "negative_output_variants_rejected": 30,
+    "matching_outputs_accepted": true,
+    "unowned_empty_command_freeze_rejected": true,
+    "cleanup_unknown_or_group_present_rejected": true,
+    "filesystem_batch_io": 0
+  },
+  "other_delta_checks": {
+    "explicit_Unix_Makefiles": true,
+    "successful_command_output_byte_counts": true,
+    "no_changed_sampling_configuration_or_counts": true
+  },
+  "execution_history_distinction": {
+    "author_development_selfchecks_reported_by_handoff": 4,
+    "author_initial": 2,
+    "author_repair": 2,
+    "author_final_00ba_runs_reported": 1,
+    "reviewer_initial_pure_selfcheck_runs": 1,
+    "reviewer_final_00ba_pure_selfcheck_runs": 1,
+    "actual_all_role_total_not_independently_reconstructed": true
+  },
+  "reviewer_real_manager_c_ctest_ssh_collectors_full_crypto_sampling": 0,
+  "docs_edits": 0,
+  "commits": 0,
+  "remaining_gates": [
+    "fixed deployment commit and local 142-file Git byte binding",
+    "actual Linux source/ELF/software qualification",
+    "E1 and E2 actual collectors/metadata/C tables",
+    "owned process end checks and distinct authentication/download records",
+    "independent archive and full raw numeric/result-to-claim review"
+  ],
+  "r02_signed_off": false,
+  "r04_signed_off": false,
+  "report_sha256": "cd93825d10e4b6e865e8e2cb2e27564c7905c4d9e609444820493b243913d3b5"
+}

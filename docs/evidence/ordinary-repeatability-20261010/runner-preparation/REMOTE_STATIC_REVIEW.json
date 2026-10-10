@@ -1,0 +1,81 @@
+{
+  "schema": "ordinary-repeatability-manager-independent-static-review-v1",
+  "reviewer": "raw_clock_claim_review",
+  "review_type": "same-model internal independent bounded static review",
+  "implementation_participation": false,
+  "external_codex_review_status": "pending Codex review",
+  "status": "changes_required_before_deployment",
+  "reviewed_runner_sha256": "40b74f05bf8ec9d29e80d5788a9c7fe447c771bdd35c97c542c3abd649088938",
+  "reviewed_source_snapshot": "remote_run-reviewed-initial.py",
+  "source_manifest_sha256": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+  "remote_contract_sha256": "ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2",
+  "experiment_plan_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+  "manifest_files_checked_current_length_and_sha256": 140,
+  "total_deployment_files_intended": 142,
+  "findings": [
+    {
+      "id": 1,
+      "severity": "must_fix",
+      "title": "Failed exclusive batch claim still finalizes an unowned batch",
+      "source_lines": [
+        589,
+        654,
+        676
+      ],
+      "trigger": "two invocations pass preflight existence checks; one loses mkdir race",
+      "effect": "loser can create winner final evidence paths and archive an active tree",
+      "fix": "explicit signal-safe batch ownership flag; no batch finalization/archive on failed claim"
+    },
+    {
+      "id": 2,
+      "severity": "must_fix",
+      "title": "Export overwrites accepted CSV/metadata pins and omits accepted analysis/summary recheck",
+      "source_lines": [
+        644,
+        646,
+        688,
+        692
+      ],
+      "trigger": "accepted evidence changes between acceptance and freeze",
+      "effect": "accepted/completed receipt can bind unaccepted bytes",
+      "fix": "retain accepted four-file SHA/length pins; fail freezing on mismatch; record partial observations separately"
+    }
+  ],
+  "pure_selfcheck": {
+    "actual_exit_code": 0,
+    "selfcheck": true,
+    "real_clock_reads": 0,
+    "file_data_reads": 0,
+    "ssh_calls": 0,
+    "crypto_calls": 0
+  },
+  "memory_only_negative_controls": {
+    "failed_claim_empty_command_cleanup_gate_allows_export": true,
+    "accepted_pin_replacement_retains_accepted_status": true,
+    "real_filesystem_batch_used": false
+  },
+  "reviewer_actual_execution": {
+    "real_manager_paths": 0,
+    "c_or_ctest": 0,
+    "ssh": 0,
+    "collectors": 0,
+    "full_crypto": 0,
+    "docs_edits": 0,
+    "commits": 0
+  },
+  "review_scope_passes": [
+    "140 source pins/142 layout intent",
+    "E1 two exact five-test inventories and actual receipts",
+    "six ELF compile/link/digest gates",
+    "collector complete metadata then C summary acceptance",
+    "E2 old full manifest/member/source/runner/ELF/boot dependency",
+    "no E2 rebuilding or repeated qualification",
+    "remaining work-time and collector timeout caps",
+    "live-owned leader cleanup and group-gone gate",
+    "conservative incomplete-call accounting",
+    "six in-Cry environment paths/HOME preserved/no LSan claim",
+    "manifest excludes itself/archive includes it/separate final SHA"
+  ],
+  "deployment_permitted_by_this_review": false,
+  "report_sha256": "16fa7523d410b661f411e05f53a2a56053e77b1322dfde2e86dc7653324f7603"
+}

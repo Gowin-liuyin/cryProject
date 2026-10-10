@@ -1,0 +1,72 @@
+{
+  "schema": "ordinary-repeatability-independent-remote-contract-review-v1",
+  "written_utc": "2026-10-10T11:53:25.390463+00:00",
+  "status": "pass_limited_contract_scope_implementation_pending",
+  "software_source_commit": "f1410f8aae139ec2d114e23b4a143447ec6753ab",
+  "remote_contract_sha256": "6082289a4a23539486c447df7ac62f06a4d60e99724e956052f7932f6becba56",
+  "frozen_plan_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+  "source_manifest_sha256": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+  "source_manifest_checks": {
+    "records": 140,
+    "unique_records": 140,
+    "payload_bytes": 1927441,
+    "every_record_bytes_and_length_matches_current_tree": true,
+    "every_record_matches_f1410f8_git_blob_independently_checked": true,
+    "all_payload_paths_regular_nonsymlink": true,
+    "no_runner_or_self_in_manifest": true,
+    "with_runner_and_manifest_regular_file_count": 142
+  },
+  "contract_checks": {
+    "e1_two_configurations_five_tests_each": true,
+    "e1_six_executables_pinned": true,
+    "e2_same_six_elf_no_rebuild_no_new_ctest": true,
+    "e2_setup_calls_retained": true,
+    "linux_qualification_full_algorithm_calls": 132,
+    "linux_qualification_decap_calls": 24,
+    "e1_timed_calls": 150000,
+    "e1_setup_calls": 3,
+    "e2_timed_calls": 150000,
+    "e2_setup_calls": 3,
+    "full_linux_algorithm_calls_planned": 300138,
+    "full_linux_decap_calls_planned": 300030,
+    "full_sampling_clock_reads_planned": 600000,
+    "frequency_policy_files": 128,
+    "frequency_boost_files": 1,
+    "frequency_files_total": 129,
+    "clocksource_separate_from_frequency_count": true,
+    "actual_resolution_not_preset_one_ns": true,
+    "deadline_remaining_bounds_each_command": true,
+    "work_budget_per_batch_seconds": 300,
+    "separate_export_budget_seconds": 30,
+    "linux_detect_leaks": 0,
+    "linux_asan_ubsan_only": true,
+    "no_dumpable_relaxation_for_lsan": true,
+    "unknown_cleanup_blocks_manifest_success_and_next_batch": true,
+    "only_cry_including_cache_and_temp_and_archive": true,
+    "only_self_cpu2_affinity_no_global_configuration_writes": true,
+    "no_statistical_or_r02_total_certification": true
+  },
+  "operational_verification_notes": [
+    {
+      "id": "N1",
+      "note": "Local operator must verify/download E1 originals and genuinely close/re-authenticate SSH before E2; remote e1 state or e2 argument alone proves neither."
+    },
+    {
+      "id": "N2",
+      "note": "For E2 archive, current E2 manifest governs full membership; old E1 manifest checks old snapshot bytes and is not required to enumerate new E2 files."
+    }
+  ],
+  "scope": {
+    "remote_runner_existed_at_contract_read": false,
+    "remote_runner_implementation_review_completed": false,
+    "remote_runner_selfcheck_executed": false,
+    "real_linux_qualification_or_collectors_started_by_reviewer": false,
+    "ssh_calls": 0,
+    "c_or_ctest_runs": 0,
+    "new_cryptographic_operations": 0,
+    "source_or_docs_mutations": 0,
+    "commits": 0,
+    "external_codex_review": false
+  },
+  "report_sha256": "52b1e758e02d7d045bbf557c77eb69bd74f4c21eafa1119f111eafa7f2980719"
+}

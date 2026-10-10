@@ -1,0 +1,17 @@
+# Ordinary repeatability manager: final budget delta review
+
+2026-10-10。**857d30a0预算修正的限定独立审查通过，无新增阻断。** 本页仅审查相对已通过00ba8794版本的12行改动及有关deadline控制流，保留原REMOTE_FINAL_REVIEW和00ba快照原字节。该判断为同模型内部独立审查，外部Codex MCP仍不可用、pending。
+
+本次runner SHA256为`857d30a018662251cfdba7e9070a5dd1c9aa6132be1f2a86cee7b218a31e6ae7`；REMOTE_CONTRACT仍为`ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2`，SOURCE_MANIFEST仍为`c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552`，事前合同仍为`90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec`。
+
+现在run_once入口的前三条语句保存monotonic起点、对应UTC和同一`started+300`截止点，之后才检查路径、140源、E1旧树、真实上下文及依赖。旧的后置起点赋值已删除，源码中只保留一份起点与工作截止赋值。state使用入口UTC并保存其构造时已耗的preflight_elapsed_seconds；最终work_elapsed_seconds也沿用同一起点，因此包含前置检查成本。
+
+安装工作计时器之前，程序按同一deadline计算实际剩余预算。剩余小于或等于0时抛出明确preflight预算错误，位置早于独占batch mkdir、版本子命令、构建、CTest或collector；本条路径不取得batch目录，也不执行后续C/采样。剩余为正时只把该剩余值交给setitimer，未重置为额外300秒。已有boundary与command的剩余时间检查仍使用同一work_deadline，等待上限继续取局部限额与剩余工作时间的较小者。
+
+本次只做AST/文本控制流和五个纯数值例子，未调用run_once或任何真实时钟来模拟运行：前置耗时0、1、299.5秒分别剩余300、299、0.5秒；后者collector管理等待最多0.5秒。耗时恰300秒或301秒时剩余0/-1，不允许创建batch或启动依赖步骤。检查同时确认了剩余预算判断先于timer与mkdir、两处command wait仍引用原deadline。
+
+修正不触碰先前关闭的目录归属、四份接受原件摘要/长度、清理未知或manifest/archive门，也不改变C源码、样本数、资格次数或统计口径。本次未执行C、CTest、SSH、真实manager、collector、密码算法或采样，未修改docs或提交。此前独立00ba纯selfcheck的一次实际执行保留其原身份；根代理报告新增857纯selfcheck退出0，属于根代理执行，本页没有重复运行或冒称独立见证该命令。
+
+300秒仍是软工作预算。前置文件系统操作可能阻塞，不能据这次修正宣称其在300秒内硬实时中断；预算耗尽后的禁止新工作与已有句柄清理是不同义务。外层SSH观察超时也不证明远端已结束，仍须按真实句柄/PID/starttick核查，不自动重采。上传、认证、下载与独立导出阶段不被暗中改称这个工作预算的一部分。
+
+结论：预算缺口在本次限定修正中闭合，可沿既定真实部署/资格流程继续；实际Linux运行、生命周期与原值核验仍须其自己的证据，R02/R04未签收。

@@ -1,0 +1,75 @@
+{
+  "schema": "ordinary-repeatability-independent-remote-interface-review-v1",
+  "written_utc": "2026-10-10T12:05:16.111684+00:00",
+  "status": "two_fixes_required_before_runner_freeze",
+  "reviewed_runner_sha256": "40b74f05bf8ec9d29e80d5788a9c7fe447c771bdd35c97c542c3abd649088938",
+  "preserved_runner_snapshot": "remote-interface-reviewed-40b74f05.py",
+  "current_runner_sha256_at_report": "40b74f05bf8ec9d29e80d5788a9c7fe447c771bdd35c97c542c3abd649088938",
+  "final_remote_contract_sha256": "ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2",
+  "frozen_plan_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+  "source_manifest_sha256": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+  "findings": [
+    {
+      "id": "I1",
+      "severity": "completeness_identity",
+      "source_lines": [
+        629,
+        642,
+        644,
+        693,
+        695,
+        729
+      ],
+      "finding": "Finalization overwrites accepted CSV/metadata digests with current values or None and does not revalidate accepted analysis/summary; missing or changed accepted outputs do not force completed status to fail.",
+      "required_delta": "Compare all four accepted output paths and original digests, preserve those original identities, record failure and prohibit complete success for any missing/nonregular/mismatching file.",
+      "file_failure_simulation_executed": false
+    },
+    {
+      "id": "I2",
+      "severity": "contract_interface",
+      "source_lines": [
+        538,
+        540
+      ],
+      "finding": "Configure argv omits explicit generator despite contract requiring it and later relying on Make link.txt layout.",
+      "required_delta": "Pin -G Unix Makefiles in manager configure argv."
+    }
+  ],
+  "checked_consistency": {
+    "root_commit_batch_and_ordinary_linux_user": true,
+    "exact_140_plus_runner_manifest_layout": true,
+    "e1_five_ctests_each_configuration_six_elf": true,
+    "e2_reuses_same_six_elf_without_new_qualification": true,
+    "e1_qualification_calls": 132,
+    "e1_qualification_decap_calls": 24,
+    "two_batches_full_algorithm_calls_planned": 300138,
+    "two_batches_decap_calls_planned": 300030,
+    "two_batches_timed_calls_planned": 300000,
+    "two_batches_sampling_clock_reads_planned": 600000,
+    "separate_supervisor_complete_and_accepted_counts": true,
+    "actual_resolution_not_preset_one_ns": true,
+    "frequency_files": 129,
+    "clocksource_separate": true,
+    "remaining_work_deadline_per_command_interface": true,
+    "linux_detect_leaks_zero_no_lsan_or_dumpable_relaxation": true,
+    "e2_before_creation_old_full_tree_then_end_old_snapshot_members": true,
+    "current_manifest_full_tree_self_excluded_archive_self_included": true,
+    "e1_download_and_true_new_ssh_external_local_responsibility": true
+  },
+  "scope": {
+    "review_kind": "static high-level interface and count/artifact semantics; lifecycle deep review not claimed",
+    "real_manager_runs": 0,
+    "in_memory_manager_runs": 0,
+    "manager_selfcheck_runs": 0,
+    "c_or_ctest_runs": 0,
+    "ssh_calls": 0,
+    "new_full_algorithm_calls": 0,
+    "file_delete_or_modify_fault_simulations": 0,
+    "docs_or_implementation_mutations": 0,
+    "commits": 0,
+    "linux_qualification_accepted": false,
+    "r02_total_acceptance": false,
+    "r04_new_evidence": false
+  },
+  "report_sha256": "737a277495dc800dc985f26a8ece07e34ef95fba0ab5b915e8a4e30d47900334"
+}

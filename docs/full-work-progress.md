@@ -388,3 +388,6 @@ Tyurin固定v1式1/定理7条件与0.5606原文经独立核查，采用保守常
 
 2026-10-10完成[完整普通参考重复性软件准备](research/aris-ordinary-repeatability-20261010/README.md)：只固定NISTtg5/tc86公开有效fixture、完整mlkem_decapsulate、25000预热+25000主调用、两近邻连接批次各三新进程；十八列原值明确操作/失败/匹配，严格C6行及守恒，五helper/统计复用已独立核对。新collector a895575c、analyzer f9fd89c8、CMake403c9910、合同90ced1f1，旧工具/核心/vendor/向量不改。
 本机Mac/ARM普通及ASan-UBSan各4/4初次通过，按完成测试路径132完整算法调用、零计时/硬件采集，detect_leaks=0不称LSan；公开fixture与原JSON/转换向量逐字一致，拒绝参照不等式及新完整输出匹配共同支持该固定有效样例。指定Linux只读CPU2/Cry/工具/空间预检通过，首次本机socket过长失败保留，重认后回读及SSH关闭完成，无远端项目写入。源码/独立合同与代码审查/527成员77b6cbb6完整软件ZIP封存，Linux5项资格、远端管理和六collector仍未执行；R02/R04 partial，完整目标继续。
+
+2026-10-10完成[普通参考两批远端管理准备](research/aris-ordinary-repeatability-20261010/REMOTE_NOTES.md)：140固定源清单c95d924d+manager/manifest共142，候选2.14MB源tar/2b537837全成员核对；E1两配置各5项与六ELF，E2同源/boot/六ELF复用不再资格，剩余300s软期限从前置核验起算，清理不明禁封存，全部项目落盘只用Cry。
+独立初版40b74发现未取得目录归属仍finally写他人批次、accepted摘要被当前字节覆盖两阻断及生成器要求；00ba按归属门/四原件原len+SHA/显式Make修复复审，根再收前置预算至最终857d30a0，增量复审通过。原拒绝/快照和最终源码/评语均封存，pure selfcheck及输出30负例/预算5边界、上传20内存负例分列；无真实manager/上传/新完整算法或采样，Linux资格/E1/E2仍待。root观察超时不当terminal，不补进程，R02/R04 partial及完整目标保持。

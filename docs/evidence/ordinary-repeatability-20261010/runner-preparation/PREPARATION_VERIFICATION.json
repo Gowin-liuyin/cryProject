@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-10-10T12:20:08.632056+00:00",
+  "final_runner_sha256": "857d30a018662251cfdba7e9070a5dd1c9aa6132be1f2a86cee7b218a31e6ae7",
+  "final_contract_sha256": "ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2",
+  "source_manifest_sha256": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+  "frozen_plan_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+  "source_baseline_commit": "f1410f8aae139ec2d114e23b4a143447ec6753ab",
+  "root_observed_final_857_selfcheck": {
+    "exit": 0,
+    "stdout": {
+      "selfcheck": true,
+      "real_clock_reads": 0,
+      "file_reads": 0,
+      "ssh_calls": 0,
+      "crypto_calls": 0
+    },
+    "scope": "pure selfcheck logic; observation recorded from actual tool execution, no independently recorded command start UTC"
+  },
+  "selfcheck_history": "author reports two initial and two correction checks, with latest author check at 00ba; independent lifecycle review actually checked initial40b7 and 00ba, interface review checked00ba; root checked00ba and final857. Budget review used five numeric boundary cases, not a repeated manager execution. Version scopes retained in individual original reports.",
+  "review_scope": "same-model bounded internal reviews; external Codex MCP unavailable",
+  "remote_manager_executed": false,
+  "remote_project_files_written": false,
+  "remote_collectors_started": 0,
+  "new_full_algorithm_calls_in_this_manager_module": 0,
+  "candidate_source_archive_sha256": "2b5378377c012c291412e7e022bd142de24419e4843d7877b75c6a71faba53a2",
+  "candidate_archive_members": 142,
+  "post_commit_Git_binding_pending": true,
+  "uploader_real_execution": false,
+  "r02_signed_off": false,
+  "r04_signed_off": false
+}

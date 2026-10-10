@@ -1,0 +1,22 @@
+{
+  "schema": "ordinary-repeatability-reviewer-pure-manager-selfcheck-v1",
+  "checked_utc": "2026-10-10T12:11:28.085099+00:00",
+  "runner_sha256": "00ba8794453f462d4a398b70692049db8e63dcd886f19c27a74b53159794f1a9",
+  "argv": [
+    "python3",
+    "-B",
+    "/Users/yin/code/cryProject/docs/research/aris-ordinary-repeatability-20261010/remote_run.py",
+    "--selfcheck"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"selfcheck\": true, \"real_clock_reads\": 0, \"file_reads\": 0, \"ssh_calls\": 0, \"crypto_calls\": 0}\n",
+  "stderr": "",
+  "source_unchanged_after": true,
+  "scope": "only original --selfcheck branch; no run_once, remote path or command execution, no C/CTest/SSH/collector, no new complete algorithm calls",
+  "real_deployment_runs": 0,
+  "c_or_ctest_runs": 0,
+  "ssh_calls": 0,
+  "sampling_reads": 0,
+  "full_algorithm_calls": 0,
+  "uploader_memory_checks_repeated": false
+}

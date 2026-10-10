@@ -1,0 +1,62 @@
+{
+  "schema": "ordinary-repeatability-independent-upload-review-v1",
+  "written_utc": "2026-10-10T12:00:55.119086+00:00",
+  "status": "pass_limited_static_and_memory_scope",
+  "helper_sha256": "83777169a2f2298e09ec0482b80333856d24f9445a0f2a17fb4766b37a1f3bb2",
+  "final_remote_contract_sha256": "ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2",
+  "frozen_plan_sha256": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec",
+  "fixed_manifest_sha256": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+  "static_checks": {
+    "only_cry_root_carrier_source_paths": true,
+    "physical_ancestor_and_initial_existing_symlink_checks": true,
+    "exclusive_carrier_and_root_source_creation": true,
+    "all_payload_validated_before_project_file_write": true,
+    "maximum_carrier_bytes": 8388608,
+    "read_limit_bytes": 8388609,
+    "tar_member_count_exactly": 142,
+    "manifest_fixed_file_count": 140,
+    "unique_regular_canonical_relative_members": true,
+    "no_extractall": true,
+    "full_fixed_manifest_and_source_hash_check": true,
+    "runner_hash_separately_pinned": true,
+    "source_git_binding_local_operator_responsibility": true,
+    "postwrite_each_file_physical_path_and_hash_check": true,
+    "postwrite_carrier_hash_check": true,
+    "no_old_file_delete_or_overwrite": true
+  },
+  "memory_validation": {
+    "report_sha256": "d920d1e06a955607370ed801b7c735f5b4599d9d88cd1fe1e4ac6d07cfee5bb5",
+    "source_original_ast_lines": [
+      30,
+      57
+    ],
+    "positive_142_member_payload_accepted": true,
+    "positive_runner_is_explicit_memory_standin": true,
+    "negative_cases": 20,
+    "all_negative_cases_rejected": true,
+    "harness_preparation_errors_retained": [
+      "First AST safety assertion stopped before validator execution because it treated tarfile.open(fileobj=BytesIO) as filesystem open; corrected to allow only that in-memory tar API.",
+      "Second attempt reached first validation expression with missing injected blob global; NameError stopped before archive validation.",
+      "Third attempt fixed harness only; positive accepted and all negative cases rejected. No helper filesystem branch executed in any attempt."
+    ],
+    "helper_filesystem_branch_executed": false,
+    "real_target_permissions_or_disk_errors_tested": false,
+    "concurrent_path_replacement_resistance_certified": false
+  },
+  "reviewer_scope": {
+    "ssh_actions": 0,
+    "remote_files_created": 0,
+    "actual_uploads": 0,
+    "c_or_ctest_runs": 0,
+    "full_mlkem_calls": 0,
+    "root_source_docs_changes": 0,
+    "commits": 0,
+    "real_manager_run": false,
+    "all_software_implementation_audited": false
+  },
+  "final_contract_additions_match_prior_notes": {
+    "local_e1_verified_download_and_true_reauthentication_before_e2": true,
+    "current_e2_manifest_full_membership_old_e1_snapshot_bytes_only": true
+  },
+  "report_sha256": "32b1e5b9279c19e6fc058e66f51672edff26307622247f2389a1fdcc267bb6d3"
+}

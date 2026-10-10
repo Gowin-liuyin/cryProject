@@ -1,0 +1,80 @@
+{
+  "schema": "ordinary-repeatability-manager-budget-final-independent-review-v1",
+  "reviewer": "raw_clock_claim_review",
+  "review_type": "same-model internal independent bounded 12-line delta and deadline-flow review",
+  "status": "passed",
+  "external_codex_review_status": "pending Codex review",
+  "bound_final_files": {
+    "remote_run.py": "857d30a018662251cfdba7e9070a5dd1c9aa6132be1f2a86cee7b218a31e6ae7",
+    "SOURCE_MANIFEST.json": "c95d924d31e0c085724f89a97c5808c7706bcae22ec1bd683c5b45b8495f6552",
+    "REMOTE_CONTRACT.md": "ccb0ec975d52bcbfda5acec69784cdde6604b9114533976d37c284d1fe315fc2",
+    "EXPERIMENT_PLAN.md": "90ced1f1d1157f80997f5af3e2afaeb83c7bf8a488c00c229ac77d55d7cd70ec"
+  },
+  "previous_runner_sha256": "00ba8794453f462d4a398b70692049db8e63dcd886f19c27a74b53159794f1a9",
+  "reviewed_diff_sha256": "c1b80024c5e8ec3d4b4d4baae0935a474c1ca939c12e5d046d4e782306f3aeee",
+  "old_final_review_unchanged": true,
+  "findings": [],
+  "checks": {
+    "run_once_first_three_statements_are_start_utc_deadline": true,
+    "one_start_and_work_deadline_assignment": true,
+    "preflight_cost_counted_in_same_soft_budget": true,
+    "state_entry_utc_and_elapsed_preflight_recorded": true,
+    "remaining_budget_timer_not_reset_to_300": true,
+    "nonpositive_remaining_rejected_before_batch_mkdir_and_child": true,
+    "boundary_and_command_waits_keep_same_deadline": true,
+    "old_ownership_and_accepted_pin_gates_unchanged": true
+  },
+  "pure_numeric_cases": [
+    {
+      "elapsed_preflight_seconds": 0.0,
+      "remaining_seconds": 300.0,
+      "may_create_batch_and_continue": true,
+      "collector_wait_upper_bound": 20.0
+    },
+    {
+      "elapsed_preflight_seconds": 1.0,
+      "remaining_seconds": 299.0,
+      "may_create_batch_and_continue": true,
+      "collector_wait_upper_bound": 20.0
+    },
+    {
+      "elapsed_preflight_seconds": 299.5,
+      "remaining_seconds": 0.5,
+      "may_create_batch_and_continue": true,
+      "collector_wait_upper_bound": 0.5
+    },
+    {
+      "elapsed_preflight_seconds": 300.0,
+      "remaining_seconds": 0.0,
+      "may_create_batch_and_continue": false,
+      "collector_wait_upper_bound": null
+    },
+    {
+      "elapsed_preflight_seconds": 301.0,
+      "remaining_seconds": -1.0,
+      "may_create_batch_and_continue": false,
+      "collector_wait_upper_bound": null
+    }
+  ],
+  "reviewer_execution": {
+    "ast_and_text_inspection": true,
+    "pure_numeric_cases": 5,
+    "run_once": 0,
+    "actual_selfchecks_on_857": 0,
+    "c_ctest_ssh_collectors_full_crypto_sampling": 0,
+    "docs_edits": 0,
+    "commits": 0
+  },
+  "other_role_execution": {
+    "root_reported_857_pure_selfcheck_exit": 0,
+    "not_repeated_or_independently_witnessed_by_this_review": true
+  },
+  "limitations": [
+    "soft budget; no hard realtime guarantee for blocking preflight filesystem calls",
+    "outer SSH observation timeout is not proof of remote process termination",
+    "actual Linux qualification/lifecycle/sampling remain pending real evidence"
+  ],
+  "r02_signed_off": false,
+  "r04_signed_off": false,
+  "report_sha256": "7537c96d0d75f15831413a180dc054f6b38b0cddf92e2874d96ff6b02b54de1a"
+}

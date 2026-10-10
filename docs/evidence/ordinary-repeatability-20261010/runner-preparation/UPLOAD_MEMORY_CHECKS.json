@@ -1,0 +1,154 @@
+{
+  "schema": "upload-helper-pure-memory-payload-negative-checks-v1",
+  "helper_sha256": "83777169a2f2298e09ec0482b80333856d24f9445a0f2a17fb4766b37a1f3bb2",
+  "selected_original_ast_lines": [
+    30,
+    57
+  ],
+  "positive_payload_source": "actual fixed 140 source files + actual fixed manifest + explicit in-memory stand-in runner pass-newline; this does not prove deployed runner identity or real upload",
+  "positive_members_accepted": 142,
+  "positive_tar_bytes": 2078720,
+  "negative_count": 20,
+  "all_negative_cases_rejected": true,
+  "cases": [
+    {
+      "name": "143_extra_member",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "expected 142 unique regular source members"
+    },
+    {
+      "name": "141_missing_member",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "expected 142 unique regular source members"
+    },
+    {
+      "name": "142_duplicate_member",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "expected 142 unique regular source members"
+    },
+    {
+      "name": "absolute",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "parent_traversal",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "dot_component",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "double_slash",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "empty_name",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "symbolic_link",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "hard_link",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "directory",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "pax_parent_override",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "empty_regular_file",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "unsafe source member"
+    },
+    {
+      "name": "fixed_source_modified",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "fixed source bytes mismatch: docs/research/aris-ordinary-repeatability-20261010/CMakeLists.txt"
+    },
+    {
+      "name": "fixed_manifest_modified",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "fixed manifest mismatch"
+    },
+    {
+      "name": "wrong_source_coverage",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "source coverage mismatch"
+    },
+    {
+      "name": "runner_modified",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "runner digest mismatch"
+    },
+    {
+      "name": "carrier_digest_mismatch",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "source archive length or digest mismatch"
+    },
+    {
+      "name": "oversize_carrier",
+      "rejected": true,
+      "exception": "ValueError",
+      "message": "source archive length or digest mismatch"
+    },
+    {
+      "name": "truncated_tar",
+      "rejected": true,
+      "exception": "ReadError",
+      "message": "unexpected end of data"
+    }
+  ],
+  "harness_preparation_history": [
+    "First AST safety assertion stopped before validator execution because it treated tarfile.open(fileobj=BytesIO) as filesystem open; corrected to allow only that in-memory tar API.",
+    "Second attempt reached first validation expression with missing injected blob global; NameError stopped before archive validation.",
+    "Third attempt fixed harness only; positive accepted and all negative cases rejected. No helper filesystem branch executed in any attempt."
+  ],
+  "excluded_helper_operations": [
+    "physical ancestor probes",
+    "root/carrier existence probes",
+    "stdin read",
+    "umask",
+    "all mkdir/open/file writes",
+    "staged file rereads",
+    "success upload stdout"
+  ],
+  "remote_actions": 0,
+  "validation_segment_filesystem_writes": 0,
+  "c_or_ctest_runs": 0,
+  "full_mlkem_calls": 0,
+  "actual_uploads": 0
+}
