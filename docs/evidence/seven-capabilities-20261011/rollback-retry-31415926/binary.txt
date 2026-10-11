@@ -1,0 +1,12 @@
+run_id=v3-rollback-retry
+path=/home/nss-marker/yhr/Cry/seven-capabilities-20261011/build-v3-rollback-retry/vulnerable/session_collect
+sha256=62ee2397863aef01792854e1298475579388cc7c5d32eefd499e774c2aef4e8a
+sha3_256=76054244cf14e7ad173806b65c83aa324a593cba6ed309013ece6ae7d72d6b4c
+compiler=GCC: (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+build_type=RelWithDebInfo
+sanitizers=OFF
+cpu_affinity=taskset -c 2
+protocol_sha256=77e81746aa0f7c8768c71edd053ff2648f2cf68c46465708e75ddef1a7d0df2a
+session_budget=20
+sample_budget_per_class=5000
+csv_lines=500001
