@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="204" viewBox="0 0 920 204">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="288" viewBox="0 0 920 288">
 <rect width="100%" height="100%" fill="#ffffff"/>
 <text x="16" y="28" font-family="sans-serif" font-size="16" fill="#111111">X.4 三条确认都未拒绝，定位成功分母为 0</text>
-<text x="16" y="48" font-family="sans-serif" font-size="11" fill="#444444">ryzen-positive/vulnerable-decision.txt, hardened-decision.txt, rollback-decision.txt, vulnerable-rank.txt</text>
+<text x="16" y="48" font-family="sans-serif" font-size="11" fill="#444444">ryzen-positive 的三条决策；ryzen-confirm-v3 的 vulnerable/hardened/rollback 决策。回滚没有恢复 Holm 拒绝</text>
 <text x="16.0" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">run_id</text>
 <text x="193.6" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">primary_mean</text>
 <text x="371.2" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">p</text>
@@ -25,4 +25,22 @@
 <text x="371.2" y="166" font-family="sans-serif" font-size="12" fill="#111111">0.258</text>
 <text x="548.8" y="166" font-family="sans-serif" font-size="12" fill="#111111">no</text>
 <text x="726.4" y="166" font-family="sans-serif" font-size="12" fill="#111111">not_established</text>
+<line x1="16" y1="176" x2="904" y2="176" stroke="#dddddd"/>
+<text x="16.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">v3-vulnerable</text>
+<text x="193.6" y="194" font-family="sans-serif" font-size="12" fill="#111111">-5.47</text>
+<text x="371.2" y="194" font-family="sans-serif" font-size="12" fill="#111111">0.003</text>
+<text x="548.8" y="194" font-family="sans-serif" font-size="12" fill="#111111">yes</text>
+<text x="726.4" y="194" font-family="sans-serif" font-size="12" fill="#111111">top3_has_reencryption</text>
+<line x1="16" y1="204" x2="904" y2="204" stroke="#dddddd"/>
+<text x="16.0" y="222" font-family="sans-serif" font-size="12" fill="#111111">v3-hardened</text>
+<text x="193.6" y="222" font-family="sans-serif" font-size="12" fill="#111111">-1.54</text>
+<text x="371.2" y="222" font-family="sans-serif" font-size="12" fill="#111111">0.197</text>
+<text x="548.8" y="222" font-family="sans-serif" font-size="12" fill="#111111">no</text>
+<text x="726.4" y="222" font-family="sans-serif" font-size="12" fill="#111111">shrink_gate</text>
+<line x1="16" y1="232" x2="904" y2="232" stroke="#dddddd"/>
+<text x="16.0" y="250" font-family="sans-serif" font-size="12" fill="#111111">v3-rollback</text>
+<text x="193.6" y="250" font-family="sans-serif" font-size="12" fill="#111111">-2.98</text>
+<text x="371.2" y="250" font-family="sans-serif" font-size="12" fill="#111111">0.026</text>
+<text x="548.8" y="250" font-family="sans-serif" font-size="12" fill="#111111">no</text>
+<text x="726.4" y="250" font-family="sans-serif" font-size="12" fill="#111111">restore_not_established</text>
 </svg>

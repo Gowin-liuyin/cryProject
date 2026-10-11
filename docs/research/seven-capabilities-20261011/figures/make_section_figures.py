@@ -91,6 +91,10 @@ def build():
     apple_meta = read_fields(EVIDENCE / "apple-silicon/v-1.meta")
     v2 = read_fields(EVIDENCE / "ryzen-confirm-v2/vulnerable-decision.txt")
     v2_meta = read_fields(EVIDENCE / "ryzen-confirm-v2/vulnerable-s1.meta")
+    v3 = read_fields(EVIDENCE / "ryzen-confirm-v3/vulnerable-decision.txt")
+    v3_meta = read_fields(EVIDENCE / "ryzen-confirm-v3/vulnerable-s01.meta")
+    v3_hardened = read_fields(EVIDENCE / "ryzen-confirm-v3/hardened-decision.txt")
+    v3_rollback = read_fields(EVIDENCE / "ryzen-confirm-v3/rollback-decision.txt")
     hardened = read_fields(EVIDENCE / "ryzen-positive/hardened-decision.txt")
     rollback = read_fields(EVIDENCE / "ryzen-positive/rollback-decision.txt")
     rank = read_fields(EVIDENCE / "ryzen-positive/vulnerable-rank.txt")
@@ -143,8 +147,16 @@ def build():
                     f"{float(v2['primary_p_value']):.3f}",
                     v2["holm_rejected_primary"],
                 ],
+                [
+                    "v3-vulnerable",
+                    v3_meta["resolution_counts"],
+                    v3_meta["empty_window_max_counts"],
+                    f"{float(v3['primary_mean_difference_counts']):.2f}",
+                    f"{float(v3['primary_p_value']):.3f}",
+                    v3["holm_rejected_primary"],
+                ],
             ],
-            "ryzen-positive/vulnerable-decision.txt + s1.meta；apple-silicon/vulnerable-decision.txt + v-1.meta；ryzen-confirm-v2/vulnerable-decision.txt + vulnerable-s1.meta",
+            "ryzen-positive、apple-silicon、ryzen-confirm-v2、ryzen-confirm-v3 的决策文件和 s1 元数据",
         ),
         "x2-overhead.svg": svg_table(
             "X.2 插桩开销与开发种子窗口，未减钩子常数",
@@ -189,8 +201,29 @@ def build():
                     rollback["holm_rejected_primary"],
                     "not_established",
                 ],
+                [
+                    "v3-vulnerable",
+                    f"{float(v3['primary_mean_difference_counts']):.2f}",
+                    f"{float(v3['primary_p_value']):.3f}",
+                    v3["holm_rejected_primary"],
+                    "top3_has_reencryption",
+                ],
+                [
+                    "v3-hardened",
+                    f"{float(v3_hardened['primary_mean_difference_counts']):.2f}",
+                    f"{float(v3_hardened['primary_p_value']):.3f}",
+                    v3_hardened["holm_rejected_primary"],
+                    "shrink_gate",
+                ],
+                [
+                    "v3-rollback",
+                    f"{float(v3_rollback['primary_mean_difference_counts']):.2f}",
+                    f"{float(v3_rollback['primary_p_value']):.3f}",
+                    v3_rollback["holm_rejected_primary"],
+                    "restore_not_established",
+                ],
             ],
-            "ryzen-positive/vulnerable-decision.txt, hardened-decision.txt, rollback-decision.txt, vulnerable-rank.txt",
+            "ryzen-positive 的三条决策；ryzen-confirm-v3 的 vulnerable/hardened/rollback 决策。回滚没有恢复 Holm 拒绝",
         ),
         "x5-rtt.svg": svg_table(
             "X.5 客户端 RTT 原始时钟计数，不是 Mac 到 Ryzen 的路径",

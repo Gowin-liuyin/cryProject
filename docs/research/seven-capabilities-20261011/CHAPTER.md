@@ -17,6 +17,7 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 | `ryzen-vulnerable` | `ryzen-positive/vulnerable-decision.txt`，`ryzen-positive/vulnerable-s1.meta` | 1 | 40 | 6 × 1000 | 15.44 | 0.419 | no | −18.96, 49.85 |
 | `apple-v` | `apple-silicon/vulnerable-decision.txt`，`apple-silicon/v-1.meta` | 1000 | 1000 | 6 × 1000 | −297.67 | 0.627 | no | −1424.51, 829.17 |
 | `v2-vulnerable` | `ryzen-confirm-v2/vulnerable-decision.txt`，`ryzen-confirm-v2/vulnerable-s1.meta` | 1 | 60 | 20 × 5000 | 1.40 | 0.852 | no | −13.13, 15.93 |
+| `v3-vulnerable` | `ryzen-confirm-v3/vulnerable-decision.txt`，`ryzen-confirm-v3/vulnerable-s01.meta` | 1 | 110 | 20 × 5000 | −5.47 | 0.00287 | yes | −8.60, −2.33 |
 
 确认集上，人工消息分支的主比较是全 0 类均值减去全 1 类均值。`ryzen-vulnerable` 六个会话的主效应均值是 15.44 个时钟计数，t 为 0.880，双侧 p 为 0.419，Holm 没有拒绝。95% Wald 区间是 −18.96 到 49.85，跨过 0。把六个会话的调用摊开看，全 0 类 6000 次均值 29747.28、标准差 1281.62、P50 为 29635；全 1 类均值 29731.84、标准差 1041.21、P50 为 29636。类别差小于空窗里已经出现的 40 计数长尾。`apple-v` 的主效应均值是 −297.67，t 为 −0.518，p 为 0.627，Wald 区间 −1424.51 到 829.17，同样没有拒绝。在这条冻结规则下，两台机器都没有检出明显时间泄露。
 
@@ -73,6 +74,11 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 | `ryzen-vulnerable` | `ryzen-positive/vulnerable-decision.txt`，`ryzen-positive/vulnerable-rank.txt` | 15.44 | 0.419 | no | 检测未成立，`single_root_cause=not_forced` |
 | `ryzen-hardened` | `ryzen-positive/hardened-decision.txt` | 29.90 | 0.066 | no | 不能写成差异消失 |
 | `ryzen-rollback` | `ryzen-positive/rollback-decision.txt` | −18.17 | 0.258 | no | 不能写成差异恢复 |
+| `v3-vulnerable` | `ryzen-confirm-v3/vulnerable-decision.txt`，`ryzen-confirm-v3/trace-rank.txt` | −5.47 | 0.00287 | yes | 一次诊断追踪的 Top-3 含重加密 |
+| `v3-hardened` | `ryzen-confirm-v3/hardened-decision.txt` | −1.54 | 0.197 | no | 同一 Holm 门不再拒绝 |
+| `v3-rollback` | `ryzen-confirm-v3/rollback-decision.txt` | −2.98 | 0.026 | no | 没有恢复 Holm 拒绝 |
+
+`v3-vulnerable` 在种子 `31415926`、20×5000 上被 Holm 拒绝。同一种子的一次诊断追踪里，重加密和 `baseline_stage_reencrypt_message` 都在 Top-3，分母是 1/1，`single_root_cause=not_asserted`。掩码后的 `v3-hardened` 不再拒绝。新目录重新构建的 `v3-rollback` 的 p 为 0.026，Holm 仍不拒绝，所以回滚没有恢复这次拒绝。
 
 打印出的 v1 Top-3 是重加密、比较、解密，`uncovered_count=0`，但检出会话是 0/6，定位成功分母是 0。v2 用计划起点 20×5000 和新种子 `8675309`，在采集前冻结。`v2-vulnerable` 主效应 1.40，p=0.852，Holm 仍不拒绝。`v2-hardened` 是 4.28，p=0.261；`v2-rollback` 是 −5.00，p=0.034，也都没有拒绝。检出会话是 0/20。排名器对 v2 仍输出 `single_root_cause=not_forced`。重加密出现在打印的 Top-3 里，但检测没有成立，这 0/20 不算定位成功，也不能把掩码或回滚写成差异消失或恢复。`ryzen-vulnerable` 的端到端 Holm 没有拒绝，排名器因此不给唯一根因。同优化掩码 `ryzen-hardened` 的主效应均值是 29.90，p 为 0.066，Wald 区间 4.85 到 54.94，Holm 仍未拒绝。新目录重新构建的 `ryzen-rollback` 主效应均值是 −18.17，p 为 0.258，区间跨过 0。三条确认都没有达到检测条件，所以不能把掩码写成“差异消失”，也不能把回滚写成“差异恢复”。vulnerable 与 hardened 的公开 KAT 在这台机器上通过，包含隐式拒绝向量。Apple Silicon 的 `apple-v` 与 `apple-h` 同样没有拒绝主比较。检测没有成立时，定位成功的分母是 0。
 
