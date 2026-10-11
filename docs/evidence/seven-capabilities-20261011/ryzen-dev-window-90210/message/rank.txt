@@ -1,0 +1,16 @@
+single_root_cause=not_forced
+top1_stage=reencryption
+top1_function=baseline_stage_reencrypt
+top1_source=vendor/mlkem-native/mlkem/src/indcpa.c:518
+top1_inline_extent=baseline_stage_reencrypt
+top1_inclusive_difference=42
+top1_exclusive_difference=57
+top3_count=3
+top3_1_stage=reencryption
+top3_1_function=baseline_stage_reencrypt
+top3_2_stage=reencryption
+top3_2_function=baseline_stage_reencrypt_message
+top3_3_stage=decrypt
+top3_3_function=baseline_stage_decrypt
+uncovered_count=0
+unknown_count=0

@@ -10,6 +10,7 @@
 | `ryzen-matrix/` | `matrix-<变体>-<编译器>-<优化>` | 24 个普通格子的资格、链接行和每类 20 次基础计时。 |
 | `trace-overhead/` | `overhead-plain` | 本机参考构建的无插桩、记账钩子、计时插桩三组。 |
 | `ryzen-confirm-v2/` | `v2-vulnerable`、`v2-hardened`、`v2-rollback` | 计划起点 20×5000，确认种子 `8675309`。协议在采集前冻结。Holm 仍未拒绝。 |
+| `ryzen-dev-window-90210/` | `dev-window-90210`、`dev-window-90210-message` | 开发种子 `90210` 的窗口核对。每类 200 次。消息多项式有了单独的排他行。Holm 确认记录不改。 |
 
 Mac 到 `10.144.144.5:18012` 的直接连接没有完成。Ryzen 上该端口处于监听，本机 `nc` 退出码为 1。没有用隧道冒充这条路径。
 
