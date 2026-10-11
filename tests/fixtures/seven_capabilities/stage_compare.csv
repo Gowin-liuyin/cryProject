@@ -1,0 +1,5 @@
+record_kind,stage_id,function_id,source_path,source_line,inline_extent,inclusive_difference_counts,exclusive_difference_counts,evidence_path
+candidate,compare,baseline_stage_compare,vendor/mlkem-native/mlkem/src/verify.h,338,mlk_ct_memcmp_inlined,-9000,-5000,evidence/compare.csv
+candidate,reencryption,baseline_stage_reencrypt,vendor/mlkem-native/mlkem/src/indcpa.c,518,baseline_stage_reencrypt,30,10,evidence/compare.csv
+candidate,selection,baseline_stage_select,vendor/mlkem-native/mlkem/src/verify.h,388,mlk_ct_cmov_zero_inlined,8,4,evidence/compare.csv
+uncovered,decode,none,vendor/mlkem-native/mlkem/src/indcpa.c,156,baseline_stage_decode,0,0,evidence/compare.csv

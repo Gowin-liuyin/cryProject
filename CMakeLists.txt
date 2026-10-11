@@ -27,6 +27,29 @@ option(BASELINE_SANITIZERS "Enable ASan/UBSan; do not use these timings as perfo
        OFF
 )
 option(A113_ARCHIVED_CASE_ONLY "Use archived mechanism cases in the delivery workflow" ON)
+set(A113_MATRIX_OPT
+    ""
+    CACHE STRING "Replace RelWithDebInfo optimization with O0, O1, O2, O3, or O2LTO"
+)
+if(A113_MATRIX_OPT STREQUAL "O0" OR A113_MATRIX_OPT STREQUAL "O1" OR A113_MATRIX_OPT STREQUAL "O2"
+   OR A113_MATRIX_OPT STREQUAL "O3" OR A113_MATRIX_OPT STREQUAL "O2LTO"
+)
+    string(REGEX REPLACE "-O[0-9]" "" CMAKE_C_FLAGS_RELWITHDEBINFO
+                         "${CMAKE_C_FLAGS_RELWITHDEBINFO}"
+    )
+    if(A113_MATRIX_OPT STREQUAL "O2LTO")
+        string(APPEND CMAKE_C_FLAGS_RELWITHDEBINFO " -O2 -flto")
+        string(APPEND CMAKE_EXE_LINKER_FLAGS " -flto")
+    elseif(A113_MATRIX_OPT STREQUAL "O0")
+        string(APPEND CMAKE_C_FLAGS_RELWITHDEBINFO " -O0")
+    elseif(A113_MATRIX_OPT STREQUAL "O1")
+        string(APPEND CMAKE_C_FLAGS_RELWITHDEBINFO " -O1")
+    elseif(A113_MATRIX_OPT STREQUAL "O3")
+        string(APPEND CMAKE_C_FLAGS_RELWITHDEBINFO " -O3")
+    else()
+        string(APPEND CMAKE_C_FLAGS_RELWITHDEBINFO " -O2")
+    endif()
+endif()
 include(CTest)
 find_package(Git REQUIRED)
 find_program(PATCH_EXECUTABLE patch REQUIRED)
@@ -179,7 +202,112 @@ foreach(variant IN ITEMS reference vulnerable hardened deployable)
         )
         add_test(NAME ${variant}_random_failure COMMAND ${variant}_test_random_failure)
     endif()
+    add_executable(${variant}_session_collect src/session_collect.c)
+    target_link_libraries(${variant}_session_collect PRIVATE mlkem_${variant})
+    target_include_directories(${variant}_session_collect PRIVATE "${identity_directory}")
+    set_target_properties(
+        ${variant}_session_collect
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/${variant}"
+                   OUTPUT_NAME session_collect
+    )
 endforeach()
+
+# 诊断插桩使用独立覆盖层和独立目标，不改正式库，也不打开 sanitizer。
+set(diagnostic_patch_file "${CMAKE_CURRENT_SOURCE_DIR}/docs/patches/diagnostic-stages.patch")
+foreach(diagnostic_variant IN ITEMS reference vulnerable hardened)
+    set(diagnostic_mechanism_patch "")
+    if(diagnostic_variant STREQUAL "vulnerable")
+        set(diagnostic_mechanism_patch "${encoder_patch_vulnerable}")
+    elseif(diagnostic_variant STREQUAL "hardened")
+        set(diagnostic_mechanism_patch "${encoder_patch_hardened}")
+    endif()
+    set(diagnostic_overlay "${CMAKE_CURRENT_BINARY_DIR}/diagnostic-${diagnostic_variant}-source")
+    add_custom_command(
+        OUTPUT "${diagnostic_overlay}/patched.stamp"
+        COMMAND
+            "${CMAKE_COMMAND}" "-DSOURCE_ROOT=${CMAKE_CURRENT_SOURCE_DIR}"
+            "-DOVERLAY_ROOT=${diagnostic_overlay}"
+            "-DMECHANISM_PATCH_FILE=${diagnostic_mechanism_patch}"
+            "-DDIAGNOSTIC_PATCH_FILE=${diagnostic_patch_file}"
+            "-DPATCH_EXECUTABLE=${PATCH_EXECUTABLE}" -P
+            "${CMAKE_CURRENT_SOURCE_DIR}/cmake/PrepareDiagnostic.cmake"
+        DEPENDS ${vendor_files} "${diagnostic_patch_file}" ${diagnostic_mechanism_patch}
+                cmake/PrepareDiagnostic.cmake
+        VERBATIM
+    )
+    set(diagnostic_kernel "${CMAKE_CURRENT_BINARY_DIR}/diagnostic_${diagnostic_variant}_kernel.c")
+    configure_file(src/kernel.c "${diagnostic_kernel}" COPYONLY)
+    set_source_files_properties(
+        "${diagnostic_kernel}" PROPERTIES OBJECT_DEPENDS "${diagnostic_overlay}/patched.stamp"
+    )
+    add_library(
+        mlkem_diagnostic_${diagnostic_variant} STATIC "${diagnostic_kernel}" src/mlkem.c
+                                                      src/random.c src/inputs.c
+    )
+    target_link_libraries(mlkem_diagnostic_${diagnostic_variant} PUBLIC baseline_options)
+    target_include_directories(
+        mlkem_diagnostic_${diagnostic_variant} BEFORE PRIVATE "${diagnostic_overlay}/mlkem"
+    )
+    if(diagnostic_variant STREQUAL "vulnerable")
+        target_compile_definitions(
+            mlkem_diagnostic_${diagnostic_variant} PRIVATE BASELINE_VULNERABLE=1
+        )
+    elseif(diagnostic_variant STREQUAL "hardened")
+        target_compile_definitions(
+            mlkem_diagnostic_${diagnostic_variant} PRIVATE BASELINE_HARDENED=1
+        )
+    endif()
+    set_property(
+        TARGET mlkem_diagnostic_${diagnostic_variant} PROPERTY INTERPROCEDURAL_OPTIMIZATION FALSE
+    )
+    add_library(diagnostic_stages_${diagnostic_variant} OBJECT src/diagnostic_stages.c)
+    target_link_libraries(diagnostic_stages_${diagnostic_variant} PUBLIC baseline_options)
+    target_include_directories(
+        diagnostic_stages_${diagnostic_variant} BEFORE PRIVATE "${diagnostic_overlay}/mlkem"
+    )
+    target_compile_options(
+        diagnostic_stages_${diagnostic_variant} PRIVATE -finstrument-functions
+    )
+    if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+        target_compile_options(
+            diagnostic_stages_${diagnostic_variant}
+            PRIVATE
+                "-finstrument-functions-exclude-file-list=verify.h,symmetric.h,compress.h,indcpa.h,fips202"
+        )
+    endif()
+    add_dependencies(diagnostic_stages_${diagnostic_variant} mlkem_diagnostic_${diagnostic_variant})
+    add_executable(
+        ${diagnostic_variant}_diagnostic_trace src/diagnostic_trace.c src/trace_account.c
+                                               src/trace_hooks.c
+    )
+    target_link_libraries(
+        ${diagnostic_variant}_diagnostic_trace
+        PRIVATE mlkem_diagnostic_${diagnostic_variant} diagnostic_stages_${diagnostic_variant}
+                ${CMAKE_DL_LIBS}
+    )
+    if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+        target_link_options(${diagnostic_variant}_diagnostic_trace PRIVATE "-Wl,--export-dynamic")
+    endif()
+    target_include_directories(
+        ${diagnostic_variant}_diagnostic_trace PRIVATE "${identity_directory}"
+    )
+    set_target_properties(
+        ${diagnostic_variant}_diagnostic_trace
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/${diagnostic_variant}"
+                   OUTPUT_NAME diagnostic_trace
+    )
+endforeach()
+if(A113_MATRIX_OPT STREQUAL "O2LTO")
+    foreach(matrix_variant IN ITEMS reference vulnerable hardened deployable)
+        set_property(TARGET mlkem_${matrix_variant} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+        set_property(TARGET ${matrix_variant}_baseline PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+        set_property(
+            TARGET ${matrix_variant}_session_collect PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE
+        )
+    endforeach()
+endif()
 
 # 普通测量仅覆盖参考和两种无分支对照，历史五类入口保持原样。
 foreach(ordinary_variant IN ITEMS reference hardened deployable)
@@ -454,6 +582,71 @@ if(BUILD_TESTING)
     )
     set_tests_properties(
         analysis_round1_replay PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    add_executable(test_trace_account tests/test_trace_account.c src/trace_account.c)
+    target_link_libraries(test_trace_account PRIVATE baseline_options)
+    target_compile_options(test_trace_account PRIVATE -UNDEBUG)
+    add_test(NAME trace_account COMMAND test_trace_account)
+    add_executable(test_session_window tests/test_session_window.c)
+    target_link_libraries(test_session_window PRIVATE baseline_options)
+    target_compile_options(test_session_window PRIVATE -UNDEBUG)
+    add_test(NAME session_window
+             COMMAND test_session_window $<TARGET_FILE:reference_session_collect>
+                     "${CMAKE_CURRENT_SOURCE_DIR}/src/session_collect.c"
+    )
+    set_tests_properties(session_window PROPERTIES RUN_SERIAL TRUE)
+    add_executable(test_diagnostic_trace tests/test_diagnostic_trace.c)
+    target_link_libraries(test_diagnostic_trace PRIVATE baseline_options)
+    target_compile_options(test_diagnostic_trace PRIVATE -UNDEBUG)
+    add_test(NAME diagnostic_trace
+             COMMAND test_diagnostic_trace $<TARGET_FILE:reference_diagnostic_trace>
+    )
+    set_tests_properties(diagnostic_trace PROPERTIES RUN_SERIAL TRUE)
+    add_test(NAME trace_overhead
+             COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_trace_overhead.sh"
+                     $<TARGET_FILE:reference_session_collect>
+                     $<TARGET_FILE:reference_diagnostic_trace>
+    )
+    set_tests_properties(trace_overhead PROPERTIES RUN_SERIAL TRUE)
+    add_executable(protocol_analyze src/protocol_analyze.c src/protocol_decision.c)
+    target_link_libraries(protocol_analyze PRIVATE baseline_options)
+    if(MATH_LIBRARY)
+        target_link_libraries(protocol_analyze PRIVATE "${MATH_LIBRARY}")
+    endif()
+    set_target_properties(protocol_analyze PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(test_protocol_decision tests/test_protocol_decision.c src/protocol_decision.c)
+    target_link_libraries(test_protocol_decision PRIVATE baseline_options)
+    if(MATH_LIBRARY)
+        target_link_libraries(test_protocol_decision PRIVATE "${MATH_LIBRARY}")
+    endif()
+    target_compile_options(test_protocol_decision PRIVATE -UNDEBUG)
+    add_test(NAME protocol_decision
+             COMMAND test_protocol_decision
+                     "${CMAKE_CURRENT_SOURCE_DIR}/docs/research/seven-capabilities-20261011/confirmation_protocol_v1.txt"
+                     $<TARGET_FILE:protocol_analyze>
+    )
+    add_executable(localize_rank src/localize.c src/localize_rank.c)
+    target_link_libraries(localize_rank PRIVATE baseline_options)
+    set_target_properties(localize_rank PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(test_localize_rank tests/test_localize_rank.c)
+    target_link_libraries(test_localize_rank PRIVATE baseline_options)
+    target_compile_options(test_localize_rank PRIVATE -UNDEBUG)
+    add_test(NAME localize_rank
+             COMMAND test_localize_rank $<TARGET_FILE:localize_rank>
+                     "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/seven_capabilities/stage_reencryption.csv"
+                     "${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/seven_capabilities/stage_compare.csv"
+    )
+    add_executable(network_server src/network_server.c src/network_frame.c)
+    target_link_libraries(network_server PRIVATE mlkem_reference)
+    set_target_properties(network_server PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(network_client src/network_client.c src/network_frame.c)
+    target_link_libraries(network_client PRIVATE mlkem_reference)
+    set_target_properties(network_client PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(test_network_frame tests/test_network_frame.c src/network_frame.c)
+    target_link_libraries(test_network_frame PRIVATE mlkem_reference)
+    target_compile_options(test_network_frame PRIVATE -UNDEBUG)
+    add_test(NAME network_frame
+             COMMAND test_network_frame $<TARGET_FILE:network_server> $<TARGET_FILE:network_client>
     )
     add_executable(test_mechanism_audit tests/test_mechanism_audit.c)
     target_link_libraries(test_mechanism_audit PRIVATE mlkem_reference)

@@ -1,0 +1,88 @@
+--- a/mlkem/src/indcpa.c	2026-10-11 12:01:44
++++ b/mlkem/src/indcpa.c	2026-10-11 12:01:44
+@@ -24,6 +24,7 @@
+ #include "sampling.h"
+ #include "symmetric.h"
+ #include "verify.h"
++#include "diagnostic_stages.h"
+ 
+ /* Parameter set namespacing
+  * This is to facilitate building multiple instances
+@@ -158,6 +159,13 @@
+ {
+   mlk_polyvec_decompress_du(b, c);
+   mlk_poly_decompress_dv(v, c + MLKEM_POLYVECCOMPRESSEDBYTES_DU);
++}
++
++void baseline_diagnostic_unpack_ciphertext(void *ciphertext_vector,
++    void *message_polynomial,
++    const uint8_t *ciphertext_bytes)
++{
++  mlk_unpack_ciphertext(ciphertext_vector, message_polynomial, ciphertext_bytes);
+ }
+ #endif /* !MLK_CONFIG_NO_DECAPS_API */
+ 
+@@ -613,7 +621,7 @@
+     goto cleanup;
+   }
+ 
+-  mlk_unpack_ciphertext(b, v, c);
++  baseline_stage_decode(b, v, c);
+   mlk_unpack_sk(skpv, sk);
+ 
+   mlk_polyvec_ntt(b);
+@@ -624,7 +632,7 @@
+   mlk_poly_sub(v, sb);
+   mlk_poly_reduce(v);
+ 
+-  mlk_poly_tomsg(m, v);
++  baseline_stage_message_extraction(m, v);
+ 
+ cleanup:
+   /* Specification: Partially implements
+--- a/mlkem/src/kem.c	2026-10-11 12:01:44
++++ b/mlkem/src/kem.c	2026-10-11 12:01:44
+@@ -29,6 +29,7 @@
+ #include "randombytes.h"
+ #include "symmetric.h"
+ #include "verify.h"
++#include "diagnostic_stages.h"
+ 
+ /* Parameter set namespacing
+  * This is to facilitate building multiple instances
+@@ -426,7 +427,7 @@
+     goto cleanup;
+   }
+ 
+-  ret = mlk_indcpa_dec(buf, ct, sk, context);
++  ret = baseline_stage_decrypt(buf, ct, sk);
+   if (ret != 0)
+   {
+     goto cleanup;
+@@ -440,22 +441,22 @@
+ 
+   /* Recompute and compare ciphertext */
+   /* coins are in kr+MLKEM_SYMBYTES */
+-  ret = mlk_indcpa_enc(tmp, buf, pk, kr + MLKEM_SYMBYTES, context);
++  ret = baseline_stage_reencrypt(tmp, buf, pk, kr + MLKEM_SYMBYTES);
+   if (ret != 0)
+   {
+     goto cleanup;
+   }
+ 
+-  fail = mlk_ct_memcmp(ct, tmp, MLKEM_INDCCA_CIPHERTEXTBYTES);
++  fail = baseline_stage_compare(ct, tmp, MLKEM_INDCCA_CIPHERTEXTBYTES);
+ 
+   /* Compute rejection key */
+   mlk_memcpy(tmp, sk + MLKEM_INDCCA_SECRETKEYBYTES - MLKEM_SYMBYTES,
+              MLKEM_SYMBYTES);
+   mlk_memcpy(tmp + MLKEM_SYMBYTES, ct, MLKEM_INDCCA_CIPHERTEXTBYTES);
+-  mlk_hash_j(ss, tmp, MLKEM_SYMBYTES + MLKEM_INDCCA_CIPHERTEXTBYTES);
++  baseline_stage_rejection_key(ss, tmp, MLKEM_SYMBYTES + MLKEM_INDCCA_CIPHERTEXTBYTES);
+ 
+   /* Copy true key to return buffer if fail is 0 */
+-  mlk_ct_cmov_zero(ss, kr, MLKEM_SYMBYTES, fail);
++  baseline_stage_select(ss, kr, MLKEM_SYMBYTES, fail);
+ 
+ cleanup:
+   /* Specification: Partially implements
