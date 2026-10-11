@@ -1,0 +1,9 @@
+cell=deployable-gcc-O2LTO
+binary_sha256=29eb7cc1166c0cc1ccc8f20764ea5e941b44edf1360bf25b9d9e2f2af16de242
+sessions=5
+samples_per_category=5000
+seed=31337
+compile_line=/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-gcc-O2LTO/deployable-source/mlkem -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -flto -std=c11 -flto=auto -fno-fat-lto-objects -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-gcc-O2LTO/deployable_kernel.c
+link_line=/usr/bin/gcc  -g -DNDEBUG -O2 -flto -flto=auto -fno-fat-lto-objects  -flto CMakeFiles/deployable_session_collect.dir/src/session_collect.c.o -o deployable/session_collect  deployable/libmlkem.a  
+timing_role=descriptive_session_effect
+frozen_per_cell_test=no

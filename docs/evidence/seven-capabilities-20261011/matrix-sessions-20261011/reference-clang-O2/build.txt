@@ -1,0 +1,9 @@
+cell=reference-clang-O2
+binary_sha256=e9c60f13a4a39fe8322440073c9f63dc74b296271786e26fe39505d0ceffc39e
+sessions=20
+samples_per_category=5000
+seed=31337
+compile_line=/usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/src/kernel.c
+link_line=/usr/bin/clang  -g -DNDEBUG -O2 CMakeFiles/reference_session_collect.dir/src/session_collect.c.o -o reference/session_collect  reference/libmlkem.a  
+timing_role=descriptive_session_effect
+frozen_per_cell_test=no

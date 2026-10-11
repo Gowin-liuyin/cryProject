@@ -1,0 +1,26 @@
+phase=development
+primary_mean_difference_counts=-2.6629600000007487
+primary_t_statistic=-0.88061995724292419
+primary_p_value=0.42825521360363972
+primary_p_defined=yes
+holm_rejected_primary=no
+zero_variance=no
+wald_low_counts=-8.5898137458697779
+wald_high_counts=3.2638937458682804
+drift_last_minus_first=0.51199999999880674
+iid_upgrade=refused
+constant_time_upgrade=refused
+repeat_ciphertext_reported=yes
+autocorrelation_reported=yes
+block_length_sensitivity_reported=yes
+drift_reported=yes
+thresholds_chosen_after_data=no
+stop_rule=fixed_budget
+block_mean_difference_0=-2.6629600000007487
+block_mean_difference_1=-2.6629600000007487
+block_mean_difference_2=-2.6629599999956555
+session_effect session_id=s01 difference=-2.173399999999674
+session_effect session_id=s02 difference=-4.0544000000008964
+session_effect session_id=s03 difference=-12.191800000000512
+session_effect session_id=s04 difference=6.7661999999982072
+session_effect session_id=s05 difference=-1.6614000000008673

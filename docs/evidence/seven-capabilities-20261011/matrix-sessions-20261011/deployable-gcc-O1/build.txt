@@ -1,0 +1,9 @@
+cell=deployable-gcc-O1
+binary_sha256=4a6fead120a05e16ffe8e6a32d2ab7077ad4e9094168948ba36b592dc547f290
+sessions=5
+samples_per_category=5000
+seed=31337
+compile_line=/usr/bin/gcc -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-gcc-O1/deployable-source/mlkem -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O1 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-gcc-O1/deployable_kernel.c
+link_line=/usr/bin/gcc  -g -DNDEBUG -O1 CMakeFiles/deployable_session_collect.dir/src/session_collect.c.o -o deployable/session_collect  deployable/libmlkem.a  
+timing_role=descriptive_session_effect
+frozen_per_cell_test=no

@@ -1,0 +1,9 @@
+cell=reference-gcc-O0
+binary_sha256=ecde565e5090f65966b843434d81dcda40a62d0e215f3cb8d3c7560408d38289
+sessions=5
+samples_per_category=5000
+seed=31337
+compile_line=/usr/bin/gcc -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O0 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/src/kernel.c
+link_line=/usr/bin/gcc  -g -DNDEBUG -O0 CMakeFiles/reference_session_collect.dir/src/session_collect.c.o -o reference/session_collect  reference/libmlkem.a  
+timing_role=descriptive_session_effect
+frozen_per_cell_test=no

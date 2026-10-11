@@ -1,0 +1,9 @@
+cell=vulnerable-gcc-O2
+binary_sha256=5858e16dc0e6da0bfbd8d8f30d98bfcaa3e540f0880c78073394fb1e32d4ad6b
+sessions=20
+samples_per_category=5000
+seed=31337
+compile_line=/usr/bin/gcc -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/vulnerable-gcc-O2/vulnerable-source/mlkem -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/vulnerable-gcc-O2/vulnerable_kernel.c
+link_line=/usr/bin/gcc  -g -DNDEBUG -O2 CMakeFiles/vulnerable_session_collect.dir/src/session_collect.c.o -o vulnerable/session_collect  vulnerable/libmlkem.a  
+timing_role=descriptive_session_effect
+frozen_per_cell_test=no
