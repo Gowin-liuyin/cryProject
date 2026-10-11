@@ -1,5 +1,9 @@
 # CACR2026EA16XZ 设计报告
 
+2026-10-11 七节正文合稿见
+[seven-capabilities-chapter-20261011](seven-capabilities-chapter-20261011/README.md)。
+章号定为 3.7，七个小标题是 3.7.1 到 3.7.7。已封存 14 页报告不改。
+
 2026-10-11 固定便携解封装的三类时序机制审计见
 [mechanism-audit-20261011](mechanism-audit-20261011/README.md)。
 KyberSlash 类除法若存在，时序观察者看到消息比特；clangover 类消息分支若存在，看到的也是消息比特；
