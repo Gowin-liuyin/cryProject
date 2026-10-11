@@ -1,0 +1,4 @@
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+hardened: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed

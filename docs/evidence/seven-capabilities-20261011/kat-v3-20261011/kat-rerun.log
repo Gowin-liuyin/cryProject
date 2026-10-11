@@ -1,0 +1,41 @@
+2026-10-11T14:40:04Z
+host=nss-m
+===== vulnerable =====
+recorded_digests_before
+bd5d432b29e740414bd422790cca362e288959c07cfd5880c1110baf492fe685  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/window-source-90210/build/cmake/vulnerable/session_collect
+26b11363023852e0fc5e4edd71069de3e0ebe366aa7418fe2508c934f936c124  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/window-source-90210/build/cmake/vulnerable/libmlkem.a
+recorded_digests_after
+bd5d432b29e740414bd422790cca362e288959c07cfd5880c1110baf492fe685  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/window-source-90210/build/cmake/vulnerable/session_collect
+kat_driver_sha256 23576507df636d65c5d42214398f0f2aa25891cc9738f15f3d03ccf0b902dadf  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/kat-v3-20261011/vulnerable-kat
+kat_rerun
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+vulnerable: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+kat_exit=0
+===== hardened =====
+recorded_digests_before
+09178f475e84f5a460068d023cb39f9343143565b33745057c20cd668e123a24  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/window-source-90210/build/cmake/hardened/session_collect
+7cdd56610302ef44e76f531ebc7e2843d9243ada1ef51de52fa3458452a04286  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/window-source-90210/build/cmake/hardened/libmlkem.a
+recorded_digests_after
+09178f475e84f5a460068d023cb39f9343143565b33745057c20cd668e123a24  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/window-source-90210/build/cmake/hardened/session_collect
+kat_driver_sha256 a5e6cc023b4edc51ef01a9bb3952bfaf3fd04e11ebfe19ed7485960233efef47  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/kat-v3-20261011/hardened-kat
+kat_rerun
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+hardened: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+kat_exit=0
+===== rollback =====
+recorded_digests_before
+c129978ef7525ae0bed9bb3d42e2c7da7a33ec5c58180524bc7c138e788b7e4d  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/build-v3-rollback/vulnerable/session_collect
+02f0eaea49865868f9b7265d3d61bc64c6f9f58b7747cb80b4b6a0a6c8006db8  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/build-v3-rollback/vulnerable/libmlkem.a
+recorded_digests_after
+c129978ef7525ae0bed9bb3d42e2c7da7a33ec5c58180524bc7c138e788b7e4d  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/build-v3-rollback/vulnerable/session_collect
+kat_driver_sha256 5e02934bc002c6eea5e115af9ad197e2cbdffff83be3984a0689ccd233ed8104  /home/nss-marker/yhr/Cry/seven-capabilities-20261011/kat-v3-20261011/rollback-kat
+kat_rerun
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+vulnerable: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+kat_exit=0
