@@ -112,6 +112,7 @@ def build():
         EVIDENCE / "ryzen-dev-window-90210/message/session.csv",
         ["message-zero", "message-ones"],
     )
+    direct_n, direct_mean = rtt_mean(EVIDENCE / "mac-ryzen-rtt-20261011/rtt-80.csv")
     low_n, low_mean = rtt_mean(EVIDENCE / "ryzen-network/low-rtt.csv")
     mid_n, mid_mean = rtt_mean(EVIDENCE / "ryzen-network/mid-rtt.csv")
     high_n, high_mean = rtt_mean(EVIDENCE / "ryzen-network/high-rtt.csv")
@@ -234,16 +235,16 @@ def build():
             "trace20-31415926 重加密与 message 包装均为 20/20。旧 v3-rollback 与 v3-rollback-retry 的 Holm 都是 no",
         ),
         "x5-rtt.svg": svg_table(
-            "X.5 veth 原始时钟计数，Mac 到 Ryzen 仍没有直接 RTT",
+            "X.5 veth 计数和 Mac 到 Ryzen 的直接 RTT",
             ["run_id", "n", "mean_elapsed_clock_counts"],
             [
                 ["network-jitter-low", str(low_n), f"{low_mean:.4f}"],
                 ["network-jitter-mid", str(mid_n), f"{mid_mean:.4f}"],
                 ["network-jitter-high", str(high_n), f"{high_mean:.4f}"],
+                ["mac-ryzen-18080", str(direct_n), f"{direct_mean:.1f}"],
                 ["mac-to-ryzen-18012", "0", "absent"],
-                ["mac-direct-20261011", "0", "absent"],
             ],
-            "ryzen-network 三档 CSV。mac-ryzen-direct-20261011 只有表头，数据行数是 0",
+            "ryzen-network 三档 CSV。mac-ryzen-rtt-20261011/rtt-80.csv 是直接 TCP，单位为客户端单调钟纳秒计数",
         ),
         "x6-matrix.svg": svg_table(
             "X.6 matrix-reference-gcc-O2 每类 20 次均值",

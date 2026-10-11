@@ -85,7 +85,7 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 
 ## X.5 网络噪声环境下的时间侧信道检测
 
-![X.5 三档 veth RTT 的原始时钟计数，Mac 到 Ryzen 仍没有直接 RTT](figures/x5-rtt.svg)
+![X.5 三档 veth 计数和 Mac 到 Ryzen 的直接 RTT](figures/x5-rtt.svg)
 
 测试端点的请求是固定长度密文，应答是 32 字节固定确认。应答不包含共享秘密、接受或拒绝标志，也不包含服务端耗时。本机回环测试里，有效密文和翻位密文的应答正文相同，服务端完成次数等于请求次数。
 
@@ -96,12 +96,16 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 | `network-jitter-high` | `ryzen-network/high-rtt.csv` | 80 | 10308449.3625 | `ryzen-network/high-server.txt` | 80 |
 | `mac-to-ryzen-18012` | `ryzen-network/RUNS.txt` | 0 | — | `ryzen-network/mac-server.txt` | — |
 | `mac-direct-20261011` | `mac-ryzen-direct-20261011/client-header-only.csv` | 0 | — | `mac-ryzen-direct-20261011/README.md` | — |
+| `mac-ryzen-18080` | `mac-ryzen-rtt-20261011/rtt-80.csv` | 80 | 30189475 | `mac-ryzen-rtt-20261011/server-80.txt` | 80 |
+| `mac-ryzen-18080-one` | `mac-ryzen-rtt-20261011/rtt-1.csv` | 1 | 26393000 | `mac-ryzen-rtt-20261011/server-1.txt` | 1 |
 
 veth 三档不是 Mac 到 Ryzen 的路径。Ryzen 上的三档噪声没有使用管理网卡。进程网络命名空间里的 veth 两端是 10.88.11.1 和 10.88.11.2，netem 加在密码窗口之外。结束后 veth 已删除。`network-jitter-low`、`network-jitter-mid`、`network-jitter-high` 各有 80 条客户端 RTT，服务端 `completed_decapsulations=80`。上表均值是原始时钟计数。除以 1000 后约为 152.7、1081.6 和 10308.4 微秒，与 `ryzen-network/RUNS.txt` 里单向 100 微秒、1 毫秒和 10 毫秒的设置同量级。这些 RTT 比本地大约 30 微秒的解封装大得多。在这个预算下，网络观测没有被用来宣布检出或宣布不存在远程泄露。
 
 Mac 到 `10.144.144.5:18012` 的直接连接没有形成。Ryzen 监听 `0.0.0.0:18012`，本机探测退出码为 1。run_id `mac-to-ryzen-18012` 没有 RTT 文件。没有用 SSH 隧道代替这条路径。
 
-2026-10-11 再次从 Mac 直接连接 `10.144.144.5:18021`。服务端当时监听 `0.0.0.0:18021`，主机本机可以连上。Mac 客户端只写下表头，数据行数是 0，应答文件长度是 0，见 `mac-ryzen-direct-20261011/`。同一台 Mac 随后探测 2730 个端口，完成握手的只有 22、9010、9100 和 9400，连接被拒绝的个数是 0，其余超时。这些端口已有 SSH、他人的 uvicorn 或其他监听。没有占用它们，也没有改防火墙或改用隧道。因此仍然没有 Mac 到 Ryzen 的 RTT 样本。三档 veth 记录不能代替这条路径。
+2026-10-11 对 `10.144.144.5:18021` 的直接连接只写下表头，数据行数是 0，见 `mac-ryzen-direct-20261011/`。随后改用主机 ufw 已经对任意来源放行、且当时没有监听的 `18080/tcp`。现有 Mac 客户端直接连接现有服务端，没有新增防火墙规则，也没有用 SSH 隧道。
+
+`mac-ryzen-18080` 保存 80 行客户端 RTT，服务端 `completed_decapsulations=80`。时钟是客户端 `CLOCK_MONOTONIC`，单位是该时钟的纳秒计数，80 行均值是 30189475。每条应答 32 字节，80 条共 2560 字节，正文是固定确认。随后单独再连一次，`mac-ryzen-18080-one` 保存 1 行，计数 26393000，应答 32 字节，服务端 `completed_decapsulations=1`。这两次都收到固定长度应答。这个 RTT 比本地大约 30 微秒的解封装大得多，不用于宣布远程检出或不存在远程泄露。
 
 ## X.6 编译器优化对时序行为及防护效果的影响
 
@@ -180,7 +184,7 @@ Mac 到 `10.144.144.5:18012` 的直接连接没有形成。Ryzen 监听 `0.0.0.0
 
 两行来自同一确认种子 `20261111` 和 v1 的 6×1000，样本没有合并。两边的主比较都没有被 Holm 拒绝。Ryzen 上 `ryzen-vulnerable` 的主效应是 15.44 个计数，空窗最大是 40。Apple 上 `apple-v` 的主效应是 −297.67，时钟分辨率和空窗最大都是 1000。两边的绝对纳秒差不能相减后叫做防护效果变化。
 
-两台机器同时改变了处理器、操作系统和工具链。这个记录支持的是同协议跨环境复测，不是“只换了 CPU”。直接的 Mac 到 Ryzen 网络路径没有连通，因此平台比较不包括那条远程 RTT。没有第三台机器。没有把历史 KVM 的旧样本并进来凑检出。
+两台机器同时改变了处理器、操作系统和工具链。这个记录支持的是同协议跨环境复测，不是“只换了 CPU”。后来的直接 RTT 记在 `mac-ryzen-rtt-20261011/`，不并入这两行平台比较。没有第三台机器。没有把历史 KVM 的旧样本并进来凑检出。
 
 ## 边界
 

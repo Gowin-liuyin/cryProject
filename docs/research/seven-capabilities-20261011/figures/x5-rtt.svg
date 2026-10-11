@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="260" viewBox="0 0 920 260">
 <rect width="100%" height="100%" fill="#ffffff"/>
-<text x="16" y="28" font-family="sans-serif" font-size="16" fill="#111111">X.5 veth 原始时钟计数，Mac 到 Ryzen 仍没有直接 RTT</text>
-<text x="16" y="48" font-family="sans-serif" font-size="11" fill="#444444">ryzen-network 三档 CSV。mac-ryzen-direct-20261011 只有表头，数据行数是 0</text>
+<text x="16" y="28" font-family="sans-serif" font-size="16" fill="#111111">X.5 veth 计数和 Mac 到 Ryzen 的直接 RTT</text>
+<text x="16" y="48" font-family="sans-serif" font-size="11" fill="#444444">ryzen-network 三档 CSV。mac-ryzen-rtt-20261011/rtt-80.csv 是直接 TCP，单位为客户端单调钟纳秒计数</text>
 <text x="16.0" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">run_id</text>
 <text x="312.0" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">n</text>
 <text x="608.0" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">mean_elapsed_clock_counts</text>
@@ -18,11 +18,11 @@
 <text x="312.0" y="166" font-family="sans-serif" font-size="12" fill="#111111">80</text>
 <text x="608.0" y="166" font-family="sans-serif" font-size="12" fill="#111111">10308449.3625</text>
 <line x1="16" y1="176" x2="904" y2="176" stroke="#dddddd"/>
-<text x="16.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">mac-to-ryzen-18012</text>
-<text x="312.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">0</text>
-<text x="608.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">absent</text>
+<text x="16.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">mac-ryzen-18080</text>
+<text x="312.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">80</text>
+<text x="608.0" y="194" font-family="sans-serif" font-size="12" fill="#111111">30189475.0</text>
 <line x1="16" y1="204" x2="904" y2="204" stroke="#dddddd"/>
-<text x="16.0" y="222" font-family="sans-serif" font-size="12" fill="#111111">mac-direct-20261011</text>
+<text x="16.0" y="222" font-family="sans-serif" font-size="12" fill="#111111">mac-to-ryzen-18012</text>
 <text x="312.0" y="222" font-family="sans-serif" font-size="12" fill="#111111">0</text>
 <text x="608.0" y="222" font-family="sans-serif" font-size="12" fill="#111111">absent</text>
 </svg>
