@@ -4,6 +4,8 @@
 
 ## X.1 本地高精度计时与明显时间泄露检测
 
+![X.1 测量质量与主效应，三行 Holm 都是 no](figures/x1-measurement.svg)
+
 计时窗口只包住一次完整解封装。输入生成、预热、结果消费和 CSV 都在窗口外。读钟使用 `CLOCK_MONOTONIC`，记录的是该时钟的整数计数。元数据写明这不是 1 纳秒的物理精度。
 
 Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 次同路径空窗的最大计数是 40。Apple Silicon 上 `apple-v` 的对应记录是分辨率 1000、空窗最大 1000。空窗长尾被保留，没有拿空窗去减正式样本。
@@ -19,6 +21,8 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 确认集上，人工消息分支的主比较是全 0 类均值减去全 1 类均值。`ryzen-vulnerable` 六个会话的主效应均值是 15.44 个时钟计数，t 为 0.880，双侧 p 为 0.419，Holm 没有拒绝。95% Wald 区间是 −18.96 到 49.85，跨过 0。把六个会话的调用摊开看，全 0 类 6000 次均值 29747.28、标准差 1281.62、P50 为 29635；全 1 类均值 29731.84、标准差 1041.21、P50 为 29636。类别差小于空窗里已经出现的 40 计数长尾。`apple-v` 的主效应均值是 −297.67，t 为 −0.518，p 为 0.627，Wald 区间 −1424.51 到 829.17，同样没有拒绝。在这条冻结规则下，两台机器都没有检出明显时间泄露。
 
 ## X.2 解封装过程的函数级插桩与时序分析
+
+![X.2 三组开销和开发种子窗口差](figures/x2-overhead.svg)
 
 诊断构建是单独的目标。它不改正式 deployable，也不把 sanitizer 计时写进矩阵。编译器对七个阶段包装函数插入进入和退出钩子。比较、拒绝密钥派生和选择在上游是宏或 static inline，钩子到达的是包装函数，摘要里写了对应的内联映射。事件只有样本编号、模块相对函数编号、进入或退出、时间戳和完整性状态。
 
@@ -44,6 +48,8 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 
 ## X.3 时间差异的统计显著性与检测能力分析
 
+![X.3 ryzen-vulnerable 六个会话效应](figures/x3-sessions.svg)
+
 新入口只读冻结协议，不改历史 `analyze` 的检验定义。历史回放测试 `analysis_round1_replay` 仍然通过。主比较和三条次比较组成一个族，用 Holm 在 α=0.01 上一起控制。推断单位是会话均值差，不是把相关调用堆成一组后的 Welch 检验。
 
 构造的无类别效应夹具给出主效应 15、t 统计量 3。自由度为 1 时，这就是柯西分布，双侧 p 等于 `1-2*atan(3)/π`。程序输出与这个独立计算一致，并且没有拒绝主比较。协议禁止把阈值写成看过确认数据之后才选定。两台机器的确认输出都是 `thresholds_chosen_after_data=no`。
@@ -58,6 +64,8 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 
 ## X.4 潜在泄露源的自动化定位与防护验证
 
+![X.4 三条确认都未拒绝，定位成功分母为 0](figures/x4-protection.svg)
+
 排名器只读候选表里的阶段、函数、源码位置、包含差和排他差。表头若出现 ground truth、目标名、补丁名或预置目标名，程序退出码为 2。两个固定夹具的最大排他差分别落在重加密和比较上，两次运行的 Top-1 不同。这只说明排序不是写死的三个位置，不是本次硬件上的检出。
 
 | run_id | raw file | primary mean | p | Holm | 说明 |
@@ -69,6 +77,8 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 打印出的 v1 Top-3 是重加密、比较、解密，`uncovered_count=0`，但检出会话是 0/6，定位成功分母是 0。v2 用计划起点 20×5000 和新种子 `8675309`，在采集前冻结。`v2-vulnerable` 主效应 1.40，p=0.852，Holm 仍不拒绝。`v2-hardened` 是 4.28，p=0.261；`v2-rollback` 是 −5.00，p=0.034，也都没有拒绝。检出会话是 0/20。排名器对 v2 仍输出 `single_root_cause=not_forced`。重加密出现在打印的 Top-3 里，但检测没有成立，这 0/20 不算定位成功，也不能把掩码或回滚写成差异消失或恢复。`ryzen-vulnerable` 的端到端 Holm 没有拒绝，排名器因此不给唯一根因。同优化掩码 `ryzen-hardened` 的主效应均值是 29.90，p 为 0.066，Wald 区间 4.85 到 54.94，Holm 仍未拒绝。新目录重新构建的 `ryzen-rollback` 主效应均值是 −18.17，p 为 0.258，区间跨过 0。三条确认都没有达到检测条件，所以不能把掩码写成“差异消失”，也不能把回滚写成“差异恢复”。vulnerable 与 hardened 的公开 KAT 在这台机器上通过，包含隐式拒绝向量。Apple Silicon 的 `apple-v` 与 `apple-h` 同样没有拒绝主比较。检测没有成立时，定位成功的分母是 0。
 
 ## X.5 网络噪声环境下的时间侧信道检测
+
+![X.5 三档 RTT 的原始时钟计数，Mac 到 Ryzen 没有 RTT](figures/x5-rtt.svg)
 
 测试端点的请求是固定长度密文，应答是 32 字节固定确认。应答不包含共享秘密、接受或拒绝标志，也不包含服务端耗时。本机回环测试里，有效密文和翻位密文的应答正文相同，服务端完成次数等于请求次数。
 
@@ -84,6 +94,8 @@ veth 三档不是 Mac 到 Ryzen 的路径。Ryzen 上的三档噪声没有使用
 Mac 到 `10.144.144.5:18012` 的直接连接没有形成。Ryzen 监听 `0.0.0.0:18012`，本机探测退出码为 1。run_id `mac-to-ryzen-18012` 没有 RTT 文件。没有用 SSH 隧道代替这条路径。
 
 ## X.6 编译器优化对时序行为及防护效果的影响
+
+![X.6 matrix-reference-gcc-O2 每类 20 次均值](figures/x6-matrix.svg)
 
 | variant | compiler | opt | status | compile | link | run_id |
 |---|---|---|---|---|---|---|
@@ -117,6 +129,8 @@ Mac 到 `10.144.144.5:18012` 的直接连接没有形成。Ryzen 监听 `0.0.0.0
 `matrix-reference-gcc-O0` 的编译行在配置标志之后是 `-O0`，其中没有另一个 `-O2`。`matrix-reference-gcc-O2LTO` 的链接行包含 `-flto`。`matrix-reference-gcc-O2` 的基础计时原件是 `ryzen-matrix/reference-gcc-O2.csv`。有效类 20 次均值是 29887.9 个计数，全 0 类是 29958.1，全 1 类是 30007.65。这是每类 20 次的范围观察，不是确认协议的 1000 次会话检验。优化改变了编译和链接行；在未做逐格确认检验之前，不能把某一格的均值差写成防护失效或防护成立。
 
 ## X.7 不同处理器平台上的检测与防护稳定性
+
+![X.7 两台机器分开比较，Holm 都是 no](figures/x7-platforms.svg)
 
 | platform | run_id | raw file | resolution | empty max | primary mean | p | Holm |
 |---|---|---|---:|---:|---:|---:|---|

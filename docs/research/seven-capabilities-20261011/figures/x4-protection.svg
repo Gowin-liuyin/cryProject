@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="204" viewBox="0 0 920 204">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="16" y="28" font-family="sans-serif" font-size="16" fill="#111111">X.4 三条确认都未拒绝，定位成功分母为 0</text>
+<text x="16" y="48" font-family="sans-serif" font-size="11" fill="#444444">ryzen-positive/vulnerable-decision.txt, hardened-decision.txt, rollback-decision.txt, vulnerable-rank.txt</text>
+<text x="16.0" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">run_id</text>
+<text x="193.6" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">primary_mean</text>
+<text x="371.2" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">p</text>
+<text x="548.8" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">Holm</text>
+<text x="726.4" y="82" font-family="sans-serif" font-size="12" font-weight="700" fill="#111111">rank</text>
+<line x1="16" y1="92" x2="904" y2="92" stroke="#dddddd"/>
+<text x="16.0" y="110" font-family="sans-serif" font-size="12" fill="#111111">ryzen-vulnerable</text>
+<text x="193.6" y="110" font-family="sans-serif" font-size="12" fill="#111111">15.44</text>
+<text x="371.2" y="110" font-family="sans-serif" font-size="12" fill="#111111">0.419</text>
+<text x="548.8" y="110" font-family="sans-serif" font-size="12" fill="#111111">no</text>
+<text x="726.4" y="110" font-family="sans-serif" font-size="12" fill="#111111">not_forced</text>
+<line x1="16" y1="120" x2="904" y2="120" stroke="#dddddd"/>
+<text x="16.0" y="138" font-family="sans-serif" font-size="12" fill="#111111">ryzen-hardened</text>
+<text x="193.6" y="138" font-family="sans-serif" font-size="12" fill="#111111">29.90</text>
+<text x="371.2" y="138" font-family="sans-serif" font-size="12" fill="#111111">0.066</text>
+<text x="548.8" y="138" font-family="sans-serif" font-size="12" fill="#111111">no</text>
+<text x="726.4" y="138" font-family="sans-serif" font-size="12" fill="#111111">not_established</text>
+<line x1="16" y1="148" x2="904" y2="148" stroke="#dddddd"/>
+<text x="16.0" y="166" font-family="sans-serif" font-size="12" fill="#111111">ryzen-rollback</text>
+<text x="193.6" y="166" font-family="sans-serif" font-size="12" fill="#111111">-18.17</text>
+<text x="371.2" y="166" font-family="sans-serif" font-size="12" fill="#111111">0.258</text>
+<text x="548.8" y="166" font-family="sans-serif" font-size="12" fill="#111111">no</text>
+<text x="726.4" y="166" font-family="sans-serif" font-size="12" fill="#111111">not_established</text>
+</svg>
