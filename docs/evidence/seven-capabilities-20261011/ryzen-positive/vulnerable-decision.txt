@@ -1,0 +1,27 @@
+phase=confirmation
+primary_mean_difference_counts=15.443666666667317
+primary_t_statistic=0.87978294050295847
+primary_p_value=0.4192459904432243
+primary_p_defined=yes
+holm_rejected_primary=no
+zero_variance=no
+wald_low_counts=-18.961445165354959
+wald_high_counts=49.848778498689597
+drift_last_minus_first=-4.6270000000040454
+iid_upgrade=refused
+constant_time_upgrade=refused
+repeat_ciphertext_reported=yes
+autocorrelation_reported=yes
+block_length_sensitivity_reported=yes
+drift_reported=yes
+thresholds_chosen_after_data=no
+stop_rule=fixed_budget
+block_mean_difference_0=15.443666666667317
+block_mean_difference_1=15.443666666669136
+block_mean_difference_2=15.443666666668529
+session_effect session_id=s1 difference=4.6950000000033469
+session_effect session_id=s2 difference=87.11200000000099
+session_effect session_id=s3 difference=-43.850000000002183
+session_effect session_id=s4 difference=30.852999999999156
+session_effect session_id=s5 difference=13.784000000003289
+session_effect session_id=s6 difference=0.067999999999301508

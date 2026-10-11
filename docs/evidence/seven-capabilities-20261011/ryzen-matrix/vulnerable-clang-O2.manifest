@@ -1,0 +1,10 @@
+cell=vulnerable-clang-O2
+status=qualified
+compiler=/usr/bin/clang
+opt=O2
+variant=vulnerable
+binary_sha256=a49aae0c022032b236280f490371a1802d3aa506be8fae7e255ed87428eb9e81
+compile_line=/usr/bin/clang -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/vulnerable-clang-O2/vulnerable-source/mlkem -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/vulnerable-clang-O2/vulnerable_kernel.c
+link_line=/usr/bin/clang  -g -DNDEBUG -O2 CMakeFiles/vulnerable_session_collect.dir/src/session_collect.c.o -o vulnerable/session_collect  vulnerable/libmlkem.a  
+kat=passed
+basic_timing_csv=/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/vulnerable-clang-O2.csv

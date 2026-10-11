@@ -1,0 +1,10 @@
+cell=reference-clang-O2LTO
+status=qualified
+compiler=/usr/bin/clang
+opt=O2LTO
+variant=reference
+binary_sha256=6416cdad084f0533eb28df4f6af0d5b69070c864bedf41c0f88012c58ccf2b88
+compile_line=/usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -flto -std=c11 -flto=thin -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/src/kernel.c
+link_line=/usr/bin/clang  -g -DNDEBUG -O2 -flto -flto=thin  -flto CMakeFiles/reference_session_collect.dir/src/session_collect.c.o -o reference/session_collect  reference/libmlkem.a  
+kat=passed
+basic_timing_csv=/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/reference-clang-O2LTO.csv

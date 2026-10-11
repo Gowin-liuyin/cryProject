@@ -1,0 +1,10 @@
+cell=hardened-gcc-O2
+status=qualified
+compiler=/usr/bin/gcc
+opt=O2
+variant=hardened
+binary_sha256=ac969817ddf30f878b12aa0cdbcac7d4eb92a756bd102109e4984bbcd59e2018
+compile_line=/usr/bin/gcc -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/hardened-gcc-O2/hardened-source/mlkem -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/hardened-gcc-O2/hardened_kernel.c
+link_line=/usr/bin/gcc  -g -DNDEBUG -O2 CMakeFiles/hardened_session_collect.dir/src/session_collect.c.o -o hardened/session_collect  hardened/libmlkem.a  
+kat=passed
+basic_timing_csv=/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/hardened-gcc-O2.csv

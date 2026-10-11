@@ -1,0 +1,8 @@
+record_kind,stage_id,function_id,source_path,source_line,inline_extent,inclusive_difference_counts,exclusive_difference_counts,evidence_path
+candidate,decode,baseline_stage_decode,vendor/mlkem-native/mlkem/src/indcpa.c,156,baseline_stage_decode,-0,-0,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv
+candidate,message_extraction,baseline_stage_message_extraction,vendor/mlkem-native/mlkem/src/compress.c,737,baseline_stage_message_extraction,0,0,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv
+candidate,decrypt,baseline_stage_decrypt,vendor/mlkem-native/mlkem/src/indcpa.c,598,baseline_stage_decrypt,-91,-91,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv
+candidate,reencryption,baseline_stage_reencrypt,vendor/mlkem-native/mlkem/src/indcpa.c,518,baseline_stage_reencrypt,-6,-6,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv
+candidate,compare,baseline_stage_compare,vendor/mlkem-native/mlkem/src/verify.h,338,mlk_ct_memcmp_inlined,1,1,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv
+candidate,rejection_key,baseline_stage_rejection_key,vendor/mlkem-native/mlkem/src/symmetric.h,35,mlk_hash_j_inlined,-1,-1,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv
+candidate,selection,baseline_stage_select,vendor/mlkem-native/mlkem/src/verify.h,388,mlk_ct_cmov_zero_inlined,-0,-0,/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-positive/hardened-candidates.csv

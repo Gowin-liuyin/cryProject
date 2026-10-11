@@ -1,0 +1,10 @@
+cell=deployable-clang-O2
+status=qualified
+compiler=/usr/bin/clang
+opt=O2
+variant=deployable
+binary_sha256=f4dd35f3762cb11585838d86189e39680de784252ae1d1d1aff37bdff2f4f8cb
+compile_line=/usr/bin/clang -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-clang-O2/deployable-source/mlkem -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/include -I/home/nss-marker/yhr/Cry/seven-capabilities-20261011/source/vendor/mlkem-native/mlkem  -g -DNDEBUG -O2 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-clang-O2/deployable_kernel.c
+link_line=/usr/bin/clang  -g -DNDEBUG -O2 CMakeFiles/deployable_session_collect.dir/src/session_collect.c.o -o deployable/session_collect  deployable/libmlkem.a  
+kat=passed
+basic_timing_csv=/home/nss-marker/yhr/Cry/seven-capabilities-20261011/run-matrix/deployable-clang-O2.csv

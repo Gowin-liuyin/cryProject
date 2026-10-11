@@ -1,0 +1,11 @@
+mode=account
+hook_cost_not_subtracted=yes
+compiler_events=enter_exit
+inline_mapping stage=compare wrapper=baseline_stage_compare inlined=mlk_ct_memcmp
+inline_mapping stage=rejection_key wrapper=baseline_stage_rejection_key inlined=mlk_hash_j
+inline_mapping stage=selection wrapper=baseline_stage_select inlined=mlk_ct_cmov_zero
+outer_mean_counts_valid=25500.000
+outer_mean_counts_bit-flipped=25500.000
+outer_mean_counts_random=24500.000
+outer_mean_counts_message-zero=27000.000
+outer_mean_counts_message-ones=64000.000
