@@ -95,6 +95,7 @@ def build():
     v3_meta = read_fields(EVIDENCE / "ryzen-confirm-v3/vulnerable-s01.meta")
     v3_hardened = read_fields(EVIDENCE / "ryzen-confirm-v3/hardened-decision.txt")
     v3_rollback = read_fields(EVIDENCE / "ryzen-confirm-v3/rollback-decision.txt")
+    v3_retry = read_fields(EVIDENCE / "rollback-retry-31415926/rollback-decision.txt")
     hardened = read_fields(EVIDENCE / "ryzen-positive/hardened-decision.txt")
     rollback = read_fields(EVIDENCE / "ryzen-positive/rollback-decision.txt")
     rank = read_fields(EVIDENCE / "ryzen-positive/vulnerable-rank.txt")
@@ -177,7 +178,7 @@ def build():
             "ryzen-positive/vulnerable-decision.txt session_effect；holm_rejected_primary=no",
         ),
         "x4-protection.svg": svg_table(
-            "X.4 三条确认都未拒绝，定位成功分母为 0",
+            "X.4 掩码后不再拒绝，两次回滚都未恢复",
             ["run_id", "primary_mean", "p", "Holm", "rank"],
             [
                 [
@@ -206,7 +207,7 @@ def build():
                     f"{float(v3['primary_mean_difference_counts']):.2f}",
                     f"{float(v3['primary_p_value']):.3f}",
                     v3["holm_rejected_primary"],
-                    "top3_has_reencryption",
+                    "top3 20/20",
                 ],
                 [
                     "v3-hardened",
@@ -222,19 +223,27 @@ def build():
                     v3_rollback["holm_rejected_primary"],
                     "restore_not_established",
                 ],
+                [
+                    "v3-rollback-retry",
+                    f"{float(v3_retry['primary_mean_difference_counts']):.3f}",
+                    f"{float(v3_retry['primary_p_value']):.4f}",
+                    v3_retry["holm_rejected_primary"],
+                    "restore_not_established",
+                ],
             ],
-            "ryzen-positive 的三条决策；ryzen-confirm-v3 的 vulnerable/hardened/rollback 决策。回滚没有恢复 Holm 拒绝",
+            "trace20-31415926 重加密与 message 包装均为 20/20。旧 v3-rollback 与 v3-rollback-retry 的 Holm 都是 no",
         ),
         "x5-rtt.svg": svg_table(
-            "X.5 客户端 RTT 原始时钟计数，不是 Mac 到 Ryzen 的路径",
+            "X.5 veth 原始时钟计数，Mac 到 Ryzen 仍没有直接 RTT",
             ["run_id", "n", "mean_elapsed_clock_counts"],
             [
                 ["network-jitter-low", str(low_n), f"{low_mean:.4f}"],
                 ["network-jitter-mid", str(mid_n), f"{mid_mean:.4f}"],
                 ["network-jitter-high", str(high_n), f"{high_mean:.4f}"],
                 ["mac-to-ryzen-18012", "0", "absent"],
+                ["mac-direct-20261011", "0", "absent"],
             ],
-            "ryzen-network/low-rtt.csv, mid-rtt.csv, high-rtt.csv；mac-to-ryzen-18012 没有 RTT 文件",
+            "ryzen-network 三档 CSV。mac-ryzen-direct-20261011 只有表头，数据行数是 0",
         ),
         "x6-matrix.svg": svg_table(
             "X.6 matrix-reference-gcc-O2 每类 20 次均值",
