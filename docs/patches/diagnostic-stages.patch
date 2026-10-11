@@ -1,5 +1,5 @@
---- a/mlkem/src/indcpa.c	2026-10-11 12:01:44
-+++ b/mlkem/src/indcpa.c	2026-10-11 12:01:44
+--- a/mlkem/src/indcpa.c
++++ b/mlkem/src/indcpa.c
 @@ -24,6 +24,7 @@
  #include "sampling.h"
  #include "symmetric.h"
@@ -22,6 +22,15 @@
  }
  #endif /* !MLK_CONFIG_NO_DECAPS_API */
  
+@@ -541,7 +549,7 @@
+   }
+ 
+   mlk_unpack_pk(pkpv, seed, pk);
+-  mlk_poly_frommsg(k, m);
++  baseline_stage_reencrypt_message(k, m);
+ 
+   /*
+    * Declassify the public seed.
 @@ -613,7 +621,7 @@
      goto cleanup;
    }

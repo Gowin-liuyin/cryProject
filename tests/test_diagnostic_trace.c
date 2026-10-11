@@ -74,6 +74,9 @@ int main(int argc, char **argv)
     }
     if (!file_contains(summary_path, "hook_cost_not_subtracted=yes\n") ||
         !file_contains(summary_path, "compiler_events=enter_exit\n") ||
+        !file_contains(summary_path,
+            "inline_mapping stage=reencryption wrapper=baseline_stage_reencrypt_message "
+            "inlined=mlk_poly_frommsg\n") ||
         !file_contains(summary_path, "inline_mapping stage=compare") ||
         !file_contains(summary_path, "inline_mapping stage=rejection_key") ||
         !file_contains(summary_path, "inline_mapping stage=selection")) {
@@ -91,6 +94,11 @@ int main(int argc, char **argv)
         if (file_contains(candidate_path, uncovered_row)) {
             return 1;
         }
+    }
+    /* 生成密文时样本尚未开始。该行出现，说明 poly_frommsg 包装是在解封装样本内被记下的。 */
+    if (!file_contains(candidate_path,
+            "candidate,reencryption,baseline_stage_reencrypt_message,")) {
+        return 1;
     }
     return 0;
 }

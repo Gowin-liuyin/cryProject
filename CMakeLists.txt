@@ -601,7 +601,10 @@ if(BUILD_TESTING)
     add_test(NAME diagnostic_trace
              COMMAND test_diagnostic_trace $<TARGET_FILE:reference_diagnostic_trace>
     )
-    set_tests_properties(diagnostic_trace PROPERTIES RUN_SERIAL TRUE)
+    add_test(NAME diagnostic_trace_vulnerable
+             COMMAND test_diagnostic_trace $<TARGET_FILE:vulnerable_diagnostic_trace>
+    )
+    set_tests_properties(diagnostic_trace diagnostic_trace_vulnerable PROPERTIES RUN_SERIAL TRUE)
     add_test(NAME trace_overhead
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_trace_overhead.sh"
                      $<TARGET_FILE:reference_session_collect>

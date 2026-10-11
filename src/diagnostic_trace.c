@@ -17,7 +17,7 @@
 #include <time.h>
 
 #define TRACE_EVENT_CAPACITY 128u
-#define TRACE_STAGE_COUNT 7u
+#define TRACE_STAGE_COUNT 8u
 
 struct stage_descriptor {
     const char *symbol_suffix;
@@ -55,6 +55,11 @@ static const struct stage_descriptor stage_descriptors[TRACE_STAGE_COUNT] = {
         "vendor/mlkem-native/mlkem/src/compress.c",
         "737",
         "baseline_stage_message_extraction"},
+    {"baseline_stage_reencrypt_message",
+        "reencryption",
+        "vendor/mlkem-native/mlkem/src/compress.c",
+        "697",
+        "mlk_poly_frommsg"},
     {"baseline_stage_reencrypt",
         "reencryption",
         "vendor/mlkem-native/mlkem/src/indcpa.c",
@@ -338,6 +343,8 @@ int main(int argc, char **argv)
     }
     if (fprintf(summary_file,
             "mode=%s\nhook_cost_not_subtracted=yes\ncompiler_events=enter_exit\n"
+            "inline_mapping stage=reencryption wrapper=baseline_stage_reencrypt_message "
+            "inlined=mlk_poly_frommsg\n"
             "inline_mapping stage=compare wrapper=baseline_stage_compare inlined=mlk_ct_memcmp\n"
             "inline_mapping stage=rejection_key wrapper=baseline_stage_rejection_key "
             "inlined=mlk_hash_j\n"

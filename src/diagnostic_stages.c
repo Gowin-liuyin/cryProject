@@ -42,6 +42,13 @@ __attribute__((noinline)) int baseline_stage_reencrypt(uint8_t *ciphertext,
     return mlk_indcpa_enc(ciphertext, message_bytes, encapsulation_key, coins, 0);
 }
 
+/* 内核翻译单元没有进入/退出钩子。这一层单独打开钩子，排他时间才只覆盖消息多项式。 */
+__attribute__((noinline)) void baseline_stage_reencrypt_message(void *message_polynomial,
+    const uint8_t *message_bytes)
+{
+    mlk_poly_frommsg((mlk_poly *)message_polynomial, message_bytes);
+}
+
 __attribute__((noinline)) uint8_t baseline_stage_compare(const uint8_t *left_bytes,
     const uint8_t *right_bytes,
     size_t byte_count)

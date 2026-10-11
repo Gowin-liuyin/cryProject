@@ -25,6 +25,9 @@ int baseline_stage_reencrypt(uint8_t *ciphertext,
     const uint8_t *encapsulation_key,
     const uint8_t *coins);
 
+/* 只包住 poly_frommsg。人工分支的排他时间由此进入重加密阶段，而不是整段 indcpa_enc。 */
+void baseline_stage_reencrypt_message(void *message_polynomial, const uint8_t *message_bytes);
+
 uint8_t
 baseline_stage_compare(const uint8_t *left_bytes, const uint8_t *right_bytes, size_t byte_count);
 
