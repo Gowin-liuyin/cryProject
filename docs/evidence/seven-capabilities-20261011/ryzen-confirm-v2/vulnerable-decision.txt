@@ -1,0 +1,41 @@
+phase=confirmation
+primary_mean_difference_counts=1.4002600000001622
+primary_t_statistic=0.1888793090033104
+primary_p_value=0.85219034241876468
+primary_p_defined=yes
+holm_rejected_primary=no
+zero_variance=no
+wald_low_counts=-13.129966648299748
+wald_high_counts=15.930486648300073
+drift_last_minus_first=15.729399999996531
+iid_upgrade=refused
+constant_time_upgrade=refused
+repeat_ciphertext_reported=yes
+autocorrelation_reported=yes
+block_length_sensitivity_reported=yes
+drift_reported=yes
+thresholds_chosen_after_data=no
+stop_rule=fixed_budget
+block_mean_difference_0=1.4002600000001622
+block_mean_difference_1=1.4002599999947052
+block_mean_difference_2=1.4002599999968879
+session_effect session_id=s1 difference=-27.602199999997538
+session_effect session_id=s2 difference=-3.1980000000003201
+session_effect session_id=s3 difference=-19.753799999998591
+session_effect session_id=s4 difference=110.51680000000124
+session_effect session_id=s5 difference=36.328999999997905
+session_effect session_id=s6 difference=19.987199999999575
+session_effect session_id=s7 difference=2.5237999999990279
+session_effect session_id=s8 difference=9.0364000000008673
+session_effect session_id=s9 difference=3.1499999999978172
+session_effect session_id=s10 difference=-13.933200000003126
+session_effect session_id=s11 difference=-10.841599999999744
+session_effect session_id=s12 difference=-64.141199999998207
+session_effect session_id=s13 difference=4.4347999999990861
+session_effect session_id=s14 difference=-3.5691999999980908
+session_effect session_id=s15 difference=-17.247200000001612
+session_effect session_id=s16 difference=-7.9353999999984808
+session_effect session_id=s17 difference=-4.7195999999967171
+session_effect session_id=s18 difference=-0.51680000000123982
+session_effect session_id=s19 difference=27.358200000002398
+session_effect session_id=s20 difference=-11.872800000001007
