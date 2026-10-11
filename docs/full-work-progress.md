@@ -1,6 +1,6 @@
 # 完整作品进度
 
-2026-10-11在开发种子 `90210` 上核对人工消息分支的解封装窗口。无插桩类差 7.040 个计数，空窗口最大 120。诊断覆盖层此后把 `mlk_poly_frommsg` 单独记入重加密样本，排他差 -15，排序保持 `single_root_cause=not_forced`。记录见 [ryzen-dev-window-90210](evidence/seven-capabilities-20261011/ryzen-dev-window-90210/README.md)。确认预算 20×5000 未加大。R02、R04 不因此升级。
+2026-10-11在开发种子 `90210` 上核对人工消息分支的解封装窗口。`dev-window-90210-message` 的无插桩原件给出类差 20.875 个计数，空窗口最大 50，分辨率 1。记录见 [ryzen-dev-window-90210](evidence/seven-capabilities-20261011/ryzen-dev-window-90210/README.md)。确认预算 20×5000 未加大。R02、R04 不因此升级。
 
 2026-10-11完成固定便携解封装的三类时序机制产物审计。
 在 `nss-m` 裸金属、GCC 13.3.0、RelWithDebInfo 上，参考 `kernel.c.o`

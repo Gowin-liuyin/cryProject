@@ -30,14 +30,15 @@ Ryzen 9 9950X 上 `ryzen-vulnerable` 的 s1 记录 `resolution_counts=1`，256 �
 
 三组都写 `hook_cost_not_subtracted=yes`。没有用一个常数去减钩子开销，再把剩下的数叫做无扰动函数时间。
 
-开发种子 `90210`、每类 200 次的窗口核对单独记录，不进入确认协议，也不加大已冻结的 20×5000。无插桩 run_id `dev-window-90210` 的 message-zero 减 message-ones 为 7.040 个计数，空窗口最大值为 120。修正前整段重加密的排他差是 7。修正后 `mlk_poly_frommsg` 在解封装样本内单独记为一行，排他差是 -15；外层重加密包装的排他差是 57。端到端检测文件为 no，排序输出 `single_root_cause=not_forced`。
+开发种子 run_id `dev-window-90210-message` 的无插桩原件是 `ryzen-dev-window-90210/message/session.csv` 与 `ryzen-dev-window-90210/message/session.meta`。这组数字不进入确认协议，也不加大已冻结的 20×5000。
 
 | run_id | raw file | quantity | counts |
 |---|---|---|---:|
-| `dev-window-90210` | `ryzen-dev-window-90210/before/session.csv` | 无插桩 message-zero 减 message-ones | 7.040 |
-| `dev-window-90210` | `ryzen-dev-window-90210/before/candidates.csv` | `baseline_stage_reencrypt` 排他差 | 7 |
-| `dev-window-90210-message` | `ryzen-dev-window-90210/message/candidates.csv` | `baseline_stage_reencrypt_message` 排他差 | -15 |
-| `dev-window-90210-message` | `ryzen-dev-window-90210/message/candidates.csv` | `baseline_stage_reencrypt` 排他差 | 57 |
+| `dev-window-90210-message` | `ryzen-dev-window-90210/message/session.meta` | `resolution_counts` | 1 |
+| `dev-window-90210-message` | `ryzen-dev-window-90210/message/session.meta` | `empty_window_max_counts` | 50 |
+| `dev-window-90210-message` | `ryzen-dev-window-90210/message/session.csv` | message-zero 均值 | 29833.835 |
+| `dev-window-90210-message` | `ryzen-dev-window-90210/message/session.csv` | message-ones 均值 | 29812.960 |
+| `dev-window-90210-message` | `ryzen-dev-window-90210/message/session.csv` | message-zero 减 message-ones | 20.875 |
 
 ## X.3 时间差异的统计显著性与检测能力分析
 
