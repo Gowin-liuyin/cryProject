@@ -1,5 +1,7 @@
 # 完整作品进度
 
+2026-10-12完成[完整报告成果优化稿](../deliverables/submission/CACR2026EA16XZ/refined-report-20261012/README.md)：沿用正式六章结构，新稿22页，整合3.7.1—3.7.7七节，重写摘要、论证衔接与结论，新增三张结果比较表。v3检测、20/20候选定位、掩码与两次回滚、80行直接TCP及开发矩阵均按原证据边界表述；R02/R04仍部分。此次只修改文稿，无新实验；原14页报告与已封存证据不改，匿名包、现场截图、审批及签章仍未完成。
+
 2026-10-11把七节实测正文合稿为第 3.7 章，小标题 3.7.1 到 3.7.7，见 [seven-capabilities-chapter-20261011](../deliverables/submission/CACR2026EA16XZ/seven-capabilities-chapter-20261011/README.md)。已封存 14 页报告不改。R02、R04 不因此升级。匿名包、现场截图和审批仍未完成。
 
 2026-10-11补上三份 v3 二进制的公开 KAT、种子 `31415926` 的 20/20 诊断追踪，以及新目录里的第二次回滚。KAT 通过且摘要未变。追踪里重加密与 message 包装进入 Top-3 均为 20/20，`single_root_cause=not_asserted`。`v3-rollback-retry` 主效应 −3.682，p=0.0436，Holm 不拒绝；旧的 p=0.026 不改。Mac 到 `10.144.144.5:18080` 的直接 TCP 保存了 80 行和 1 行客户端 RTT，见 [mac-ryzen-rtt-20261011](evidence/seven-capabilities-20261011/mac-ryzen-rtt-20261011/README.md)。24 格沿用已合格二进制补了开发种子 `31337` 的会话计时，见 [matrix-sessions-20261011](evidence/seven-capabilities-20261011/matrix-sessions-20261011/README.md)。`frozen_per_cell_test=no`，不能据此宣布优化级防护成立或失效。R02、R04 不因此升级。
