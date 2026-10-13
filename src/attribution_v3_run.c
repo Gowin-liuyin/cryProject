@@ -1500,7 +1500,13 @@ static const char *recompute_label(const struct run_record *run)
             saw_csv = 1;
         }
     }
-    return saw_csv != 0 ? "matched" : "not_checked";
+    if (saw_csv == 0) {
+        return "not_checked";
+    }
+    if (run->has_decision_mean == 0) {
+        return "csv_only";
+    }
+    return "matched";
 }
 
 static const char *half_label(int half_stable)
@@ -1768,7 +1774,11 @@ static int write_svg(const char *directory, const struct run_record *run)
     return fclose(file) == 0 ? 0 : 1;
 }
 
-static int write_report(const char *directory, const struct run_record *runs, const char *whether)
+static int write_report(const char *directory,
+    const struct run_record *runs,
+    const char *whether,
+    const char *sign_label,
+    const char *span_label)
 {
     char path[1024];
     FILE *file;
@@ -1781,18 +1791,24 @@ static int write_report(const char *directory, const struct run_record *runs, co
         return 1;
     }
     if (fprintf(file,
-            "# v3 事后归因\n\n规则 `%s`。判定令牌 `%s`。\n\n",
+            "# v3 事后归因\n\n规则 `%s`。判定令牌 `%s`。"
+            "引用值核对 `%s`。\n\n",
             RULE_ID,
-            v3->present != 0 ? v3->token : "not_run") < 0) {
+            v3->present != 0 ? v3->token : "not_run",
+            whether) < 0) {
         (void)fclose(file);
         return 1;
     }
     if (v3->present != 0 && v3->trend.defined != 0) {
         if (fprintf(file,
-                "v3 密封主效应 %.17g 计数。线性截距 %.17g，斜率 %.17g。\n\n",
+                "v3 密封主效应 %.17g 计数。线性截距 %.17g，斜率 %.17g。"
+                "截距 Holm 拒绝 %s，斜率 Holm 拒绝 %s，前后半稳定 %s。\n\n",
                 v3->has_decision_mean != 0 ? v3->decision_mean_counts : v3->trend.intercept_counts,
                 v3->trend.intercept_counts,
-                v3->trend.time_slope_counts) < 0) {
+                v3->trend.time_slope_counts,
+                yes_no(v3->trend.holm_reject_intercept),
+                yes_no(v3->trend.holm_reject_time),
+                half_label(v3->half_stable)) < 0) {
             (void)fclose(file);
             return 1;
         }
@@ -1837,16 +1853,71 @@ static int write_report(const char *directory, const struct run_record *runs, co
         (void)fclose(file);
         return 1;
     }
-    if (fputs(
-            "v2 与 v3 的逐次原始表和空窗序列不在封存目录中。"
-            "会话内分段、调用序号上的时钟斜率，以及空窗中位数回归只对本地封存了原始表的"
-            " v1 和 90210 计算。缺失不记为漂移成立，也不记为漂移排除。\n\n"
-            "方向反转按 v1、90210 message 窗口、v3 三个密封均值的符号记录。"
-            "线性跨度能否盖住 v1 与 v3 的均值差，用两条斜率的绝对值之和与两个均值之差的绝对值比较。"
-            "该比较不改写 v3 的主判定。90210 只有一个会话，不做会话序号回归。\n",
-            file) < 0) {
-        (void)fclose(file);
-        return 1;
+    {
+        const struct run_record *v1 = &runs[RUN_V1];
+        const struct run_record *message = &runs[RUN_DEV_MESSAGE];
+        double v1_mean = 0.0;
+        double message_difference = 0.0;
+        int v1_mean_defined = 0;
+        int message_defined = 0;
+        const char *v1_slope_reject = "na";
+        const char *v3_slope_reject = "na";
+        if (v1->present != 0 && v1->has_decision_mean != 0) {
+            v1_mean = v1->decision_mean_counts;
+            v1_mean_defined = 1;
+        } else if (v1->present != 0 && v1->trend.defined != 0) {
+            v1_mean = v1->trend.intercept_counts;
+            v1_mean_defined = 1;
+        }
+        if (message->present != 0 && message->session_count > 0u) {
+            message_difference = session_difference(&message->sessions[0]);
+            message_defined = 1;
+        }
+        if (v1->trend.defined != 0) {
+            v1_slope_reject = yes_no(v1->trend.holm_reject_time);
+        }
+        if (v3->trend.defined != 0) {
+            v3_slope_reject = yes_no(v3->trend.holm_reject_time);
+        }
+        if (fprintf(file,
+                "v2 与 v3 的逐次原始表和空窗序列不在封存目录中。"
+                "会话内分段、调用序号上的时钟斜率，以及空窗中位数回归只对本地封存了原始表的"
+                " v1 和 90210 计算。缺失不记为漂移成立，也不记为漂移排除。"
+                "v3 的会话内时钟状态是 `%s`。\n\n"
+                "方向反转 `sign_reversal=%s`。它比较 v1 决策主效应、90210 message 单会话效应"
+                "与 v3 决策主效应的符号。线性跨度 `reversal_within_run_span=%s`。"
+                "该比较只看两条斜率绝对值之和是否盖住两个截距之差，不是斜率的显著性检验，"
+                "也不改写 v3 的主判定令牌。v1 斜率 Holm 拒绝 %s，v3 斜率 Holm 拒绝 %s。\n\n",
+                v3->clock_explains,
+                sign_label,
+                span_label,
+                v1_slope_reject,
+                v3_slope_reject) < 0) {
+            (void)fclose(file);
+            return 1;
+        }
+        if (v1_mean_defined != 0) {
+            if (fprintf(file,
+                    "v1 的上下文令牌是 `%s`，决策主效应 %.17g 计数，重算标记 `%s`，"
+                    "会话内时钟 `%s`。\n\n",
+                    v1->token,
+                    v1_mean,
+                    recompute_label(v1),
+                    v1->clock_explains) < 0) {
+                (void)fclose(file);
+                return 1;
+            }
+        }
+        if (message_defined != 0) {
+            if (fprintf(file,
+                    "90210 message 窗口只有一个会话，单会话效应 %.17g 计数，"
+                    "重算标记 `%s`。这一窗不做会话序号回归。\n",
+                    message_difference,
+                    recompute_label(message)) < 0) {
+                (void)fclose(file);
+                return 1;
+            }
+        }
     }
     return fclose(file) == 0 ? 0 : 1;
 }
@@ -2020,7 +2091,12 @@ static int write_success(const char *directory,
             return 1;
         }
     }
-    if (write_report(directory, runs, whether) != 0 || fclose(file) != 0) {
+    if (write_report(directory,
+            runs,
+            whether,
+            sign_label,
+            span_defined != 0 ? span_label : "not_applicable") != 0 ||
+        fclose(file) != 0) {
         return 1;
     }
     return 0;
