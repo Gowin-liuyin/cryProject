@@ -292,8 +292,8 @@ static int hold_requests_match(const unsigned cpus[2])
 }
 
 static int hold_baseline_matches(const unsigned cpus[2],
-    const char baseline_governor[2][64],
-    const char baseline_epp[2][64],
+    char baseline_governor[][64],
+    char baseline_epp[][64],
     const char *baseline_boost)
 {
     char text[64];
