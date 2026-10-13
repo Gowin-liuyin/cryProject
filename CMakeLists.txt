@@ -760,6 +760,11 @@ if(BUILD_TESTING)
                 $<TARGET_FILE:v4_analyze> "${CMAKE_CURRENT_SOURCE_DIR}"
     )
     add_test(
+        NAME v4_sealed_decision
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_v4_sealed_decision.sh"
+                $<TARGET_FILE:v4_analyze> "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    add_test(
         NAME reference_label_redraw
         COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_label_redraw.sh"
                 $<TARGET_FILE:calibrate_controlled> $<TARGET_FILE:v4_analyze>
