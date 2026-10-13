@@ -1,5 +1,7 @@
 # 完整作品进度
 
+2026-10-13重写报告摘要、3.6 与 3.7。v1 至 v3 写成带归因的开发历史，v4 确认写成覆盖率停止，`primary_token=not_run`，交替对照没有开始。3.7.5 改为固定长度网络交互的可行性记录。3.7.6 与 3.7.7 按协议冻结时的取舍保持探索性。表 5 补了尝试序号、预算变化和效应方向。QQ 图、Shapiro-Wilk 和会话内自相关没有数值，因为确认会话集合没有形成。R02、R04 的未闭合原因写在 [round-requirements-review](round-requirements-review.md)。正文是 [报告正文.txt](../deliverables/submission/CACR2026EA16XZ/refined-report-20261012/报告正文.txt)。Word 稿未按这次正文重新生成。这不是竞赛签收。
+
 2026-10-13按冻结种子 `20261013` 重算 C04。六块条件拒绝数是 38、38、38、36、40、40，分母都是 4096。旧表 `docs/evidence/reference-label-control-20261007` 仍是原序 0..23 的 40、40、40、38、40、38，原字节未改。新解封装调用为 0。记录见 [label-redraw-20261013](evidence/label-redraw-20261013/README.md)。确认仍停在覆盖率门，会话效应 QQ 图、Shapiro-Wilk 和会话内自相关没有输出。这不是新的计时采集，R02、R04 不因此关闭。
 
 2026-10-13在 `nss-m` 启动 v4 确认采集后于覆盖率门停止。CPU2 与兄弟 CPU18 的 min/max 曾请求 4300000 kHz，退出后 32 个策略回到进入时的 powersave、2982259、5756452。种子 `20261014001` 的唯一会话覆盖率为 0，两次采样频率在带外；没有补抽，交替对照没有开始。冻结分析两次输出 `primary_token=not_run`、`status=stopped_session_count`。两秒忙等覆盖率 0.913 与 0.889，低于 0.99。记录见 [v4-confirmation-20261013](evidence/v4-confirmation-20261013/README.md)。这不是确认拒绝或防护因果，R02、R04 仍不关闭。
