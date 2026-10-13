@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/encoder_branch_v4_collect.dir/src/v4_collect.c.o CMakeFiles/encoder_branch_v4_collect.dir/src/v4_stats.c.o CMakeFiles/encoder_branch_v4_collect.dir/src/attribution_v3.c.o CMakeFiles/encoder_branch_v4_collect.dir/src/protocol_decision.c.o -o encoder_branch/v4_collect  encoder_branch/libmlkem.a -lm 

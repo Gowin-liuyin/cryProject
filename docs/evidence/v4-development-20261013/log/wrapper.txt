@@ -1,0 +1,52 @@
++ echo START
+START
++ export LC_ALL=C
++ LC_ALL=C
++ export TMPDIR=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ TMPDIR=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ export TMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ TMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ export TEMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ TEMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/source /home/nss-marker/yhr/Cry/v4-development-8709dfe/log /home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
+++ readlink -f /home/nss-marker/yhr/Cry/v4-development-8709dfe
++ real_run=/home/nss-marker/yhr/Cry/v4-development-8709dfe
++ '[' /home/nss-marker/yhr/Cry/v4-development-8709dfe '!=' /home/nss-marker/yhr/Cry/v4-development-8709dfe ']'
++ tar -xf /home/nss-marker/yhr/Cry/v4-development-8709dfe/v4-source-8709dfe.tar -C /home/nss-marker/yhr/Cry/v4-development-8709dfe/source
++ cp /home/nss-marker/yhr/Cry/v4-development-8709dfe/SOURCE_EXPORT.sha256 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/SOURCE_EXPORT.sha256
++ find /home/nss-marker/yhr/Cry/v4-development-8709dfe/source -type l -print
++ grep -q .
++ echo git_commit=8709dfe09955f44bf0e79311d9975f733069b752
++ echo protocol_commit=9cf0be4c10ccc2a957bd123b7ab884ee5641d5e6
++ echo protocol_sha256=d52fc943f68600e9630494757caf7f6854f00cfb1c47927b3c04491adf5be4c7
++ echo source_tar_sha256=81a8e732aae0db11d86954919233c647452a6c9f71c62e45391a686a33067460
++ echo source_export_manifest_sha256=d8e46827f10a62fd6701799eebdbeebdc82de3bdb8f2ff821351506618259508
++ echo prior_failed_link_tree=/home/nss-marker/yhr/Cry/v4-development-9cf0be4
++ echo frequency_writes=none
++ hostname
++ uname -a
+++ systemd-detect-virt
+++ true
++ virt=none
++ echo systemd-detect-virt=none
++ nproc
++ gcc --version
++ head -1
++ cmake --version
++ head -1
++ echo work_root=/home/nss-marker/yhr/Cry/v4-development-8709dfe
++ date -u +start=%Y-%m-%dT%H:%M:%SZ
++ cd /home/nss-marker/yhr/Cry/v4-development-8709dfe/source
++ shasum -a 256 -c SOURCE_EXPORT.sha256
++ shasum -a 256 docs/research/v4-protocol-20261013/PROTOCOL.md
++ sh -n tools/build_identity.sh
++ cmake --preset baseline
++ cmake --build build/cmake --target encoder_branch_v4_collect v4_analyze -j 8
++ grep -E -q -- '-lm|libm' build/cmake/CMakeFiles/encoder_branch_v4_collect.dir/link.txt
++ readelf -d build/cmake/encoder_branch/v4_collect
++ grep -q 'libm\.so'
++ sha256sum build/cmake/encoder_branch/v4_collect build/cmake/v4_analyze
++ cp build/cmake/CMakeFiles/encoder_branch_v4_collect.dir/link.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/log/encoder-branch-link.txt
++ date -u +build_end=%Y-%m-%dT%H:%M:%SZ
++ echo BUILD_OK
+BUILD_OK

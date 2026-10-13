@@ -1,0 +1,23 @@
+[  0%] Generating encoder_branch-source/patched.stamp
+patching file mlkem/src/compress.c
+[  0%] Built target prepare_encoder_branch
+[  0%] Built target build_identity
+[  0%] Building C object CMakeFiles/mlkem_encoder_branch.dir/encoder_branch_kernel.c.o
+[  0%] Building C object CMakeFiles/mlkem_encoder_branch.dir/src/random.c.o
+[ 50%] Building C object CMakeFiles/mlkem_encoder_branch.dir/src/mlkem.c.o
+[ 50%] Building C object CMakeFiles/mlkem_encoder_branch.dir/src/inputs.c.o
+[ 50%] Linking C static library encoder_branch/libmlkem.a
+[ 50%] Built target mlkem_encoder_branch
+[ 75%] Building C object CMakeFiles/encoder_branch_v4_collect.dir/src/v4_collect.c.o
+[ 75%] Building C object CMakeFiles/encoder_branch_v4_collect.dir/src/protocol_decision.c.o
+[ 75%] Building C object CMakeFiles/encoder_branch_v4_collect.dir/src/v4_stats.c.o
+[100%] Building C object CMakeFiles/encoder_branch_v4_collect.dir/src/attribution_v3.c.o
+[100%] Linking C executable encoder_branch/v4_collect
+[100%] Built target encoder_branch_v4_collect
+[ 33%] Building C object CMakeFiles/v4_analyze.dir/src/v4_analyze.c.o
+[ 66%] Building C object CMakeFiles/v4_analyze.dir/src/v4_stats.c.o
+[ 66%] Building C object CMakeFiles/v4_analyze.dir/src/attribution_v3.c.o
+[ 66%] Building C object CMakeFiles/v4_analyze.dir/src/v4_reduce.c.o
+[ 66%] Building C object CMakeFiles/v4_analyze.dir/src/protocol_decision.c.o
+[100%] Linking C executable v4_analyze
+[100%] Built target v4_analyze

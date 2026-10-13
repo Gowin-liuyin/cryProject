@@ -1,0 +1,214 @@
++ echo DEVELOP_START
+DEVELOP_START
++ export LC_ALL=C
++ LC_ALL=C
++ export TMPDIR=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ TMPDIR=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ export TMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ TMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ export TEMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
++ TEMP=/home/nss-marker/yhr/Cry/v4-development-8709dfe/tmp
+++ readlink -f /home/nss-marker/yhr/Cry/v4-development-8709dfe
++ real_run=/home/nss-marker/yhr/Cry/v4-development-8709dfe
++ '[' /home/nss-marker/yhr/Cry/v4-development-8709dfe '!=' /home/nss-marker/yhr/Cry/v4-development-8709dfe ']'
++ collector=/home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect
++ analyzer=/home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/v4_analyze
++ test -x /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect
++ test -x /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/v4_analyze
++ command -v taskset
++ date -u +develop_start=%Y-%m-%dT%H:%M:%SZ
++ echo frequency_writes=none
++ echo affinity_request=cpu2
++ echo governor_policy_boost_epp=not_modified
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor ']'
++ printf cpu2_%s= scaling_governor
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq ']'
++ printf cpu2_%s= scaling_min_freq
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq ']'
++ printf cpu2_%s= scaling_max_freq
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq ']'
++ printf cpu2_%s= scaling_cur_freq
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq
+++ sha256sum /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect
+++ awk '{print $1}'
++ independent_sha=cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
+++ awk '{print $1}' /home/nss-marker/yhr/Cry/v4-development-8709dfe/log/binary-sha256.txt
+++ head -1
++ recorded_sha=cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ '[' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924 '!=' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924 ']'
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions
++ :
++ :
++ deadline=5400
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 1
++ session_id=s01
++ session_seed=20261013001
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s01
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s01
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s01 20261013001 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s01/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s01/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s01/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's01 seed=20261013001 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s01
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 2
++ session_id=s02
++ session_seed=20261013002
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s02
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s02
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s02 20261013002 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s02/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s02/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s02/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's02 seed=20261013002 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s02
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 3
++ session_id=s03
++ session_seed=20261013003
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s03
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s03
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s03 20261013003 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s03/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s03/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s03/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's03 seed=20261013003 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s03
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 4
++ session_id=s04
++ session_seed=20261013004
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s04
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s04
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s04 20261013004 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s04/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s04/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s04/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's04 seed=20261013004 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s04
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 5
++ session_id=s05
++ session_seed=20261013005
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s05
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s05
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s05 20261013005 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s05/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s05/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s05/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's05 seed=20261013005 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s05
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 6
++ session_id=s06
++ session_seed=20261013006
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s06
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s06
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s06 20261013006 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s06/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s06/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s06/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's06 seed=20261013006 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s06
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 7
++ session_id=s07
++ session_seed=20261013007
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s07
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s07
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s07 20261013007 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s07/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s07/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s07/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's07 seed=20261013007 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s07
++ for session_index in 1 2 3 4 5 6 7 8
++ '[' 0 -ge 5400 ']'
+++ printf s%02d 8
++ session_id=s08
++ session_seed=20261013008
++ session_dir=/home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s08
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s08
++ set +e
++ taskset -c 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/encoder_branch/v4_collect dev-8709dfe s08 20261013008 2 /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s08/calls.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s08/meta.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s08/empty.csv
++ session_status=0
++ set -e
++ printf '%s\n' cc571992df7858cceb5013df440374c5b8c316a73c7cdc6e715956d7e5303924
++ echo 's08 seed=20261013008 exit=0'
++ echo /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/s08
++ echo frequency_writes=none
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor ']'
++ printf cpu2_%s= scaling_governor
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq ']'
++ printf cpu2_%s= scaling_min_freq
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq ']'
++ printf cpu2_%s= scaling_max_freq
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
++ for name in scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq
++ path=/sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq
++ '[' -r /sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq ']'
++ printf cpu2_%s= scaling_cur_freq
++ cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq
+++ grep -E 'cpu2_scaling_(governor|min_freq|max_freq)=' /home/nss-marker/yhr/Cry/v4-development-8709dfe/log/frequency-observed-before.txt
++ before_policy='cpu2_scaling_governor=powersave
+cpu2_scaling_min_freq=2982259
+cpu2_scaling_max_freq=5756452'
+++ grep -E 'cpu2_scaling_(governor|min_freq|max_freq)=' /home/nss-marker/yhr/Cry/v4-development-8709dfe/log/frequency-observed-after.txt
++ after_policy='cpu2_scaling_governor=powersave
+cpu2_scaling_min_freq=2982259
+cpu2_scaling_max_freq=5756452'
++ '[' 'cpu2_scaling_governor=powersave
+cpu2_scaling_min_freq=2982259
+cpu2_scaling_max_freq=5756452' = 'cpu2_scaling_governor=powersave
+cpu2_scaling_min_freq=2982259
+cpu2_scaling_max_freq=5756452' ']'
++ echo governor_min_max_unchanged=yes
++ mkdir -p /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run1 /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run2
++ set +e
++ /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/v4_analyze reduce-effects /home/nss-marker/yhr/Cry/v4-development-8709dfe/sessions/manifest.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/effects.csv development
++ reduce_status=0
++ set -e
++ echo reduce_exit=0
++ '[' 0 -ne 0 ']'
++ /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/v4_analyze power /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/effects.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run1 development
++ /home/nss-marker/yhr/Cry/v4-development-8709dfe/source/build/cmake/v4_analyze power /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/effects.csv /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run2 development
++ cmp /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run1/conclusion.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run2/conclusion.txt
++ cmp /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run1/stdout.txt /home/nss-marker/yhr/Cry/v4-development-8709dfe/analysis/power-run2/stdout.txt
++ date -u +develop_end=%Y-%m-%dT%H:%M:%SZ
++ echo DEVELOP_OK
+DEVELOP_OK
