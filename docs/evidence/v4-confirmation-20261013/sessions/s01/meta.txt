@@ -1,0 +1,17 @@
+schema=v4_group_session_v1
+protocol_id=v4_group_confirmation_20261013
+run_id=confirm-8709dfe
+session_id=s01
+seed=20261014001
+repeat_count=2
+key_count=16
+abba=even_sum_ABBA_odd_sum_BAAB
+unique_ciphertext_check=passed
+executable_sha256=d2103bcec9385c423b5f52775806c736457bc1ac16862c3c6384ea784ba3adf6
+input_sha256=91146b3f35fa67a8e9e02b6b1997d7c3801958958f07758c9c1720461eda6700
+empty_window_count=256
+empty_window_median_counts=20
+affinity=cpu2
+clock_path=CLOCK_MONOTONIC
+warmup_calls=8
+status=ok

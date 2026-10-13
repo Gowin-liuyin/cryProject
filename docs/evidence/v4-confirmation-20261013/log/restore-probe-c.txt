@@ -1,0 +1,17 @@
+cpu=2 min_close=0 min=2982259
+cpu=2 max_close=0 max=5756452
+cpu=18 min_close=0 min=2982259
+cpu=18 max_close=0 max=5756452
+pin_min_close cpu=2 0
+pin_max_close cpu=2 0
+pin_min_close cpu=18 0
+pin_max_close cpu=18 0
+restore_min_close cpu=2 0
+restore_max_close cpu=2 0
+restore_min_close cpu=18 0
+restore_max_close cpu=18 0
+reread_min cpu=2 close=0 value=4300000 match=no
+reread_max cpu=2 close=0 value=4300000 match=no
+reread_min cpu=18 close=0 value=4300000 match=no
+reread_max cpu=18 close=0 value=4300000 match=no
+PROBE_EXIT:0
