@@ -1,6 +1,6 @@
 # 完整作品进度
 
-2026-10-13在 `nss-m` 诊断 v4 频率窗口。只请求 CPU2/18 的 min/max 为 4300000 kHz，不改 governor、boost、EPP。冷启动 30 ms 覆盖率约 0.50；两秒紧循环为 0.990 和 0.970，仍低于 0.99。进入带内之后，短会话 8 次里仍有 1 次覆盖率约 0.50。确认没有重跑，交替对照没有开始。记录见 [v4-window-diagnosis-20261013](evidence/v4-window-diagnosis-20261013/README.md)。R02、R04 仍不关闭。
+2026-10-13在 `nss-m` 诊断 v4 频率窗口。只请求 CPU2/18 的 min/max 为 4300000 kHz，不改 governor、boost、EPP。冷启动 30 ms 覆盖率约 0.50；两秒紧循环为 0.990 和 0.970，仍低于 0.99。进入带内之后，短会话 8 次里仍有 1 次覆盖率约 0.50。确认没有重跑，交替对照没有开始。这次覆盖率停止作为终点：不修改已冻结的 v4 协议，不追加 governor、boost 或 EPP，也不为了越过 0.99 而改阈值。记录见 [v4-window-diagnosis-20261013](evidence/v4-window-diagnosis-20261013/README.md)。R02、R04 仍不关闭。
 
 2026-10-13重写报告摘要、3.6 与 3.7。v1 至 v3 写成带归因的开发历史，v4 确认写成覆盖率停止，`primary_token=not_run`，交替对照没有开始。3.7.5 改为固定长度网络交互的可行性记录。3.7.6 与 3.7.7 按协议冻结时的取舍保持探索性。表 5 补了尝试序号、预算变化和效应方向。QQ 图、Shapiro-Wilk 和会话内自相关没有数值，因为确认会话集合没有形成。R02、R04 的未闭合原因写在 [round-requirements-review](round-requirements-review.md)。正文是 [报告正文.txt](../deliverables/submission/CACR2026EA16XZ/refined-report-20261012/报告正文.txt)。Word 稿未按这次正文重新生成。这不是竞赛签收。
 
