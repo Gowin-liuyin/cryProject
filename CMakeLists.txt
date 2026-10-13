@@ -483,7 +483,9 @@ target_link_libraries(controlled_statistics PUBLIC paired_support)
 add_executable(controlled_stats src/controlled_stats.c)
 target_link_libraries(controlled_stats PRIVATE controlled_statistics)
 set_target_properties(controlled_stats PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
-add_executable(calibrate_controlled src/calibrate_controlled.c)
+add_executable(
+    calibrate_controlled src/calibrate_controlled.c src/v4_stats.c src/protocol_decision.c
+)
 target_link_libraries(calibrate_controlled PRIVATE controlled_statistics)
 target_include_directories(calibrate_controlled PRIVATE "${identity_directory}")
 add_dependencies(calibrate_controlled build_identity)
@@ -756,6 +758,13 @@ if(BUILD_TESTING)
         NAME v4_analyze_fixture
         COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_v4_analyze.sh"
                 $<TARGET_FILE:v4_analyze> "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    add_test(
+        NAME reference_label_redraw
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_label_redraw.sh"
+                $<TARGET_FILE:calibrate_controlled> $<TARGET_FILE:v4_analyze>
+                "${CMAKE_CURRENT_SOURCE_DIR}/docs/evidence/native-final-20261007/performance"
+                "${CMAKE_CURRENT_SOURCE_DIR}/docs/evidence/reference-label-control-20261007/qualified/control/summary.report"
     )
     add_executable(protocol_analyze src/protocol_analyze.c src/protocol_decision.c)
     target_link_libraries(protocol_analyze PRIVATE baseline_options)

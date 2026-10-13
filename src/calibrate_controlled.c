@@ -3,8 +3,10 @@
 #include "build_identity.h"
 #include "controlled_statistics.h"
 #include "paired_data.h"
+#include "v4_stats.h"
 
 #include <inttypes.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -439,16 +441,258 @@ static int run_reference_block(FILE *records,
             zero_datasets) < 0;
 }
 
+static int emit_line(FILE *conclusion, const char *format, ...)
+{
+    va_list first_args;
+    va_list second_args;
+    va_start(first_args, format);
+    va_copy(second_args, first_args);
+    int file_status = vfprintf(conclusion, format, first_args);
+    int stdout_status = vfprintf(stdout, format, second_args);
+    va_end(second_args);
+    va_end(first_args);
+    return file_status < 0 || stdout_status < 0;
+}
+
+static int run_redraw_block(FILE *records,
+    FILE *conclusion,
+    FILE *selected_records,
+    const char *input_directory,
+    unsigned block_number,
+    uint64_t start_ns)
+{
+    char paths[3][4096];
+    char name[128];
+    char run_id[65];
+    char original_digests[3][65];
+    const char *suffixes[3] = {"csv", "meta", "csv.cost"};
+    uint32_t indices[V4_LABEL_DRAW_COUNT];
+    uint8_t index_seen[V4_LABEL_POPULATION];
+    (void)snprintf(run_id, sizeof(run_id), "ordinary-reference-block%u", block_number);
+    for (size_t file_index = 0; file_index < 3u; ++file_index) {
+        (void)snprintf(name, sizeof(name), "%s.%s", run_id, suffixes[file_index]);
+        if (paired_data_path(paths[file_index], sizeof(paths[file_index]), input_directory, name) !=
+                0 ||
+            paired_digest_file(paths[file_index], original_digests[file_index]) != 0) {
+            return 1;
+        }
+    }
+    struct ordinary_dataset dataset;
+    if (load_ordinary_dataset(paths[0], paths[1], &dataset) != 0) {
+        return 1;
+    }
+    struct measurement_set source_set = dataset.measurements;
+    if (source_set.record_count != V4_LABEL_POPULATION ||
+        strcmp(source_set.implementation, "reference") != 0 ||
+        strcmp(source_set.run_id, run_id) != 0 || v4_label_draw(block_number, indices) != 0) {
+        free(source_set.records);
+        return 1;
+    }
+    memset(index_seen, 0, sizeof(index_seen));
+    int64_t original_differences[CALIBRATION_PAIRS];
+    for (size_t draw_index = 0; draw_index < V4_LABEL_DRAW_COUNT; ++draw_index) {
+        uint32_t sample_index = indices[draw_index];
+        if (sample_index >= V4_LABEL_POPULATION || index_seen[sample_index] != 0) {
+            free(source_set.records);
+            return 1;
+        }
+        index_seen[sample_index] = 1;
+        uint64_t elapsed_ns = source_set.records[sample_index].elapsed_nanoseconds;
+        if (elapsed_ns > (uint64_t)CONTROLLED_MAXIMUM_DIFFERENCE_NS ||
+            fprintf(selected_records,
+                "%s,%zu,%" PRIu32 ",%" PRIu64 ",ns\n",
+                run_id,
+                draw_index,
+                sample_index,
+                elapsed_ns) < 0) {
+            free(source_set.records);
+            return 1;
+        }
+    }
+    for (size_t pair_index = 0; pair_index < CALIBRATION_PAIRS; ++pair_index) {
+        uint32_t first_index = indices[2u * pair_index];
+        uint32_t second_index = indices[2u * pair_index + 1u];
+        original_differences[pair_index] =
+            (int64_t)source_set.records[first_index].elapsed_nanoseconds -
+            (int64_t)source_set.records[second_index].elapsed_nanoseconds;
+    }
+    free(source_set.records);
+    uint64_t sorted_sums[CALIBRATION_ASSIGNMENTS];
+    if (independent_distribution(original_differences, CALIBRATION_PAIRS, sorted_sums) != 0) {
+        return 1;
+    }
+    uint64_t raw_rejections = 0;
+    for (uint64_t assignment_index = 0; assignment_index < CALIBRATION_ASSIGNMENTS;
+        ++assignment_index) {
+        if (!within_budget(start_ns)) {
+            return 1;
+        }
+        int64_t differences_ns[CALIBRATION_PAIRS];
+        int64_t observed_sum = 0;
+        for (size_t pair_index = 0; pair_index < CALIBRATION_PAIRS; ++pair_index) {
+            differences_ns[pair_index] = (assignment_index >> pair_index) & 1u
+                ? original_differences[pair_index]
+                : -original_differences[pair_index];
+            observed_sum += differences_ns[pair_index];
+        }
+        struct controlled_result result;
+        uint64_t oracle_tail =
+            distribution_tail(sorted_sums, (size_t)CALIBRATION_ASSIGNMENTS, observed_sum);
+        if (compute_controlled_result(differences_ns, CALIBRATION_PAIRS, 0, &result) != 0 ||
+            write_controlled_record(records,
+                run_id,
+                0,
+                CALIBRATION_ASSIGNMENTS,
+                assignment_index,
+                differences_ns,
+                &result,
+                oracle_tail) != 0) {
+            return 1;
+        }
+        raw_rejections += (uint64_t)(result.tail_count * 100u <= CALIBRATION_ASSIGNMENTS);
+    }
+    for (size_t file_index = 0; file_index < 3u; ++file_index) {
+        char final_digest[65];
+        if (paired_digest_file(paths[file_index], final_digest) != 0 ||
+            strcmp(final_digest, original_digests[file_index]) != 0) {
+            return 1;
+        }
+    }
+    char index_text[512];
+    size_t used_bytes = 0;
+    for (size_t draw_index = 0; draw_index < V4_LABEL_DRAW_COUNT; ++draw_index) {
+        int written = snprintf(index_text + used_bytes,
+            sizeof(index_text) - used_bytes,
+            "%s%" PRIu32,
+            draw_index == 0u ? "" : ",",
+            indices[draw_index]);
+        if (written < 0 || (size_t)written >= sizeof(index_text) - used_bytes) {
+            return 1;
+        }
+        used_bytes += (size_t)written;
+    }
+    /* 旧路径把拒绝数高于 40 当成固定原序的失败。重抽只复述同一统计量。 */
+    return emit_line(conclusion, "block=%u\n", block_number) ||
+        emit_line(conclusion, "csv_digest=%s\n", original_digests[0]) ||
+        emit_line(conclusion, "meta_digest=%s\n", original_digests[1]) ||
+        emit_line(conclusion, "cost_digest=%s\n", original_digests[2]) ||
+        emit_line(conclusion, "raw_rejections=%" PRIu64 "\n", raw_rejections) ||
+        emit_line(conclusion,
+            "conditional_probability=%.12Lf\n",
+            (long double)raw_rejections / (long double)CALIBRATION_ASSIGNMENTS) ||
+        emit_line(conclusion, "indices=%s\n", index_text);
+}
+
+static int run_label_redraw(const char *input_directory, const char *output_directory)
+{
+    uint64_t start_ns;
+    if (read_clock_ns(&start_ns) != 0 || mkdir(output_directory, 0700) != 0) {
+        return 1;
+    }
+    char records_path[4096];
+    char selected_path[4096];
+    char conclusion_path[4096];
+    if (paired_data_path(records_path, sizeof(records_path), output_directory, "raw.csv") != 0 ||
+        paired_data_path(selected_path, sizeof(selected_path), output_directory, "selected.csv") !=
+            0 ||
+        paired_data_path(conclusion_path,
+            sizeof(conclusion_path),
+            output_directory,
+            "conclusion.txt") != 0) {
+        return 1;
+    }
+    FILE *records = fopen(records_path, "wx");
+    FILE *selected_records = fopen(selected_path, "wx");
+    FILE *conclusion = fopen(conclusion_path, "wx");
+    int operation_status = 1;
+    if (records == NULL || selected_records == NULL || conclusion == NULL) {
+        goto cleanup;
+    }
+    if (fputs("model,effect_ns,model_assignment_count,assignment_index", records) == EOF) {
+        goto cleanup;
+    }
+    for (size_t pair_index = 0; pair_index < CALIBRATION_PAIRS; ++pair_index) {
+        if (fprintf(records, ",difference_%zu_ns", pair_index) < 0) {
+            goto cleanup;
+        }
+    }
+    if (fputs(",tail_count,oracle_tail_count,permutation_count,all_zero,raw_reject\n", records) ==
+            EOF ||
+        fputs("source_run,draw_order,sample_index,elapsed_nanoseconds,time_unit\n",
+            selected_records) == EOF ||
+        emit_line(conclusion, "rule_id=v4_label_redraw_20261013\n") ||
+        emit_line(conclusion, "label_seed=%" PRIu64 "\n", V4_LABEL_SEED) ||
+        emit_line(conclusion, "generator=splitmix64\n") ||
+        emit_line(conclusion, "population=%u\n", V4_LABEL_POPULATION) ||
+        emit_line(conclusion, "draw_count=%u\n", V4_LABEL_DRAW_COUNT) ||
+        emit_line(conclusion, "pair_count=%u\n", CALIBRATION_PAIRS) ||
+        emit_line(conclusion, "pairing=draw_order\n") ||
+        emit_line(conclusion, "pair_definition=even_draw_minus_next_draw\n") ||
+        emit_line(conclusion, "assignment_count=%" PRIu64 "\n", CALIBRATION_ASSIGNMENTS) ||
+        emit_line(conclusion, "tail=upper_including_ties\n") ||
+        emit_line(conclusion, "denominator=4096\n") || emit_line(conclusion, "alpha=0.01\n") ||
+        emit_line(conclusion, "statistic=c04_abs_sum\n") ||
+        emit_line(conclusion, "old_rule=original_order_0..23\n") ||
+        emit_line(conclusion, "old_table=docs/evidence/reference-label-control-20261007\n") ||
+        emit_line(conclusion, "mlkem_decapsulation_calls=0\n")) {
+        goto cleanup;
+    }
+    for (unsigned block_number = 1u; block_number <= 6u; ++block_number) {
+        if (run_redraw_block(records,
+                conclusion,
+                selected_records,
+                input_directory,
+                block_number,
+                start_ns) != 0) {
+            goto cleanup;
+        }
+    }
+    char raw_digest[65];
+    int records_close_status = fclose(records);
+    records = NULL;
+    int selected_close_status = fclose(selected_records);
+    selected_records = NULL;
+    if (records_close_status != 0 || selected_close_status != 0 ||
+        paired_digest_file(records_path, raw_digest) != 0 ||
+        emit_line(conclusion, "candidate_oracle_mismatches=0\n") ||
+        emit_line(conclusion, "raw_digest=%s\n", raw_digest) ||
+        emit_line(conclusion, "status=complete\n")) {
+        goto cleanup;
+    }
+    if (fclose(conclusion) != 0) {
+        conclusion = NULL;
+        goto cleanup;
+    }
+    conclusion = NULL;
+    operation_status = 0;
+cleanup:
+    if (selected_records != NULL && fclose(selected_records) != 0) {
+        operation_status = 1;
+    }
+    if (records != NULL && fclose(records) != 0) {
+        operation_status = 1;
+    }
+    if (conclusion != NULL && fclose(conclusion) != 0) {
+        operation_status = 1;
+    }
+    return operation_status;
+}
+
 int main(int argument_count, char **argument_values)
 {
     if (argument_count == 2 && strcmp(argument_values[1], "--self-test") == 0) {
         return self_test();
     }
+    if (argument_count == 4 && strcmp(argument_values[1], "--reference-labels-redraw") == 0) {
+        return run_label_redraw(argument_values[2], argument_values[3]) == 0 ? 0 : 1;
+    }
     int is_reference_control =
         argument_count == 4 && strcmp(argument_values[1], "--reference-labels") == 0;
     if (argument_count != 2 && !is_reference_control) {
         fputs("Usage: calibrate_controlled NEW_DIRECTORY\n"
-              "       calibrate_controlled --reference-labels ORDINARY_DIRECTORY NEW_DIRECTORY\n",
+              "       calibrate_controlled --reference-labels ORDINARY_DIRECTORY NEW_DIRECTORY\n"
+              "       calibrate_controlled --reference-labels-redraw ORDINARY_DIRECTORY "
+              "NEW_DIRECTORY\n",
             stderr);
         return 2;
     }
