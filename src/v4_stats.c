@@ -20,6 +20,17 @@ uint64_t v4_alternating_seed(unsigned round_number)
     return UINT64_C(20261015000) + (uint64_t)round_number;
 }
 
+/* 20261014 频率保持协议的种子。不替换上面 20261013 协议的种子。 */
+uint64_t v4_hold_confirmation_seed(unsigned session_number)
+{
+    return V4_HOLD_CONFIRM_SEED_BASE + (uint64_t)session_number;
+}
+
+uint64_t v4_hold_alternating_seed(unsigned round_number)
+{
+    return V4_HOLD_ALTERNATING_SEED_BASE + (uint64_t)round_number;
+}
+
 uint64_t v4_splitmix64(uint64_t *state)
 {
     uint64_t mixed = (*state += UINT64_C(0x9E3779B97F4A7C15));
@@ -28,14 +39,24 @@ uint64_t v4_splitmix64(uint64_t *state)
     return mixed ^ (mixed >> 31);
 }
 
-int v4_round_measures_branch_first(unsigned round_number)
+static int round_draws_branch_first(uint64_t order_seed, unsigned round_number)
 {
-    uint64_t state = V4_ORDER_SEED;
+    uint64_t state = order_seed;
     uint64_t draw = 0u;
     for (unsigned round_index = 1u; round_index <= round_number; ++round_index) {
         draw = v4_splitmix64(&state);
     }
     return (draw & 1u) == 0u;
+}
+
+int v4_round_measures_branch_first(unsigned round_number)
+{
+    return round_draws_branch_first(V4_ORDER_SEED, round_number);
+}
+
+int v4_hold_round_measures_branch_first(unsigned round_number)
+{
+    return round_draws_branch_first(V4_HOLD_ORDER_SEED, round_number);
 }
 
 int v4_mean_sd(const double *values, size_t count, double *mean_counts, double *sample_sd_counts)

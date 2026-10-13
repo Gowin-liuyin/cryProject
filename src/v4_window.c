@@ -133,6 +133,71 @@ static int sibling_self_check(void)
     return 0;
 }
 
+static int frequency_in_band(uint64_t frequency_khz)
+{
+    return frequency_khz >= V4_BAND_LOW_KHZ && frequency_khz <= V4_BAND_HIGH_KHZ;
+}
+
+/* 连续 streak 次带内才算请求已经落地。带外读数把连续计数清零。 */
+static int precondition_streak_ready(const uint64_t *frequency_khz, size_t count, unsigned streak)
+{
+    unsigned consecutive_in_band = 0u;
+    if (frequency_khz == NULL || streak == 0u) {
+        return 0;
+    }
+    for (size_t index = 0; index < count; ++index) {
+        if (frequency_in_band(frequency_khz[index])) {
+            consecutive_in_band += 1u;
+            if (consecutive_in_band >= streak) {
+                return 1;
+            }
+        } else {
+            consecutive_in_band = 0u;
+        }
+    }
+    return 0;
+}
+
+static int hold_policy_self_check(void)
+{
+    uint64_t ready[3];
+    uint64_t broken[5];
+    uint64_t late[4];
+    uint64_t outside[2];
+    ready[0] = 4257000ull;
+    ready[1] = 4300000ull;
+    ready[2] = 4343000ull;
+    broken[0] = 4300000ull;
+    broken[1] = 4300000ull;
+    broken[2] = 4256999ull;
+    broken[3] = 4300000ull;
+    broken[4] = 4300000ull;
+    late[0] = 1000000ull;
+    late[1] = 4300000ull;
+    late[2] = 4300000ull;
+    late[3] = 4300000ull;
+    outside[0] = 4256999ull;
+    outside[1] = 4343001ull;
+    if (strcmp(V4_HOLD_RULE_ID, "v4_frequency_hold_20261014") != 0 ||
+        strcmp(V4_HOLD_GOVERNOR, "performance") != 0 || strcmp(V4_HOLD_EPP, "performance") != 0 ||
+        strcmp(V4_HOLD_BOOST, "0") != 0 || strcmp(V4_HOLD_FREQ_KHZ, "4300000") != 0) {
+        return 1;
+    }
+    if (V4_COVERAGE_THRESHOLD != 0.99 || V4_BAND_LOW_KHZ != 4257000ull ||
+        V4_BAND_HIGH_KHZ != 4343000ull || V4_HOLD_PRECONDITION_STREAK != 3u ||
+        V4_HOLD_PRECONDITION_LIMIT != 100u) {
+        return 1;
+    }
+    if (!precondition_streak_ready(ready, 3u, V4_HOLD_PRECONDITION_STREAK) ||
+        precondition_streak_ready(ready, 2u, V4_HOLD_PRECONDITION_STREAK) ||
+        precondition_streak_ready(broken, 5u, V4_HOLD_PRECONDITION_STREAK) ||
+        !precondition_streak_ready(late, 4u, V4_HOLD_PRECONDITION_STREAK) ||
+        precondition_streak_ready(outside, 2u, V4_HOLD_PRECONDITION_STREAK)) {
+        return 1;
+    }
+    return 0;
+}
+
 #ifdef __linux__
 static int copy_cpu_stat(FILE *output, unsigned cpu_index, const char *phase)
 {
@@ -183,6 +248,69 @@ static int frequencies_match_baseline(const unsigned cpus[2],
     }
     return 0;
 }
+
+#define V4_BOOST_PATH "/sys/devices/system/cpu/cpufreq/boost"
+
+static int read_cpu_field(unsigned cpu_index, const char *field, char *buffer, size_t capacity)
+{
+    char path[256];
+    if (cpu_frequency_path(cpu_index, field, path, sizeof(path)) != 0) {
+        return 1;
+    }
+    return read_text(path, buffer, capacity);
+}
+
+static int write_cpu_field(unsigned cpu_index, const char *field, const char *text)
+{
+    char path[256];
+    if (cpu_frequency_path(cpu_index, field, path, sizeof(path)) != 0) {
+        return 1;
+    }
+    return write_text(path, text);
+}
+
+static int hold_requests_match(const unsigned cpus[2])
+{
+    char text[64];
+    if (read_text(V4_BOOST_PATH, text, sizeof(text)) != 0 || strcmp(text, V4_HOLD_BOOST) != 0) {
+        return 1;
+    }
+    for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+        if (read_cpu_field(cpus[cpu_slot], "scaling_governor", text, sizeof(text)) != 0 ||
+            strcmp(text, V4_HOLD_GOVERNOR) != 0 ||
+            read_cpu_field(cpus[cpu_slot], "energy_performance_preference", text, sizeof(text)) !=
+                0 ||
+            strcmp(text, V4_HOLD_EPP) != 0 ||
+            read_cpu_field(cpus[cpu_slot], "scaling_min_freq", text, sizeof(text)) != 0 ||
+            strcmp(text, V4_HOLD_FREQ_KHZ) != 0 ||
+            read_cpu_field(cpus[cpu_slot], "scaling_max_freq", text, sizeof(text)) != 0 ||
+            strcmp(text, V4_HOLD_FREQ_KHZ) != 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+static int hold_baseline_matches(const unsigned cpus[2],
+    const char baseline_governor[2][64],
+    const char baseline_epp[2][64],
+    const char *baseline_boost)
+{
+    char text[64];
+    if (read_text(V4_BOOST_PATH, text, sizeof(text)) != 0 || strcmp(text, baseline_boost) != 0) {
+        return 1;
+    }
+    for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+        if (read_cpu_field(cpus[cpu_slot], "scaling_governor", text, sizeof(text)) != 0 ||
+            strcmp(text, baseline_governor[cpu_slot]) != 0 ||
+            read_cpu_field(cpus[cpu_slot], "energy_performance_preference", text, sizeof(text)) !=
+                0 ||
+            strcmp(text, baseline_epp[cpu_slot]) != 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
 #endif
 
 int main(int argc, char **argv)
@@ -193,6 +321,9 @@ int main(int argc, char **argv)
     if (argc == 2 && strcmp(argv[1], "--sibling-self-check") == 0) {
         return sibling_self_check();
     }
+    if (argc == 2 && strcmp(argv[1], "--hold-policy-self-check") == 0) {
+        return hold_policy_self_check();
+    }
 #ifndef __linux__
     fputs("v4_window run requires linux\n", stderr);
     return 2;
@@ -200,19 +331,25 @@ int main(int argc, char **argv)
     char sibling_text[128];
     char baseline_min[2][64];
     char baseline_max[2][64];
+    char baseline_governor[2][64] = {{0}};
+    char baseline_epp[2][64] = {{0}};
+    char baseline_boost[64] = "";
     unsigned cpus[2];
     unsigned sibling = 0u;
     pid_t child = -1;
     int child_status = 0;
+    int hold_requested = 0;
     int frequency_requested = 0;
     int exit_status = 1;
     int child_started = 0;
+    unsigned precondition_count = 0u;
     FILE *sample_file = NULL;
     FILE *smt_file = NULL;
-    if (argc < 4 || strcmp(argv[1], "run") != 0) {
-        fputs("usage: v4_window run OUTDIR -- collector args\n", stderr);
+    if (argc < 4 || (strcmp(argv[1], "run") != 0 && strcmp(argv[1], "run-held") != 0)) {
+        fputs("usage: v4_window run|run-held OUTDIR -- collector args\n", stderr);
         return 1;
     }
+    hold_requested = strcmp(argv[1], "run-held") == 0;
     if (geteuid() != 0) {
         fputs("status=not_root\n", stdout);
         return 2;
@@ -235,6 +372,25 @@ int main(int argc, char **argv)
             return 2;
         }
     }
+    if (hold_requested) {
+        if (read_text(V4_BOOST_PATH, baseline_boost, sizeof(baseline_boost)) != 0) {
+            fputs("status=stopped_boost_file\n", stdout);
+            return 3;
+        }
+        for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+            if (read_cpu_field(cpus[cpu_slot],
+                    "scaling_governor",
+                    baseline_governor[cpu_slot],
+                    sizeof(baseline_governor[cpu_slot])) != 0 ||
+                read_cpu_field(cpus[cpu_slot],
+                    "energy_performance_preference",
+                    baseline_epp[cpu_slot],
+                    sizeof(baseline_epp[cpu_slot])) != 0) {
+                fputs("status=stopped_policy_baseline\n", stdout);
+                return 3;
+            }
+        }
+    }
     {
         char path[512];
         FILE *baseline = NULL;
@@ -246,6 +402,11 @@ int main(int argc, char **argv)
         if (baseline == NULL) {
             return 1;
         }
+        if (hold_requested &&
+            fprintf(baseline, "hold_rule_id=%s\nboost=%s\n", V4_HOLD_RULE_ID, baseline_boost) < 0) {
+            (void)fclose(baseline);
+            return 1;
+        }
         for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
             if (fprintf(baseline,
                     "cpu=%u\nmin=%s\nmax=%s\n",
@@ -255,12 +416,23 @@ int main(int argc, char **argv)
                 (void)fclose(baseline);
                 return 1;
             }
+            if (hold_requested &&
+                fprintf(baseline,
+                    "governor=%s\nepp=%s\n",
+                    baseline_governor[cpu_slot],
+                    baseline_epp[cpu_slot]) < 0) {
+                (void)fclose(baseline);
+                return 1;
+            }
         }
         if (fclose(baseline) != 0) {
             return 1;
         }
     }
     frequency_requested = 1;
+    if (hold_requested && write_text(V4_BOOST_PATH, V4_HOLD_BOOST) != 0) {
+        goto restore;
+    }
     for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
         char path[256];
         if (cpu_frequency_path(cpus[cpu_slot], "scaling_min_freq", path, sizeof(path)) != 0 ||
@@ -268,6 +440,128 @@ int main(int argc, char **argv)
             cpu_frequency_path(cpus[cpu_slot], "scaling_max_freq", path, sizeof(path)) != 0 ||
             write_text(path, "4300000") != 0) {
             goto restore;
+        }
+    }
+    if (hold_requested) {
+        char readback_path[512];
+        FILE *readback = NULL;
+        int requests_match = 0;
+        char seen_boost[64];
+        for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+            if (write_cpu_field(cpus[cpu_slot], "scaling_governor", V4_HOLD_GOVERNOR) != 0 ||
+                write_cpu_field(cpus[cpu_slot], "energy_performance_preference", V4_HOLD_EPP) !=
+                    0) {
+                goto restore;
+            }
+        }
+        requests_match = hold_requests_match(cpus) == 0;
+        if (snprintf(readback_path, sizeof(readback_path), "%s/policy-readback.txt", argv[2]) <
+            (int)sizeof(readback_path)) {
+            readback = fopen(readback_path, "w");
+        }
+        if (readback != NULL) {
+            if (read_text(V4_BOOST_PATH, seen_boost, sizeof(seen_boost)) != 0) {
+                seen_boost[0] = '\0';
+            }
+            (void)fprintf(readback,
+                "boost=%s\nmatch=%s\n",
+                seen_boost,
+                requests_match ? "yes" : "no");
+            for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+                char governor[64];
+                char epp[64];
+                char minimum[64];
+                char maximum[64];
+                governor[0] = '\0';
+                epp[0] = '\0';
+                minimum[0] = '\0';
+                maximum[0] = '\0';
+                (void)
+                    read_cpu_field(cpus[cpu_slot], "scaling_governor", governor, sizeof(governor));
+                (void)read_cpu_field(cpus[cpu_slot],
+                    "energy_performance_preference",
+                    epp,
+                    sizeof(epp));
+                (void)read_cpu_field(cpus[cpu_slot], "scaling_min_freq", minimum, sizeof(minimum));
+                (void)read_cpu_field(cpus[cpu_slot], "scaling_max_freq", maximum, sizeof(maximum));
+                (void)fprintf(readback,
+                    "cpu=%u\ngovernor=%s\nepp=%s\nmin=%s\nmax=%s\n",
+                    cpus[cpu_slot],
+                    governor,
+                    epp,
+                    minimum,
+                    maximum);
+            }
+            (void)fclose(readback);
+        }
+        if (!requests_match) {
+            fputs("status=stopped_policy_readback\n", stdout);
+            exit_status = 3;
+            goto restore;
+        }
+        {
+            char precondition_path[512];
+            FILE *precondition_file = NULL;
+            uint64_t seen_khz[V4_HOLD_PRECONDITION_LIMIT];
+            int ready = 0;
+            if (snprintf(precondition_path,
+                    sizeof(precondition_path),
+                    "%s/precondition-samples.csv",
+                    argv[2]) >= (int)sizeof(precondition_path)) {
+                fputs("status=stopped_precondition\n", stdout);
+                exit_status = 3;
+                goto restore;
+            }
+            precondition_file = fopen(precondition_path, "w");
+            if (precondition_file == NULL ||
+                fputs("time_ns,frequency_khz\n", precondition_file) < 0) {
+                if (precondition_file != NULL) {
+                    (void)fclose(precondition_file);
+                }
+                fputs("status=stopped_precondition\n", stdout);
+                exit_status = 3;
+                goto restore;
+            }
+            while (precondition_count < V4_HOLD_PRECONDITION_LIMIT && !ready) {
+                char frequency_text[64];
+                struct timespec now;
+                uint64_t frequency_khz = 0u;
+                uint64_t time_ns = 0u;
+                if (read_cpu_field(2u,
+                        "scaling_cur_freq",
+                        frequency_text,
+                        sizeof(frequency_text)) != 0 ||
+                    clock_gettime(CLOCK_MONOTONIC, &now) != 0) {
+                    break;
+                }
+                frequency_khz = strtoull(frequency_text, NULL, 10);
+                time_ns = (uint64_t)now.tv_sec * UINT64_C(1000000000) + (uint64_t)now.tv_nsec;
+                if (fprintf(precondition_file,
+                        "%llu,%llu\n",
+                        (unsigned long long)time_ns,
+                        (unsigned long long)frequency_khz) < 0) {
+                    break;
+                }
+                seen_khz[precondition_count] = frequency_khz;
+                precondition_count += 1u;
+                if (precondition_streak_ready(seen_khz,
+                        precondition_count,
+                        V4_HOLD_PRECONDITION_STREAK)) {
+                    ready = 1;
+                    break;
+                }
+                nanosleep(&(struct timespec){.tv_nsec = 20000000L}, NULL);
+            }
+            if (fclose(precondition_file) != 0) {
+                fputs("status=stopped_precondition\n", stdout);
+                exit_status = 3;
+                goto restore;
+            }
+            if (!ready) {
+                fputs("status=stopped_precondition\n", stdout);
+                exit_status = 3;
+                goto restore;
+            }
         }
     }
     {
@@ -419,6 +713,12 @@ int main(int argc, char **argv)
                     (unsigned long long)V4_BAND_HIGH_KHZ,
                     sibling,
                     WIFEXITED(child_status) ? WEXITSTATUS(child_status) : -1);
+                if (hold_requested) {
+                    (void)fprintf(coverage,
+                        "hold_rule_id=%s\nprecondition_samples=%u\n",
+                        V4_HOLD_RULE_ID,
+                        precondition_count);
+                }
                 (void)fclose(coverage);
             }
         }
@@ -441,6 +741,16 @@ restore:
         int restored = 0;
         /* sysfs 接受写回后，紧接着的读可能仍是旧值。重试只核对基线，不改请求。 */
         for (int attempt_index = 0; attempt_index < 50 && !restored; ++attempt_index) {
+            if (hold_requested) {
+                for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+                    (void)write_cpu_field(cpus[cpu_slot],
+                        "scaling_governor",
+                        baseline_governor[cpu_slot]);
+                    (void)write_cpu_field(cpus[cpu_slot],
+                        "energy_performance_preference",
+                        baseline_epp[cpu_slot]);
+                }
+            }
             for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
                 char path[256];
                 if (cpu_frequency_path(cpus[cpu_slot], "scaling_min_freq", path, sizeof(path)) ==
@@ -452,7 +762,13 @@ restore:
                     (void)write_text(path, baseline_max[cpu_slot]);
                 }
             }
-            if (frequencies_match_baseline(cpus, baseline_min, baseline_max) == 0) {
+            if (hold_requested) {
+                (void)write_text(V4_BOOST_PATH, baseline_boost);
+            }
+            if (frequencies_match_baseline(cpus, baseline_min, baseline_max) == 0 &&
+                (!hold_requested ||
+                    hold_baseline_matches(cpus, baseline_governor, baseline_epp, baseline_boost) ==
+                        0)) {
                 restored = 1;
             } else {
                 nanosleep(&(struct timespec){.tv_nsec = 20000000L}, NULL);

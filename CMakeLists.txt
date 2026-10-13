@@ -740,6 +740,9 @@ if(BUILD_TESTING)
         target_link_libraries(v4_window PRIVATE "${MATH_LIBRARY}")
     endif()
     set_target_properties(v4_window PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(v4_hold_spin src/v4_hold_spin.c)
+    target_link_libraries(v4_hold_spin PRIVATE baseline_options)
+    set_target_properties(v4_hold_spin PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
     add_executable(test_v4_stats tests/test_v4_stats.c src/v4_stats.c src/protocol_decision.c)
     target_link_libraries(test_v4_stats PRIVATE baseline_options)
     if(MATH_LIBRARY)
@@ -749,6 +752,12 @@ if(BUILD_TESTING)
     add_test(NAME v4_stats COMMAND test_v4_stats)
     add_test(NAME v4_window_coverage COMMAND v4_window --coverage-self-check)
     add_test(NAME v4_window_sibling COMMAND v4_window --sibling-self-check)
+    add_test(NAME v4_window_hold_policy COMMAND v4_window --hold-policy-self-check)
+    add_test(
+        NAME v4_hold_policy
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_v4_hold_policy.sh"
+                $<TARGET_FILE:v4_window> $<TARGET_FILE:v4_analyze> "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
     add_test(
         NAME v4_schedule_fixture
         COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_v4_schedule.sh"

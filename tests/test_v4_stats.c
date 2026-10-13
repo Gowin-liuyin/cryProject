@@ -122,8 +122,23 @@ int main(void)
         }
         seen[first_draw[index]] = 1;
     }
-    if (v4_round_measures_branch_first(1u) != v4_round_measures_branch_first(1u)) {
+    if (v4_round_measures_branch_first(1u) != 0 || v4_round_measures_branch_first(2u) != 1 ||
+        v4_round_measures_branch_first(3u) != 0 || v4_round_measures_branch_first(4u) != 0 ||
+        v4_round_measures_branch_first(5u) != 0) {
         return fail("round order");
+    }
+    if (v4_hold_confirmation_seed(1u) != UINT64_C(20261016001) ||
+        v4_hold_confirmation_seed(40u) != UINT64_C(20261016040) ||
+        v4_hold_alternating_seed(1u) != UINT64_C(20261017001) ||
+        v4_hold_alternating_seed(5u) != UINT64_C(20261017005)) {
+        return fail("hold seeds");
+    }
+    if (v4_hold_round_measures_branch_first(1u) != 1 ||
+        v4_hold_round_measures_branch_first(2u) != 1 ||
+        v4_hold_round_measures_branch_first(3u) != 1 ||
+        v4_hold_round_measures_branch_first(4u) != 1 ||
+        v4_hold_round_measures_branch_first(5u) != 0) {
+        return fail("hold order");
     }
     if (v4_development_seed(1u) != UINT64_C(20261013001) ||
         v4_confirmation_seed(1u) != UINT64_C(20261014001) ||

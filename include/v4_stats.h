@@ -17,6 +17,16 @@
 #define V4_BAND_HIGH_KHZ 4343000ull
 #define V4_ALTERNATING_ROUNDS 5u
 #define V4_ORDER_SEED UINT64_C(2026101307)
+#define V4_HOLD_RULE_ID "v4_frequency_hold_20261014"
+#define V4_HOLD_CONFIRM_SEED_BASE UINT64_C(20261016000)
+#define V4_HOLD_ALTERNATING_SEED_BASE UINT64_C(20261017000)
+#define V4_HOLD_ORDER_SEED UINT64_C(2026101707)
+#define V4_HOLD_GOVERNOR "performance"
+#define V4_HOLD_EPP "performance"
+#define V4_HOLD_BOOST "0"
+#define V4_HOLD_FREQ_KHZ "4300000"
+#define V4_HOLD_PRECONDITION_STREAK 3u
+#define V4_HOLD_PRECONDITION_LIMIT 100u
 #define V4_LABEL_SEED UINT64_C(20261013)
 #define V4_LABEL_POPULATION 3000u
 #define V4_LABEL_DRAW_COUNT 24u
@@ -57,8 +67,11 @@ struct v4_paired_result {
 uint64_t v4_development_seed(unsigned session_number);
 uint64_t v4_confirmation_seed(unsigned session_number);
 uint64_t v4_alternating_seed(unsigned round_number);
+uint64_t v4_hold_confirmation_seed(unsigned session_number);
+uint64_t v4_hold_alternating_seed(unsigned round_number);
 uint64_t v4_splitmix64(uint64_t *state);
 int v4_round_measures_branch_first(unsigned round_number);
+int v4_hold_round_measures_branch_first(unsigned round_number);
 
 int v4_mean_sd(const double *values, size_t count, double *mean_counts, double *sample_sd_counts);
 int v4_one_sample_t(const double *values,

@@ -292,19 +292,32 @@ static int command_paired(const char *csv_path, const char *directory)
     return finish_file(file, 0);
 }
 
-static int command_order(void)
+static int print_round_order(int hold_rule)
 {
     for (unsigned round_number = 1u; round_number <= V4_ALTERNATING_ROUNDS; ++round_number) {
-        const char *order =
-            v4_round_measures_branch_first(round_number) ? "branch_then_mask" : "mask_then_branch";
+        int branch_first = hold_rule ? v4_hold_round_measures_branch_first(round_number)
+                                     : v4_round_measures_branch_first(round_number);
+        uint64_t seed =
+            hold_rule ? v4_hold_alternating_seed(round_number) : v4_alternating_seed(round_number);
+        const char *order = branch_first ? "branch_then_mask" : "mask_then_branch";
         if (printf("round=%u\norder=%s\nseed=%llu\n",
                 round_number,
                 order,
-                (unsigned long long)v4_alternating_seed(round_number)) < 0) {
+                (unsigned long long)seed) < 0) {
             return 1;
         }
     }
     return 0;
+}
+
+static int command_order(void)
+{
+    return print_round_order(0);
+}
+
+static int command_order_held(void)
+{
+    return print_round_order(1);
 }
 
 static int command_diagnose(const char *effect_path, const char *series_path, const char *directory)
@@ -566,7 +579,7 @@ int main(int argc, char **argv)
 {
     if (argc < 2) {
         fputs("usage: v4_analyze power|confirm|confirm-sessions|reduce-effects|paired|order|"
-              "diagnose|label ...\n",
+              "order-held|diagnose|label ...\n",
             stderr);
         return 1;
     }
@@ -606,6 +619,9 @@ int main(int argc, char **argv)
     if (strcmp(argv[1], "order") == 0 && argc == 2) {
         return command_order();
     }
+    if (strcmp(argv[1], "order-held") == 0 && argc == 2) {
+        return command_order_held();
+    }
     if (strcmp(argv[1], "diagnose") == 0 && argc == 5) {
         return command_diagnose(argv[2], argv[3], argv[4]) == 0 ? 0 : 1;
     }
@@ -618,7 +634,7 @@ int main(int argc, char **argv)
         return command_label((unsigned)block_number);
     }
     fputs("usage: v4_analyze power|confirm|confirm-sessions|reduce-effects|paired|order|"
-          "diagnose|label ...\n",
+          "order-held|diagnose|label ...\n",
         stderr);
     return 1;
 }
