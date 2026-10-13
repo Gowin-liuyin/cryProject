@@ -422,6 +422,15 @@ set_target_properties(
 )
 
 find_library(MATH_LIBRARY m)
+# 上面的变体循环在 find_library 之前展开。干净的首次配置当时还没有 libm，
+# 采集程序会漏掉 sqrt 与 lgamma。这里在库已解析之后补链。
+if(MATH_LIBRARY)
+    foreach(v4_collect_variant IN ITEMS reference vulnerable hardened deployable encoder_branch
+                                        encoder_mask
+    )
+        target_link_libraries(${v4_collect_variant}_v4_collect PRIVATE "${MATH_LIBRARY}")
+    endforeach()
+endif()
 add_executable(analyze src/analyze.c src/timing_statistics.c)
 target_link_libraries(analyze PRIVATE mlkem_reference)
 if(MATH_LIBRARY)
