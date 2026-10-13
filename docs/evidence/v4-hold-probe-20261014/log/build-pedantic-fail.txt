@@ -1,0 +1,16 @@
+[  0%] Building C object CMakeFiles/v4_window.dir/src/v4_window.c.o
+[100%] Building C object CMakeFiles/v4_window.dir/src/protocol_decision.c.o
+[100%] Building C object CMakeFiles/v4_window.dir/src/v4_stats.c.o
+/home/nss-marker/yhr/Cry/v4-hold-probe-bf79558/source/src/v4_window.c: In function 'main':
+/home/nss-marker/yhr/Cry/v4-hold-probe-bf79558/source/src/v4_window.c:770:49: error: invalid use of pointers to arrays with different qualifiers in ISO C before C2X [-Werror=pedantic]
+  770 |                     hold_baseline_matches(cpus, baseline_governor, baseline_epp, baseline_boost) ==
+      |                                                 ^~~~~~~~~~~~~~~~~
+/home/nss-marker/yhr/Cry/v4-hold-probe-bf79558/source/src/v4_window.c:770:68: error: invalid use of pointers to arrays with different qualifiers in ISO C before C2X [-Werror=pedantic]
+  770 |                     hold_baseline_matches(cpus, baseline_governor, baseline_epp, baseline_boost) ==
+      |                                                                    ^~~~~~~~~~~~
+cc1: all warnings being treated as errors
+gmake[3]: *** [CMakeFiles/v4_window.dir/build.make:76: CMakeFiles/v4_window.dir/src/v4_window.c.o] Error 1
+gmake[3]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/Makefile2:3381: CMakeFiles/v4_window.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:3388: CMakeFiles/v4_window.dir/rule] Error 2
+gmake: *** [Makefile:1656: v4_window] Error 2
