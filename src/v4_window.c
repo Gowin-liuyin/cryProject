@@ -438,17 +438,28 @@ restore:
         (void)fclose(smt_file);
     }
     if (frequency_requested) {
-        for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
-            char path[256];
-            if (cpu_frequency_path(cpus[cpu_slot], "scaling_min_freq", path, sizeof(path)) == 0) {
-                (void)write_text(path, baseline_min[cpu_slot]);
+        int restored = 0;
+        /* sysfs 接受写回后，紧接着的读可能仍是旧值。重试只核对基线，不改请求。 */
+        for (int attempt_index = 0; attempt_index < 50 && !restored; ++attempt_index) {
+            for (int cpu_slot = 0; cpu_slot < 2; ++cpu_slot) {
+                char path[256];
+                if (cpu_frequency_path(cpus[cpu_slot], "scaling_min_freq", path, sizeof(path)) ==
+                    0) {
+                    (void)write_text(path, baseline_min[cpu_slot]);
+                }
+                if (cpu_frequency_path(cpus[cpu_slot], "scaling_max_freq", path, sizeof(path)) ==
+                    0) {
+                    (void)write_text(path, baseline_max[cpu_slot]);
+                }
             }
-            if (cpu_frequency_path(cpus[cpu_slot], "scaling_max_freq", path, sizeof(path)) == 0) {
-                (void)write_text(path, baseline_max[cpu_slot]);
+            if (frequencies_match_baseline(cpus, baseline_min, baseline_max) == 0) {
+                restored = 1;
+            } else {
+                nanosleep(&(struct timespec){.tv_nsec = 20000000L}, NULL);
             }
         }
         /* 恢复失败不能报成功，否则后续会话会在被改过的频率请求上继续。 */
-        if (frequencies_match_baseline(cpus, baseline_min, baseline_max) != 0) {
+        if (!restored) {
             fputs("status=RESTORE_FAILED\n", stdout);
             return 4;
         }
