@@ -211,6 +211,90 @@ foreach(variant IN ITEMS reference vulnerable hardened deployable)
                    RUNTIME_OUTPUT_DIRECTORY "${output_root}/${variant}"
                    OUTPUT_NAME session_collect
     )
+    add_executable(
+        ${variant}_v4_collect src/v4_collect.c src/v4_stats.c src/attribution_v3.c
+                              src/protocol_decision.c
+    )
+    target_link_libraries(${variant}_v4_collect PRIVATE mlkem_${variant})
+    if(MATH_LIBRARY)
+        target_link_libraries(${variant}_v4_collect PRIVATE "${MATH_LIBRARY}")
+    endif()
+    target_include_directories(${variant}_v4_collect PRIVATE "${identity_directory}")
+    set_target_properties(
+        ${variant}_v4_collect
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/${variant}"
+                   OUTPUT_NAME v4_collect
+    )
+endforeach()
+
+set(encoder_patch "${CMAKE_CURRENT_SOURCE_DIR}/docs/patches/message-encoder-macro.patch")
+foreach(encoder_variant IN ITEMS encoder_branch encoder_mask)
+    set(overlay_root_${encoder_variant} "${CMAKE_CURRENT_BINARY_DIR}/${encoder_variant}-source")
+    add_custom_command(
+        OUTPUT "${overlay_root_${encoder_variant}}/patched.stamp"
+        COMMAND
+            "${CMAKE_COMMAND}" "-DSOURCE_ROOT=${CMAKE_CURRENT_SOURCE_DIR}"
+            "-DOVERLAY_ROOT=${overlay_root_${encoder_variant}}" "-DPATCH_FILE=${encoder_patch}"
+            "-DPATCH_EXECUTABLE=${PATCH_EXECUTABLE}" -P
+            "${CMAKE_CURRENT_SOURCE_DIR}/cmake/PrepareVariant.cmake"
+        DEPENDS ${vendor_files} "${encoder_patch}" cmake/PrepareVariant.cmake
+        VERBATIM
+    )
+    add_custom_target(
+        prepare_${encoder_variant} DEPENDS "${overlay_root_${encoder_variant}}/patched.stamp"
+    )
+    set(kernel_source "${CMAKE_CURRENT_BINARY_DIR}/${encoder_variant}_kernel.c")
+    configure_file(src/kernel.c "${kernel_source}" COPYONLY)
+    set_source_files_properties(
+        "${kernel_source}" PROPERTIES OBJECT_DEPENDS "${overlay_root_${encoder_variant}}/patched.stamp"
+    )
+    add_library(mlkem_${encoder_variant} STATIC "${kernel_source}" src/mlkem.c src/random.c src/inputs.c)
+    target_link_libraries(mlkem_${encoder_variant} PUBLIC baseline_options)
+    set_target_properties(
+        mlkem_${encoder_variant}
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   ARCHIVE_OUTPUT_DIRECTORY "${output_root}/${encoder_variant}"
+                   OUTPUT_NAME mlkem
+    )
+    add_dependencies(mlkem_${encoder_variant} build_identity prepare_${encoder_variant})
+    target_include_directories(
+        mlkem_${encoder_variant} BEFORE PRIVATE "${overlay_root_${encoder_variant}}/mlkem"
+    )
+    target_compile_options(mlkem_${encoder_variant} PRIVATE -falign-functions=32)
+    if(encoder_variant STREQUAL "encoder_branch")
+        target_compile_definitions(mlkem_${encoder_variant} PRIVATE MESSAGE_ENCODER_BRANCH=1)
+    else()
+        target_compile_definitions(mlkem_${encoder_variant} PRIVATE MESSAGE_ENCODER_BRANCH=0)
+    endif()
+    add_executable(
+        ${encoder_variant}_v4_collect src/v4_collect.c src/v4_stats.c src/attribution_v3.c
+                                      src/protocol_decision.c
+    )
+    target_link_libraries(${encoder_variant}_v4_collect PRIVATE mlkem_${encoder_variant})
+    if(MATH_LIBRARY)
+        target_link_libraries(${encoder_variant}_v4_collect PRIVATE "${MATH_LIBRARY}")
+    endif()
+    target_compile_options(${encoder_variant}_v4_collect PRIVATE -falign-functions=32)
+    set_target_properties(
+        ${encoder_variant}_v4_collect
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/${encoder_variant}"
+                   OUTPUT_NAME v4_collect
+    )
+    if(BUILD_TESTING)
+        add_executable(${encoder_variant}_test_mlkem tests/test_mlkem.c)
+        target_link_libraries(${encoder_variant}_test_mlkem PRIVATE mlkem_${encoder_variant})
+        set_target_properties(
+            ${encoder_variant}_test_mlkem
+            PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}/${encoder_variant}"
+                       OUTPUT_NAME test_mlkem
+        )
+        add_test(NAME ${encoder_variant}_kat
+                 COMMAND ${encoder_variant}_test_mlkem
+                         "${CMAKE_CURRENT_SOURCE_DIR}/tests/vectors/mlkem768.txt"
+        )
+    endif()
 endforeach()
 
 # 诊断插桩使用独立覆盖层和独立目标，不改正式库，也不打开 sanitizer。
@@ -630,6 +714,40 @@ if(BUILD_TESTING)
                 sealed $<TARGET_FILE:attribution_v3> "${CMAKE_CURRENT_SOURCE_DIR}"
     )
     set_tests_properties(attribution_v3_fixture attribution_v3_sealed PROPERTIES RUN_SERIAL TRUE)
+    add_executable(
+        v4_analyze src/v4_analyze.c src/v4_reduce.c src/v4_stats.c src/protocol_decision.c
+                   src/attribution_v3.c
+    )
+    target_link_libraries(v4_analyze PRIVATE baseline_options)
+    if(MATH_LIBRARY)
+        target_link_libraries(v4_analyze PRIVATE "${MATH_LIBRARY}")
+    endif()
+    set_target_properties(v4_analyze PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(v4_window src/v4_window.c src/v4_stats.c src/protocol_decision.c)
+    target_link_libraries(v4_window PRIVATE baseline_options)
+    if(MATH_LIBRARY)
+        target_link_libraries(v4_window PRIVATE "${MATH_LIBRARY}")
+    endif()
+    set_target_properties(v4_window PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_executable(test_v4_stats tests/test_v4_stats.c src/v4_stats.c src/protocol_decision.c)
+    target_link_libraries(test_v4_stats PRIVATE baseline_options)
+    if(MATH_LIBRARY)
+        target_link_libraries(test_v4_stats PRIVATE "${MATH_LIBRARY}")
+    endif()
+    target_compile_options(test_v4_stats PRIVATE -UNDEBUG)
+    add_test(NAME v4_stats COMMAND test_v4_stats)
+    add_test(NAME v4_window_coverage COMMAND v4_window --coverage-self-check)
+    add_test(NAME v4_window_sibling COMMAND v4_window --sibling-self-check)
+    add_test(
+        NAME v4_schedule_fixture
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_v4_schedule.sh"
+                $<TARGET_FILE:reference_v4_collect> $<TARGET_FILE:v4_analyze>
+    )
+    add_test(
+        NAME v4_analyze_fixture
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_v4_analyze.sh"
+                $<TARGET_FILE:v4_analyze> "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
     add_executable(protocol_analyze src/protocol_analyze.c src/protocol_decision.c)
     target_link_libraries(protocol_analyze PRIVATE baseline_options)
     if(MATH_LIBRARY)

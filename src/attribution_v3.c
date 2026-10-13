@@ -147,6 +147,48 @@ static void sha256_store(const uint32_t state[8], char hex_out[65])
     }
 }
 
+int sha256_bytes(const uint8_t *bytes, size_t byte_count, char hex_out[65])
+{
+    static const uint8_t padding[64] = {0x80u};
+    uint32_t state[8] = {0x6a09e667u,
+        0xbb67ae85u,
+        0x3c6ef372u,
+        0xa54ff53au,
+        0x510e527fu,
+        0x9b05688cu,
+        0x1f83d9abu,
+        0x5be0cd19u};
+    uint8_t block[64];
+    size_t offset = 0u;
+    size_t filled;
+    uint64_t message_bits = (uint64_t)byte_count * 8u;
+    if (bytes == NULL && byte_count != 0u) {
+        return 1;
+    }
+    while (offset + 64u <= byte_count) {
+        sha256_compress(state, bytes + offset);
+        offset += 64u;
+    }
+    filled = byte_count - offset;
+    memset(block, 0, sizeof(block));
+    if (filled > 0u) {
+        memcpy(block, bytes + offset, filled);
+    }
+    if (filled > 55u) {
+        memcpy(block + filled, padding, 64u - filled);
+        sha256_compress(state, block);
+        memset(block, 0, sizeof(block));
+    } else {
+        memcpy(block + filled, padding, 64u - filled);
+    }
+    for (unsigned byte_index = 0; byte_index < 8u; ++byte_index) {
+        block[63u - byte_index] = (uint8_t)(message_bits >> (8u * byte_index));
+    }
+    sha256_compress(state, block);
+    sha256_store(state, hex_out);
+    return 0;
+}
+
 int sha256_file(const char *path, char hex_out[65])
 {
     static const uint8_t padding[64] = {0x80u};
@@ -221,5 +263,9 @@ int sha256_self_check(void)
     }
     sha256_compress(state, block);
     sha256_store(state, actual);
-    return strcmp(actual, known_abc) == 0 ? 0 : 1;
+    if (strcmp(actual, known_abc) != 0 || sha256_bytes(abc_bytes, sizeof(abc_bytes), actual) != 0 ||
+        strcmp(actual, known_abc) != 0) {
+        return 1;
+    }
+    return 0;
 }
