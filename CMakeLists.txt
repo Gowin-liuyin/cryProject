@@ -611,6 +611,25 @@ if(BUILD_TESTING)
                      $<TARGET_FILE:reference_diagnostic_trace>
     )
     set_tests_properties(trace_overhead PROPERTIES RUN_SERIAL TRUE)
+    add_executable(
+        attribution_v3 src/attribution_v3.c src/attribution_v3_run.c src/protocol_decision.c
+    )
+    target_link_libraries(attribution_v3 PRIVATE baseline_options)
+    if(MATH_LIBRARY)
+        target_link_libraries(attribution_v3 PRIVATE "${MATH_LIBRARY}")
+    endif()
+    set_target_properties(attribution_v3 PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${output_root}")
+    add_test(
+        NAME attribution_v3_fixture
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_attribution_v3.sh"
+                fixture $<TARGET_FILE:attribution_v3> "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    add_test(
+        NAME attribution_v3_sealed
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_attribution_v3.sh"
+                sealed $<TARGET_FILE:attribution_v3> "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+    set_tests_properties(attribution_v3_fixture attribution_v3_sealed PROPERTIES RUN_SERIAL TRUE)
     add_executable(protocol_analyze src/protocol_analyze.c src/protocol_decision.c)
     target_link_libraries(protocol_analyze PRIVATE baseline_options)
     if(MATH_LIBRARY)
