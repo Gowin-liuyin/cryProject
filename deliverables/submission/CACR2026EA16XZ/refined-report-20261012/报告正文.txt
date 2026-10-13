@@ -318,7 +318,7 @@ v1 至 v3 在 Ubuntu 24.04、GCC 13.3.0 和 RelWithDebInfo 下采集，使用无
 
 表 5 来源：尝试 1 至 3 的原判定分别在 docs/evidence/seven-capabilities-20261011 的 ryzen-positive、ryzen-confirm-v2 和 ryzen-confirm-v3。尝试 3 的事后归因在 docs/research/v3-attribution-20261013，令牌 v3_effect_explained_by_drift=not_linear。尝试 4 在 docs/evidence/v4-development-20261013。尝试 5 在 docs/evidence/v4-confirmation-20261013；效应表中的 −131.53125 不是 Holm 检验，结论里的 holm_rejected=no 与 direction_consistent=no 是会话数停止路径的输出。
 
-v3 的 t 统计量为 −3.420，Wald 95% 区间为 −8.60 至 −2.33 个计数。其首会话报告分辨率为 1 个计数，256 次同路径空窗口的最大值为 110 个计数，高于主效应的绝对值。这说明微小均值差必须结合多次观察及统计条件解释，不能据此宣称单次调用具有约 5 纳秒的物理精度，也不能仅因差值小于某次空窗开销而否定该次历史会话检验。这次历史拒绝不是 v4 的确认结果。R02 仍为部分签收：v4 确认的采样覆盖率是 0，两秒忙等覆盖率是 0.91304875329565227 和 0.88888173607387222，都低于协议冻结的 0.99；governor 保持 powersave，没有锁频。该覆盖率也不是 2026-10-10 的 APERF 几何覆盖，不能写成逐调用恒频或物理误差界。
+v3 的 t 统计量为 −3.420，Wald 95% 区间为 −8.60 至 −2.33 个计数。其首会话报告分辨率为 1 个计数，256 次同路径空窗口的最大值为 110 个计数，高于主效应的绝对值。这说明微小均值差必须结合多次观察及统计条件解释，不能据此宣称单次调用具有约 5 纳秒的物理精度，也不能仅因差值小于某次空窗开销而否定该次历史会话检验。这次历史拒绝不是 v4 的确认结果。R02 仍为部分签收：v4 确认的采样覆盖率是 0，两秒忙等覆盖率是 0.91304875329565227 和 0.88888173607387222，都低于协议冻结的 0.99；governor 保持 powersave，没有锁频。同日在不改 governor、boost、EPP 的前提下，两秒紧循环覆盖率是 0.98999797167555814 和 0.96999661506708934。请求已经反映到带内之后，短负载 8 次里仍有 1 次覆盖率约为 0.50。确认因此没有重跑。记录见 docs/evidence/v4-window-diagnosis-20261013。该覆盖率也不是 2026-10-10 的 APERF 几何覆盖，不能写成逐调用恒频或物理误差界。
 
 3.7.2 解封装过程的函数级插桩与时序分析
 
@@ -434,4 +434,4 @@ Apple 上未检出不说明防护更强。当前也没有在 Apple 上取得 v3 
 
 [6] clangover机制出处固定7f4d5dc162b77c362a34a0d52949f7a3e1b16d81，原对象是旧Kyber，不能冒称FIPS 203。https://github.com/antoonpurnal/clangover
 
-历史材料按原证据编号保留。第 3.6 节的新计数对应 docs/evidence/label-redraw-20261013，旧表身份仍是 docs/evidence/reference-label-control-20261007。第 3.7 节的 v1 至 v3 历史对应 docs/evidence/seven-capabilities-20261011，归因对应 docs/research/v3-attribution-20261013，v4 开发与确认停止对应 docs/evidence/v4-development-20261013 和 docs/evidence/v4-confirmation-20261013，协议文本是 docs/research/v4-protocol-20261013/PROTOCOL.md。旧封存报告及匿名副本保持原样，不视为已经包含本次结果。Word 稿没有按这次正文重新生成。
+历史材料按原证据编号保留。第 3.6 节的新计数对应 docs/evidence/label-redraw-20261013，旧表身份仍是 docs/evidence/reference-label-control-20261007。第 3.7 节的 v1 至 v3 历史对应 docs/evidence/seven-capabilities-20261011，归因对应 docs/research/v3-attribution-20261013，v4 开发与确认停止对应 docs/evidence/v4-development-20261013 和 docs/evidence/v4-confirmation-20261013，窗口诊断对应 docs/evidence/v4-window-diagnosis-20261013，协议文本是 docs/research/v4-protocol-20261013/PROTOCOL.md。旧封存报告及匿名副本保持原样，不视为已经包含本次结果。Word 稿没有按这次正文重新生成。

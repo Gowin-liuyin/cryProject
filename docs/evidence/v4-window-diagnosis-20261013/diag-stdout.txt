@@ -1,0 +1,18 @@
+compile_exit=0
+root=/home/nss-marker/yhr/Cry/v4-window-diagnosis-20261013-050712
+siblings=2,18
+epp_cpu2=balance_performance
+boost=1
+baseline_cpu2_governor=powersave min=2982259 max=5756452
+trial=cold_nowait_30ms spin_status=0 samples=3 first_khz=2982259 coverage=0.4999851430072797
+trial=loaded_2s spin_status=0 samples=101 first_khz=3164331 coverage=0.98999797167555814
+trial=wait_short index=0 wait_ms=0 seen_khz=4300000 spin_status=0 samples=3 first_khz=4300000 coverage=1
+trial=wait_short index=1 wait_ms=0 seen_khz=4300000 spin_status=0 samples=3 first_khz=3031432 coverage=0.49993487370168688
+trial=wait_short index=2 wait_ms=20 seen_khz=4299605 spin_status=0 samples=3 first_khz=4299605 coverage=1
+trial=wait_short index=3 wait_ms=20 seen_khz=4291080 spin_status=0 samples=3 first_khz=4291080 coverage=1
+trial=wait_short index=4 wait_ms=0 seen_khz=4300000 spin_status=0 samples=3 first_khz=4300000 coverage=1
+trial=wait_short index=5 wait_ms=0 seen_khz=4300000 spin_status=0 samples=3 first_khz=4300000 coverage=1
+trial=wait_short index=6 wait_ms=0 seen_khz=4300000 spin_status=0 samples=3 first_khz=4300000 coverage=1
+trial=wait_short index=7 wait_ms=20 seen_khz=4297517 spin_status=0 samples=3 first_khz=4297517 coverage=1
+machine_policy_restored=yes
+diag_exit=0

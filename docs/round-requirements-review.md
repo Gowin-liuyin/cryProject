@@ -71,4 +71,4 @@ KyberSlash 类除法、clangover 类消息分支、FO 比较或拒绝选择在�
 上表 R01–R12 的状态不因此改变；R02、R04 仍为部分签收。历史人工消息分支不改记为新上游漏洞。
 证据在 [mechanism-audit-20261011](evidence/mechanism-audit-20261011/README.md)。
 
-2026-10-13 的 v4 记录也不改变上表。R02 仍部分：确认会话的采样覆盖率是 0，两秒忙等覆盖率低于冻结的 0.99，governor 保持 powersave，没有锁频；这不是逐调用恒频或物理误差界。R04 仍部分：确认主令牌是 `not_run`，16 条不同密文的确认判定没有形成，交替对照没有开始，C04 新旧两表都是后赋标签条件计数，不是全体密文的误报率或检出率。证据在 [v4-confirmation-20261013](evidence/v4-confirmation-20261013/README.md) 与 [label-redraw-20261013](evidence/label-redraw-20261013/README.md)。
+2026-10-13 的 v4 记录也不改变上表。R02 仍部分：确认会话的采样覆盖率是 0，两秒忙等覆盖率低于冻结的 0.99，governor 保持 powersave，没有锁频；这不是逐调用恒频或物理误差界。同日诊断在不改 governor、boost、EPP 的前提下，两秒紧循环覆盖率是 0.990 和 0.970，短会话在进入带内后仍有约 0.50 的试次，见 [v4-window-diagnosis-20261013](evidence/v4-window-diagnosis-20261013/README.md)。R04 仍部分：确认主令牌是 `not_run`，16 条不同密文的确认判定没有形成，交替对照没有开始，C04 新旧两表都是后赋标签条件计数，不是全体密文的误报率或检出率。证据在 [v4-confirmation-20261013](evidence/v4-confirmation-20261013/README.md) 与 [label-redraw-20261013](evidence/label-redraw-20261013/README.md)。
