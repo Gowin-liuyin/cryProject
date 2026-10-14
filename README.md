@@ -1,5 +1,12 @@
 # A1-13 · ML-KEM-768 本地审计与复算作品
 
+2026-10-14 当前审阅报告为[根目录 Word](CACR2026EA16XZ-作品设计报告.docx)，
+文字副本与版本说明见 [Methods 修订目录](deliverables/submission/CACR2026EA16XZ/methods-revision-20261014/README.md)。
+本轮已按[审稿复核](docs/methods-review-20261014.md)同步摘要、方法、表 4 和结论：
+v1–v3 是开发历史；v4 确认在首会话覆盖率 0 后停止，主令牌 `not_run`，交替构建未开始。
+文稿修正没有补齐单密文推广、方向反转归因或防护因果，R02/R04 仍部分签收。
+下文各日期的封存软件、报告和支撑包保持原身份，不能视为已包含本次修订。
+
 本轮提交候选版新增[公开来源审查](docs/upstream-security-review.md)、
 [固定版本适用性](docs/current-version-defense-review.md)与[真实Linux工程核验](docs/evidence/candidate-round-20261007/README.md)。
 [离线证据展示](deliverables/demo/index.html)和[结论索引](deliverables/demo/evidence-index.md)按稳定编号直达材料。
