@@ -1,0 +1,3 @@
+rtlf_started_utc=2026-10-15T11:06:19Z
+command=Rscript RTLF/rtlf.R -i csv/<build>-message-zero-ones.csv -a 0.01 -o rtlf/<build>-run<n>.json
+Rscript (R) version 4.3.3 (2024-02-29)

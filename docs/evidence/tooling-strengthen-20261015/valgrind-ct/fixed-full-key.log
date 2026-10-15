@@ -1,0 +1,33 @@
+==129177== Memcheck, a memory error detector
+==129177== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==129177== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==129177== Command: ./poison-fixed
+==129177== 
+==129177== Conditional jump or move depends on uninitialised value(s)
+==129177==    at 0x10AE5A: rej_uniform (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:135)
+==129177==    by 0x10AD36: pqcrystals_ml_kem_768_ipd_ref_gen_matrix (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:178)
+==129177==    by 0x10B06B: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:272)
+==129177==    by 0x109FF8: pqcrystals_ml_kem_768_ipd_ref_dec (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==129177==    by 0x109517: mlkem_decapsulate (src/mlkem_liboqs010.c:68)
+==129177==    by 0x109337: decapsulate_poisoned (historical_poison.c:31)
+==129177==    by 0x10924A: main (historical_poison.c:49)
+==129177== 
+==129177== Conditional jump or move depends on uninitialised value(s)
+==129177==    at 0x10AE7F: rej_uniform (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:137)
+==129177==    by 0x10AD36: pqcrystals_ml_kem_768_ipd_ref_gen_matrix (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:178)
+==129177==    by 0x10B06B: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:272)
+==129177==    by 0x109FF8: pqcrystals_ml_kem_768_ipd_ref_dec (liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==129177==    by 0x109517: mlkem_decapsulate (src/mlkem_liboqs010.c:68)
+==129177==    by 0x109337: decapsulate_poisoned (historical_poison.c:31)
+==129177==    by 0x10924A: main (historical_poison.c:49)
+==129177== 
+==129177== 
+==129177== HEAP SUMMARY:
+==129177==     in use at exit: 0 bytes in 0 blocks
+==129177==   total heap usage: 63 allocs, 63 frees, 17,984 bytes allocated
+==129177== 
+==129177== For a detailed leak analysis, rerun with: --leak-check=full
+==129177== 
+==129177== Use --track-origins=yes to see where uninitialised values come from
+==129177== For lists of detected and suppressed errors, rerun with: -s
+==129177== ERROR SUMMARY: 5626 errors from 2 contexts (suppressed: 0 from 0)

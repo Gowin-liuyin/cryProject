@@ -6,3 +6,5 @@
 - 已修 measure SHA-256 `1849821eca3039872cf5f103e3928141978b8846792a8da4e7c790ce96c2b5e9`。
 - 两边 `C_FLAGS` 含 `-Os -fno-vectorize`，`OQS_USE_AVX2_INSTRUCTIONS` 与 `OQS_ENABLE_KEM_ml_kem_768_ipd_avx2` 未定义。只关 `OQS_DIST_BUILD` 仍会在这台 Ryzen 上走到 AVX2。
 - 钉住的 `vendor/liboqs-0.10.0/` 没有为了这次检测而修改。
+- 工具运行机仍是 `nss-m`。Rscript 4.3.3，Valgrind 3.22.0。`pin` 不在 PATH。
+- dudect 当次频率：boost 0，CPU2 performance，min=max=4300000 kHz；接受探针跨度 40410 kHz。结束后快照与进入时一致。

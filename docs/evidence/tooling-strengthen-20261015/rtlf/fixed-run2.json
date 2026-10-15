@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-15 19:08:11",
+    "alpha": 0.01,
+    "input_file": "csv/fixed-message-zero-ones.csv",
+    "samples": 10000,
+    "bootstrap_iterations": 10000,
+    "difference_detected": false,
+    "significant_deciles": [],
+    "exit_code": 10
+  },
+  "statistics": {
+    "series_x": {
+      "count": 10000,
+      "min": 57208,
+      "max": 81224,
+      "mean": 57797.5669,
+      "median": 57739,
+      "stdev": 719.6144
+    },
+    "series_y": {
+      "count": 10000,
+      "min": 57217,
+      "max": 86703,
+      "mean": 57810.7762,
+      "median": 57739,
+      "stdev": 725.5315
+    }
+  },
+  "results": [
+    {
+      "Decile": "10%",
+      "Difference": 10,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "20%",
+      "Difference": 10,
+      "Threshold": 14.5,
+      "ThresholdX": 14.5,
+      "ThresholdY": 11
+    },
+    {
+      "Decile": "30%",
+      "Difference": 19,
+      "Threshold": 110,
+      "ThresholdX": 110,
+      "ThresholdY": 50
+    },
+    {
+      "Decile": "40%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 9
+    },
+    {
+      "Decile": "50%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "60%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "70%",
+      "Difference": 10,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "80%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "90%",
+      "Difference": 0,
+      "Threshold": 11,
+      "ThresholdX": 10,
+      "ThresholdY": 11
+    }
+  ]
+}

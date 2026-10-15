@@ -27,7 +27,9 @@ static int decapsulate_poisoned(enum input_category category)
     if (generate_test_ciphertext(category, 31337ull, 0, encapsulation_key, ciphertext) != 0) {
         return 1;
     }
-    VALGRIND_MAKE_MEM_UNDEFINED(decapsulation_key, sizeof(decapsulation_key));
+    /* k=3 时 indcpa 私钥是 384*3 字节。后面的公开封装密钥不标，
+     * 否则 gen_at 的公开种子也会被当成秘密。 */
+    VALGRIND_MAKE_MEM_UNDEFINED(decapsulation_key, 1152u);
     operation_status = mlkem_decapsulate(shared_secret,
         sizeof(shared_secret),
         ciphertext,
