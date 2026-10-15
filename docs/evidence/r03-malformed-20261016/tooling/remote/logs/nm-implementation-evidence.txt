@@ -1,0 +1,32 @@
+=== nm: linked implementation symbols per arm ===
+--- m1unfixed ---
+0000000000006f60 T mlkem_implementation_name
+0000000000007000 T mlkem_decapsulate
+0000000000007570 T generate_test_key_pair
+0000000000007620 T generate_test_ciphertext
+00000000000078d5 T OQS_KEM_ml_kem_768_ipd_decaps
+00000000000079c4 t pqcrystals_ml_kem_768_ipd_ref_enc_derand
+0000000000007a9f t pqcrystals_ml_kem_768_ipd_ref_dec
+0000000000008ed7 t pqcrystals_ml_kem_768_ipd_ref_poly_frommsg
+dynamic_needed:
+  NEEDED               libc.so.6
+--- m1fixed ---
+0000000000006f60 T mlkem_implementation_name
+0000000000007000 T mlkem_decapsulate
+0000000000007570 T generate_test_key_pair
+0000000000007620 T generate_test_ciphertext
+00000000000078d5 T OQS_KEM_ml_kem_768_ipd_decaps
+00000000000079c4 t pqcrystals_ml_kem_768_ipd_ref_enc_derand
+0000000000007a9f t pqcrystals_ml_kem_768_ipd_ref_dec
+0000000000008eeb t pqcrystals_ml_kem_768_ipd_ref_poly_frommsg
+dynamic_needed:
+  NEEDED               libc.so.6
+--- m5ref ---
+0000000000005ef0 T mlkem_implementation_name
+0000000000005ff0 T mlkem_decapsulate
+00000000000065c0 T generate_test_key_pair
+0000000000006670 T generate_test_ciphertext
+000000000000e350 T baseline_native_enc_derand
+000000000000ebf0 T baseline_native_dec
+dynamic_needed:
+  NEEDED               libc.so.6

@@ -1,0 +1,20 @@
+# 边界复检（marker 比对；冻结树与 /tmp 必须无新文件）
+date=2026-10-16T03:22:09+08:00
+marker=/home/nss-marker/yhr/Cry/r03-malformed-20261016-29ea2774da23/logs/.marker
+
+## 冻结树内 newer-than-marker（应为空）
+(以上为空即未改动冻结树)
+
+## /tmp 内 newer-than-marker（应为空）
+(以上为空即未在 /tmp 落文件)
+
+## 新根内符号链接（应为空）
+(以上为空即无越界符号链接)
+
+## 两棵冻结树的 .git 状态（只读）
+?? SOURCE_EXPORT.sha256
+?? fix-982c762/
+?? liboqs-0.10.0-982c762/
+?? logs/
+?? run_replications.sh
+(M1 树工作区状态；本轮未做任何写入)

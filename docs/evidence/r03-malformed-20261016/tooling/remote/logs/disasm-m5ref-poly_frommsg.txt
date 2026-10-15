@@ -1,0 +1,80 @@
+
+/home/nss-marker/yhr/Cry/r03-malformed-20261016-29ea2774da23/build/m5ref/r03_malformed_measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000006e20 <baseline_native_poly_frommsg>:
+    6e20:	48 83 c7 0e          	add    $0xe,%rdi
+    6e24:	31 c0                	xor    %eax,%eax
+    6e26:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    6e2d:	00 00 00 
+    6e30:	b1 01                	mov    $0x1,%cl
+    6e32:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6e35:	0f b6 c9             	movzbl %cl,%ecx
+    6e38:	f7 d9                	neg    %ecx
+    6e3a:	c1 e9 10             	shr    $0x10,%ecx
+    6e3d:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6e43:	66 89 4f f2          	mov    %cx,-0xe(%rdi)
+    6e47:	b1 02                	mov    $0x2,%cl
+    6e49:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6e4c:	0f b6 c9             	movzbl %cl,%ecx
+    6e4f:	f7 d9                	neg    %ecx
+    6e51:	c1 e9 10             	shr    $0x10,%ecx
+    6e54:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6e5a:	66 89 4f f4          	mov    %cx,-0xc(%rdi)
+    6e5e:	b1 04                	mov    $0x4,%cl
+    6e60:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6e63:	0f b6 c9             	movzbl %cl,%ecx
+    6e66:	f7 d9                	neg    %ecx
+    6e68:	c1 e9 10             	shr    $0x10,%ecx
+    6e6b:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6e71:	66 89 4f f6          	mov    %cx,-0xa(%rdi)
+    6e75:	b1 08                	mov    $0x8,%cl
+    6e77:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6e7a:	0f b6 c9             	movzbl %cl,%ecx
+    6e7d:	f7 d9                	neg    %ecx
+    6e7f:	c1 e9 10             	shr    $0x10,%ecx
+    6e82:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6e88:	66 89 4f f8          	mov    %cx,-0x8(%rdi)
+    6e8c:	b1 10                	mov    $0x10,%cl
+    6e8e:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6e91:	0f b6 c9             	movzbl %cl,%ecx
+    6e94:	f7 d9                	neg    %ecx
+    6e96:	c1 e9 10             	shr    $0x10,%ecx
+    6e99:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6e9f:	66 89 4f fa          	mov    %cx,-0x6(%rdi)
+    6ea3:	b1 20                	mov    $0x20,%cl
+    6ea5:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6ea8:	0f b6 c9             	movzbl %cl,%ecx
+    6eab:	f7 d9                	neg    %ecx
+    6ead:	c1 e9 10             	shr    $0x10,%ecx
+    6eb0:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6eb6:	66 89 4f fc          	mov    %cx,-0x4(%rdi)
+    6eba:	b1 40                	mov    $0x40,%cl
+    6ebc:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6ebf:	0f b6 c9             	movzbl %cl,%ecx
+    6ec2:	f7 d9                	neg    %ecx
+    6ec4:	c1 e9 10             	shr    $0x10,%ecx
+    6ec7:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6ecd:	66 89 4f fe          	mov    %cx,-0x2(%rdi)
+    6ed1:	b1 80                	mov    $0x80,%cl
+    6ed3:	22 0c 06             	and    (%rsi,%rax,1),%cl
+    6ed6:	0f b6 c9             	movzbl %cl,%ecx
+    6ed9:	f7 d9                	neg    %ecx
+    6edb:	c1 e9 10             	shr    $0x10,%ecx
+    6ede:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    6ee4:	66 89 0f             	mov    %cx,(%rdi)
+    6ee7:	48 ff c0             	inc    %rax
+    6eea:	48 83 c7 10          	add    $0x10,%rdi
+    6eee:	48 83 f8 20          	cmp    $0x20,%rax
+    6ef2:	0f 85 38 ff ff ff    	jne    6e30 <baseline_native_poly_frommsg+0x10>
+    6ef8:	c3                   	ret
+
+Disassembly of section .fini:

@@ -1,0 +1,6 @@
+run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
+r03-cross-m1fixed,historical,valid,0,46076,ns
+r03-cross-m1fixed,historical,bit-flipped,1,50003,ns
+r03-cross-m1fixed,historical,message-ones,2,45996,ns
+r03-cross-m1fixed,historical,message-zero,3,45956,ns
+r03-cross-m1fixed,historical,random,4,45986,ns

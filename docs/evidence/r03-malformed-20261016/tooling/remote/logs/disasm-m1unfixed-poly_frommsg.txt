@@ -1,0 +1,34 @@
+
+/home/nss-marker/yhr/Cry/r03-malformed-20261016-29ea2774da23/build/m1unfixed/r03_malformed_measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000008ed7 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    8ed7:	55                   	push   %rbp
+    8ed8:	48 89 e5             	mov    %rsp,%rbp
+    8edb:	31 c0                	xor    %eax,%eax
+    8edd:	31 c9                	xor    %ecx,%ecx
+    8edf:	44 0f b6 04 06       	movzbl (%rsi,%rax,1),%r8d
+    8ee4:	31 d2                	xor    %edx,%edx
+    8ee6:	41 0f a3 c8          	bt     %ecx,%r8d
+    8eea:	73 05                	jae    8ef1 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x1a>
+    8eec:	ba 81 06 00 00       	mov    $0x681,%edx
+    8ef1:	66 89 14 4f          	mov    %dx,(%rdi,%rcx,2)
+    8ef5:	48 ff c1             	inc    %rcx
+    8ef8:	48 83 f9 08          	cmp    $0x8,%rcx
+    8efc:	75 e1                	jne    8edf <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x8>
+    8efe:	48 ff c0             	inc    %rax
+    8f01:	48 83 c7 10          	add    $0x10,%rdi
+    8f05:	48 83 f8 20          	cmp    $0x20,%rax
+    8f09:	75 d2                	jne    8edd <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x6>
+    8f0b:	5d                   	pop    %rbp
+    8f0c:	c3                   	ret
+
+Disassembly of section .fini:

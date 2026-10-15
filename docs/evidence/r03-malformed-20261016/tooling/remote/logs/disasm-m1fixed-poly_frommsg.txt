@@ -1,0 +1,52 @@
+
+/home/nss-marker/yhr/Cry/r03-malformed-20261016-29ea2774da23/build/m1fixed/r03_malformed_measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000008eeb <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    8eeb:	55                   	push   %rbp
+    8eec:	48 89 e5             	mov    %rsp,%rbp
+    8eef:	41 57                	push   %r15
+    8ef1:	41 56                	push   %r14
+    8ef3:	41 55                	push   %r13
+    8ef5:	41 54                	push   %r12
+    8ef7:	53                   	push   %rbx
+    8ef8:	50                   	push   %rax
+    8ef9:	48 89 f3             	mov    %rsi,%rbx
+    8efc:	49 89 fe             	mov    %rdi,%r14
+    8eff:	45 31 e4             	xor    %r12d,%r12d
+    8f02:	4d 89 f7             	mov    %r14,%r15
+    8f05:	45 31 ed             	xor    %r13d,%r13d
+    8f08:	66 41 c7 07 00 00    	movw   $0x0,(%r15)
+    8f0e:	42 0f b6 04 23       	movzbl (%rbx,%r12,1),%eax
+    8f13:	31 d2                	xor    %edx,%edx
+    8f15:	44 0f a3 e8          	bt     %r13d,%eax
+    8f19:	0f 92 c2             	setb   %dl
+    8f1c:	4c 89 ff             	mov    %r15,%rdi
+    8f1f:	be 81 06 00 00       	mov    $0x681,%esi
+    8f24:	e8 70 ed ff ff       	call   7c99 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    8f29:	49 ff c5             	inc    %r13
+    8f2c:	49 83 c7 02          	add    $0x2,%r15
+    8f30:	49 83 fd 08          	cmp    $0x8,%r13
+    8f34:	75 d2                	jne    8f08 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x1d>
+    8f36:	49 ff c4             	inc    %r12
+    8f39:	49 83 c6 10          	add    $0x10,%r14
+    8f3d:	49 83 fc 20          	cmp    $0x20,%r12
+    8f41:	75 bf                	jne    8f02 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x17>
+    8f43:	48 83 c4 08          	add    $0x8,%rsp
+    8f47:	5b                   	pop    %rbx
+    8f48:	41 5c                	pop    %r12
+    8f4a:	41 5d                	pop    %r13
+    8f4c:	41 5e                	pop    %r14
+    8f4e:	41 5f                	pop    %r15
+    8f50:	5d                   	pop    %rbp
+    8f51:	c3                   	ret
+
+Disassembly of section .fini:

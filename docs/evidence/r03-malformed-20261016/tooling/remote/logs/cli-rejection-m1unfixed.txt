@@ -1,0 +1,29 @@
+case=no_arguments exit=2 leftovers=0 ok
+case=describe_mixed_with_run exit=2 leftovers=0 ok
+case=missing_meta exit=2 leftovers=0 ok
+case=missing_class exit=2 leftovers=0 ok
+case=missing_warmup exit=2 leftovers=0 ok
+case=missing_run_id exit=2 leftovers=0 ok
+case=missing_seed exit=2 leftovers=0 ok
+case=samples_zero exit=2 leftovers=0 ok
+case=samples_over_maximum exit=2 leftovers=0 ok
+case=warmup_zero exit=2 leftovers=0 ok
+case=warmup_over_maximum exit=2 leftovers=0 ok
+case=seed_not_numeric exit=2 leftovers=0 ok
+case=unknown_class exit=2 leftovers=0 ok
+case=duplicated_class exit=2 leftovers=0 ok
+case=empty_class_token exit=2 leftovers=0 ok
+case=empty_class_list exit=2 leftovers=0 ok
+case=unknown_option exit=2 leftovers=0 ok
+case=missing_option_value exit=2 leftovers=0 ok
+case=invalid_run_id exit=2 leftovers=0 ok
+case=public_key_without_secret_key exit=2 leftovers=0 ok
+case=same_raw_and_meta_path exit=2 leftovers=0 ok
+case=raw_path_exists exit=1 leftovers=0 ok
+case=meta_path_exists exit=1 leftovers=0 ok
+case=missing_output_directory exit=1 leftovers=0 ok
+case=external_key_wrong_size exit=1 leftovers=0 ok
+case=preexisting_raw_bytes_preserved bytes=28 ok
+case=preexisting_meta_bytes_preserved bytes=0 ok
+total_cases=25 failures=0 final_leftovers=0
+cli_rejection_qualification=passed
