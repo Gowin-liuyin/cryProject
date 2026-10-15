@@ -1,0 +1,27 @@
+{
+  "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+  "command": [
+    "/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_measure_ct",
+    "--collect",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/R08/r08-perf-m4ct-b7/m4-ct.csv",
+    "20000",
+    "31337",
+    "r08-perf-m4ct-b7",
+    "--compare-bytes",
+    "32"
+  ],
+  "cpu": 2,
+  "plan_sha256": "b2e1833017c3c64f2a9de022615df0944e8d19edd8d663390c51b3e90bb20ea4",
+  "policy": "policy2",
+  "source_sha256": "4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "worker_gid": 1000,
+  "worker_sha256": "90740bdf99125a2c37465c239617b6dadb344401e89b1830d24da88bd70be035",
+  "worker_uid": 1000
+}

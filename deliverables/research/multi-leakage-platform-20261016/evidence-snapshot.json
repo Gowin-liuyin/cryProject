@@ -1,8 +1,8 @@
 {
   "date": "2026-10-16",
-  "document_state": "final4_20261016_r03_extra_family_and_r05_matrix_merged",
+  "document_state": "final5_20261016_full_clause_matrix_and_report_consolidation",
   "baseline_commit": "ac46e62",
-  "worktree_head": "dc6522c200cb8b0880d3d930987d8357629f4c28",
+  "worktree_head": "8afc9245d633ef41a119d8beda5ae6c58d9f3c0c",
   "sources": [
     {
       "id": "E01",
@@ -241,8 +241,8 @@
       "label": "R05 全流程六类来源排查表（90 格）",
       "path": "docs/R05-全流程排查表.md",
       "state": "flow_matrix_review",
-      "sha256": "cc7ecff95ffd5a4e03c822b3e6ea36bc35393ad2fc42272bc5a2f2890d109bf9",
-      "bytes": 62194
+      "sha256": "51f90bfe6c5f6da8eca517a707bb300e6b96627777d456b8ca650e948554eb05",
+      "bytes": 74008
     },
     {
       "id": "E31",
@@ -251,6 +251,238 @@
       "state": "extra_family_controller_log",
       "sha256": "5c69b4404ed7e10b2ddc696b663c284ee50b5773f4ae7b36142f261ed27f4e3b",
       "bytes": 3259
+    },
+    {
+      "id": "E32",
+      "label": "R01 向量来源总表（T05）",
+      "state": "vector_and_equivalence",
+      "path": "docs/evidence/r01-kat-20261016/VECTORS.md",
+      "sha256": "86500750c94e7f5072d9a907b5b3424e374994e9252844c3f64c386266ca4fe7",
+      "bytes": 9687
+    },
+    {
+      "id": "E33",
+      "label": "R01 修复语义等价（T06）",
+      "state": "vector_and_equivalence",
+      "path": "docs/evidence/r01-kat-20261016/EQUIV.md",
+      "sha256": "6860a46fc18107c8b2781bff842b8998a82766fe7e2056e0cb782147778def8b",
+      "bytes": 7636
+    },
+    {
+      "id": "E34",
+      "label": "R02 环境总表（T07，28 项）",
+      "state": "environment_and_rules",
+      "path": "docs/evidence/r02-env-20261016/ENV_TABLE.md",
+      "sha256": "bb2ea033b211959ec06acc5533677345a8807d7e27ab53d1e8be97761e73861c",
+      "bytes": 48534
+    },
+    {
+      "id": "E35",
+      "label": "R02 异常样本与稳健性规则（T08）",
+      "state": "environment_and_rules",
+      "path": "docs/evidence/r02-env-20261016/OUTLIER_RULES.md",
+      "sha256": "dc5aaad63e29e45023cafc00f6824b02acf1aaa456f08da300b5db5d6ab2edb6",
+      "bytes": 11413
+    },
+    {
+      "id": "E36",
+      "label": "R02 稳健性敏感性分析（T09）",
+      "state": "robustness_descriptive",
+      "path": "docs/evidence/r02-env-20261016/ROBUSTNESS.md",
+      "sha256": "6c639c7aa1d3668e468774430919b681795e6d5b32d030a4eb339219a03d6bb8",
+      "bytes": 27867
+    },
+    {
+      "id": "E37",
+      "label": "R02 稳健性机读结果（64 类对 × 4 方法）",
+      "state": "robustness_descriptive",
+      "path": "docs/evidence/r02-env-20261016/robustness.csv",
+      "sha256": "f9f9ea63aa6773fbb6ee006888d8d375c497a09e894d5670f77d0170df40ae91",
+      "bytes": 28021
+    },
+    {
+      "id": "E38",
+      "label": "R04 功效 / MDE（T26）",
+      "state": "power_analysis",
+      "path": "docs/evidence/r04-stats-20261016/POWER.md",
+      "sha256": "88427ae9c8298b2a99f2309fe03ce009b9570282e385504950b0329ccbe8d8c3",
+      "bytes": 33427
+    },
+    {
+      "id": "E39",
+      "label": "R04 分位数差 bootstrap CI（T27）",
+      "state": "quantile_descriptive",
+      "path": "docs/evidence/r04-stats-20261016/QUANTILE_CI.md",
+      "sha256": "f8391ce1ec4181f304dfaf0c8b0cd242b939296d5eb8402f05bdee8e2b52df93",
+      "bytes": 34066
+    },
+    {
+      "id": "E40",
+      "label": "R04 修复前后箱线图（M4 两臂）",
+      "state": "quantile_descriptive",
+      "path": "docs/evidence/r04-stats-20261016/figures/boxplot-M4-vulnerable-vs-ct.pdf",
+      "sha256": "7c84073089afe0fbfad09cc150ebd0a595d6e9189c591e024a978a8246a55b5f",
+      "bytes": 26241
+    },
+    {
+      "id": "E41",
+      "label": "R05 补缺格定位结果",
+      "state": "localization_completion",
+      "path": "docs/evidence/r05-locate-20261016/RESULT.md",
+      "sha256": "16af05c80ddd6ec55c4c05fe0707306a86791c47ffea0b893bdc72226ef74a76",
+      "bytes": 17078
+    },
+    {
+      "id": "E42",
+      "label": "R06 日志·异常·返回码泄露专项审计（T18）",
+      "state": "leak_channel_audit",
+      "path": "docs/evidence/r06-noleak-20261016/AUDIT.md",
+      "sha256": "27c07bf862ed1923e7f1b82fbc46d6293d3613b6326aad88190e86feac3ff36b",
+      "bytes": 27945
+    },
+    {
+      "id": "E43",
+      "label": "R06 修复手段 → 题面第 6 条方法分类映射",
+      "state": "remediation_mapping",
+      "path": "docs/evidence/r06-noleak-20261016/MAPPING.md",
+      "sha256": "b1941bf5f50246d9e44ca9026f089be6e909867695b8ca52e126de6df9f3f583",
+      "bytes": 15467
+    },
+    {
+      "id": "E44",
+      "label": "R08 性能开销表（T21）",
+      "state": "performance_descriptive",
+      "path": "docs/evidence/r08-perf-20261016/PERF.md",
+      "sha256": "1d14e5fba8b1b978cabf7d866036dd62bf31eaaceb97c67bfb560ffebef64b06",
+      "bytes": 34812
+    },
+    {
+      "id": "E45",
+      "label": "R08 逐（臂 × 操作）汇总（25 行）",
+      "state": "performance_descriptive",
+      "path": "docs/evidence/r08-perf-20261016/perf.csv",
+      "sha256": "9e9d041ce91e3f769f0f2f06ae853436892ad0f6c38b6e0829036e1ea9beff9f",
+      "bytes": 28963
+    },
+    {
+      "id": "E46",
+      "label": "R08 成对开销（11 行）",
+      "state": "performance_descriptive",
+      "path": "docs/evidence/r08-perf-20261016/perf.csv.comparison.csv",
+      "sha256": "4e8206584b2eeccc4ab984f4b968a4870576dd59629e72806f24c0575e75b369",
+      "bytes": 6360
+    },
+    {
+      "id": "E47",
+      "label": "R09 优化级别对照结论（T24）",
+      "state": "optlevel_descriptive",
+      "path": "docs/evidence/r09-optlevel-20261016/RESULT.md",
+      "sha256": "cf8ecae08ae92a4cd02e9d5b4e30b97248ddd572989e18521188ab72d23b5288",
+      "bytes": 23898
+    },
+    {
+      "id": "E48",
+      "label": "R09 产物判定与构建（T22）",
+      "state": "optlevel_descriptive",
+      "path": "docs/evidence/r09-optlevel-20261016/BUILD.md",
+      "sha256": "d287e397f9f5e1621e2b7b1dbe013737275fdbe3899c7801be55cba7b4479d4a",
+      "bytes": 16940
+    },
+    {
+      "id": "E49",
+      "label": "R09 优化级别 Δ 与 CI 图",
+      "state": "optlevel_descriptive",
+      "path": "docs/evidence/r09-optlevel-20261016/figures/r09_delta_by_optlevel.pdf",
+      "sha256": "9b85e96423ac8e0d5bfca5e6a39e6cd0b0a4106fc679378e868e34ee5b6481a5",
+      "bytes": 20791
+    },
+    {
+      "id": "E50",
+      "label": "R11 威胁模型（独立稿）",
+      "state": "threat_model",
+      "path": "docs/evidence/r11-threat-20261016/THREAT_MODEL.md",
+      "sha256": "4dac0b9fe1f201affb68b186cbc827a88e6522cdabb5d5f0a1df2ff8c00c6bea",
+      "bytes": 31926
+    },
+    {
+      "id": "E51",
+      "label": "R11 威胁模型 LaTeX 片段（本报告直接 input）",
+      "state": "threat_model",
+      "path": "docs/evidence/r11-threat-20261016/threat-model.tex",
+      "sha256": "1b9686959730804ff69a4d8b66a6062fa1f928b4e59bb9e28a48094391ee5590",
+      "bytes": 29561
+    },
+    {
+      "id": "E52",
+      "label": "R12 创新对照 (a)：锁频 vs 不锁频",
+      "state": "innovation_descriptive",
+      "path": "docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md",
+      "sha256": "7afe778a0aa50bfe0e18a62e9150d185acd3d2d344e1f3f5b25d07183d0df4fc",
+      "bytes": 5681
+    },
+    {
+      "id": "E53",
+      "label": "R12 创新对照 (b)：多工具矩阵与一键复现（T29b / T30）",
+      "state": "innovation_descriptive",
+      "path": "docs/evidence/r12-innovation-20261016/RESULT.md",
+      "sha256": "a236a0007e5bfbf6c864ab64819412a1f0d8981caf2dfdd3899fc8fa8c2d8aad",
+      "bytes": 16612
+    },
+    {
+      "id": "E54",
+      "label": "R12 多工具矩阵逐格证据（9 × 5 = 45 格）",
+      "state": "innovation_descriptive",
+      "path": "docs/evidence/r12-innovation-20261016/TOOL_MATRIX.csv",
+      "sha256": "e7fb6a21e28c5d975917173b4d06aae069e773a0ecdec4736e44485efda701f5",
+      "bytes": 21102
+    },
+    {
+      "id": "E55",
+      "label": "复现参数总表（T30）",
+      "state": "reproduce_entry",
+      "path": "docs/REPRODUCE-PARAMS.md",
+      "sha256": "80ea1a69c7394ef5561cd7f6fabdd69855c6e30bd8f53c6f32d563d4df5d1fd7",
+      "bytes": 25032
+    },
+    {
+      "id": "E56",
+      "label": "一键复现入口脚本",
+      "state": "reproduce_entry",
+      "path": "scripts/reproduce_all.sh",
+      "sha256": "16562851a309ed40ee37b4b5deb3d1b54a4f44f70af01140cd235619c0117b97",
+      "bytes": 27957
+    },
+    {
+      "id": "E57",
+      "label": "干净 clone quick 档实测记录",
+      "state": "reproduce_entry",
+      "path": "docs/evidence/r12-innovation-20261016/REPRODUCE-QUICK-LOG.md",
+      "sha256": "62f293ce6851c80fa09bb4f420d11a76362f1c1e360dc727fb7e7d0abcf9763b",
+      "bytes": 5624
+    },
+    {
+      "id": "E58",
+      "label": "本轮阻塞与降级登记",
+      "state": "blockers",
+      "path": "BLOCKERS.md",
+      "sha256": "204582dc6c80eb33eb9229c4992d40b2478c91823682618e0b489d38d38752d7",
+      "bytes": 3387
+    },
+    {
+      "id": "E59",
+      "label": "R08 控制器终态判据（54 个同构文件之一，补充登记）",
+      "state": "locked_collection",
+      "path": "docs/evidence/r08-perf-20261016/remote/R08/r08-perf-m1fixed-b10/controller/terminal.json",
+      "sha256": "c985f5cddb955664e396d7ac85ac20674b64286c1fc4e9b544a8d56ce3e12055",
+      "bytes": 139
+    },
+    {
+      "id": "E60",
+      "label": "R09 控制器终态判据（36 个同构文件之一，补充登记）",
+      "state": "locked_collection",
+      "path": "docs/evidence/r09-optlevel-20261016/remote/R09/r09-o0-m1unfixed-s2/controller/terminal.json",
+      "sha256": "c985f5cddb955664e396d7ac85ac20674b64286c1fc4e9b544a8d56ce3e12055",
+      "bytes": 139
     }
   ],
   "modules": [
@@ -383,9 +615,99 @@
     },
     {
       "id": "T11",
-      "title": "R05 非「不存在」格清单：5 个「存在」+ 1 个「未检查」",
-      "rows": 6,
+      "title": "R05 全流程排查表的 5 个「存在」格清单（「未检查」已为 0）",
+      "rows": 5,
       "columns": 5
+    },
+    {
+      "id": "T12",
+      "title": "题面第 1 条之向量来源总表（模块 × 版本 × 来源 × 例数 × 通过数）",
+      "rows": 10,
+      "columns": 6
+    },
+    {
+      "id": "T13",
+      "title": "题面第 1 条之修复语义等价（三对 diff + 1000 例额外输入 + 隐式拒绝）",
+      "rows": 4,
+      "columns": 5
+    },
+    {
+      "id": "T14",
+      "title": "题面第 2 条之环境总表（28 项覆盖与关键读数）",
+      "rows": 13,
+      "columns": 4
+    },
+    {
+      "id": "T15",
+      "title": "题面第 2 条之异常样本规则与稳健性敏感性分析（64 类对 × 4 方法）",
+      "rows": 9,
+      "columns": 4
+    },
+    {
+      "id": "T16",
+      "title": "题面第 4 条之补充：功效 / MDE 与「未检出」的确切含义",
+      "rows": 7,
+      "columns": 7
+    },
+    {
+      "id": "T17",
+      "title": "题面第 4 条之补充：分位数差 bootstrap CI、ECDF 与箱线图",
+      "rows": 8,
+      "columns": 4
+    },
+    {
+      "id": "T18",
+      "title": "题面第 6 条之修复手段映射表（覆盖 5 个模块）",
+      "rows": 16,
+      "columns": 5
+    },
+    {
+      "id": "T19",
+      "title": "题面第 6 条之日志 / 异常 / 返回码泄露专项审计",
+      "rows": 9,
+      "columns": 4
+    },
+    {
+      "id": "T20",
+      "title": "题面第 8 条之性能开销：逐（模块, 臂, 操作）汇总（25 行）",
+      "rows": 25,
+      "columns": 9
+    },
+    {
+      "id": "T21",
+      "title": "题面第 8 条之性能开销：成对开销 %（11 行）",
+      "rows": 11,
+      "columns": 7
+    },
+    {
+      "id": "T22",
+      "title": "题面第 9 条之优化级别对照：12 格产物判定 + 锁频实测",
+      "rows": 12,
+      "columns": 9
+    },
+    {
+      "id": "T23",
+      "title": "题面第 12 条之创新对照 (a)：锁频 vs 不锁频（族外）",
+      "rows": 3,
+      "columns": 7
+    },
+    {
+      "id": "T24",
+      "title": "题面第 12 条之创新对照 (b)：多工具矩阵 9 工具 × 5 模块 = 45 格",
+      "rows": 9,
+      "columns": 8
+    },
+    {
+      "id": "T25",
+      "title": "题面第 11 条之一键复现入口、quick 档实测与 full 档边界",
+      "rows": 7,
+      "columns": 4
+    },
+    {
+      "id": "T26",
+      "title": "附录 A：题面 12 条对照矩阵",
+      "rows": 12,
+      "columns": 6
     }
   ],
   "placeholder_token": "«待主控数据»"

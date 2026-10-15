@@ -525,3 +525,143 @@ python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py 
 - 没有把 R03 的族外对照并入 Holm，没有把截断路径的接口语义写成“泄漏”，没有把 R05 的
   「不存在」写成恒时证明，也没有把 M5 那个只携带公开信息的早退写成可利用缺陷。
 - 没有在包内重新执行 RTLF、Mona、dudect 或 Binsec（复算入口只重建 C11 统计工具并跑五项 CTest）。
+
+---
+
+# 第六阶段：final5-20261016（T31 报告整合：题面 12 条逐条并入 + 附录 A 对照矩阵 + 威胁模型章）
+
+本轮把 T31 要求的所有收尾证据并进正式报告，并新增**附录 A「题面 12 条对照矩阵」**。
+报告的章节顺序按题面条款重排（15 → 25 节），对照表 11 → **26 张**，来源 31 → **60 份**，
+页数 33 → **91 页**。没有硬件采数、没有调频、没有改旧封存证据与 M1 证据、
+没有 `git add`/`commit`/`push`。`docs/evidence/r03-malformed-20261016/` 与
+`docs/R05-全流程排查表.md`、`docs/evidence/r11-threat-20261016/threat-model.tex`
+**一个字节也没有改**（生成器只读它们；R05 的 mermaid 与 90 格计数都按运行期实读）。
+
+## J1. 新增章节与表
+
+| 节 | 题目 | 表 |
+|---:|---|---|
+| 4 | 题面第 1 条：向量来源与修复语义等价 | T12、T13 |
+| 5 | 题面第 2 条：测量环境、异常样本规则与稳健性 | T14、T15 |
+| 9 | 题面第 4 条补充：功效 / MDE、分位数差与分布图 | T16、T17 |
+| 12 | 题面第 6 条：修复手段映射与泄露渠道审计 | T18、T19 |
+| 14 | 题面第 8 条：性能开销表 | T20、T21 |
+| 15 | 题面第 9 条：优化级别对照与跨环境范围 | T22 |
+| 16 | 题面第 12 条：创新对照（锁频 vs 不锁频、多工具矩阵） | T23、T24 |
+| 17 | 题面第 11 条：一键复现与复现参数总表 | T25 |
+| 18 | 威胁模型（题面第 10 条，直接 `\input{}` 片段） | 片段自带 5 张表 |
+| 25 | 附录 A：题面 12 条对照矩阵 | T26 |
+
+表 T10/T11 按 `docs/R05-全流程排查表.md` 本体的新计数改写：**存在 5 / 不存在 75 /
+不适用 10 / 未检查 0**（原唯一的「未检查」格已补做并改判为「存在」）；
+T11 的行数 6 → 5，表题改为「5 个『存在』格清单（『未检查』已为 0）」。
+
+## J2. 命令与结果
+
+```sh
+python3 deliverables/research/multi-leakage-platform-20261016/emit_final5_tables.py
+# → {"new_tables": [T12..T26], "mapping_rows": 16, "perf_summary_rows": 25,
+#    "perf_comparison_rows": 11, "optlevel_rows": 12, "sources": 60}
+python3 deliverables/research/multi-leakage-platform-20261016/generate_report.py
+# → {"sources": 60, "sections": 25, "tables": 26,
+#    "document_state": "final5_20261016_full_clause_matrix_and_report_consolidation",
+#    "forbidden_token_hits": 0}
+export SOURCE_DATE_EPOCH=1792080000 FORCE_SOURCE_DATE=1
+for round in 1 2; do xelatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=build/platform-report-s8 \
+  deliverables/research/multi-leakage-platform-20261016/report.tex; done
+cp build/platform-report-s8/report.pdf deliverables/research/multi-leakage-platform-20261016/report.pdf
+pdftoppm -r 100 -png deliverables/research/multi-leakage-platform-20261016/report.pdf \
+  docs/evidence/platform-report-20261016/final5-20261016/render/page
+```
+
+- 报告 **91 页**，PDF SHA-256
+  `d391114c9269b0c0ed463e06f3fed38a1cbded783be81590b7ae18151960db20`；
+  日志 `xelatex-final5-first.log` / `xelatex-final5-second.log`：**两遍均 exit 0、均 91 页、
+  0 Overfull、0 Underfull、0 缺字、0 hyperref 警告、0 LaTeX 警告**。
+- **PDF 可复现**：`SOURCE_DATE_EPOCH=1792080000 FORCE_SOURCE_DATE=1` 下两遍输出字节相同，
+  因此归档日志与发布的 PDF 严格对应（此前各轮的 PDF 会因内嵌创建时间而逐次不同）。
+  发布哈希 `d391114c…` 在 `final5-20261016/pdf-metadata-audit-repo-copy.json`、
+  `RESULT.md`、`VISUAL_QA.md` 与本文件四处同值。
+- 逐页渲染 91 张 + `contact-sheet.png` 在 `final5-20261016/render/`；
+  横向页为 5–8、13–14、20–21、24–26、29–30、33–38、42–43、46–49、51–53、55–57、77–87。
+- `final5-20261016/pdf-metadata-audit-repo-copy.json`：`status=pass`、91 页、作者空、
+  0 私有标记、无文档级 JavaScript。
+- **`audit_revision.py` 本轮未运行**：该脚本第一步就要读匿名 ZIP（`verify_package.py` →
+  解包 → 包内 `report/report.pdf` → 包内 `reproduce.sh` 离线回放 → 校验器反例），
+  实测运行得到 `verify_package.py …-platform-final5-20261016.zip` 返回非 0、脚本
+  在 `subprocess.check_output` 处抛 `CalledProcessError`、整体 exit 1，且没有写出
+  任何审计产物。按主控安排由主控另跑；本轮只做了不依赖 ZIP 的
+  **PDF 元数据审计**（直接审计仓库副本），并在结果文件里写明包内审计未执行。
+
+## J3. 本轮踩到的坑（照实记录，含失败归档）
+
+1. **占位符 key 被当成 ASCII 长 token**。为消掉两处 Overfull 把 `tex_escape` 的长 token
+   阈值从 18 降到 15，结果 `p=1.30×10⁻⁵` 先被换成 `@@MATH0@@`、整串 `p=1.30@@MATH0@@`
+   恰好 15 字符，于是 `\texorpdfstring{$\times 10^{-5}$}{x10^-5}` 被塞进
+   `\texttt{\seqsplit{…}}` 里，`$` 落在 `\texttt` 内触发 18 处 `! Missing $ inserted` /
+   `! Extra }, or forgotten $`，并连带 44 次 `Missing character`、页数掉到 69 页。
+   **修法**：占位符 key 改用私用区字符 `\ue000<index>\ue001`（既不在长 token 字符类里，
+   也不会被转义），阈值恢复 18。**教训**：`tex_escape` 的两趟替换有顺序耦合，
+   改阈值前必须先隔离占位符。
+2. **表格里的 Markdown 残留**。表 T18 逐行取自 `MAPPING.md`，原样带进反引号（PDF 里显示成
+   成对引号）与 `[标签](../相对路径)`（展开后是很长的相对路径），造成 2 处 Overfull。
+   **修法**：渲染时把链接降级为标签、去掉反引号；并在「长标识符 + 左括号」之间插一个空格
+   给 TeX 一个断行点（语义不变）。
+3. **不可断行 token**。`holm_member=false`（17 字符，刚好卡在阈值 18 以下）与
+   `mlk_ct_sel_int16(MLKEM_Q_HALF, …`（括号让长 token 匹配断开）各造成 1 处 Overfull。
+   **修法**：前者改写为「holm_member 为 false」，后者留空格。
+4. **缺字**：`⇒`、`↔`、`β`、`⁴` 在 lmroman 没有字形、也不在 `MATH_REPLACEMENTS` 里，
+   第一遍出现 4 类缺字。**修法**：四个字符加入映射表。
+5. **只读片段的 Underfull**：`threat-model.tex` 在默认排版参数下自身产生 **8 处 Underfull**，
+   而该文件是证据、不能改字节。**修法**：只在其外层加
+   `\begingroup\sloppy\hbadness=2000 … \endgroup`（`\sloppy` 先把 8 处真实降到 2 处，
+   badness 1655 / 1014；剩下 2 处用该分组内的报告阈值不再告警）。为区分责任，
+   另做了一次**去掉该 `\input` 的对照编译**：本报告自身段落 **0 Overfull / 0 Underfull / 0 缺字**。
+   这条口径同时写进 `VISUAL_QA.md` 与 `RESULT.md`，不把「阈值提高」说成「没有 Underfull」。
+6. **近乎空白的第 2 页**：摘要变长后 `\vfill` 把「版本性质」一行推到第 2 页。**修法**：
+   删去与新摘要重复的第二段摘要、`\vfill` 改固定间距，摘要整段回到第 1 页（90 → 90 页，
+   但去掉了那一页）。
+7. **附录导语的 2 行尾页**：附录的表是 `landscape`、必然分页，导语的后 2 行独占一页。
+   **修法**：以「附录」开头的节也从新页开始，标题与导语同页。
+8. **失败日志已按新约定归档**：第一次编译（4 Overfull、2 Underfull、4 类缺字）的日志存为
+   `xelatex-final5-first-attempt1-failed.log`，不被后续重试覆盖。上一轮记录的流程偏离
+   （失败日志被覆盖）本轮已修正。
+
+## J4. 数据一致性：来源文件与本轮归档之间发现四处不一致
+
+本轮逐条打开证据文件核对时发现三处**文件表述**不一致，另有一处**归档与文稿的时间差**。
+**本报告不改判**，按可核的一侧引用，并把四处写进报告第 24 节与 `RESULT.md`，供主控决定是否回改来源文件：
+
+1. `docs/evidence/r06-noleak-20261016/MAPPING.md`：§1 表格实际 **16 个数据行**
+   （M1 三、M2 三、M3 四、M4 两、M5 四），§2 却自述「表内行数 15」，
+   且其 6 + 5 + 4 的分组算术与自身表格不符。报告按 **16 行**引用。
+2. `docs/evidence/r04-stats-20261016/POWER.md`：§1 已更正 M1 主类对属于预注册 Holm 家族
+   （m = 6、α_eff = 0.008333），§5 的家族列仍把 M1 标为「族外」。报告采用 **§1 的更正口径**
+   （MDE 25.2709 / 31.3901 ns），不引用 §5 的陈旧表述。
+3. 「M5 × 可变时间比较」4 格：`docs/R05-全流程排查表.md` 本体按产物 + 源码判「**不存在**」，
+   而 `BLOCKERS.md` 第 1 条把这一情形描述为「**工具不适用型 unknown**」。
+   报告按 R05 本体的结论与计数（存在 5 / 不存在 75 / 不适用 10 / 未检查 0）引用，
+   并在第 24 节保留该工具侧边界（varlat 面向可变时延指令，而该实现从上游起不用 `div`）。
+
+4. **归档与文稿的时间差（本轮写作期间发生）**：05:10 前后 R08 / R09 的控制器目录被补入归档
+   （`docs/evidence/r08-perf-20261016/remote/R08/<run>/controller/` 共 54 个、
+   `docs/evidence/r09-optlevel-20261016/remote/R09/<run>/controller/` 共 36 个，含
+   `terminal.json`、`entry-probes.json`、`during.json`），而 `PERF.md`（05:08）与 R09 的
+   `RESULT.md`（05:09）仍写着「副本只有 CSV 与 meta」「没有 controller 目录」。
+   直接读取原始 `terminal.json` 计数为 **R08 54/54、R09 36/36 四判据全部通过**
+   （`restore_match=yes`、`worker_exit_code=0`、`worker_drained=true`）。
+   处理：**当作补充登记**写进报告 §15 与表 T21 的表注，新增 E59/E60 两个代表文件作证据路径，
+   并在报告第 24 节登记该时间差；**没有改写 `PERF.md` / `RESULT.md` 的任何数值与结论**。
+   两文件同步更新后应回填并重新生成报告——届时 `evidence-snapshot.json` 里的来源摘要会变化，
+   `build_support.py` 会拒绝用旧包（属预期行为）。
+
+## J5. 本轮没有做的事
+
+- 没有 `git add`/`commit`/`push`；没有 `sudo`、硬件采数、调频或隔离写入。
+- 没有改 `docs/evidence/r03-malformed-20261016/`、`docs/R05-全流程排查表.md`、
+  `docs/evidence/r11-threat-20261016/threat-model.tex`、旧封存证据、M1 证据，
+  或 `final{,2,3,4}-20261016`、`refresh-20261016`、draft10/11/12 的原字节。
+- 没有成包、没有跑 `audit_revision.py`、没有解出复算；报告内引用的解出复算产物仍是
+  最后一次实际执行的 `final4-20261016`（表 T5 与第 17 节都写明了这一点）。
+- 没有把「未执行」写成阴性，没有把人工夹具写成真实 CVE，没有把锁频写成恒时证明。

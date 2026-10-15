@@ -2,7 +2,7 @@
   "date": "2026-10-16",
   "title": "多泄漏模块检测平台补充报告",
   "subtitle": "统一检测、定位、修复与复测的证据分层",
-  "document_state": "final4_20261016_r03_extra_family_and_r05_matrix_merged",
+  "document_state": "final5_20261016_full_clause_matrix_and_report_consolidation",
   "baseline_commit": "ac46e62",
   "modules": [
     {
@@ -257,6 +257,180 @@
       "label": "R03 十八次控制器运行逐条状态",
       "path": "docs/evidence/r03-malformed-20261016/logs/status.log",
       "state": "extra_family_controller_log"
+    },
+    {
+      "id": "E32",
+      "label": "R01 向量来源总表（T05）",
+      "state": "vector_and_equivalence",
+      "path": "docs/evidence/r01-kat-20261016/VECTORS.md"
+    },
+    {
+      "id": "E33",
+      "label": "R01 修复语义等价（T06）",
+      "state": "vector_and_equivalence",
+      "path": "docs/evidence/r01-kat-20261016/EQUIV.md"
+    },
+    {
+      "id": "E34",
+      "label": "R02 环境总表（T07，28 项）",
+      "state": "environment_and_rules",
+      "path": "docs/evidence/r02-env-20261016/ENV_TABLE.md"
+    },
+    {
+      "id": "E35",
+      "label": "R02 异常样本与稳健性规则（T08）",
+      "state": "environment_and_rules",
+      "path": "docs/evidence/r02-env-20261016/OUTLIER_RULES.md"
+    },
+    {
+      "id": "E36",
+      "label": "R02 稳健性敏感性分析（T09）",
+      "state": "robustness_descriptive",
+      "path": "docs/evidence/r02-env-20261016/ROBUSTNESS.md"
+    },
+    {
+      "id": "E37",
+      "label": "R02 稳健性机读结果（64 类对 × 4 方法）",
+      "state": "robustness_descriptive",
+      "path": "docs/evidence/r02-env-20261016/robustness.csv"
+    },
+    {
+      "id": "E38",
+      "label": "R04 功效 / MDE（T26）",
+      "state": "power_analysis",
+      "path": "docs/evidence/r04-stats-20261016/POWER.md"
+    },
+    {
+      "id": "E39",
+      "label": "R04 分位数差 bootstrap CI（T27）",
+      "state": "quantile_descriptive",
+      "path": "docs/evidence/r04-stats-20261016/QUANTILE_CI.md"
+    },
+    {
+      "id": "E40",
+      "label": "R04 修复前后箱线图（M4 两臂）",
+      "state": "quantile_descriptive",
+      "path": "docs/evidence/r04-stats-20261016/figures/boxplot-M4-vulnerable-vs-ct.pdf"
+    },
+    {
+      "id": "E41",
+      "label": "R05 补缺格定位结果",
+      "state": "localization_completion",
+      "path": "docs/evidence/r05-locate-20261016/RESULT.md"
+    },
+    {
+      "id": "E42",
+      "label": "R06 日志·异常·返回码泄露专项审计（T18）",
+      "state": "leak_channel_audit",
+      "path": "docs/evidence/r06-noleak-20261016/AUDIT.md"
+    },
+    {
+      "id": "E43",
+      "label": "R06 修复手段 → 题面第 6 条方法分类映射",
+      "state": "remediation_mapping",
+      "path": "docs/evidence/r06-noleak-20261016/MAPPING.md"
+    },
+    {
+      "id": "E44",
+      "label": "R08 性能开销表（T21）",
+      "state": "performance_descriptive",
+      "path": "docs/evidence/r08-perf-20261016/PERF.md"
+    },
+    {
+      "id": "E45",
+      "label": "R08 逐（臂 × 操作）汇总（25 行）",
+      "state": "performance_descriptive",
+      "path": "docs/evidence/r08-perf-20261016/perf.csv"
+    },
+    {
+      "id": "E46",
+      "label": "R08 成对开销（11 行）",
+      "state": "performance_descriptive",
+      "path": "docs/evidence/r08-perf-20261016/perf.csv.comparison.csv"
+    },
+    {
+      "id": "E47",
+      "label": "R09 优化级别对照结论（T24）",
+      "state": "optlevel_descriptive",
+      "path": "docs/evidence/r09-optlevel-20261016/RESULT.md"
+    },
+    {
+      "id": "E48",
+      "label": "R09 产物判定与构建（T22）",
+      "state": "optlevel_descriptive",
+      "path": "docs/evidence/r09-optlevel-20261016/BUILD.md"
+    },
+    {
+      "id": "E49",
+      "label": "R09 优化级别 Δ 与 CI 图",
+      "state": "optlevel_descriptive",
+      "path": "docs/evidence/r09-optlevel-20261016/figures/r09_delta_by_optlevel.pdf"
+    },
+    {
+      "id": "E50",
+      "label": "R11 威胁模型（独立稿）",
+      "state": "threat_model",
+      "path": "docs/evidence/r11-threat-20261016/THREAT_MODEL.md"
+    },
+    {
+      "id": "E51",
+      "label": "R11 威胁模型 LaTeX 片段（本报告直接 input）",
+      "state": "threat_model",
+      "path": "docs/evidence/r11-threat-20261016/threat-model.tex"
+    },
+    {
+      "id": "E52",
+      "label": "R12 创新对照 (a)：锁频 vs 不锁频",
+      "state": "innovation_descriptive",
+      "path": "docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md"
+    },
+    {
+      "id": "E53",
+      "label": "R12 创新对照 (b)：多工具矩阵与一键复现（T29b / T30）",
+      "state": "innovation_descriptive",
+      "path": "docs/evidence/r12-innovation-20261016/RESULT.md"
+    },
+    {
+      "id": "E54",
+      "label": "R12 多工具矩阵逐格证据（9 × 5 = 45 格）",
+      "state": "innovation_descriptive",
+      "path": "docs/evidence/r12-innovation-20261016/TOOL_MATRIX.csv"
+    },
+    {
+      "id": "E55",
+      "label": "复现参数总表（T30）",
+      "state": "reproduce_entry",
+      "path": "docs/REPRODUCE-PARAMS.md"
+    },
+    {
+      "id": "E56",
+      "label": "一键复现入口脚本",
+      "state": "reproduce_entry",
+      "path": "scripts/reproduce_all.sh"
+    },
+    {
+      "id": "E57",
+      "label": "干净 clone quick 档实测记录",
+      "state": "reproduce_entry",
+      "path": "docs/evidence/r12-innovation-20261016/REPRODUCE-QUICK-LOG.md"
+    },
+    {
+      "id": "E58",
+      "label": "本轮阻塞与降级登记",
+      "state": "blockers",
+      "path": "BLOCKERS.md"
+    },
+    {
+      "id": "E59",
+      "label": "R08 控制器终态判据（54 个同构文件之一，补充登记）",
+      "state": "locked_collection",
+      "path": "docs/evidence/r08-perf-20261016/remote/R08/r08-perf-m1fixed-b10/controller/terminal.json"
+    },
+    {
+      "id": "E60",
+      "label": "R09 控制器终态判据（36 个同构文件之一，补充登记）",
+      "state": "locked_collection",
+      "path": "docs/evidence/r09-optlevel-20261016/remote/R09/r09-o0-m1unfixed-s2/controller/terminal.json"
     }
   ],
   "additional_results": [],
@@ -800,5 +974,5 @@
     "docs/evidence/mona-wire-20261016/native-qualification/source/source-identity.json",
     "docs/evidence/mona-wire-20261016/native-qualification/upload-verification.log"
   ],
-  "remaining_summary": "M2–M5 的锁频端到端家族统计、Mona 对 M2 对照、RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已回填；本轮另并入 R03 格式破损 / 截断族的族外对照（3 臂 × 3 种子，18/18 restore_match=yes，不进 Holm）与 R05 全流程六类来源排查表（3 实现 × 5 步骤 × 6 类 = 90 格：存在 5、不存在 74、不适用 10、未检查 1）。报告内已无 «待主控数据» 占位符；仍未执行的是题面第 5 条中「数据相关循环」等结构性单元格，按「未执行」如实标注，不是阴性。"
+  "remaining_summary": "本轮把 R01 向量与等价、R02 环境与稳健性、R04 功效与分位数、R05 补缺格与 90 格计数更新、R06 泄露渠道审计与修复映射、R08 性能、R09 优化级别、R11 威胁模型、R12 创新对照与 T30 一键复现并入正式报告，并新增附录 A「题面 12 条对照矩阵」。R05 计数更新为 3 实现 × 5 步骤 × 6 类 = 90 格：**存在 5 / 不存在 75 / 不适用 10 / 未检查 0**（原唯一的未检查格已于 2026-10-16 补做并改判为“存在”）。12 条中 11 条为“满足”、第 6 条为“部分”（唯一缺口是 R06 低危发现 F1：M2 采集件功能门失败时把批级接受/拒绝汇总写进 stderr、退出码与 meta 的 run_status）；第 9 条必做的优化级别对照已完成，可选的三项中“不同编译优化级别”完成、“不同 CPU 架构”不做、“本地与网络场景”（T25）未执行。报告内仍无 «待主控数据» 占位符；标“未执行”的格是结构性未做，不等于阴性。本轮 final5 只重出报告，匿名包与解出复算由主控另跑。"
 }

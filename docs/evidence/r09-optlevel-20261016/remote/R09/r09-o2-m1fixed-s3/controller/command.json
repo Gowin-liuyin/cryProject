@@ -1,0 +1,25 @@
+{
+  "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+  "command": [
+    "/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O2/measure",
+    "r09-o2-m1fixed-s3",
+    "7",
+    "10000",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/R09/r09-o2-m1fixed-s3/r09-o2-m1fixed-s3.csv",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/R09/r09-o2-m1fixed-s3/r09-o2-m1fixed-s3.meta"
+  ],
+  "cpu": 6,
+  "plan_sha256": "732e07c8bf228f21a7be92bb5a4ee5d3a924ae0b6e63e8c7207f663ca40a6115",
+  "policy": "policy6",
+  "source_sha256": "4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "worker_gid": 1000,
+  "worker_sha256": "2993af04337711d57539e4b1dcd10c5cb7bae7fc02df7919eab173913cf561f8",
+  "worker_uid": 1000
+}

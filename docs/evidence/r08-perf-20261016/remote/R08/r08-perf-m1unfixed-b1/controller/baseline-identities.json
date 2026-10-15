@@ -1,0 +1,1777 @@
+{
+  "amd_pstate/prefcore": [
+    23,
+    39709,
+    0
+  ],
+  "amd_pstate/status": [
+    23,
+    39708,
+    0
+  ],
+  "boost": [
+    23,
+    38970,
+    0
+  ],
+  "policy0/affected_cpus": [
+    23,
+    38978,
+    0
+  ],
+  "policy0/boost": [
+    23,
+    38993,
+    0
+  ],
+  "policy0/cpuinfo_max_freq": [
+    23,
+    38973,
+    0
+  ],
+  "policy0/cpuinfo_min_freq": [
+    23,
+    38972,
+    0
+  ],
+  "policy0/energy_performance_preference": [
+    23,
+    38990,
+    0
+  ],
+  "policy0/related_cpus": [
+    23,
+    38979,
+    0
+  ],
+  "policy0/scaling_available_governors": [
+    23,
+    38982,
+    0
+  ],
+  "policy0/scaling_driver": [
+    23,
+    38981,
+    0
+  ],
+  "policy0/scaling_governor": [
+    23,
+    38980,
+    0
+  ],
+  "policy0/scaling_max_freq": [
+    23,
+    38977,
+    0
+  ],
+  "policy0/scaling_min_freq": [
+    23,
+    38976,
+    0
+  ],
+  "policy1/affected_cpus": [
+    23,
+    39001,
+    0
+  ],
+  "policy1/boost": [
+    23,
+    39016,
+    0
+  ],
+  "policy1/cpuinfo_max_freq": [
+    23,
+    38996,
+    0
+  ],
+  "policy1/cpuinfo_min_freq": [
+    23,
+    38995,
+    0
+  ],
+  "policy1/energy_performance_preference": [
+    23,
+    39013,
+    0
+  ],
+  "policy1/related_cpus": [
+    23,
+    39002,
+    0
+  ],
+  "policy1/scaling_available_governors": [
+    23,
+    39005,
+    0
+  ],
+  "policy1/scaling_driver": [
+    23,
+    39004,
+    0
+  ],
+  "policy1/scaling_governor": [
+    23,
+    39003,
+    0
+  ],
+  "policy1/scaling_max_freq": [
+    23,
+    39000,
+    0
+  ],
+  "policy1/scaling_min_freq": [
+    23,
+    38999,
+    0
+  ],
+  "policy10/affected_cpus": [
+    23,
+    39208,
+    0
+  ],
+  "policy10/boost": [
+    23,
+    39223,
+    0
+  ],
+  "policy10/cpuinfo_max_freq": [
+    23,
+    39203,
+    0
+  ],
+  "policy10/cpuinfo_min_freq": [
+    23,
+    39202,
+    0
+  ],
+  "policy10/energy_performance_preference": [
+    23,
+    39220,
+    0
+  ],
+  "policy10/related_cpus": [
+    23,
+    39209,
+    0
+  ],
+  "policy10/scaling_available_governors": [
+    23,
+    39212,
+    0
+  ],
+  "policy10/scaling_driver": [
+    23,
+    39211,
+    0
+  ],
+  "policy10/scaling_governor": [
+    23,
+    39210,
+    0
+  ],
+  "policy10/scaling_max_freq": [
+    23,
+    39207,
+    0
+  ],
+  "policy10/scaling_min_freq": [
+    23,
+    39206,
+    0
+  ],
+  "policy11/affected_cpus": [
+    23,
+    39231,
+    0
+  ],
+  "policy11/boost": [
+    23,
+    39246,
+    0
+  ],
+  "policy11/cpuinfo_max_freq": [
+    23,
+    39226,
+    0
+  ],
+  "policy11/cpuinfo_min_freq": [
+    23,
+    39225,
+    0
+  ],
+  "policy11/energy_performance_preference": [
+    23,
+    39243,
+    0
+  ],
+  "policy11/related_cpus": [
+    23,
+    39232,
+    0
+  ],
+  "policy11/scaling_available_governors": [
+    23,
+    39235,
+    0
+  ],
+  "policy11/scaling_driver": [
+    23,
+    39234,
+    0
+  ],
+  "policy11/scaling_governor": [
+    23,
+    39233,
+    0
+  ],
+  "policy11/scaling_max_freq": [
+    23,
+    39230,
+    0
+  ],
+  "policy11/scaling_min_freq": [
+    23,
+    39229,
+    0
+  ],
+  "policy12/affected_cpus": [
+    23,
+    39254,
+    0
+  ],
+  "policy12/boost": [
+    23,
+    39269,
+    0
+  ],
+  "policy12/cpuinfo_max_freq": [
+    23,
+    39249,
+    0
+  ],
+  "policy12/cpuinfo_min_freq": [
+    23,
+    39248,
+    0
+  ],
+  "policy12/energy_performance_preference": [
+    23,
+    39266,
+    0
+  ],
+  "policy12/related_cpus": [
+    23,
+    39255,
+    0
+  ],
+  "policy12/scaling_available_governors": [
+    23,
+    39258,
+    0
+  ],
+  "policy12/scaling_driver": [
+    23,
+    39257,
+    0
+  ],
+  "policy12/scaling_governor": [
+    23,
+    39256,
+    0
+  ],
+  "policy12/scaling_max_freq": [
+    23,
+    39253,
+    0
+  ],
+  "policy12/scaling_min_freq": [
+    23,
+    39252,
+    0
+  ],
+  "policy13/affected_cpus": [
+    23,
+    39277,
+    0
+  ],
+  "policy13/boost": [
+    23,
+    39292,
+    0
+  ],
+  "policy13/cpuinfo_max_freq": [
+    23,
+    39272,
+    0
+  ],
+  "policy13/cpuinfo_min_freq": [
+    23,
+    39271,
+    0
+  ],
+  "policy13/energy_performance_preference": [
+    23,
+    39289,
+    0
+  ],
+  "policy13/related_cpus": [
+    23,
+    39278,
+    0
+  ],
+  "policy13/scaling_available_governors": [
+    23,
+    39281,
+    0
+  ],
+  "policy13/scaling_driver": [
+    23,
+    39280,
+    0
+  ],
+  "policy13/scaling_governor": [
+    23,
+    39279,
+    0
+  ],
+  "policy13/scaling_max_freq": [
+    23,
+    39276,
+    0
+  ],
+  "policy13/scaling_min_freq": [
+    23,
+    39275,
+    0
+  ],
+  "policy14/affected_cpus": [
+    23,
+    39300,
+    0
+  ],
+  "policy14/boost": [
+    23,
+    39315,
+    0
+  ],
+  "policy14/cpuinfo_max_freq": [
+    23,
+    39295,
+    0
+  ],
+  "policy14/cpuinfo_min_freq": [
+    23,
+    39294,
+    0
+  ],
+  "policy14/energy_performance_preference": [
+    23,
+    39312,
+    0
+  ],
+  "policy14/related_cpus": [
+    23,
+    39301,
+    0
+  ],
+  "policy14/scaling_available_governors": [
+    23,
+    39304,
+    0
+  ],
+  "policy14/scaling_driver": [
+    23,
+    39303,
+    0
+  ],
+  "policy14/scaling_governor": [
+    23,
+    39302,
+    0
+  ],
+  "policy14/scaling_max_freq": [
+    23,
+    39299,
+    0
+  ],
+  "policy14/scaling_min_freq": [
+    23,
+    39298,
+    0
+  ],
+  "policy15/affected_cpus": [
+    23,
+    39323,
+    0
+  ],
+  "policy15/boost": [
+    23,
+    39338,
+    0
+  ],
+  "policy15/cpuinfo_max_freq": [
+    23,
+    39318,
+    0
+  ],
+  "policy15/cpuinfo_min_freq": [
+    23,
+    39317,
+    0
+  ],
+  "policy15/energy_performance_preference": [
+    23,
+    39335,
+    0
+  ],
+  "policy15/related_cpus": [
+    23,
+    39324,
+    0
+  ],
+  "policy15/scaling_available_governors": [
+    23,
+    39327,
+    0
+  ],
+  "policy15/scaling_driver": [
+    23,
+    39326,
+    0
+  ],
+  "policy15/scaling_governor": [
+    23,
+    39325,
+    0
+  ],
+  "policy15/scaling_max_freq": [
+    23,
+    39322,
+    0
+  ],
+  "policy15/scaling_min_freq": [
+    23,
+    39321,
+    0
+  ],
+  "policy16/affected_cpus": [
+    23,
+    39346,
+    0
+  ],
+  "policy16/boost": [
+    23,
+    39361,
+    0
+  ],
+  "policy16/cpuinfo_max_freq": [
+    23,
+    39341,
+    0
+  ],
+  "policy16/cpuinfo_min_freq": [
+    23,
+    39340,
+    0
+  ],
+  "policy16/energy_performance_preference": [
+    23,
+    39358,
+    0
+  ],
+  "policy16/related_cpus": [
+    23,
+    39347,
+    0
+  ],
+  "policy16/scaling_available_governors": [
+    23,
+    39350,
+    0
+  ],
+  "policy16/scaling_driver": [
+    23,
+    39349,
+    0
+  ],
+  "policy16/scaling_governor": [
+    23,
+    39348,
+    0
+  ],
+  "policy16/scaling_max_freq": [
+    23,
+    39345,
+    0
+  ],
+  "policy16/scaling_min_freq": [
+    23,
+    39344,
+    0
+  ],
+  "policy17/affected_cpus": [
+    23,
+    39369,
+    0
+  ],
+  "policy17/boost": [
+    23,
+    39384,
+    0
+  ],
+  "policy17/cpuinfo_max_freq": [
+    23,
+    39364,
+    0
+  ],
+  "policy17/cpuinfo_min_freq": [
+    23,
+    39363,
+    0
+  ],
+  "policy17/energy_performance_preference": [
+    23,
+    39381,
+    0
+  ],
+  "policy17/related_cpus": [
+    23,
+    39370,
+    0
+  ],
+  "policy17/scaling_available_governors": [
+    23,
+    39373,
+    0
+  ],
+  "policy17/scaling_driver": [
+    23,
+    39372,
+    0
+  ],
+  "policy17/scaling_governor": [
+    23,
+    39371,
+    0
+  ],
+  "policy17/scaling_max_freq": [
+    23,
+    39368,
+    0
+  ],
+  "policy17/scaling_min_freq": [
+    23,
+    39367,
+    0
+  ],
+  "policy18/affected_cpus": [
+    23,
+    39392,
+    0
+  ],
+  "policy18/boost": [
+    23,
+    39407,
+    0
+  ],
+  "policy18/cpuinfo_max_freq": [
+    23,
+    39387,
+    0
+  ],
+  "policy18/cpuinfo_min_freq": [
+    23,
+    39386,
+    0
+  ],
+  "policy18/energy_performance_preference": [
+    23,
+    39404,
+    0
+  ],
+  "policy18/related_cpus": [
+    23,
+    39393,
+    0
+  ],
+  "policy18/scaling_available_governors": [
+    23,
+    39396,
+    0
+  ],
+  "policy18/scaling_driver": [
+    23,
+    39395,
+    0
+  ],
+  "policy18/scaling_governor": [
+    23,
+    39394,
+    0
+  ],
+  "policy18/scaling_max_freq": [
+    23,
+    39391,
+    0
+  ],
+  "policy18/scaling_min_freq": [
+    23,
+    39390,
+    0
+  ],
+  "policy19/affected_cpus": [
+    23,
+    39415,
+    0
+  ],
+  "policy19/boost": [
+    23,
+    39430,
+    0
+  ],
+  "policy19/cpuinfo_max_freq": [
+    23,
+    39410,
+    0
+  ],
+  "policy19/cpuinfo_min_freq": [
+    23,
+    39409,
+    0
+  ],
+  "policy19/energy_performance_preference": [
+    23,
+    39427,
+    0
+  ],
+  "policy19/related_cpus": [
+    23,
+    39416,
+    0
+  ],
+  "policy19/scaling_available_governors": [
+    23,
+    39419,
+    0
+  ],
+  "policy19/scaling_driver": [
+    23,
+    39418,
+    0
+  ],
+  "policy19/scaling_governor": [
+    23,
+    39417,
+    0
+  ],
+  "policy19/scaling_max_freq": [
+    23,
+    39414,
+    0
+  ],
+  "policy19/scaling_min_freq": [
+    23,
+    39413,
+    0
+  ],
+  "policy2/affected_cpus": [
+    23,
+    39024,
+    0
+  ],
+  "policy2/boost": [
+    23,
+    39039,
+    0
+  ],
+  "policy2/cpuinfo_max_freq": [
+    23,
+    39019,
+    0
+  ],
+  "policy2/cpuinfo_min_freq": [
+    23,
+    39018,
+    0
+  ],
+  "policy2/energy_performance_preference": [
+    23,
+    39036,
+    0
+  ],
+  "policy2/related_cpus": [
+    23,
+    39025,
+    0
+  ],
+  "policy2/scaling_available_governors": [
+    23,
+    39028,
+    0
+  ],
+  "policy2/scaling_driver": [
+    23,
+    39027,
+    0
+  ],
+  "policy2/scaling_governor": [
+    23,
+    39026,
+    0
+  ],
+  "policy2/scaling_max_freq": [
+    23,
+    39023,
+    0
+  ],
+  "policy2/scaling_min_freq": [
+    23,
+    39022,
+    0
+  ],
+  "policy20/affected_cpus": [
+    23,
+    39438,
+    0
+  ],
+  "policy20/boost": [
+    23,
+    39453,
+    0
+  ],
+  "policy20/cpuinfo_max_freq": [
+    23,
+    39433,
+    0
+  ],
+  "policy20/cpuinfo_min_freq": [
+    23,
+    39432,
+    0
+  ],
+  "policy20/energy_performance_preference": [
+    23,
+    39450,
+    0
+  ],
+  "policy20/related_cpus": [
+    23,
+    39439,
+    0
+  ],
+  "policy20/scaling_available_governors": [
+    23,
+    39442,
+    0
+  ],
+  "policy20/scaling_driver": [
+    23,
+    39441,
+    0
+  ],
+  "policy20/scaling_governor": [
+    23,
+    39440,
+    0
+  ],
+  "policy20/scaling_max_freq": [
+    23,
+    39437,
+    0
+  ],
+  "policy20/scaling_min_freq": [
+    23,
+    39436,
+    0
+  ],
+  "policy21/affected_cpus": [
+    23,
+    39461,
+    0
+  ],
+  "policy21/boost": [
+    23,
+    39476,
+    0
+  ],
+  "policy21/cpuinfo_max_freq": [
+    23,
+    39456,
+    0
+  ],
+  "policy21/cpuinfo_min_freq": [
+    23,
+    39455,
+    0
+  ],
+  "policy21/energy_performance_preference": [
+    23,
+    39473,
+    0
+  ],
+  "policy21/related_cpus": [
+    23,
+    39462,
+    0
+  ],
+  "policy21/scaling_available_governors": [
+    23,
+    39465,
+    0
+  ],
+  "policy21/scaling_driver": [
+    23,
+    39464,
+    0
+  ],
+  "policy21/scaling_governor": [
+    23,
+    39463,
+    0
+  ],
+  "policy21/scaling_max_freq": [
+    23,
+    39460,
+    0
+  ],
+  "policy21/scaling_min_freq": [
+    23,
+    39459,
+    0
+  ],
+  "policy22/affected_cpus": [
+    23,
+    39484,
+    0
+  ],
+  "policy22/boost": [
+    23,
+    39499,
+    0
+  ],
+  "policy22/cpuinfo_max_freq": [
+    23,
+    39479,
+    0
+  ],
+  "policy22/cpuinfo_min_freq": [
+    23,
+    39478,
+    0
+  ],
+  "policy22/energy_performance_preference": [
+    23,
+    39496,
+    0
+  ],
+  "policy22/related_cpus": [
+    23,
+    39485,
+    0
+  ],
+  "policy22/scaling_available_governors": [
+    23,
+    39488,
+    0
+  ],
+  "policy22/scaling_driver": [
+    23,
+    39487,
+    0
+  ],
+  "policy22/scaling_governor": [
+    23,
+    39486,
+    0
+  ],
+  "policy22/scaling_max_freq": [
+    23,
+    39483,
+    0
+  ],
+  "policy22/scaling_min_freq": [
+    23,
+    39482,
+    0
+  ],
+  "policy23/affected_cpus": [
+    23,
+    39507,
+    0
+  ],
+  "policy23/boost": [
+    23,
+    39522,
+    0
+  ],
+  "policy23/cpuinfo_max_freq": [
+    23,
+    39502,
+    0
+  ],
+  "policy23/cpuinfo_min_freq": [
+    23,
+    39501,
+    0
+  ],
+  "policy23/energy_performance_preference": [
+    23,
+    39519,
+    0
+  ],
+  "policy23/related_cpus": [
+    23,
+    39508,
+    0
+  ],
+  "policy23/scaling_available_governors": [
+    23,
+    39511,
+    0
+  ],
+  "policy23/scaling_driver": [
+    23,
+    39510,
+    0
+  ],
+  "policy23/scaling_governor": [
+    23,
+    39509,
+    0
+  ],
+  "policy23/scaling_max_freq": [
+    23,
+    39506,
+    0
+  ],
+  "policy23/scaling_min_freq": [
+    23,
+    39505,
+    0
+  ],
+  "policy24/affected_cpus": [
+    23,
+    39530,
+    0
+  ],
+  "policy24/boost": [
+    23,
+    39545,
+    0
+  ],
+  "policy24/cpuinfo_max_freq": [
+    23,
+    39525,
+    0
+  ],
+  "policy24/cpuinfo_min_freq": [
+    23,
+    39524,
+    0
+  ],
+  "policy24/energy_performance_preference": [
+    23,
+    39542,
+    0
+  ],
+  "policy24/related_cpus": [
+    23,
+    39531,
+    0
+  ],
+  "policy24/scaling_available_governors": [
+    23,
+    39534,
+    0
+  ],
+  "policy24/scaling_driver": [
+    23,
+    39533,
+    0
+  ],
+  "policy24/scaling_governor": [
+    23,
+    39532,
+    0
+  ],
+  "policy24/scaling_max_freq": [
+    23,
+    39529,
+    0
+  ],
+  "policy24/scaling_min_freq": [
+    23,
+    39528,
+    0
+  ],
+  "policy25/affected_cpus": [
+    23,
+    39553,
+    0
+  ],
+  "policy25/boost": [
+    23,
+    39568,
+    0
+  ],
+  "policy25/cpuinfo_max_freq": [
+    23,
+    39548,
+    0
+  ],
+  "policy25/cpuinfo_min_freq": [
+    23,
+    39547,
+    0
+  ],
+  "policy25/energy_performance_preference": [
+    23,
+    39565,
+    0
+  ],
+  "policy25/related_cpus": [
+    23,
+    39554,
+    0
+  ],
+  "policy25/scaling_available_governors": [
+    23,
+    39557,
+    0
+  ],
+  "policy25/scaling_driver": [
+    23,
+    39556,
+    0
+  ],
+  "policy25/scaling_governor": [
+    23,
+    39555,
+    0
+  ],
+  "policy25/scaling_max_freq": [
+    23,
+    39552,
+    0
+  ],
+  "policy25/scaling_min_freq": [
+    23,
+    39551,
+    0
+  ],
+  "policy26/affected_cpus": [
+    23,
+    39576,
+    0
+  ],
+  "policy26/boost": [
+    23,
+    39591,
+    0
+  ],
+  "policy26/cpuinfo_max_freq": [
+    23,
+    39571,
+    0
+  ],
+  "policy26/cpuinfo_min_freq": [
+    23,
+    39570,
+    0
+  ],
+  "policy26/energy_performance_preference": [
+    23,
+    39588,
+    0
+  ],
+  "policy26/related_cpus": [
+    23,
+    39577,
+    0
+  ],
+  "policy26/scaling_available_governors": [
+    23,
+    39580,
+    0
+  ],
+  "policy26/scaling_driver": [
+    23,
+    39579,
+    0
+  ],
+  "policy26/scaling_governor": [
+    23,
+    39578,
+    0
+  ],
+  "policy26/scaling_max_freq": [
+    23,
+    39575,
+    0
+  ],
+  "policy26/scaling_min_freq": [
+    23,
+    39574,
+    0
+  ],
+  "policy27/affected_cpus": [
+    23,
+    39599,
+    0
+  ],
+  "policy27/boost": [
+    23,
+    39614,
+    0
+  ],
+  "policy27/cpuinfo_max_freq": [
+    23,
+    39594,
+    0
+  ],
+  "policy27/cpuinfo_min_freq": [
+    23,
+    39593,
+    0
+  ],
+  "policy27/energy_performance_preference": [
+    23,
+    39611,
+    0
+  ],
+  "policy27/related_cpus": [
+    23,
+    39600,
+    0
+  ],
+  "policy27/scaling_available_governors": [
+    23,
+    39603,
+    0
+  ],
+  "policy27/scaling_driver": [
+    23,
+    39602,
+    0
+  ],
+  "policy27/scaling_governor": [
+    23,
+    39601,
+    0
+  ],
+  "policy27/scaling_max_freq": [
+    23,
+    39598,
+    0
+  ],
+  "policy27/scaling_min_freq": [
+    23,
+    39597,
+    0
+  ],
+  "policy28/affected_cpus": [
+    23,
+    39622,
+    0
+  ],
+  "policy28/boost": [
+    23,
+    39637,
+    0
+  ],
+  "policy28/cpuinfo_max_freq": [
+    23,
+    39617,
+    0
+  ],
+  "policy28/cpuinfo_min_freq": [
+    23,
+    39616,
+    0
+  ],
+  "policy28/energy_performance_preference": [
+    23,
+    39634,
+    0
+  ],
+  "policy28/related_cpus": [
+    23,
+    39623,
+    0
+  ],
+  "policy28/scaling_available_governors": [
+    23,
+    39626,
+    0
+  ],
+  "policy28/scaling_driver": [
+    23,
+    39625,
+    0
+  ],
+  "policy28/scaling_governor": [
+    23,
+    39624,
+    0
+  ],
+  "policy28/scaling_max_freq": [
+    23,
+    39621,
+    0
+  ],
+  "policy28/scaling_min_freq": [
+    23,
+    39620,
+    0
+  ],
+  "policy29/affected_cpus": [
+    23,
+    39645,
+    0
+  ],
+  "policy29/boost": [
+    23,
+    39660,
+    0
+  ],
+  "policy29/cpuinfo_max_freq": [
+    23,
+    39640,
+    0
+  ],
+  "policy29/cpuinfo_min_freq": [
+    23,
+    39639,
+    0
+  ],
+  "policy29/energy_performance_preference": [
+    23,
+    39657,
+    0
+  ],
+  "policy29/related_cpus": [
+    23,
+    39646,
+    0
+  ],
+  "policy29/scaling_available_governors": [
+    23,
+    39649,
+    0
+  ],
+  "policy29/scaling_driver": [
+    23,
+    39648,
+    0
+  ],
+  "policy29/scaling_governor": [
+    23,
+    39647,
+    0
+  ],
+  "policy29/scaling_max_freq": [
+    23,
+    39644,
+    0
+  ],
+  "policy29/scaling_min_freq": [
+    23,
+    39643,
+    0
+  ],
+  "policy3/affected_cpus": [
+    23,
+    39047,
+    0
+  ],
+  "policy3/boost": [
+    23,
+    39062,
+    0
+  ],
+  "policy3/cpuinfo_max_freq": [
+    23,
+    39042,
+    0
+  ],
+  "policy3/cpuinfo_min_freq": [
+    23,
+    39041,
+    0
+  ],
+  "policy3/energy_performance_preference": [
+    23,
+    39059,
+    0
+  ],
+  "policy3/related_cpus": [
+    23,
+    39048,
+    0
+  ],
+  "policy3/scaling_available_governors": [
+    23,
+    39051,
+    0
+  ],
+  "policy3/scaling_driver": [
+    23,
+    39050,
+    0
+  ],
+  "policy3/scaling_governor": [
+    23,
+    39049,
+    0
+  ],
+  "policy3/scaling_max_freq": [
+    23,
+    39046,
+    0
+  ],
+  "policy3/scaling_min_freq": [
+    23,
+    39045,
+    0
+  ],
+  "policy30/affected_cpus": [
+    23,
+    39668,
+    0
+  ],
+  "policy30/boost": [
+    23,
+    39683,
+    0
+  ],
+  "policy30/cpuinfo_max_freq": [
+    23,
+    39663,
+    0
+  ],
+  "policy30/cpuinfo_min_freq": [
+    23,
+    39662,
+    0
+  ],
+  "policy30/energy_performance_preference": [
+    23,
+    39680,
+    0
+  ],
+  "policy30/related_cpus": [
+    23,
+    39669,
+    0
+  ],
+  "policy30/scaling_available_governors": [
+    23,
+    39672,
+    0
+  ],
+  "policy30/scaling_driver": [
+    23,
+    39671,
+    0
+  ],
+  "policy30/scaling_governor": [
+    23,
+    39670,
+    0
+  ],
+  "policy30/scaling_max_freq": [
+    23,
+    39667,
+    0
+  ],
+  "policy30/scaling_min_freq": [
+    23,
+    39666,
+    0
+  ],
+  "policy31/affected_cpus": [
+    23,
+    39691,
+    0
+  ],
+  "policy31/boost": [
+    23,
+    39706,
+    0
+  ],
+  "policy31/cpuinfo_max_freq": [
+    23,
+    39686,
+    0
+  ],
+  "policy31/cpuinfo_min_freq": [
+    23,
+    39685,
+    0
+  ],
+  "policy31/energy_performance_preference": [
+    23,
+    39703,
+    0
+  ],
+  "policy31/related_cpus": [
+    23,
+    39692,
+    0
+  ],
+  "policy31/scaling_available_governors": [
+    23,
+    39695,
+    0
+  ],
+  "policy31/scaling_driver": [
+    23,
+    39694,
+    0
+  ],
+  "policy31/scaling_governor": [
+    23,
+    39693,
+    0
+  ],
+  "policy31/scaling_max_freq": [
+    23,
+    39690,
+    0
+  ],
+  "policy31/scaling_min_freq": [
+    23,
+    39689,
+    0
+  ],
+  "policy4/affected_cpus": [
+    23,
+    39070,
+    0
+  ],
+  "policy4/boost": [
+    23,
+    39085,
+    0
+  ],
+  "policy4/cpuinfo_max_freq": [
+    23,
+    39065,
+    0
+  ],
+  "policy4/cpuinfo_min_freq": [
+    23,
+    39064,
+    0
+  ],
+  "policy4/energy_performance_preference": [
+    23,
+    39082,
+    0
+  ],
+  "policy4/related_cpus": [
+    23,
+    39071,
+    0
+  ],
+  "policy4/scaling_available_governors": [
+    23,
+    39074,
+    0
+  ],
+  "policy4/scaling_driver": [
+    23,
+    39073,
+    0
+  ],
+  "policy4/scaling_governor": [
+    23,
+    39072,
+    0
+  ],
+  "policy4/scaling_max_freq": [
+    23,
+    39069,
+    0
+  ],
+  "policy4/scaling_min_freq": [
+    23,
+    39068,
+    0
+  ],
+  "policy5/affected_cpus": [
+    23,
+    39093,
+    0
+  ],
+  "policy5/boost": [
+    23,
+    39108,
+    0
+  ],
+  "policy5/cpuinfo_max_freq": [
+    23,
+    39088,
+    0
+  ],
+  "policy5/cpuinfo_min_freq": [
+    23,
+    39087,
+    0
+  ],
+  "policy5/energy_performance_preference": [
+    23,
+    39105,
+    0
+  ],
+  "policy5/related_cpus": [
+    23,
+    39094,
+    0
+  ],
+  "policy5/scaling_available_governors": [
+    23,
+    39097,
+    0
+  ],
+  "policy5/scaling_driver": [
+    23,
+    39096,
+    0
+  ],
+  "policy5/scaling_governor": [
+    23,
+    39095,
+    0
+  ],
+  "policy5/scaling_max_freq": [
+    23,
+    39092,
+    0
+  ],
+  "policy5/scaling_min_freq": [
+    23,
+    39091,
+    0
+  ],
+  "policy6/affected_cpus": [
+    23,
+    39116,
+    0
+  ],
+  "policy6/boost": [
+    23,
+    39131,
+    0
+  ],
+  "policy6/cpuinfo_max_freq": [
+    23,
+    39111,
+    0
+  ],
+  "policy6/cpuinfo_min_freq": [
+    23,
+    39110,
+    0
+  ],
+  "policy6/energy_performance_preference": [
+    23,
+    39128,
+    0
+  ],
+  "policy6/related_cpus": [
+    23,
+    39117,
+    0
+  ],
+  "policy6/scaling_available_governors": [
+    23,
+    39120,
+    0
+  ],
+  "policy6/scaling_driver": [
+    23,
+    39119,
+    0
+  ],
+  "policy6/scaling_governor": [
+    23,
+    39118,
+    0
+  ],
+  "policy6/scaling_max_freq": [
+    23,
+    39115,
+    0
+  ],
+  "policy6/scaling_min_freq": [
+    23,
+    39114,
+    0
+  ],
+  "policy7/affected_cpus": [
+    23,
+    39139,
+    0
+  ],
+  "policy7/boost": [
+    23,
+    39154,
+    0
+  ],
+  "policy7/cpuinfo_max_freq": [
+    23,
+    39134,
+    0
+  ],
+  "policy7/cpuinfo_min_freq": [
+    23,
+    39133,
+    0
+  ],
+  "policy7/energy_performance_preference": [
+    23,
+    39151,
+    0
+  ],
+  "policy7/related_cpus": [
+    23,
+    39140,
+    0
+  ],
+  "policy7/scaling_available_governors": [
+    23,
+    39143,
+    0
+  ],
+  "policy7/scaling_driver": [
+    23,
+    39142,
+    0
+  ],
+  "policy7/scaling_governor": [
+    23,
+    39141,
+    0
+  ],
+  "policy7/scaling_max_freq": [
+    23,
+    39138,
+    0
+  ],
+  "policy7/scaling_min_freq": [
+    23,
+    39137,
+    0
+  ],
+  "policy8/affected_cpus": [
+    23,
+    39162,
+    0
+  ],
+  "policy8/boost": [
+    23,
+    39177,
+    0
+  ],
+  "policy8/cpuinfo_max_freq": [
+    23,
+    39157,
+    0
+  ],
+  "policy8/cpuinfo_min_freq": [
+    23,
+    39156,
+    0
+  ],
+  "policy8/energy_performance_preference": [
+    23,
+    39174,
+    0
+  ],
+  "policy8/related_cpus": [
+    23,
+    39163,
+    0
+  ],
+  "policy8/scaling_available_governors": [
+    23,
+    39166,
+    0
+  ],
+  "policy8/scaling_driver": [
+    23,
+    39165,
+    0
+  ],
+  "policy8/scaling_governor": [
+    23,
+    39164,
+    0
+  ],
+  "policy8/scaling_max_freq": [
+    23,
+    39161,
+    0
+  ],
+  "policy8/scaling_min_freq": [
+    23,
+    39160,
+    0
+  ],
+  "policy9/affected_cpus": [
+    23,
+    39185,
+    0
+  ],
+  "policy9/boost": [
+    23,
+    39200,
+    0
+  ],
+  "policy9/cpuinfo_max_freq": [
+    23,
+    39180,
+    0
+  ],
+  "policy9/cpuinfo_min_freq": [
+    23,
+    39179,
+    0
+  ],
+  "policy9/energy_performance_preference": [
+    23,
+    39197,
+    0
+  ],
+  "policy9/related_cpus": [
+    23,
+    39186,
+    0
+  ],
+  "policy9/scaling_available_governors": [
+    23,
+    39189,
+    0
+  ],
+  "policy9/scaling_driver": [
+    23,
+    39188,
+    0
+  ],
+  "policy9/scaling_governor": [
+    23,
+    39187,
+    0
+  ],
+  "policy9/scaling_max_freq": [
+    23,
+    39184,
+    0
+  ],
+  "policy9/scaling_min_freq": [
+    23,
+    39183,
+    0
+  ]
+}
