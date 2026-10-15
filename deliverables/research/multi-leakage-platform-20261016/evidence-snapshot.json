@@ -1,8 +1,8 @@
 {
   "date": "2026-10-16",
-  "document_state": "final2_20261016_mona_filled_rtlf_partial",
+  "document_state": "final3_20261016_rtlf_and_microbench_filled",
   "baseline_commit": "ac46e62",
-  "worktree_head": "e8064ecfdb434cd3ab577705bb13f3393dbc5137",
+  "worktree_head": "a30d7c75d6790b9d79df7cf03935a2dffd476aa6",
   "sources": [
     {
       "id": "E01",
@@ -105,16 +105,16 @@
       "label": "M2 完整历史 KEM 原生资格",
       "path": "docs/evidence/m2-kem-20261016/RESULT.md",
       "state": "native_functional_qualified_statistics_not_run",
-      "sha256": "7a6e37251e8a0b7192a8756479b804cc333fd093163c72b50e66febf368c196d",
-      "bytes": 6416
+      "sha256": "3199c8e6344b58242937c32efe9e34762307b6c45fc05085f0bab9e0c228fae2",
+      "bytes": 6884
     },
     {
       "id": "E14",
       "label": "M3 完整解封装人工 LUT",
       "path": "docs/evidence/m3-completion-20261016/RESULT.md",
       "state": "native_functional_and_localization_statistics_not_run",
-      "sha256": "a3e7f0512ace65c3438951af861142a2df6d1d83c026b15a3df3ba8fca466499",
-      "bytes": 5251
+      "sha256": "ee9be0e9446d4b1b65015c88479243222127176566020999116041eebf51f036",
+      "bytes": 5892
     },
     {
       "id": "E15",
@@ -153,8 +153,8 @@
       "label": "平台锁频采数原件（M2/M3/M4/M5）",
       "path": "docs/evidence/platform-collection-20261016/README.md",
       "state": "locked_collection",
-      "sha256": "bd8913dcf6f375e74eaee9a6d34f1dbc233cd5315b8407b5b875e678fb617579",
-      "bytes": 7817
+      "sha256": "01e6d8989ef712226c7f09d6461e8eb3c644b3ed1eba9b4670283283c9ea686b",
+      "bytes": 7881
     },
     {
       "id": "E20",
@@ -203,6 +203,22 @@
       "state": "tool_cross_check",
       "sha256": "f23852e9a1e89cbd87919dd7a16bcbd97968049e5f702c63ddaeb94144f6bba4",
       "bytes": 536
+    },
+    {
+      "id": "E26",
+      "label": "RTLF 族外交叉结果（42/42）",
+      "path": "docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md",
+      "state": "tool_cross_check",
+      "sha256": "7794b69dc044b6d6068b2135800fdd1e4faec782364915403f5be9c114691ef2",
+      "bytes": 9380
+    },
+    {
+      "id": "E27",
+      "label": "M2 除法热点微基准层",
+      "path": "docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md",
+      "state": "family_statistics",
+      "sha256": "b52322bfe2c858bed37b73dfdee8d4a81d58c03466693e915c69a1cd2de3f9c6",
+      "bytes": 5069
     }
   ],
   "modules": [
@@ -226,8 +242,8 @@
       "software": "完整KEM资格 7/7",
       "localization": "已执行（阳性）：三热点 div 各 1→0；varlat 1280/3→0/0",
       "statistics": "已执行：Holm 拒绝 0/6；合并 Δ +4.58 ns，CI [−3.08, +12.25]（含 0）",
-      "formal": "微基准已触发，not_run",
-      "summary": "历史 Kyber768 完整 keygen/encap/decap 已接通：两版普通与 ASan/UBSan 各 7/7、各 100 例官方 round3 KAT。锁频端到端家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移。族外 online dudect 阳性出现在已修臂（max|t| 36.27/30.94/61.91），不可归因于除法变体。定位层阳性（未修各 1 个 div、varlat 1280/3 对 0/0）与端到端未检出分层记录。",
+      "formal": "微基准未检出：Holm 0/6，Δ +0.044 ns",
+      "summary": "历史 Kyber768 完整 keygen/encap/decap 已接通：两版普通与 ASan/UBSan 各 7/7、各 100 例官方 round3 KAT。锁频端到端家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移。触发条件满足后另跑只包除法热点的微基准家族 m2_div_hotspot_microbench_v1（m=6）同样拒绝 0，合并 Δ +0.044 ns、95% CI [−0.430, +0.517]（含 0）、I²=68.7%，最显著单项 r01 未修 p=0.042 校正后 0.249。分层结论：定位层阳性（三热点各 1 个 div、varlat 1280/3 对 0/0）／除法热点微基准层未检出／完整解封装层未检出。族外 RTLF 与 dudect 都出现与家族判定不同的二值或 t 值，均按族外如实登记，不改变家族判定。",
       "source": "docs/evidence/m2-kem-20261016/RESULT.md",
       "category": "真实历史案例",
       "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
@@ -266,7 +282,7 @@
       "localization": "已执行且未检出：Memcheck/varlat 0/0",
       "statistics": "已执行：Holm 拒绝 0/3；合并 Δ −5.30 ns，CI [−11.77, +1.16]（含 0）",
       "formal": "未主张",
-      "summary": "固定 mlkem-native 参考（提交 b3ba7b32…）原生功能资格通过：普通与 ASan/UBSan 各 7/7、独立 NIST 向量 25+25+10 与 5 隐式拒绝。定位层对 PKE 秘密与拒绝种子 z 明确标记，Memcheck、varlat=no/yes 各 10 次完整调用 0 errors/0 contexts。锁频端到端家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、CI [−11.77, +1.16]、I²=0%；族外 dudect max|t| 2.10/1.98/2.82（state=1）。阴性只限本预算，不证明恒时。",
+      "summary": "固定 mlkem-native 参考（提交 b3ba7b32…）原生功能资格通过：普通与 ASan/UBSan 各 7/7、独立 NIST 向量 25+25+10 与 5 隐式拒绝。定位层对 PKE 秘密与拒绝种子 z 明确标记，Memcheck、varlat=no/yes 各 10 次完整调用 0 errors/0 contexts。锁频端到端家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、CI [−11.77, +1.16]、I²=0%；族外 dudect max|t| 2.10/1.98/2.82（state=1）。族外 RTLF 对 M5 六项（主类对与对照各 3）全部 no_difference_detected；阴性只限本预算，不证明恒时。",
       "source": "docs/evidence/m5-completion-20261016/RESULT.md",
       "category": "阴性对照候选",
       "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
@@ -300,12 +316,12 @@
     {
       "id": "T5",
       "title": "实测数字与证据对照（每个数字指向证据文件）",
-      "rows": 27,
+      "rows": 28,
       "columns": 4
     },
     {
       "id": "T6",
-      "title": "«待主控数据» 与 not_run 清单（回填目标）",
+      "title": "回填状态：已无 «待主控数据»（剩余仅为“未执行”单元格）",
       "rows": 2,
       "columns": 3
     }

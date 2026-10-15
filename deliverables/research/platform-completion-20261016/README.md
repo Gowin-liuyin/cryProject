@@ -17,8 +17,9 @@
 定位、时间统计与形式化边界；`未运行`与`«待主控数据»`都不写成阴性。
 
 完整要求见 [COMPLETION_REQUIREMENTS](../../../docs/platform/COMPLETION_REQUIREMENTS.md)。
-M2–M5 的锁频家族统计已回填到本图（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂）；
-仍未回填的只有 RTLF 族外结果（partial）与 M2 微基准层（not_run），图注已注明。
+M2–M5 的锁频家族统计、RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已回填到本图
+（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂；M2 热点微基准层 Holm 拒绝 0）；
+图中已无 `«待主控数据»`，橙色只表示结构性“未运行”，图注已注明。
 本准备件不新增时间样本，不运行密码算法，不改 M1 结论，也不主张 M5 已阴性通过或恒时。
 
 ![2026-10-16 的平台结果矩阵](figures/platform-evidence-matrix.png)

@@ -355,3 +355,70 @@ python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py 
 
 第二阶段 heredoc 事故在仓库根留下的 22 个 `\-01.png … \-22.png`（02:35，pdftoppm 前缀被破坏所致）
 已按绝对路径逐个核对为本次事故产物后删除，仓库根不再有该前缀文件；其余文件未动。
+
+
+---
+
+# 第四阶段：final3-20261016（RTLF 42/42 与 M2 微基准层回填，占位符清零）
+
+主控交付 `docs/evidence/platform-rtlf-20261016/`（RTLF 原日志）与
+`docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md`（M2 除法热点微基准层）。
+回填前核对：`RTLF_RESULT.md` 的结果表与第 5 节逐数据集明细（30 项 exit 10 / 12 项 exit 11、
+M2 主类对 6/6 检出且两臂都检出、M2 对照 6/6 未检出、M3 12/12、M5 6/6、M4 vulnerable 与截断
+各 6/6 检出、ct 各 6/6 未检出）；微基准 `RESULT.md` 的家族表（m=6、Holm 拒绝 0、Δ +0.044 ns、
+CI [−0.430, +0.517]、I²=68.7%、r01 未修 p=0.0416→校正 0.2495、六 run restore_match=yes）。
+
+## H1. 回填内容
+
+- `report-data.json`：新增 E26（RTLF_RESULT.md）、E27（微基准 RESULT.md）；M2 的 formal 字段与摘要
+  改为三层写法（定位层阳性 / 除法热点微基准层未检出 / 完整解封装层未检出）；
+  `document_state=final3_20261016_rtlf_and_microbench_filled`；剩余占位说明改为“已清空”。
+- `report-tables.json`：T5 的 RTLF 行填 42/42 实数并新增“M2 除法热点微基准层”行；
+  T3 的族外交叉状态填 RTLF 四类计数与逐模块方向；T1 的 M2 复测列、T4 的补充行与注释改三层写法；
+  T6 改为“回填状态：已无 «待主控数据»”。**数据格中的占位符清零**（文件里剩 4 次均为
+  “token 定义 / 已清空”这类元语句）。
+- `generate_report.py`：§3 写入主控要求的五条 RTLF 读法（M4 与 Welch/Holm 同向＝独立印证；
+  M2 两臂都检出→不可归因于除法变体、最一致读法是类构造＋未受控漂移、不据此作泄漏结论；
+  二值族外不进 Holm、与均值判定分列；未检出≠恒时；不写“全部未检出”也不写“证明 M2 有泄漏”）；
+  §9 写三层分层与微基准家族；§11 写 M5 的 RTLF 6/6 未检出；§13、摘要、§1 改为“已无占位符”。
+  另修两处版式/渲染问题：Markdown 粗体在 PDF 中原样输出 `**`，改为 `\textbf{}`；
+  报告内矩阵图副标题与图注去掉占位符表述（橙色只表示结构性未运行）。
+
+## H2. PDF、图与包
+
+```sh
+python3 deliverables/research/multi-leakage-platform-20261016/generate_report.py
+for round in 1 2; do xelatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=build/platform-report-s8 \
+  deliverables/research/multi-leakage-platform-20261016/report.tex; done
+cp build/platform-report-s8/report.pdf deliverables/research/multi-leakage-platform-20261016/report.pdf
+pdftoppm -r 100 -png deliverables/research/multi-leakage-platform-20261016/report.pdf \
+  docs/evidence/platform-report-20261016/refresh-20261016/render-final3/page
+python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/build_support.py \
+  --revision final3-20261016
+sh docs/evidence/platform-report-20261016/refresh-20261016/run_zip_recompute_final3.sh \
+  > docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final3.log 2>&1
+python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py final3-20261016
+```
+
+- 报告 **23 页**，PDF SHA-256 `bd0ddf92d42b5cad32b27cfdc073cdb51c4ed925483900198426df528c0211af`；
+  日志 `xelatex-final3-{first,second}.log`：**0 Overfull、0 Underfull、0 缺字、0 hyperref 警告**，
+  PDF 文本层已无游离 `**`。
+- 图：`EVIDENCE_MATRIX.csv` 的 M2 formal 改为微基准实测、M3/M4/M5 增 RTLF 证据路径；
+  SVG 1492×975、PNG 2984×1950；CAPTION/REVIEW/RENDER_ENV/SHA256SUMS 同步为“已无占位符”。
+- 包：**776 成员、775 摘要、108 个本地 HTML 链接、0 直接身份字串**；ZIP SHA-256
+  `60deadaba9ef2b204a7cbf4fae2a915349b407667959762e2a6b3803b69b91e1`。
+- **解出复算：CTest 5/5 通过、0 失败（1.94 s）**，解出到新建
+  `build/zip-recompute-final3-20261016/`；原日志 `zip-recompute-final3.log`。
+- 独立审计（`final3-20261016/`）：PDF 元数据 pass（23 页、作者空、0 私有标记、无 JS）、
+  离线回放 CTest 5/5 + 6 数据集 + 12 输出逐字一致、校验器八种坏例全拒。
+
+保留的失败：第一次 `final3` 成包被来源摘要检查拒绝（`RTLF_RESULT.md` 在我生成报告后又被
+主控扩充了逐数据集明细），按设计先重跑 `generate_report.py` 刷新摘要再成包；失败的暂存目录已删除。
+另在版式修复中两次触发 `Missing $ inserted`（未转义的 `not_run` 出现在 tex 的 raw 字符串里），
+改写后通过。
+
+## H3. 剩余占位符（final3）
+
+**数据格 `«待主控数据»` = 0。** 文件里剩余的 4–7 次出现全部是“token 定义 / 已清空的说明 / T6 标题”，
+不是待填数字。报告中仍标“未执行”的只有题面第 5 条结构性未做的单元格（如“数据相关循环”）。

@@ -4,7 +4,7 @@
 
 日期：2026-10-16
 
-摘要：真实历史案例与人工构造校准分列；检测、定位、修复、复测四段链逐模块给出实际状态，未运行不写成未检出。M2–M5 的锁频家族统计与 Mona 对 M2 的六份主类对对照已回填；RTLF 为 partial（进行中）、M2 微基准层为 not_run，两者都不写成阴性。
+摘要：真实历史案例与人工构造校准分列；检测、定位、修复、复测四段链逐模块给出实际状态，未运行不写成未检出。M2–M5 的锁频家族统计、Mona 对 M2 对照、RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已回填，报告内已无 «待主控数据»；结构性未做的检查写“未执行”。
 
 
 ## 1 研究对象与证据口径
@@ -13,7 +13,7 @@
 
 M1 与 M2 是固定提交的真实历史路径；M3 与 M4 是人工构造校准（前者为秘密下标查表，后者为提前退出比较），其阳性只能检验检测器能否识别目标机制，不计为新的真实 CVE；M5 是固定 mlkem-native 的阴性对照候选。四条证据链分列，不互相冒充。
 
-本报告把四种状态写全并区分：(1) 已执行且检出（含人工校准的目标机制）；(2) 已执行且未检出，必须带工具、输入范围与调用边界；(3) 未执行，一律写“未执行”或 not_run，不写成阴性或未检出；(4) 仍未回填的少数位置写 «待主控数据»，同样不是阴性。本轮 M2–M5 的锁频家族统计已实际执行并回填；仍未回填的只有 RTLF α=.01 族外结果（partial（进行中）：主控报告 s1 主类对 exit 11、同数据集对照类对 exit 10，其余数据集仍在执行且原日志尚未落盘，故本报告记 «待主控数据»）与 M2 微基准层（触发条件已满足、当前 not_run）。Mona 对 M2 的对照行本轮已回填。软件资格、源与产物机制、工具定位、原始时间观察、正式统计与竞赛验收互相独立。
+本报告把四种状态写全并区分：(1) 已执行且检出（含人工校准的目标机制）；(2) 已执行且未检出，必须带工具、输入范围与调用边界；(3) 未执行，一律写“未执行”或 not_run，不写成阴性或未检出；(4) 结构性未做的检查写“未执行”（如题面第 5 条中的“数据相关循环”），它不是占位符、也不是阴性。本轮 M2–M5 的锁频家族统计、Mona 对 M2 对照、RTLF 族外交叉（42/42）与 M2 除法热点微基准层都已实际执行并回填，**报告内已无 «待主控数据» 占位符**。软件资格、源与产物机制、工具定位、原始时间观察、正式统计与竞赛验收互相独立。
 
 完整完成条件与命令合同以 [E01](../../../docs/platform/COMPLETION_REQUIREMENTS.md) 为准；M1 的旧范围保持封存身份，本报告不重做、不改写。 [E01,E02,E10]
 
@@ -22,7 +22,7 @@ M1 与 M2 是固定提交的真实历史路径；M3 与 M4 是人工构造校准
 
 共享层记录公开输入、源与二进制身份、全调用测量窗口、类别乱序、逐次原值、环境和恢复；统计层输出均值差与区间、参数检验族、RTLF 与在线 dudect 的独立结果；动态层使用秘密标记、可变时指令检查和反汇编；有界验证层单独记录秘密模型、入口、边界与探索完成性。
 
-各层证据不可互相替代：静态存在除法不说明处理器已出现可测时差，工具报警次数不是采样量，功能测试通过也不表示统计阴性。下图按「真实历史案例 / 人工构造校准 / 阴性对照候选」分组并逐层显示状态，橙色格是未运行或 «待主控数据»。本图是结果图，不是计划图：没有执行过的格子不预填数值。 [E03-E08,E10]
+各层证据不可互相替代：静态存在除法不说明处理器已出现可测时差，工具报警次数不是采样量，功能测试通过也不表示统计阴性。下图按「真实历史案例 / 人工构造校准 / 阴性对照候选」分组并逐层显示状态，橙色格是结构性未运行（如“数据相关循环”未做专门检查）。本图是结果图，不是计划图：没有执行过的格子不预填数值。 [E03-E08,E10]
 
 ![平台证据矩阵（结果图）](platform-matrix.svg)
 
@@ -35,7 +35,7 @@ M1 与 M2 是固定提交的真实历史路径；M3 与 M4 是人工构造校准
 
 现有 C 电池使用两组样本均值、样本方差、Welch t 与自由度；95% 区间与 p 值采用大样本正态近似（z=1.9599639845），不能称有限样本精确 Student-t。零方差、数据不足、缺工具或失败均单列状态。参数 p 按事前家族做 Holm；RTLF 固定 α=.01；dudect 最大 t、RTLF 二值结果与 Mona 结果不伪造为 p 纳入 Holm。
 
-本轮冻结的家族口径：M2 与 M5 的家族成员为主类对 × 3 次运行 × 2 版；M3 与 M4 的家族成员为臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 对比只作受控对照（含二进制级常数偏移），不进 Holm 家族；RTLF（α=.01，二值结论）与 online dudect 一律族外、不进 Holm；RTLF 的 difference_detected 与 Welch/Holm 的均值判定不冲突（RTLF 检验的是分布差异，不是均值差），两者分列不互相替代。截至本次刷新 RTLF 为 partial（进行中），只有 m2-s1-unfixed 的主类对（退出码 11）与同数据集对照类对（退出码 10）完成且原日志尚未落盘，本报告不把它写成已验证数字或全阴性。家族实际运行结果：M2 m=6 拒绝 0（合并 Δ +4.58 ns，CI [−3.08, +12.25]，I²=58.3%）；M3 m=6 拒绝 0（−0.73 ns，[−5.56, +4.10]，I²=12.5%）；M4 m=6 拒绝 3 且全在 vulnerable 臂（−3.74 ns，[−3.87, −3.62]，I²=98.6%）；M5 m=3 拒绝 0（−5.30 ns，[−11.77, +1.16]，I²=0%）。 [E01,E08,E19,E20]
+本轮冻结的家族口径：M2 与 M5 的家族成员为主类对 × 3 次运行 × 2 版；M3 与 M4 的家族成员为臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 对比只作受控对照（含二进制级常数偏移），不进 Holm 家族；RTLF（α=.01、seed 2026101605、bootstrap 10000，只给二值结论）与 online dudect 一律族外、不进 Holm；RTLF 检验的是分布差异（含尾部与分位），Welch/CI 检验的是均值差，两者分列、互不替代。本轮 RTLF 42/42 完成、无 blocked/failed：no_difference_detected 30 项、difference_detected 12 项。M4 与其 Welch/Holm 方向一致（vulnerable 主类对与截断对照各 3/3 检出、ct 各 3/3 未检出），是两种方法在同一批数据上的独立印证；M2 主类对 6/6 检出，但**未修与已修两个臂都检出**，因此不可归因于除法变体，与 Welch/Holm 拒绝 0 的差异最一致的读法是类构造（message-zero 与 message-ones 各自是同一份确定性密文的 10000 次重复，而 bit-flipped 与 random 逐样本变化）加上未受控漂移，**不据此作任一方向的泄漏结论**；M3 12/12、M5 6/6 未检出。家族实际运行结果：M2 m=6 拒绝 0（合并 Δ +4.58 ns，CI [−3.08, +12.25]，I²=58.3%）；M3 m=6 拒绝 0（−0.73 ns，[−5.56, +4.10]，I²=12.5%）；M4 m=6 拒绝 3 且全在 vulnerable 臂（−3.74 ns，[−3.87, −3.62]，I²=98.6%）；M5 m=3 拒绝 0（−5.30 ns，[−11.77, +1.16]，I²=0%）。 [E01,E08,E19,E20]
 
 
 ## 4 检测—定位—修复—复测：四段链状态
@@ -49,7 +49,7 @@ M1 与 M2 是固定提交的真实历史路径；M3 与 M4 是人工构造校准
 | 模块 / 案例类别 | (1) 检测（输入与统计） | (2) 定位（工具与产物） | (3) 修复 / 关闭 | (4) 复测 | 证据 |
 |---|---|---|---|---|---|
 | M1 编译器消息位分支 / 真实历史案例 | 已执行：10000 值/类 × 3 次独立运行；Welch 95% 正态近似 CI、Holm 家族 m=6、RTLF α=.01、dudect t&gt;10 | 已执行：Valgrind 标记 indcpa 私钥前 1152 B，未修在 poly_frommsg（poly.c:179）报 1 个秘密条件跳转；反汇编 bt+jae；已修 0 个 | 官方修复 982c762：重链为 setb + cmov_int16；旧封存结论不改写 | 已执行：基准 31337@CPU2、换种子 424242@CPU2、换物理核 31337@CPU6 各一次，方向一致 | [E02] [E17] [E18] |
-| M2 秘密操作数除法 / 真实历史案例 | 已执行：3 次运行（31337@CPU2、424242@CPU2、31337@CPU6）× 2 臂 × 每类 10000 次、预热 100 在窗口外；家族 m2_end_to_end_full_decaps_v1 m=6，Holm 拒绝 0；合并 Δ +4.58 ns，95% CI [−3.08, +12.25]（含 0），I²=58.3% | 已执行（阳性）：未修 poly_tomsg、polyvec_compress、poly_compress 各 1 个目标 div、已修各 0；热点探针 varlat=yes 1280 errors/3 contexts 对已修 0/0，varlat=no 两版 0/0 | 完整已修 272125f（非中间 dda29cc）：目标 div 与对应报警消失；历史 Kyber768 不冒称 FIPS 203 | 已执行：r1/r2/r3 三次独立运行，18 次控制器运行 restore_match=yes；端到端未检出；按臂描述性未修 +12.35、已修 −11.20 方向相反＝臂间漂移；微基准触发条件已满足但 not_run | [E03] [E04] [E13] [E19] [E20] |
+| M2 秘密操作数除法 / 真实历史案例 | 已执行：3 次运行（31337@CPU2、424242@CPU2、31337@CPU6）× 2 臂 × 每类 10000 次、预热 100 在窗口外；家族 m2_end_to_end_full_decaps_v1 m=6，Holm 拒绝 0；合并 Δ +4.58 ns，95% CI [−3.08, +12.25]（含 0），I²=58.3% | 已执行（阳性）：未修 poly_tomsg、polyvec_compress、poly_compress 各 1 个目标 div、已修各 0；热点探针 varlat=yes 1280 errors/3 contexts 对已修 0/0，varlat=no 两版 0/0 | 完整已修 272125f（非中间 dda29cc）：目标 div 与对应报警消失；历史 Kyber768 不冒称 FIPS 203 | 已执行：r1/r2/r3 三次独立运行，18 次控制器运行 restore_match=yes；分层结论：定位层阳性 / 除法热点微基准层未检出（家族 m=6，Holm 拒绝 0，Δ +0.044 ns、CI 含 0）/ 完整解封装层未检出；按臂描述性未修 +12.35、已修 −11.20 方向相反＝臂间漂移 | [E03] [E04] [E13] [E19] [E20] |
 | M3 秘密下标访存 / 人工构造校准 | 已执行：3 次运行 × 2 臂 × 每类 10000 次；家族 m3_lut_arm_end_to_end_v1（臂内主类对）m=6，Holm 拒绝 0；合并 Δ −0.73 ns，95% CI [−5.56, +4.10]（含 0），I²=12.5% | 已执行：挂载后 Memcheck 开臂 1280 errors/2 contexts（compress.c:714 / poly_frommsg）对关臂 0/0；Microwalk 开臂 poly_frommsg+30/+59 的 MI 1.922 bits（全场最高）对关臂 0.722 | 人工 off 关闭目标机制：秘密索引 load 报警消失；跨臂 on/off 含二进制级常数偏移，只作受控对照、不进 Holm | 已执行：r1/r2/r3 三次独立运行，12 次控制器运行 restore_match=yes；端到端未检出；按臂描述性开臂 −0.62、关臂 −0.83 | [E05] [E14] [E19] [E20] [E21] |
 | M4 提前退出比较 / 人工构造校准 | 已执行：3 次运行 × 2 臂 × 每类 10000 次；家族 m4_compare_arm_session_v1（臂内主类对）m=6，Holm 拒绝 3 项且全部来自 vulnerable 臂（原始 p = 0 / 9.23e−25 / 3.14e−22），ct 臂 p = 0.386 / 0.438 / 0.399 | 已执行：Memcheck vulnerable 32 errors/1 context（compare_early.c:9）对 ct 0/0；Binsec 0.11.3 + Z3 4.15.3 给 insecure（反例 0x8049047）对 bounded secure，pending/cut/unknown 全 0，另有 -sse-depth 5 得到 unknown 的截断对照 | 人工 ct 归约关闭目标机制（定位层与有界层）；两版只返回相等性 | 已执行：r1/r2/r3 三次运行，18 次控制器运行 restore_match=yes；按臂描述性 vulnerable −4.089 [−4.215, −3.963]、ct +0.055 [−0.363, +0.473]；族外截断对照（--compare-bytes 16）p = 6.25e−202 / 0.00563 / 4.44e−177，边界不同、不进 Holm | [E06] [E16] [E19] [E20] [E22] [E23] |
 | M5 mlkem-native 参考 / 阴性对照候选 | 已执行：3 次运行 × 1 臂 × 每类 10000 次；家族 m5_reference_end_to_end_v1 m=3，Holm 拒绝 0；合并 Δ −5.30 ns，95% CI [−11.77, +1.16]（含 0），I²=0% | 已执行且未检出：PKE 秘密 1152 B 与拒绝种子 z 32 B 明确标记，发行版 Memcheck、varlat=no、varlat=yes 三模式各 10 次完整调用 0 errors/0 contexts | 不适用：参考实现没有可关闭的目标机制；不写成“已防护” | 已执行：r1/r2/r3 三次运行，6 次控制器运行 restore_match=yes；族外 dudect max|t| = 2.10 / 1.98 / 2.82，state=1（预算内无证据）；阴性只限本预算，不证明恒时 | [E07] [E15] [E19] [E20] |
@@ -89,7 +89,7 @@ M1 三层均已执行，并在换种子、换物理核两次独立复测上复�
 | 均值、方差、分位数等描述统计 | 每个数据集输出各类均值、样本方差/标准差与分位数；家族另给合并效应 Δ、I² 与按臂描述性合并；M1：各类均值、中位数、标准差与十分位全部输出 | 已执行（M1 与 M2–M5） | [E02] [E17] [E08] [E20] |
 | 置信区间 | 两组样本均值差 Δ、Welch 标准误与 95% 区间；实现为大样本正态近似（z=1.9599639845），不称有限样本精确 Student-t。M2 +4.58 [−3.08, +12.25]；M3 −0.73 [−5.56, +4.10]；M4 −3.74 [−3.87, −3.62]（混合两臂，I²=98.6%）；M5 −5.30 [−11.77, +1.16] | 已执行 | [E08] [E20] |
 | 适当的统计检验与多重比较校正 | Welch t 与自由度，参数族按事前清单做 Holm–Bonferroni 逐步校正（全族 α=0.05）：M2 m=6 拒绝 0；M3 m=6 拒绝 0；M4 m=6 拒绝 3（全在 vulnerable 臂：p = 0 / 9.23e−25 / 3.14e−22）；M5 m=3 拒绝 0 | 已执行；成员表与阈值见 members.csv 与 holm.csv | [E20] |
-| 多方法交叉印证（族外） | online dudect：M2 未修 max|t| 4.68/3.05/3.66（无证据）、已修 36.27/30.94/61.91（leakage_found，不可归因于除法变体）；M3 on/off 1.93/2.24、3.41/3.37、2.81/3.03 均 state=1；M4 vulnerable 356.6/396.9/395.6（leakage_found）、ct 2.06/1.90/2.27（无证据）；M5 2.10/1.98/2.82（state=1）。dudect 最大 t 不转伪 p、不进 Holm | 已执行（族外交叉：online dudect 已回填）；RTLF α=.01 为 partial/in_progress——主控报告 s1 主类对 exit 11、同数据集对照类对 exit 10，其余数据集仍在执行且原日志尚未落盘，故记 «待主控数据»，不写成全阴性 | [E19] [E20] |
+| 多方法交叉印证（族外） | online dudect：M2 未修 max|t| 4.68/3.05/3.66（无证据）、已修 36.27/30.94/61.91（leakage_found，不可归因于除法变体）；M3 on/off 1.93/2.24、3.41/3.37、2.81/3.03 均 state=1；M4 vulnerable 356.6/396.9/395.6（leakage_found）、ct 2.06/1.90/2.27（无证据）；M5 2.10/1.98/2.82（state=1）。dudect 最大 t 不转伪 p、不进 Holm | 已执行（族外交叉）：RTLF α=.01、seed 2026101605、42/42 完成——no_difference_detected 30 项、difference_detected 12 项；M4 与 Welch/Holm 方向一致（vulnerable 含截断 6/6 检出、ct 6/6 未检出）；M2 主类对 6/6 检出但两个臂都检出、对照 6/6 未检出；M3 12/12、M5 6/6 未检出 | [E19] [E20] |
 | 不能仅凭少量样本或单次测试结论 | 每个模块三次独立运行（换种子、换物理核），家族判定基于全部成员；普通长尾不删、不追加样本直到显著；M4 的 98.6% I² 与 M2 的臂间漂移都原样报告，不挑一致结果 | 已执行：54 次控制器运行 restore_match=yes | [E19] [E20] |
 | 多重比较的家族口径（主控冻结） | M2/M5：家族成员 = 主类对 × 3 次运行 × 2 版（M5 单臂，故 m=3）；M3/M4：家族成员 = 臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 与 --compare-bytes 截断对照只作受控对照（含二进制级常数偏移或不同调用边界），不进 Holm；RTLF（α=.01）与在线 dudect 一律族外 | 口径已冻结并按此执行 | [E01] [E08] [E19] [E20] |
 | 不用工具安装、软件资格或定位结果替代统计，也不把未检出读成恒时 | M2 定位阳性但端到端未检出；M5 工具与 dudect 均无证据但只限本预算；M3/M4 的定位与统计分层记录；“CI 含 0 且 Holm 不拒绝”一律写未检出，不写恒时或等价 | 已执行（口径与文档层） | [E01] [E13] [E20] |
@@ -113,9 +113,9 @@ M1 三层均已执行，并在换种子、换物理核两次独立复测上复�
 | 数据相关循环 | 未执行：没有把循环次数作为对象的检查；M5 的秘密标记 0/0 不区分循环边界与条件分支 | 未执行：没有针对重加密循环次数的检查或轨迹差分结果 | 未执行：M4 的 Binsec 有界模型记录总路径 32/32 与 16/16 全部到达 halt，但长度固定 1–16，未把循环次数列为泄漏对象 | 未执行：拒绝 KDF 的循环次数没有单独检查 |
 | 数据相关内存访问 | M5 已执行（有限输入）：秘密标记 Memcheck 与 varlat=no/yes 在 10 次完整调用上 0 errors/0 contexts，未检出秘密相关访存；M3 的人工 LUT 不落在该步 | M3 人工校准已执行：挂载到真实完整解封装重加密路径后 Memcheck 开臂 1280 errors/2 contexts（均落在 compress.c:714 的秘密下标 load），关臂与两个 defined 对照 0/0；Microwalk 源码自建在开臂把 poly_frommsg+30/+59 的 MI 报到 1.922 bits（全场最高），关臂同函数 0.722 bits；锁频端到端家族 Holm 拒绝 0（Δ −0.73 ns，CI 含 0） | 未执行：该步按公开长度顺序读取，没有秘密索引对象；M4 Memcheck 命中是条件跳转而非访存 | M5 已执行（有限输入）：拒绝种子 z 32 B 明确标记，SHAKE 拒绝 KDF 10 次完整调用 0 errors/0 contexts |
 | 失败路径与异常处理 | 功能层已执行：M2 封装层先检查长度/空指针，正确长度无效密文继续走原解密与隐式拒绝；M5 全链有限输入 0/0。族外统计：M2 malformed 尾部对照类对六项 p = 0.785/0.604/0.605/0.710/0.615/0.230，无一致方向 | 功能层已执行：M2 重加密/验证/拒绝路径保留原实现，跨版 160 类例等价；M5 同链 0/0（有限输入）。族外统计同左：malformed 尾部对照未显示一致方向 | 功能层已执行：比较失败进入统一隐式拒绝，不返回内部验证结果；M4 在调用内核前拒绝空指针、真实短数组与零长度，错误不改输出。族外统计：M3 对照类对六项 p = 0.462/0.687/0.587/0.735/0.684/0.162，M5 对照 p = 0.020/0.475/0.240，均无一致方向 | 功能层已执行：M2 的 64 例真实隐式拒绝逐字段校验、拒绝秘密 J(z‖ct) 未改；M5 为 5 接受与 5 隐式拒绝。族外统计：M2 malformed 尾部对六项 p 0.230–0.785，Holm 家族不含该对照 |
-| 补充（题面六类未单列）：秘密操作数可变时指令（整数除法，KyberSlash） | M2 真实历史案例已执行：poly_tomsg（indcpa.c:328，解密段）在 Clang18 -Oz 未修含 1 个目标 div、已修 0 个；热点探针 varlat=yes 1280/3 对 0/0，varlat=no 两版 0/0。端到端家族（m=6）Holm 拒绝 0，Δ +4.58 ns、CI 含 0＝未检出 | M2 真实历史案例已执行：polyvec_compress 与 poly_compress（indcpa.c:91–92）未修各 1 个目标 div、已修各 0；归因由同 ELF 源码、反汇编、数据流与 varlat 开关对照共同支持，不表示本机已出现可测物理时差。端到端 dudect 阳性反而出现在已修臂，不可归因于除法变体 | 不适用：比较路径没有除法热点；M5 参考实现（含比较段）在 varlat=yes/no 下 0/0 | 未执行：拒绝 KDF 没有单独的 varlat 探针；相邻证据为 M5 全链 varlat=yes/no 0/0（有限输入）与 M2 malformed 尾部族外对照 |
+| 补充（题面六类未单列）：秘密操作数可变时指令（整数除法，KyberSlash） | M2 真实历史案例已执行：poly_tomsg（indcpa.c:328，解密段）在 Clang18 -Oz 未修含 1 个目标 div、已修 0 个；热点探针 varlat=yes 1280/3 对 0/0，varlat=no 两版 0/0。端到端家族（m=6）Holm 拒绝 0，Δ +4.58 ns、CI 含 0＝未检出；触发后另跑只包该热点的微基准家族（m=6）同样拒绝 0，Δ +0.044 ns、CI 含 0 | M2 真实历史案例已执行：polyvec_compress 与 poly_compress（indcpa.c:91–92）未修各 1 个目标 div、已修各 0；归因由同 ELF 源码、反汇编、数据流与 varlat 开关对照共同支持，不表示本机已出现可测物理时差。端到端 dudect 阳性反而出现在已修臂，不可归因于除法变体 | 不适用：比较路径没有除法热点；M5 参考实现（含比较段）在 varlat=yes/no 下 0/0 | 未执行：拒绝 KDF 没有单独的 varlat 探针；相邻证据为 M5 全链 varlat=yes/no 0/0（有限输入）与 M2 malformed 尾部族外对照 |
 
-注：六类是题面第 5 条原文列举的来源；末行为本项目实际定位到、但题面未单列的机制，单独成行以免与“可变时间比较函数”混淆。M3/M4 全部为人工构造校准，不是真实 CVE；M1/M2 为固定历史真实路径。M2 定位层阳性与端到端未检出分层记录。 [E01]
+注：六类是题面第 5 条原文列举的来源；末行为本项目实际定位到、但题面未单列的机制，单独成行以免与“可变时间比较函数”混淆。M3/M4 全部为人工构造校准，不是真实 CVE；M1/M2 为固定历史真实路径。M2 按三层记录：定位层阳性、除法热点微基准层未检出、完整解封装层未检出。族外 RTLF 的二值结论与 Welch/Holm 分列，不改变家族判定。 [E01]
 
 
 ## 8 M1 既有真实案例与 Mona 对照
@@ -131,13 +131,13 @@ M1 三层均已执行，并在换种子、换物理核两次独立复测上复�
 
 ## 9 M2 KyberSlash：真实历史案例
 
-历史 Kyber768 完整 keygen/encap/decap 已接通：两版普通与 ASan/UBSan 各 7/7、各 100 例官方 round3 KAT。锁频端到端家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移。族外 online dudect 阳性出现在已修臂（max|t| 36.27/30.94/61.91），不可归因于除法变体。定位层阳性（未修各 1 个 div、varlat 1280/3 对 0/0）与端到端未检出分层记录。
+历史 Kyber768 完整 keygen/encap/decap 已接通：两版普通与 ASan/UBSan 各 7/7、各 100 例官方 round3 KAT。锁频端到端家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移。触发条件满足后另跑只包除法热点的微基准家族 m2_div_hotspot_microbench_v1（m=6）同样拒绝 0，合并 Δ +0.044 ns、95% CI [−0.430, +0.517]（含 0）、I²=68.7%，最显著单项 r01 未修 p=0.042 校正后 0.249。分层结论：定位层阳性（三热点各 1 个 div、varlat 1280/3 对 0/0）／除法热点微基准层未检出／完整解封装层未检出。族外 RTLF 与 dudect 都出现与家族判定不同的二值或 t 值，均按族外如实登记，不改变家族判定。
 
 未修固定为 a621b8dde405cc507cbcfc5f794570a4f98d69cc，完整已修固定为 272125f6acc8e8b6850fd68ceb901a660ff48196；均以完整提交而非 exact tag 钉版。中间 dda29cc 只修 KyberSlash1，不能当作完整修复。对象是历史 Kyber768，不能冒称 FIPS 203 ML-KEM-768。
 
 定位实际在 x86_64 Linux、Clang 18.1.3、-Oz 且关闭向量化的固定产物中执行：poly_tomsg（解密段）与 polyvec_compress、poly_compress（重加密段）的秘密相关操作数数据流与各自一条 div 对应。varlat 默认上下文 PC 落在系数 load，不能直接把该 PC 当成静态 div 地址；归因来自同 ELF 数据流、源码、反汇编及 varlat 开关对照。
 
-完整 KEM 的适用独立 KAT、边界与原生产物资格见 [E13](../../../docs/evidence/m2-kem-20261016/RESULT.md)；完整调用软件合同 [E12](../../../docs/evidence/m2-kem-20261016/SOFTWARE_CONTRACT.md) 与实际结果分开。新生产 ELF 未重跑旧 varlat 探针，旧定位不倒写成新产物动态结果。完整调用的端到端统计已执行：家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%，即未检出；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移，不据此新增声明。族外 dudect 的阳性出现在已修臂，不可归因于除法变体。微基准触发条件已满足（端到端未拒绝），但本轮未执行，记 not_run。 [E03,E04,E12,E13,E19,E20]
+完整 KEM 的适用独立 KAT、边界与原生产物资格见 [E13](../../../docs/evidence/m2-kem-20261016/RESULT.md)；完整调用软件合同 [E12](../../../docs/evidence/m2-kem-20261016/SOFTWARE_CONTRACT.md) 与实际结果分开。新生产 ELF 未重跑旧 varlat 探针，旧定位不倒写成新产物动态结果。完整调用的端到端统计已执行：家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%，即未检出；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移，不据此新增声明。族外 dudect 的阳性出现在已修臂，不可归因于除法变体。按冻结 PLAN，端到端未拒绝后启动了只包除法热点的微基准层：家族 m2_div_hotspot_microbench_v1（m = 3 次运行 × 2 臂 = 6）同样 Holm 拒绝 0，固定效应合并 Δ = +0.044 ns、95% CI [−0.430, +0.517]（含 0）、I²=68.7%，最显著单项 r01 未修 p=0.042 经校正后为 0.249；六个 run 全部 controller_exit=0、worker_exit_code=0、restore_match=yes。微基准窗口只包 pqcrystals_kyber768_ref_poly_tomsg，与完整解封装不可比，两族 p 值不合并。因此本模块按三层记录：**定位层阳性 / 除法热点微基准层未检出 / 完整解封装层未检出**，不改变端到端家族的 Holm 判定，也不用定位层阳性替代统计阳性。 [E03,E04,E12,E13,E19,E20]
 
 
 ## 10 M3 与 M4：人工机制校准
@@ -155,13 +155,13 @@ M4 两版本只返回相等性，不提供标准 memcmp 的正负排序语义。
 
 ## 11 M5：参考实现阴性对照候选
 
-固定 mlkem-native 参考（提交 b3ba7b32…）原生功能资格通过：普通与 ASan/UBSan 各 7/7、独立 NIST 向量 25+25+10 与 5 隐式拒绝。定位层对 PKE 秘密与拒绝种子 z 明确标记，Memcheck、varlat=no/yes 各 10 次完整调用 0 errors/0 contexts。锁频端到端家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、CI [−11.77, +1.16]、I²=0%；族外 dudect max|t| 2.10/1.98/2.82（state=1）。阴性只限本预算，不证明恒时。
+固定 mlkem-native 参考（提交 b3ba7b32…）原生功能资格通过：普通与 ASan/UBSan 各 7/7、独立 NIST 向量 25+25+10 与 5 隐式拒绝。定位层对 PKE 秘密与拒绝种子 z 明确标记，Memcheck、varlat=no/yes 各 10 次完整调用 0 errors/0 contexts。锁频端到端家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、CI [−11.77, +1.16]、I²=0%；族外 dudect max|t| 2.10/1.98/2.82（state=1）。族外 RTLF 对 M5 六项（主类对与对照各 3）全部 no_difference_detected；阴性只限本预算，不证明恒时。
 
 固定 mlkem-native 提交为 b3ba7b32773e657dd37f6f87bce82528459ad8a4；完整库及许可证共 126 文件复核一致。实际调用链为 reference_measure 到 mlkem_decapsulate，再到 baseline_native_dec；普通测量链接 reference/libmlkem.a，未混入历史 liboqs 或人工补丁变体。
 
 原生定位把 ML-KEM-768 解封装密钥的 PKE 秘密部分与拒绝秘密 z 标记为 undefined，内嵌公开 key、公开 hash 与密文保持 defined；发行版 Memcheck、固定补丁 varlat=no 与 varlat=yes 三模式下各 10 次完整调用均为 0 errors/0 contexts。这是已执行且未检出，只覆盖该源码、编译器、后端与有限输入，不构成恒时证明或总体误报率为零。
 
-在线 dudect 入口已构建并通过不读钟 callback 与合成 raw 写出自检，本轮完成正式采集：家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、95% CI [−11.77, +1.16]（含 0）、I²=0%；族外 dudect max|t| = 2.10/1.98/2.82、state=1。这是本预算内的未检出，不是恒时证明，也不给出总体误报率为零；RTLF 的族外结果为 partial（进行中）（主控报告 s1 主类对 exit 11、同数据集对照类对 exit 10；其余数据集仍在执行、原日志尚未落盘），本报告记 «待主控数据»，未完成不等于未检出，也不等于阴性。 [E07,E15,E19,E20]
+在线 dudect 入口已构建并通过不读钟 callback 与合成 raw 写出自检，本轮完成正式采集：家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、95% CI [−11.77, +1.16]（含 0）、I²=0%；族外 dudect max|t| = 2.10/1.98/2.82、state=1。这是本预算内的未检出，不是恒时证明，也不给出总体误报率为零；族外 RTLF 对 M5 六项（主类对 3 + 对照 3）全部 no_difference_detected（α=.01）；这仍只覆盖本机、本类对、本预算与该工具设置，未检出不等于恒时证明。 [E07,E15,E19,E20]
 
 
 ## 12 实测数值、证据对照与复算入口
@@ -185,7 +185,8 @@ M4 两版本只返回相等性，不提供标准 memcmp 的正负排序语义。
 | M2 按臂描述性（非独立家族） | 未修 +12.35 [2.98, 21.71]；已修 −11.20 [−24.56, 2.15] | [E19](../../../docs/evidence/platform-collection-20261016/README.md) | 方向相反＝臂间漂移，不据此新增声明 |
 | M2 对照类对（族外） | malformed-zero-tail vs malformed-ff-tail：p = 0.785 / 0.604 / 0.605 / 0.710 / 0.615 / 0.230 | [E13](../../../docs/evidence/m2-kem-20261016/RESULT.md) | 无一致方向；不进 Holm |
 | M2 族外 online dudect | 未修 max|t| = 4.68 / 3.05 / 3.66（无证据）；已修 36.27 / 30.94 / 61.91（leakage_found） | [E13](../../../docs/evidence/m2-kem-20261016/RESULT.md) | 阳性在已修臂，不可归因于除法变体；最大 t 不转伪 p |
-| M2 定位层 | 未修 poly_tomsg / polyvec_compress / poly_compress 各 1 个 div、已修各 0；varlat 1280 errors/3 contexts 对 0/0 | [E03](../../../docs/evidence/m2-kyberslash-20261016/RESULT.md)、[E04](../../../docs/evidence/m2-kyberslash-20261016/VERSION_AUDIT.md) | 定位阳性 ≠ 端到端阳性；微基准触发但 not_run |
+| M2 定位层 | 未修 poly_tomsg / polyvec_compress / poly_compress 各 1 个 div、已修各 0；varlat 1280 errors/3 contexts 对 0/0 | [E03](../../../docs/evidence/m2-kyberslash-20261016/RESULT.md)、[E04](../../../docs/evidence/m2-kyberslash-20261016/VERSION_AUDIT.md) | 定位阳性 ≠ 端到端阳性；三层分层记录 |
+| M2 除法热点微基准层（触发后实测） | 家族 m2_div_hotspot_microbench_v1，m = 3 次运行 × 2 臂 = 6；Holm 拒绝 0；固定效应合并 Δ = +0.044 ns，95% CI [−0.430, +0.517]（含 0），I²=68.7%；最显著单项 r01 未修 p=0.042 经校正后 0.249；六个 run 全部 controller_exit=0、worker_exit_code=0、restore_match=yes、放行探针 20/20 | [E27](../../../docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md) | 窗口只包 pqcrystals_kyber768_ref_poly_tomsg，与完整解封装不可比、两族 p 值不合并；未检出≠恒时 |
 | M3 家族 m3_lut_arm_end_to_end_v1（m=6） | 臂内主类对原始 p：开臂 0.189 / 0.268 / 0.315，关臂 0.375 / 0.458 / 0.480；Holm 拒绝 0；合并 Δ −0.73 ns，CI [−5.56, +4.10]，I²=12.5% | [E14](../../../docs/evidence/m3-completion-20261016/RESULT.md)、[E20](../../../docs/evidence/platform-collection-20261016/stats/holm/RESULT.md) | 跨臂 on/off 含二进制级常数偏移，不进 Holm |
 | M3 定位层 | Memcheck 开臂 1280 errors/2 contexts 对关臂 0/0；Microwalk poly_frommsg+30/+59 MI 1.922 bits（全场最高）对关臂 0.722 | [E21](../../../docs/evidence/m3-completion-20261016/LOCATE_RESULT.md) | 人工构造校准；不是上游 CVE |
 | M3 族外 online dudect | on/off max|t| = 1.93/2.24、3.41/3.37、2.81/3.03，均 state=1 | [E14](../../../docs/evidence/m3-completion-20261016/RESULT.md) | 预算内无证据；不进 Holm |
@@ -198,7 +199,7 @@ M4 两版本只返回相等性，不提供标准 memcmp 的正负排序语义。
 | M5 定位层 | Memcheck、varlat=no、varlat=yes 三模式各 10 次完整调用 0 errors/0 contexts | [E15](../../../docs/evidence/m5-completion-20261016/RESULT.md) | 有限输入；无报警不等于恒时 |
 | 控制器与恢复 | 54 次正式运行 controller_exit=0、worker_exit_code=0、restore_match=yes；放行探针 20/20 在 4300000 ±2% 且跨度 ≤50000 kHz | [E19](../../../docs/evidence/platform-collection-20261016/README.md) | 频率锁定为工程控制观测，不是物理恒频或误差界 |
 | Mona 对 M1 六份类对 | 成功/失败记录：0/9、1/8、0/9、1/1、0/9、0/0 | [E09](../../../docs/evidence/mona-wire-20261016/RESULT.md) | 上游自适应箱体；与既有检测方向不一致，完整保留 |
-| RTLF（M2–M5，族外 α=.01） | **partial / in_progress**。主控报告 m2-s1-unfixed 主类对退出码 11（difference_detected）、同数据集对照类对退出码 10（no_difference_detected）；其余数据集仍在执行，原日志尚未落盘仓库，故此处不写成已验证数字 «待主控数据» | 落盘后按本表回填 | RTLF α=0.01、二值结论、族外、不进 Holm；其 difference_detected 与 Welch/Holm 的均值判定不冲突（RTLF 检验的是分布差异，不是均值差）。未完成不等于未检出，也不等于阴性 |
+| RTLF（M2–M5，族外 α=.01） | 42/42 完成、无 blocked/failed：no_difference_detected 30 项、difference_detected 12 项。M4：vulnerable 主类对 3/3 检出（显著上分位 40–70）、ct 3/3 未检出；截断对照 vulnerable 3/3 检出（60–70）、ct 3/3 未检出。M2：主类对 6/6 检出（10–70 段，未修与已修两臂都检出）、对照类对 6/6 未检出。M3 12/12、M5 6/6 未检出。42/42 数据集 zero_X=zero_Y=0 | [E26](../../../docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md) | α=0.01、seed 2026101605、bootstrap 10000、二值结论、族外、不进 Holm；与 Welch/Holm 均值判定分列互不替代；未检出≠恒时证明 |
 | Mona 对 M2 六份主类对（族外） | 六份各一行：三个未修臂与 s1/s2 已修臂均 no_validated_box_separation（0/9、0/9、0/9、0/7、0/9）；s3 已修臂 validated_box_separation（1/8，X&lt;Y 箱 0.27–0.34、5120 值、子集数 1＝末轮单子集 100%）；最高批次成功% 依次 74/18/34/29/34/100；holm_member=false | [E24](../../../docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-mona.csv)、[E25](../../../docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-details.csv)、[E09](../../../docs/evidence/mona-wire-20261016/RESULT.md) | 上游自适应箱体；批次成功百分比不是 p 值或覆盖区间；无分离不证明恒时、不推翻 Welch/Holm/RTLF/dudect |
 | 实包解出后的独立复算 | 命令与通过数见 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute.log 与 docs/evidence/platform-report-20261016/final-20261016/offline-reproduction.json（两份都是成包后生成的日志，不进本包） | 见上两处仓库相对路径 | 只从实际 ZIP 解出后构建；不复用仓库本体 |
 
@@ -207,22 +208,22 @@ M4 两版本只返回相等性，不提供标准 memcmp 的正负排序语义。
 
 ## 13 当前局限、占位符与后续验收
 
-M2–M5 的锁频端到端家族统计与 Mona 对 M2 的六份主类对对照已回填（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂；Mona 三个未修臂与 s1/s2 已修臂均无通过验证的箱体分离，s3 已修臂出现一次末轮单子集 100%）。仍未回填：RTLF α=.01 的族外结果（partial/in_progress，仅 s1 主类对与对照类对完成且原日志尚未落盘）与 M2 微基准层（触发条件已满足、not_run）。这些位置不是阴性。
+M2–M5 的锁频端到端家族统计、Mona 对 M2 对照、RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已回填，报告内已无 «待主控数据» 占位符。仍未执行的是题面第 5 条中「数据相关循环」等结构性单元格，按「未执行」如实标注，不是阴性。
 
 正式统计完成并不要求每个历史实现都在当前 x86_64 上出现阳性。若完整调用不可区分，应报告预算、区间与工具状态，并保留定位与微基准的分层结果；若阴性候选出现阳性，应调查噪声、样本结构与产物机制，不能为了满足预期删除普通长尾或改类。任何工具失败都不能自动归入安全阴性。
 
 本项目不做密钥恢复、不交付 exploit，不把历史 Kyber 等同于最终标准 ML-KEM，也不把人工夹具算作新漏洞。物理精度、逐调用恒频、所有输入下恒时与总体误报率均须单独证据；本报告没有增加这些主张。
 
-下表列出剩余 «待主控数据» 占位符与 not_run 项的回填目标（RTLF 族外结果、M2 微基准层）；回填只替换对应文本与证据路径，不改动已写明的口径与边界。最终验收以 [E01](../../../docs/platform/COMPLETION_REQUIREMENTS.md) 的逐项条件为准，而不是以文稿、图表或模块数量替代实验完成。 [E01]
+下表记录本轮已清空的两处占位项（RTLF 族外交叉、M2 除法热点微基准层）；报告内不再有 «待主控数据»，仍标“未执行”的只有题面第 5 条中结构性未做的单元格。最终验收以 [E01](../../../docs/platform/COMPLETION_REQUIREMENTS.md) 的逐项条件为准，而不是以文稿、图表或模块数量替代实验完成。 [E01]
 
-**表 T6　«待主控数据» 与 not_run 清单（回填目标）**
+**表 T6　回填状态：已无 «待主控数据»（剩余仅为“未执行”单元格）**
 
 | 占位位置 | 需要的字段 | 回填来源 |
 |---|---|---|
-| T3/T5 的 RTLF 行与各模块“族外交叉”句 | RTLF α=.01 的判定、显著分位或退出码、bootstrap 种子与输入映射；其余数据集的完整结果 | docs/evidence/platform-rtlf-20261016/（当前不存在；M5 RESULT 已引用该目录） |
-| 第 9 章 M2 微基准层 | 微基准的类对、窗口、预算与结果；触发条件已满足（端到端未拒绝），当前 not_run | docs/evidence/m2-kem-20261016/microbench-*/（当前不存在） |
+| RTLF 族外交叉（原占位） | 42/42 完成、30 项 no_difference_detected、12 项 difference_detected；工具身份、环境、逐数据集 json/log/exit_code 与原日志 | [E26](../../../docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md) |
+| M2 除法热点微基准层（原 not_run） | 家族 m2_div_hotspot_microbench_v1 m=6，Holm 拒绝 0，Δ +0.044 ns、CI [−0.430, +0.517]、I²=68.7%；六 run 全部 restore_match=yes | [E27](../../../docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md) |
 
-注：M2–M5 的家族统计与 Mona 对 M2 的对照行已回填；占位符只剩 RTLF 族外结果（partial/in_progress，原日志未落盘）与 M2 微基准层（not_run）。回填只替换对应文本与证据路径，不改动已写明的口径与边界。 [E01]
+注：本轮已清空全部 «待主控数据»：RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已落盘并回填。报告中仍标“未执行”的只有题面第 5 条中结构性未做的单元格（如数据相关循环），它们不是占位符、也不是阴性。 [E01]
 
 
 ## 证据来源索引
@@ -276,3 +277,7 @@ M2–M5 的锁频端到端家族统计与 Mona 对 M2 的六份主类对对照�
 - [E24] Mona 对 M2 六份主类对结果；tool_cross_check；docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-mona.csv
 
 - [E25] Mona 对 M2 明细（最高成功百分比与箱体）；tool_cross_check；docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-details.csv
+
+- [E26] RTLF 族外交叉结果（42/42）；tool_cross_check；docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md
+
+- [E27] M2 除法热点微基准层；family_statistics；docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md

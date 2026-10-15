@@ -53,7 +53,7 @@ svg_fragments = [
     '<g font-family="Arial, PingFang SC, sans-serif" fill="#17212b">',
     '<text x="22" y="38" font-size="25" font-weight="600">多泄漏模块平台：结果矩阵（真实案例 / 人工校准 / 阴性对照 / 各层状态）</text>',
     '<text x="22" y="68" font-size="16">结果图，不是计划图；审计时点 2026-10-16 · 数据源 EVIDENCE_MATRIX.csv · 证据路径见图注 CAPTION.md</text>',
-    '<text x="22" y="94" font-size="16">“未运行”与“已执行且未检出”分列；M2–M5 家族统计与 Mona 对 M2 对照已回填，«待主控数据» 只剩 RTLF（partial）与 M2 微基准（not_run）。</text>',
+    '<text x="22" y="94" font-size="16">“未运行”与“已执行且未检出”分列；M2–M5 家族统计、Mona 对 M2 对照、RTLF 族外交叉与 M2 微基准均已回填，橙色只表示结构性未运行，不是阴性。</text>',
 ]
 
 

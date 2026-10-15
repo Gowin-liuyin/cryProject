@@ -1,15 +1,15 @@
-# 多泄漏平台匿名支撑包生成器（2026-10-16 终版 final2-20261016）
+# 多泄漏平台匿名支撑包生成器（2026-10-16 终版 final3-20261016）
 
-新报告与证据按白名单生成新 ZIP；旧支撑包（draft05/10/11/12、refresh-20261016、final-20261016）保持原字节。
-当前最新已核验包为 [final2-20261016](CACR2026EA16XZ-platform-final2-20261016.zip)：
-**772 成员、771 摘要、100 个本地 HTML 链接**，SHA-256
-`2692d655ee42c4f2eff887d501b849d1ae15344d84f8300f2bff545763cee8ac`；报告为 22 页，
+新报告与证据按白名单生成新 ZIP；旧支撑包（draft05/10/11/12、refresh-20261016、final-20261016、final2-20261016）保持原字节。
+当前最新已核验包为 [final3-20261016](CACR2026EA16XZ-platform-final3-20261016.zip)：
+**776 成员、775 摘要、108 个本地 HTML 链接**，SHA-256
+`60deadaba9ef2b204a7cbf4fae2a915349b407667959762e2a6b3803b69b91e1`；报告为 23 页，
 含题面第 3/4/5 条对照表与六类泄漏来源 × 四步定位表，M2–M5 家族统计已回填
-（剩余 `«待主控数据»`：RTLF partial；另有 M2 微基准 not_run）。
-**从该实包解出后**在新建目录独立重跑 CMake + build + CTest：**5/5 通过、0 失败（1.82 s）**；
+（数据格 `«待主控数据»` 为 0；RTLF 42/42 与 M2 微基准层均已纳入）。
+**从该实包解出后**在新建目录独立重跑 CMake + build + CTest：**5/5 通过、0 失败（1.94 s）**；
 离线回放 6 份数据集、12 个 C 输出逐字一致，包内原始时间输入字节未变。
 命令与逐项结果见
-[zip-recompute-final2.log](../../../docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final2.log)，
+[zip-recompute-final3.log](../../../docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final3.log)，
 逐项刷新记录见 [REFRESH.md](../../../docs/evidence/platform-report-20261016/refresh-20261016/REFRESH.md)。
 
 ```sh
@@ -17,7 +17,7 @@ python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/buil
 python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/verify_package.py <实际ZIP路径>
 ```
 
-每次必须用新 revision，不覆盖已有包（`refresh-20261016`、`final-20261016`、`final2-20261016` 已占用）。包内含报告、对照表数据、
+每次必须用新 revision，不覆盖已有包（`refresh-20261016` 与 `final{,2,3}-20261016` 已占用）。包内含报告、对照表数据、
 自包含 C11 离线复算、有限证据副本与合法依赖许可证；不包含 RTLF/Mona 等许可未明确的工具源码、
 私钥、凭证、构建 ELF、缓存或旧原件归档。
 
