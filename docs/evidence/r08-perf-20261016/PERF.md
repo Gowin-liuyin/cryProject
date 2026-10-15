@@ -298,7 +298,7 @@ CI 用 bootstrap 10000 次重采样 6 个块（描述量，不作假设检验）
 
 PLAN §6 要求 `terminal.json` 的四条判据（`reason=worker_finished`、`worker_exit_code=0`、
 `worker_drained=true`、`restore_match=yes`）同时成立才计入。**54 个有效 run 的副本里只有
-CSV 与 meta，没有 controller 目录**，所以这四条**本次无法从已拉回副本复核**；
+CSV 与 meta，没有 controller 目录**，所以这四条**当时无法从已拉回副本复核**；
 本表按"主控判定有效后归档"使用，并把缺口写明。
 
 ---
@@ -377,3 +377,16 @@ CSV 与 meta，没有 controller 目录**，所以这四条**本次无法从已�
    所以"操作间的顺序效应"没有被随机化抵消——这是本次设计的已知局限，如实记录。
 6. **未做的对照**：未在其它 CPU 核复测（PLAN 说本轮固定 CPU2）、未做 gcc 对照、
    未做不同 `-march` 对照；这些是"未执行"，不是"已执行且未检出"。
+
+
+---
+
+> **补充（主控 2026-10-16 05:10）**：上面 §1 与"本次能核到与不能核到"里提到的
+> "副本里没有 controller 目录"**已经过时**。R08 的 54 个有效运行（以及 `failed-blockcount-bug/` 里
+> 18 次无效运行）的控制器目录已整体补入
+> `docs/evidence/r08-perf-20261016/remote/R08/<run>/controller/`，
+> 其中 `terminal.json` 实测 **54/54 满足四条判据**
+> （`reason=worker_finished`、`worker_exit_code=0`、`worker_drained=true`、`restore_match=yes`）。
+> 但副本里**仍然没有** `during.json` / `entry-probes.json`，所以 §1 第 2 条关于
+> "给不出逐运行 `cur_khz` 中位数核对"的局限**依然成立**，周期换算仍只能按名义 4300000 kHz。
+> 本节为追加说明，上文原文未改；报告表 T21 表注与 §15 已按同一口径登记（来源 E59/E60）。

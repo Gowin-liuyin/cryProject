@@ -34,7 +34,7 @@
 `cur_khz` 最小 4282032、最大 4336661、**跨度 54629 kHz > 合同允许的 50000 kHz**；
 20 个值**都在** ±2% 带（4214000–4386000）内，是**跨度**判据触发拒绝。
 
-**本次能核到与不能核到**：归档里 36 个有效 run 只有 CSV + meta，**没有** controller 目录，
+**本次能核到与不能核到**：归档里 36 个有效 run 当时只有 CSV + meta，**没有** controller 目录，
 因此 `terminal.json` 的 `reason/worker_exit_code/worker_drained/restore_match` 四判据
 **无法从已拉回副本核对**（PLAN §6 要求这四条同时成立才计入）；本文件按"主控判定有效后归档"使用，
 并把这条缺口写明。R08 同一情况。
@@ -237,9 +237,20 @@ Welch 正态近似 95% CI 不含 0 的个数。
 3. **混合级别差异**：冻结 M1 是混合级别（liboqs `-Os` + 封装层/采集件 `-O2`），本轮 12 格是
    **整树同一级别**；`m1unfixed-Os` 与冻结 M1 只在封装层/采集件级别上不同（PLAN §2.2 预先写明）。
 4. **两个物理核**：`s1`/`s2` 在 CPU2、`s3` 在 CPU6，跨核差异混在种子离散里。
-5. **频率合同的核对缺口**：36 个有效 run 的副本里没有 controller 目录，
+5. **频率合同的核对缺口（已闭合，见文末补充）**：36 个有效 run 的副本里当时没有 controller 目录，
    `restore_match`/`worker_exit_code` 等四条判据**本次无法从副本复核**；不计入的 1 次
    `frequency_probe_rejected` 已如实列出。
 6. **产物摘要算法不同**：计时用的 meta 记 SHA3-256，T22 判定记 sha256，二者不可直接比较。
 7. **未执行的项**：gcc 对照未做；`-O1`/`-Oz`/`-Og` 未做；其它架构未做——
    这些是"未执行"，不是"已执行且未检出"。
+
+
+---
+
+> **补充（主控 2026-10-16 05:10）**：上文第 5 条与 §1"本次能核到与不能核到"里的
+> "副本里没有 controller 目录"**已经过时**。R09 的 36 个有效运行（以及 `failed/` 里 1 次被拒运行）
+> 的控制器目录已整体补入 `docs/evidence/r09-optlevel-20261016/remote/R09/<run>/controller/`，
+> 其中 `terminal.json` 实测 **36/36 满足四条判据**
+> （`reason=worker_finished`、`worker_exit_code=0`、`worker_drained=true`、`restore_match=yes`），
+> `entry-probes.json` 也已在副本内，频率合同的放行探针可逐次复核。
+> 本节为追加说明，上文原文未改；报告 §15 与来源 E60 已按同一口径登记。
