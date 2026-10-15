@@ -422,3 +422,106 @@ python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py 
 
 **数据格 `«待主控数据»` = 0。** 文件里剩余的 4–7 次出现全部是“token 定义 / 已清空的说明 / T6 标题”，
 不是待填数字。报告中仍标“未执行”的只有题面第 5 条结构性未做的单元格（如“数据相关循环”）。
+---
+
+# 第五阶段：final4-20261016（R03 族外对照与 R05 90 格排查表并入，M4 改为分臂引用）
+
+本轮把两块已落盘的证据并进正式报告：`docs/evidence/r03-malformed-20261016/`（R03 格式破损 /
+截断族外对照）与 `docs/R05-全流程排查表.md`（3 实现 × 5 步骤 × 6 类 = 90 格），并把 M4 的统计
+引用从「家族窗口混臂合并 Δ」改成「只按臂引用」。**这两个来源文件本轮一个字节也没有改**
+（`r03-malformed-20261016/` 与 `R05-全流程排查表.md` 的 sha256 在 `evidence-snapshot.json` 里
+登记，`build_support.py` 会在成包前逐一复核；不一致就拒绝成包）。没有硬件采数、没有调频、
+没有改旧封存证据与 M1 证据、没有 `git add`/`commit`/`push`。
+
+## I1. 回填与改写内容
+
+- `report-data.json`：新增来源 **E28**（R03 RESULT.md）、**E29**（R03 PLAN.md）、
+  **E30**（`docs/R05-全流程排查表.md`）、**E31**（R03 `logs/status.log`），来源数 27 → **31**；
+  `document_state=final4_20261016_r03_extra_family_and_r05_matrix_merged`；
+  五个模块的陈旧字段 `statistics_pending`（原写“RTLF 与 Mona 待补”）改为“已清空…”；
+  **M4 的 `statistics` 改为“Holm 拒绝 3/6（全在 vulnerable 臂）；vulnerable Δ −4.089 ns
+  [−4.215, −3.963]；ct Δ +0.055 ns [−0.363, +0.473]（分臂；不引用混臂合并 Δ）”**。
+- `report-tables.json`：新增 **T7**（对照 A，9×6）、**T8**（对照 B，9×6）、**T9**（族外 dudect，9×5）、
+  **T10**（R05 90 格四类计数，4×6）、**T11**（5 个「存在」+ 1 个「未检查」，6×5，横向）；
+  表 T3 的 CI 行与表 T5 的 M4 行改成 M4 分臂写法；表 T5 增 R03 三行与 R05 一行（共 33 行）；
+  修掉 T3 表注与文件级 note 里“RTLF 与 Mona 仍待回填”的陈旧表述（数据格占位符本已为 0）。
+- `generate_report.py`：新增第 8 章（R03）与第 9 章（R05），正文 13 → **15 章**、对照表 6 → **11 张**；
+  §3 家族结果句删去 M4 混臂合并 Δ 并写明“只引用分臂数值”；§5/§7 各加一句指向第 8/9 节；
+  §12 的复算入口与表 T5 的复算行改指 `zip-recompute-final4.log` 与 `final4-20261016/`；
+  摘要、LaTeX 摘要与关键词同步；离线 HTML 页脚不再写“表内 «待主控数据» 表示尚未回填”。
+- **R05 流程图**：新增 `r05_flowchart.py`，把 `docs/R05-全流程排查表.md` 第 5 节的 mermaid 代码块
+  **按运行期实际读取**（`load_mermaid_source()` 正则取出代码块原文）渲染为等价静态图。
+  PDF 用 `r05-flowchart.png`（`\includegraphics[width=0.94\textwidth]`，第 22 页）；
+  离线 HTML 内联同一份 SVG **并把 mermaid 源码原样放进 `<pre>`**；`report.md` 直接内嵌该
+  mermaid 代码块。图注写明“mermaid 源码原样保存在 docs/R05-全流程排查表.md 第 5 节”，
+  四条修复边标签原样写进图注与图内页脚。
+  静态图与 mermaid 的节点文字逐条对应（含 `:::leak`/`:::fix`/`:::art`/`:::pub` 四类配色，
+  以及 M5 那个「公开信息、不可利用」的红色节点）；XeLaTeX 不能渲染 mermaid，这是等价渲染
+  而不是把流程改写。
+
+## I2. 命令与结果
+
+```sh
+python3 deliverables/research/multi-leakage-platform-20261016/generate_report.py
+# → {"sources": 31, "sections": 15, "tables": 11,
+#    "document_state": "final4_20261016_r03_extra_family_and_r05_matrix_merged"}
+for round in 1 2; do xelatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=build/platform-report-s8 \
+  deliverables/research/multi-leakage-platform-20261016/report.tex; done
+cp build/platform-report-s8/report.pdf deliverables/research/multi-leakage-platform-20261016/report.pdf
+pdftoppm -r 100 -png deliverables/research/multi-leakage-platform-20261016/report.pdf \
+  docs/evidence/platform-report-20261016/render-final4/page
+python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/build_support.py \
+  --revision final4-20261016
+python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/verify_package.py \
+  deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final4-20261016.zip
+sh docs/evidence/platform-report-20261016/refresh-20261016/run_zip_recompute_final4.sh \
+  > docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final4.log 2>&1
+python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py final4-20261016
+```
+
+- 报告 **33 页**，PDF SHA-256 `570ab957bc50d6f8f79839eb946ad7a05eb03fd807b9f93175c7f6721b669c53`；
+  日志 `xelatex-final4-{first,second}.log`：**两遍均 exit 0，0 Overfull、0 Underfull、0 缺字、
+  0 hyperref 警告、0 LaTeX 警告**。逐页渲染 33 张 + `contact-sheet.png` 在 `render-final4/`，
+  横向页为 5、6、11、12、13、15、16、19、20、21。
+- 包：**784 成员、783 摘要、122 个本地 HTML 链接、0 直接身份字串**，`status=pass`；ZIP SHA-256
+  `88395b6cc26f205c7d377808b0021f741203ed901603ff056c3379c07c8559f7`。
+  包内新增 `evidence/files/docs/R05-全流程排查表.md`（含中文文件名的成员）与 R03 三份副本，
+  以及 E28–E31 四个查看页；`package-verification.json` 落在 `final4-20261016/`。
+- **解出复算：CTest 5/5 通过、0 失败（2.06 s）**，解出到新建
+  `build/zip-recompute-final4-20261016/`；原日志 `zip-recompute-final4.log`。
+- 独立审计（`final4-20261016/`）：PDF 元数据 pass（33 页、作者空、0 私有标记、无 JS）、
+  离线回放 CTest 5/5 + 6 数据集 + 12 输出逐字一致、校验器八种坏例全拒；
+  包内 report 负载与仓库副本 pdf/tex/tables/data/snapshot/svg 六项摘要一致
+  （`report.md` 与 `report/index.html` 按设计做匿名文本转换与链接重写）。
+
+## I3. 本轮踩到的坑（照实记录）
+
+1. **`\path{}` 遇到中文路径会缺字**。来源索引用 `\path{docs/R05-全流程排查表.md}` 输出路径，
+   `\path` 走 `\ttfamily`（lmmono10），该字体没有 CJK 字形，日志出现 6 次
+   `Missing character: There is no 全 (U+5168) in font [lmmono10-regular]`。修法：纯 ASCII 路径
+   仍用 `\path{}`，非 ASCII 路径改走 `tex_escape`（长 ASCII 片段照旧进 `\texttt{\seqsplit{}}`）。
+2. **不可断行的长 token 造成 Overfull**。§9 段落里写成 `` `control-flow,memory-access` ``，
+   28 个字符无法断行，出现 1 处 `Overfull \hbox (9.07pt too wide)`（`\emergencystretch` 对这种
+   盒子无效）。改写为「control-flow 与 memory-access 两项」后消失。
+3. **`\noindent` 与路径直接拼接**。改用 `path_tex` 变量后拼出 `\noindentdocs/…`，
+   触发 `! Undefined control sequence`（两遍都 exit 1，但 PDF 仍被写出——**看到 PDF 有更新
+   不等于编译成功，必须看日志与退出码**）。补一个空格后 exit 0。
+4. **本轮这三处失败的中间日志没有单独归档**：xelatex 输出重定向到固定文件名
+   `xelatex-final4-{first,second}.log`，重试时被覆盖。失败内容与修法如实记在上面，
+   最终两遍日志的 `^!`、`Missing character`、`Overfull`、`Underfull`、hyperref 计数已复核为 0；
+   这里是流程上的一个偏离（“失败先归档再重试”），下次改用具名失败日志。
+5. **T11 单元格里的反引号**：第一版把 `` `16e: bt %ecx,%r8d` `` 这类写法直接放进表格单元，
+   PDF 里满格反引号很吵，已在 T11 全部去掉（正文保留少量反引号，与既有章节写法一致）。
+6. **改完表格要重跑生成器再编译**：T11 去反引号后 PDF 的 SHA-256 变化（
+   `abfd9218…` → `570ab957…`），最终发布值以最后一次两遍编译的副本为准；
+   `final4-20261016/pdf-metadata-audit.json` 与 `RESULT.md`/`VISUAL_QA.md` 三处必须同值。
+
+## I4. 本轮没有做的事
+
+- 没有 `git add`/`commit`/`push`（提交由主控统一完成）；没有 `sudo`、硬件采数、调频或隔离写入。
+- 没有改 `docs/evidence/r03-malformed-20261016/`、`docs/R05-全流程排查表.md`、旧封存证据、
+  M1 证据或任何 `final{,2,3}-20261016`、`refresh-20261016`、draft10/11/12 的原字节。
+- 没有把 R03 的族外对照并入 Holm，没有把截断路径的接口语义写成“泄漏”，没有把 R05 的
+  「不存在」写成恒时证明，也没有把 M5 那个只携带公开信息的早退写成可利用缺陷。
+- 没有在包内重新执行 RTLF、Mona、dudect 或 Binsec（复算入口只重建 C11 统计工具并跑五项 CTest）。
