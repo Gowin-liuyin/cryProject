@@ -151,7 +151,9 @@ Memcheck-ctgrind、varlat、反汇编）全部给出阴性，与 M5 的 ground t
 ### 6.2 干净 clone 验证结果
 
 在 `/tmp` 的干净 clone（HEAD `8a95f64`）里跑
-`sh scripts/reproduce_all.sh quick --work-dir … --samples 1000 --runs 3`，退出码 `0`：
+`sh scripts/reproduce_all.sh quick --work-dir … --samples 1000 --runs 3`，退出码 `0`；
+验证用的脚本 sha256 为 `16562851a309ed40ee37b4b5deb3d1b54a4f44f70af01140cd235619c0117b97`
+（与工作区当前文件一致）：
 
 | 配置 | CTest |
 |---|---|
@@ -159,13 +161,15 @@ Memcheck-ctgrind、varlat、反汇编）全部给出阴性，与 M5 的 ground t
 | ordinary（默认） | **57/57 通过，0 失败** |
 | sanitize（`BASELINE_SANITIZERS=ON`、`Debug`） | **57/57 通过，0 失败** |
 
-演练产出：M3 m=6 拒绝 0（Δ=−70.30 ns，CI 含 0）、M4 m=6 拒绝 0（Δ=+1.33 ns，CI 含 0）、
-M5 m=3 拒绝 0（Δ=−3.51 ns，CI 含 0）；M2 因干净 clone 缺 vendor 而跳过（打印原因）。
-演练不锁频、不绑核、跑在 macOS/ARM，**不是任何模块的正式统计结论**。
+合计 **194 项 CTest 通过、0 失败**。演练产出：M3 m=6 拒绝 1（`M3-on-r2`，Δ=+22.12 ns）、
+M4 m=6 拒绝 0（Δ=+0.56 ns）、M5 m=3 拒绝 0（Δ=−43.38 ns）；M2 因干净 clone 缺 vendor 而跳过。
+演练不锁频、不绑核、跑在 macOS/ARM、每类只 1000 次，**不是任何模块的正式统计结论**：
+M3 的 1 项拒绝与 M5 合并 CI 不含 0 都只是「没有锁频协议时同一台机器会给出什么」的演示，
+不构成 M3 或 M5 的阳性。
 
 原始日志按原字节留存在：
 [reproduce-quick-clean-clone.log](reproduce-quick-clean-clone.log)
-（sha256 `56f63650686677478f0fec4b05062a66faa8c43c6bebb053c501820db1559789`）、
+（sha256 `5133e51e10ead20d6def233cd5a7dd47325579a95e6d8f49eb806ae6995a3c2a`）、
 外层 stdout [reproduce-quick-clean-clone.stdout.log](reproduce-quick-clean-clone.stdout.log)，说明与逐项读数见
 [REPRODUCE-QUICK-LOG.md](REPRODUCE-QUICK-LOG.md)。
 

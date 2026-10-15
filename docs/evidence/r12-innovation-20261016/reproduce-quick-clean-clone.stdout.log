@@ -1,106 +1,106 @@
-quick 档：仓库 /tmp/cryrepro-final-20261016/cryProject
-工作目录 /tmp/cryrepro-final-20261016/quick
+quick 档：仓库 /tmp/cryrepro-final2-20261016/cryProject
+工作目录 /tmp/cryrepro-final2-20261016/quick
 每类样本 1000，重复运行 3，配置 platform,ordinary,sanitize
 并行度 8；cmake cmake；ctest ctest
 SHA3-256 可用的 openssl：/opt/homebrew/opt/openssl@3/bin/openssl
 本档不写任何 sysfs、不调用 sudo、不绑定 CPU 亲和性。
 
-=== [platform] 配置 /tmp/cryrepro-final-20261016/quick/build-platform ===
-+ cmake -S /tmp/cryrepro-final-20261016/cryProject -B /tmp/cryrepro-final-20261016/quick/build-platform -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF
+=== [platform] 配置 /tmp/cryrepro-final2-20261016/quick/build-platform ===
++ cmake -S /tmp/cryrepro-final2-20261016/cryProject -B /tmp/cryrepro-final2-20261016/quick/build-platform -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF
 === [platform] 构建 ===
-+ cmake --build /tmp/cryrepro-final-20261016/quick/build-platform --parallel 8
++ cmake --build /tmp/cryrepro-final2-20261016/quick/build-platform --parallel 8
 === [platform] CTest ===
-+ ctest --test-dir /tmp/cryrepro-final-20261016/quick/build-platform --output-on-failure
++ ctest --test-dir /tmp/cryrepro-final2-20261016/quick/build-platform --output-on-failure
 
-=== [ordinary] 配置 /tmp/cryrepro-final-20261016/quick/build-ordinary ===
-+ cmake -S /tmp/cryrepro-final-20261016/cryProject -B /tmp/cryrepro-final-20261016/quick/build-ordinary -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl
+=== [ordinary] 配置 /tmp/cryrepro-final2-20261016/quick/build-ordinary ===
++ cmake -S /tmp/cryrepro-final2-20261016/cryProject -B /tmp/cryrepro-final2-20261016/quick/build-ordinary -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl
 === [ordinary] 构建 ===
-+ cmake --build /tmp/cryrepro-final-20261016/quick/build-ordinary --parallel 8
++ cmake --build /tmp/cryrepro-final2-20261016/quick/build-ordinary --parallel 8
 === [ordinary] CTest ===
-+ ctest --test-dir /tmp/cryrepro-final-20261016/quick/build-ordinary --output-on-failure
++ ctest --test-dir /tmp/cryrepro-final2-20261016/quick/build-ordinary --output-on-failure
 
-=== [sanitize] 配置 /tmp/cryrepro-final-20261016/quick/build-sanitize ===
-+ cmake -S /tmp/cryrepro-final-20261016/cryProject -B /tmp/cryrepro-final-20261016/quick/build-sanitize -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug
+=== [sanitize] 配置 /tmp/cryrepro-final2-20261016/quick/build-sanitize ===
++ cmake -S /tmp/cryrepro-final2-20261016/cryProject -B /tmp/cryrepro-final2-20261016/quick/build-sanitize -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug
 === [sanitize] 构建 ===
-+ cmake --build /tmp/cryrepro-final-20261016/quick/build-sanitize --parallel 8
++ cmake --build /tmp/cryrepro-final2-20261016/quick/build-sanitize --parallel 8
 === [sanitize] CTest ===
-+ ctest --test-dir /tmp/cryrepro-final-20261016/quick/build-sanitize --output-on-failure
++ ctest --test-dir /tmp/cryrepro-final2-20261016/quick/build-sanitize --output-on-failure
 
 === 小样本统计演练（每类 1000 次 × 3 次运行）===
-平台二进制根 /tmp/cryrepro-final-20261016/quick/build-platform
+平台二进制根 /tmp/cryrepro-final2-20261016/quick/build-platform
 M2 未配置，跳过：vendor/kyber-kyberslash-{unfixed,fixed} 在 .gitignore 内，干净 clone 没有
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform-m3/on/measure quick-M3-on-r1 31337 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r1/quick-M3-on-r1.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r1/quick-M3-on-r1.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r1/quick-M3-on-r1.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r1/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform-m3/off/measure quick-M3-off-r1 31337 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r1/quick-M3-off-r1.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r1/quick-M3-off-r1.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r1/quick-M3-off-r1.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r1/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_m4_measure_vulnerable --collect /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv 1000 31337 quick-M4-vulnerable-r1 --compare-bytes 32
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv measure mismatch-first mismatch-last /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r1/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_m4_measure_ct --collect /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv 1000 31337 quick-M4-ct-r1 --compare-bytes 32
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv measure mismatch-first mismatch-last /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r1/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/reference/measure quick-M5-reference-r1 31337 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r1/quick-M5-reference-r1.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r1/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform-m3/on/measure quick-M3-on-r2 424242 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r2/quick-M3-on-r2.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r2/quick-M3-on-r2.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r2/quick-M3-on-r2.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r2/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform-m3/off/measure quick-M3-off-r2 424242 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r2/quick-M3-off-r2.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r2/quick-M3-off-r2.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r2/quick-M3-off-r2.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r2/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_m4_measure_vulnerable --collect /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r2/quick-M4-vulnerable-r2.csv 1000 424242 quick-M4-vulnerable-r2 --compare-bytes 32
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r2/quick-M4-vulnerable-r2.csv measure mismatch-first mismatch-last /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r2/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_m4_measure_ct --collect /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r2/quick-M4-ct-r2.csv 1000 424242 quick-M4-ct-r2 --compare-bytes 32
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r2/quick-M4-ct-r2.csv measure mismatch-first mismatch-last /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r2/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/reference/measure quick-M5-reference-r2 424242 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r2/quick-M5-reference-r2.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r2/quick-M5-reference-r2.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r2/quick-M5-reference-r2.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r2/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform-m3/on/measure quick-M3-on-r3 31337 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r3/quick-M3-on-r3.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r3/quick-M3-on-r3.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r3/quick-M3-on-r3.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M3/on/r3/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform-m3/off/measure quick-M3-off-r3 31337 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r3/quick-M3-off-r3.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r3/quick-M3-off-r3.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r3/quick-M3-off-r3.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M3/off/r3/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_m4_measure_vulnerable --collect /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r3/quick-M4-vulnerable-r3.csv 1000 31337 quick-M4-vulnerable-r3 --compare-bytes 32
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r3/quick-M4-vulnerable-r3.csv measure mismatch-first mismatch-last /tmp/cryrepro-final-20261016/quick/rehearsal/M4/vulnerable/r3/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_m4_measure_ct --collect /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r3/quick-M4-ct-r3.csv 1000 31337 quick-M4-ct-r3 --compare-bytes 32
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r3/quick-M4-ct-r3.csv measure mismatch-first mismatch-last /tmp/cryrepro-final-20261016/quick/rehearsal/M4/ct/r3/stats
-+ /tmp/cryrepro-final-20261016/quick/build-platform/reference/measure quick-M5-reference-r3 31337 1000 /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r3/quick-M5-reference-r3.csv /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r3/quick-M5-reference-r3.meta
-+ /tmp/cryrepro-final-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r3/quick-M5-reference-r3.csv measure message-zero message-ones /tmp/cryrepro-final-20261016/quick/rehearsal/M5/reference/r3/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform-m3/on/measure quick-M3-on-r1 31337 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r1/quick-M3-on-r1.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r1/quick-M3-on-r1.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r1/quick-M3-on-r1.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r1/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform-m3/off/measure quick-M3-off-r1 31337 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r1/quick-M3-off-r1.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r1/quick-M3-off-r1.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r1/quick-M3-off-r1.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r1/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_m4_measure_vulnerable --collect /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv 1000 31337 quick-M4-vulnerable-r1 --compare-bytes 32
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv measure mismatch-first mismatch-last /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r1/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_m4_measure_ct --collect /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv 1000 31337 quick-M4-ct-r1 --compare-bytes 32
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv measure mismatch-first mismatch-last /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r1/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/reference/measure quick-M5-reference-r1 31337 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r1/quick-M5-reference-r1.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r1/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform-m3/on/measure quick-M3-on-r2 424242 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r2/quick-M3-on-r2.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r2/quick-M3-on-r2.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r2/quick-M3-on-r2.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r2/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform-m3/off/measure quick-M3-off-r2 424242 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r2/quick-M3-off-r2.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r2/quick-M3-off-r2.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r2/quick-M3-off-r2.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r2/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_m4_measure_vulnerable --collect /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r2/quick-M4-vulnerable-r2.csv 1000 424242 quick-M4-vulnerable-r2 --compare-bytes 32
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r2/quick-M4-vulnerable-r2.csv measure mismatch-first mismatch-last /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r2/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_m4_measure_ct --collect /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r2/quick-M4-ct-r2.csv 1000 424242 quick-M4-ct-r2 --compare-bytes 32
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r2/quick-M4-ct-r2.csv measure mismatch-first mismatch-last /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r2/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/reference/measure quick-M5-reference-r2 424242 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r2/quick-M5-reference-r2.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r2/quick-M5-reference-r2.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r2/quick-M5-reference-r2.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r2/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform-m3/on/measure quick-M3-on-r3 31337 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r3/quick-M3-on-r3.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r3/quick-M3-on-r3.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r3/quick-M3-on-r3.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/on/r3/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform-m3/off/measure quick-M3-off-r3 31337 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r3/quick-M3-off-r3.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r3/quick-M3-off-r3.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r3/quick-M3-off-r3.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M3/off/r3/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_m4_measure_vulnerable --collect /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r3/quick-M4-vulnerable-r3.csv 1000 31337 quick-M4-vulnerable-r3 --compare-bytes 32
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r3/quick-M4-vulnerable-r3.csv measure mismatch-first mismatch-last /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/vulnerable/r3/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_m4_measure_ct --collect /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r3/quick-M4-ct-r3.csv 1000 31337 quick-M4-ct-r3 --compare-bytes 32
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r3/quick-M4-ct-r3.csv measure mismatch-first mismatch-last /tmp/cryrepro-final2-20261016/quick/rehearsal/M4/ct/r3/stats
++ /tmp/cryrepro-final2-20261016/quick/build-platform/reference/measure quick-M5-reference-r3 31337 1000 /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r3/quick-M5-reference-r3.csv /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r3/quick-M5-reference-r3.meta
++ /tmp/cryrepro-final2-20261016/quick/build-platform/platform_stats /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r3/quick-M5-reference-r3.csv measure message-zero message-ones /tmp/cryrepro-final2-20261016/quick/rehearsal/M5/reference/r3/stats
 M2：无成员，跳过 Holm 演练
 
 --- M3 Holm 演练：6 个成员，alpha=0.05 ---
-+ (cd /tmp/cryrepro-final-20261016/quick/rehearsal/M3 && /tmp/cryrepro-final-20261016/quick/build-platform/platform_holm --input /tmp/cryrepro-final-20261016/quick/rehearsal/M3-members.csv --output-dir M3-holm --alpha 0.05)
++ (cd /tmp/cryrepro-final2-20261016/quick/rehearsal/M3 && /tmp/cryrepro-final2-20261016/quick/build-platform/platform_holm --input /tmp/cryrepro-final2-20261016/quick/rehearsal/M3-members.csv --output-dir M3-holm --alpha 0.05)
   family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
-  M3_quick_rehearsal,M3-on-r3,0.0231619995525141,1,0.00833333333333333,0.138971997315085,0
-  M3_quick_rehearsal,M3-off-r3,0.115499039852993,2,0.01,0.577495199264966,0
-  M3_quick_rehearsal,M3-off-r2,0.37255368539552,3,0.0125,1,0
-  M3_quick_rehearsal,M3-on-r2,0.507325263332489,4,0.0166666666666667,1,0
-  M3_quick_rehearsal,M3-off-r1,0.525958996491951,5,0.025,1,0
-  M3_quick_rehearsal,M3-on-r1,0.839792315591814,6,0.05,1,0
+  M3_quick_rehearsal,M3-on-r2,0.00537752422762994,1,0.00833333333333333,0.0322651453657796,1
+  M3_quick_rehearsal,M3-on-r1,0.0207428263199602,2,0.01,0.103714131599801,0
+  M3_quick_rehearsal,M3-off-r3,0.0904487522353677,3,0.0125,0.361795008941471,0
+  M3_quick_rehearsal,M3-off-r1,0.187471302278893,4,0.0166666666666667,0.562413906836678,0
+  M3_quick_rehearsal,M3-on-r3,0.215862629835609,5,0.025,0.562413906836678,0
+  M3_quick_rehearsal,M3-off-r2,0.453706470041508,6,0.05,0.562413906836678,0
   family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
-  M3_quick_rehearsal,6,-70.302673446601,55.3209882247701,-178.73181036715,38.1264634739485,7.69643501228617,5,35.034857151158
+  M3_quick_rehearsal,6,22.1153520323953,14.3126162413702,-5.9373758006904,50.1680798654809,17.4054184663021,5,71.2733134817742
 
 --- M4 Holm 演练：6 个成员，alpha=0.05 ---
-+ (cd /tmp/cryrepro-final-20261016/quick/rehearsal/M4 && /tmp/cryrepro-final-20261016/quick/build-platform/platform_holm --input /tmp/cryrepro-final-20261016/quick/rehearsal/M4-members.csv --output-dir M4-holm --alpha 0.05)
++ (cd /tmp/cryrepro-final2-20261016/quick/rehearsal/M4 && /tmp/cryrepro-final2-20261016/quick/build-platform/platform_holm --input /tmp/cryrepro-final2-20261016/quick/rehearsal/M4-members.csv --output-dir M4-holm --alpha 0.05)
   family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
-  M4_quick_rehearsal,M4-ct-r1,0.212229750414426,1,0.00833333333333333,1,0
-  M4_quick_rehearsal,M4-vulnerable-r2,0.349253181742095,2,0.01,1,0
-  M4_quick_rehearsal,M4-ct-r2,0.407967652453077,3,0.0125,1,0
-  M4_quick_rehearsal,M4-ct-r3,0.542180394518785,4,0.0166666666666667,1,0
-  M4_quick_rehearsal,M4-vulnerable-r3,0.664489375717021,5,0.025,1,0
-  M4_quick_rehearsal,M4-vulnerable-r1,1,6,0.05,1,0
+  M4_quick_rehearsal,M4-vulnerable-r2,0.158886169667989,1,0.00833333333333333,0.953317018007931,0
+  M4_quick_rehearsal,M4-vulnerable-r1,0.32587585107698,2,0.01,1,0
+  M4_quick_rehearsal,M4-ct-r1,0.566880092802826,3,0.0125,1,0
+  M4_quick_rehearsal,M4-ct-r2,0.743354298607773,4,0.0166666666666667,1,0
+  M4_quick_rehearsal,M4-vulnerable-r3,1,5,0.025,1,0
+  M4_quick_rehearsal,M4-ct-r3,1,6,0.05,1,0
   family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
-  M4_quick_rehearsal,6,1.32674262254143,3.05813498455219,-4.66720194718087,7.32068719226373,3.48844677444056,5,0
+  M4_quick_rehearsal,6,0.560547503938654,2.43822192297066,-4.21836746508385,5.33946247296116,3.33228944481261,5,0
 
 --- M5 Holm 演练：3 个成员，alpha=0.05 ---
-+ (cd /tmp/cryrepro-final-20261016/quick/rehearsal/M5 && /tmp/cryrepro-final-20261016/quick/build-platform/platform_holm --input /tmp/cryrepro-final-20261016/quick/rehearsal/M5-members.csv --output-dir M5-holm --alpha 0.05)
++ (cd /tmp/cryrepro-final2-20261016/quick/rehearsal/M5 && /tmp/cryrepro-final2-20261016/quick/build-platform/platform_holm --input /tmp/cryrepro-final2-20261016/quick/rehearsal/M5-members.csv --output-dir M5-holm --alpha 0.05)
   family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
-  M5_quick_rehearsal,M5-reference-r3,0.277526482095128,1,0.0166666666666667,0.832579446285384,0
-  M5_quick_rehearsal,M5-reference-r2,0.473216613387933,2,0.025,0.946433226775866,0
-  M5_quick_rehearsal,M5-reference-r1,0.561013557551043,3,0.05,0.946433226775866,0
+  M5_quick_rehearsal,M5-reference-r1,0.057923629459145,1,0.0166666666666667,0.173770888377435,0
+  M5_quick_rehearsal,M5-reference-r2,0.114363619100305,2,0.025,0.22872723820061,0
+  M5_quick_rehearsal,M5-reference-r3,0.661473208562546,3,0.05,0.661473208562546,0
   family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
-  M5_quick_rehearsal,3,-3.51350845200288,77.2827059850086,-154.98761218262,147.960595278614,2.02950343345507,2,1.45372670815559
+  M5_quick_rehearsal,3,-43.3827190329134,20.5412438697784,-83.643557017679,-3.1218810481477,1.81999695962677,2,0
 
-演练产物根：/tmp/cryrepro-final-20261016/quick/rehearsal
+演练产物根：/tmp/cryrepro-final2-20261016/quick/rehearsal
 注意：演练不锁频、不绑核、每臂只 3 次运行，不是任何模块的正式统计结论。
 
 === quick 汇总（配置 / 结果 / CTest）===
   platform | ok | 100% tests passed, 0 tests failed out of 80
   ordinary | ok | 100% tests passed, 0 tests failed out of 57
   sanitize | ok | 100% tests passed, 0 tests failed out of 57
-  日志：/tmp/cryrepro-final-20261016/quick/logs/quick-20261015T200819Z.log
+  日志：/tmp/cryrepro-final2-20261016/quick/logs/quick-20261015T201332Z.log
 quick 档完成。
 EXIT=0
