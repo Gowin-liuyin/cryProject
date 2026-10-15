@@ -2,7 +2,7 @@
   "date": "2026-10-16",
   "document_state": "final5_20261016_full_clause_matrix_and_report_consolidation",
   "baseline_commit": "ac46e62",
-  "worktree_head": "8afc9245d633ef41a119d8beda5ae6c58d9f3c0c",
+  "worktree_head": "6c10f4d0fe81d36d98bf4a3c2b6fb1921c231efa",
   "sources": [
     {
       "id": "E01",
@@ -305,8 +305,8 @@
       "label": "R04 功效 / MDE（T26）",
       "state": "power_analysis",
       "path": "docs/evidence/r04-stats-20261016/POWER.md",
-      "sha256": "88427ae9c8298b2a99f2309fe03ce009b9570282e385504950b0329ccbe8d8c3",
-      "bytes": 33427
+      "sha256": "cdaad1734b85eae6c7f80d48120839284033bc0807bd794dd5c4fde5f6a3343e",
+      "bytes": 33435
     },
     {
       "id": "E39",
@@ -345,16 +345,16 @@
       "label": "R06 修复手段 → 题面第 6 条方法分类映射",
       "state": "remediation_mapping",
       "path": "docs/evidence/r06-noleak-20261016/MAPPING.md",
-      "sha256": "b1941bf5f50246d9e44ca9026f089be6e909867695b8ca52e126de6df9f3f583",
-      "bytes": 15467
+      "sha256": "aae00a4a7dff4745e7a58a1c80d52e9e63f1fd679c29d25aa38f9d1edc062fd5",
+      "bytes": 15537
     },
     {
       "id": "E44",
       "label": "R08 性能开销表（T21）",
       "state": "performance_descriptive",
       "path": "docs/evidence/r08-perf-20261016/PERF.md",
-      "sha256": "1d14e5fba8b1b978cabf7d866036dd62bf31eaaceb97c67bfb560ffebef64b06",
-      "bytes": 34812
+      "sha256": "951419ff12627224d661512673bb1fe2bffe0dc89cba2e9ef4d8cfcad5940050",
+      "bytes": 35676
     },
     {
       "id": "E45",
@@ -377,8 +377,8 @@
       "label": "R09 优化级别对照结论（T24）",
       "state": "optlevel_descriptive",
       "path": "docs/evidence/r09-optlevel-20261016/RESULT.md",
-      "sha256": "cf8ecae08ae92a4cd02e9d5b4e30b97248ddd572989e18521188ab72d23b5288",
-      "bytes": 23898
+      "sha256": "d172c0b4b14ab0eed8e57ee87acf74ddd696b78bcf01c921ca36e90b5f09b6b7",
+      "bytes": 24644
     },
     {
       "id": "E48",
@@ -465,8 +465,8 @@
       "label": "本轮阻塞与降级登记",
       "state": "blockers",
       "path": "BLOCKERS.md",
-      "sha256": "204582dc6c80eb33eb9229c4992d40b2478c91823682618e0b489d38d38752d7",
-      "bytes": 3387
+      "sha256": "6c17d75c76a34c316e8bd3a4ba762d31005101425a615adbba972d94ac135342",
+      "bytes": 3775
     },
     {
       "id": "E59",
@@ -618,6 +618,96 @@
       "title": "R05 全流程排查表的 5 个「存在」格清单（「未检查」已为 0）",
       "rows": 5,
       "columns": 5
+    },
+    {
+      "id": "T12",
+      "title": "题面第 1 条之向量来源总表（模块 × 版本 × 来源 × 例数 × 通过数）",
+      "rows": 10,
+      "columns": 6
+    },
+    {
+      "id": "T13",
+      "title": "题面第 1 条之修复语义等价（三对 diff + 1000 例额外输入 + 隐式拒绝）",
+      "rows": 4,
+      "columns": 5
+    },
+    {
+      "id": "T14",
+      "title": "题面第 2 条之环境总表（28 项覆盖与关键读数）",
+      "rows": 13,
+      "columns": 4
+    },
+    {
+      "id": "T15",
+      "title": "题面第 2 条之异常样本规则与稳健性敏感性分析（64 类对 × 4 方法）",
+      "rows": 9,
+      "columns": 4
+    },
+    {
+      "id": "T16",
+      "title": "题面第 4 条之补充：功效 / MDE 与「未检出」的确切含义",
+      "rows": 7,
+      "columns": 7
+    },
+    {
+      "id": "T17",
+      "title": "题面第 4 条之补充：分位数差 bootstrap CI、ECDF 与箱线图",
+      "rows": 8,
+      "columns": 4
+    },
+    {
+      "id": "T18",
+      "title": "题面第 6 条之修复手段映射表（覆盖 5 个模块）",
+      "rows": 16,
+      "columns": 5
+    },
+    {
+      "id": "T19",
+      "title": "题面第 6 条之日志 / 异常 / 返回码泄露专项审计",
+      "rows": 9,
+      "columns": 4
+    },
+    {
+      "id": "T20",
+      "title": "题面第 8 条之性能开销：逐（模块, 臂, 操作）汇总（25 行）",
+      "rows": 25,
+      "columns": 9
+    },
+    {
+      "id": "T21",
+      "title": "题面第 8 条之性能开销：成对开销 %（11 行）",
+      "rows": 11,
+      "columns": 7
+    },
+    {
+      "id": "T22",
+      "title": "题面第 9 条之优化级别对照：12 格产物判定 + 锁频实测",
+      "rows": 12,
+      "columns": 9
+    },
+    {
+      "id": "T23",
+      "title": "题面第 12 条之创新对照 (a)：锁频 vs 不锁频（族外）",
+      "rows": 3,
+      "columns": 7
+    },
+    {
+      "id": "T24",
+      "title": "题面第 12 条之创新对照 (b)：多工具矩阵 9 工具 × 5 模块 = 45 格",
+      "rows": 9,
+      "columns": 8
+    },
+    {
+      "id": "T25",
+      "title": "题面第 11 条之一键复现入口、quick 档实测与 full 档边界",
+      "rows": 7,
+      "columns": 4
+    },
+    {
+      "id": "T26",
+      "title": "附录 A：题面 12 条对照矩阵",
+      "rows": 12,
+      "columns": 6
     },
     {
       "id": "T12",
