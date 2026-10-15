@@ -490,3 +490,28 @@ Pin/Microwalk、Binsec/solver及各新模块时序采集仍未完成；本轮无
 所有新远端项目文件保留Cry物理子树，共享SSH已关闭。M1保护范围无diff，既有签收口径只引用不重写。
 各路状态、阻塞、源版本、原件和本地提交见[平台矩阵](evidence/platform-matrix-20261016/RESULT.md)
 与[交接单](../HANDOFF_DONE.md)；本轮不push，不把前置软件完成写成统计或竞赛验收完成。
+
+2026-10-16 第二轮：把上一轮的软件骨架推进到**真实锁频采数与统计**，并完成收口与交付刷新。
+根集成构建消除了 `make -j4` 的 jobserver 告警（recipe 清空 MAKEFLAGS + 显式 `--parallel $(BUILD_JOBS)`，
+默认 4），普通与 ASan/UBSan CTest 各 57/57、平台开配置 **87/87**，format-check 通过。
+锁频控制器在五个空任务上完成真实资格：q-normal / q-failure / q-timeout / q-controller-loss
+四条 `restore_match=yes`，q-contention 在共享锁上于任何频率写入之前被拒（`restore_match=not_required`
+且全量快照逐字未变）；前两次尝试的失败原件分别归档在各自控制根 `failed-attempt-1/` 与 `failed-attempt-2/`，
+根因（amd-pstate 写后过渡期首样本 4150137 kHz；主控外部快照在 guardian 排空之前取样）与修复写进
+[QUALIFICATION](evidence/platform-control-qualification-20261016/QUALIFICATION.md)。
+四份采数 PLAN 先以 `efca8a1` **一次提交冻结**，再用同一控制器串行采集 M2→M5→M3→M4：
+**54 次运行全部 restore_match=yes**，放行探针 20/20 在 ±2% 带内，三次运行分别为
+seed 31337/CPU2、424242/CPU2、31337/CPU6，每版每类 10000 次、预热 100 在窗口外。
+预注册 Holm 家族（α 全族 0.05）：M2 m=6 拒绝 0（合并 Δ=+4.58 ns，CI[−3.08,+12.25]）；
+M5 m=3 拒绝 0（−5.30 [−11.77,+1.16]，I²=0）；M3 m=6 拒绝 0（−0.73 [−5.56,+4.10]）；
+M4 m=6 **拒绝 3**（全在 vulnerable 臂，0/9.23e−25/3.14e−22；按臂合并 −4.089 [−4.215,−3.963]，
+ct 臂 +0.055 [−0.363,+0.473]）。RTLF（α=0.01）与 online dudect 一律族外，
+dudect 最大 t 未转伪 p；M2 的 dudect 阳性出现在**已修**臂，不可归因于除法变体，不作泄漏结论。
+M4 另有 Binsec `-sse -checkct` 真实执行：vulnerable 反例对 ct 有界 secure，
+并有 `-sse-depth 5 → unknown` 的截断对照证明退出码 0 不能单独判 secure。
+M3 定位层：新树 Memcheck on 1280 errors/2 contexts 对 off 0/0；Microwalk 源码自建
+（官方镜像因 Docker data-root 越界不可用）在 on 臂 `poly_frommsg+30/+59` 报 MI 1.922 bits（全场最高）。
+Mona 对 M1 与 M2 各出对照行（M2 六份：三个未修臂与 s1/s2 已修臂均无验证分离）。
+报告、平台矩阵图、离线 HTML 与匿名 ZIP 已刷新，并从 ZIP 解出后独立复算 CTest。
+本轮全程不 push；定位阳性、人工校准阳性与端到端未检出分层记录，互不冒充；
+"CI 含 0 且 Holm 不拒绝"写作未检出，不写作恒时证明。
