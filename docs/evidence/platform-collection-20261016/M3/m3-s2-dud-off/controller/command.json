@@ -1,0 +1,23 @@
+{
+  "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+  "command": [
+    "/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off",
+    "--collect",
+    "--seed",
+    "424242"
+  ],
+  "cpu": 2,
+  "plan_sha256": "be2db4599fb9c5d39852f001d3cf872173b68c2d65ebb4ca542ea0798e01a4a0",
+  "policy": "policy2",
+  "source_sha256": "4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "worker_gid": 1000,
+  "worker_sha256": "73a2b04223fb46d83e534ccd1f270979f8de846f0e188edfc1c8cd6a5ac12006",
+  "worker_uid": 1000
+}

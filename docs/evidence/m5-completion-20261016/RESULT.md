@@ -48,3 +48,26 @@ Memcheck使用客户端秘密标记方法，未把第三方ctgrind仓库“已cl
 
 源码、完整归档、工具身份、原始摘要与Cry边界详见[ENV](ENV.md)。
 阻塞：无软件/动态定位阻塞；正式统计仍待主控提交PLAN与串行锁频运行。
+
+---
+
+## 本轮锁频端到端结果（2026-10-16，控制器 `a3c9ca1`）
+
+采数条件：boost=0 / performance / min=max=4300000 kHz / taskset CPU2 或 CPU6；
+三次运行 seed 31337-CPU2、424242-CPU2、31337-CPU6；每类 10000 次、预热 100 在窗口外。
+6 次控制器运行全部 `restore_match=yes`（3 次 measure + 3 次 online dudect）。
+原件见 [platform-collection-20261016](../platform-collection-20261016/README.md)。
+
+**1. 定位**：`mlkem-native` 参考路径，本机调用链确认；Valgrind poison 与 varlat 均为 0 未解释命中，
+ctgrind 秘密标记无命中。这一层是"未发现"，不是"已证明恒时"。
+
+**2. 统计**：家族 `m5_reference_end_to_end_v1`，**m=3**（单一 reference 臂 × 3 次运行），α 全族 0.05。
+三次的原始 p = 0.249、0.410、0.427，**Holm 拒绝数 0**；固定效应合并
+Δ = −5.30 ns，95% CI [−11.77, +1.16]（含 0），I² = 0%。
+族外：RTLF α=0.01 结果见 [platform-rtlf-20261016](../platform-rtlf-20261016/RTLF_RESULT.md)；
+online dudect 三次 max|t| = 2.10、1.98、2.82，状态 `state=1`（预算内无证据），**不进 Holm**。
+对照类对（`bit-flipped` vs `random`，族外）三次 p = 0.020、0.475、0.240，方向不一致，不作泄漏证据。
+
+**3. 边界**：本结论只覆盖本机 x86_64、固定编译产物、message-zero vs message-ones 类对、
+每类 10000 次、三次运行预算。"CI 含 0 且 Holm 不拒绝"是**未检出**，
+不构成恒时证明，也不给出总体误报率为零的结论；dudect 的最大 t 未被转换成伪 p。

@@ -1,0 +1,22 @@
+module=M5 backend=reference seed=31337 classes=message-zero,message-ones measurements_per_batch=10000 maximum_batches=21
+meas:    0.01 M, not enough measurements (11 still to go).
+meas:    0.02 M, max t:   +0.72, max tau: 5.10e-03, (5/tau)^2: 9.60e+05. For the moment, maybe constant time.
+meas:    0.03 M, max t:   +1.84, max tau: 1.08e-02, (5/tau)^2: 2.14e+05. For the moment, maybe constant time.
+meas:    0.02 M, max t:   +1.40, max tau: 9.32e-03, (5/tau)^2: 2.88e+05. For the moment, maybe constant time.
+meas:    0.03 M, max t:   +1.50, max tau: 9.31e-03, (5/tau)^2: 2.88e+05. For the moment, maybe constant time.
+meas:    0.03 M, max t:   +1.83, max tau: 1.06e-02, (5/tau)^2: 2.22e+05. For the moment, maybe constant time.
+meas:    0.03 M, max t:   +2.10, max tau: 1.14e-02, (5/tau)^2: 1.93e+05. For the moment, maybe constant time.
+meas:    0.04 M, max t:   +1.68, max tau: 8.57e-03, (5/tau)^2: 3.41e+05. For the moment, maybe constant time.
+meas:    0.04 M, max t:   +0.99, max tau: 4.81e-03, (5/tau)^2: 1.08e+06. For the moment, maybe constant time.
+meas:    0.10 M, max t:   +1.10, max tau: 3.53e-03, (5/tau)^2: 2.01e+06. For the moment, maybe constant time.
+meas:    0.09 M, max t:   +1.28, max tau: 4.28e-03, (5/tau)^2: 1.37e+06. For the moment, maybe constant time.
+meas:    0.12 M, max t:   +1.61, max tau: 4.72e-03, (5/tau)^2: 1.12e+06. For the moment, maybe constant time.
+meas:    0.13 M, max t:   +1.37, max tau: 3.86e-03, (5/tau)^2: 1.68e+06. For the moment, maybe constant time.
+meas:    0.14 M, max t:   +1.16, max tau: 3.15e-03, (5/tau)^2: 2.52e+06. For the moment, maybe constant time.
+meas:    0.15 M, max t:   +1.13, max tau: 2.91e-03, (5/tau)^2: 2.95e+06. For the moment, maybe constant time.
+meas:    0.16 M, max t:   +1.65, max tau: 4.13e-03, (5/tau)^2: 1.47e+06. For the moment, maybe constant time.
+meas:    0.17 M, max t:   +1.44, max tau: 3.50e-03, (5/tau)^2: 2.04e+06. For the moment, maybe constant time.
+meas:    0.16 M, max t:   +1.34, max tau: 3.34e-03, (5/tau)^2: 2.24e+06. For the moment, maybe constant time.
+meas:    0.17 M, max t:   +1.26, max tau: 3.05e-03, (5/tau)^2: 2.68e+06. For the moment, maybe constant time.
+meas:    0.19 M, max t:   +1.48, max tau: 3.35e-03, (5/tau)^2: 2.23e+06. For the moment, maybe constant time.
+stopped_after_batches=21 state=1 prepared_class0=104931 prepared_class1=105069 holm_member=0 timer=upstream_rdtsc output_consumption=after_batch

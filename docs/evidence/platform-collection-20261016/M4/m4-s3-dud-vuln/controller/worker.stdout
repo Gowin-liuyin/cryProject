@@ -1,0 +1,23 @@
+module=M4 case=artificial_compare variant=vulnerable mode=upstream_dudect_online unit=tsc_ticks holm_member=0 seed=31337 batch_calls=20000 requested_batches=21
+meas:    0.02 M, max t:  +80.46, max tau: 5.69e-01, (5/tau)^2: 7.72e+01. Probably not constant time.
+meas:    0.04 M, max t: +115.75, max tau: 5.79e-01, (5/tau)^2: 7.46e+01. Probably not constant time.
+meas:    0.06 M, max t: +143.46, max tau: 5.86e-01, (5/tau)^2: 7.28e+01. Probably not constant time.
+meas:    0.08 M, max t: +169.80, max tau: 6.01e-01, (5/tau)^2: 6.93e+01. Probably not constant time.
+meas:    0.10 M, max t: +191.71, max tau: 6.06e-01, (5/tau)^2: 6.80e+01. Probably not constant time.
+meas:    0.12 M, max t: +212.60, max tau: 6.14e-01, (5/tau)^2: 6.63e+01. Probably not constant time.
+meas:    0.14 M, max t: +231.81, max tau: 6.20e-01, (5/tau)^2: 6.51e+01. Probably not constant time.
+meas:    0.16 M, max t: +248.48, max tau: 6.21e-01, (5/tau)^2: 6.47e+01. Probably not constant time.
+meas:    0.18 M, max t: +265.87, max tau: 6.27e-01, (5/tau)^2: 6.36e+01. Probably not constant time.
+meas:    0.20 M, max t: +279.42, max tau: 6.25e-01, (5/tau)^2: 6.40e+01. Probably not constant time.
+meas:    0.22 M, max t: +293.67, max tau: 6.26e-01, (5/tau)^2: 6.37e+01. Probably not constant time.
+meas:    0.24 M, max t: +306.42, max tau: 6.26e-01, (5/tau)^2: 6.38e+01. Probably not constant time.
+meas:    0.26 M, max t: +319.69, max tau: 6.27e-01, (5/tau)^2: 6.35e+01. Probably not constant time.
+meas:    0.28 M, max t: +332.28, max tau: 6.28e-01, (5/tau)^2: 6.33e+01. Probably not constant time.
+meas:    0.30 M, max t: +342.86, max tau: 6.26e-01, (5/tau)^2: 6.37e+01. Probably not constant time.
+meas:    0.32 M, max t: +354.14, max tau: 6.26e-01, (5/tau)^2: 6.37e+01. Probably not constant time.
+meas:    0.34 M, max t: +365.15, max tau: 6.27e-01, (5/tau)^2: 6.37e+01. Probably not constant time.
+meas:    0.36 M, max t: +376.19, max tau: 6.27e-01, (5/tau)^2: 6.35e+01. Probably not constant time.
+meas:    0.38 M, max t: +386.21, max tau: 6.27e-01, (5/tau)^2: 6.36e+01. Probably not constant time.
+meas:    0.40 M, max t: +395.58, max tau: 6.26e-01, (5/tau)^2: 6.38e+01. Probably not constant time.
+battery_dudect_status=online_leakage_found
+completed_batches=21 total_calls=420000 warmup_calls=20000 intervals_per_batch=19999 endpoint_discarded_per_update=11

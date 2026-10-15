@@ -1,0 +1,23 @@
+module=M2 variant=m2-kyber768-round3-unfixed case=chosen_message_prefix mode=upstream_dudect_online unit=tsc_ticks holm_member=0 seed=31337 batch_calls=10000 requested_batches=21
+meas:    0.01 M, not enough measurements (11 still to go).
+meas:    0.02 M, max t:   +1.04, max tau: 7.39e-03, (5/tau)^2: 4.57e+05. For the moment, maybe constant time.
+meas:    0.03 M, max t:   +2.20, max tau: 1.33e-02, (5/tau)^2: 1.41e+05. For the moment, maybe constant time.
+meas:    0.04 M, max t:   +2.12, max tau: 1.11e-02, (5/tau)^2: 2.05e+05. For the moment, maybe constant time.
+meas:    0.05 M, max t:   +1.80, max tau: 8.08e-03, (5/tau)^2: 3.83e+05. For the moment, maybe constant time.
+meas:    0.06 M, max t:   +1.99, max tau: 8.12e-03, (5/tau)^2: 3.79e+05. For the moment, maybe constant time.
+meas:    0.07 M, max t:   +2.31, max tau: 9.05e-03, (5/tau)^2: 3.05e+05. For the moment, maybe constant time.
+meas:    0.07 M, max t:   +2.57, max tau: 9.42e-03, (5/tau)^2: 2.82e+05. For the moment, maybe constant time.
+meas:    0.08 M, max t:   +2.66, max tau: 9.17e-03, (5/tau)^2: 2.97e+05. For the moment, maybe constant time.
+meas:    0.09 M, max t:   +2.69, max tau: 8.89e-03, (5/tau)^2: 3.17e+05. For the moment, maybe constant time.
+meas:    0.10 M, max t:   +3.11, max tau: 9.80e-03, (5/tau)^2: 2.60e+05. For the moment, maybe constant time.
+meas:    0.11 M, max t:   +3.52, max tau: 1.07e-02, (5/tau)^2: 2.20e+05. For the moment, maybe constant time.
+meas:    0.12 M, max t:   +3.59, max tau: 1.04e-02, (5/tau)^2: 2.29e+05. For the moment, maybe constant time.
+meas:    0.13 M, max t:   +3.68, max tau: 1.03e-02, (5/tau)^2: 2.34e+05. For the moment, maybe constant time.
+meas:    0.14 M, max t:   +4.01, max tau: 1.09e-02, (5/tau)^2: 2.12e+05. For the moment, maybe constant time.
+meas:    0.15 M, max t:   +3.96, max tau: 1.04e-02, (5/tau)^2: 2.32e+05. For the moment, maybe constant time.
+meas:    0.15 M, max t:   +4.00, max tau: 1.02e-02, (5/tau)^2: 2.41e+05. For the moment, maybe constant time.
+meas:    0.16 M, max t:   +3.93, max tau: 9.71e-03, (5/tau)^2: 2.65e+05. For the moment, maybe constant time.
+meas:    0.17 M, max t:   +4.10, max tau: 9.82e-03, (5/tau)^2: 2.59e+05. For the moment, maybe constant time.
+meas:    0.18 M, max t:   +4.68, max tau: 1.10e-02, (5/tau)^2: 2.07e+05. For the moment, maybe constant time.
+battery_dudect_status=online_no_evidence_yet
+completed_batches=21 total_calls=210000 warmup_batches=1 measurement_batches=20 first_positive_batch=none stop_on_positive=0 endpoint_discarded_per_update=11

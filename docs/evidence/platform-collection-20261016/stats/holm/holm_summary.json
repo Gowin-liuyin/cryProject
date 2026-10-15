@@ -1,0 +1,54 @@
+{
+  "alpha": 0.05,
+  "families": [
+    {
+      "family_id": "m2_end_to_end_full_decaps_v1",
+      "m": 6,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m2-r02-unfixed", "rank": 1, "raw_p": 0.0496695812935943, "threshold": 0.00833333333333333, "adjusted_p": 0.298017487761566, "reject": 0},
+        {"member_id": "m2-r03-fixed", "rank": 2, "raw_p": 0.0639603011578148, "threshold": 0.01, "adjusted_p": 0.319801505789074, "reject": 0},
+        {"member_id": "m2-r03-unfixed", "rank": 3, "raw_p": 0.159184530933043, "threshold": 0.0125, "adjusted_p": 0.636738123732172, "reject": 0},
+        {"member_id": "m2-r01-unfixed", "rank": 4, "raw_p": 0.222730273141435, "threshold": 0.0166666666666667, "adjusted_p": 0.668190819424304, "reject": 0},
+        {"member_id": "m2-r02-fixed", "rank": 5, "raw_p": 0.246885456169295, "threshold": 0.025, "adjusted_p": 0.668190819424304, "reject": 0},
+        {"member_id": "m2-r01-fixed", "rank": 6, "raw_p": 0.261210662025578, "threshold": 0.05, "adjusted_p": 0.668190819424304, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m5_reference_end_to_end_v1",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m5-r03-reference", "rank": 1, "raw_p": 0.249489701700311, "threshold": 0.0166666666666667, "adjusted_p": 0.748469105100933, "reject": 0},
+        {"member_id": "m5-r01-reference", "rank": 2, "raw_p": 0.410131471618948, "threshold": 0.025, "adjusted_p": 0.820262943237896, "reject": 0},
+        {"member_id": "m5-r02-reference", "rank": 3, "raw_p": 0.427476334035076, "threshold": 0.05, "adjusted_p": 0.820262943237896, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m3_lut_arm_end_to_end_v1",
+      "m": 6,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m3-r03-on", "rank": 1, "raw_p": 0.188582443240186, "threshold": 0.00833333333333333, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-r01-on", "rank": 2, "raw_p": 0.268181260598362, "threshold": 0.01, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-r02-on", "rank": 3, "raw_p": 0.315457361652142, "threshold": 0.0125, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-r02-off", "rank": 4, "raw_p": 0.375493638782208, "threshold": 0.0166666666666667, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-r03-off", "rank": 5, "raw_p": 0.45748919401766, "threshold": 0.025, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-r01-off", "rank": 6, "raw_p": 0.479523083773682, "threshold": 0.05, "adjusted_p": 1, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m4_compare_arm_session_v1",
+      "m": 6,
+      "reject_count": 3,
+      "members": [
+        {"member_id": "m4-r01-vulnerable", "rank": 1, "raw_p": 0, "threshold": 0.00833333333333333, "adjusted_p": 0, "reject": 1},
+        {"member_id": "m4-r02-vulnerable", "rank": 2, "raw_p": 9.22952265662169e-25, "threshold": 0.01, "adjusted_p": 4.61476132831085e-24, "reject": 1},
+        {"member_id": "m4-r03-vulnerable", "rank": 3, "raw_p": 3.14071902314599e-22, "threshold": 0.0125, "adjusted_p": 1.2562876092584e-21, "reject": 1},
+        {"member_id": "m4-r01-ct", "rank": 4, "raw_p": 0.385637975339521, "threshold": 0.0166666666666667, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m4-r03-ct", "rank": 5, "raw_p": 0.399093093262587, "threshold": 0.025, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m4-r02-ct", "rank": 6, "raw_p": 0.437836462238685, "threshold": 0.05, "adjusted_p": 1, "reject": 0}
+      ]
+    }
+  ]
+}

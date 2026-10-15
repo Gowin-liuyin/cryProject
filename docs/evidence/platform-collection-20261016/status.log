@@ -1,0 +1,175 @@
+run=m5-s1-meas attempt=1 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-meas attempt=2 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-meas attempt=3 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s1-meas
+run=m5-s1-dud attempt=1 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=1s
+run=m5-s1-dud attempt=2 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-dud attempt=3 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s1-dud
+run=m5-s2-meas attempt=1 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-meas attempt=2 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-meas attempt=3 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s2-meas
+run=m5-s2-dud attempt=1 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-dud attempt=2 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-dud attempt=3 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s2-dud
+run=m5-s3-meas attempt=1 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-meas attempt=2 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-meas attempt=3 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s3-meas
+run=m5-s3-dud attempt=1 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-dud attempt=2 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-dud attempt=3 controller_exit=2 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s3-dud
+run=m5-s1-meas attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-meas attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-meas attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s1-meas
+run=m5-s1-dud attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-dud attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s1-dud attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s1-dud
+run=m5-s2-meas attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-meas attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-meas attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=1s
+    GIVING_UP m5-s2-meas
+run=m5-s2-dud attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-dud attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s2-dud attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s2-dud
+run=m5-s3-meas attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-meas attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-meas attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s3-meas
+run=m5-s3-dud attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-dud attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m5-s3-dud attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m5-s3-dud
+run=m5-s1-meas attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4337421 span=37421 in_band=True] elapsed=5s
+run=m5-s1-dud attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4332804 span=32804 in_band=True] elapsed=8s
+run=m5-s2-meas attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4320958 span=20958 in_band=True] elapsed=5s
+run=m5-s2-dud attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4316336 span=16336 in_band=True] elapsed=9s
+run=m5-s3-meas attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=5s
+run=m5-s3-dud attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4290971 max=4300000 span=9029 in_band=True] elapsed=8s
+run=m3-s1-on attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4312824 span=12824 in_band=True] elapsed=4s
+run=m3-s1-off attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4319667 span=19667 in_band=True] elapsed=5s
+run=m3-s2-on attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4339212 span=39212 in_band=True] elapsed=5s
+run=m3-s2-off attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4317676 span=17676 in_band=True] elapsed=5s
+run=m3-s3-on attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4332349 span=32349 in_band=True] elapsed=4s
+run=m3-s3-off attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4299353 max=4300000 span=647 in_band=True] elapsed=4s
+run=m3-s1-dud-on attempt=1 controller_exit=1 reason=frequency_probe_rejected worker_exit_code=None restore_match=yes entry_probes=[n=20 min=3958979 max=4312950 span=353971 in_band=False] elapsed=3s
+run=m3-s1-dud-on attempt=2 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4312268 span=12268 in_band=True] elapsed=2s
+run=m3-s1-dud-on attempt=3 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4318089 span=18089 in_band=True] elapsed=2s
+    GIVING_UP m3-s1-dud-on
+run=m3-s1-dud-off attempt=1 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4320381 span=20381 in_band=True] elapsed=3s
+run=m3-s1-dud-off attempt=2 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4321820 span=21820 in_band=True] elapsed=2s
+run=m3-s1-dud-off attempt=3 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4317381 span=17381 in_band=True] elapsed=2s
+    GIVING_UP m3-s1-dud-off
+run=m3-s2-dud-on attempt=1 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4317247 span=17247 in_band=True] elapsed=2s
+run=m3-s2-dud-on attempt=2 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4299360 max=4322042 span=22682 in_band=True] elapsed=2s
+run=m3-s2-dud-on attempt=3 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4281039 max=4300000 span=18961 in_band=True] elapsed=2s
+    GIVING_UP m3-s2-dud-on
+run=m3-s2-dud-off attempt=1 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4318428 span=18428 in_band=True] elapsed=2s
+run=m3-s2-dud-off attempt=2 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4334963 span=34963 in_band=True] elapsed=2s
+run=m3-s2-dud-off attempt=3 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4308824 span=8824 in_band=True] elapsed=2s
+    GIVING_UP m3-s2-dud-off
+run=m3-s3-dud-on attempt=1 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=2s
+run=m3-s3-dud-on attempt=2 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=2s
+run=m3-s3-dud-on attempt=3 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4306077 span=6077 in_band=True] elapsed=3s
+    GIVING_UP m3-s3-dud-on
+run=m3-s3-dud-off attempt=1 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=2s
+run=m3-s3-dud-off attempt=2 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=2s
+run=m3-s3-dud-off attempt=3 controller_exit=1 reason=worker_finished worker_exit_code=2 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=2s
+    GIVING_UP m3-s3-dud-off
+run=m3-s1-dud-on attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4319948 span=19948 in_band=True] elapsed=9s
+run=m3-s1-dud-off attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4296286 max=4331252 span=34966 in_band=True] elapsed=8s
+run=m3-s2-dud-on attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4329164 span=29164 in_band=True] elapsed=9s
+run=m3-s2-dud-off attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4318809 span=18809 in_band=True] elapsed=8s
+run=m3-s3-dud-on attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=9s
+run=m3-s3-dud-off attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=8s
+run=m4-s1-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4319022 span=19022 in_band=True] elapsed=2s
+run=m4-s1-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4311509 span=11509 in_band=True] elapsed=2s
+run=m4-s2-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4317835 span=17835 in_band=True] elapsed=3s
+run=m4-s2-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4318549 span=18549 in_band=True] elapsed=2s
+run=m4-s3-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4299847 max=4300829 span=982 in_band=True] elapsed=2s
+run=m4-s3-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4319175 span=19175 in_band=True] elapsed=2s
+run=m4-c1-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4322963 span=22963 in_band=True] elapsed=2s
+run=m4-c1-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4316455 span=16455 in_band=True] elapsed=2s
+run=m4-c2-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4318058 span=18058 in_band=True] elapsed=2s
+run=m4-c2-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4305973 span=5973 in_band=True] elapsed=2s
+run=m4-c3-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4291802 max=4329412 span=37610 in_band=True] elapsed=2s
+run=m4-c3-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4334590 span=34590 in_band=True] elapsed=2s
+run=m4-s1-dud-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4343026 span=43026 in_band=True] elapsed=2s
+run=m4-s1-dud-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4341019 span=41019 in_band=True] elapsed=3s
+run=m4-s2-dud-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4316825 span=16825 in_band=True] elapsed=2s
+run=m4-s2-dud-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4316401 span=16401 in_band=True] elapsed=3s
+run=m4-s3-dud-vuln attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=2s
+run=m4-s3-dud-ct attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4306596 span=6596 in_band=True] elapsed=3s
+run=m2-s1-unfixed attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-unfixed attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-unfixed attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s1-unfixed
+run=m2-s1-unfixed-ctl attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-unfixed-ctl attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-unfixed-ctl attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s1-unfixed-ctl
+run=m2-s1-fixed attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-fixed attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-fixed attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s1-fixed
+run=m2-s1-fixed-ctl attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-fixed-ctl attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s1-fixed-ctl attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s1-fixed-ctl
+run=m2-s2-unfixed attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-unfixed attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-unfixed attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s2-unfixed
+run=m2-s2-unfixed-ctl attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-unfixed-ctl attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-unfixed-ctl attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s2-unfixed-ctl
+run=m2-s2-fixed attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-fixed attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-fixed attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s2-fixed
+run=m2-s2-fixed-ctl attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-fixed-ctl attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s2-fixed-ctl attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s2-fixed-ctl
+run=m2-s3-unfixed attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-unfixed attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-unfixed attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s3-unfixed
+run=m2-s3-unfixed-ctl attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-unfixed-ctl attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=1s
+run=m2-s3-unfixed-ctl attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s3-unfixed-ctl
+run=m2-s3-fixed attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-fixed attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-fixed attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s3-fixed
+run=m2-s3-fixed-ctl attempt=1 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-fixed-ctl attempt=2 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+run=m2-s3-fixed-ctl attempt=3 controller_exit=1 reason= worker_exit_code= restore_match= entry_probes=[unavailable] elapsed=0s
+    GIVING_UP m2-s3-fixed-ctl
+M2 online dudect: not_available
+run=m2-s1-unfixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4299581 max=4316696 span=17115 in_band=True] elapsed=3s
+run=m2-s1-unfixed-ctl attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4299468 max=4314960 span=15492 in_band=True] elapsed=4s
+run=m2-s1-fixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4332529 span=32529 in_band=True] elapsed=4s
+run=m2-s1-fixed-ctl attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4315261 span=15261 in_band=True] elapsed=3s
+run=m2-s2-unfixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4316410 span=16410 in_band=True] elapsed=4s
+run=m2-s2-unfixed-ctl attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4318605 span=18605 in_band=True] elapsed=3s
+run=m2-s2-fixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4326778 span=26778 in_band=True] elapsed=4s
+run=m2-s2-fixed-ctl attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4314672 span=14672 in_band=True] elapsed=4s
+run=m2-s3-unfixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=3s
+run=m2-s3-unfixed-ctl attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=4s
+run=m2-s3-fixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=3s
+run=m2-s3-fixed-ctl attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4289411 max=4306547 span=17136 in_band=True] elapsed=3s
+run=m2-s1-dud-unfixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4297959 max=4313388 span=15429 in_band=True] elapsed=15s
+run=m2-s1-dud-fixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4295942 max=4309209 span=13267 in_band=True] elapsed=14s
+run=m2-s2-dud-unfixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=15s
+run=m2-s2-dud-fixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4323232 span=23232 in_band=True] elapsed=14s
+run=m2-s3-dud-unfixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4309280 span=9280 in_band=True] elapsed=16s
+run=m2-s3-dud-fixed attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes entry_probes=[n=20 min=4300000 max=4300000 span=0 in_band=True] elapsed=14s

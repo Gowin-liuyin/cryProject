@@ -10,10 +10,10 @@
 | 模块 | 机制 | 案例类型 | 软件 / 工具状态 | 定位工具与结论 | 统计阶段与结论 | 未修 / 夹具开 | 已修 / 夹具关 | 证据路径 | 缺口 |
 |---|---|---|---|---|---|---|---|---|---|
 | M1 | 编译器消息位分支 | 既有真实历史案例 | 只引用原件 | 见原结论 | 见原结论，本轮无新增 | 既有记录 | 既有记录 | [原 RESULT](../r02-r04-close-20261016/RESULT.md) | 本轮不重新签收 |
-| M2 | 秘密相关除法 | 真实 KyberSlash 历史路径 | 两版本与 varlat 已接通 | Linux 三热点未修各有 div、已修各无；varlat 1280/3 vs 0/0 | 未采数；微基准/完整解封装/正式统计均未运行 | 定位阳性 | 对应目标定位消失 | [版本审计](../m2-kyberslash-20261016/VERSION_AUDIT.md) | 待冻结时序合同并串行采数 |
-| M3 | 秘密下标 LUT | 人工构造校准 | 开/关可构建，功能等价资格通过 | Linux Memcheck 32/1 vs 0/0 | 未采数 | 秘密地址报警 | 公开扫描无命中 | [RESULT](../m3-memaccess-20261016/RESULT.md) | Pin/Microwalk 与统计未运行 |
-| M4 | 提前退出比较 | 人工构造校准 | vulnerable/ct 可构建 | Linux Memcheck 32/1 vs 0/0 | 未采数 | 秘密条件跳转报警 | ct 无命中 | [RESULT](../m4-compare-20261016/RESULT.md) | Binsec 与统计未运行 |
-| M5 | mlkem-native | 阴性对照候选 | 固定快照、完整解封装/measure 已接入，参考资格通过 | 本机调用链确认；秘密标记工具未运行 | 未采数，不能报告阴性 | 不适用 | 尚无统计阴性验收 | [RESULT](../m5-mlkem-native-20261016/RESULT.md) | 待原生定位与阴性统计 |
+| M2 | 秘密相关除法 | 真实 KyberSlash 历史路径 | 两版本与 varlat 已接通；完整解封装采集件已资格化 | 未修三热点各 1 个 `div`、已修 0；varlat 未修 1280/3 对已修 0/0 | **已采数**：家族 m=6，Holm 拒绝 0；合并 Δ=+4.58 ns CI[−3.08,+12.25] | 定位阳性，端到端未检出 | 目标定位消失 | [RESULT](../m2-kem-20261016/RESULT.md)、[原件](../platform-collection-20261016/README.md) | 微基准层触发条件已满足，执行状态单列 |
+| M3 | 秘密下标 LUT | 人工构造校准 | on/off 同树可构建，功能等价资格通过 | 新树 Memcheck on 1280/2 对 off 0/0；Microwalk on 臂 MI 1.922 bits（全场最高） | **已采数**：家族 m=6，Holm 拒绝 0；合并 Δ=−0.73 ns CI[−5.56,+4.10] | 定位阳性 | 关臂 Memcheck 0/0 | [RESULT](../m3-completion-20261016/RESULT.md)、[原件](../platform-collection-20261016/README.md) | 端到端未检出；Microwalk 为源码自建替代官方镜像 |
+| M4 | 提前退出比较 | 人工构造校准 | vulnerable/ct 已重建（含截断窗口与预热），CTest 7/7 两配置 | Memcheck 秘密跳转报警对 ct 0；Binsec 反例对 bounded secure | **已采数**：家族 m=6，**Holm 拒绝 3**（全在 vulnerable 臂）；臂内合并 −4.089 ns CI[−4.215,−3.963] | 定位阳性 + 端到端阳性 | ct 臂 p=0.386/0.438/0.399 不拒绝 | [RESULT](../m4-completion-20261016/RESULT.md)、[原件](../platform-collection-20261016/README.md) | Binsec secure 为有界结论 |
+| M5 | mlkem-native | 阴性对照 | 固定快照、完整解封装/measure/dudect 已接入并资格化 | 本机调用链确认；poison/varlat 0 未解释命中 | **已采数**：家族 m=3，Holm 拒绝 0；合并 Δ=−5.30 ns CI[−11.77,+1.16]，I²=0 | 不适用 | 阴性一致（预算内未检出） | [RESULT](../m5-completion-20261016/RESULT.md)、[原件](../platform-collection-20261016/README.md) | 阴性仅限本预算，不证明恒时 |
 
 ## 并行路状态
 
@@ -43,3 +43,20 @@
 - 先冻结并本地提交 PLAN 再正式采数；dudect 不进 Holm，RTLF 也作单独交叉结果。
 - 未运行、工具缺失、超时和失败须明确写出；未检出不等于恒时证明。
 - CPU2/CPU6 采数由主控串行调度，退出必恢复并核对 `restore_match`；不自动 push。
+
+## 本轮锁频采数与统计（2026-10-16，提交 `efca8a1` 冻结的四份 PLAN）
+
+| 模块 | 家族 / m | Holm 拒绝 | 家族合并 Δ（ns）与 95% CI | I² | 三次运行 restore_match | 族外 online dudect max\|t\| |
+|---|---|---:|---|---:|---|---|
+| M2 | `m2_end_to_end_full_decaps_v1` / 6 | 0 | +4.58 [−3.08, +12.25] | 58.3% | 18/18 yes | 未修 4.68/3.05/3.66；已修 36.27/30.94/61.91 |
+| M5 | `m5_reference_end_to_end_v1` / 3 | 0 | −5.30 [−11.77, +1.16] | 0% | 6/6 yes | 2.10 / 1.98 / 2.82 |
+| M3 | `m3_lut_arm_end_to_end_v1` / 6 | 0 | −0.73 [−5.56, +4.10] | 12.5% | 12/12 yes | on 1.93/3.41/2.81；off 2.24/3.37/3.03 |
+| M4 | `m4_compare_arm_session_v1` / 6 | **3** | −3.74 [−3.87, −3.62] | 98.6% | 18/18 yes | vuln 356.6/396.9/395.6；ct 2.06/1.90/2.27 |
+
+共 **54 次**正式控制器运行全部 `restore_match=yes`，放行探针 20/20 在 ±2% 带内。
+原件与逐运行证据见 [platform-collection-20261016](../platform-collection-20261016/README.md)；
+RTLF 族外结果见 [platform-rtlf-20261016](../platform-rtlf-20261016/RTLF_RESULT.md)。
+
+**本轮明确写下的阴性/未检出**：M2 完整解封装未检出可归因泄漏（定位层与 varlat 仍阳性）；
+M5 阴性一致；M3 端到端未检出（定位层阳性）；M4 vulnerable 臂端到端阳性、ct 臂不拒绝。
+M2 的 online dudect 阳性出现在**已修**臂，**不可归因于除法变体**，不作泄漏结论。

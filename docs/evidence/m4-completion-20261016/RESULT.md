@@ -32,3 +32,33 @@
 软件普通入口为 `platform_m4_measure_{vulnerable,ct}` 和 `platform_m4_dudect_{vulnerable,ct}`。前者计完整 32 字节 checked compare，输出与统计电池 `measure` 格式一致；后者调用原上游 `dudect_main`、保全原 ticks 和类序，dudect 不进入 Holm。两套计时口径、热输入条件和预定预算见 [统计草案](STATISTICAL_PLAN_DRAFT.md)。
 
 依赖安装经历 GMP 非 PIC 的 Zarith 链接失败，原日志保留，另用 PIC 构建前缀修复；最终工具真实可用，未通过系统包或默认 Docker 层绕过 Cry 边界。环境与原件归档摘要见 [ENV](ENV.md)，具体安装记录见 `runtime/`。
+
+---
+
+## 本轮锁频端到端结果（2026-10-16，控制器 `a3c9ca1`）
+
+采集件 `build-software-v3/platform_m4_measure_{vulnerable,ct}` =
+`26869078…` / `90740bdf…`；三次运行 seed 31337-CPU2、424242-CPU2、31337-CPU6；
+每类 10000 次、预热 100。18 次控制器运行（含截断对照与 online dudect）全部 `restore_match=yes`。
+
+**1. 定位**：人工提前退出比较夹具（**人工构造校准**，非上游 CVE）。
+vulnerable 臂 Memcheck 报秘密条件跳转，ct 臂 0 命中；
+Binsec `-sse -checkct` 对抽取内核给 **insecure**（反例 `0x8049047`，`compare_early.c:9` 提前返回分支）
+对 **bounded secure**（pending/discontinued/unknown 全 0）；把 `-sse-depth` 降到 5 得到 unknown，
+证明退出码 0 不能单独判 secure。
+
+**2. 统计**：家族 `m4_compare_arm_session_v1`，**m = 3 次运行 × 2 臂 = 6**，α 全族 0.05。
+vulnerable 臂三次原始 p = **0 / 9.23e−25 / 3.14e−22**，ct 臂 = 0.386 / 0.438 / 0.399；
+**Holm 拒绝 3 项，全部来自 vulnerable 臂**。家族合并 Δ = −3.74 ns，CI [−3.87, −3.62]，I² = 98.6%
+（混合"泄漏臂 + 不泄漏臂"造成）；按臂描述性合并：vulnerable −4.089 [−4.215, −3.963]，
+ct +0.055 [−0.363, +0.473]。
+族外 online dudect：vulnerable max|t| = 356.6 / 396.9 / 395.6（`online_leakage_found`），
+ct = 2.06 / 1.90 / 2.27（无证据），与 Welch 结论同向。
+族外截断对照（`--compare-bytes 16`，vulnerable 臂）p = 6.25e−202 / 0.00563 / 4.44e−177，
+同样在提前退出臂可区分；**不进 Holm**。
+
+**3. 边界**：主路径量的是完整 `m4_compare_checked`，截断对照量的是内核
+`m4_compare_bytes`，**两者边界不同**，不得当作"同一边界的两个长度"，跨长度差同时含
+"少一次封装层校验"与"窗口变短"两个因素。Binsec 的 secure 是**有界**结论，
+限定入口、长度、秘密/公开模型、探索边界与求解器状态，不是任意长度或硬件恒时证明。
+本夹具的阳性不等于任何真实密码库存在同类缺陷。

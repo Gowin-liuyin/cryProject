@@ -1,0 +1,38 @@
+{
+  "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+  "command": [
+    "/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/unfixed/m2_decaps_collector",
+    "--class",
+    "message-zero,message-ones",
+    "--samples",
+    "10000",
+    "--seed",
+    "424242",
+    "--raw",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s2-unfixed/unfixed-main.csv",
+    "--meta",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s2-unfixed/unfixed-main.meta",
+    "--public-key",
+    "/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/fixtures/pk.bin",
+    "--secret-key",
+    "/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/fixtures/sk.bin",
+    "--run-id",
+    "M2-unfixed-m2-s2-unfixed-main",
+    "--warmup",
+    "100"
+  ],
+  "cpu": 2,
+  "plan_sha256": "0f706455c6a8fde28ecd3dc18fb12ae4562c2f57dc7e2d991b5ff83c5cd07142",
+  "policy": "policy2",
+  "source_sha256": "4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "worker_gid": 1000,
+  "worker_sha256": "b1e820e848d83cb334a967c64573c3c3355451e6e72778b45af96724e9c96b5d",
+  "worker_uid": 1000
+}

@@ -1,0 +1,25 @@
+{
+  "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+  "command": [
+    "/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/measure",
+    "M3-on-m3-s3-on",
+    "31337",
+    "10000",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M3/m3-s3-on/on-samples.csv",
+    "/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M3/m3-s3-on/on-samples.meta"
+  ],
+  "cpu": 6,
+  "plan_sha256": "be2db4599fb9c5d39852f001d3cf872173b68c2d65ebb4ca542ea0798e01a4a0",
+  "policy": "policy6",
+  "source_sha256": "4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "worker_gid": 1000,
+  "worker_sha256": "a371ed089e857d92069dbd670afab2f0de546e0042be869bba7c9c5da680a1f7",
+  "worker_uid": 1000
+}

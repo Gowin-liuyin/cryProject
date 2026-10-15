@@ -1,0 +1,114 @@
+{
+  "alpha": 0.05,
+  "families": [
+    {
+      "family_id": "m2_unfixed_arm(desc)",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m2-m2-s2-unfixed-main", "rank": 1, "raw_p": 0.0496695812935943, "threshold": 0.0166666666666667, "adjusted_p": 0.149008743880783, "reject": 0},
+        {"member_id": "m2-m2-s3-unfixed-main", "rank": 2, "raw_p": 0.159184530933043, "threshold": 0.025, "adjusted_p": 0.318369061866086, "reject": 0},
+        {"member_id": "m2-m2-s1-unfixed-main", "rank": 3, "raw_p": 0.222730273141435, "threshold": 0.05, "adjusted_p": 0.318369061866086, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m2_fixed_arm(desc)",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m2-m2-s3-fixed-main", "rank": 1, "raw_p": 0.0639603011578148, "threshold": 0.0166666666666667, "adjusted_p": 0.191880903473444, "reject": 0},
+        {"member_id": "m2-m2-s2-fixed-main", "rank": 2, "raw_p": 0.246885456169295, "threshold": 0.025, "adjusted_p": 0.49377091233859, "reject": 0},
+        {"member_id": "m2-m2-s1-fixed-main", "rank": 3, "raw_p": 0.261210662025578, "threshold": 0.05, "adjusted_p": 0.49377091233859, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m3_on_arm(desc)",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m3-m3-s3-on-main", "rank": 1, "raw_p": 0.188582443240186, "threshold": 0.0166666666666667, "adjusted_p": 0.565747329720557, "reject": 0},
+        {"member_id": "m3-m3-s1-on-main", "rank": 2, "raw_p": 0.268181260598362, "threshold": 0.025, "adjusted_p": 0.565747329720557, "reject": 0},
+        {"member_id": "m3-m3-s2-on-main", "rank": 3, "raw_p": 0.315457361652142, "threshold": 0.05, "adjusted_p": 0.565747329720557, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m3_off_arm(desc)",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m3-m3-s2-off-main", "rank": 1, "raw_p": 0.375493638782208, "threshold": 0.0166666666666667, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-m3-s3-off-main", "rank": 2, "raw_p": 0.45748919401766, "threshold": 0.025, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-m3-s1-off-main", "rank": 3, "raw_p": 0.479523083773682, "threshold": 0.05, "adjusted_p": 1, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m4_vulnerable_arm(desc)",
+      "m": 3,
+      "reject_count": 3,
+      "members": [
+        {"member_id": "m4-m4-s1-vuln-main", "rank": 1, "raw_p": 0, "threshold": 0.0166666666666667, "adjusted_p": 0, "reject": 1},
+        {"member_id": "m4-m4-s2-vuln-main", "rank": 2, "raw_p": 9.22952265662169e-25, "threshold": 0.025, "adjusted_p": 1.84590453132434e-24, "reject": 1},
+        {"member_id": "m4-m4-s3-vuln-main", "rank": 3, "raw_p": 3.14071902314599e-22, "threshold": 0.05, "adjusted_p": 3.14071902314599e-22, "reject": 1}
+      ]
+    },
+    {
+      "family_id": "m4_ct_arm(desc)",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m4-m4-s1-ct-main", "rank": 1, "raw_p": 0.385637975339521, "threshold": 0.0166666666666667, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m4-m4-s3-ct-main", "rank": 2, "raw_p": 0.399093093262587, "threshold": 0.025, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m4-m4-s2-ct-main", "rank": 3, "raw_p": 0.437836462238685, "threshold": 0.05, "adjusted_p": 1, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m2_control_pair(desc)",
+      "m": 6,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m2-m2-s3-fixed-control", "rank": 1, "raw_p": 0.22984878664619, "threshold": 0.00833333333333333, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m2-m2-s1-fixed-control", "rank": 2, "raw_p": 0.604176329683943, "threshold": 0.01, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m2-m2-s2-unfixed-control", "rank": 3, "raw_p": 0.605033827451603, "threshold": 0.0125, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m2-m2-s3-unfixed-control", "rank": 4, "raw_p": 0.614604907249193, "threshold": 0.0166666666666667, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m2-m2-s2-fixed-control", "rank": 5, "raw_p": 0.709624380003375, "threshold": 0.025, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m2-m2-s1-unfixed-control", "rank": 6, "raw_p": 0.785497751258843, "threshold": 0.05, "adjusted_p": 1, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m5_control_pair(desc)",
+      "m": 3,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m5-m5-s1-control", "rank": 1, "raw_p": 0.0199550785677483, "threshold": 0.0166666666666667, "adjusted_p": 0.0598652357032448, "reject": 0},
+        {"member_id": "m5-m5-s3-control", "rank": 2, "raw_p": 0.239853727367971, "threshold": 0.025, "adjusted_p": 0.479707454735941, "reject": 0},
+        {"member_id": "m5-m5-s2-control", "rank": 3, "raw_p": 0.474851345971114, "threshold": 0.05, "adjusted_p": 0.479707454735941, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m3_control_pair(desc)",
+      "m": 6,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m3-m3-s3-off-control", "rank": 1, "raw_p": 0.161823448802463, "threshold": 0.00833333333333333, "adjusted_p": 0.970940692814779, "reject": 0},
+        {"member_id": "m3-m3-s1-on-control", "rank": 2, "raw_p": 0.462087909127473, "threshold": 0.01, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-m3-s2-on-control", "rank": 3, "raw_p": 0.58689509737205, "threshold": 0.0125, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-m3-s3-on-control", "rank": 4, "raw_p": 0.683804997277019, "threshold": 0.0166666666666667, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-m3-s1-off-control", "rank": 5, "raw_p": 0.687446402362445, "threshold": 0.025, "adjusted_p": 1, "reject": 0},
+        {"member_id": "m3-m3-s2-off-control", "rank": 6, "raw_p": 0.734888302966534, "threshold": 0.05, "adjusted_p": 1, "reject": 0}
+      ]
+    },
+    {
+      "family_id": "m4_trunc_control(desc)",
+      "m": 6,
+      "reject_count": 3,
+      "members": [
+        {"member_id": "m4-m4-c1-vuln-control", "rank": 1, "raw_p": 6.25170848110327e-202, "threshold": 0.00833333333333333, "adjusted_p": 3.75102508866196e-201, "reject": 1},
+        {"member_id": "m4-m4-c3-vuln-control", "rank": 2, "raw_p": 4.44223115616064e-177, "threshold": 0.01, "adjusted_p": 2.22111557808032e-176, "reject": 1},
+        {"member_id": "m4-m4-c2-vuln-control", "rank": 3, "raw_p": 0.005634624158836, "threshold": 0.0125, "adjusted_p": 0.022538496635344, "reject": 1},
+        {"member_id": "m4-m4-c3-ct-control", "rank": 4, "raw_p": 0.272785220592705, "threshold": 0.0166666666666667, "adjusted_p": 0.818355661778114, "reject": 0},
+        {"member_id": "m4-m4-c1-ct-control", "rank": 5, "raw_p": 0.275455469960706, "threshold": 0.025, "adjusted_p": 0.818355661778114, "reject": 0},
+        {"member_id": "m4-m4-c2-ct-control", "rank": 6, "raw_p": 0.300730602394713, "threshold": 0.05, "adjusted_p": 0.818355661778114, "reject": 0}
+      ]
+    }
+  ]
+}
