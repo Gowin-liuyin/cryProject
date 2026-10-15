@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-16 00:46:19",
+    "alpha": 0.01,
+    "input_file": "/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/runs/r02-r04-close-20261016/seed-424242/csv/vulnerable-message-zero-ones.csv",
+    "samples": 10000,
+    "bootstrap_iterations": 10000,
+    "difference_detected": true,
+    "significant_deciles": [10, 20, 30, 40, 50, 60, 70, 80, 90],
+    "exit_code": 11
+  },
+  "statistics": {
+    "series_x": {
+      "count": 10000,
+      "min": 56255,
+      "max": 84428,
+      "mean": 56919.6774,
+      "median": 56686,
+      "stdev": 881.0372
+    },
+    "series_y": {
+      "count": 10000,
+      "min": 56234,
+      "max": 83636,
+      "mean": 56888.5609,
+      "median": 56646,
+      "stdev": 891.5811
+    }
+  },
+  "results": [
+    {
+      "Decile": "10%",
+      "Difference": 31,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "20%",
+      "Difference": 40,
+      "Threshold": 10,
+      "ThresholdX": 9,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "30%",
+      "Difference": 40,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "40%",
+      "Difference": 40,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 9
+    },
+    {
+      "Decile": "50%",
+      "Difference": 40,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "60%",
+      "Difference": 40,
+      "Threshold": 30,
+      "ThresholdX": 30,
+      "ThresholdY": 20
+    },
+    {
+      "Decile": "70%",
+      "Difference": 41,
+      "Threshold": 30,
+      "ThresholdX": 20,
+      "ThresholdY": 30
+    },
+    {
+      "Decile": "80%",
+      "Difference": 30,
+      "Threshold": 11,
+      "ThresholdX": 10,
+      "ThresholdY": 11
+    },
+    {
+      "Decile": "90%",
+      "Difference": 39,
+      "Threshold": 20,
+      "ThresholdX": 19,
+      "ThresholdY": 20
+    }
+  ]
+}

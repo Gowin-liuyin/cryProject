@@ -1,0 +1,7 @@
+experiment,variant,seed,cpu,diff_ns,se_ns,ci95_low_ns,ci95_high_ns,ci_contains_zero,rtlf_result,rtlf_significant_deciles,dudect_max_t,dudect_batches,dudect_result,reproducible
+baseline_seed31337_cpu2,vulnerable,31337,2,39.337,9.02,21.658,57.017,NO,significant (exit 11),"10,20,30,50,60,70,80,90",26.41,4,Probably not constant time (leakage found),YES
+baseline_seed31337_cpu2,fixed,31337,2,-13.209,10.219,-33.238,6.82,YES,no difference (exit 10),none,1.15,21,maybe constant time (no leakage),YES
+rep1_seed424242_cpu2,vulnerable,424242,2,31.117,12.535,6.549,55.684,NO,significant (exit 11),"10,20,30,40,50,60,70,80,90",40.64,4,Probably not constant time (leakage found),YES
+rep1_seed424242_cpu2,fixed,424242,2,8.354,31.297,-52.988,69.696,YES,no difference (exit 10),none,1.12,21,maybe constant time (no leakage),YES
+rep2_seed31337_cpu6,vulnerable,31337,6,22.337,11.253,0.282,44.392,NO,significant (exit 11),"10,20,30,40,50,60,80",14.92,4,Probably not constant time (leakage found),YES
+rep2_seed31337_cpu6,fixed,31337,6,-4.885,10.166,-24.811,15.042,YES,no difference (exit 10),none,1.31,21,maybe constant time (no leakage),YES

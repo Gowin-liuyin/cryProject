@@ -1,0 +1,34 @@
+
+============================================ 
+Processing file: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/runs/r02-r04-close-20261016/seed-424242/csv/fixed-message-zero-ones.csv 
+============================================ 
+
+- Series X: 10000 measurements
+- Series Y: 10000 measurements
+- Total: 20000 measurements
+
+Basic Statistics: 
+--------------------------------------------------------------------------- 
+Series          Min             Max             Mean          Std Dev     
+--------------------------------------------------------------------------- 
+X              57117          102913           57940            2245 
+Y              57096           93855           57932            2181 
+--------------------------------------------------------------------------- 
+------------------------------------------------------------ 
+Decile     Difference   Threshold    Significant?      
+------------------------------------------------------------ 
+10%              0           14.5       no 
+20%             10             20       no 
+30%             10             39       no 
+40%             10             19       no 
+50%              1             10       no 
+60%             10             10       no 
+70%              0             10       no 
+80%              0             10       no 
+90%              0             20       no 
+------------------------------------------------------------ 
+
+Final Decision: No statistically significant difference detected. 
+
+Execution time: 31.40 seconds 
+
