@@ -1,0 +1,192 @@
+== environment ==
+2026-10-16T04:05:38+08:00
+cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Linux nss-m 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+32
+ 04:05:38 up 45 days,  2:08,  7 users,  load average: 1.15, 1.10, 1.03
+
+== provenance ==
+c94dda2717eb370dddfe5b7ca7a7f58d789e0f63238a486e464ce40c673817f4  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/vectors/mlkem768.txt
+c94dda2717eb370dddfe5b7ca7a7f58d789e0f63238a486e464ce40c673817f4  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tests/vectors/mlkem768.txt
+c94dda2717eb370dddfe5b7ca7a7f58d789e0f63238a486e464ce40c673817f4  /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tests/vectors/mlkem768.txt
+a1e122cad3c24bc51622e4c242d8b8acbcd3f618fee4220400605ca8f9ea02c2  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp
+54e7c71d805f4081529d59da54203c3861e649f200cb40aa44052a7476ab5d26  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/historical/libmlkem.a
+2f130502b8c1e53b15406ec2f06952528a49fc17abe7577a7500c5722338caa6  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/liboqs.a
+486dccc29465c6cb65d2e38aaa78bee423c5c580b3d611e872537c509fc5ba5c  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/historical/libmlkem.a
+fcd7c56f5751cfaab46c25a281c4c4e44582cb1f7ea3fb14223fc60b61dd4f76  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-install/lib/liboqs.a
+3279cc0cad84da20fccc6a790d111d6d3bb58b43e98a190ba504ed1e726a32e9  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_unfixed.a
+531f1a484382443a3358597b885b2802a28897bfb4f63a60caf956d4e91d03d5  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_unfixed_vendor.a
+ccd18e4e98e0583559b78b8223e4410dc0f2c2cc4d949f27678f9b667c57edb1  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_fixed.a
+fc5b6d5de9392f5093a65a1264d2ce76ce4a0c42d9ec553dbe85bbd79679a32d  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_fixed_vendor.a
+744e82cd6e9426270cf47b54bd16812bd8bd77669d0e38f998c1638de10820f3  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/libmlkem.a
+8345b0409e9885c0a211d5cb8378a4147293b64a9c7e7573630e0fc6a99239b2  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/libmlkem.a
+df1d031cb28ca8394f7506fe8a442cba230ed78da6a8c80159a6da5a69e1829c  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_on_test_mlkem
+c458663b60afa053efe90c115f6950432c83ff857b19d0b8160b952b82d52d90  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_off_test_mlkem
+dc149211d152c6c1fa71d1ae6d81baa5fdde815a9ea75f2af92540a556149152  /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/reference/test_mlkem
+ed9a658183562a88a96a631602cdcdd137d4bb405bd224fc2ac8cf682514416a  /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/reference/libmlkem.a
+97f30fc57107503e90828d336096d5a38b3a0a6bf93c5ed258d6714614488b57  /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/build-software-v3/test_platform_m4_vulnerable
+6e619f877e6bdac0084ba3fe68e8c398528c0cb8e7e76ae871fd9815f6ea8599  /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/build-software-v3/test_platform_m4_ct
+CMAKE_C_COMPILER:STRING=/usr/bin/clang
+LIBOQS010_C_FLAGS:STRING=-Os -fno-vectorize
+LIBOQS010_SOURCE_DIR:PATH=/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762
+fef2dc668e54772f42c5ed3151a1728a78a5a63f4d2551836f50cd96bebd0e9c  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c
+e8d8d92a474fe609bc8300dce73734e3b0789a6e9afdfd9fe569bd9f63034e0c  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+== compile ==
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -DRR_IMPL_NAME="m1-liboqs010-0.10.0-clangover" /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/m1_kat.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/m1_kat_clangover /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/historical/libmlkem.a /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/liboqs.a -lpthread -lm
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -DRR_IMPL_NAME="m1-liboqs010-0.10.0-fixed-982c762" /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/m1_kat.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/m1_kat_fixed /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/historical/libmlkem.a /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-install/lib/liboqs.a -lpthread -lm
++ name=clangover
++ build=historical-clangover
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -DRR_IMPL_NAME="m1-liboqs010-clangover" -DRR_HASH_STYLE=1 -DRR_REJECTION_STYLE=1 /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/rr_m1_clangover /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/historical/libmlkem.a /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/liboqs.a -lpthread -lm
+/home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c:41:13: warning: ‘rr_sha3_256’ defined but not used [-Wunused-function]
+   41 | static void rr_sha3_256(uint8_t output[32], const uint8_t *input, size_t input_byte_count)
+      |             ^~~~~~~~~~~
++ name=fixed
++ build=historical-fixed-982c762
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -DRR_IMPL_NAME="m1-liboqs010-fixed" -DRR_HASH_STYLE=1 -DRR_REJECTION_STYLE=1 /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/rr_m1_fixed /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/historical/libmlkem.a /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-install/lib/liboqs.a -lpthread -lm
+/home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c:41:13: warning: ‘rr_sha3_256’ defined but not used [-Wunused-function]
+   41 | static void rr_sha3_256(uint8_t output[32], const uint8_t *input, size_t input_byte_count)
+      |             ^~~~~~~~~~~
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/include -DRR_IMPL_NAME="m2-pqcrystals-kyber768-unfixed" -DRR_HASH_STYLE=2 -DRR_REJECTION_STYLE=2 /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/rr_m2_unfixed /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_unfixed.a /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_unfixed_vendor.a -lm
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/include -DRR_IMPL_NAME="m2-pqcrystals-kyber768-fixed" -DRR_HASH_STYLE=2 -DRR_REJECTION_STYLE=2 /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/rr_m2_fixed /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_fixed.a /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/libm2_collector_fixed_vendor.a -lm
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -DRR_IMPL_NAME="m3-lut-on" -DRR_HASH_STYLE=3 -DRR_REJECTION_STYLE=1 /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/rr_m3_on /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/libmlkem.a -lm
+/home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c:71:13: warning: ‘rr_sha3_256’ defined but not used [-Wunused-function]
+   71 | static void rr_sha3_256(uint8_t output[32], const uint8_t *input, size_t input_byte_count)
+      |             ^~~~~~~~~~~
++ cc -O2 -std=c11 -Wall -Wextra -I /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -DRR_IMPL_NAME="m3-lut-off" -DRR_HASH_STYLE=3 -DRR_REJECTION_STYLE=1 /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c -o /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/build/rr_m3_off /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/libmlkem.a -lm
+/home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/drivers/rr_pair_probe.c:71:13: warning: ‘rr_sha3_256’ defined but not used [-Wunused-function]
+   71 | static void rr_sha3_256(uint8_t output[32], const uint8_t *input, size_t input_byte_count)
+      |             ^~~~~~~~~~~
++ set +x
+
+== T05 public KAT runs ==
+t05_m1_clangover_kat.log                       exit=1
+t05_m1_fixed982c762_kat.log                    exit=1
+t05_m2_unfixed_kat.log                         exit=0
+t05_m2_fixed_kat.log                           exit=0
+t05_m3_on_kat.log                              exit=0
+t05_m3_off_kat.log                             exit=0
+t05_m4_vulnerable_inputs.log                   exit=0
+t05_m4_ct_inputs.log                           exit=0
+t05_m4_vulnerable_describe.log                 exit=0
+t05_m4_ct_describe.log                         exit=0
+t05_m5_reference_kat.log                       exit=0
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m1_clangover_kat.log <==
+M1 public KAT mismatch
+impl=m1-liboqs010-0.10.0-clangover keygen=0/25 encap=25/25 decap=10/10 decap_rejections=5 keycheck=not_applicable(20)
+exit_status=1
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m1_fixed982c762_kat.log <==
+M1 public KAT mismatch
+impl=m1-liboqs010-0.10.0-fixed-982c762 keygen=0/25 encap=25/25 decap=10/10 decap_rejections=5 keycheck=not_applicable(20)
+exit_status=1
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m2_fixed_kat.log <==
+m2-kyber768-round3-fixed: 100 independent official round3 KAT keygen/encap/decap cases passed
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m2_unfixed_kat.log <==
+m2-kyber768-round3-unfixed: 100 independent official round3 KAT keygen/encap/decap cases passed
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m3_off_kat.log <==
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+platform-m3-lut-off: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m3_on_kat.log <==
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+platform-m3-lut-on: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m4_ct_describe.log <==
+module=M4 case=artificial_compare boundary=complete_checked_compare bytes=32 classes=mismatch-first,mismatch-last timing_collection=not_run compare_bytes_default=32 compare_bytes_range=1..32 abi_bytes=32 warmup_calls=100 truncation_rule=mismatch-last:equal_when_compare_bytes_lt_32
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m4_ct_inputs.log <==
+m4_inputs=pass timing_collection=not_run
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m4_vulnerable_describe.log <==
+module=M4 case=artificial_compare boundary=complete_checked_compare bytes=32 classes=mismatch-first,mismatch-last timing_collection=not_run compare_bytes_default=32 compare_bytes_range=1..32 abi_bytes=32 warmup_calls=100 truncation_rule=mismatch-last:equal_when_compare_bytes_lt_32
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m4_vulnerable_inputs.log <==
+m4_inputs=pass timing_collection=not_run
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t05_m5_reference_kat.log <==
+NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts
+reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed
+NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed
+public argument boundaries and system-random roundtrip passed
+exit_status=0
+
+== T06 equivalence probes ==
+=== t06 logs ===
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m1_clangover.log <==
+impl=m1-liboqs010-clangover hash_style=1 rejection_style=1 public_cases=10 public_expected_match=10 public_rejection_cases=5 public_rejection_agree=10 extra_cases=1000 extra_rejected=1000 extra_unexpected_accept=0 skipped_lines=70 failures=0 expected_match_ok=1 rejection_semantics_ok=1
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m1_cmp.log <==
+cmp_exit_status=0
+0
+f4dbc5f4777247ef8930cd78dcafaa3e327e9d3d92aa2056aa465b55f4310b9d  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m1_clangover.digest
+f4dbc5f4777247ef8930cd78dcafaa3e327e9d3d92aa2056aa465b55f4310b9d  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m1_fixed.digest
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m1_fixed.log <==
+impl=m1-liboqs010-fixed hash_style=1 rejection_style=1 public_cases=10 public_expected_match=10 public_rejection_cases=5 public_rejection_agree=10 extra_cases=1000 extra_rejected=1000 extra_unexpected_accept=0 skipped_lines=70 failures=0 expected_match_ok=1 rejection_semantics_ok=1
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m2_cmp.log <==
+cmp_exit_status=0
+0
+3af51d3605554f53461a288e1663aa5db50b176ed1df5feecf83c95c0f4ed0a2  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m2_unfixed.digest
+3af51d3605554f53461a288e1663aa5db50b176ed1df5feecf83c95c0f4ed0a2  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m2_fixed.digest
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m2_fixed.log <==
+impl=m2-pqcrystals-kyber768-fixed hash_style=2 rejection_style=2 public_cases=100 public_expected_match=100 public_rejection_cases=0 public_rejection_agree=100 extra_cases=1000 extra_rejected=1000 extra_unexpected_accept=0 skipped_lines=300 failures=0 expected_match_ok=1 rejection_semantics_ok=1
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m2_unfixed.log <==
+impl=m2-pqcrystals-kyber768-unfixed hash_style=2 rejection_style=2 public_cases=100 public_expected_match=100 public_rejection_cases=0 public_rejection_agree=100 extra_cases=1000 extra_rejected=1000 extra_unexpected_accept=0 skipped_lines=300 failures=0 expected_match_ok=1 rejection_semantics_ok=1
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m3_cmp.log <==
+cmp_exit_status=0
+0
+43c1fb206230284b98d89719894c2cc64867b043b508e200dcb7967626c528e3  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m3_on.digest
+43c1fb206230284b98d89719894c2cc64867b043b508e200dcb7967626c528e3  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m3_off.digest
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m3_off.log <==
+impl=m3-lut-off hash_style=3 rejection_style=1 public_cases=10 public_expected_match=10 public_rejection_cases=5 public_rejection_agree=10 extra_cases=1000 extra_rejected=1000 extra_unexpected_accept=0 skipped_lines=70 failures=0 expected_match_ok=1 rejection_semantics_ok=1
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m3_on.log <==
+impl=m3-lut-on hash_style=3 rejection_style=1 public_cases=10 public_expected_match=10 public_rejection_cases=5 public_rejection_agree=10 extra_cases=1000 extra_rejected=1000 extra_unexpected_accept=0 skipped_lines=70 failures=0 expected_match_ok=1 rejection_semantics_ok=1
+exit_status=0
+
+==> /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/logs/t06_m4_interface_cmp.log <==
+describe_cmp_exit_status=0
+inputs_cmp_exit_status=0
+
+== summary tsv ==
+module	version	log	exit	counts
+M1	liboqs010-historical-clangover	logs/t05_m1_clangover_kat.log	1	M1 public KAT mismatch impl=m1-liboqs010-0.10.0-clangover keygen=0/25 encap=25/25 decap=10/10 decap_rejections=5 keycheck=not_applicable(20) 
+M1	liboqs010-fixed-982c762	logs/t05_m1_fixed982c762_kat.log	1	M1 public KAT mismatch impl=m1-liboqs010-0.10.0-fixed-982c762 keygen=0/25 encap=25/25 decap=10/10 decap_rejections=5 keycheck=not_applicable(20) 
+M2	pqcrystals-kyber768-a621b8d-unfixed	logs/t05_m2_unfixed_kat.log	0	m2-kyber768-round3-unfixed: 100 independent official round3 KAT keygen/encap/decap cases passed 
+M2	pqcrystals-kyber768-272125f-fixed	logs/t05_m2_fixed_kat.log	0	m2-kyber768-round3-fixed: 100 independent official round3 KAT keygen/encap/decap cases passed 
+M3	platform-m3-lut-on	logs/t05_m3_on_kat.log	0	NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts platform-m3-lut-on: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed NIST 10 encapsulation-key + 10 decapsulation-key valida
+M3	platform-m3-lut-off	logs/t05_m3_off_kat.log	0	NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts platform-m3-lut-off: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed NIST 10 encapsulation-key + 10 decapsulation-key valid
+M4	artificial-fixture-vulnerable	logs/t05_m4_vulnerable_inputs.log	0	m4_inputs=pass timing_collection=not_run 
+M4	artificial-fixture-ct	logs/t05_m4_ct_inputs.log	0	m4_inputs=pass timing_collection=not_run 
+M5	reference-path	logs/t05_m5_reference_kat.log	0	NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed NIST 10 encapsulation-key + 10 decapsulation-key validation case
+M1	pair-clangover-vs-982c762	logs/t06_m1_cmp.log		cmp_exit_status=0 0 f4dbc5f4777247ef8930cd78dcafaa3e327e9d3d92aa2056aa465b55f4310b9d  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m1_clangover.digest f4dbc5f4777247ef8930cd78dcafaa3e327
+M2	pair-unfixed-vs-fixed	logs/t06_m2_cmp.log		cmp_exit_status=0 0 3af51d3605554f53461a288e1663aa5db50b176ed1df5feecf83c95c0f4ed0a2  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m2_unfixed.digest 3af51d3605554f53461a288e1663aa5db50b1
+M3	pair-on-vs-off	logs/t06_m3_cmp.log		cmp_exit_status=0 0 43c1fb206230284b98d89719894c2cc64867b043b508e200dcb7967626c528e3  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m3_on.digest 43c1fb206230284b98d89719894c2cc64867b043b5
+M4	pair-vulnerable-vs-ct	logs/t06_m4_interface_cmp.log		describe_cmp_exit_status=0 inputs_cmp_exit_status=0 
+done

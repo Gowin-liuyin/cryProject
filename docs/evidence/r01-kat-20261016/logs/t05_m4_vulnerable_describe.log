@@ -1,0 +1,2 @@
+module=M4 case=artificial_compare boundary=complete_checked_compare bytes=32 classes=mismatch-first,mismatch-last timing_collection=not_run compare_bytes_default=32 compare_bytes_range=1..32 abi_bytes=32 warmup_calls=100 truncation_rule=mismatch-last:equal_when_compare_bytes_lt_32
+exit_status=0

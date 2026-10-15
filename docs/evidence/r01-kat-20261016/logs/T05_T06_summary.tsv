@@ -1,0 +1,14 @@
+module	version	log	exit	counts
+M1	liboqs010-historical-clangover	logs/t05_m1_clangover_kat.log	1	M1 public KAT mismatch impl=m1-liboqs010-0.10.0-clangover keygen=0/25 encap=25/25 decap=10/10 decap_rejections=5 keycheck=not_applicable(20) 
+M1	liboqs010-fixed-982c762	logs/t05_m1_fixed982c762_kat.log	1	M1 public KAT mismatch impl=m1-liboqs010-0.10.0-fixed-982c762 keygen=0/25 encap=25/25 decap=10/10 decap_rejections=5 keycheck=not_applicable(20) 
+M2	pqcrystals-kyber768-a621b8d-unfixed	logs/t05_m2_unfixed_kat.log	0	m2-kyber768-round3-unfixed: 100 independent official round3 KAT keygen/encap/decap cases passed 
+M2	pqcrystals-kyber768-272125f-fixed	logs/t05_m2_fixed_kat.log	0	m2-kyber768-round3-fixed: 100 independent official round3 KAT keygen/encap/decap cases passed 
+M3	platform-m3-lut-on	logs/t05_m3_on_kat.log	0	NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts platform-m3-lut-on: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed NIST 10 encapsulation-key + 10 decapsulation-key valida
+M3	platform-m3-lut-off	logs/t05_m3_off_kat.log	0	NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts platform-m3-lut-off: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed NIST 10 encapsulation-key + 10 decapsulation-key valid
+M4	artificial-fixture-vulnerable	logs/t05_m4_vulnerable_inputs.log	0	m4_inputs=pass timing_collection=not_run 
+M4	artificial-fixture-ct	logs/t05_m4_ct_inputs.log	0	m4_inputs=pass timing_collection=not_run 
+M5	reference-path	logs/t05_m5_reference_kat.log	0	NIST decaps vectors: 5 implicit rejections, 5 accepted ciphertexts reference: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed NIST 10 encapsulation-key + 10 decapsulation-key validation case
+M1	pair-clangover-vs-982c762	logs/t06_m1_cmp.log		cmp_exit_status=0 0 f4dbc5f4777247ef8930cd78dcafaa3e327e9d3d92aa2056aa465b55f4310b9d  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m1_clangover.digest f4dbc5f4777247ef8930cd78dcafaa3e327
+M2	pair-unfixed-vs-fixed	logs/t06_m2_cmp.log		cmp_exit_status=0 0 3af51d3605554f53461a288e1663aa5db50b176ed1df5feecf83c95c0f4ed0a2  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m2_unfixed.digest 3af51d3605554f53461a288e1663aa5db50b1
+M3	pair-on-vs-off	logs/t06_m3_cmp.log		cmp_exit_status=0 0 43c1fb206230284b98d89719894c2cc64867b043b508e200dcb7967626c528e3  /home/nss-marker/yhr/Cry/r01-kat-20261016-2ff55778bc52/out/m3_on.digest 43c1fb206230284b98d89719894c2cc64867b043b5
+M4	pair-vulnerable-vs-ct	logs/t06_m4_interface_cmp.log		describe_cmp_exit_status=0 inputs_cmp_exit_status=0 

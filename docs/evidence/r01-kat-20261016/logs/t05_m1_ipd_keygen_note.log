@@ -1,0 +1,11 @@
+# M1 keygen 0/25 解释（只读上游源码摘录，不改动任何已冻结文件）
+date=2026-10-16T04:06:09+08:00
+## liboqs 0.10.0 ml-kem-768-ipd_ref indcpa.c keypair
+217:  hash_g(buf, coins, KYBER_SYMBYTES);
+## FIPS203 final 参考（mlkem-native，同一仓库同步件）使用 MLKEM_SYMBYTES+1 域分隔
+445:  MLK_ALLOC(coins_with_domain_separator, uint8_t, MLKEM_SYMBYTES + 1, context);
+452:  if (buf == NULL || coins_with_domain_separator == NULL || a == NULL ||
+463:  mlk_memcpy(coins_with_domain_separator, coins, MLKEM_SYMBYTES);
+464:  coins_with_domain_separator[MLKEM_SYMBYTES] = MLKEM_K;
+## 树内文档已声明该历史变体不与最终稿向量绑定
+18:- 本变体**不做**与 `tests/vectors/mlkem768.txt`（最终稿向量）的 KAT 绑定；默认只提供系统随机 roundtrip selftest。

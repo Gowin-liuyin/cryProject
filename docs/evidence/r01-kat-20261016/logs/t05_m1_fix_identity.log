@@ -1,0 +1,59 @@
+# M1 未修/已修 版本身份核对（只读 diff，不改动任何树）
+2026-10-16T04:08:23+08:00
+## 原始树 SHA-256
+ba90afe5bbf862ef8c8fed967542871152446199c4d0983cd4cf4d39bc77ee57  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+6a3b66b46aa76102d780ba5ca94e1a2e6041feecb801f190310e9b10c18a705d  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+## 补丁树 SHA-256
+e8d8d92a474fe609bc8300dce73734e3b0789a6e9afdfd9fe569bd9f63034e0c  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+06f4843fdc7827ef9bb02a8eccc8256024818bd0e5512f21a4c2c06379d4dd09  /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+## poly.c diff（原始 -> 982c762）
+--- /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c	2024-03-23 20:34:28.000000000 +0800
++++ /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c	2026-10-15 18:25:45.503704593 +0800
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -167,7 +168,6 @@
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -175,8 +175,8 @@
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+## verify.c diff
+--- /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c	2024-03-23 20:34:28.000000000 +0800
++++ /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c	2026-10-15 18:25:45.503722938 +0800
+@@ -45,3 +45,21 @@
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
