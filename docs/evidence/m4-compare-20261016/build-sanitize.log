@@ -1,0 +1,20 @@
+[  6%] Building C object CMakeFiles/m4_compare_vulnerable.dir/driver.c.o
+[ 12%] Building C object CMakeFiles/m4_compare_vulnerable.dir/self_test.c.o
+[ 18%] Building C object CMakeFiles/m4_compare_vulnerable.dir/compare_checked.c.o
+[ 25%] Building C object CMakeFiles/m4_compare_vulnerable.dir/compare_early.c.o
+[ 31%] Linking C executable m4_compare_vulnerable
+[ 31%] Built target m4_compare_vulnerable
+[ 37%] Building C object CMakeFiles/m4_binsec_vulnerable.dir/binsec_harness.c.o
+[ 43%] Building C object CMakeFiles/m4_binsec_vulnerable.dir/compare_early.c.o
+[ 50%] Linking C executable m4_binsec_vulnerable
+[ 50%] Built target m4_binsec_vulnerable
+[ 56%] Building C object CMakeFiles/m4_compare_ct.dir/driver.c.o
+[ 62%] Building C object CMakeFiles/m4_compare_ct.dir/self_test.c.o
+[ 68%] Building C object CMakeFiles/m4_compare_ct.dir/compare_checked.c.o
+[ 75%] Building C object CMakeFiles/m4_compare_ct.dir/compare_ct.c.o
+[ 81%] Linking C executable m4_compare_ct
+[ 81%] Built target m4_compare_ct
+[ 87%] Building C object CMakeFiles/m4_binsec_ct.dir/binsec_harness.c.o
+[ 93%] Building C object CMakeFiles/m4_binsec_ct.dir/compare_ct.c.o
+[100%] Linking C executable m4_binsec_ct
+[100%] Built target m4_binsec_ct

@@ -1,0 +1,13 @@
+Test project /Users/yin/code/cryProject/build/platform-s8/sanitize
+    Start 1: m4_vulnerable_self_test
+1/4 Test #1: m4_vulnerable_self_test ..........   Passed    0.76 sec
+    Start 2: m4_vulnerable_probe_smoke
+2/4 Test #2: m4_vulnerable_probe_smoke ........   Passed    0.01 sec
+    Start 3: m4_ct_self_test
+3/4 Test #3: m4_ct_self_test ..................   Passed    0.66 sec
+    Start 4: m4_ct_probe_smoke
+4/4 Test #4: m4_ct_probe_smoke ................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   1.45 sec

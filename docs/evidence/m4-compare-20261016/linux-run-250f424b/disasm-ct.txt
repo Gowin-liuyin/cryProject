@@ -1,0 +1,37 @@
+
+/home/nss-marker/yhr/Cry/platform-s8-20261016-250f424b/build-poison/m4_compare_ct:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001880 <m4_compare_bytes>:
+    1880:	f3 0f 1e fa          	endbr64
+    1884:	48 85 d2             	test   %rdx,%rdx
+    1887:	74 27                	je     18b0 <m4_compare_bytes+0x30>
+    1889:	31 c9                	xor    %ecx,%ecx
+    188b:	45 31 c0             	xor    %r8d,%r8d
+    188e:	66 90                	xchg   %ax,%ax
+    1890:	0f b6 04 0f          	movzbl (%rdi,%rcx,1),%eax
+    1894:	32 04 0e             	xor    (%rsi,%rcx,1),%al
+    1897:	48 83 c1 01          	add    $0x1,%rcx
+    189b:	0f b6 c0             	movzbl %al,%eax
+    189e:	41 09 c0             	or     %eax,%r8d
+    18a1:	48 39 ca             	cmp    %rcx,%rdx
+    18a4:	75 ea                	jne    1890 <m4_compare_bytes+0x10>
+    18a6:	31 c0                	xor    %eax,%eax
+    18a8:	45 85 c0             	test   %r8d,%r8d
+    18ab:	0f 94 c0             	sete   %al
+    18ae:	c3                   	ret
+    18af:	90                   	nop
+    18b0:	b8 01 00 00 00       	mov    $0x1,%eax
+    18b5:	c3                   	ret
+
+Disassembly of section .fini:

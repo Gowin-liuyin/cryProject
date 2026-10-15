@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/platform-s8-20261016-250f424b/build-poison
+Test project /home/nss-marker/yhr/Cry/platform-s8-20261016-250f424b/build-poison
+    Start 1: m4_vulnerable_self_test
+1/4 Test #1: m4_vulnerable_self_test ..........   Passed    0.00 sec
+    Start 2: m4_vulnerable_probe_smoke
+2/4 Test #2: m4_vulnerable_probe_smoke ........   Passed    0.00 sec
+    Start 3: m4_ct_self_test
+3/4 Test #3: m4_ct_self_test ..................   Passed    0.00 sec
+    Start 4: m4_ct_probe_smoke
+4/4 Test #4: m4_ct_probe_smoke ................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.00 sec
