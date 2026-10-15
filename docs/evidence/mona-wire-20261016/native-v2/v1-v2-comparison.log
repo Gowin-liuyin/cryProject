@@ -1,0 +1,15 @@
+v1_root=platform-mona-20261016-1de26030f145 (native-qualification/ 本地副本)
+v2_root=platform-mona2-20261016-1256c4cca76d (native-v2/ 本地副本)
+normalization=两代 Mona 根绝对路径 -> ROOT；JUL 时间戳前缀删除；JAVA_TOOL_OPTIONS 行删除
+
+== m1-mona.csv ==
+BYTE-IDENTICAL
+
+primary-vulnerable core8=OK box-results(norm)=IDENTICAL mona.log(norm)=IDENTICAL bytecode.sha256(norm)=IDENTICAL upstream-sources.sha256(norm)=IDENTICAL tools.sha256(norm)=IDENTICAL
+primary-fixed core8=OK box-results(norm)=IDENTICAL mona.log(norm)=IDENTICAL bytecode.sha256(norm)=IDENTICAL upstream-sources.sha256(norm)=IDENTICAL tools.sha256(norm)=IDENTICAL
+seed-424242-vulnerable core8=OK box-results(norm)=IDENTICAL mona.log(norm)=IDENTICAL bytecode.sha256(norm)=IDENTICAL upstream-sources.sha256(norm)=IDENTICAL tools.sha256(norm)=IDENTICAL
+seed-424242-fixed core8=OK box-results(norm)=IDENTICAL mona.log(norm)=IDENTICAL bytecode.sha256(norm)=IDENTICAL upstream-sources.sha256(norm)=IDENTICAL tools.sha256(norm)=IDENTICAL
+cpu-6-vulnerable core8=OK box-results(norm)=IDENTICAL mona.log(norm)=IDENTICAL bytecode.sha256(norm)=IDENTICAL upstream-sources.sha256(norm)=IDENTICAL tools.sha256(norm)=IDENTICAL
+cpu-6-fixed core8=OK box-results(norm)=IDENTICAL mona.log(norm)=IDENTICAL bytecode.sha256(norm)=IDENTICAL upstream-sources.sha256(norm)=IDENTICAL tools.sha256(norm)=IDENTICAL
+
+note=bytecode.sha256 覆盖 28 个 class，归一化后相同表示两次构建的字节码一致。

@@ -1,0 +1,10 @@
+direction,lower_percentile,upper_percentile,subset_size,subset_count,success_percentage
+Y<X,0.6,0.7,20,500,11.0
+Y<X,0.6,0.7,40,250,13.0
+Y<X,0.6,0.7,80,125,24.0
+Y<X,0.6,0.7,160,62,25.0
+Y<X,0.6,0.7,320,31,23.0
+Y<X,0.6,0.7,640,15,7.0
+Y<X,0.6,0.7,1280,7,29.0
+Y<X,0.6,0.7,2560,3,34.0
+Y<X,0.6,0.7,5120,1,0.0

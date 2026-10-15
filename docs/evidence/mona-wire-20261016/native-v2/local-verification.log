@@ -1,0 +1,11 @@
+local_verification_of_pullback
+pulled_files_total=183
+checked_against_remote_inventory=181
+mismatches=0
+excluded_by_design=2
+excluded_files=ORIGINAL_SHA256SUMS,originals.tar.gz.sha256
+exclusion_reason=清单文件自身与其后写入的压缩包摘要不进入清单，避免自引用
+inventory_source=platform-mona2-20261016-1256c4cca76d/ORIGINAL_SHA256SUMS
+inventory_lines=902
+remote_inventory_selfcheck=902/902 OK（在 /home/nss-marker/yhr/Cry 下执行 sha256sum -c）
+note=181 份拉回原件逐字节与远端根清单一致；清单中未拉回的其余文件仍留在远端 Cry 新根，未删除。

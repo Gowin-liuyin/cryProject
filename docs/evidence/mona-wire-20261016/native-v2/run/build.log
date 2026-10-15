@@ -1,0 +1,22 @@
+[100%] Generating platform-mona/classes/compiled.stamp
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/runtime
+warning: [options] system modules path not set in conjunction with -source 11
+/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Dataset.java:40: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+		Long max = new Long(0);
+		           ^
+/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Dataset.java:57: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+		Long min = new Long(0);
+		           ^
+/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Dataset.java:60: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+			if(secret.getLowestTime().compareTo(min) < 0 || min.equals(new Long(0))) {
+			                                                           ^
+/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Time.java:62: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+			return new Integer(this.rowNo).compareTo(compareTime.rowNo);
+			       ^
+/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/reader/ReaderCsv.java:43: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+		Long newTime = new Long(0);
+		               ^
+Note: /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/plots/Histogram.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+6 warnings
+[100%] Built target platform_mona

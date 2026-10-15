@@ -1,0 +1,16 @@
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=/home/nss-marker/yhr/Cry/platform-mona-20261016-1de26030f145/run/runtime
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchOptimalBox
+INFO: X < Y: optimal box 0.0-1.0
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchSmallestSize
+INFO: X < Y: amount of minimal measures per secret: 16
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: X < Y: validate smallest size 16: 47 out of 62 comparisons returned wrong results.
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: X < Y: validate smallest size 32: 14 out of 31 comparisons returned wrong results.
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: X < Y: validate smallest size 64: 0 out of 15 comparisons returned wrong results.
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation openValidationPhase
+INFO: X < Y: VALID amount of minimal measures per secret: 64
+Oct 16, 2026 1:49:57 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchOptimalBox
+WARNING: Y < X: no significant different result found! You need to measure more times.
+battery_mona_status=validated_box_separation

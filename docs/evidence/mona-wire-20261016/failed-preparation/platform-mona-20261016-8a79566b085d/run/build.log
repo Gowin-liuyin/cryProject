@@ -1,0 +1,248 @@
+[100%] Generating platform-mona/classes/compiled.stamp
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/run/runtime
+warning: [options] system modules path not set in conjunction with -source 11
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:9: error: package org.ini4j does not exist
+import org.ini4j.Ini;
+                ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:10: error: package org.ini4j does not exist
+import org.ini4j.InvalidFileFormatException;
+                ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:11: error: package org.ini4j.Profile does not exist
+import org.ini4j.Profile.Section;
+                        ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:13: error: package com.martiansoftware.jsap does not exist
+import com.martiansoftware.jsap.FlaggedOption;
+                               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:14: error: package com.martiansoftware.jsap does not exist
+import com.martiansoftware.jsap.JSAP;
+                               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:15: error: package com.martiansoftware.jsap does not exist
+import com.martiansoftware.jsap.JSAPException;
+                               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:16: error: package com.martiansoftware.jsap does not exist
+import com.martiansoftware.jsap.JSAPResult;
+                               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:17: error: package com.martiansoftware.jsap does not exist
+import com.martiansoftware.jsap.Switch;
+                               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:378: error: cannot find symbol
+	private JSAP getJsap() {
+	        ^
+  symbol:   class JSAP
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:509: error: cannot find symbol
+	private void printHelp(JSAP jsap) {
+	                       ^
+  symbol:   class JSAP
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/writer/WriteHTML.java:7: error: package org.apache.commons.lang3 does not exist
+import org.apache.commons.lang3.StringEscapeUtils;
+                               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Dataset.java:40: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+		Long max = new Long(0);
+		           ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Dataset.java:57: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+		Long min = new Long(0);
+		           ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Dataset.java:60: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+			if(secret.getLowestTime().compareTo(min) < 0 || min.equals(new Long(0))) {
+			                                                           ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/dataset/Time.java:62: warning: [removal] Integer(int) in Integer has been deprecated and marked for removal
+			return new Integer(this.rowNo).compareTo(compareTime.rowNo);
+			       ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/reader/ReaderCsv.java:43: warning: [removal] Long(long) in Long has been deprecated and marked for removal
+		Long newTime = new Long(0);
+		               ^
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:114: error: cannot find symbol
+		JSAP jsap = getJsap();
+		^
+  symbol:   class JSAP
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:116: error: cannot find symbol
+		JSAPResult result = jsap.parse(args);
+		^
+  symbol:   class JSAPResult
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:281: error: cannot find symbol
+			Ini ini = new Ini(iniFile);
+			^
+  symbol:   class Ini
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:281: error: cannot find symbol
+			Ini ini = new Ini(iniFile);
+			              ^
+  symbol:   class Ini
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:282: error: cannot find symbol
+			Section section = ini.get("reportingTool");
+			^
+  symbol:   class Section
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:368: error: cannot find symbol
+		} catch (InvalidFileFormatException e) {
+		         ^
+  symbol:   class InvalidFileFormatException
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:379: error: cannot find symbol
+		JSAP jsap = new JSAP();
+		^
+  symbol:   class JSAP
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:379: error: cannot find symbol
+		JSAP jsap = new JSAP();
+		                ^
+  symbol:   class JSAP
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:383: error: cannot find symbol
+			Switch help = new Switch("help").setShortFlag('h').setLongFlag(
+			^
+  symbol:   class Switch
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:383: error: cannot find symbol
+			Switch help = new Switch("help").setShortFlag('h').setLongFlag(
+			                  ^
+  symbol:   class Switch
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:389: error: cannot find symbol
+			FlaggedOption pdflatexPath = new FlaggedOption("pdflatexPath")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:389: error: cannot find symbol
+			FlaggedOption pdflatexPath = new FlaggedOption("pdflatexPath")
+			                                 ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:396: error: cannot find symbol
+			FlaggedOption makeindexPath = new FlaggedOption("makeindexPath")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:396: error: cannot find symbol
+			FlaggedOption makeindexPath = new FlaggedOption("makeindexPath")
+			                                  ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:403: error: cannot find symbol
+			FlaggedOption gnuplot = new FlaggedOption("gnuplot")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:403: error: cannot find symbol
+			FlaggedOption gnuplot = new FlaggedOption("gnuplot")
+			                            ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:409: error: cannot find symbol
+			FlaggedOption inputFile = new FlaggedOption("inputFile")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:409: error: cannot find symbol
+			FlaggedOption inputFile = new FlaggedOption("inputFile")
+			                              ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:416: error: cannot find symbol
+			FlaggedOption name = new FlaggedOption("name").setShortFlag('n')
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:416: error: cannot find symbol
+			FlaggedOption name = new FlaggedOption("name").setShortFlag('n')
+			                         ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:422: error: cannot find symbol
+			FlaggedOption numBin = new FlaggedOption("numBin")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:422: error: cannot find symbol
+			FlaggedOption numBin = new FlaggedOption("numBin")
+			                           ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:428: error: cannot find symbol
+			FlaggedOption scale = new FlaggedOption("scale")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:428: error: cannot find symbol
+			FlaggedOption scale = new FlaggedOption("scale")
+			                          ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:434: error: cannot find symbol
+			FlaggedOption lowerBound = new FlaggedOption("lowerBound")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:434: error: cannot find symbol
+			FlaggedOption lowerBound = new FlaggedOption("lowerBound")
+			                               ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:441: error: cannot find symbol
+			FlaggedOption upperBound = new FlaggedOption("upperBound")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:441: error: cannot find symbol
+			FlaggedOption upperBound = new FlaggedOption("upperBound")
+			                               ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:448: error: cannot find symbol
+			FlaggedOption lowerOptimalBound  = new FlaggedOption("lowerOptimalBound")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:448: error: cannot find symbol
+			FlaggedOption lowerOptimalBound  = new FlaggedOption("lowerOptimalBound")
+			                                       ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:455: error: cannot find symbol
+			FlaggedOption upperOptimalBound  = new FlaggedOption("upperOptimalBound")
+			^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:455: error: cannot find symbol
+			FlaggedOption upperOptimalBound  = new FlaggedOption("upperOptimalBound")
+			                                       ^
+  symbol:   class FlaggedOption
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:462: error: cannot find symbol
+			Switch verbose = new Switch("verbose").setShortFlag('V').setLongFlag(
+			^
+  symbol:   class Switch
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:462: error: cannot find symbol
+			Switch verbose = new Switch("verbose").setShortFlag('V').setLongFlag(
+			                     ^
+  symbol:   class Switch
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/tools/Conf.java:467: error: cannot find symbol
+		} catch (JSAPException e) {
+		         ^
+  symbol:   class JSAPException
+  location: class Conf
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/writer/WriteHTML.java:54: error: cannot find symbol
+			String secretName = StringEscapeUtils.unescapeHtml4(secrets.get(i).getName().replaceAll("[^\\x20-\\x7e]", ""));
+			                    ^
+  symbol:   variable StringEscapeUtils
+  location: class WriteHTML
+/home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/writer/WriteHTML.java:64: error: cannot find symbol
+		String datasetName = StringEscapeUtils.unescapeHtml4(dataSet.getName()).replaceAll("[^\\x20-\\x7e]", "");
+		                     ^
+  symbol:   variable StringEscapeUtils
+  location: class WriteHTML
+Note: /home/nss-marker/yhr/Cry/platform-mona-20261016-8a79566b085d/source/third_party/mona-timing-report/src/de/fau/pi1/timerReporter/plots/Histogram.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+48 errors
+6 warnings
+gmake[3]: *** [CMakeFiles/platform_mona.dir/build.make:102: platform-mona/classes/compiled.stamp] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:839: CMakeFiles/platform_mona.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:846: CMakeFiles/platform_mona.dir/rule] Error 2
+gmake: *** [Makefile:499: platform_mona] Error 2

@@ -1,0 +1,7 @@
+dataset,tool,status,class0_count,class1_count,validated_records,rejected_records,holm_member
+primary-vulnerable,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+primary-fixed,mona_upstream_offline,validated_box_separation,10000,10000,1,8,false
+seed-424242-vulnerable,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+seed-424242-fixed,mona_upstream_offline,validated_box_separation,10000,10000,1,1,false
+cpu-6-vulnerable,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+cpu-6-fixed,mona_upstream_offline,no_validated_box_separation,10000,10000,0,0,false

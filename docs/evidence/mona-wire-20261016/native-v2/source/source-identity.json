@@ -1,0 +1,43 @@
+{
+  "round": "native-v2",
+  "tree": "/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d",
+  "base_commit": "47033dd864cab5544d2d2cc82d1ed0cf03b30f83",
+  "previous_round_base_commit": "44c209af65546eb3df3bdf5b165f52a7ef76feab",
+  "mona_timing_report_commit": "4c74fb7e629b4d057b2d5d4accdb120d920774b7",
+  "mona_timing_lib_commit": "81e4de2971a5b379eb60fb4218e8ff771c554a1b",
+  "uploaded_file_count": 123,
+  "uploaded_subset_note": "与 v1 上传清单逐字节相同，只有 scripts/platform_mona/run_native.sh 被修正（44485619c95050aa8af3ae16606d824290084a475c1d9d00b58da6ac9ff3e76a -> 9b48d7be9ef76307ce914026bfdba4fe6c1e1321b87baff35d95c9fbe77a772d），把 v2 根名 platform-mona2-20261016-<12hex> 纳入同一物理路径守卫。",
+  "working_tree_note": "本清单 123 个文件中 6 个为已提交的封存 M1 CSV（未修改），116 个为未跟踪/被忽略文件；工作区另有 4 个已跟踪文件修改（CMakeLists.txt、src/main.c、src/measure.c、src/mlkem.c）不属于 Mona 子集，未上传、未执行。",
+  "inputs": [
+    {
+      "path": "docs/evidence/tooling-strengthen-20261015/csv/vulnerable-message-zero-ones.csv",
+      "sha256": "8b176e085d31e697399a5c1c6893b262925bba4944d4ebd7276f65334b96bd95",
+      "role": "M1 主 CSV（主类对 message-zero vs message-ones，未修）"
+    },
+    {
+      "path": "docs/evidence/tooling-strengthen-20261015/csv/fixed-message-zero-ones.csv",
+      "sha256": "887a90ea9da97c5b42175410bc58a67baf26aed9ff99240fe3e39527fa5d3bc8",
+      "role": "M1 主 CSV（主类对 message-zero vs message-ones，已修）"
+    },
+    {
+      "path": "docs/evidence/r02-r04-close-20261016/raw/seed-424242/csv/vulnerable-message-zero-ones.csv",
+      "sha256": "07dc6605c8ba758a3f1d318f5cf747ccd64b846d610b85b205ddb6f1445ebc8f",
+      "role": "M1 复测 1（种子 424242），未修"
+    },
+    {
+      "path": "docs/evidence/r02-r04-close-20261016/raw/seed-424242/csv/fixed-message-zero-ones.csv",
+      "sha256": "090041dae092369380258efcd716076d4b72728a3f08c9fcc759c057b8f8eeee",
+      "role": "M1 复测 1（种子 424242），已修"
+    },
+    {
+      "path": "docs/evidence/r02-r04-close-20261016/raw/cpu-6/csv/vulnerable-message-zero-ones.csv",
+      "sha256": "5bc83463e372404fb51136a419669166a41afd0c30309b7880e28535b8109f38",
+      "role": "M1 复测 2（CPU6），未修"
+    },
+    {
+      "path": "docs/evidence/r02-r04-close-20261016/raw/cpu-6/csv/fixed-message-zero-ones.csv",
+      "sha256": "7e97be0952c631500ab6901a7595da6d9c7fe489eb37c9da00c56b2007540e4b",
+      "role": "M1 复测 2（CPU6），已修"
+    }
+  ]
+}

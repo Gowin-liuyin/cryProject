@@ -1,0 +1,5 @@
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/runtime
+Exception in thread "main" java.lang.IllegalArgumentException: Malformed CSV row.
+	at MonaReplay$InputReader.read(MonaReplay.java:65)
+	at de.fau.pi1.timerReporter.dataset.Dataset.<init>(Dataset.java:29)
+	at MonaReplay.main(MonaReplay.java:127)

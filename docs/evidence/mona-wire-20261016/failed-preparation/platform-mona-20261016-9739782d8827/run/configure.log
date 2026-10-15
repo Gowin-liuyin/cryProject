@@ -1,0 +1,11 @@
+CMake Error at /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find Java (missing: Java_JAR_EXECUTABLE Java_JAVADOC_EXECUTABLE
+  Development) (found suitable version "21.0.12", minimum required is "11")
+Call Stack (most recent call first):
+  /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:600 (_FPHSA_FAILURE_MESSAGE)
+  /usr/share/cmake-3.28/Modules/FindJava.cmake:313 (find_package_handle_standard_args)
+  /home/nss-marker/yhr/Cry/platform-mona-20261016-9739782d8827/source/cmake/PlatformMona.cmake:6 (find_package)
+  CMakeLists.txt:8 (include)
+
+
+-- Configuring incomplete, errors occurred!

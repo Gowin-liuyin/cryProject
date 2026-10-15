@@ -1,0 +1,15 @@
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchOptimalBox
+信息: X < Y: optimal box 0.0-1.0
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchSmallestSize
+信息: X < Y: amount of minimal measures per secret: 16
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+信息: X < Y: validate smallest size 16: 47 out of 62 comparisons returned wrong results.
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+信息: X < Y: validate smallest size 32: 14 out of 31 comparisons returned wrong results.
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+信息: X < Y: validate smallest size 64: 0 out of 15 comparisons returned wrong results.
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation openValidationPhase
+信息: X < Y: VALID amount of minimal measures per secret: 64
+10月 16, 2026 1:36:00 上午 de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchOptimalBox
+警告: Y < X: no significant different result found! You need to measure more times.
+battery_mona_status=validated_box_separation

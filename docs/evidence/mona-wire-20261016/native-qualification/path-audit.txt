@@ -1,0 +1,3 @@
+source/scripts/platform_mona/run.sh:61:"${java_program}" -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir="${TMPDIR}" \
+source/scripts/platform_mona/run.sh:71:"${java_program}" -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir="${TMPDIR}" \
+source/scripts/platform_mona/run_native.sh:35:JAVA_TOOL_OPTIONS="-XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=${TMPDIR}"

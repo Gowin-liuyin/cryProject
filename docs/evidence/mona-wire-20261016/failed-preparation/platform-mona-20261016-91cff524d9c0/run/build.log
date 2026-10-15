@@ -1,0 +1,9 @@
+[100%] Generating platform-mona/classes/compiled.stamp
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=/home/nss-marker/yhr/Cry/platform-mona-20261016-91cff524d9c0/run/runtime
+error: release version 8 not supported
+Usage: javac <options> <source files>
+use --help for a list of possible options
+gmake[3]: *** [CMakeFiles/platform_mona.dir/build.make:102: platform-mona/classes/compiled.stamp] Error 2
+gmake[2]: *** [CMakeFiles/Makefile2:839: CMakeFiles/platform_mona.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:846: CMakeFiles/platform_mona.dir/rule] Error 2
+gmake: *** [Makefile:499: platform_mona] Error 2

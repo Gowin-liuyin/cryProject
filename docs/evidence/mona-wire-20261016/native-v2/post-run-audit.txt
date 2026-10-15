@@ -1,0 +1,23 @@
+audit_time: 2026-10-16T02:10:19+08:00
+== remaining java processes ==
+none
+== remaining javac/compiler-module processes ==
+none
+== caller affinity after run ==
+pid 375381 的当前亲和力列表：0-31
+== symlinks under new root ==
+0
+== file count / size ==
+899
+12M	/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d
+== run runtime/cache emptiness ==
+3
+== HOME ~/.m2 ==
+absent
+== read-only scan: /tmp and /var/tmp entries newer than run start ==
+/tmp
+/var/tmp
+== read-only scan: HOME depth<=2 newer than run start, outside Cry ==
+/home/nss-marker/.codex/logs_2.sqlite-shm
+/home/nss-marker/.codex/logs_2.sqlite-wal
+/home/nss-marker/yhr/Cry

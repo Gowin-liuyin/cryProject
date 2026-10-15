@@ -1,0 +1,23 @@
+Start testing: Oct 16 02:09 CST
+----------------------------------------------------------
+1/1 Testing: platform_mona_calibration
+1/1 Test: platform_mona_calibration
+Command: "/usr/bin/sh" "/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/scripts/platform_mona/self_test.sh" "/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/build/platform-mona/classes" "/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report" "/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/build/test-tmp"
+Directory: /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/build
+"platform_mona_calibration" start time: Oct 16 02:09 CST
+Output:
+----------------------------------------------------------
+Output directory must not exist.
+mona_calibration_passed=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/build/test-tmp/platform-mona.vbTmRd
+<end of output>
+Test time =   2.13 sec
+----------------------------------------------------------
+Test Passed.
+"platform_mona_calibration" end time: Oct 16 02:09 CST
+"platform_mona_calibration" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Oct 16 02:09 CST
+
+platform =   2.13 sec*proc
+

@@ -1,0 +1,15 @@
+guard_pattern_test (run_native.sh v2, sha256 85ed5a4c41f175645b1eae3b2a7f3395a2dc3f36b4c6f1b24e995b2a5f219c13)
+command: sh -n; then 9 组符号路径按同一 case 守卫判定（不实际运行入口）
+
+syntax(sh)=OK
+syntax(bash)=OK
+
+ACCEPT /home/nss-marker/yhr/Cry/platform-mona-20261016-1de26030f145/source
+ACCEPT /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source
+REJECT /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256C4CCA76D/source
+REJECT /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76/source
+REJECT /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76dd/source
+REJECT(non-source) /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/other
+REJECT /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/sub/source
+REJECT /home/nss-marker/yhr/Cry/platform-collect-20261016-abcd/source
+REJECT /tmp/platform-mona2-20261016-1256c4cca76d/source

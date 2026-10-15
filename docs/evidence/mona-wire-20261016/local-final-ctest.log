@@ -1,0 +1,23 @@
+Start testing: Oct 16 01:52 CST
+----------------------------------------------------------
+1/1 Testing: platform_mona_calibration
+1/1 Test: platform_mona_calibration
+Command: "/bin/sh" "/Users/yin/code/cryProject/scripts/platform_mona/self_test.sh" "/Users/yin/code/cryProject/build/platform-mona-local-20261016/platform-mona/classes" "/Users/yin/code/cryProject/third_party/mona-timing-report" "/Users/yin/code/cryProject/build/platform-mona-local-20261016/test-tmp"
+Directory: /Users/yin/code/cryProject/build/platform-mona-local-20261016
+"platform_mona_calibration" start time: Oct 16 01:52 CST
+Output:
+----------------------------------------------------------
+Output directory must not exist.
+mona_calibration_passed=/Users/yin/code/cryProject/build/platform-mona-local-20261016/test-tmp/platform-mona.k5m9Rr
+<end of output>
+Test time =   3.16 sec
+----------------------------------------------------------
+Test Passed.
+"platform_mona_calibration" end time: Oct 16 01:52 CST
+"platform_mona_calibration" time elapsed: 00:00:03
+----------------------------------------------------------
+
+End testing: Oct 16 01:52 CST
+
+platform =   3.16 sec*proc
+

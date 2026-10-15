@@ -1,0 +1,17 @@
+source/scripts/platform_mona/run_native.sh:38:TMPDIR="${run_root}/runtime"
+source/scripts/platform_mona/run_native.sh:39:TMP=${TMPDIR}
+source/scripts/platform_mona/run_native.sh:40:TEMP=${TMPDIR}
+source/scripts/platform_mona/run_native.sh:41:XDG_CACHE_HOME="${run_root}/cache"
+source/scripts/platform_mona/run_native.sh:42:JAVA_TOOL_OPTIONS="-XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=${TMPDIR}"
+source/scripts/platform_mona/run_native.sh:44:LC_ALL=C
+source/scripts/platform_mona/run_native.sh:46:export TMPDIR TMP TEMP XDG_CACHE_HOME JAVA_TOOL_OPTIONS LC_ALL LANG
+source/scripts/platform_mona/run.sh:56:TMPDIR="${output_directory}/runtime"
+source/scripts/platform_mona/run.sh:57:TMP=${TMPDIR}
+source/scripts/platform_mona/run.sh:58:TEMP=${TMPDIR}
+source/scripts/platform_mona/run.sh:59:XDG_CACHE_HOME="${output_directory}/cache"
+source/scripts/platform_mona/run.sh:60:export TMPDIR TMP TEMP XDG_CACHE_HOME
+source/scripts/platform_mona/run.sh:61:"${java_program}" -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir="${TMPDIR}" \
+source/scripts/platform_mona/run.sh:71:"${java_program}" -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir="${TMPDIR}" \
+LC_ALL=C
+LANG=C
+export TMPDIR TMP TEMP XDG_CACHE_HOME JAVA_TOOL_OPTIONS LC_ALL LANG
