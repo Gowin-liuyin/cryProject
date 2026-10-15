@@ -7,6 +7,26 @@
 
 ## 1. 采集条件（全部经唯一锁频控制器）
 
+### 1.0 冻结计划与实际执行版本
+
+四份 PLAN 在**采数之前**由一次提交 `efca8a1` 冻结。控制器对每次运行校验
+`--plan-sha256`，下面四个值就是**实际通过校验并在采集日志里逐字记录**的摘要
+（等于 `git show efca8a1:<该路径>` 的 blob 摘要）：
+
+| 模块 | 计划路径 | 执行用 sha256 |
+|---|---|---|
+| M2 | `docs/evidence/m2-kem-20261016/PLAN.md` | `0f706455c6a8fde28ecd3dc18fb12ae4562c2f57dc7e2d991b5ff83c5cd07142` |
+| M5 | `docs/evidence/m5-completion-20261016/PLAN.md` | `15738beea1e8d22ae58f83ed741636c2bcf7d9f49e16f0c5c0f2f8590c323e44` |
+| M3 | `docs/evidence/m3-completion-20261016/PLAN.md` | `be2db4599fb9c5d39852f001d3cf872173b68c2d65ebb4ca542ea0798e01a4a0` |
+| M4 | `docs/evidence/m4-completion-20261016/PLAN.md` | `767f0378124645f9830b14cfbff61fb2571cbf050b451b93fbe74ac8256f509a` |
+
+冻结之后四份 PLAN 各经过一次**文档修订**（补录实读摘要、把执行入口换成绝对路径、
+同步交付语义、修正正文与已填值的不一致）；修订**没有**改变类对、样本预算、
+Holm 家族与 m、α、停止规则或频率恢复合同，但确实改动了 M2 在线 dudect 的措辞
+（修订版写"固定 20 批"，执行版写"最多 21 批，首批为上游预热/分位阶段"）。
+**实际执行按执行版**：M2 每臂 21 批 = 1 个预热批 + 20 个检验批 = 210000 次完整解封装。
+每份 PLAN 顶部都有对应的版本说明。
+
 | 项 | 值 |
 |---|---|
 | 控制器源码 | `tools/platform_control/controller.py`，sha256 `4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701`（提交 `a3c9ca1`） |
