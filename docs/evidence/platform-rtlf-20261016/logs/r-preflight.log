@@ -1,0 +1,2 @@
+command: Rscript --vanilla -e required(tidyverse,optparse,jsonlite,crayon,parallel)
+exit_code: 0

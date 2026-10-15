@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-16 02:43:21",
+    "alpha": 0.01,
+    "input_file": "/home/nss-marker/yhr/Cry/platform-rtlf-20261016/inputs/m4-m4-s2-vuln-main/normalized.csv",
+    "samples": 10000,
+    "bootstrap_iterations": 10000,
+    "difference_detected": true,
+    "significant_deciles": [40, 50, 60],
+    "exit_code": 11
+  },
+  "statistics": {
+    "series_x": {
+      "count": 10000,
+      "min": 20,
+      "max": 541,
+      "mean": 22.9539,
+      "median": 20,
+      "stdev": 6.883
+    },
+    "series_y": {
+      "count": 10000,
+      "min": 20,
+      "max": 4177,
+      "mean": 27.3047,
+      "median": 30,
+      "stdev": 41.7846
+    }
+  },
+  "results": [
+    {
+      "Decile": "10%",
+      "Difference": 0,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "20%",
+      "Difference": 0,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "30%",
+      "Difference": 0,
+      "Threshold": 1,
+      "ThresholdX": 0,
+      "ThresholdY": 1
+    },
+    {
+      "Decile": "40%",
+      "Difference": 10,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "50%",
+      "Difference": 10,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "60%",
+      "Difference": 10,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "70%",
+      "Difference": 9,
+      "Threshold": 9,
+      "ThresholdX": 9,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "80%",
+      "Difference": 0,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "90%",
+      "Difference": 0,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    }
+  ]
+}

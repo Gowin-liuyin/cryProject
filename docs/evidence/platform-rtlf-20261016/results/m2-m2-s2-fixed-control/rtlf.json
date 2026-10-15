@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-16 02:34:10",
+    "alpha": 0.01,
+    "input_file": "/home/nss-marker/yhr/Cry/platform-rtlf-20261016/inputs/m2-m2-s2-fixed-control/normalized.csv",
+    "samples": 10000,
+    "bootstrap_iterations": 10000,
+    "difference_detected": false,
+    "significant_deciles": [],
+    "exit_code": 10
+  },
+  "statistics": {
+    "series_x": {
+      "count": 10000,
+      "min": 60236,
+      "max": 88606,
+      "mean": 60883.5325,
+      "median": 60717,
+      "stdev": 904.2988
+    },
+    "series_y": {
+      "count": 10000,
+      "min": 60226,
+      "max": 95418,
+      "mean": 60888.6858,
+      "median": 60717,
+      "stdev": 1047.6511
+    }
+  },
+  "results": [
+    {
+      "Decile": "10%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 9,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "20%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "30%",
+      "Difference": 0,
+      "Threshold": 9,
+      "ThresholdX": 9,
+      "ThresholdY": 9
+    },
+    {
+      "Decile": "40%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 9
+    },
+    {
+      "Decile": "50%",
+      "Difference": 0,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "60%",
+      "Difference": 0,
+      "Threshold": 0,
+      "ThresholdX": 0,
+      "ThresholdY": 0
+    },
+    {
+      "Decile": "70%",
+      "Difference": 9,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "80%",
+      "Difference": 0,
+      "Threshold": 10,
+      "ThresholdX": 10,
+      "ThresholdY": 10
+    },
+    {
+      "Decile": "90%",
+      "Difference": 9,
+      "Threshold": 40,
+      "ThresholdX": 40,
+      "ThresholdY": 40
+    }
+  ]
+}
