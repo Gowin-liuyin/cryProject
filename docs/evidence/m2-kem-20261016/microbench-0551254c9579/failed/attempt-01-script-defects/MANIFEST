@@ -1,0 +1,5 @@
+attempt=01
+failed_at=2026-10-16T02:38+08:00
+stage=run_micro_qualification.sh
+reason=资格脚本自身缺陷：qualification 摘要 grep 锚点错误、unit 行计数差一、platform_stats 输出文件名写错（实际为 ci_welch.json）
+artifacts=qualification-ordinary/ qualification-smoke/

@@ -1,0 +1,6 @@
+elf=/home/nss-marker/yhr/Cry/platform-m2micro-20261016-0551254c9579/build-ordinary/qualification/unfixed/m2_hotspot_qualification
+pqcrystals_kyber768_ref_poly_tomsg: division_instructions=1
+pqcrystals_kyber768_ref_poly_compress: division_instructions=1
+pqcrystals_kyber768_ref_polyvec_compress: division_instructions=1
+pqcrystals_kyber768_ref_dec: division_instructions=0
+mlkem_decapsulate: division_instructions=0

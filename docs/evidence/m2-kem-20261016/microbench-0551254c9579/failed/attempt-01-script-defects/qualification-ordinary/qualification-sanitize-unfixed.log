@@ -1,0 +1,16 @@
+check=hotspot_symbol status=PASS namespaced_symbol=pqcrystals_kyber768_ref_poly_tomsg expected=pqcrystals_kyber768_ref_poly_tomsg
+check=hotspot_input_matches_decapsulation status=PASS class=message-zero bytes=512
+check=decapsulation_calls_hotspot_once status=PASS class=message-zero calls_per_decapsulation=1
+check=hotspot_output_matches_decapsulation status=PASS class=message-zero bytes=32
+check=hotspot_output_matches_chosen_message status=PASS class=message-zero expected_byte=0x00
+check=hotspot_input_matches_decapsulation status=PASS class=message-ones bytes=512
+check=decapsulation_calls_hotspot_once status=PASS class=message-ones calls_per_decapsulation=1
+check=hotspot_output_matches_decapsulation status=PASS class=message-ones bytes=32
+check=hotspot_output_matches_chosen_message status=PASS class=message-ones expected_byte=0xff
+check=kat_entry_parsed status=PASS path=/home/nss-marker/yhr/Cry/platform-m2micro-20261016-0551254c9579/source/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp first_entry=count0
+check=kat_decapsulation_succeeds status=PASS calls_per_decapsulation=1
+check=kat_shared_secret_matches_vector status=PASS bytes=32
+check=kat_hotspot_input_matches_decapsulation status=PASS bytes=512
+check=collector_meta_parsed status=PASS path=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta seed=31337 samples=100 classes=2
+check=collector_input_sequence_digest status=PASS seed=31337 samples_per_class=100
+qualification_pass_count=15 qualification_fail_count=0 qualification_skip_count=0

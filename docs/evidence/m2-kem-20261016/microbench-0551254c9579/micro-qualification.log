@@ -1,0 +1,87 @@
+=== 功能资格（普通构建，两臂）===
+check=hotspot_symbol status=PASS namespaced_symbol=pqcrystals_kyber768_ref_poly_tomsg expected=pqcrystals_kyber768_ref_poly_tomsg
+check=hotspot_input_matches_decapsulation status=PASS class=message-zero bytes=512
+check=decapsulation_calls_hotspot_once status=PASS class=message-zero calls_per_decapsulation=1
+check=hotspot_output_matches_decapsulation status=PASS class=message-zero bytes=32
+check=hotspot_output_matches_chosen_message status=PASS class=message-zero expected_byte=0x00
+check=hotspot_input_matches_decapsulation status=PASS class=message-ones bytes=512
+check=decapsulation_calls_hotspot_once status=PASS class=message-ones calls_per_decapsulation=1
+check=hotspot_output_matches_decapsulation status=PASS class=message-ones bytes=32
+check=hotspot_output_matches_chosen_message status=PASS class=message-ones expected_byte=0xff
+check=kat_entry_parsed status=PASS path=/home/nss-marker/yhr/Cry/platform-m2micro-20261016-0551254c9579/source/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp first_entry=count0
+check=kat_decapsulation_succeeds status=PASS calls_per_decapsulation=1
+check=kat_shared_secret_matches_vector status=PASS bytes=32
+check=kat_hotspot_input_matches_decapsulation status=PASS bytes=512
+check=collector_meta_parsed status=PASS path=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta seed=31337 samples=100 classes=2
+check=collector_input_sequence_digest status=PASS seed=31337 samples_per_class=100
+qualification_pass_count=15 qualification_fail_count=0 qualification_skip_count=0
+guard=qualification_unfixed_summary status=PASS
+check=hotspot_symbol status=PASS namespaced_symbol=pqcrystals_kyber768_ref_poly_tomsg expected=pqcrystals_kyber768_ref_poly_tomsg
+check=hotspot_input_matches_decapsulation status=PASS class=message-zero bytes=512
+check=decapsulation_calls_hotspot_once status=PASS class=message-zero calls_per_decapsulation=1
+check=hotspot_output_matches_decapsulation status=PASS class=message-zero bytes=32
+check=hotspot_output_matches_chosen_message status=PASS class=message-zero expected_byte=0x00
+check=hotspot_input_matches_decapsulation status=PASS class=message-ones bytes=512
+check=decapsulation_calls_hotspot_once status=PASS class=message-ones calls_per_decapsulation=1
+check=hotspot_output_matches_decapsulation status=PASS class=message-ones bytes=32
+check=hotspot_output_matches_chosen_message status=PASS class=message-ones expected_byte=0xff
+check=kat_entry_parsed status=PASS path=/home/nss-marker/yhr/Cry/platform-m2micro-20261016-0551254c9579/source/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp first_entry=count0
+check=kat_decapsulation_succeeds status=PASS calls_per_decapsulation=1
+check=kat_shared_secret_matches_vector status=PASS bytes=32
+check=kat_hotspot_input_matches_decapsulation status=PASS bytes=512
+check=collector_meta_parsed status=PASS path=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta seed=31337 samples=100 classes=2
+check=collector_input_sequence_digest status=PASS seed=31337 samples_per_class=100
+qualification_pass_count=15 qualification_fail_count=0 qualification_skip_count=0
+guard=qualification_fixed_summary status=PASS
+=== 动态资格（ASan/UBSan，两臂；只做内存/UB 检查，不用于机制或计时）===
+guard=qualification_sanitize_unfixed status=PASS
+guard=qualification_sanitize_fixed status=PASS
+=== 跨臂转录逐字节一致（只在函数等价意义上）===
+guard=transcript_arms_identical status=PASS
+=== 冻结采集件的公开 KAT（只读执行，不写冻结树）===
+guard=kat_unfixed status=PASS
+guard=kat_fixed status=PASS
+=== CLI 准入（未修臂，期望失败不留输出）===
+guard=no_arguments status=PASS exit=2
+guard=unknown_option status=PASS exit=2
+guard=unknown_class status=PASS exit=2
+guard=malformed_class status=PASS exit=2
+guard=duplicate_class status=PASS exit=2
+guard=zero_samples status=PASS exit=2
+guard=oversized_samples status=PASS exit=2
+guard=non_decimal_seed status=PASS exit=2
+guard=zero_warmup status=PASS exit=2
+guard=missing_raw status=PASS exit=2
+guard=absent_public_key status=PASS exit=1
+guard=short_public_key status=PASS exit=1
+=== 解锁冒烟（不是统计结果；不得用于任何结论）===
+guard=smoke_header_exact status=PASS
+guard=smoke_row_count status=PASS
+guard=smoke_unit_ns status=PASS
+guard=smoke_meta_warmup status=PASS
+guard=smoke_meta_warmup_attempted status=PASS
+guard=smoke_meta_warmup_completed status=PASS
+guard=smoke_meta_scope status=PASS
+guard=smoke_meta_symbol status=PASS
+guard=smoke_meta_status status=PASS
+guard=smoke_meta_no_zero_elapsed status=PASS
+guard=smoke_meta_no_mismatch status=PASS
+guard=smoke_meta_affinity status=PASS
+guard=smoke_meta_frequency status=PASS
+guard=smoke_meta_self_hash status=PASS
+guard=smoke_minimum_not_trimmed status=PASS
+guard=smoke_replay_order_identical status=PASS
+guard=smoke_seed_changes_order status=PASS
+guard=smoke_seed_keeps_counts status=PASS
+guard=smoke_per_class_counts status=PASS
+guard=smoke_cross_arm_input_digest status=PASS
+guard=smoke_collector_input_digest status=PASS
+guard=stats_binary_sha256 status=PASS
+=== --format measure 兼容性（冻结 platform_stats 解析器，仅格式检查）===
+guard=measure_format_parsed status=PASS
+guard=measure_format_normalized status=PASS
+guard=measure_format_excluded_none status=PASS
+guard=measure_format_class_counts status=PASS
+guard=measure_format_class_counts_second status=PASS
+failed_guard_count=0
+micro_qualification_status=PASS

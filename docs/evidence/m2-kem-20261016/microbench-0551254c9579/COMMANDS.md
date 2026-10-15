@@ -4,6 +4,12 @@
 本文件只交命令与判据；微基准的**实际执行**由 lead 经唯一锁频控制器串行完成。
 作者没有 sudo，因此没有自行运行控制器，也没有写任何频率、隔离或亲和性配置。
 
+> **执行状态（2026-10-16 02:39–02:40）**：下列六个 run 已由 lead 按本清单执行完毕，
+> 控制器 `terminal.json` 六份全部 `reason=worker_finished` / `worker_exit_code=0` /
+> `worker_drained=true` / `restore_match=yes`；原始 CSV/meta 在 `<MICRO>/runs/<run-name>/`。
+> 独立只读核对（`verify_completed_micro_runs.sh`）`verified_runs=6 failed_checks=0`，
+> 日志 `micro-runs-verification.log`；统计结论见同目录 `RESULT.md`。本清单保留为执行记录。
+
 ## 1. 触发与范围（按冻结 PLAN §5）
 
 - 触发条件已满足：端到端主类对 Holm 家族 `m2_end_to_end_full_decaps_v1`（m = 6）全部不拒绝

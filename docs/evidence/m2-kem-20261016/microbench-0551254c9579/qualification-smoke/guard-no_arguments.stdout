@@ -1,0 +1,7 @@
+usage: m2_hotspot_microbench --class <name>[,<name>] --samples <n> --seed <n>
+                              --raw <csv> --public-key <file> --secret-key <file>
+                              [--run-id <id>] [--meta <file>] [--warmup <n>]
+  classes: message-zero,message-ones (the chosen-message pair of the M2 PLAN)
+  window: one pqcrystals_kyber768_ref_poly_tomsg call, nanoseconds, no deduction
+  samples is per class; rows = classes * samples, class order is seed-replayable
+  raw/meta are created exclusively (wx) and never overwritten

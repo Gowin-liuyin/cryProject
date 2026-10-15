@@ -1,0 +1,46 @@
+M2 微基准登记项：已修臂 poly_tomsg 在系数 −2497 上与未修臂输出不一致
+2026-10-16，作者：微基准任务。只登记固定产物上的机制事实，不据此改任何声明。
+
+对象
+  vendor/kyber-kyberslash-unfixed/ref/poly.c 的 poly_tomsg：
+      t  = a->coeffs[8*i+j];
+      t += ((int16_t)t >> 15) & KYBER_Q;
+      t  = (((t << 1) + KYBER_Q/2)/KYBER_Q) & 1;
+  vendor/kyber-kyberslash-fixed/ref/poly.c 的 poly_tomsg（条件加法被注释掉）：
+      t  = a->coeffs[8*i+j];
+      t <<= 1;  t += 1665;  t *= 80635;  t >>= 28;  t &= 1;
+
+事实
+  把 int16_t 系数按源码语义（未修：先归一化到 [0,Q)；已修：t 为 uint32_t，
+  取 int16_t 的符号扩展值）逐值比较，在 poly_reduce 之后可达的 (-Q, Q) 区间内
+  **恰好一个**值上两臂的位输出不同：t = −2497。
+  未修：t 归一化为 832 → ((832<<1)+1664)/3329 = 0 → bit 0。
+  已修：t = 0xFFFFF63F → <<1 = 0xFFFFEC7E → +1665 = 0xFFFFF2FF
+        → *80635 mod 2^32 = 0xF0000065 → >>28 = 15 → &1 = 1 → bit 1。
+
+可复现的算术核对（不依赖任何 ELF）
+  python3 - <<'PY'
+  Q = 3329
+  def unfixed_bit(t):
+      v = t & 0xFFFF
+      v = (v + (((t >> 15) & 1) * Q)) & 0xFFFF
+      return (((v << 1) + Q // 2) // Q) & 1
+  def fixed_bit(t):
+      u = t & 0xFFFFFFFF
+      u = (u << 1) & 0xFFFFFFFF
+      u = (u + 1665) & 0xFFFFFFFF
+      u = (u * 80635) & 0xFFFFFFFF
+      return (u >> 28) & 1
+  print([t for t in range(-Q, Q + 1) if unfixed_bit(t) != fixed_bit(t)])
+  PY
+  输出：[−2497]（区间内唯一不匹配值；区间外另有 18590 个不匹配值，均不可由 poly_reduce 产生）
+
+对本微基准的影响：无
+  已选消息两类输入的多项式各 256 个系数，实测都不含 −2497
+  （两臂各 512 个系数，负系数分别 129 / 136 个），因此两臂 poly_tomsg 输出逐字节相同，
+  资格转录跨臂 `cmp` 通过。微基准比较的是同一多项式的同一输出位。
+
+边界
+  本项只说明"固定产物 + 固定字节码上存在一个可达但未出现的系数值使两臂位输出不同"。
+  它不主张上游意图、不主张 KAT 受影响（100 例公开 KAT 与本次 512 个系数都未出现该值）、
+  也不改变端到端与微基准的任何结论；若要判定其可用性影响，须另立专项。
