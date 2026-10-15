@@ -1,0 +1,16 @@
+[GNUPG:] NEWSIG
+gpg: Signature made Tue May 20 19:15:22 2025 CST
+gpg:                using RSA key 12768A96795990107A0D2FDFFC57E3CCACD99A78
+[GNUPG:] KEY_CONSIDERED EC3CFE88F6CA0788774F5C1D1AA44BE649DE760A 0
+[GNUPG:] SIG_ID CvcMlh6Afc4UoxglaiFyJwiv4O8 2025-05-20 1747739722
+[GNUPG:] GOODSIG FC57E3CCACD99A78 Mark Wielaard <mark@klomp.org>
+gpg: Good signature from "Mark Wielaard <mark@klomp.org>" [unknown]
+gpg:                 aka "Mark Wielaard <mjw@redhat.com>" [unknown]
+gpg:                 aka "Mark Wielaard <mjw@gnu.org>" [unknown]
+[GNUPG:] VALIDSIG 12768A96795990107A0D2FDFFC57E3CCACD99A78 2025-05-20 1747739722 0 4 0 1 8 00 EC3CFE88F6CA0788774F5C1D1AA44BE649DE760A
+[GNUPG:] KEY_CONSIDERED EC3CFE88F6CA0788774F5C1D1AA44BE649DE760A 0
+[GNUPG:] TRUST_UNDEFINED 0 pgp
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+      EC3CFE88F6CA0788774F5C1D1AA44BE649DE760A
+      12768A96795990107A0D2FDFFC57E3CCACD99A78

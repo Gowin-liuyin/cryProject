@@ -1,0 +1,14 @@
+third_party/valgrind-varlat/valgrind-3.25.1/coregrind/m_libcfile.c:1195:   tmpdir = VG_(getenv)("TMPDIR");
+third_party/valgrind-varlat/valgrind-3.25.1/coregrind/m_libcfile.c:1196:   if (tmpdir == NULL || *tmpdir == '\0') tmpdir = VG_TMPDIR;
+third_party/valgrind-varlat/valgrind-3.25.1/coregrind/m_libcfile.c:1197:   if (tmpdir == NULL || *tmpdir == '\0') tmpdir = "/tmp";    /* fallback */
+third_party/valgrind-varlat/valgrind-3.25.1/coregrind/vgdb.c:144:   tmpdir = getenv("TMPDIR");
+third_party/valgrind-varlat/valgrind-3.25.1/coregrind/vgdb.c:146:     tmpdir = VG_TMPDIR;
+third_party/valgrind-varlat/valgrind-3.25.1/coregrind/vgdb.c:148:     tmpdir = "/tmp";    /* fallback */
+third_party/valgrind-varlat/valgrind-3.25.1/configure:1023:VG_TMPDIR
+third_party/valgrind-varlat/valgrind-3.25.1/configure:1845:for instance '--prefix=\$HOME'.
+third_party/valgrind-varlat/valgrind-3.25.1/configure:8457:  e) tmpdir="/tmp" ;;
+third_party/valgrind-varlat/valgrind-3.25.1/configure:8462:printf "%s\n" "#define VG_TMPDIR \"$tmpdir\"" >>confdefs.h
+third_party/valgrind-varlat/valgrind-3.25.1/configure:8464:VG_TMPDIR=$tmpdir
+third_party/valgrind-varlat/valgrind-3.25.1/configure:15680:temp_dir=$( /usr/bin/mktemp -d )
+third_party/valgrind-varlat/valgrind-3.25.1/configure:22361:# creating and moving files from /tmp can sometimes cause problems.
+third_party/valgrind-varlat/valgrind-3.25.1/configure:22377:  tmp=`(umask 077 && mktemp -d "./confXXXXXX") 2>/dev/null` &&
