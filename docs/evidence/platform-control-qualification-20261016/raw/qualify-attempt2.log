@@ -1,0 +1,384 @@
+PLAN_SHA=feeaae127586101f2e6c2f037fc4e865b3074a319595a530c9d3eff1f3298601
+CONTROLLER_SHA=
+sudo: 需要密码
+RUNNER_UID=1000 RUNNER_USER=nss-marker
+BOOT_ID=1d5a4300-d997-4a45-a9d6-95165d68dcd9
+==================== CASE q-normal cpu=2 deadline=3 cmd=/usr/bin/true ====================
+controller_exit=0 elapsed_seconds=3
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 376763 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "worker_finished",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": 0
+}
+
+--- run directory ---
+总计 192
+-rw-r----- 1 root       nss-marker    81 10月 16 02:11 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:11 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:11 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:11 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:11 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:11 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0009-visible.json
+-rw-r----- 1 root       nss-marker    80 10月 16 02:11 0010-intent.json
+-rw-r----- 1 root       nss-marker    59 10月 16 02:11 0011-visible.json
+-rw-r----- 1 root       nss-marker   117 10月 16 02:11 0012-intent.json
+-rw-r----- 1 root       nss-marker    86 10月 16 02:11 0013-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:11 0014-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:11 0015-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:11 0016-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:11 0017-visible.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:11 0018-intent.json
+-rw-r----- 1 root       nss-marker   109 10月 16 02:11 0019-visible.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 0020-restored.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:11 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:11 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:11 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   588 10月 16 02:11 command.json
+-rw-r----- 1 root       nss-marker   318 10月 16 02:11 during.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:11 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:11 guardian.json
+-rw-r----- 1 root       nss-marker   139 10月 16 02:11 terminal.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:11 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:11 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:11 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stdout
+
+==================== CASE q-failure cpu=2 deadline=3 cmd=/usr/bin/false ====================
+controller_exit=1 elapsed_seconds=2
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 376763 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "worker_finished",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": 1
+}
+
+--- run directory ---
+总计 192
+-rw-r----- 1 root       nss-marker    81 10月 16 02:11 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:11 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:11 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:11 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:11 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:11 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0009-visible.json
+-rw-r----- 1 root       nss-marker    80 10月 16 02:11 0010-intent.json
+-rw-r----- 1 root       nss-marker    59 10月 16 02:11 0011-visible.json
+-rw-r----- 1 root       nss-marker   117 10月 16 02:11 0012-intent.json
+-rw-r----- 1 root       nss-marker    86 10月 16 02:11 0013-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:11 0014-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:11 0015-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:11 0016-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:11 0017-visible.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:11 0018-intent.json
+-rw-r----- 1 root       nss-marker   109 10月 16 02:11 0019-visible.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 0020-restored.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:11 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:11 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:11 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   589 10月 16 02:11 command.json
+-rw-r----- 1 root       nss-marker   318 10月 16 02:11 during.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:11 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:11 guardian.json
+-rw-r----- 1 root       nss-marker   139 10月 16 02:11 terminal.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:11 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:11 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:11 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stdout
+
+==================== CASE q-timeout cpu=2 deadline=2 cmd=/usr/bin/sleep 20 ====================
+controller_exit=1 elapsed_seconds=4
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 376763 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "worker_timeout",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": -15
+}
+
+--- run directory ---
+总计 204
+-rw-r----- 1 root       nss-marker    81 10月 16 02:11 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:11 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:11 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:11 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:11 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:11 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0009-visible.json
+-rw-r----- 1 root       nss-marker    80 10月 16 02:11 0010-intent.json
+-rw-r----- 1 root       nss-marker    59 10月 16 02:11 0011-visible.json
+-rw-r----- 1 root       nss-marker   117 10月 16 02:11 0012-intent.json
+-rw-r----- 1 root       nss-marker    86 10月 16 02:11 0013-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:11 0014-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:11 0015-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:11 0016-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:11 0017-visible.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:11 0018-intent.json
+-rw-r----- 1 root       nss-marker   109 10月 16 02:11 0019-visible.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 0020-restored.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:11 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:11 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:11 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   599 10月 16 02:11 command.json
+-rw-r----- 1 root       nss-marker 12918 10月 16 02:11 during.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:11 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:11 guardian.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:11 terminal.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:11 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:11 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:11 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stdout
+
+==================== CASE q-controller-loss cpu=6 deadline=5 cmd=/usr/bin/sleep 20 ====================
+controller_exit=137 elapsed_seconds=2
+/home/nss-marker/yhr/Cry/platform-runner-20261016/qualify3.sh: 第 41 行： 377167 已杀死               sudo -n "$PY" -I -B "$CTRL/controller.py" run --control-root "$CTRL" --run-name "$name" --cpu "$cpu" --timeout-seconds "$deadline" --plan "$PLAN" --plan-sha256 "$PLAN_SHA" -- "$@"
+INDEPENDENT_STATE_UNCHANGED=no
+--- /home/nss-marker/yhr/Cry/platform-control-20261016-a3c9ca1e6f9b/qualification-logs/q-controller-loss.before.txt	2026-10-16 02:11:28.637568446 +0800
++++ /home/nss-marker/yhr/Cry/platform-control-20261016-a3c9ca1e6f9b/qualification-logs/q-controller-loss.after.txt	2026-10-16 02:11:30.730589761 +0800
+@@ -1,33 +1,33 @@
+-global_boost=1
+-policy0 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=0
+-policy1 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=1
+-policy2 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=2
+-policy3 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=3
+-policy4 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=4
+-policy5 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=5
+-policy6 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=6
+-policy7 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=7
+-policy8 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=8
+-policy9 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=9
+-policy10 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=10
+-policy11 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=11
+-policy12 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=12
+-policy13 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=13
+-policy14 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=14
+-policy15 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=15
+-policy16 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=16
+-policy17 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=17
+-policy18 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=18
+-policy19 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=19
+-policy20 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=20
+-policy21 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=21
+-policy22 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=22
+-policy23 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=23
+-policy24 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=24
+-policy25 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=25
+-policy26 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=26
+-policy27 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=27
+-policy28 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=28
+-policy29 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=29
+-policy30 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=30
+-policy31 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=31
++global_boost=0
++policy0 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=0
++policy1 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=1
++policy2 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=2
++policy3 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=3
++policy4 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=4
++policy5 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=5
++policy6 scaling_governor=performance scaling_min_freq=4300000 scaling_max_freq=4300000 energy_performance_preference=performance scaling_driver=amd-pstate-epp related_cpus=6
++policy7 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=7
++policy8 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=8
++policy9 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=9
++policy10 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=10
++policy11 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=11
++policy12 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=12
++policy13 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=13
++policy14 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=14
++policy15 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=15
++policy16 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=16
++policy17 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=17
++policy18 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=18
++policy19 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=19
++policy20 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=20
++policy21 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=21
++policy22 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=22
++policy23 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=23
++policy24 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=24
++policy25 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=25
++policy26 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=26
++policy27 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=27
++policy28 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=28
++policy29 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=29
++policy30 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=30
++policy31 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=31
+caller_affinity=pid 376763 的当前亲和力列表：0-31
+controller_worker_remain=1
+sleep_20_remain=1
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+cat: /home/nss-marker/yhr/Cry/platform-control-20261016-a3c9ca1e6f9b/runs/q-controller-loss/terminal.json: 没有那个文件或目录
+
+--- run directory ---
+总计 128
+-rw-r----- 1 root       nss-marker    81 10月 16 02:11 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:11 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:11 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:11 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:11 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:11 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:11 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:11 0009-visible.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:11 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:11 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:11 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:11 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   599 10月 16 02:11 command.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:11 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:11 guardian.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:11 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:11 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:11 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:11 worker.stdout
+
+==================== CASE q-contention ====================
+holder_output: LOCK_HELD
+[Errno 11] Resource temporarily unavailable
+controller_exit=1
+INDEPENDENT_STATE_UNCHANGED=no
+--- /home/nss-marker/yhr/Cry/platform-control-20261016-a3c9ca1e6f9b/qualification-logs/q-contention.before.txt	2026-10-16 02:11:30.793590402 +0800
++++ /home/nss-marker/yhr/Cry/platform-control-20261016-a3c9ca1e6f9b/qualification-logs/q-contention.after.txt	2026-10-16 02:12:00.865896015 +0800
+@@ -1,33 +1,33 @@
+-global_boost=0
+-policy0 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=0
+-policy1 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=1
+-policy2 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=2
+-policy3 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=3
+-policy4 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=4
+-policy5 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=5
+-policy6 scaling_governor=performance scaling_min_freq=4300000 scaling_max_freq=4300000 energy_performance_preference=performance scaling_driver=amd-pstate-epp related_cpus=6
+-policy7 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=7
+-policy8 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=8
+-policy9 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=9
+-policy10 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=10
+-policy11 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=11
+-policy12 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=12
+-policy13 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=13
+-policy14 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=14
+-policy15 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=15
+-policy16 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=16
+-policy17 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=17
+-policy18 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=18
+-policy19 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=19
+-policy20 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=20
+-policy21 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=21
+-policy22 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=22
+-policy23 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=23
+-policy24 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=24
+-policy25 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=25
+-policy26 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=26
+-policy27 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=27
+-policy28 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=28
+-policy29 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=29
+-policy30 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=30
+-policy31 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=4300000 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=31
++global_boost=1
++policy0 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=0
++policy1 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=1
++policy2 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=2
++policy3 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=3
++policy4 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=4
++policy5 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=5
++policy6 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=6
++policy7 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=7
++policy8 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=8
++policy9 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=9
++policy10 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=10
++policy11 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=11
++policy12 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=12
++policy13 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=13
++policy14 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=14
++policy15 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=15
++policy16 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=16
++policy17 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=17
++policy18 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=18
++policy19 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=19
++policy20 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=20
++policy21 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=21
++policy22 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=22
++policy23 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=23
++policy24 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=24
++policy25 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=25
++policy26 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=26
++policy27 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=27
++policy28 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=28
++policy29 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=29
++policy30 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=30
++policy31 scaling_governor=powersave scaling_min_freq=2982259 scaling_max_freq=5756452 energy_performance_preference=balance_performance scaling_driver=amd-pstate-epp related_cpus=31
+caller_affinity=pid 376763 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- q-contention run dir (expect absent) ---
+ls: 无法访问 '/home/nss-marker/yhr/Cry/platform-control-20261016-a3c9ca1e6f9b/runs/q-contention': 没有那个文件或目录
+
+==================== ALL CASES DONE ====================
+总计 16
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:11 q-controller-loss
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:11 q-failure
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:11 q-normal
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:11 q-timeout

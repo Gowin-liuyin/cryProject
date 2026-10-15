@@ -1,0 +1,210 @@
+PLAN_SHA=feeaae127586101f2e6c2f037fc4e865b3074a319595a530c9d3eff1f3298601
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+PermissionError: [Errno 13] Permission denied: '/home/nss-marker/yhr/Cry/platform-control-20261016-b7e21f4c9a03/controller.py'
+CONTROLLER_SHA=
+RUNNER_UID=1000 RUNNER_USER=nss-marker BOOT_ID=1d5a4300-d997-4a45-a9d6-95165d68dcd9
+==================== CASE q-normal cpu=2 deadline=3 cmd=/usr/bin/true ====================
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+before_gate_active=absent
+controller_exit=0 elapsed_seconds=2
+drain_seconds=.25
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 377389 的当前亲和力列表：0-31
+remaining_controller_processes=0
+remaining_sleep_processes=0
+state_gate_active=absent
+总计 8
+drwx------  2 root       root       4096 10月 16 02:12 .
+drwxrwxr-x 54 nss-marker nss-marker 4096 10月 16 02:12 ..
+partition_admin_lock: FREE
+--- terminal.json ---
+{
+  "reason": "worker_finished",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": 0
+}
+
+--- during.json sample count ---
+during_samples= 1
+--- entry-probes summary ---
+probes_n= 20 min= 4298140 max= 4316261 span= 18121 all_in_band= True
+--- worker identity ---
+{
+  "cpus_allowed_list": "2",
+  "pgid": 377410,
+  "pid": 377410,
+  "sid": 377410,
+  "start_ticks": 388895053,
+  "uid": 1000
+}
+
+
+==================== CASE q-failure cpu=2 deadline=3 cmd=/usr/bin/false ====================
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+before_gate_active=absent
+controller_exit=1 elapsed_seconds=2
+drain_seconds=.25
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 377389 的当前亲和力列表：0-31
+remaining_controller_processes=0
+remaining_sleep_processes=0
+state_gate_active=absent
+总计 8
+drwx------  2 root       root       4096 10月 16 02:12 .
+drwxrwxr-x 54 nss-marker nss-marker 4096 10月 16 02:12 ..
+partition_admin_lock: FREE
+--- terminal.json ---
+{
+  "reason": "worker_finished",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": 1
+}
+
+--- during.json sample count ---
+during_samples= 1
+--- entry-probes summary ---
+probes_n= 20 min= 4300000 max= 4300000 span= 0 all_in_band= True
+--- worker identity ---
+{
+  "cpus_allowed_list": "2",
+  "pgid": 377470,
+  "pid": 377470,
+  "sid": 377470,
+  "start_ticks": 388895296,
+  "uid": 1000
+}
+
+
+==================== CASE q-timeout cpu=2 deadline=2 cmd=/usr/bin/sleep 20 ====================
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+before_gate_active=absent
+controller_exit=1 elapsed_seconds=4
+drain_seconds=.25
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 377389 的当前亲和力列表：0-31
+remaining_controller_processes=0
+remaining_sleep_processes=0
+state_gate_active=absent
+总计 8
+drwx------  2 root       root       4096 10月 16 02:12 .
+drwxrwxr-x 54 nss-marker nss-marker 4096 10月 16 02:12 ..
+partition_admin_lock: FREE
+--- terminal.json ---
+{
+  "reason": "worker_timeout",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": -15
+}
+
+--- during.json sample count ---
+during_samples= 41
+--- entry-probes summary ---
+probes_n= 20 min= 4300000 max= 4315885 span= 15885 all_in_band= True
+--- worker identity ---
+{
+  "cpus_allowed_list": "2",
+  "pgid": 377537,
+  "pid": 377537,
+  "sid": 377537,
+  "start_ticks": 388895540,
+  "uid": 1000
+}
+
+
+==================== CASE q-controller-loss cpu=6 deadline=5 cmd=/usr/bin/sleep 20 ====================
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+before_gate_active=absent
+environment: 第 1 行： 377593 已完成               printf '%s\n' "${NSS_ONE_SHOT}"
+     377594 已杀死               | sudo -S -p '' "$@"
+controller_exit=137 elapsed_seconds=3
+drain_seconds=.50
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 377389 的当前亲和力列表：0-31
+remaining_controller_processes=0
+remaining_sleep_processes=0
+state_gate_active=absent
+总计 8
+drwx------  2 root       root       4096 10月 16 02:12 .
+drwxrwxr-x 54 nss-marker nss-marker 4096 10月 16 02:12 ..
+partition_admin_lock: FREE
+--- terminal.json ---
+{
+  "reason": "controller_lost",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": -15
+}
+
+--- during.json sample count ---
+during_samples= 1
+--- entry-probes summary ---
+probes_n= 20 min= 4300000 max= 4300000 span= 0 all_in_band= True
+--- worker identity ---
+{
+  "cpus_allowed_list": "6",
+  "pgid": 377597,
+  "pid": 377597,
+  "sid": 377597,
+  "start_ticks": 388895984,
+  "uid": 1000
+}
+
+
+==================== CASE q-contention ====================
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+holder_output=LOCK_HELD
+[Errno 11] Resource temporarily unavailable
+controller_exit=1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'nss' is not defined
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 377389 的当前亲和力列表：0-31
+remaining_controller_processes=0
+remaining_sleep_processes=1
+state_gate_active=absent
+总计 8
+drwx------  2 root       root       4096 10月 16 02:12 .
+drwxrwxr-x 54 nss-marker nss-marker 4096 10月 16 02:12 ..
+partition_admin_lock: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+--- q-contention run dir (expect absent) ---
+ls: 无法访问 '/home/nss-marker/yhr/Cry/platform-control-20261016-b7e21f4c9a03/runs/q-contention': 没有那个文件或目录
+
+==================== ALL CASES DONE ====================
+总计 16
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:12 q-controller-loss
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:12 q-failure
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:12 q-normal
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:12 q-timeout

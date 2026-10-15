@@ -1,0 +1,10 @@
+caller_affinity=pid 377389 的当前亲和力列表：0-31
+remaining_controller_processes=0
+remaining_sleep_processes=1
+state_gate_active=absent
+总计 8
+drwx------  2 root       root       4096 10月 16 02:12 .
+drwxrwxr-x 54 nss-marker nss-marker 4096 10月 16 02:12 ..
+partition_admin_lock: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+BlockingIOError: [Errno 11] Resource temporarily unavailable

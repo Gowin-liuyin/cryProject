@@ -1,0 +1,20 @@
+{
+  "boot_id": "1d5a4300-d997-4a45-a9d6-95165d68dcd9",
+  "command": [
+    "/usr/bin/false"
+  ],
+  "cpu": 2,
+  "plan_sha256": "feeaae127586101f2e6c2f037fc4e865b3074a319595a530c9d3eff1f3298601",
+  "policy": "policy2",
+  "source_sha256": "4a0cf57a00c6802ff86ed410bd2518bc56cc8e694422cbc4ea7a24a3f1cdd701",
+  "uname": [
+    "Linux",
+    "nss-m",
+    "6.17.0-35-generic",
+    "#35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2",
+    "x86_64"
+  ],
+  "worker_gid": 1000,
+  "worker_sha256": "e51fc98d1215569a555c03c991835c234d6f05ded01a23ae99a33b8854270e86",
+  "worker_uid": 1000
+}

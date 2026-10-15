@@ -1,0 +1,258 @@
+PLAN_SHA=7a4b91d34569a8afd2af740e6906a3ac0b5001860f89c7e15c805a64e2a286f2
+CONTROLLER_SHA=
+RUNNER_UID=1000 RUNNER_USER=nss-marker
+sudo: 需要密码
+BOOT_ID=1d5a4300-d997-4a45-a9d6-95165d68dcd9
+==================== CASE q-normal cpu=2 deadline=3 cmd=/usr/bin/true ====================
+controller_exit=0 elapsed_seconds=1
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 365734 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "worker_finished",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": 0
+}
+
+--- run directory ---
+总计 192
+-rw-r----- 1 root       nss-marker    81 10月 16 02:09 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:09 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:09 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:09 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:09 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:09 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:09 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:09 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:09 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:09 0009-visible.json
+-rw-r----- 1 root       nss-marker    80 10月 16 02:09 0010-intent.json
+-rw-r----- 1 root       nss-marker    59 10月 16 02:09 0011-visible.json
+-rw-r----- 1 root       nss-marker   117 10月 16 02:09 0012-intent.json
+-rw-r----- 1 root       nss-marker    86 10月 16 02:09 0013-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:09 0014-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:09 0015-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:09 0016-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:09 0017-visible.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:09 0018-intent.json
+-rw-r----- 1 root       nss-marker   109 10月 16 02:09 0019-visible.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:09 0020-restored.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:09 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:09 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:09 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:09 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   588 10月 16 02:09 command.json
+-rw-r----- 1 root       nss-marker   318 10月 16 02:09 during.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:09 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:09 guardian.json
+-rw-r----- 1 root       nss-marker   139 10月 16 02:09 terminal.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:09 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:09 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:09 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:09 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:09 worker.stdout
+
+==================== CASE q-failure cpu=2 deadline=3 cmd=/usr/bin/false ====================
+controller_exit=1 elapsed_seconds=1
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 365734 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "worker_finished",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": 1
+}
+
+--- run directory ---
+总计 192
+-rw-r----- 1 root       nss-marker    81 10月 16 02:09 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:09 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:09 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:09 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:09 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:09 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:09 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:09 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:09 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:09 0009-visible.json
+-rw-r----- 1 root       nss-marker    80 10月 16 02:09 0010-intent.json
+-rw-r----- 1 root       nss-marker    59 10月 16 02:09 0011-visible.json
+-rw-r----- 1 root       nss-marker   117 10月 16 02:09 0012-intent.json
+-rw-r----- 1 root       nss-marker    86 10月 16 02:09 0013-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:09 0014-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:09 0015-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:09 0016-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:09 0017-visible.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:09 0018-intent.json
+-rw-r----- 1 root       nss-marker   109 10月 16 02:09 0019-visible.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:09 0020-restored.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:09 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:09 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:09 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:09 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   589 10月 16 02:09 command.json
+-rw-r----- 1 root       nss-marker   318 10月 16 02:09 during.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:09 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:09 guardian.json
+-rw-r----- 1 root       nss-marker   139 10月 16 02:09 terminal.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:09 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:09 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:09 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:09 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:09 worker.stdout
+
+==================== CASE q-timeout cpu=2 deadline=2 cmd=/usr/bin/sleep 20 ====================
+controller_exit=1 elapsed_seconds=3
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 365734 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "worker_timeout",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true,
+  "worker_exit_code": -15
+}
+
+--- run directory ---
+总计 204
+-rw-r----- 1 root       nss-marker    81 10月 16 02:09 0000-intent.json
+-rw-r----- 1 root       nss-marker    60 10月 16 02:09 0001-visible.json
+-rw-r----- 1 root       nss-marker   118 10月 16 02:09 0002-intent.json
+-rw-r----- 1 root       nss-marker    89 10月 16 02:09 0003-visible.json
+-rw-r----- 1 root       nss-marker   133 10月 16 02:09 0004-intent.json
+-rw-r----- 1 root       nss-marker   102 10月 16 02:09 0005-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:09 0006-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:09 0007-visible.json
+-rw-r----- 1 root       nss-marker   112 10月 16 02:09 0008-intent.json
+-rw-r----- 1 root       nss-marker    85 10月 16 02:09 0009-visible.json
+-rw-r----- 1 root       nss-marker    80 10月 16 02:09 0010-intent.json
+-rw-r----- 1 root       nss-marker    59 10月 16 02:09 0011-visible.json
+-rw-r----- 1 root       nss-marker   117 10月 16 02:09 0012-intent.json
+-rw-r----- 1 root       nss-marker    86 10月 16 02:09 0013-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:09 0014-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:09 0015-visible.json
+-rw-r----- 1 root       nss-marker   111 10月 16 02:09 0016-intent.json
+-rw-r----- 1 root       nss-marker    84 10月 16 02:09 0017-visible.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:09 0018-intent.json
+-rw-r----- 1 root       nss-marker   109 10月 16 02:09 0019-visible.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:09 0020-restored.json
+-rw-r----- 1 root       nss-marker 15440 10月 16 02:09 active.json
+-rw-r----- 1 root       nss-marker 22352 10月 16 02:09 baseline-identities.json
+-rw-r----- 1 root       nss-marker 15446 10月 16 02:09 baseline.json
+-rw-r----- 1 root       nss-marker    67 10月 16 02:09 baseline.sha256.json
+-rw-r----- 1 root       nss-marker   599 10月 16 02:09 command.json
+-rw-r----- 1 root       nss-marker 12918 10月 16 02:09 during.json
+-rw-r----- 1 root       nss-marker  6303 10月 16 02:09 entry-probes.json
+-rw-r----- 1 root       nss-marker   372 10月 16 02:09 guardian.json
+-rw-r----- 1 root       nss-marker   140 10月 16 02:09 terminal.json
+drwx--S--- 4 nss-marker nss-marker  4096 10月 16 02:09 worker
+-rw-r----- 1 root       nss-marker   126 10月 16 02:09 worker.json
+-rw-r----- 1 root       nss-marker    37 10月 16 02:09 worker-spawn-intent.json
+-rw-r----- 1 root       nss-marker     0 10月 16 02:09 worker.stderr
+-rw-r----- 1 root       nss-marker     0 10月 16 02:09 worker.stdout
+
+==================== CASE q-controller-loss cpu=6 deadline=5 cmd=/usr/bin/sleep 20 ====================
+未进入 controller-loss 资格状态
+controller_exit=1 elapsed_seconds=2
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 365734 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- terminal.json ---
+{
+  "reason": "frequency_probe_rejected",
+  "restoration_errors": [],
+  "restore_match": "yes",
+  "worker_drained": true
+}
+
+--- run directory ---
+总计 164
+-rw-r----- 1 root nss-marker    81 10月 16 02:09 0000-intent.json
+-rw-r----- 1 root nss-marker    60 10月 16 02:09 0001-visible.json
+-rw-r----- 1 root nss-marker   118 10月 16 02:09 0002-intent.json
+-rw-r----- 1 root nss-marker    89 10月 16 02:09 0003-visible.json
+-rw-r----- 1 root nss-marker   133 10月 16 02:09 0004-intent.json
+-rw-r----- 1 root nss-marker   102 10月 16 02:09 0005-visible.json
+-rw-r----- 1 root nss-marker   112 10月 16 02:09 0006-intent.json
+-rw-r----- 1 root nss-marker    85 10月 16 02:09 0007-visible.json
+-rw-r----- 1 root nss-marker   112 10月 16 02:09 0008-intent.json
+-rw-r----- 1 root nss-marker    85 10月 16 02:09 0009-visible.json
+-rw-r----- 1 root nss-marker    80 10月 16 02:09 0010-intent.json
+-rw-r----- 1 root nss-marker    59 10月 16 02:09 0011-visible.json
+-rw-r----- 1 root nss-marker   117 10月 16 02:09 0012-intent.json
+-rw-r----- 1 root nss-marker    86 10月 16 02:09 0013-visible.json
+-rw-r----- 1 root nss-marker   111 10月 16 02:09 0014-intent.json
+-rw-r----- 1 root nss-marker    84 10月 16 02:09 0015-visible.json
+-rw-r----- 1 root nss-marker   111 10月 16 02:09 0016-intent.json
+-rw-r----- 1 root nss-marker    84 10月 16 02:09 0017-visible.json
+-rw-r----- 1 root nss-marker   140 10月 16 02:09 0018-intent.json
+-rw-r----- 1 root nss-marker   109 10月 16 02:09 0019-visible.json
+-rw-r----- 1 root nss-marker 15446 10月 16 02:09 0020-restored.json
+-rw-r----- 1 root nss-marker 22352 10月 16 02:09 baseline-identities.json
+-rw-r----- 1 root nss-marker 15446 10月 16 02:09 baseline.json
+-rw-r----- 1 root nss-marker    67 10月 16 02:09 baseline.sha256.json
+-rw-r----- 1 root nss-marker   599 10月 16 02:09 command.json
+-rw-r----- 1 root nss-marker     3 10月 16 02:09 during.json
+-rw-r----- 1 root nss-marker  6303 10月 16 02:09 entry-probes.json
+-rw-r----- 1 root nss-marker   372 10月 16 02:09 guardian.json
+-rw-r----- 1 root nss-marker   123 10月 16 02:09 terminal.json
+
+==================== CASE q-contention ====================
+holder_output: LOCK_HELD
+[Errno 11] Resource temporarily unavailable
+controller_exit=1
+INDEPENDENT_STATE_UNCHANGED=yes
+caller_affinity=pid 365734 的当前亲和力列表：0-31
+controller_worker_remain=0
+sleep_20_remain=0
+state_root:
+sudo: 需要密码
+active_file:
+sudo: 需要密码
+partition_lock_holder_test:
+sudo: 需要密码
+--- q-contention run dir (expect absent) ---
+ls: 无法访问 '/home/nss-marker/yhr/Cry/platform-control-20261016-47033dd864ca/runs/q-contention': 没有那个文件或目录
+
+==================== ALL CASES DONE ====================
+总计 16
+drwxr-s--- 2 root nss-marker 4096 10月 16 02:09 q-controller-loss
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:09 q-failure
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:09 q-normal
+drwxr-s--- 3 root nss-marker 4096 10月 16 02:09 q-timeout
