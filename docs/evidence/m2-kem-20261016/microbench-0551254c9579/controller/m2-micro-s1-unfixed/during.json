@@ -1,0 +1,35 @@
+[
+  {
+    "controls": {
+      "boost": "0",
+      "policy2/energy_performance_preference": "performance",
+      "policy2/scaling_governor": "performance",
+      "policy2/scaling_max_freq": "4300000",
+      "policy2/scaling_min_freq": "4300000"
+    },
+    "cur_khz": 4332817,
+    "monotonic_ns": 3890648934969349
+  },
+  {
+    "controls": {
+      "boost": "0",
+      "policy2/energy_performance_preference": "performance",
+      "policy2/scaling_governor": "performance",
+      "policy2/scaling_max_freq": "4300000",
+      "policy2/scaling_min_freq": "4300000"
+    },
+    "cur_khz": 4306581,
+    "monotonic_ns": 3890648985114388
+  },
+  {
+    "controls": {
+      "boost": "0",
+      "policy2/energy_performance_preference": "performance",
+      "policy2/scaling_governor": "performance",
+      "policy2/scaling_max_freq": "4300000",
+      "policy2/scaling_min_freq": "4300000"
+    },
+    "cur_khz": 4300000,
+    "monotonic_ns": 3890649035255621
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "alpha": 0.05,
+  "families": [
+    {
+      "family_id": "m2_div_hotspot_microbench_v1",
+      "m": 6,
+      "reject_count": 0,
+      "members": [
+        {"member_id": "m2-micro-r01-unfixed", "rank": 1, "raw_p": 0.041580681897923, "threshold": 0.00833333333333333, "adjusted_p": 0.249484091387538, "reject": 0},
+        {"member_id": "m2-micro-r01-fixed", "rank": 2, "raw_p": 0.0667048064051168, "threshold": 0.01, "adjusted_p": 0.333524032025584, "reject": 0},
+        {"member_id": "m2-micro-r03-unfixed", "rank": 3, "raw_p": 0.0975906023905481, "threshold": 0.0125, "adjusted_p": 0.390362409562192, "reject": 0},
+        {"member_id": "m2-micro-r02-unfixed", "rank": 4, "raw_p": 0.102981505274789, "threshold": 0.0166666666666667, "adjusted_p": 0.390362409562192, "reject": 0},
+        {"member_id": "m2-micro-r03-fixed", "rank": 5, "raw_p": 0.121361593720714, "threshold": 0.025, "adjusted_p": 0.390362409562192, "reject": 0},
+        {"member_id": "m2-micro-r02-fixed", "rank": 6, "raw_p": 0.413979757992088, "threshold": 0.05, "adjusted_p": 0.413979757992088, "reject": 0}
+      ]
+    }
+  ]
+}
