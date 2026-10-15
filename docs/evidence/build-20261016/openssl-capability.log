@@ -1,0 +1,190 @@
+# openssl SHA3-256 能力探测原始记录（2026-10-16，本机 macOS/ARM）
+
+任务背景：`native_digest`（CTest 用例 20）在子进程里调用 `<OPENSSL_EXECUTABLE> dgst -sha3-256`，
+并与 `tests/test_native_digest.c:14` 的期望摘要 `3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532`
+（SHA3-256("abc")）逐字节比较。macOS 自带 `/usr/bin/openssl` 是 LibreSSL，不支持该摘要，
+因此 CMakeLists.txt 在配置期先探测所选可执行文件的能力，失败即 FATAL_ERROR（除非显式打开逃生开关）。
+
+## 0. 探测方法与判据（CMakeLists.txt:561-643）
+
+探测输入是构建目录下的临时文件，写入后立即删除，内容固定为 `abc`：
+
+```cmake
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/openssl-sha3-probe-input.bin" "abc")
+execute_process(COMMAND "${OPENSSL_EXECUTABLE}" dgst -sha3-256 "${openssl_sha3_probe_input}" ...)
+```
+
+判据：退出码必须为 `0`，且 stdout 必须包含 SHA3-256("abc") 的十六进制摘要。只查
+`openssl version` 主版本号不足以说明问题，所以这里直接跑一次真实摘要命令。
+
+## 1. 候选可执行文件手工复跑（输入文件内容为 `abc`）
+
+$ printf 'abc' > build/ossl-evidence/sha3-probe-input.bin
+
+$ /usr/bin/openssl version
+LibreSSL 3.3.6
+# exit=0
+$ /usr/bin/openssl dgst -sha3-256 build/ossl-evidence/sha3-probe-input.bin
+usage: dgst [-cdr] [-binary] [-digest] [-hex] [-hmac key] [-keyform fmt]
+    [-mac algorithm] [-macopt nm:v] [-out file] [-passin arg]
+    [-prverify file] [-sign file] [-signature file]
+    [-sigopt nm:v] [-verify file] [file ...]
+
+ -binary            Output the digest or signature in binary form
+ -c                 Print the digest in two-digit groups separated by colons
+ -d                 Print BIO debugging information
+ -hex               Output as hex dump
+ -hmac key          Create hashed MAC with key
+ -keyform format    Key file format (PEM)
+ -mac algorithm     Create MAC (not necessarily HMAC)
+ -macopt nm:v       MAC algorithm parameters or key
+ -out file          Output to file rather than stdout
+ -passin arg        Input file passphrase source
+ -prverify file     Verify a signature using private key in file
+ -r                 Output the digest in coreutils format
+ -sign file         Sign digest using private key in file
+ -signature file    Signature to verify
+ -sigopt nm:v       Signature parameter
+ -verify file       Verify a signature using public key in file
+ -gost-mac          To use the gost-mac message digest algorithm
+ -streebog512       To use the streebog512 message digest algorithm
+ -streebog256       To use the streebog256 message digest algorithm
+ -md_gost94         To use the md_gost94 message digest algorithm
+ -md4               To use the md4 message digest algorithm
+ -md5               To use the md5 message digest algorithm
+ -md5-sha1          To use the md5-sha1 message digest algorithm
+ -ripemd160         To use the ripemd160 message digest algorithm
+ -sha1              To use the sha1 message digest algorithm
+ -sha224            To use the sha224 message digest algorithm
+ -sha256            To use the sha256 message digest algorithm
+ -sha384            To use the sha384 message digest algorithm
+ -sha512            To use the sha512 message digest algorithm
+ -sm3               To use the sm3 message digest algorithm
+ -whirlpool         To use the whirlpool message digest algorithm
+
+# exit=1
+
+$ /Users/yin/miniconda3/bin/openssl version
+OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
+# exit=0
+$ /Users/yin/miniconda3/bin/openssl dgst -sha3-256 build/ossl-evidence/sha3-probe-input.bin
+SHA3-256(build/ossl-evidence/sha3-probe-input.bin)= 3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532
+# exit=0
+
+$ /opt/homebrew/bin/openssl version
+OpenSSL 3.6.3 9 Jun 2026 (Library: OpenSSL 3.6.3 9 Jun 2026)
+# exit=0
+$ /opt/homebrew/bin/openssl dgst -sha3-256 build/ossl-evidence/sha3-probe-input.bin
+SHA3-256(build/ossl-evidence/sha3-probe-input.bin)= 3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532
+# exit=0
+
+## 2. 三次配置期探测的原始结论行
+
+### 2.1 `cmake -S . -B build/ossl-check -DOPENSSL_EXECUTABLE=/Users/yin/miniconda3/bin/openssl`
+-- openssl SHA3-256 probe: OK (/Users/yin/miniconda3/bin/openssl: OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026))
+
+（退出码 0，配置完成）
+
+### 2.2 `cmake -S . -B build/ossl-libre -DOPENSSL_EXECUTABLE=/usr/bin/openssl`
+-- openssl SHA3-256 probe: FAILED (/usr/bin/openssl: LibreSSL 3.3.6, exit 1)
+
+CMake Error at CMakeLists.txt:611 (message):
+  The selected openssl cannot compute SHA3-256; tests/test_native_digest.c
+  needs an OpenSSL 3 command line tool (`openssl dgst -sha3-256`), while
+  macOS /usr/bin/openssl is LibreSSL and lacks it.
+
+    executable: /usr/bin/openssl
+    version:    LibreSSL 3.3.6
+    probe:      /usr/bin/openssl dgst -sha3-256 <file> -> exit 1
+
+  Fix 1 (keeps CTest fully green), point CMake at an OpenSSL 3 executable:
+
+    cmake -S . -B build/cmake -DOPENSSL_EXECUTABLE=/path/to/openssl3/bin/openssl
+
+  Fix 2, configure anyway and let that one test be reported as skipped:
+
+    cmake -S . -B build/cmake -DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON
+
+  Raw probe output follows:
+
+  usage: dgst [-cdr] [-binary] [-digest] [-hex] [-hmac key] [-keyform fmt]
+
+      [-mac algorithm] [-macopt nm:v] [-out file] [-passin arg]
+      [-prverify file] [-sign file] [-signature file]
+      [-sigopt nm:v] [-verify file] [file ...]
+
+
+
+   -binary            Output the digest or signature in binary form
+   -c                 Print the digest in two-digit groups separated by colons
+   -d                 Print BIO debugging information
+   -hex               Output as hex dump
+   -hmac key          Create hashed MAC with key
+   -keyform format    Key file format (PEM)
+   -mac algorithm     Create MAC (not necessarily HMAC)
+   -macopt nm:v       MAC algorithm parameters or key
+   -out file          Output to file rather than stdout
+   -passin arg        Input file passphrase source
+   -prverify file     Verify a signature using private key in file
+   -r                 Output the digest in coreutils format
+   -sign file         Sign digest using private key in file
+   -signature file    Signature to verify
+   -sigopt nm:v       Signature parameter
+   -verify file       Verify a signature using public key in file
+   -gost-mac          To use the gost-mac message digest algorithm
+   -streebog512       To use the streebog512 message digest algorithm
+   -streebog256       To use the streebog256 message digest algorithm
+   -md_gost94         To use the md_gost94 message digest algorithm
+   -md4               To use the md4 message digest algorithm
+   -md5               To use the md5 message digest algorithm
+   -md5-sha1          To use the md5-sha1 message digest algorithm
+   -ripemd160         To use the ripemd160 message digest algorithm
+   -sha1              To use the sha1 message digest algorithm
+   -sha224            To use the sha224 message digest algorithm
+   -sha256            To use the sha256 message digest algorithm
+   -sha384            To use the sha384 message digest algorithm
+   -sha512            To use the sha512 message digest algorithm
+   -sm3               To use the sm3 message digest algorithm
+   -whirlpool         To use the whirlpool message digest algorithm
+
+
+
+-- Configuring incomplete, errors occurred!
+# 配置退出码 1，未生成构建系统
+
+### 2.3 `cmake -S . -B build/ossl-libre-allow -DOPENSSL_EXECUTABLE=/usr/bin/openssl -DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON`
+-- openssl SHA3-256 probe: FAILED (/usr/bin/openssl: LibreSSL 3.3.6, exit 1)
+CMake Warning at CMakeLists.txt:606 (message):
+  BASELINE_ALLOW_NON_SHA3_OPENSSL=ON: continuing with an openssl that cannot
+  compute SHA3-256; CTest will report native_digest as Skipped, never as
+  passed
+
+
+-- Configuring done (0.3s)
+
+## 3. 对照：逃生开关打开但 openssl 支持 SHA3-256（真实运行，不跳过）
+
+`cmake -S . -B <scratch> -DOPENSSL_EXECUTABLE=/Users/yin/miniconda3/bin/openssl -DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON`
+的探测行与 2.1 相同（OK），`ctest -R '^native_digest$' -V` 原始输出：
+
+20: Test command: <scratch>/test_native_digest "<scratch>/native_digest" "/Users/yin/miniconda3/bin/openssl"
+1/1 Test #20: native_digest ....................   Passed    0.69 sec
+
+即开关只影响“探测失败时的处置”，不会削弱或跳过本可运行的测试。
+
+## 4. 边界对照（探测逻辑的其它分支）
+
+| 配置 | 探测结论 | 退出码 |
+| --- | --- | --- |
+| `-DBUILD_TESTING=OFF -DOPENSSL_EXECUTABLE=/usr/bin/openssl` | 不探测（无该测试） | 0 |
+| `-DOPENSSL_EXECUTABLE=/nonexistent/openssl3` | FAILED，`exit no such file or directory`，报错含 `version:` 空行 | 1 |
+| `-DOPENSSL_EXECUTABLE=/opt/homebrew/bin/openssl`（OpenSSL 3.6.3） | OK | 0 |
+| 不传 `-DOPENSSL_EXECUTABLE`（PATH 命中 LibreSSL） | FAILED | 1 |
+
+## 5. 关联原始日志
+
+- `build/ossl-evidence/1-configure.log`、`1-build.log`、`1-ctest.log`（OpenSSL 3 全绿）
+- `build/ossl-evidence/2-configure-libre.log`（FATAL_ERROR 原文）
+- `build/ossl-evidence/3-configure.log`、`3-build.log`、`3-ctest.log`（逃生开关 + Skipped）
+- `build/ossl-evidence/4-format-check.log`
+（这些是 `build/` 下的本机临时日志，不入库；结论已逐条抄进 BUILD.md 第 12 节。）

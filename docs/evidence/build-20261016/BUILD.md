@@ -272,3 +272,221 @@ bash docs/evidence/build-20261016/jobserver-matrix/run-matrix.sh
 ```
 
 判读要点：`make -j4` 的输出里 recipe 行必须是 `MAKEFLAGS= cmake --build "build/cmake" --parallel 4`，且全文不得出现 `jobserver`；两套 CTest 的最后一行都应为 `100% tests passed, 0 tests failed out of 57`。
+
+## 12. 追加：`native_digest` 的 OpenSSL 3 前置条件改为配置期探测（2026-10-16）
+
+本节收掉第 8.1 节留下的环境问题：`native_digest`（CTest 用例 20）依赖 `openssl dgst -sha3-256`，
+而 macOS 默认 PATH 命中的 `/usr/bin/openssl` 是 LibreSSL 3.3.6，不支持该摘要。改动前这件事
+只在 CTest 阶段以一条断言失败的形式暴露（56/57），排查成本高；改动后前置条件在**配置期**就讲清楚，
+并保留一个显式逃生开关。
+
+### 12.1 改动范围
+
+| 文件 | 改动 |
+| --- | --- |
+| `CMakeLists.txt` | 仅 `if(BUILD_TESTING)` 内 `find_program(OPENSSL_EXECUTABLE openssl REQUIRED)` 前后（第 561–643 行）：新增选项、能力探测、报错/告警、按探测结果注册测试 |
+| `docs/evidence/build-20261016/openssl-capability.log` | 新增：探测命令、三个候选可执行文件的原始输出、三次配置的探测结论原文 |
+| `docs/evidence/build-20261016/BUILD.md` | 本节 |
+
+未动 `src/`、`tests/`（测试本体与期望摘要逐字不变）、根 `Makefile`、`CMakePresets.json`；未 `git add`/`commit`。
+
+本节三条实测都跑在同一个未提交的 `CMakeLists.txt` 上：
+`shasum -a 256 CMakeLists.txt` = `3d46077ca28b09e58704883acb2125ccd5c9fbde96b22b9bae47fdd330cc180a`。
+
+行为：
+
+1. 新增缓存选项 `BASELINE_ALLOW_NON_SHA3_OPENSSL`，默认 `OFF`。
+2. `find_program` 后立刻探测真实能力：把 `abc` 写进构建目录下的临时文件并执行
+   `<OPENSSL_EXECUTABLE> dgst -sha3-256 <file>`，要求退出码 `0` 且 stdout 含
+   `3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532`（与
+   `tests/test_native_digest.c:14` 的期望值一致），随后删除临时文件；同时记录
+   `<OPENSSL_EXECUTABLE> version` 原文。只比版本号不足以说明问题，所以直接跑一次真实摘要命令。
+3. 探测失败且开关 `OFF` → `message(FATAL_ERROR …)`，报错依次给出：结论、可执行文件、版本、
+   探测命令与退出码、两条明确出路（`-DOPENSSL_EXECUTABLE=<OpenSSL 3 路径>` 或
+   `-DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON`）、原始探测输出。
+4. 探测失败且开关 `ON` → 配置成功；注册的 `native_digest` 命令只回显跳过原因并以 `77` 退出，
+   由 `SKIP_RETURN_CODE 77` 记为 **Skipped**，不伪装通过。测试本体、期望值、其余 56 个用例不变。
+5. 探测成功 → `add_test` 的注册与命令与改动前逐字一致
+   （`test_native_digest $<TARGET_FILE:native_digest> "${OPENSSL_EXECUTABLE}"`），
+   `-DOPENSSL_EXECUTABLE=<OpenSSL 3 路径>` 行为不变。
+
+### 12.2 实测 1：干净配置 + 构建 + CTest（OpenSSL 3，必须全绿）
+
+```bash
+rm -rf build/ossl-check
+cmake -S . -B build/ossl-check -DOPENSSL_EXECUTABLE=/Users/yin/miniconda3/bin/openssl
+cmake --build build/ossl-check --parallel 4
+ctest --test-dir build/ossl-check --output-on-failure
+```
+
+配置（exit=0，末 5 行原样）：
+
+```
+-- Found Git: /usr/bin/git (found version "2.54.0 (Apple Git-157)")
+-- openssl SHA3-256 probe: OK (/Users/yin/miniconda3/bin/openssl: OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026))
+-- Configuring done (0.3s)
+-- Generating done (0.2s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/ossl-check
+```
+
+构建 exit=0（末两行 `[100%] Linking C executable audit` / `[100%] Built target audit`）。
+CTest exit=0，原样摘录：
+
+```
+      Start 19: compare_replay_failures
+19/57 Test #19: compare_replay_failures ............   Passed    0.67 sec
+      Start 20: native_digest
+20/57 Test #20: native_digest ......................   Passed    0.69 sec
+      Start 21: paired_prepare
+21/57 Test #21: paired_prepare .....................   Passed    2.00 sec
+...
+      Start 57: vector_integrity
+57/57 Test #57: vector_integrity ...................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 57
+
+Label Time Summary:
+reference    =   0.84 sec*proc (5 tests)
+
+Total Test time (real) =  27.84 sec
+```
+
+结论：**57/57 通过（0 失败）**，`native_digest` 真实运行并通过，与第 5 节基线一致。
+
+### 12.3 实测 2：LibreSSL 在配置期 FATAL_ERROR
+
+```bash
+rm -rf build/ossl-libre
+cmake -S . -B build/ossl-libre -DOPENSSL_EXECUTABLE=/usr/bin/openssl   # exit=1，未生成构建系统
+```
+
+原始输出（LibreSSL 的 `dgst` 用法串较长，此处保留前段，完整全文见
+`openssl-capability.log` 第 91–152 行）：
+
+```
+-- openssl SHA3-256 probe: FAILED (/usr/bin/openssl: LibreSSL 3.3.6, exit 1)
+CMake Error at CMakeLists.txt:611 (message):
+  The selected openssl cannot compute SHA3-256; tests/test_native_digest.c
+  needs an OpenSSL 3 command line tool (`openssl dgst -sha3-256`), while
+  macOS /usr/bin/openssl is LibreSSL and lacks it.
+
+    executable: /usr/bin/openssl
+    version:    LibreSSL 3.3.6
+    probe:      /usr/bin/openssl dgst -sha3-256 <file> -> exit 1
+
+  Fix 1 (keeps CTest fully green), point CMake at an OpenSSL 3 executable:
+
+    cmake -S . -B build/cmake -DOPENSSL_EXECUTABLE=/path/to/openssl3/bin/openssl
+
+  Fix 2, configure anyway and let that one test be reported as skipped:
+
+    cmake -S . -B build/cmake -DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON
+
+  Raw probe output follows:
+
+  usage: dgst [-cdr] [-binary] [-digest] [-hex] [-hmac key] [-keyform fmt]
+      [-mac algorithm] [-macopt nm:v] [-out file] [-passin arg]
+      [-prverify file] [-sign file] [-signature file]
+      [-sigopt nm:v] [-verify file] [file ...]
+  …（LibreSSL 支持列表里没有 -sha3-*，完整用法串见 openssl-capability.log）
+
+-- Configuring incomplete, errors occurred!
+```
+
+结论：**配置期直接失败**（exit=1），错误里写明需要 OpenSSL 3 以及两条出路，不再变成 CTest 里
+一条看不懂的断言失败。
+
+### 12.4 实测 3：逃生开关 → 该用例被明确跳过
+
+```bash
+rm -rf build/ossl-libre-allow
+cmake -S . -B build/ossl-libre-allow -DOPENSSL_EXECUTABLE=/usr/bin/openssl \
+      -DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON     # exit=0
+cmake --build build/ossl-libre-allow --parallel 4   # exit=0
+ctest --test-dir build/ossl-libre-allow             # exit=0
+```
+
+配置（exit=0）原样：
+
+```
+-- openssl SHA3-256 probe: FAILED (/usr/bin/openssl: LibreSSL 3.3.6, exit 1)
+CMake Warning at CMakeLists.txt:606 (message):
+  BASELINE_ALLOW_NON_SHA3_OPENSSL=ON: continuing with an openssl that cannot
+  compute SHA3-256; CTest will report native_digest as Skipped, never as
+  passed
+
+-- Configuring done (0.3s)
+-- Generating done (0.2s)
+```
+
+CTest（exit=0）原样：
+
+```
+      Start 19: compare_replay_failures
+19/57 Test #19: compare_replay_failures ............   Passed    0.63 sec
+      Start 20: native_digest
+20/57 Test #20: native_digest ......................***Skipped   0.00 sec
+      Start 21: paired_prepare
+21/57 Test #21: paired_prepare .....................   Passed    2.18 sec
+...
+57/57 Test #57: vector_integrity ...................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 57
+
+Label Time Summary:
+reference    =   0.96 sec*proc (5 tests)
+
+Total Test time (real) =  28.11 sec
+
+The following tests did not run:
+	 20 - native_digest (Skipped)
+```
+
+结论：**56 个用例 Passed、1 个用例 Skipped（skip 计数=1）**，没有失败也没有伪装通过。
+`ctest -R '^native_digest$' -V` 还能看到跳过原因原文：
+`native_digest skipped: selected openssl cannot compute sha3-256`。
+
+判读提醒：CTest 对 `SKIP_RETURN_CODE` 仍打印 `100% tests passed, 0 tests failed out of 57`
+（Skipped 计入总数、不计入失败），所以「有没有被跳过」必须看 `***Skipped` 行和末尾
+`The following tests did not run:` 段，不能只看百分比行。
+
+### 12.5 实测：format-check
+
+```bash
+cmake --build build/ossl-check --target format-check   # exit=0
+```
+
+原始输出：`Built target format-check`（该 target 每次都跑 `cmake/Format.cmake` 的
+`clang-format --dry-run --Werror`，失败即 FATAL_ERROR）。本次改动只碰 `CMakeLists.txt`，
+不在 format-check 的 GLOB 内，所以结论与第 7 节一致。
+
+### 12.6 边界对照（探测逻辑的其它分支，均在临时目录复跑后删除）
+
+| 配置 | 探测结论 | 配置退出码 |
+| --- | --- | --- |
+| `-DBUILD_TESTING=OFF -DOPENSSL_EXECUTABLE=/usr/bin/openssl` | 不探测（没有该测试），正常配置 | 0 |
+| `-DOPENSSL_EXECUTABLE=/opt/homebrew/bin/openssl`（OpenSSL 3.6.3） | OK | 0 |
+| `-DOPENSSL_EXECUTABLE=/nonexistent/openssl3` | FAILED，报错里 `probe: … -> exit no such file or directory` | 1 |
+| 不传 `-DOPENSSL_EXECUTABLE`（PATH 命中 LibreSSL） | FAILED | 1 |
+| 不传 `-DOPENSSL_EXECUTABLE`，但 `PATH` 前置 `/Users/yin/miniconda3/bin` | OK（`find_program` 按 PATH 找到 OpenSSL 3） | 0 |
+| 开关 `ON` + `-DOPENSSL_EXECUTABLE=<OpenSSL 3>` | OK，`native_digest` 真实运行并通过（不跳过） | 0 |
+
+### 12.7 遗留项与边界
+
+- 本机为 macOS/ARM，以上三条实测都只代表这台机器；未在 x86_64 Linux 复测（Linux 的 PATH 里
+  通常是 OpenSSL 3，未验证）。
+- `CMakePresets.json` 与根 `Makefile` 本次未改（不在允许改动范围内），所以干净克隆后直接
+  `cmake --preset sanitize` 或 `make test`（不带 `-DOPENSSL_EXECUTABLE`）在 macOS 上会按设计
+  在配置期 FATAL_ERROR；绕过方式：`make CMAKE_ARGS="-DOPENSSL_EXECUTABLE=/path/to/openssl3/bin/openssl"`，
+  或先 `cmake -S . -B build/cmake-sanitize -DOPENSSL_EXECUTABLE=…` 再 `make sanitize`
+  （preset 会复用缓存里的值）。第 11 节的 `cmake -S . -B build/cmake` 同理，需要补这个变量
+  才能在本机干净复算；若要长期免参数，需后续给 preset/README 补上默认值。
+- 同样未改的还有三个配置根工程、且 `BUILD_TESTING=ON` 的辅助脚本：`tools/run_native_reference.sh`、
+  `tools/prepare_paired_native.sh`、`tools/platform_m5/run_qualification.sh`。在这台 macOS 上直接跑
+  会在配置期命中本节的 FATAL_ERROR。它们不在允许改动范围内，且真实证据采集在 Linux（openssl
+  通常是 OpenSSL 3）上执行，故未改；本机临时跑通的办法是让 PATH 里的 `openssl` 先命中 OpenSSL 3，
+  已实测：`PATH="/Users/yin/miniconda3/bin:$PATH" cmake -S . -B <dir>` → 探测 OK、exit=0
+  （`find_program` 按 PATH 搜索，无需改脚本）。
+- 逃生开关下 `test_native_digest` 可执行文件仍会编译（可证明测试代码能构建），只是不运行；
+  换回 OpenSSL 3 重新配置即恢复真实运行。
+- 本次改动未提交；第 8.1 节原文与第一轮 56/57 的失败日志原样保留，未改写。

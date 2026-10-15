@@ -558,13 +558,89 @@ if(BUILD_TESTING)
              COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_compare_replay.sh"
                      $<TARGET_FILE:compare_replay> $<TARGET_FILE:controlled_stats>
     )
+    option(BASELINE_ALLOW_NON_SHA3_OPENSSL
+           "Configure without OpenSSL 3 SHA3-256; native_digest is then reported as skipped" OFF
+    )
     find_program(OPENSSL_EXECUTABLE openssl REQUIRED)
+    # native_digest 用 `openssl dgst -sha3-256` 交叉核对摘要实现；macOS 自带
+    # /usr/bin/openssl 是 LibreSSL，不支持该摘要。这里在配置期探测一次能力，
+    # 免得问题拖到 CTest 阶段才以一个看不懂的断言失败暴露。
+    execute_process(
+        COMMAND "${OPENSSL_EXECUTABLE}" version
+        OUTPUT_VARIABLE openssl_version_text
+        ERROR_VARIABLE openssl_version_error_text
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_STRIP_TRAILING_WHITESPACE
+    )
+    set(openssl_sha3_probe_input "${CMAKE_CURRENT_BINARY_DIR}/openssl-sha3-probe-input.bin")
+    set(openssl_sha3_expected_digest
+        "3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532"
+    )
+    file(WRITE "${openssl_sha3_probe_input}" "abc")
+    execute_process(
+        COMMAND "${OPENSSL_EXECUTABLE}" dgst -sha3-256 "${openssl_sha3_probe_input}"
+        OUTPUT_VARIABLE openssl_sha3_probe_stdout
+        ERROR_VARIABLE openssl_sha3_probe_stderr
+        RESULT_VARIABLE openssl_sha3_probe_status
+        OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_STRIP_TRAILING_WHITESPACE
+    )
+    file(REMOVE "${openssl_sha3_probe_input}")
+    if(openssl_sha3_probe_status STREQUAL "0" AND openssl_sha3_probe_stdout MATCHES
+                                                "${openssl_sha3_expected_digest}"
+    )
+        set(openssl_sha3_supported TRUE)
+    else()
+        set(openssl_sha3_supported FALSE)
+    endif()
+    if(openssl_sha3_supported)
+        message(
+            STATUS
+                "openssl SHA3-256 probe: OK (${OPENSSL_EXECUTABLE}: ${openssl_version_text})"
+        )
+    else()
+        message(
+            STATUS
+                "openssl SHA3-256 probe: FAILED (${OPENSSL_EXECUTABLE}: ${openssl_version_text}, exit ${openssl_sha3_probe_status})"
+        )
+        if(BASELINE_ALLOW_NON_SHA3_OPENSSL)
+            message(
+                WARNING
+                    "BASELINE_ALLOW_NON_SHA3_OPENSSL=ON: continuing with an openssl that cannot compute SHA3-256; CTest will report native_digest as Skipped, never as passed"
+            )
+        else()
+            message(
+                FATAL_ERROR
+                    "The selected openssl cannot compute SHA3-256; tests/test_native_digest.c needs an OpenSSL 3 command line tool (`openssl dgst -sha3-256`), while macOS /usr/bin/openssl is LibreSSL and lacks it.\n"
+                    "  executable: ${OPENSSL_EXECUTABLE}\n"
+                    "  version:    ${openssl_version_text}${openssl_version_error_text}\n"
+                    "  probe:      ${OPENSSL_EXECUTABLE} dgst -sha3-256 <file> -> exit ${openssl_sha3_probe_status}\n"
+                    "Fix 1 (keeps CTest fully green), point CMake at an OpenSSL 3 executable:\n"
+                    "  cmake -S . -B build/cmake -DOPENSSL_EXECUTABLE=/path/to/openssl3/bin/openssl\n"
+                    "Fix 2, configure anyway and let that one test be reported as skipped:\n"
+                    "  cmake -S . -B build/cmake -DBASELINE_ALLOW_NON_SHA3_OPENSSL=ON\n"
+                    "Raw probe output follows:\n"
+                    "${openssl_sha3_probe_stderr}${openssl_sha3_probe_stdout}\n"
+            )
+        endif()
+    endif()
     add_executable(test_native_digest tests/test_native_digest.c)
     target_link_libraries(test_native_digest PRIVATE baseline_options)
     target_compile_options(test_native_digest PRIVATE -UNDEBUG)
-    add_test(NAME native_digest COMMAND test_native_digest $<TARGET_FILE:native_digest>
-                                        "${OPENSSL_EXECUTABLE}"
-    )
+    if(openssl_sha3_supported)
+        add_test(NAME native_digest COMMAND test_native_digest $<TARGET_FILE:native_digest>
+                                            "${OPENSSL_EXECUTABLE}"
+        )
+    else()
+        # 逃生开关下不伪装通过、也不削弱测试：命令只说明原因并以 77 退出，由
+        # SKIP_RETURN_CODE 记为 Skipped；测试本体与期望摘要保持原样，换回 OpenSSL 3
+        # 重新配置即恢复真实运行。
+        add_test(
+            NAME native_digest
+            COMMAND "${SH_EXECUTABLE}" -c
+                    "echo native_digest skipped: selected openssl cannot compute sha3-256; exit 77"
+        )
+        set_tests_properties(native_digest PROPERTIES SKIP_RETURN_CODE 77)
+    endif()
     add_executable(test_paired_prepare tests/test_paired_prepare.c)
     target_link_libraries(test_paired_prepare PRIVATE paired_support)
     target_compile_options(test_paired_prepare PRIVATE -UNDEBUG)
