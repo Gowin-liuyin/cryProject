@@ -1,0 +1,15 @@
+{
+  "schema": "cryproject_stats_battery_v1",
+  "ci_welch": "ci_welch.json",
+  "input_format": "measure",
+  "class0_name": "valid",
+  "class1_name": "truncated",
+  "configuration": "configuration.txt",
+  "tool_digests": "tools.sha256",
+  "rtlf": {"status": "skipped_explicitly", "alpha": 0.01, "seed": 2026101605, "exit_status": "not_run"},
+  "dudect_offline": {"status": "skipped_explicitly", "holm_member": false},
+  "dudect_online": {"status": "unavailable", "holm_member": false},
+  "holm": "not_applied_requires_preregistered_family",
+  "raw_input": "input.csv",
+  "normalized_input": "normalized.csv"
+}
