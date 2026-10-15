@@ -46,6 +46,15 @@ def main():
         original = source_path.read_bytes()
         copied = original
         if mode == "text":
+            try:
+                decoded = original.decode("utf-8")
+            except UnicodeDecodeError:
+                # 新增的图形产物（PDF/PNG 等）是二进制，不能按文本改写；
+                # 原字节复制，匿名性由 verify_package.py 的字节/文本模式扫描兜底。
+                decoded = None
+            if decoded is None:
+                mode = "binary"
+        if mode == "text":
             text = anonymous_text(original.decode("utf-8"))
             if source_path.suffix == ".md":
                 text = re.sub(r"!?\[([^\]]*)\]\((?!https?://)([^)]+)\)",r"\1（原仓库引用：\2）",text)
@@ -78,8 +87,14 @@ def main():
         viewer_name="evidence/"+source["id"]+".html"
         viewer=staging/viewer_name
         viewer.parent.mkdir(parents=True,exist_ok=True)
-        safe_text=(staging/target).read_text()
-        viewer.write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>'+html.escape(source["label"])+'</title><style>body{font:16px/1.8 sans-serif;max-width:1100px;margin:45px auto;padding:0 20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.7 monospace}</style><a href="../index.html">返回索引</a><h1>'+html.escape(source["id"]+" "+source["label"])+'</h1><p>状态：'+html.escape(source["state"])+'</p><pre>'+html.escape(safe_text)+'</pre></html>')
+        try:
+            safe_text=(staging/target).read_text()
+            binary_note=""
+        except UnicodeDecodeError:
+            safe_text="（二进制产物，不内联展示；原字节随包发布，SHA-256 "
+            binary_note=hashlib.sha256((staging/target).read_bytes()).hexdigest()+"）"
+
+        viewer.write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>'+html.escape(source["label"])+'</title><style>body{font:16px/1.8 sans-serif;max-width:1100px;margin:45px auto;padding:0 20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.7 monospace}</style><a href="../index.html">返回索引</a><h1>'+html.escape(source["id"]+" "+source["label"])+'</h1><p>状态：'+html.escape(source["state"])+'</p><pre>'+html.escape(safe_text+binary_note)+'</pre></html>')
         evidence_links.append('<li><a href="'+viewer_name+'">'+html.escape(source["id"]+" "+source["label"])+'</a> · '+html.escape(source["state"])+'</li>')
     for extra_path in data.get("support_extra_paths",[]):
         copy_file(REPOSITORY/extra_path,"evidence/files/"+extra_path,"binary" if Path(extra_path).name in {"input.csv","samples.csv","normalized.csv"} else "text")
