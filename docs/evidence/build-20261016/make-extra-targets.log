@@ -1,0 +1,28 @@
+## build/cmake 中名为 reference / vulnerable 的目标
+... reference
+... vulnerable
+
+$ make reference
+cmake -S . -B "build/cmake" 
+-- Configuring done (0.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/cmake
+MAKEFLAGS= cmake --build "build/cmake" --target reference --parallel 4
+[  0%] Built target build_identity
+[ 66%] Built target mlkem_reference
+[100%] Built target reference_baseline
+[100%] Built target reference
+# exit=0
+
+$ make vulnerable
+cmake -S . -B "build/cmake" 
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/cmake
+MAKEFLAGS= cmake --build "build/cmake" --target vulnerable --parallel 4
+[  0%] Built target prepare_vulnerable
+[  0%] Built target build_identity
+[ 66%] Built target mlkem_vulnerable
+[100%] Built target vulnerable_baseline
+[100%] Built target vulnerable
+# exit=0

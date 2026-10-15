@@ -1,0 +1,6 @@
+
+$ cmake -S . -B build/cmake -DOPENSSL_EXECUTABLE=/Users/yin/miniconda3/bin/openssl
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/cmake
+# exit=0

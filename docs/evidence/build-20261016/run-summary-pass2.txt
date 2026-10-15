@@ -1,0 +1,10 @@
+# T1 第二轮（${BASH_SOURCE[0]}）
+# 开始：2026-10-16 02:14:28 CST
+cmake -S . -B build/cmake -DOPENSSL_EXECUTABLE=/Users/yin/miniconda3/bin/openssl exit=0 0s -> docs/evidence/build-20261016/configure-ordinary-openssl-repair.log
+cmake --build build/cmake --target clean                               exit=0 1s -> docs/evidence/build-20261016/parallelism-proof.log
+make BUILD_JOBS=1                                                      exit=0 25s -> docs/evidence/build-20261016/parallelism-proof.log
+cmake --build build/cmake --target clean                               exit=0 2s -> docs/evidence/build-20261016/parallelism-proof.log
+make -j4                                                               exit=0 9s -> docs/evidence/build-20261016/parallelism-proof.log
+ctest --test-dir build/cmake --output-on-failure                       exit=0 27s -> docs/evidence/build-20261016/ctest-ordinary.log
+make test                                                              exit=0 10s -> docs/evidence/build-20261016/make-test.log
+# 结束：2026-10-16 02:15:42 CST

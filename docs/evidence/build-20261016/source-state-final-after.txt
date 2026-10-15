@@ -1,0 +1,261 @@
+
+$ snapshot /Users/yin/code/cryProject/docs/evidence/build-20261016/source-state-final-after.txt
+timestamp=2026-10-16 02:26:09 CST
+HEAD=efca8a17d2633b5e8cd8b5e5b9f23e89723f00f3
+
+## OPENSSL_EXECUTABLE in caches
+OPENSSL_EXECUTABLE:FILEPATH=/Users/yin/miniconda3/bin/openssl
+OPENSSL_EXECUTABLE:FILEPATH=/Users/yin/miniconda3/bin/openssl
+
+## build/cmake 目标中 collector/dudect 计数（根构建引用链检查）
+0
+
+## git status --porcelain
+ M CMakeLists.txt
+ M Makefile
+ M cmake/PlatformStats.cmake
+ M deliverables/research/platform-completion-20261016/EVIDENCE_MATRIX.csv
+ M deliverables/research/platform-completion-20261016/README.md
+ M deliverables/research/platform-completion-20261016/figures/RENDER_ENV.json
+ M deliverables/research/platform-completion-20261016/figures/REVIEW.md
+ M deliverables/research/platform-completion-20261016/figures/SHA256SUMS
+ M deliverables/research/platform-completion-20261016/figures/platform-evidence-matrix.png
+ M deliverables/research/platform-completion-20261016/figures/platform-evidence-matrix.svg
+ M deliverables/research/platform-completion-20261016/figures/render_matrix.py
+ M docs/evidence/m2-kem-20261016/PLAN.md
+ M docs/evidence/m3-completion-20261016/PLAN.md
+ M docs/evidence/m4-completion-20261016/PLAN.md
+ M src/main.c
+ M src/measure.c
+ M src/mlkem.c
+?? .agents/
+?? .workbuddy/
+?? cmake/PlatformM2.cmake
+?? cmake/PlatformM2Collector.cmake
+?? cmake/PlatformM3.cmake
+?? cmake/PlatformM4.cmake
+?? cmake/PlatformM5Tools.cmake
+?? cmake/PlatformMona.cmake
+?? cn-network-test-v2.sh
+?? cn-network-test.sh
+?? deliverables/research/literature-enhancement-20261011/
+?? deliverables/research/multi-leakage-platform-20261016/
+?? deliverables/research/paper-polish-20261010/
+?? deliverables/research/paper-revision-20261011/
+?? deliverables/research/platform-completion-20261016/figures/CAPTION.md
+?? deliverables/research/platform-completion-20261016/figures/render_preview.py
+?? "deliverables/submission/CACR2026EA16XZ/refined-report-20261012/CACR2026EA16XZ-\344\275\234\345\223\201\350\256\276\350\256\241\346\212\245\345\221\212.docx"
+?? deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/
+?? docs/evidence/build-20261016/
+?? docs/evidence/m2-kem-20261016/COLLECTOR_CONTRACT.md
+?? docs/evidence/m2-kem-20261016/ENV.md
+?? docs/evidence/m2-kem-20261016/REQUIREMENTS.md
+?? docs/evidence/m2-kem-20261016/RESULT.md
+?? docs/evidence/m2-kem-20261016/SHA256SUMS
+?? docs/evidence/m2-kem-20261016/SOFTWARE_CONTRACT.md
+?? docs/evidence/m2-kem-20261016/STATISTICAL_PLAN.md
+?? docs/evidence/m2-kem-20261016/collector-v2-2e894561892a/
+?? docs/evidence/m2-kem-20261016/macos-qualification/
+?? docs/evidence/m2-kem-20261016/native-linux-original.tar.gz
+?? docs/evidence/m2-kem-20261016/native-qualification/
+?? docs/evidence/m3-completion-20261016/ENV.md
+?? docs/evidence/m3-completion-20261016/LOCATE_RESULT.md
+?? docs/evidence/m3-completion-20261016/NOTES.md
+?? docs/evidence/m3-completion-20261016/RESULT.md
+?? docs/evidence/m3-completion-20261016/STATISTICAL_PLAN.md
+?? docs/evidence/m3-completion-20261016/archive-subset-verification.json
+?? docs/evidence/m3-completion-20261016/build-ordinary.log
+?? docs/evidence/m3-completion-20261016/build-sanitize.log
+?? docs/evidence/m3-completion-20261016/cmake-format.log
+?? docs/evidence/m3-completion-20261016/configure-ordinary.log
+?? docs/evidence/m3-completion-20261016/configure-sanitize.log
+?? docs/evidence/m3-completion-20261016/explicit-temporary-path-audit.txt
+?? docs/evidence/m3-completion-20261016/format-check.log
+?? docs/evidence/m3-completion-20261016/locate-v2/
+?? docs/evidence/m3-completion-20261016/native-8b6f2d91/
+?? docs/evidence/m3-completion-20261016/native-archive.txt
+?? docs/evidence/m3-completion-20261016/native-build-identity.txt
+?? docs/evidence/m3-completion-20261016/native-cache-line-bytes.txt
+?? docs/evidence/m3-completion-20261016/native-compile_commands.json
+?? docs/evidence/m3-completion-20261016/native-hardware.txt
+?? docs/evidence/m3-completion-20261016/native-lut-load-excerpt.txt
+?? docs/evidence/m3-completion-20261016/native-m3-selected-compile_commands.json
+?? docs/evidence/m3-completion-20261016/native-probe-identity.txt
+?? docs/evidence/m3-completion-20261016/patch-apply.log
+?? docs/evidence/m3-completion-20261016/patch-dry-run.log
+?? docs/evidence/m3-completion-20261016/source-SHA256SUMS
+?? docs/evidence/m3-completion-20261016/source-upload.json
+?? docs/evidence/m4-completion-20261016/ENV.md
+?? docs/evidence/m4-completion-20261016/FORMAL_RESULT.md
+?? docs/evidence/m4-completion-20261016/MEASURE_V2.md
+?? docs/evidence/m4-completion-20261016/REQUIREMENTS.md
+?? docs/evidence/m4-completion-20261016/RESULT.md
+?? docs/evidence/m4-completion-20261016/STATISTICAL_PLAN_DRAFT.md
+?? docs/evidence/m4-completion-20261016/formal-v1/
+?? docs/evidence/m4-completion-20261016/formal-v2/
+?? docs/evidence/m4-completion-20261016/runtime/
+?? docs/evidence/m4-completion-20261016/software-local/
+?? docs/evidence/m4-completion-20261016/software-native/
+?? docs/evidence/m5-completion-20261016/ENV.md
+?? docs/evidence/m5-completion-20261016/REQUIREMENTS.md
+?? docs/evidence/m5-completion-20261016/RESULT.md
+?? docs/evidence/m5-completion-20261016/software-dynamic-evidence.tar.gz
+?? docs/evidence/mona-wire-20261016/
+?? docs/evidence/platform-completion-20261016/FINAL_AUDIT.csv
+?? docs/evidence/platform-completion-20261016/FINAL_AUDIT.md
+?? docs/evidence/platform-completion-20261016/partials/S02.md
+?? docs/evidence/platform-completion-20261016/partials/S04.md
+?? docs/evidence/platform-completion-20261016/partials/S05.md
+?? docs/evidence/platform-completion-20261016/partials/S06.md
+?? docs/evidence/platform-completion-20261016/partials/S07.md
+?? docs/evidence/platform-completion-20261016/partials/S08.md
+?? docs/evidence/platform-completion-20261016/partials/S09.md
+?? docs/evidence/platform-report-20261016/
+?? docs/evidence/platform-stats-holm-20261016/
+?? docs/patches/m3-mem-lut-toggle.patch
+?? docs/research/aris-measurement-package-20261010/
+?? docs/research/literature-enhancement-20261011/
+?? docs/research/paper-polish-20261010/
+?? docs/research/paper-revision-20261011/
+?? "docs/\351\242\230\351\235\242\345\274\200\346\272\220\345\267\245\345\205\267\346\216\245\345\205\245\350\256\241\345\210\222\344\270\216\346\217\220\347\244\272\350\257\215-20261015.md"
+?? include/platform_m2.h
+?? scripts/platform_mona/
+?? src/platform_m2_adapter.c
+?? src/platform_m2_inputs.c
+?? tests/test_platform_holm.c
+?? tests/test_platform_m2.c
+?? tests/test_platform_m2_equivalence.cmake
+?? tests/test_platform_m2_kat.c
+?? tests/test_platform_m2_random_failure.c
+?? tests/test_platform_m3_equivalence.c
+?? tests/test_platform_m3_equivalence.cmake
+?? tests/test_platform_m3_patch.cmake
+?? tests/test_platform_m4.c
+?? tests/test_platform_m4_cli.cmake
+?? tests/test_platform_m5_dudect.sh
+?? tests/test_platform_m5_poison.sh
+?? tests/vectors/kyber768_round3/
+?? tools/platform_m2/
+?? tools/platform_m3/
+?? tools/platform_m4/
+?? tools/platform_m5/
+?? tools/platform_stats/
+?? workspace/
+?? "\345\244\226\346\264\276\344\273\273\345\212\241\345\215\225-\345\233\275\345\206\205\347\275\221\347\273\234\351\252\214\350\257\201.md"
+
+## sha256 of build inputs
+900dfdaceba684b362ff591260c7d00d66644fb613888b79a343e289910fbeb5  CMakeLists.txt
+b153c0e16a81fcf9ef6237dc6577d7cbef6a9a8540b6ce9b06f2e6fe70045ea1  CMakePresets.json
+fff05375d22cc5d2cb47a3f838d802d17021ea5e862d50583cf12606df554bc5  Makefile
+eb372d7875c3baec245dd5e5a242baef77ef76887354936e1a9a337e7ec37677  cmake/CheckEquivalence.cmake
+47d1c08e836fb8a9599f13a64ac04cb6fa858fc3f2f31dbabace0f99a859b462  cmake/Format.cmake
+00895d41ab4391af89d99a69b2f82a09426680ba1518b54d800042b8aa0aa0b2  cmake/Liboqs010Historical.cmake
+a8e3ca65af2e9274864c9d48f7266148f59e7e877272115f6a8aba6873ef4161  cmake/PlatformM2.cmake
+1be713a755fbc011fcd5c3db1b42010d22ec02f9ecd90a037d12d1733c7e88e3  cmake/PlatformM2Collector.cmake
+703de4db60534e54cc58227301cd0490669ba5d579550b924e6f544102f404b5  cmake/PlatformM3.cmake
+ec5223d18171ff37de29da64d6bd456c6722f87eb45d3b7e22a2cbaceaa75a1f  cmake/PlatformM4.cmake
+0d7757bf16f6645723684ace988d6a37ef8ee1b9340169e8d3eb08e14958bccc  cmake/PlatformM5.cmake
+3e476f40ea7c4d2c4b704ebad806f66e503d296a545c6b5fd0328757641cc3d0  cmake/PlatformM5Tools.cmake
+9519ebe5c4772e457c0f9ccc0d5c37211793660acacd399691c1af247dbb1ced  cmake/PlatformMona.cmake
+c97f582c07d298f32e42ea28e03f0df89da3e0e17e1bf66fb296981238492f76  cmake/PlatformStats.cmake
+352c555552abf486f30e3182ab31b2130d45966cfa86cff6d8e1efb9beb5c8cf  cmake/PrepareDiagnostic.cmake
+5af4d36d1ec1fa44b134cfdbd036daec66969d5ea556805e67e4f7d3022e5d12  cmake/PrepareVariant.cmake
+862e311313ac2b7892665ada1c09c9ac03f43e6b42226b5ee2521ef1a4e4f477  include/baseline_config.h
+886b33ca3b59748b392d763d4297953dba97aad1b3c1a3a5d5b30a2eece595f9  include/batch_measurement.h
+4a4e73ee7a6fbf14ee2b61b73a1dc0e576ac62861eb45b92d3c3b5b2a0654d10  include/controlled_statistics.h
+6f8a9ceda9802fcc4b8888a202843c1bc092cc032b9b93fe4ac6048833085dcf  include/diagnostic_stages.h
+83056f6639dd8e43adc77c647a780a560ff6b21b53bb52ad8742a3a357772f1c  include/inputs.h
+d30d992275e946d64ade88d84bbf5fd847b49d07c6f6ddc11b3d6a3c8005392a  include/localize_rank.h
+d2370cd5d17703f64ddd8a1a315536804709998c39ea61178e9949b0abc5c4e5  include/mlkem.h
+6f4b48f71da200b1175c0f7dac2f86d692497912a4d33ec8c2bf0cab89596ef6  include/network_frame.h
+f447fff9b65f9c8ab9ae36cbc8142bb075ac42fbc6567e22d868ab9f511fee84  include/paired_data.h
+8f24ac6c448aaa3ed453cf95ff22cbe00dda7e19b9a0d3306d22301194a117b8  include/paired_statistics.h
+d2706fce8f97ba01527654a84008dc9876b06222cf9eb31cd7909e7537ff5b00  include/platform_m2.h
+88ef9255c61714f04c61fa5d754b4bcb64bffbe7575591d71fcf39f123a765a0  include/protocol_decision.h
+cca24df6b97ee7b7b3f184661cfbe2ce421555c98eb24ab118d906ef4dc7bea6  include/timing_statistics.h
+c232a42995e576f2805c3265559777c5d04efbf9a238eb653de5971a4dbdcac0  include/trace_account.h
+bac0f5997e0adb78d5529d699fe621a9be1d0372cdd73f1c7de398243d35a0a5  include/v4_reduce.h
+887ea144059930c53d5b3ecd3afe3abb952c7b8a6be340711f63736ac17bee17  include/v4_stats.h
+f6052926b2534bf9d154e7281fb9d8e38cc929c7c9c9ef5cb703596c145dc216  src/analyze.c
+570097275cfccbf1bdb99801fdb84d3f7cdec1b881d785658de7cd155b36863f  src/analyze_groups.c
+51a5a22f44b2cdf376801bf948722f2ad4c735e4b387d3a70a6ece8038feed29  src/analyze_paired.c
+d73771fa0b013b81c0d46721dff5eba51a1278fdc4e217d18279c866fecea485  src/attribution_v3.c
+e8c90248430d8b2da2f7aecf6304b6f75a48805b71b7241e3dcc4f3bb458017c  src/attribution_v3_run.c
+19b0cd10764d56e4b1266ce6cd474c3da6d9084c09b4cac63819291dd260f08b  src/audit.c
+451728058d48bd4c0f19b68b4b815673b88474f6ae1644196c44bcd8023fd1cd  src/batch_measurement.c
+76a111683135e766052aa135028680836fa360a27f479f5810af7226d830760a  src/calibrate_controlled.c
+9d8194df3a010b2f853bc48dc5ff9e4f5e72c2ca5b5cc45adf6409f361378194  src/compare_replay.c
+a6dfcecab1035da729ce1cd4c2e54a24553b375b65b29857bac91b1e7a76ceb6  src/controlled_statistics.c
+553202af9c51e288c62a9968106a992e0124b883383a5542f484fd5a52704dcd  src/controlled_stats.c
+a3ee86534a03ebd56d7203054b8380c63bdffa2b1e7349ea52352656bb3970af  src/diagnostic_stages.c
+1c559b2378b1d9508d1a77d55e5b41f1b27aef2a5c127298375ac13dfcb957e3  src/diagnostic_trace.c
+df082c0e37009db60d20d2e4059d33ac4ae845ffe1f4f97d8654bd28ae350474  src/inputs.c
+b4ca29790e66df42b2cf3e6539d72247208db42b5e79453931094b8091dcfd5a  src/inputs_liboqs010.c
+e28c837d474c96de907becb3fc71eea183c4259b1c1f8335e57d891a7520d1de  src/inspect_timing.c
+460df8a1ab60c699388fadf21f196adc03da833026b8d1fc7227a87695275432  src/kernel.c
+12c4518ee9a9280f69ef1f37073f8f4702f5ed63ef3826be77b14816f60e8733  src/localize.c
+6523515ee0c53a9aaf4835868174258ea468cae46c22dc863c8f0d781edadab6  src/localize_rank.c
+2837e0c2a19f3a548b179619aa52a03e900e56570b1fb2e9dac7e9da41228577  src/main.c
+6b56fef73b554d715ea61ad254aef085054c31d87b6ae9e0123b00e4e8769347  src/measure.c
+40abdd642082959f5233929cd450e3b0bb80ac07f3ef2ba3745c81b9c63c8a8b  src/mechanism_audit.c
+6e724b749a9645a977984c27afb33b19d27bfbc35ddf87336608966da02cc59e  src/mlkem.c
+afb986597553f4ea30dce3a76ecef41790c0a4847caf61eda4c7f4d8d61d62bf  src/mlkem_liboqs010.c
+e1dffc2d55da15f58e608edf4a3693935d5123ae8ae30259ab18b509d6cb6f34  src/native_digest.c
+71b0d77d7078b18d3b98dc46f37f0560dc0de7e6721812d9eb2da7966bba5580  src/network_client.c
+32e5849d77aa6b49876a2679b15f450e3d38022e59404242598845476ceb72fa  src/network_frame.c
+0c84ee8bec0946811cd14abee4211a9ef3a3805d6739d97138509d94c93bec4a  src/network_server.c
+320363b8a3a2930cb86f5a3ddf16e902d1e5813150d06ddfda468a00efb31d70  src/paired_data.c
+cf090675e0f6a4e778fe8e18123b1e652b8a5e561e3b27b96db4ff9ecaecd8cc  src/paired_prepare.c
+b9a331b9cb4353b3e9fb493b17f03b9789d0a6a4ca458aee013c15a3457187ac  src/paired_runner.c
+4d008eaf9fc40c9b232d0a432cfaae8bccdd72e13c96e3a87930e7c86950057f  src/paired_statistics.c
+0b4d01c4769d51820a335add39f2db42da5c73783cbfa6cc10a03056bf1d64e7  src/platform_m2_adapter.c
+40becfef7aa3b0f42ab60689316f7910b668ce991589a5a68217ae32ba80f88d  src/platform_m2_inputs.c
+226930088160767f71c3689e2f50d289d45253cdd9809cc273357029b2fdb0bd  src/protocol_analyze.c
+3c84ec1290e0ffe69c69b9b6646a4c356caa0dca5719916aaf4bdf1486cbe6b8  src/protocol_decision.c
+d5997d997ea6f28160670a2cc9d6a3d43b6661f3628e32804416e16881e8cc20  src/random.c
+02c997cc577d9a3afcfa4f92b09c73c8d44e5f468373e18f8c79bbdc7aaf93dd  src/session_collect.c
+9a79e88f9b64861d1a61b34103db3ffbdfe07bf292f33fb22ee497b5669dff49  src/timing_statistics.c
+dae0bbbcfb029a812acef558de0ab8f7b623357e16c4cb17d3704513325e0634  src/trace_account.c
+050672504d11b4852a215fae6a5d78953d6373b67db2f60294be0d750f6d3ab4  src/trace_hooks.c
+bc2b449ea09ec4cd7a848f710c5a877d63f6a98fe236b0e5ce1f2b714b770233  src/v4_analyze.c
+e221e947f0f8331611a57e6b0c83cdfd8b70c81c554d8ac633b00ff772984a82  src/v4_collect.c
+9e4e982dffcca82072bf90f0fa5132ee13b53f2007f4a25962385846e84d2121  src/v4_hold_spin.c
+27434df341dfae223d9292aa3d08de91df8adec929348a4613baa82ac8adf6f1  src/v4_reduce.c
+9086f70ce8ecbe30e9712ad0a1526a1ee19ecc735609b170076ab2b852cde9d4  src/v4_stats.c
+71139957840cad4afeade53a9220886fa0134bf242d1c20e3a600b8e6f514ae7  src/v4_window.c
+e68b5c3f91de9869467f20a5a4cfcd2cc4663c1cbae64d24b8d2d43b70dbdec4  tests/paired_worker_fixture.c
+ec7bd7559c43c63533828cdc7d7b7cbb116f1b0c51a798d555b9744338843533  tests/test_batch_measurement.c
+da29c60b51c408d4d733f33bd5bd4db5afc3033d1be837632279f05d2ef0fe6a  tests/test_controlled_statistics.c
+a05bdb577027e863718f5f3446fd794cf20d3ee65f2156d4527a1df95354132b  tests/test_diagnostic_trace.c
+d07e5d970b62c052e88663f6779943396b25f824102d2b1e845d03ba329860e1  tests/test_equivalence.c
+f5b96baea9ac107d2c6d8fcbf793651d4c5be37611bcdc8bb280df10726c5862  tests/test_historical_selftest.c
+b39a6763facd002e70a7ca0af0438b41fcf0c46291848bf71a21b688e6f96aa5  tests/test_localize_rank.c
+efac56bd3c2e8389e1bee630624530c0a4179679275c62673cf6fcd23d26ddcb  tests/test_measurement.c
+03aa2dfab03a1c93a377268ed883cae120866df9617f770d6a621fd66b8d48d9  tests/test_mechanism_audit.c
+280515c1231da8dd2b771fac916c3bc6db1b24da713557557bc25b03c53dece8  tests/test_mlkem.c
+3bb5791be65ecbfa2df48cffc478051481b0c7584e0629c6a0c50496ecaa7da7  tests/test_native_digest.c
+2591204fea1cbaf3676afc149f98a19c54d208cf16e95ecd04a88725f67382dd  tests/test_network_frame.c
+8002464b772f99911345b6623773ae7f9edcb908ba387e1083333dfa9ab97fbc  tests/test_paired_data.c
+2fa75f3120af52d3051ff6e68478ccc7757d87687aa4859b434f67e86bf92993  tests/test_paired_prepare.c
+902bf25041633706d536fdf872d293792a3b8c4d0ea7b0c7eba7ef07ce9a3532  tests/test_paired_rejections.c
+047ccd9658481a19dd5e3e08d5fe1ba6da90bf029dfaa334ce35dffb76237908  tests/test_paired_runner.c
+ccc435c9d416a71850bba234b63b2b87567c2698a45d536746e670b9ba9aa9d2  tests/test_paired_statistics.c
+944c7cf2f214e19095e767c25770379ed0119b492bfac97a7b015f2f91421b73  tests/test_performance_replay.c
+a034d0f22984e08e880d119dfe3a1706be2a6579b4c6e040add8580df652f719  tests/test_platform_holm.c
+0ad81cb417290458c938702c43878de49984beaf72609216810fef17cb3fafd9  tests/test_platform_m2.c
+5e881f5bba9b9ae346743689f2cb650de19afdc4b224102f7dd8dced5b9d91d7  tests/test_platform_m2_kat.c
+1416ba0a505e92a233697079fe3ee6b9299c43d55e62e16b0f1d1999d6171241  tests/test_platform_m2_random_failure.c
+b40015bf7bcaa2c6700e11b77a52771249474cb699dbff6a452f40cfab5387fd  tests/test_platform_m3_equivalence.c
+cc13d3b7dd86d4909a52151134e7fd1de83108576e0bde632ca23010b0312932  tests/test_platform_m4.c
+9d345a9ca686271b8d6ba163b6c24807b5e83059a07bfcf0d078f3b869357b07  tests/test_protocol_decision.c
+87e4d2526f22ebf7d21e7a0e8dfceab04aacc2cd8216a61f51e7ddc4c9835c8d  tests/test_random_failure.c
+52610ee9d5c5b7d1593d8a1e81992b1aaf45f5d730bb59035a90bb30456bf58c  tests/test_reference_benchmark.c
+ad62f1cc19ebe13e02afcccd3657a0463638575db3bc91ecd77d6fbe254ca86a  tests/test_session_window.c
+af54b48c7a0b29c04e761ac24259968eec9a0830e4ccd75af7d60dfc451be2b1  tests/test_temp_directory.c
+e75e4de87c6f90937803a39f70d78518237a83915bca2760b1018a1a40c07661  tests/test_timing_diagnostics.c
+4ff73b669cf3e09b1c2efa4b3ab135d3fc1288fdbbd519f4cdffae98c32d6f7e  tests/test_trace_account.c
+fdfa9c967d9a6ae97dc895cd797ff7a56e63fb916abb9dc6da252613dc091d76  tests/test_v4_stats.c
+b5844f8d7de71e2ef6bfe5d5fbcffa06152550d185096ef4e8ae5d8ad1e09f04  tools/platform_control/CMakeLists.txt
+e69a36514dd82fc914c3a9605dc2da7a47d55d1f54e2787c5d65a739734cc3bb  tools/platform_m2/CMakeLists.txt
+db72bf3d6aa42b5adb2fd6ef97ef86eaf8ec1f819c6bb3901718f51caed13e18  tools/platform_m4/CMakeLists.txt
+# exit=0

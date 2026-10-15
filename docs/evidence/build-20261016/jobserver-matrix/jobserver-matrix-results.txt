@@ -1,0 +1,26 @@
+# jobserver recipe 变体矩阵
+# 时间：2026-10-16 02:21:41 CST
+# make: GNU Make 3.81
+# cmake: cmake version 4.3.2
+# ninja: 1.13.0.git.kitware.jobserver-pipe-1
+# 4 个互不依赖 target 各 sleep 1s：串行约 4.2s，4 路并行约 1.1s
+
+variant          make   real     warn
+cur              -j4    4.26     make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+cur              -j     1.12     (none)
+cur              none   1.13     (none)
+plus_bare        -j4    4.27     make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+plus_bare        -j     1.14     (none)
+plus_bare        none   1.12     (none)
+plus_jobs        -j4    1.14     make[1]: warning: -jN forced in submake: disabling jobserver mode.
+plus_jobs        -j     1.14     (none)
+plus_jobs        none   1.12     (none)
+makeflags_clear  -j4    1.14     (none)
+makeflags_clear  -j     1.14     (none)
+makeflags_clear  none   1.13     (none)
+ninja_plus       -j4    1.10     (none)
+ninja_plus       -j     1.09     (none)
+ninja_plus       none   1.09     (none)
+ninja_plain      -j4    1.09     (none)
+ninja_plain      -j     1.10     (none)
+ninja_plain      none   1.10     (none)

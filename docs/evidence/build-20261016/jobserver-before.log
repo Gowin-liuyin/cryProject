@@ -1,0 +1,122 @@
+cmake -S . -B "build/cmake" 
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/cmake
+cmake --build "build/cmake" --parallel
+make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+[  0%] Built target build_identity
+[  2%] Built target mlkem_reference
+[  3%] Built target reference_baseline
+[  4%] Built target reference_test_mlkem
+[  5%] Built target reference_test_equivalence
+[  6%] Built target reference_test_random_failure
+[  6%] Built target reference_session_collect
+[  8%] Built target reference_v4_collect
+[  8%] Built target prepare_vulnerable
+[ 10%] Built target mlkem_vulnerable
+[ 11%] Built target vulnerable_baseline
+[ 12%] Built target vulnerable_test_mlkem
+[ 13%] Built target vulnerable_test_equivalence
+[ 14%] Built target vulnerable_test_random_failure
+[ 14%] Built target vulnerable_session_collect
+[ 16%] Built target vulnerable_v4_collect
+[ 16%] Built target prepare_hardened
+[ 18%] Built target mlkem_hardened
+[ 19%] Built target hardened_baseline
+[ 20%] Built target hardened_test_mlkem
+[ 21%] Built target hardened_test_equivalence
+[ 22%] Built target hardened_test_random_failure
+[ 22%] Built target hardened_session_collect
+[ 23%] Built target hardened_v4_collect
+[ 24%] Built target prepare_deployable
+[ 26%] Built target mlkem_deployable
+[ 26%] Built target deployable_baseline
+[ 26%] Built target deployable_test_mlkem
+[ 27%] Built target deployable_test_equivalence
+[ 28%] Built target deployable_test_random_failure
+[ 29%] Built target deployable_session_collect
+[ 31%] Built target deployable_v4_collect
+[ 31%] Built target prepare_encoder_branch
+[ 33%] Built target mlkem_encoder_branch
+[ 35%] Built target encoder_branch_v4_collect
+[ 36%] Built target encoder_branch_test_mlkem
+[ 37%] Built target prepare_encoder_mask
+[ 39%] Built target mlkem_encoder_mask
+[ 40%] Built target encoder_mask_v4_collect
+[ 41%] Built target encoder_mask_test_mlkem
+[ 43%] Built target mlkem_diagnostic_reference
+[ 44%] Built target diagnostic_stages_reference
+[ 46%] Built target reference_diagnostic_trace
+[ 48%] Built target mlkem_diagnostic_vulnerable
+[ 48%] Built target diagnostic_stages_vulnerable
+[ 50%] Built target vulnerable_diagnostic_trace
+[ 53%] Built target mlkem_diagnostic_hardened
+[ 53%] Built target diagnostic_stages_hardened
+[ 55%] Built target hardened_diagnostic_trace
+[ 56%] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
+[ 56%] Linking C executable reference/benchmark
+[ 56%] Built target reference_benchmark
+[ 57%] Building C object CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+[ 57%] Linking C executable hardened/benchmark
+[ 57%] Built target hardened_benchmark
+[ 58%] Building C object CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+[ 58%] Linking C executable deployable/benchmark
+[ 58%] Built target deployable_benchmark
+[ 59%] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+[ 59%] Linking C executable reference/batch_benchmark
+[ 59%] Built target reference_batch_benchmark
+[ 60%] Built target analyze
+[ 61%] Built target analyze_groups
+[ 63%] Built target inspect_timing
+[ 65%] Built target paired_support
+[ 66%] Built target analyze_paired
+[ 67%] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
+[ 67%] Linking C executable paired_runner
+[ 67%] Built target paired_runner
+[ 67%] Building C object CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o
+[ 67%] Linking C executable paired_prepare
+[ 67%] Built target paired_prepare
+[ 67%] Built target native_digest
+[ 68%] Built target controlled_statistics
+[ 69%] Built target controlled_stats
+[ 69%] Building C object CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o
+[ 69%] Linking C executable calibrate_controlled
+[ 70%] Built target calibrate_controlled
+[ 71%] Built target compare_replay
+[ 71%] Building C object CMakeFiles/audit.dir/src/audit.c.o
+[ 72%] Linking C executable audit
+[ 72%] Built target audit
+[ 72%] Building C object CMakeFiles/mechanism_audit.dir/src/mechanism_audit.c.o
+[ 72%] Linking C executable mechanism_audit
+[ 72%] Built target mechanism_audit
+[ 73%] Built target test_temp_directory
+[ 74%] Built target test_performance_replay
+[ 74%] Built target test_controlled_statistics
+[ 75%] Built target test_native_digest
+[ 76%] Built target test_paired_prepare
+[ 76%] Built target paired_worker_fixture
+[ 76%] Building C object CMakeFiles/test_paired_runner.dir/tests/test_paired_runner.c.o
+[ 77%] Linking C executable test_paired_runner
+[ 77%] Built target test_paired_runner
+[ 77%] Built target test_paired_statistics
+[ 77%] Built target test_paired_data
+[ 78%] Built target test_paired_rejections
+[ 79%] Built target test_batch_measurement
+[ 80%] Built target test_reference_benchmark
+[ 81%] Built target test_timing_diagnostics
+[ 82%] Built target test_trace_account
+[ 83%] Built target test_session_window
+[ 84%] Built target test_diagnostic_trace
+[ 85%] Built target attribution_v3
+[ 87%] Built target v4_analyze
+[ 88%] Built target v4_window
+[ 89%] Built target v4_hold_spin
+[ 91%] Built target test_v4_stats
+[ 92%] Built target protocol_analyze
+[ 93%] Built target test_protocol_decision
+[ 94%] Built target localize_rank
+[ 95%] Built target test_localize_rank
+[ 96%] Built target network_server
+[ 98%] Built target network_client
+[ 99%] Built target test_network_frame
+[100%] Built target test_mechanism_audit

@@ -1,0 +1,38 @@
+# format-check 证据（仓库既有目标，脚本 cmake/Format.cmake）
+# 时间：2026-10-16 02:26:08 CST
+
+$ xcrun --find clang-format
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-format
+$ xcrun clang-format --version
+Apple clang-format version 21.0.0 (clang-2100.3.34.2)
+$ grep CLANG_FORMAT_EXECUTABLE build/cmake/CMakeCache.txt
+CLANG_FORMAT_EXECUTABLE:FILEPATH=
+
+$ cmake --build build/cmake --target format-check
+Built target format-check
+# exit=0
+
+# Format.cmake 的 GLOB 覆盖文件数（format-check 用 --dry-run --Werror，不写入）
+     107
+
+# 敏感性对照：故意排错的临时副本 + 仓库 .clang-format，期望 --dry-run --Werror 非 0
+$ xcrun clang-format --style=file:/Users/yin/code/cryProject/.clang-format --dry-run --Werror /var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c
+/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:15: error: code should be clang-formatted [-Wclang-format-violations]
+int main(void){int x=1;return x;}
+              ^
+/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:16: error: code should be clang-formatted [-Wclang-format-violations]
+int main(void){int x=1;return x;}
+               ^
+/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:21: error: code should be clang-formatted [-Wclang-format-violations]
+int main(void){int x=1;return x;}
+                    ^
+/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:22: error: code should be clang-formatted [-Wclang-format-violations]
+int main(void){int x=1;return x;}
+                     ^
+/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:24: error: code should be clang-formatted [-Wclang-format-violations]
+int main(void){int x=1;return x;}
+                       ^
+/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:33: error: code should be clang-formatted [-Wclang-format-violations]
+int main(void){int x=1;return x;}
+                                ^
+# exit=1（期望非 0）

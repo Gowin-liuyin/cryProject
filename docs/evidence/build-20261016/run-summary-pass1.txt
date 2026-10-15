@@ -1,0 +1,15 @@
+# T1 证据采集 run-summary（本地 macOS/ARM）
+# 开始：2026-10-16 02:11:06 CST
+cmake -S . -B build/cmake                      exit=0 1s -> docs/evidence/build-20261016/configure-ordinary.log
+cmake --build build/cmake --target clean       exit=0 1s -> docs/evidence/build-20261016/build-ordinary.log
+make -j4                                       exit= 9s -> docs/evidence/build-20261016/build-ordinary.log + docs/evidence/build-20261016/jobserver-after.log
+ctest --test-dir build/cmake --output-on-failure exit=8 28s -> docs/evidence/build-20261016/ctest-ordinary.log
+make -j                                        exit=0 4s -> docs/evidence/build-20261016/jobserver-unj.log
+make test                                      exit=2 13s -> docs/evidence/build-20261016/make-test.log
+make sanitize                                  exit=0 44s -> docs/evidence/build-20261016/make-sanitize.log
+cmake --preset sanitize                        exit=0 0s -> docs/evidence/build-20261016/build-sanitize.log
+cmake --build --preset sanitize --target clean exit=0 1s -> docs/evidence/build-20261016/build-sanitize.log
+cmake --build --preset sanitize --parallel 4   exit=0 9s -> docs/evidence/build-20261016/build-sanitize.log
+ctest --preset sanitize                        exit=0 35s -> docs/evidence/build-20261016/ctest-sanitize.log
+cmake --build build/cmake --target format-check exit=0 1s -> docs/evidence/build-20261016/format-check.log
+# 结束：2026-10-16 02:13:32 CST

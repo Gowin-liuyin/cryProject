@@ -1,0 +1,15 @@
+# sanitize 产物是否真被插桩（对照普通产物）
+# 时间：2026-10-16 02:26:59 CST
+
+## 普通产物 build/cmake/audit
+$ otool -L 中的 sanitizer 运行时
+0
+# 未定义符号 __asan/__ubsan 计数：0
+
+## sanitize 产物 build/cmake-sanitize/audit
+$ otool -L
+	@rpath/libclang_rt.asan_osx_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+$ nm -u | grep -c __asan/__ubsan：43
+
+# 说明：普通产物无 sanitizer 运行时；sanitize 产物链接了 ASan 运行时，
+# 与 cmake/../CMakeLists.txt:91-95 的 -fsanitize=address,undefined 一致。

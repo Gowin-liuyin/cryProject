@@ -1,0 +1,23 @@
+# native_digest 依赖的 openssl dgst 能力核对 (2026-10-16 02:14:10 CST)
+
+$ /usr/bin/openssl version
+LibreSSL 3.3.6
+$ /usr/bin/openssl dgst -sha3-256 /tmp/dgst-input.bin
+usage: dgst [-cdr] [-binary] [-digest] [-hex] [-hmac key] [-keyform fmt]
+    [-mac algorithm] [-macopt nm:v] [-out file] [-passin arg]
+    [-prverify file] [-sign file] [-signature file]
+# exit=1
+
+$ /Users/yin/miniconda3/bin/openssl version
+OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)
+$ /Users/yin/miniconda3/bin/openssl dgst -sha3-256 /tmp/dgst-input.bin
+SHA3-256(/tmp/dgst-input.bin)= 3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532
+# exit=0
+
+$ /opt/homebrew/bin/openssl version
+OpenSSL 3.6.3 9 Jun 2026 (Library: OpenSSL 3.6.3 9 Jun 2026)
+$ /opt/homebrew/bin/openssl dgst -sha3-256 /tmp/dgst-input.bin
+SHA3-256(/tmp/dgst-input.bin)= 3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532
+# exit=0
+
+# 期望摘要 (sha3-256('abc')): 3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532

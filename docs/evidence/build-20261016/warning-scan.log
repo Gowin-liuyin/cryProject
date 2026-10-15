@@ -1,0 +1,55 @@
+# 警告/错误扫描（本轮日志）
+# 时间：2026-10-16 02:26:09 CST
+
+## jobserver-before.log
+6:make[1]: warning: jobserver unavailable: using -j1.  Add `+' to parent make rule.
+
+## jobserver-after.log
+(无 jobserver/warning/error 匹配)
+
+## jobserver-unj.log
+(无 jobserver/warning/error 匹配)
+
+## make-test.log
+(无 jobserver/warning/error 匹配)
+
+## make-sanitize.log
+(无 jobserver/warning/error 匹配)
+
+## build-ordinary.log
+(无 jobserver/warning/error 匹配)
+
+## build-sanitize.log
+(无 jobserver/warning/error 匹配)
+
+## ctest-ordinary.log
+(无 jobserver/warning/error 匹配)
+
+## ctest-sanitize.log
+(无 jobserver/warning/error 匹配)
+
+## parallelism-proof.log
+(无 jobserver/warning/error 匹配)
+
+## format-check.log
+20:/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:15: error: code should be clang-formatted [-Wclang-format-violations]
+23:/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:16: error: code should be clang-formatted [-Wclang-format-violations]
+26:/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:21: error: code should be clang-formatted [-Wclang-format-violations]
+29:/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:22: error: code should be clang-formatted [-Wclang-format-violations]
+32:/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:24: error: code should be clang-formatted [-Wclang-format-violations]
+35:/var/folders/0s/q7f_w8g514b29pr_49yc0rwm0000gn/T//format-control.n4Qm3F/control.c:1:33: error: code should be clang-formatted [-Wclang-format-violations]
+
+## make-extra-targets.log
+(无 jobserver/warning/error 匹配)
+
+## ctest-ordinary-libressl-stale.log
+(无 jobserver/warning/error 匹配)
+
+## make-test-libressl-stale.log
+(无 jobserver/warning/error 匹配)
+
+# 逐入口 jobserver 计数（期望四个入口均为 0）
+jobserver-after.log    0
+jobserver-unj.log      0
+make-test.log          0
+make-sanitize.log      0

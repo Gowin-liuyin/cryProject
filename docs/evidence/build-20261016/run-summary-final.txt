@@ -1,0 +1,18 @@
+# T1 最终证据采集（本地 macOS/ARM，每个日志单次运行）
+# 开始：2026-10-16 02:23:00 CST
+snapshot /Users/yin/code/cryProject/docs/evidence/build-20261016/source-state-final-before.txt exit=0 1s -> docs/evidence/build-20261016/source-state-final-before.txt
+cmake -S . -B build/cmake                                                exit=0 1s -> docs/evidence/build-20261016/configure-ordinary.log
+cmake --build build/cmake --target clean                                 exit=0 2s -> docs/evidence/build-20261016/parallelism-proof.log
+make BUILD_JOBS=1                                                        exit=0 31s -> docs/evidence/build-20261016/parallelism-proof.log
+cmake --build build/cmake --target clean                                 exit=0 2s -> docs/evidence/build-20261016/parallelism-proof.log
+make -j4                                                                 exit=0 11s -> docs/evidence/build-20261016/build-ordinary.log + docs/evidence/build-20261016/jobserver-after.log
+ctest --test-dir build/cmake --output-on-failure                         exit=0 29s -> docs/evidence/build-20261016/ctest-ordinary.log
+make -j                                                                  exit=0 5s -> docs/evidence/build-20261016/jobserver-unj.log
+make test                                                                exit=0 18s -> docs/evidence/build-20261016/make-test.log
+cmake --preset sanitize                                                  exit=0 1s -> docs/evidence/build-20261016/build-sanitize.log
+cmake --build --preset sanitize --target clean                           exit=0 1s -> docs/evidence/build-20261016/build-sanitize.log
+cmake --build --preset sanitize --parallel 4                             exit=0 17s -> docs/evidence/build-20261016/build-sanitize.log
+make sanitize                                                            exit=0 50s -> docs/evidence/build-20261016/make-sanitize.log
+ctest --preset sanitize                                                  exit=0 19s -> docs/evidence/build-20261016/ctest-sanitize.log
+snapshot /Users/yin/code/cryProject/docs/evidence/build-20261016/source-state-final-after.txt exit=0 1s -> docs/evidence/build-20261016/source-state-final-after.txt
+# 结束：2026-10-16 02:26:10 CST
