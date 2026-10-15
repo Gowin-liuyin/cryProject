@@ -1,7 +1,13 @@
 # Optional historical positive-control backend: liboqs 0.10.0 (GHSA-f2v9-5498-2vpp).
 # Included from the top-level CMakeLists.txt. Does not alter mlkem-native variants.
 
-set(LIBOQS010_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/liboqs-0.10.0")
+# 默认是钉住的 0.10.0 树。修后复测可指向一份仍报 0.10.0 版本文本的副本，
+# 不要改 vendor/liboqs-0.10.0，也不要把阳性树升级到 0.10.1。
+set(LIBOQS010_SOURCE_DIR
+    "${CMAKE_CURRENT_SOURCE_DIR}/vendor/liboqs-0.10.0"
+    CACHE PATH
+          "liboqs 0.10.0 tree (pinned vendor snapshot, or a same-version patched copy)"
+)
 set(LIBOQS010_PIN_COMMIT "36be57445d8ca53f7095160fde548efe82ace09d")
 set(LIBOQS010_PIN_TAG "0.10.0")
 
@@ -27,7 +33,7 @@ file(STRINGS "${LIBOQS010_SOURCE_DIR}/CMakeLists.txt" _liboqs010_version_line
      REGEX "set\\(OQS_VERSION_TEXT \"0\\.10\\.0\"\\)" LIMIT_COUNT 1
 )
 if(_liboqs010_version_line STREQUAL "")
-    message(FATAL_ERROR "vendor/liboqs-0.10.0 does not look like release 0.10.0")
+    message(FATAL_ERROR "${LIBOQS010_SOURCE_DIR} does not look like release 0.10.0")
 endif()
 
 include(ExternalProject)
@@ -148,5 +154,5 @@ endif()
 
 message(
     STATUS
-        "Historical liboqs ${LIBOQS010_PIN_TAG} (${LIBOQS010_PIN_COMMIT}) enabled; clangover timing still requires x86_64 Clang 15-18 with -Os/-O1 (see docs/historical-liboqs-0.10.0.md)"
+        "Historical liboqs ${LIBOQS010_PIN_TAG} (${LIBOQS010_PIN_COMMIT}) from ${LIBOQS010_SOURCE_DIR}; AVX2 dispatch forced OFF. OQS_DIST_BUILD=OFF alone still selects AVX2 on capable x86_64. Clangover timing still requires x86_64 Clang 15-18 with -Os/-O1 (see docs/historical-liboqs-0.10.0.md)"
 )

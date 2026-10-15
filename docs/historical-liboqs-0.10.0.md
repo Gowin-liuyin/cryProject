@@ -61,7 +61,19 @@ ctest --test-dir build/historical-clangover -L historical --output-on-failure
 
 CMake preset 名：`historical-clangover`（见根目录 `CMakePresets.json`）。在 Apple Silicon 上该 preset 仅用于**接入与语法检查**；证据目录需单独标注 `arch=arm64` 且不得升格为主阳性。
 
-`cmake/Liboqs010Historical.cmake` 额外关闭 AVX2 指令与 `ML-KEM-768-ipd` 的 AVX2 后端，并把 `LIBOQS010_C_FLAGS` 写入各配置专用的 `CMAKE_C_FLAGS_*`。只设 `OQS_DIST_BUILD=OFF` 时，具备 AVX2 的 x86_64 仍会在运行时走到 AVX2；`RelWithDebInfo` 自带的 `-O2` 也会排在 `CMAKE_C_FLAGS` 后面，盖掉 `-Os`。阳性对象必须是 portable C `*_ref` 的 `poly_frommsg`。
+## 复现时不要只关 OQS_DIST_BUILD
+
+只设 `OQS_DIST_BUILD=OFF` 时，具备 AVX2、BMI2 和 POPCNT 的 x86_64 仍会编译 AVX2，并在运行时把解封装分发到 AVX2。clangover 的阳性对象是 portable C `*_ref` 的 `poly_frommsg`，不能用 AVX2 后端代替。
+
+`cmake/Liboqs010Historical.cmake` 因此同时传入：
+
+- `-DOQS_USE_AVX2_INSTRUCTIONS=OFF`
+- `-DOQS_ENABLE_KEM_ml_kem_768_ipd_avx2=OFF`
+- `-DOQS_OPT_TARGET=generic`
+
+并把 `LIBOQS010_C_FLAGS` 写入各配置专用的 `CMAKE_C_FLAGS_*`。`RelWithDebInfo` 自带的 `-O2` 写在 `CMAKE_C_FLAGS` 后面，会盖掉 `-Os` 并重新打开向量化。
+
+修后对比使用仍报 `OQS_VERSION_TEXT` 为 `0.10.0` 的副本，通过 `-DLIBOQS010_SOURCE_DIR=` 指向它。不要改 `vendor/liboqs-0.10.0/`，也不要把阳性树升级成 0.10.1。
 
 ## 构建命令（默认功能接入）
 
