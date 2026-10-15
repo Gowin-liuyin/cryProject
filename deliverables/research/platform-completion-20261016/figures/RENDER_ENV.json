@@ -1,0 +1,21 @@
+{
+  "audit_commit": "ac46e62",
+  "figure_kind": "native_svg_matrix",
+  "generator": "render_matrix.py",
+  "data_source": "../EVIDENCE_MATRIX.csv",
+  "width_css_pixels": 1460,
+  "height_css_pixels": 810,
+  "png_device_scale_factor": 2,
+  "python": "3.13.12",
+  "node": "v24.14.1",
+  "puppeteer": "23.11.1",
+  "chrome": "155.0.8059.40",
+  "mermaid_cli_attempt": {
+    "cli": "11.12.0",
+    "mermaid": "11.17.2",
+    "attempts": 3,
+    "syntax": "passed",
+    "visual": "rejected_clipped_labels",
+    "delivered": false
+  }
+}
