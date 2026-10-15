@@ -1,0 +1,15 @@
+[  0%] Built target build_identity
+[ 66%] Built target mlkem_reference
+[100%] Built target platform_stats
+[  0%] Built target build_identity
+[ 66%] Built target mlkem_reference
+[ 66%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[100%] Linking C executable reference/measure
+[100%] Built target reference_measure
+[100%] Built target platform_m5_measure
+[100%] Built target mem_lut_on_kernel
+[100%] Built target mem_lut_leak_on
+[ 50%] Built target mem_lut_off_kernel
+[100%] Built target mem_lut_leak_off
+[100%] Built target m4_compare_vulnerable
+[100%] Built target m4_compare_ct

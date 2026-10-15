@@ -30,6 +30,7 @@ option(BASELINE_ENABLE_LIBOQS010
        "Build historical positive-control variant against vendored liboqs 0.10.0" OFF
 )
 option(A113_ARCHIVED_CASE_ONLY "Use archived mechanism cases in the delivery workflow" ON)
+option(BASELINE_ENABLE_PLATFORM "Build multi-leakage platform adapters and artificial fixtures" OFF)
 set(A113_MATRIX_OPT
     ""
     CACHE STRING "Replace RelWithDebInfo optimization with O0, O1, O2, O3, or O2LTO"
@@ -871,6 +872,13 @@ endif()
 
 if(BASELINE_ENABLE_LIBOQS010)
     include(cmake/Liboqs010Historical.cmake)
+endif()
+
+if(BASELINE_ENABLE_PLATFORM)
+    include(cmake/PlatformM5.cmake)
+    include(cmake/PlatformStats.cmake)
+    add_subdirectory(fixtures/mem_lut_leak)
+    add_subdirectory(fixtures/early_reject_memcmp)
 endif()
 
 set(CLANG_FORMAT_EXECUTABLE

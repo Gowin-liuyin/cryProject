@@ -24,8 +24,17 @@ execute_process(
 if(NOT version_status EQUAL 0 OR NOT formatter_version MATCHES "version 21\\.")
     message(FATAL_ERROR "Formatting is pinned to clang-format 21; found: ${formatter_version}")
 endif()
-file(GLOB owned_sources "${SOURCE_ROOT}/src/*.c" "${SOURCE_ROOT}/include/*.h"
-     "${SOURCE_ROOT}/tests/*.c"
+file(
+    GLOB
+    owned_sources
+    "${SOURCE_ROOT}/src/*.c"
+    "${SOURCE_ROOT}/include/*.h"
+    "${SOURCE_ROOT}/tests/*.c"
+    "${SOURCE_ROOT}/scripts/platform_stats/*.c"
+    "${SOURCE_ROOT}/fixtures/mem_lut_leak/*.c"
+    "${SOURCE_ROOT}/fixtures/mem_lut_leak/*.h"
+    "${SOURCE_ROOT}/fixtures/early_reject_memcmp/*.c"
+    "${SOURCE_ROOT}/fixtures/early_reject_memcmp/*.h"
 )
 if(FORMAT_MODE STREQUAL "format")
     set(format_arguments -i)

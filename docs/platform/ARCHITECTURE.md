@@ -51,6 +51,14 @@ CMake/CTest 是构建与测试配置来源。第三方构建用独立目录、�
 新增根 CMake 接线由主控串行合并；各路先提交独立子目录和接口片段。
 普通采集产物与 ASan/UBSan、Valgrind、Pin 等动态检查产物分开，不混用计时。
 
+平台入口为显式选项，默认不改变既有构建：
+
+```sh
+cmake -S . -B build/platform -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF
+cmake --build build/platform --target platform_stats platform_m5_measure mem_lut_leak_on mem_lut_leak_off m4_compare_vulnerable m4_compare_ct
+ctest --test-dir build/platform --output-on-failure -R 'platform_stats_battery|mem_lut_.*_selftest|m4_.*'
+```
+
 M2 建议目录为 `vendor/liboqs-kyberslash-unfixed/` 与
 `vendor/liboqs-kyberslash-fixed/`；若改用 pq-crystals 历史快照，记录实际目录与原因。
 `PIN.md` 必须含完整提交号、来源、许可证、获取摘要、适用算法版本及补丁列表。
@@ -73,14 +81,17 @@ run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
 保存全部逐次原始值与普通长尾，记录平衡乱序算法和种子。短缓冲区、非法长度和空指针
 由封装层拒绝，不能交给固定长度密码内核。
 
-工具所需的两列时间文件是派生输入，表头为 PLAN 中的两类名称（如
-`message-zero,message-ones`），各列按原 CSV 中该类的出现顺序抽取，不重新排序。
-同一行的两列不自动构成配对实验；Welch 仍按两个独立样本计算。
+统计入口接受 `class0_ns,class1_ns` 两列宽表，或按 `--classes` 选择的原始 measure
+长表。宽表的两列不自动构成配对实验；Welch 按两个独立样本计算。
+派生的 `normalized.csv` 使用 RTLF 的 `V1,V2` 类别/时间长表协议：measure 输入保留
+入选行原序，宽表按行交错两类并明确这是适配顺序，不能冒称原始采集顺序。
 适配器保留来源路径与摘要、类别/列映射、单位、行数和命令；不覆盖原始 CSV，
 不静默丢弃长尾、截断较长列、转换时钟单位或混合不同二进制的样本。
 最小合成 CSV 必须标注 `synthetic`，只能验证工具接口。
 
 `scripts/run_stats_battery.sh` 是统一编排入口；其可执行用法以 `--help` 为准。
+具体输出、工具依赖与离线回放规则见
+[统计入口说明](../../scripts/platform_stats/README.md)。
 输出至少区分 CI/Welch、RTLF、dudect 三项；各项保存工具版本、命令、退出码、
 原始输出和 `ok` / `blocked` / `failed` / `not_run` 状态。工具缺失时明确阻塞，
 不能用自编近似方法冒称上游结果。

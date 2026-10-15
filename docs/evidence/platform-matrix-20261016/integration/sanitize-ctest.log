@@ -1,0 +1,122 @@
+Start testing: Oct 16 01:25 CST
+----------------------------------------------------------
+61/67 Testing: platform_stats_battery
+61/67 Test: platform_stats_battery
+Command: "/bin/sh" "/Users/yin/code/cryProject/tests/test_stats_battery.sh" "/Users/yin/code/cryProject/build/platform-integrated-sanitize/platform_stats" "/Users/yin/code/cryProject" "-"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize
+"platform_stats_battery" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+platform statistics synthetic and rejection checks passed
+<end of output>
+Test time =   1.45 sec
+----------------------------------------------------------
+Test Passed.
+"platform_stats_battery" end time: Oct 16 01:25 CST
+"platform_stats_battery" time elapsed: 00:00:01
+----------------------------------------------------------
+
+62/67 Testing: mem_lut_on_selftest
+62/67 Test: mem_lut_on_selftest
+Command: "/Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/mem_lut_leak/mem_lut_leak_on" "--selftest"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/mem_lut_leak
+"mem_lut_on_selftest" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+fixture=artificial_mem_lut mode=on selftest=pass mappings=8192 boundary=pass overlap=pass
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"mem_lut_on_selftest" end time: Oct 16 01:25 CST
+"mem_lut_on_selftest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+63/67 Testing: mem_lut_off_selftest
+63/67 Test: mem_lut_off_selftest
+Command: "/Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/mem_lut_leak/mem_lut_leak_off" "--selftest"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/mem_lut_leak
+"mem_lut_off_selftest" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+fixture=artificial_mem_lut mode=off selftest=pass mappings=8192 boundary=pass overlap=pass
+<end of output>
+Test time =   0.50 sec
+----------------------------------------------------------
+Test Passed.
+"mem_lut_off_selftest" end time: Oct 16 01:25 CST
+"mem_lut_off_selftest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+64/67 Testing: m4_vulnerable_self_test
+64/67 Test: m4_vulnerable_self_test
+Command: "/Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp/m4_compare_vulnerable" "--self-test"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp
+"m4_vulnerable_self_test" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+artificial_fixture=yes oracle=libc_memcmp equality_and_length_checks=pass
+<end of output>
+Test time =   0.37 sec
+----------------------------------------------------------
+Test Passed.
+"m4_vulnerable_self_test" end time: Oct 16 01:25 CST
+"m4_vulnerable_self_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+65/67 Testing: m4_vulnerable_probe_smoke
+65/67 Test: m4_vulnerable_probe_smoke
+Command: "/Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp/m4_compare_vulnerable" "--probe"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp
+"m4_vulnerable_probe_smoke" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+artificial_fixture=yes probe=completed timing_samples=not_collected
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"m4_vulnerable_probe_smoke" end time: Oct 16 01:25 CST
+"m4_vulnerable_probe_smoke" time elapsed: 00:00:00
+----------------------------------------------------------
+
+66/67 Testing: m4_ct_self_test
+66/67 Test: m4_ct_self_test
+Command: "/Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp/m4_compare_ct" "--self-test"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp
+"m4_ct_self_test" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+artificial_fixture=yes oracle=libc_memcmp equality_and_length_checks=pass
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Passed.
+"m4_ct_self_test" end time: Oct 16 01:25 CST
+"m4_ct_self_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+67/67 Testing: m4_ct_probe_smoke
+67/67 Test: m4_ct_probe_smoke
+Command: "/Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp/m4_compare_ct" "--probe"
+Directory: /Users/yin/code/cryProject/build/platform-integrated-sanitize/fixtures/early_reject_memcmp
+"m4_ct_probe_smoke" start time: Oct 16 01:25 CST
+Output:
+----------------------------------------------------------
+artificial_fixture=yes probe=completed timing_samples=not_collected
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"m4_ct_probe_smoke" end time: Oct 16 01:25 CST
+"m4_ct_probe_smoke" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 16 01:25 CST
+
+fixture =   0.85 sec*proc
+
+mem_lut =   0.85 sec*proc
+
+platform =   1.45 sec*proc
+
