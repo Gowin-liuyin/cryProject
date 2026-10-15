@@ -3,7 +3,7 @@
 set -eu
 
 unfixed=${1:-docs/evidence/liboqs010-locked-20261015/logs/locked-poly-frommsg-vulnerable.s}
-fixed=${2:-docs/evidence/liboqs010-locked-20261015/logs/locked-poly-frommsg-fixed.s}
+fixed=${2:-docs/evidence/tooling-strengthen-20261015/logs/poly-frommsg-fixed-reloc.s}
 
 if ! grep -q 'pqcrystals_ml_kem_768_ipd_ref_poly_frommsg' "$unfixed"; then
     echo "unfixed listing is missing poly_frommsg" >&2
@@ -11,6 +11,10 @@ if ! grep -q 'pqcrystals_ml_kem_768_ipd_ref_poly_frommsg' "$unfixed"; then
 fi
 if ! grep -q 'pqcrystals_ml_kem_768_ipd_ref_poly_frommsg' "$fixed"; then
     echo "fixed listing is missing poly_frommsg" >&2
+    exit 1
+fi
+if ! grep -q $'\tbt' "$unfixed"; then
+    echo "unfixed listing has no message-bit bt" >&2
     exit 1
 fi
 if ! grep -q $'\tjae' "$unfixed"; then
@@ -25,8 +29,8 @@ if ! grep -q $'\tsetb' "$fixed"; then
     echo "fixed listing has no setb" >&2
     exit 1
 fi
-if ! grep -q $'\tcall' "$fixed"; then
-    echo "fixed listing has no cmov call" >&2
+if ! grep -q 'cmov_int16' "$fixed"; then
+    echo "fixed listing has no cmov_int16" >&2
     exit 1
 fi
 if grep -q $'\tjae' "$fixed"; then
