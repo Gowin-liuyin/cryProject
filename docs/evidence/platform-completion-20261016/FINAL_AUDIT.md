@@ -1,20 +1,61 @@
-# 多泄漏模块平台完整完成条件 —— 最终复核审计（FINAL_AUDIT，第 5 版）
+# 多泄漏模块平台完整完成条件 —— 最终复核审计（FINAL_AUDIT，第 7 版）
 
-**审计快照（第 5 次复核，收尾轮）：** 快照 `git rev-parse HEAD` = `7a71d5c`（"docs: 补收尾轮交接并闭合末次审计的 C-11"）；审计时刻 2026-10-16T03:45–03:58（Asia/Shanghai）。第 4 次复核（本文件上一版）的对象是 `dc6522c` + 当时尚未提交的工作区改动；该版原字节另存 [`FINAL_AUDIT-dc6522c.md`](FINAL_AUDIT-dc6522c.md)、[`FINAL_AUDIT-dc6522c.csv`](FINAL_AUDIT-dc6522c.csv)。
-**工作区状态（本版对第 4 版时点声明的更新）：** 快照 **`7a71d5c`，全部已提交**——收尾轮的 10 个提交（`b94e942`…`7a71d5c`，即 `origin/main@c849c0f` 之后的全部提交）已落到本地 `main`，`git status` 无已跟踪改动（仅剩 `.agents/`、`workspace/`、`cn-network-test*.sh` 等与本平台无关的历史未跟踪项）。第 4 版"审计对象含未提交工作区改动、以新快照复核一次"的时点声明**由此解除**；本次按同一 CSV 逐条实跑复核，未发现判定变化。
-**提交进展：** `git log --oneline 44c209a..HEAD | wc -l` = **42** 个提交（第 4 版为 38）；相对 `origin/main`（`c849c0f`）**领先 10 个提交且未被 push**，`origin/main` 是 HEAD 的祖先（无分叉）。
-**本次复核范围：** 只做四件事——①更新快照时点声明；②重跑 CSV 全部 **148 条证据路径**与 **40 条 `verify_command`**（全部返回 0）；③复核 R03/R05 两个新增行仍为"已满足"、C-02/C-03/C-04 三条仍为已闭、T4 之后 `git status` 无 `Too many levels of symbolic links` 告警；④复核 C-11（收尾轮交接）闭合。**其余判定一律不动。**
-**被审计文档：** `docs/platform/COMPLETION_REQUIREMENTS.md`（sha256 前 16 位 `31cac9c7b848585c`，与前三版一致，未变更；文档自述基线 `main@ac46e62`）
-**审计性质：** 只读。未改 `COMPLETION_REQUIREMENTS.md`、未改任何被审计证据文件、未 `git add/commit/push`。
+**审计快照（第 7 次复核，收尾轮最终核）：** 审计时刻 2026-10-16T05:50–06:10（Asia/Shanghai）。
+`git rev-parse HEAD` = **`7387c01`**（"test: 口径修正后重新成包并复算 final5"，2026-10-16 05:50:03 +0800）；
+`44c209a..HEAD` = **72** 个提交；`origin/main..HEAD` = **29**（未 push，无分叉）。
+第 6 版（本文件上一版）的对象是 **`f8fa4de`**，原字节另存
+[`FINAL_AUDIT-f8fa4de.md`](FINAL_AUDIT-f8fa4de.md)、[`FINAL_AUDIT-f8fa4de.csv`](FINAL_AUDIT-f8fa4de.csv)。
 
-> **四次历史快照的结论在此（均原字节保留）：**
+> **时点声明（重要，与前几版的差别）：** 本版复核时，主控所述的六处修补中 **D-03（`MAPPING.md`）、D-04（`docs/full-work-progress.md`）、D-05（`POWER.md`）、R-04（`SIGNOFF_CHECKLIST.md`）四处只在工作区，尚未提交**——`git status` 显示这 4 个文件为 ` M`，`git show HEAD:<path>` 仍是旧文本；R-02（`REFRESH.md`，`6c10f4d`+`e6b35cf`）与 R-03（`HANDOFF_DONE.md`，`83cd9df`）两部分已提交。因此**本版对上述四行的"已闭合"判定绑定工作区文件字节**；另本审计的两个产物（`FINAL_AUDIT.md`/`.csv`）自身也是工作区已修改状态。主控提交后应以新快照再核一次。**这与"`git status` 应无已跟踪改动"的预期不符，已如实登记（见 §4.3 说明）。**
+
+**工作区状态：** 全部已提交。`git status --porcelain` 无已跟踪改动（仅剩 `.agents/`、`workspace/`、
+`cn-network-test*.sh`、未跟踪的报告渲染目录等与本平台无关的历史未跟踪项）。
+
+**本轮实际基线（与计划书的偏差，必须一起读）：** 计划书写明的基线是 `origin/main@c849c0f`；
+实际基线是 **`origin/main@e81c1ae`**——`git rev-list --count c849c0f..e81c1ae` = **11**，
+即计划书已过期 11 个提交。`closeout-20261016/BASELINE.md` 已如实记下这 11 个提交的清单
+（`b94e942`…`e81c1ae`），并声明 T01–T04、T10–T14、T16、T32（final4）、T33（第 4/5 版）
+已在该区间完成并推送、本轮不重做。**这 11 个提交的内容已在第 5 版审计里**，
+本版只把它们当既有事实引用，不重复判定。
+
+**提交进展：** `git rev-list --count e81c1ae..HEAD` = **27** 个提交（`08cace0`…`f8fa4de`）；
+`origin/main`（`e81c1ae`）是 HEAD 的祖先，`origin/main..HEAD` 同为 **27（未 push）**，无分叉。
+作者与提交者唯一为 `Gowin-liuyin <yinhaoran0808@outlook.com>`；
+`git diff --stat e81c1ae HEAD -- sources vendor` 为空。
+
+**本次复核范围：** ①把第 5 版原字节另存为 `FINAL_AUDIT-e81c1ae.*`；②逐条复核原 43 行（**判定一律不动**，
+只把 S02 的 R05 计数更新到补格后的 5/75/10/0）；③并入本轮 **22 项任务行**
+（T00/T05–T09/T15/T17–T24/T26–T32/T34 + BLOCKERS）、**1 行口径行**（X-CONT 锁频运行计数）
+与 **8 行不一致/残留行**（D-01…D-05、R-02…R-04），CSV 共 76 行；
+④把四处已知不一致（报告 §24 的 1–4）**逐条核实到闭合提交 `6c10f4d`**；
+⑤实跑全部 `verify_command`；⑥独立重数本轮全部计数（不看文稿、逐份日志与逐份 `terminal.json` 重算）；
+⑦把本轮**新发现**的 6 处未闭不一致登记为 D-03/D-04/D-05/R-02/R-03/R-04。
+
+**被审计文档：** `docs/platform/COMPLETION_REQUIREMENTS.md`
+（sha256 前 16 位 `31cac9c7b848585c`，与第 1–5 版一致，未变更；文档自述基线 `main@ac46e62`）。
+
+**审计性质：** 只读。未改 `COMPLETION_REQUIREMENTS.md`、未改任何被审计证据文件的原始字节
+（本轮新写入的只有 `FINAL_AUDIT.*`、新快照 `FINAL_AUDIT-e81c1ae.*` 与 `partials/S11.md`）、
+未 `git add/commit/push`。
+
+> **六次历史快照的结论在此（均原字节保留）：**
 > - **快照 `47033dd`（第 1 版，02:08）：** 全量 41 行 已满足 18 / 部分 15 / 未执行 4 / 条件未触发 1 / 可选未做 3；口径 B（32 项）14 / 10 / 4 / 1 / 3；5 个关键未满足项（B05/C03/D04/E04 未执行 + B04/G03 未冻结提交）。原文见 [`FINAL_AUDIT-47033dd.md`](FINAL_AUDIT-47033dd.md)、[`FINAL_AUDIT-47033dd.csv`](FINAL_AUDIT-47033dd.csv)。
-> - **快照 `a30d7c7`（第 2 版，02:49）：** 全量 41 行 已满足 37 / 部分 1（F04） / 未执行 0 / 条件未触发 0 / 可选未做 3；口径 B（32 项）28 / 1 / 0 / 0 / 3；唯一缺口为 F04"最终交接"。原文见 [`FINAL_AUDIT-a30d7c7.md`](FINAL_AUDIT-a30d7c7.md)、[`FINAL_AUDIT-a30d7c7.csv`](FINAL_AUDIT-a30d7c7.csv)。
-> - **快照 `0d9876b`（第 3 版，02:57）：** 全量 41 行 已满足 38 / 部分 0 / 未执行 0 / 条件未触发 0 / 可选未做 3；口径 B（32 项）29 / 0 / 0 / 0 / 3；F04 由 `0d9876b` 补齐，C-05…C-10 六条闭合，C-02/C-03/C-04 仍未闭。原文见 [`FINAL_AUDIT-0d9876b.md`](FINAL_AUDIT-0d9876b.md)、[`FINAL_AUDIT-0d9876b.csv`](FINAL_AUDIT-0d9876b.csv)（该版随后以 `c849c0f` 原字节提交入 main）。第 3 版文件 sha256 `1e02e10ec96a79b3…`（md）/`b694480216ff6f8f…`（csv）。
-> - **快照 `dc6522c`（第 4 版，03:50，含当时未提交工作区改动）：** 逐条复核 41 行 + 2 行新增补充条目 S01/R03、S02/R05；全量 41 行 已满足 38 / 可选未做 3（口径 B 29/3），合并补充行后 A′ 43 行 40/3、B′ 34 项 31/3；C-02/C-03/C-04 由 `b637d0d` 闭合，C-11 新增未闭。原文见 [`FINAL_AUDIT-dc6522c.md`](FINAL_AUDIT-dc6522c.md)、[`FINAL_AUDIT-dc6522c.csv`](FINAL_AUDIT-dc6522c.csv)。
-> - 五个版本的逐行差异见 §7。
+> - **快照 `a30d7c7`（第 2 版，02:49）：** 全量 41 行 已满足 37 / 部分 1（F04） / 未执行 0 / 条件未触发 0 / 可选未做 3；口径 B（32 项）28 / 1 / 0 / 0 / 3。原文见 [`FINAL_AUDIT-a30d7c7.md`](FINAL_AUDIT-a30d7c7.md)、[`FINAL_AUDIT-a30d7c7.csv`](FINAL_AUDIT-a30d7c7.csv)。
+> - **快照 `0d9876b`（第 3 版，02:57）：** 全量 41 行 已满足 38 / 可选未做 3；口径 B（32 项）29 / 0 / 0 / 0 / 3；C-05…C-10 六条闭合。原文见 [`FINAL_AUDIT-0d9876b.md`](FINAL_AUDIT-0d9876b.md)、[`FINAL_AUDIT-0d9876b.csv`](FINAL_AUDIT-0d9876b.csv)。
+> - **快照 `dc6522c`（第 4 版，03:50）：** 逐条复核 41 行 + 2 行补充 S01/R03、S02/R05；A′ 43 行 40/3、B′ 34 项 31/3；C-02/C-03/C-04 由 `b637d0d` 闭合。原文见 [`FINAL_AUDIT-dc6522c.md`](FINAL_AUDIT-dc6522c.md)、[`FINAL_AUDIT-dc6522c.csv`](FINAL_AUDIT-dc6522c.csv)。
+> - **快照 `7a71d5c` / `e81c1ae`（第 5 版，03:45–03:58）：** 41 行 38/0/0/0/3（不变）；A′ 43 行 40/3；B 32 项 29/3；B′ 34 项 31/3；C-11 由 `7a71d5c` 闭合，C-01…C-11 **全部闭合**。原文见 [`FINAL_AUDIT-e81c1ae.md`](FINAL_AUDIT-e81c1ae.md)、[`FINAL_AUDIT-e81c1ae.csv`](FINAL_AUDIT-e81c1ae.csv)。
+> - **快照 `424d733` + `f8fa4de`（第 6 版，05:39–05:52）：** 41 行 38/0/0/0/3、32 项 29/3 **均不变**；A′ 43 行 40/3、B′ 34 项 31/3 **均不变**；本版**新增 33 行**（22 项任务行 + 1 项口径行 X-CONT + 8 项不一致/残留行 D-01…D-05、R-02…R-04，另 S01/S02 两行为第 5 版已有、本版只更新 S02 口径），合并后 **76 行 = 65 已满足 + 3 可选未做 + 2 已闭不一致 + 6 未闭不一致**。四处已知不一致**全部按闭合提交 `6c10f4d` 核实**；新登记 **6 处未闭**（MAPPING 分组算术、POWER §4/§5.1 陈旧家族标签、进度记录 T34 计数、报告来源摘要时间差、"最终交接"未含本轮、签字清单表头过期）。六版差异见 §7。
+> - **快照 `7387c01`（第 7 版，本版，05:50–06:10）：** 原文 41 行 38/0/0/0/3、32 项 29/0/0/0/3，A′ 43 行 40/3、B′ 34 项 31/3，A″ 66 行 63/3、B″ 57 项 54/3 —— **全部不变**；CSV 仍 **76 行**（65 已满足 + 3 可选未做 + 6 已闭不一致 + **2 未闭不一致**）：D-03/D-04/R-02/R-04 核实为已闭合（前两者与 R-04 为工作区修正、R-02 已提交），**D-05 与 R-03 复核后仍判未闭**（详见 §4.3）。本次实跑 **73 条 `verify_command`，exit0 = 73、non-zero = 0**；证据路径 255 条 0 缺失。七版差异见 §7。
+> - 各版原始文件与本版快照均在 `docs/evidence/platform-completion-20261016/` 内并列保存，未覆盖。
 
-> **口径纪律（严格遵守原文第 1 节）：** 未运行 ≠ 未检出；软件就绪 ≠ 工具已执行；clone 成功 ≠ 运行成功；前置完成 ≠ 模块完成；人工夹具不得计为上游 CVE；M5 阴性不写成恒时证明；M2 定位阳性不写成端到端阳性；族外对照（R03 的格式破损/截断、RTLF、dudect）不进 Holm，也不反过来推翻家族判定；R05 的"不存在/"不适用"只收窄到固定源码、固定编译器与固定产物，不是物理恒时。本版所有"已满足"均有实际产物 + 可跑命令 + 数值级核对；所有"未检出/无命中"均未被升级为"恒时"或"总体阴性"；**"必做项全部满足"不等于竞赛验收完成**——材料审核、本人签署与官方验收仍须人工完成。
+> **口径纪律（严格遵守原文第 1 节）：** 未运行 ≠ 未检出；软件就绪 ≠ 工具已执行；clone 成功 ≠ 运行成功；
+> 前置完成 ≠ 模块完成；人工夹具不得计为上游 CVE；M5 阴性不写成恒时证明；M2 定位阳性不写成端到端阳性；
+> 族外对照（R03 的格式破损/截断、RTLF、dudect、R12、R09）不进 Holm，也不反过来推翻家族判定；
+> R05 的"不存在/不适用"只收窄到固定源码、固定编译器与固定产物，不是物理恒时；
+> 本轮的 R08/R09 性能与优化级别结果**不是秘密依赖性证据**（快 ≠ 安全，慢 ≠ 泄漏）；
+> R12 的锁频对照**不把锁频写成"必然降低方差"**（实测恰好相反）；
+> R06 的 F1 **仍然是未闭缺口**，故题面第 6 条**如实保留为"部分"**；
+> **"必做项全部满足" ≠ 竞赛验收完成**——材料审核、本人签署与官方验收仍须人工完成。
 
 ---
 
@@ -33,26 +74,42 @@
 | Phase F | F01–F04 | 4 | §8 表格（L108–L111） |
 | **合计** | G01–G09 + A01–F04 | **41** | 40 条表格行 + 1 条 G01 |
 
-类型：必做 **36**（含 B03"必做前置"与 D03"条件优先，可降级"在计数上归入必做/条件项两类，见 §2 交叉表）、条件项 **2**（B06、D03）、可选 **3**（C05、D06、E06）。36+2+3 = 41。
+类型：必做 **36**、条件项 **2**（B06、D03）、可选 **3**（C05、D06、E06）。36+2+3 = 41。
 
 ### 1.2 用户口径"32 项" = A–F 阶段项
 
-A(4)+B(7)+C(5)+D(6)+E(6)+F(4) = **32**；G01–G09 是原文 §2 的"贯穿所有阶段的门槛"，不属于任何 Phase。32 内：必做 27、条件项 2、可选 3；另加 9 条贯穿门槛 = 41 行全量。
+A(4)+B(7)+C(5)+D(6)+E(6)+F(4) = **32**；G01–G09 是原文 §2 的"贯穿所有阶段的门槛"，不属于任何 Phase。
+32 内：必做 27、条件项 2、可选 3；另加 9 条贯穿门槛 = 41 行全量。
 该推导与 `partials/S01.md` L16 自述"共32条阶段项：27条必做、2条条件项、3条可选项；另有9条贯穿门槛"逐字一致。
-**反例（已检验并否决）：** 把"排除可选与未触发条件项后的必做子集"当作 32 —— 按原文实为 36，与 32 不符；另有划法 41−3可选−2条件−4"Phase A 已满足"= 32，但原文无此排除依据。
 
-### 1.3 两个口径的完成计数（本版快照 `7a71d5c`，全部已提交）
+**本轮新增行的口径位置（重要）：** 本轮的 22 项任务行（T00、T05–T09、T15、T17–T24、T26–T32、T34、BLOCKERS）
+**不属于原文 §2–§8 的 ID 清单**，也**不占用**任何原文 ID；它们记录的是本轮收尾阶段新增的交付。
+因此**口径 A（41）与口径 B（32）的分母与分子本版完全不变**，仍为 **38/3** 与 **29/3**；
+把第 5 版的 2 行补充（S01/S02）与本轮的 22 项任务行 + 1 行口径行（X-CONT）并入后的"合计口径"为
+**A″ 66 行 63/3**（43 + 23）、**B″ 57 项 54/3**（34 + 23）；本轮另 8 行不一致/残留行
+（D-01…D-05、R-02…R-04）**单列**，即 CSV 共 **76 行**。
+三种读法都写出来，避免"改了分母"或"改了判定"的歧义。
 
-| 口径 | 分母 | 已满足 | 部分 | 未执行 | 条件未触发 | 可选未做 | 必做子集完成率 |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| **口径 A：原文全量 41 行** | 41 | **38** | **0** | 0 | 0 | **3** | 必做 36 中 36 已满足（**100%**） |
-| **口径 A′：41 行 + 本轮 2 行补充（S01/S02）** | 43 | **40** | **0** | 0 | 0 | **3** | 必做 38 中 38 已满足（**100%**） |
-| **口径 B：用户"32 项"（A–F 阶段项）** | 32 | **29** | **0** | 0 | 0 | **3** | 必做 27 中 27 已满足（**100%**） |
-| **口径 B′：32 项 + 本轮 2 行补充** | 34 | **31** | **0** | 0 | 0 | **3** | 必做 29 中 29 已满足（**100%**） |
+### 1.3 两个口径的完成计数（本版快照 `424d733`+`f8fa4de`，全部已提交）
 
-> **本版新增两行的性质与计数位置：** S01（R03 格式破损/截断族外对照）与 S02（R05 全流程六类来源排查表 90 格）**不属于原文 §2–§8 的 ID 清单**，因此口径 A（41）与口径 B（32）的分母**保持不变**，仍为 38/3 与 29/3；把两行并入后的合计口径 A′/B′ 为 40/3 与 31/3。两种读法都写出来，避免"改了分母"或"改了判定"的歧义。两行的逐条内容见 §3.8，机器可读行见 `FINAL_AUDIT.csv` 的 `S01`/`S02`。
+| 口径 | 分母 | 已满足 | 部分 | 未执行 | 条件未触发 | 可选未做 | 不一致未闭 | 必做子集完成率 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **口径 A：原文全量 41 行** | 41 | **38** | **0** | 0 | 0 | **3** | — | 必做 36 中 36 已满足（**100%**） |
+| **口径 A′：41 行 + 第 5 版 2 行补充（S01/S02）** | 43 | **40** | **0** | 0 | 0 | **3** | — | 必做 38 中 38 已满足（**100%**） |
+| **口径 A″：A′ + 本轮 22 项任务行 + X-CONT** | 66 | **63** | **0** | 0 | 0 | **3** | — | 必做 61 中 61 已满足（**100%**） |
+| **口径 B：用户"32 项"（A–F 阶段项）** | 32 | **29** | **0** | 0 | 0 | **3** | — | 必做 27 中 27 已满足（**100%**） |
+| **口径 B′：32 项 + 第 5 版 2 行补充** | 34 | **31** | **0** | 0 | 0 | **3** | — | 必做 29 中 29 已满足（**100%**） |
+| **口径 B″：B′ + 本轮 22 项任务行 + X-CONT** | 57 | **54** | **0** | 0 | 0 | **3** | — | 必做 52 中 52 已满足（**100%**） |
+| **CSV 合计（原文 41 + 补充 2 + 本轮 23 + 不一致/残留 8 + 2 已闭合行）** | 76 | **65** | 0 | 0 | 0 | **3** | **6**（另 2 行已闭合） | — |
 
-> 两个口径的"已满足"均不含 3 项可选项（C05 第二阴性、D06 真实历史访存例、E06 Binsec 扩大范围）；条件项 B06 与 D03 均已按最强分支满足（B06 触发后实际执行、D03 实际运行 Microwalk）。**"必做 100%"只针对原文 §2–§8 的软件/实验交付条件**，不含 §10 明确排除的竞赛方材料审核、本人签署与官方验收。
+> **A″/B″ 的"已满足 63/54"里含本轮的 23 行**（22 项任务行 + X-CONT）；A″ 的分母 66 = 43 + 23，
+> B″ 的分母 57 = 34 + 23。两列都**不含** 3 项可选项，也**不含** 8 行不一致/残留行
+> （D-01…D-05、R-02…R-04；X-CONT 已在 A″/B″ 内但不含在 A/B 内）。
+> **CSV 的 76 行口径**：43（A′）+ 22（任务行）+ 1（X-CONT）+ 8（不一致/残留行）+ 2（D-01/D-02 已闭合行）= 76，
+> 其中 8 行里的 D-01/D-02 就是那两个"已闭合行"，按状态列分开计（本文件 §2.1 表为准）。
+> **"必做 100%"只针对原文 §2–§8 与本轮收尾计划的软件/实验交付条件**，不含竞赛方材料审核、
+> 本人签署、官方验收（原文 §10），也**不含** R06 的 F1 这条未闭的技术缺口
+> （F1 影响的是题面第 6 条的"部分"判定，不是原文 41 行里任何一行的判定）。
 
 ---
 
@@ -60,308 +117,361 @@ A(4)+B(7)+C(5)+D(6)+E(6)+F(4) = **32**；G01–G09 是原文 §2 的"贯穿所�
 
 ### 2.1 类型 × 状态 交叉表（自洽校验）
 
-| 类型 | 已满足 | 部分 | 未执行 | 条件未触发 | 可选未做 | 小计 |
-|---|---:|---:|---:|---:|---:|---:|
-| 必做（含 B03 必做前置、B06/D03 之外） | 36 | 0 | 0 | 0 | 0 | **36** |
-| 条件项（B06、D03） | 2 | 0 | 0 | 0 | 0 | **2** |
-| 可选（C05、D06、E06） | 0 | 0 | 0 | 0 | 3 | **3** |
-| **原文小计** | **38** | **0** | **0** | **0** | **3** | **41** |
-| 必做（本轮补充 S01/S02） | 2 | 0 | 0 | 0 | 0 | **2** |
-| **合计（含补充）** | **40** | **0** | **0** | **0** | **3** | **43** |
+| 类型 | 已满足 | 部分 | 未执行 | 条件未触发 | 可选未做 | 已闭不一致 | 未闭不一致 | 小计 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 必做（含 B03 必做前置、B06/D03 之外） | 36 | 0 | 0 | 0 | 0 | 0 | 0 | **36** |
+| 条件项（B06、D03） | 2 | 0 | 0 | 0 | 0 | 0 | 0 | **2** |
+| 可选（C05、D06、E06） | 0 | 0 | 0 | 0 | 3 | 0 | 0 | **3** |
+| **原文小计** | **38** | **0** | **0** | **0** | **3** | **0** | **0** | **41** |
+| 补充（第 5 版 S01/S02） | 2 | 0 | 0 | 0 | 0 | 0 | 0 | **2** |
+| **A′/B′ 小计** | **40** | **0** | **0** | **0** | **3** | **0** | **0** | **43** |
+| 本轮任务行（T00/T05–T09/T15/T17–T24/T26–T32/T34/BLOCKERS） | 22 | 0 | 0 | 0 | 0 | 0 | 0 | **22** |
+| 本轮口径行（X-CONT） | 1 | 0 | 0 | 0 | 0 | 0 | 0 | **1** |
+| 本轮已闭不一致行（D-01、D-02） | 0 | 0 | 0 | 0 | 0 | 2 | 0 | **2** |
+| 本轮未闭不一致/残留行（D-03、D-04、D-05、R-02、R-03、R-04） | 0 | 0 | 0 | 0 | 0 | 0 | 6 | **6** |
+| **CSV 合计（76 行）** | **65** | **0** | **0** | **0** | **3** | **2** | **6** | **76** |
 
-- 条件项 B06 的触发条件（端到端家族不拒绝）**已成立并已执行**，故不再记"条件未触发"；D03 的"有 Pin 时运行 Microwalk"分支**已实际达成**（源码自建 Microwalk + Pin 3.28），故不再记"降级"。
-- 43 行 × 8 列机器可读版本见 [FINAL_AUDIT.csv](FINAL_AUDIT.csv)（本轮脚本校验：**43 数据行、8 列、148 条可解析引用路径全部存在、0 缺失**（另有 10 条是描述性文本而非路径，按脚本规则跳过）；**43 条 `verify_command` 中 40 条可执行的全部实跑返回 0**，其余 3 条是 `—`（可选项未做））。
-- **本版与上一版在 41 行上的判定完全相同**（38/0/0/0/3）：本轮没有把任何"可选未做"改判，也没有新增未满足项；R03/R05 两块证据以**新增补充行**登记，而不是改写原有 ID。
+> **自洽校验：** 65 + 0 + 0 + 0 + 3 + 2 + 6 = **76** ✅。
+> **CSV 的 76 行只有这四类计数**：**65 行已满足**（含 T18/T34 两行"本身已满足但附带未闭发现"）、
+> **3 行可选未做**（C05/D06/E06，命令列为 `—`）、**2 行已闭合不一致**（D-01/D-02）、
+> **6 行未闭不一致/残留**（D-03/D-04/D-05/R-02/R-03/R-04）。
+> `§1.3` 与 §2.3 的 CSV 合计行按同一口径写为 **65/0/0/0/3/2/6**；本文件内不再使用其他合并读法。
+
+- 条件项 B06 的触发条件（端到端家族不拒绝）已成立并已执行；D03 的"有 Pin 时运行 Microwalk"分支已实际达成。
+- 机器可读版本见 [FINAL_AUDIT.csv](FINAL_AUDIT.csv)：**76 数据行 × 8 列**。
+- **本版与上一版在原文 41 行上的判定完全相同**（38/0/0/0/3）：没有把任何"可选未做"改判，
+  也没有新增未满足项；本轮全部新证据以**新增行**登记，不改写任何原文 ID 的判定。
 
 ### 2.2 分 Phase 计数
 
-| 段 | 行数 | 已满足 | 部分 | 可选未做 |
-|---|---:|---:|---:|---:|
-| G 贯穿门槛 | 9 | 9 | 0 | 0 |
-| A 平台骨架 | 4 | 4 | 0 | 0 |
-| B M2 KyberSlash | 7 | 7（含 B06 条件项已执行） | 0 | 0 |
-| C M5 阴性对照 | 5 | 4 | 0 | 1（C05） |
-| D M3 秘密访存 | 6 | 5（含 D03 条件项已达标） | 0 | 1（D06） |
-| E M4 比较/有界验证 | 6 | 5 | 0 | 1（E06） |
-| F Mona/报告/平台图 | 4 | 4（F02 报告刷新到 final4 33 页；F04 由 `0d9876b` 补齐完成交接、本轮随 final4 再次同步入口） | 0 | 0 |
-| **S 本轮补充（原文 ID 清单之外）** | **2** | **2（S01 R03 族外对照、S02 R05 90 格排查表）** | 0 | 0 |
+| 段 | 行数 | 已满足 | 已闭/未闭不一致 | 可选未做 |
+|---|---:|---:|---|---:|
+| G 贯穿门槛 | 9 | 9 | — | 0 |
+| A 平台骨架 | 4 | 4 | — | 0 |
+| B M2 KyberSlash | 7 | 7（含 B06 条件项已执行） | — | 0 |
+| C M5 阴性对照 | 5 | 4 | — | 1（C05） |
+| D M3 秘密访存 | 6 | 5（含 D03 条件项已达标） | — | 1（D06） |
+| E M4 比较/有界验证 | 6 | 5 | — | 1（E06） |
+| F Mona/报告/平台图 | 4 | 4（F02 报告已刷新到 **final5 91 页**；F04 由 `0d9876b` 补齐完成交接） | — | 0 |
+| **S 第 5 版补充（原文 ID 清单之外）** | **2** | **2** | — | 0 |
+| **T 本轮收尾交付（原文 ID 清单之外）** | **23** | **23** | — | 0 |
+| **本版不一致/残留行（原文 ID 清单之外）** | **8** | 0 | **2 已闭（D-01/D-02）+ 6 未闭（D-03/D-04/D-05/R-02/R-03/R-04）** | 0 |
+
+> 分 Phase 表只用于**原文 41 行**与两组补充行的可读性，**不是**完成率的分母口径；
+> 分母口径一律以 §1.3 的 A/A′/A″/B/B′/B″ 与 §2.1 的 CSV 合计为准。
+
+### 2.3 本轮实测的关键计数（全部由本审计独立重算，不照抄文稿）
+
+| 计数项 | 本审计实测值 | 复核方式（可复跑） |
+|---|---|---|
+| R08 有效运行数 / 四判据通过 | **54 / 54** | 逐目录读 `remote/R08/<run>/controller/terminal.json` |
+| R09 有效运行数 / 四判据通过 | **36 / 36** | 逐目录读 `remote/R09/<run>/controller/terminal.json` |
+| R12(a) 锁频臂 / `restore_match=yes` | **9 / 9** | `remote/logs/status.log`（locked 行） |
+| R12(a) 不锁频臂 / `config_changed=no` | **9 / 9** | `remote/logs/status.log`（unlocked 行） |
+| R03 族外对照 / 四判据通过 | **18 / 18** | `docs/evidence/r03-malformed-20261016/logs/status.log` |
+| **本轮锁频控制器运行合计** | **117 次，117/117 四判据全过（100%）** | 18+54+36+9，逐份日志与 terminal 重算 |
+| 不锁频对照运行（**不可并入 117**） | **9 次** | R12 unlocked 臂；配置前后全量快照逐字相同 |
+| 无效/失败运行（已归档、无计时值、不计入） | **19 次**（R08 18 + R09 1） | `R08/failed-blockcount-bug/`（18 目录，exit 2）与 `R09/failed/`（1 目录，`frequency_probe_rejected`） |
+| 报告 final5 页数 | **91** | 三路互证：PDF 对象流 `/Type /Page` 计数 91；两遍 XeLaTeX `Output written … (91 pages)`；逐页 PNG 91 张 |
+| 报告两遍 XeLaTeX 警告数 | **0 / 0** | `Overfull`/`Underfull`/`Missing character`/`LaTeX Warning`/`hyperref Warning` 计数均为 0 |
+| 报告 PDF sha256 | `d391114c9269b0c0ed463e06f3fed38a1cbded783be81590b7ae18151960db20` | `shasum -a 256`，与 `pdf-metadata-audit.json` 逐字一致 |
+| 匿名包 sha256 / 成员 / 身份标记 | `248e06d246955252e4232030c7a9d12736e0e9f2aa64d53b2b7c1b927adc885f` / **842** / **0** | 自跑包内 `verify_package.py` → `status=pass`、`direct_identity_markers=0`；**本版更正**：第 6 版此处记的 `b54e2e4a…` 是首次成包值，已被 `7387c01` 重出取代 |
+| 包内解出复算 ctest | **5/5**（1.94 s） | `zip-recompute-final5.log` 逐行显示 cmake+build+ctest |
+| 干净 clone quick 档 ctest | **194/194**（80+57+57） | `reproduce-quick-clean-clone.stdout.log` |
+| R05 排查表格数 | **90 = 存在 5 / 不存在 75 / 不适用 10 / 未检查 0** | 逐行重读 §4.1 汇总行与三实现各 30 格 |
+| R02 环境项 / 稳健性类对 | **28 项 / 64 个类对**（12 个翻转，7 家族内 + 5 族外） | `ENV_TABLE.md` 的 `^| N |` 行；`robustness.csv` 数据行 |
+| T26/T27 图数 | **45 张** | `r04-stats-20261016/figures/` 文件数 |
+| R09 12 格 | **12 行**（M1 未修/已修 + M5 × {-O0,-O2,-O3,-Os}） | `result.csv.cells.csv` 数据行 |
+| T29 多工具矩阵 | **9 工具 × 5 模块 = 45 格** | `TOOL_MATRIX.csv`（9 数据行）；矩阵图 30 格有产物 |
+| T34 签字清单项数 | **29 项**（A8+B4+C6+D6+E5），签字栏 3 行全空 | `^| [A-E][0-9] |` 计数 |
+| 冻结 PLAN 摘要（执行版） | 四个摘要与 `BASELINE.md` 逐字一致 | `shasum -a 256` 四个 PLAN 文件 |
+| 冻结 PLAN 摘要（`efca8a1` blob） | 四个摘要与 `BASELINE.md` 逐字一致 | `git cat-file blob efca8a1:<path>` 四份 |
+| `verify_command` 实跑 | **73 条可执行的全部返回 0**（其余 3 条为 `—`，可选项未做） | `build/run_audit_commands.py`，逐条 `/bin/sh -c` |
+| CSV 证据路径存在性 | **257 条全部存在，0 缺失** | 逐行切分并 `os.path.exists` |
+| 本轮提交数 / 作者 | **27** 个提交，全部 `Gowin-liuyin` 为作者与提交者 | `git rev-list --count e81c1ae..HEAD`；`%an`/`%cn` 去重 |
+| `sources`/`vendor` 是否被本轮触碰 | **未触碰** | `git diff --stat e81c1ae HEAD -- sources vendor` 为空 |
+
+> **117 与 9 不可相加**：117 是走锁频控制器的运行数，9 是**不锁频对照**臂的运行数。
+> 把两者相加成"126 次锁频运行"是错的；unlocked 臂恰恰是"没有写 sysfs"的那一臂。
 
 ---
 
-## 3. 逐项审计矩阵（原文 41 行 + 本轮补充 2 行）
+## 3. 逐项审计矩阵（原文 41 行 + 第 5 版补充 2 行 + 本轮 33 行）
 
-**图例：** 证据路径均为**本次实际 `test -f`/`ls`/解包核对**通过的仓库相对路径（CSV 中 148 条可解析路径由脚本 `os.path.exists` 复验，0 缺失）。`核对命令` 在仓库根 `/Users/yin/code/cryProject` 可直接执行；完整命令见 `FINAL_AUDIT.csv` 的 `verify_command` 列。
+**图例：** 证据路径均为**本次实际 `test -f`/`os.path.exists` 复核**通过的仓库相对路径
+（CSV 中 **257 条路径全部存在、0 缺失**）。`核对命令` 在仓库根 `/Users/yin/code/cryProject` 可直接执行；
+完整命令见 `FINAL_AUDIT.csv` 的 `verify_command` 列（**73 条可执行的全部实跑返回 0**）。
 
-### 3.1 G 贯穿门槛（9 行，全部已满足）
+### 3.1–3.7 原文 41 行
 
-| ID | 类型 | 要求产物 | 证据路径（已验证） | 状态 | 说明 / 剩余缺口 | 核对命令 |
+**判定与第 5 版完全一致（41 行 38/0/0/0/3），本版逐行复核未发现需要改判之处**，故此处不再重复
+第 5 版已逐行给出的证据路径与说明——**请对照 [`FINAL_AUDIT-e81c1ae.md`](FINAL_AUDIT-e81c1ae.md) §3.1–§3.7
+阅读原文 41 行的完整矩阵**（该文件为本版开始前的原字节副本，未被本版改写）。
+本版只补三处与原文 41 行直接相关的事实更新：
+
+| 行 | 第 5 版的表述 | 第 6 版的事实更新（不改判定） |
+|---|---|---|
+| **F02** | 报告终版 33 页、15 章、11 表、2 图、31 来源；两遍 XeLaTeX（`xelatex-final4-*.log`）0 警告 | **报告已重出为 final5：91 页**（PDF sha256 `d391114c…`），新增 R01/R02/R04/R05 补格/R06/R08/R09/R11/R12/T30 章节、附录 A 题面 12 条对照矩阵（表 T26）与图；两遍日志改为 `xelatex-final5-first.log` / `xelatex-final5-second.log`，**Overfull/Underfull/缺字/hyperref/LaTeX Warning 仍全 0**；R05 计数由 5/74/10/1 更新为 **5/75/10/0**。**边界**：题面 12 条里第 6 条仍记"部分"（唯一缺口 R06 的 F1），本审计不拔高 |
+| **F04** | final4 匿名包 784 成员、33 页报告 | 交付载体推进到 **final5 匿名包 842 成员**（sha256 `248e06d2…`、`direct_identity_markers=0`、包内 ctest 5/5）与 **91 页报告**（`d391114c…`）；两份 deliverable README、`REFRESH.md`（第六阶段）、`run_zip_recompute_final5.sh` 与 `zip-recompute-final5.log` 已同步。**`HANDOFF_DONE.md` 已于 `83cd9df` 新增"全量收尾轮交接"（原 R-03 缺口已修）**，但该节仍引用被 `7387c01` 取代的包 sha `b54e2e4a…`，故 **R-03 仍判未闭** |
+| **G05** | 54 次正式运行 `restore_match=yes`（平台四模块） | 本轮新增 **R08 54/54、R09 36/36、R12 锁频臂 9/9、R03 18/18**，**锁频控制器运行合计 117 次全部四判据通过**；另有 9 次不锁频对照（`config_changed=no` 9/9）与 19 次已归档的无效运行。G05 的判定（唯一锁频任务、退出恢复）**不变** |
+
+### 3.8 第 5 版新增补充条目（2 行，原文 ID 清单之外）
+
+**判定与第 5 版一致（均"已满足"）**；其中 S02 的口径在本轮补格后更新为 **5/75/10/0**（原 5/74/10/1）：
+本轮实测 `docs/R05-全流程排查表.md` §4.1 汇总行 = `| **合计** | **5** | **75** | **10** | **0** | **90** |`，
+原有 1 个"未检查"格（M2 重加密 × 提前返回）已补做并改判为"存在"，变更记录保留在 §2.3 与 §4.3。
+逐行内容见 [`FINAL_AUDIT-e81c1ae.md`](FINAL_AUDIT-e81c1ae.md) §3.8 与 [FINAL_AUDIT.csv](FINAL_AUDIT.csv) 的 `S01`/`S02`。
+
+### 3.9 本轮新增任务行（23 行，全部"已满足"；T18/T34 带未闭发现，BLOCKERS 登记项本身未解除）
+
+| ID | 类型 | 要求产物 | 证据路径（已验证） | 状态 | 说明 / 剩余缺口（本审计实测） | 核对命令（已实跑返回 0） |
 |---|---|---|---|---|---|---|
-| G01 | 必做 | 各 RESULT 三句结论、运行入口及原日志；真实案例与人工校准分列 | 五模块 `RESULT.md`；`deliverables/research/multi-leakage-platform-20261016/report.md` §4 | 已满足 | 三句齐全且新增"本轮锁频端到端"小节；报告第 4 章为"检测—定位—修复—复测"四段链；无 exploit/密钥恢复 | `grep -l 密钥恢复 docs/evidence/*-20261016/RESULT.md` |
-| G02 | 必做 | M1 vendor 与已有结论只读，sources 只读 | `git diff ac46e62..a30d7c7 -- sources vendor` 为空；`git status --porcelain sources/` 为空 | 已满足 | 29 个新提交均未触碰 sources/vendor | `git diff --stat ac46e62 HEAD -- sources vendor` |
-| G03 | 必做 | 采数前冻结并提交 PLAN | `platform-collection-20261016/README.md` §1.0；`platform-collection-20261016/M2/m2-s1-unfixed/controller/command.json` | 已满足 | 四份 PLAN 由 `efca8a1` 一次冻结；本次用 `git cat-file blob efca8a1:<path> \| shasum -a 256` **独立复算四个摘要**，与 README 表及控制器 `plan_sha256` 逐字一致；冻结尾后的文档修订不改类对/预算/Holm 家族/α/停止规则 | `git cat-file blob efca8a1:docs/evidence/m2-kem-20261016/PLAN.md \| shasum -a 256` |
-| G04 | 必做 | 计时输入与目标功能成立；KAT/边界/等价；普通与 sanitizer 分开 | `final-verification/ctest-platform-on.log`（87/87）、`ctest-ordinary-clean.log`（57/57）、`ctest-sanitize.log`（57/57）；各模块资格日志；`tests/vectors/kyber768_round3/SHA256SUMS` | 已满足 | 平台开 87/87 + 普通/ASan 各 57/57；M2 两版各 100 例公开 round3 KAT；M3 6/6 含三版完整输出等价；M4 7/7；M5 reference 5/5 | `grep -E 'tests passed' docs/evidence/platform-collection-20261016/final-verification/ctest-platform-on.log` |
-| G05 | 必做 | 唯一锁频任务，退出恢复 | `platform-collection-20261016/status.log`；`README.md` §1.0/§2；`platform-control-qualification-20261016/QUALIFICATION.md`；各 run 的 `entry-snapshot.txt`/`exit-snapshot.txt`/`controller/*.json` | 已满足 | boost=0、governor/EPP=performance、min=max=4300000、taskset -c2/-c6 由控制器逐写 intent/visible 记录；**54 次正式运行 controller_exit=0 且 restore_match=yes**、20/20 放行探针在 ±2% 带内；本次复核 entry 与 exit 快照逐字相同；五条空任务资格全过（三次失败原件保留） | `grep -c '^run=.*controller_exit=0' docs/evidence/platform-collection-20261016/status.log` |
-| G06 | 必做 | 原始计时可追溯 | `platform-collection-20261016/M2/m2-s1-unfixed/unfixed-main.csv.gz` + `.meta`；`stats/members/members.csv.gz`；四模块 `ENV.md` | 已满足 | 各 run 的 measure CSV 以 gzip 保存并配 `.meta`（seed/时钟/单位/乱序/预热/窗口/输入摘要/ELF 摘要）；42 个数据集各有 `input.sha256`；**已知限制**：M3 在线 dudect 该版本不产逐样本 CSV（已在 M3 RESULT 登记，原始 stdout 保留） | `find docs/evidence/platform-collection-20261016/M{2,3,4,5} -name '*.csv.gz' \| wc -l` |
-| G07 | 必做 | 参数族与交叉工具分开 | `stats/members/members.csv.gz`；`stats/holm/{holm_summary.json,RESULT.md}`；`platform-rtlf-20261016/RTLF_RESULT.md`（42/42） | 已满足 | 四族 m/α 明确（M2 6、M5 3、M3 6、M4 6；α 全族 0.05），Holm + 固定效应合并逐族出表；RTLF α=0.01 与 dudect 族外，最大 t 未转伪 p；RTLF 42/42 逐数据集留原件 | `head -3 docs/evidence/platform-collection-20261016/stats/holm/RESULT.md` |
-| G08 | 必做 | 远端 Cry 唯一物理边界 | `m2-kem/native-qualification/boundary-and-process-review.json`；`m3-completion/LOCATE_RESULT.md`；`m4-completion/runtime/runtime-logs/path-audit.json`；`mona-wire/native-v2/{path-audit.txt,failed/out-of-bound-tmp/README.txt}` | 已满足 | 各新根越界 0；两处越界事件有记录：Mona `/tmp` HotSpot 目录已搬回 `failed/out-of-bound-tmp/`（README 记来源/mtime/前后条目数/处理）；M2 采集树变量缺陷致 worker 路径越界，原件在远端 `harness-bug-archive/` 并在采集 README §2 描述。遗留观察见 C-07/C-10 | `cat docs/evidence/mona-wire-20261016/native-v2/failed/out-of-bound-tmp/README.txt` |
-| G09 | 必做 | main 本地提交、不 push；检查/format-check/身份 | `(git)` main（快照 `a30d7c7`，收尾 `2b8557e`）；`final-verification/format-check.log` | 已满足 | 快照时 `44c209a..a30d7c7` 29 个提交、审计末期追加 1 个（`2b8557e`，仅提交已读工作区内容）共 30 个，作者与提交者全部为 `Gowin-liuyin`；新增证据目录全部已跟踪（m2-kem 1983、collection 2402、m3 388、m4 172、mona 655、m5 5、report 175、rtlf 181、qualification 161、matrix 19）；相对 `origin/main` 领先 43+ 个提交即未 push；format-check 实际构建通过 | `git log 44c209a..HEAD --format='%an' \| sort -u; git rev-list --count origin/main..HEAD` |
+| T00 | 补充 | 基线核验 + 冻结 PLAN 前后 sha256 | `docs/evidence/closeout-20261016/{BASELINE.md,ctest-platform-on.log,ctest-ordinary.log,ctest-sanitize.log}` | 已满足 | 执行版四个 PLAN 摘要与实测逐字一致（`ab447ada…`/`0176288f…`/`3fc60d13…`/`c1c2c764…`）；`efca8a1` blob 四个摘要亦逐字一致；三套 ctest 87/87、57/57、57/57。**基线偏差如实保留**：计划书 `c849c0f` 已过期 11 个提交 | `grep -q ab447ada… BASELINE.md && [ "$(shasum -a 256 …/PLAN.md \| cut -c1-64)" = ab447ada… ]` |
+| T05 | 补充 | 向量来源总表 | `docs/evidence/r01-kat-20261016/{VECTORS.md,logs/T05_T06_summary.tsv,SHA256SUMS}` | 已满足 | M1 两版各 60 例中过 35（keygen **0/25**、encap 25/25、decap 10/10，keycheck 20 例不适用）；M2 100/100；M3 on/off 80/80；M4 两臂 2/2（人工夹具）；M5 80/80。**M1 的 0/25 是 ipd 与最终稿的真实差异**，不写成"通过" | `grep -c '\| 80 \| 35 \|' VECTORS.md` 等 |
+| T06 | 补充 | 修复语义等价（三对 diff + 1000 例 + 隐式拒绝） | `docs/evidence/r01-kat-20261016/{EQUIV.md,out/*.digest,logs/t06_*.log}` | 已满足 | 三对 diff 全空；`public_rejection_agree=10/10`、M2 `public_expected_match=100/100`、额外 1000 例 `extra_rejected=1000/1000`；摘要文件字节数与例数一致（64320/67200）故不是"少跑一部分"；M4 只做接口等价 | `grep -q 'extra_rejected=1000/1000' EQUIV.md` 等 |
+| T07 | 补充 | 环境总表 28 项 | `docs/evidence/r02-env-20261016/{ENV_TABLE.md,collect_env.sh,clock_overhead_report.py,raw}` | 已满足 | 实测 28 项；**限制**：无 `isolcpus`、SMT 未关、39 个 running service、读钟开销 17.4–17.5 ns / 最小步进 10 ns（与 M4 窗口同量级） | `test "$(grep -cE '^\| [0-9]+ \|' ENV_TABLE.md)" -eq 28` |
+| T08 | 补充 | 异常样本规则 | `docs/evidence/r02-env-20261016/{OUTLIER_RULES.md,robustness_analysis.py}` | 已满足 | 规则先于分析写定；**边界**：明确不删普通长尾，p99.9 截尾只作稳健性方法之一、不替换主口径 | `grep -qE '截尾\|长尾' OUTLIER_RULES.md` |
+| T09 | 补充 | 稳健性敏感性分析（64 类对 × 4 方法） | `docs/evidence/r02-env-20261016/{ROBUSTNESS.md,robustness.csv,robustness.json,robustness-seedcheck.csv}` | 已满足 | 实测 64 个数据行；12 个翻转（7 家族内 + 5 族外），**没有任何翻转改变 Holm 判定**；翻转解释为功效差/量化失效，不作泄漏证据 | `test "$(python3 -c "…len(robustness.csv)-1")" -eq 64` 等 |
+| T15 | 补充 | R05 补格：90 格 = 5/75/10/0 | `docs/R05-全流程排查表.md`、`docs/evidence/r05-locate-20261016/{RESULT.md,COMMANDS.md}` | 已满足 | §4.1 汇总行实测 `5/75/10/0/90`，三实现各 30 格；**边界**：74→75、1→0 是补格而非"查得更严"；"不存在/不适用"只收窄到固定源码/编译器/产物 | `grep -q '\| \*\*合计\*\* \| \*\*5\*\* \| \*\*75\*\*…' docs/R05-全流程排查表.md` |
+| T17 | 补充 | R05 原生定位复跑 + 修复手段映射表 | `docs/evidence/r05-locate-20261016/{RESULT.md,SHA256SUMS.remote-tree.txt}`、`docs/evidence/r06-noleak-20261016/MAPPING.md` | 已满足 | 映射表 §1 实测 **16 个数据行**（M1 三/M2 三/M3 四/M4 两/M5 四），七个分类全有落点，M5 四行逐行声明"不是修复"。**该文件 §2 分组算术 6+5+4=15 与 16 行不符 → 本版登记为 D-03** | `test "$(grep -cE '^\| M[1-5]-[a-d] \|' MAPPING.md)" -eq 16` |
+| T18 | 补充 | 日志/异常/返回码泄露专项审计 | `docs/evidence/r06-noleak-20261016/{AUDIT.md,audit.sh,audit.sh.log,static}` | 已满足（**含 1 条未闭低危发现 F1**） | 秘密内容泄露 **0 条**；动态 diff 为空（7 模式 × 120 次、退出码唯一值 0、逐字节一致）；Memcheck syscall 0（含 canary 负对照）；计时窗口 7/7 无 I/O。**F1 未闭**：`tools/platform_m2/collector.c` 门失败时把批级汇总写进 stderr/退出码/`run_status`，本轮**未构造门失败场景**，只做源码判定；未覆盖面（上游快照、网络、进程名、fd、maps、core dump、wait4、信号、/proc stat、子进程树、文件名与 mtime）如实列出 | `grep -q 'F1' AUDIT.md && grep -q '未覆盖面' AUDIT.md` |
+| T19 | 补充 | R08 采集计划与命令清单（先提交后采集） | `docs/evidence/r08-perf-20261016/{PLAN.md,RUNS.sh,QUALIFICATION.log}` | 已满足 | 提交顺序实测：`deb9b05`（PLAN/RUNS.sh，04:15）严格早于 `8b206de`（采数，04:39）；`07ebf1b`（04:29）在采数前修正 block-count/block-index 不匹配。**边界**：性能不是秘密依赖性证据 | `test "$(git log --format=%ct -1 -- …/PLAN.md)" -lt "$(git log --format=%ct -1 -- …/perf.csv)"` |
+| T20 | 补充 | R08 锁频采集 54 次 + 失败归档 | `docs/evidence/r08-perf-20261016/remote/R08{,/failed-blockcount-bug}`、`perf.csv.blocks.csv` | 已满足 | **独立重数 54/54 四判据全过**（不满足 0）；失败归档 **18** 个目录，逐条 `worker_finished` + `exit 2`、**无 CSV/meta** 故不计入；命名如实登记（`-attempt1` + 同名重跑，文件层面未覆盖）。**局限**：副本仍无 `during.json`/`entry-probes.json`，周期只能按名义 4300000 kHz | `test "$(find …/R08 -maxdepth 1 -type d -name 'r08-perf-*' \| wc -l)" -eq 54` 等 |
+| T21 | 补充 | R08 性能开销表（25 行汇总 + 11 行成对） | `docs/evidence/r08-perf-20261016/{PERF.md,perf.csv,perf.csv.comparison.csv,perf.csv.samples.csv}` | 已满足 | 实测 `perf.csv` 25 行、`comparison.csv` 11 行；**口径局限**：周期按名义 4300000 kHz 换算、M4 用另一时钟且只在比较步内互比、操作顺序未随机化 | `test "$(python3 -c "…len(perf.csv)-1")" -eq 25` 等 |
+| T22 | 补充 | R09 12 格构建/反汇编/Memcheck（先提交后采集） | `docs/evidence/r09-optlevel-20261016/{PLAN.md,BUILD.md,disasm,memcheck,qualification,result.csv.cells.csv}` | 已满足 | 实测 12 个格子行；`disasm/` 32 文件、`memcheck/`、`qualification/` 25 条；提交顺序 `deb9b05`(PLAN) → `a99a9a9`(12 格判定)。**边界**：产物 + Memcheck 判定不是统计结论 | `test "$(python3 -c "…len(cells.csv)-1")" -eq 12` 等 |
+| T23 | 补充 | R09 锁频实测 36 次 + 1 次被拒归档 | `docs/evidence/r09-optlevel-20261016/remote/R09{,/failed/r09-os-m1unfixed-s2-attempt1}`、`result.csv` | 已满足 | **独立重数 36/36 四判据全过**；失败归档 **1** 个，`reason=frequency_probe_rejected`（跨度 54629 kHz > 50000 kHz，20 值仍在 ±2% 带内）、无计时值。**边界**：该次只说明**跨度**判据触发，不说明频率不稳或泄漏 | `test "$(find …/R09 -maxdepth 1 -type d -name 'r09-*' \| wc -l)" -eq 36` 等 |
+| T24 | 补充 | R09 优化级别对照结论 + 图 | `docs/evidence/r09-optlevel-20261016/{RESULT.md,figures}` | 已满足 | `figures/` 2 个文件；`RESULT.md` 文末补充已把"当时无 controller 目录"更新为 **36/36 四判据全过**（原文未改）。**边界**：`m1unfixed-Os` 与冻结 M1 的级别差预先写明；s1/s2 在 CPU2、s3 在 CPU6；gcc 与 `-O1/-Oz/-Og` 未做 | `grep -q '36/36' RESULT.md` |
+| T26 | 补充 | 功效/MDE（41 主类对 + 臂级汇总） | `docs/evidence/r04-stats-20261016/{POWER.md,figures}` | 已满足 | MDE 覆盖 41 主类对；`figures/` 45 张；M1 口径已更正为预注册家族 **m=6**、α_eff 0.008333，结论不变（+39.337 ns > 31.3901 ns；−13.209 ns < 35.5613 ns）。**本版新发现**：§4 与 §5.1 仍写"族外/没有预注册 Holm 家族" → 登记为 **D-05** | `grep -q 'M1 冻结家族' POWER.md` 等 |
+| T27 | 补充 | 分位数差 bootstrap CI 与图 | `docs/evidence/r04-stats-20261016/{QUANTILE_CI.md,figures,robustness-src}` | 已满足 | 含 ECDF / 箱线图共 45 张。**必须一起读的限制**：有效计时量化尺度约 10 ns，与 M4 夹具 20–30 ns 窗口同量级，故 M4 只用均值结论、不用分位数结论 | `grep -qE '10 ns\|量化尺度' QUANTILE_CI.md` |
+| T28 | 补充 | 威胁模型章（含可 `\input` 的 LaTeX） | `docs/evidence/r11-threat-20261016/{THREAT_MODEL.md,threat-model.tex}` | 已满足 | `threat-model.tex` 已被报告 `\input` 直接并入且两遍编译 0 警告。**边界**：攻击者只能控制密文、只能观测单次调用耗时；**网络路径未执行**（T25/B01），只写"未执行"不写"未检出" | `test -s threat-model.tex && grep -q 未执行 THREAT_MODEL.md` |
+| T29 | 补充 | 创新对照 (a) 锁频 vs 不锁频 + 多工具矩阵 | `docs/evidence/r12-innovation-20261016/*`、`remote/logs/status.log` | 已满足 | 实测 `innovation_a.csv` 18 行、`status.log` 18 行（locked 9/9 `restore_match=yes`、unlocked 9/9 `config_changed=no`）、`remote/runs/` 18 目录、`TOOL_MATRIX.csv` 9 行 × 5 模块。**结论如实反直觉**：unlocked 合并 SD 反而更低（比 0.741/0.757/0.956），频率归一后 CV 比 0.96/1.01/1.09 跨臂方向不一致 → **锁频不必然降方差**，其价值是"确定性、可核对、可恢复的固定工作点"。**边界**：unlocked"未改配置"不证明系统频率恒定；M5 假阳性 0/3 与 0/3 只作描述 | `test "$(python3 -c "…len(innovation_a.csv)-1")" -eq 18` 等 |
+| T30 | 补充 | 一键复现入口与参数总表 | `scripts/reproduce_all.sh`、`docs/REPRODUCE-PARAMS.md`、`docs/evidence/r12-innovation-20261016/reproduce-quick-clean-clone*.log`、`REPRODUCE-QUICK-LOG.md` | 已满足 | 干净 clone quick 档 **194/194**（80+57+57）。**边界**：quick 档不需 sudo、不写 sysfs；full 档默认 dry-run、`--execute` 才真跑；干净 clone **缺 `.gitignore` 的 vendor/third_party**，quick 档缺件即跳过，故 194/194 是"可复现的最小集"（B05） | `grep -q '100% tests passed, 0 tests failed out of 80' …stdout.log` |
+| T31 | 补充 | 报告 final5：91 页、0 警告、附录 A 12 条矩阵、第 6 条"部分" | `deliverables/research/multi-leakage-platform-20261016/{report.pdf,report.tex,report.md}`、`docs/evidence/platform-report-20261016/{refresh-20261016/xelatex-final5-*.log,final5-20261016/pdf-metadata-audit.json,VISUAL_QA.md,RESULT.md}` | 已满足 | **三路互证 91 页**（PDF 对象流 `/Type /Page` = 91、两遍日志 `(91 pages)`、逐页 PNG 91 张）；两遍警告全 0；PDF sha256 与审计 json 一致。**第 6 条如实保留"部分"**（唯一缺口 R06 的 F1），**本审计不拔高成"满足"**；12 条中 11 满足 + 1 部分 | `[ "$(grep -c 'Output written.*(91 pages)' …first.log)" -eq 1 ]` 等 |
+| T32 | 补充 | final5 匿名包：842 成员、verify pass、`direct_identity_markers=0`、包内 ctest 5/5 | `deliverables/support/…/CACR2026EA16XZ-platform-final5-20261016.zip`、`docs/evidence/platform-report-20261016/{final5-20261016/*,refresh-20261016/{zip-recompute-final5.log,run_zip_recompute_final5.sh}}` | 已满足 | 实测 sha256 `248e06d2…`（`7387c01` 重出；首次成包 `b54e2e4a…` 见 `final5-20261016-verification-attempt1.json`）、842 成员、自跑包内 `verify_package.py` → `status=pass` / `direct_identity_markers=0`；解出后 ctest **5/5**（1.94 s）。**边界**：包内 ctest 是 5 个测试，**不是**仓库根 87/57/57 全套；verify 只查直接字节/文本标识，不排除公开内容关联；842 成员是过滤后的可公开子集 | `[ "$(python3 -c "…len(zip)-1")" -eq 842 ]` 等 |
+| T34 | 补充 | 人工复核签字清单（**待人工执行**的交付物） | `docs/evidence/closeout-20261016/SIGNOFF_CHECKLIST.md` | 已满足（**清单本身 ≠ 人工复核已完成**） | 实测 **29 项**（A8+B4+C6+D6+E5），签字表 3 行全空。**本版新发现**：`docs/full-work-progress.md` 的 T34 行写"23 项" → 登记为 **D-04**；另该清单表头引用的"43 行 × 8 列"对本版已过期 → **R-04**。清单不构成竞赛方验收 | `test "$(grep -cE '^\| [A-E][0-9]+ \|' SIGNOFF_CHECKLIST.md)" -eq 29` |
+| BLOCKERS | 补充 | 阻塞与降级登记（B01–B05 + 4 项随结论一起读） | `BLOCKERS.md` | 已满足（**5 条阻塞本身全部未解除**） | 实测 B 表 5 条 + 编号 1–4 共 4 条：B01 网络场景未执行、B02 M5 重加密 Binsec `checkct` 仍 **unknown**、B03 Microwalk 官方镜像不可用、B04 ctgrind 上游补丁与 Valgrind 3.22 不兼容、B05 干净 clone 缺件。**没有一条被写成"已解决"** | `test "$(grep -cE '^\| B0[0-9] \|' BLOCKERS.md)" -eq 5` 等 |
 
-### 3.2 Phase A 平台骨架（4 行，全部已满足）
+> **本组共同边界（不因"已满足"而升级）**：T05/T06 的通过数不等于规范符合性（M1 keygen 0/25 是真实差异、
+> M2 是历史 Kyber）；T07/T09 的"未隔离"与"翻转"都不是恒时结论；T18 的 F1 **未闭**；
+> T20/T21/T23/T24 的性能与优化级别**不是秘密依赖性证据**；T26/T27 的 MDE 是事后功效描述；
+> T28 的网络路径**未执行**；T29 的锁频价值**不含"降低方差"**；T30 的 194/194 是缺件跳过后的最小集；
+> T31 的题面第 6 条**仍是"部分"**；T32 的包内 ctest 是子集；T34 的清单**待人工执行**；
+> BLOCKERS 的 5 条**全部未解除**。
 
-| ID | 类型 | 要求产物 | 证据路径 | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| A01 | 必做 | 计划与架构可引用 | `docs/platform/ARCHITECTURE.md`；`docs/多泄漏模块平台工程计划-20261016.md` | 已满足 | 接口有变时同步，不改旧执行源 | `test -f docs/platform/ARCHITECTURE.md` |
-| A02 | 必做 | 六工具 clone、完整 commit/tree、许可 | `third_party/REPOS.md`；六个仓库目录 | 已满足 | 本次复核六个 HEAD 与 REPOS.md 逐一相等；clone 成功不等于运行成功——Mona/Binsec/Microwalk/RTLF/dudect 均已有真实运行证据 | `for r in RTLF dudect ctgrind mona-timing-lib mona-timing-report Microwalk; do git -C third_party/$r rev-parse HEAD; done` |
-| A03 | 必做 | 两类 CSV 统一入口输出 CI/Welch、RTLF、dudect 摘要 | `scripts/platform_stats/README.md`；`stats/holm/RESULT.md`；`platform-stats-holm-20261016/README.md` | 已满足 | 软件接口已实际用于 42 个真实数据集与四个 Holm 家族；离线回放与在线采集仍分列 | `test -f scripts/platform_stats/README.md` |
-| A04 | 必做 | 模块模板与平台矩阵；三句及未知状态 | `templates/MODULE_RESULT.md`；`platform-matrix-20261016/RESULT.md` | 已满足 | 矩阵本轮已同步 M2–M5 实际统计与工具状态（上轮 C-01 矛盾**闭合**） | `grep -c 已采数 docs/evidence/platform-matrix-20261016/RESULT.md` |
+### 3.10 本轮不一致 / 残留 / 口径行（9 行；其中 X-CONT 是口径行、**6 行已闭合、2 行未闭（D-05、R-03）**）
 
-### 3.3 Phase B M2 KyberSlash（7 行，全部已满足；B06 为条件项已执行）
-
-| ID | 类型 | 要求产物 | 证据路径 | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| B01 | 必做 | 未修/已修源码、许可、PIN、div/idiv 对照 | `m2-kyberslash-20261016/VERSION_AUDIT.md`；`disasm/*.asm`（6 份） | 已满足 | 三热点未修各 1 个 div、已修 0 | `test -f docs/evidence/m2-kyberslash-20261016/VERSION_AUDIT.md` |
-| B02 | 必做 | 20250805 补丁工具真实可用；报警/消失；Memcheck 对照 | `version-audit/varlat-unfixed.log`（1280/3）与 `varlat-fixed.log`（0/0）；`varlat-tool/*` | 已满足 | 热点层；换 ELF 须重绑工具与秘密范围 | `grep 'ERROR SUMMARY' docs/evidence/m2-kyberslash-20261016/version-audit/varlat-{unfixed,fixed}.log` |
-| B03 | 必做前置 | 完整历史 Kyber768 解封装接入同一测量协议 + 资格 + 链接核验 | `m2-kem-20261016/COLLECTOR_CONTRACT.md`；`collector-v2-2e894561892a`；`native-qualification/{ctest-ordinary.log,ordinary-unfixed-measure.ldd}` | 已满足 | 接入/合同/资格成立，且同一采集件已实际用于 B05，不再前置悬空 | `grep -c '^Test Passed\.' docs/evidence/m2-kem-20261016/native-qualification/ctest-ordinary.log` |
-| B04 | 必做 | 新 PLAN（类对/预算/α/停止/复测/家族）先提交再启动 | `m2-kem-20261016/PLAN.md`；`platform-collection-20261016/README.md` §1.0；`.../controller/command.json` | 已满足 | `efca8a1` 冻结严格早于采数；执行用 sha256 独立复算一致且控制器逐次校验；微基准触发条件亦事先固定 | `git cat-file blob efca8a1:docs/evidence/m2-kem-20261016/PLAN.md \| shasum -a 256` |
-| B05 | 必做 | 完整解封装锁频采集 + CI/Welch+Holm + RTLF + 在线 dudect | `platform-collection-20261016/M2`（18 次运行）；`stats/holm/`；`RTLF_RESULT.md`；`m2-kem/RESULT.md` | 已满足 | 家族 m=6、**Holm 拒绝 0**、Δ=+4.58 ns CI[−3.08,+12.25]、I²=58.3%；族外 RTLF/dudect 齐备；**定位阳性 / 微基准未检出 / 端到端未检出三层分列**；dudect 阳性出现在已修臂，已明确不可归因于除法变体 | `grep -n 'Holm 拒绝' docs/evidence/m2-kem-20261016/RESULT.md` |
-| B06 | 条件项 | 若完整调用不区分则补热点微基准并分层 | `m2-kem-20261016/microbench-0551254c9579/{RESULT.md,runs/,controller/}` | 已满足 | 触发条件成立并已执行**六个预注册运行**（全部 restore_match=yes、20/20 探针在带内）；微基准家族 m=6 拒绝 0、Δ=+0.044 ns CI[−0.430,+0.517]；与端到端词表不可比、p 值未合并 | `grep -n restore_match docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md \| head -3` |
-| B07 | 必做 | 新 M2 全套运行包 + 平台行与报告同步 | `m2-kem-20261016/`（REQUIREMENTS/PLAN/ENV/RESULT/COLLECTOR_CONTRACT/native-qualification/microbench）；`platform-matrix/RESULT.md`；`report.md` | 已满足 | 软件资格、原生定位、采数原件、微基准、Holm/RTLF/dudect、平台行与报告互相引用 | `ls docs/evidence/m2-kem-20261016/` |
-
-### 3.4 Phase C M5 阴性对照（5 行：4 已满足 + C05 可选未做）
-
-| ID | 类型 | 要求产物 | 证据路径 | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| C01 | 必做 | 固定 mlkem-native + reference/measure 链 + 资格 | `vendor/mlkem-native/PIN.md`；`m5-mlkem-native-20261016/{RESULT.md,measure-link.txt,snapshot-verification.json}` | 已满足 | 固定提交 b3ba7b3 共 126 文件核对；普通/动态各 5/5 | `test -f vendor/mlkem-native/PIN.md` |
-| C02 | 必做 | x86_64 原生反汇编、秘密标记检查、varlat 已运行 | `m5-completion-20261016/RESULT.md`；`software-dynamic-evidence.tar.gz` | 已满足 | 本次**解包复核** `logs-v2/{system,varlat-no,varlat-yes}` 三模式 `ERROR SUMMARY: 0 errors from 0 contexts` 且 exit 0；有限标记无命中，不外推总体误报率 | `tar -xzOf docs/evidence/m5-completion-20261016/software-dynamic-evidence.tar.gz logs-v2/varlat-yes.valgrind.log \| grep 'ERROR SUMMARY'` |
-| C03 | 必做 | 与 M1 同规程的锁频原值 + CI/Holm + RTLF + 在线 dudect | `platform-collection-20261016/M5`（6 次运行）；`m5-completion-20261016/RESULT.md`；`stats/holm/`；`RTLF_RESULT.md` | 已满足 | 家族 m=3、**Holm 拒绝 0**、Δ=−5.30 ns CI[−11.77,+1.16]、I²=0；族外 RTLF/dudect 同向未检出；原始 p=0.249/0.410/0.427 可与 `holm_summary.json` 对账 | `grep -n 'Holm 拒绝' docs/evidence/m5-completion-20261016/RESULT.md` |
-| C04 | 必做 | 三句 RESULT 判断有限范围内阴性预期 | `m5-completion-20261016/RESULT.md`（L54–73 新增小节） | 已满足 | 三句已从"待执行"更新为真实统计；边界明写"未检出≠恒时、不给总体误报率为零" | `sed -n '54,73p' docs/evidence/m5-completion-20261016/RESULT.md` |
-| C05 | 可选 | 修后 liboqs ref 第二阴性 | （无） | 可选未做 | 按原文不是必做前置，不阻止完整完成 | `—` |
-
-### 3.5 Phase D M3 秘密访存校准（6 行：5 已满足 + D06 可选未做；D03 条件项已达标）
-
-| ID | 类型 | 要求产物 | 证据路径 | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| D01 | 必做 | 人工 LUT 开/关夹具、等价与边界、挂载到解封装路径 | `docs/patches/m3-mem-lut-toggle.patch`；`m3-completion-20261016/{patch-apply.log,native-8b6f2d91/build-ordinary.log,LOCATE_RESULT.md}` | 已满足 | 6/6 含 `platform_m3_full_output_equivalence`；人工构造性质在 RESULT/矩阵/报告三处标注，**不计为上游 CVE** | `grep -n full_output_equivalence docs/evidence/m3-completion-20261016/native-8b6f2d91/build-ordinary.log` |
-| D02 | 必做 | ctgrind/Memcheck 秘密下标定位，开/关实际日志 | `native-8b6f2d91/{on,off}-secret.memcheck.log`（1280/2 对 0/0）；`LOCATE_RESULT.md`（新根四组合重验） | 已满足 | 新根重新构建后重验，未复用旧产物；旧 32/1 与新 1280/2 分列 | `grep 'ERROR SUMMARY' docs/evidence/m3-completion-20261016/native-8b6f2d91/{on,off}-secret.memcheck.log` |
-| D03 | 条件优先，可降级 | 有 Pin 时运行 Microwalk；否则降级 | `LOCATE_RESULT.md`；`locate-v2/remote/microwalk-probe/pin/pin-3.28.sha256`；`.../work3-on/.../results-memory/mutual-information.txt` | 已满足 | **条件项最强分支达成**：Microwalk 源码自建 + Pin 3.28（sha256 固定）真实运行；开臂 `poly_frommsg+30/+59` MI=**1.922 bits**（全场最高）、关臂同函数 0.722 bits，与 ctgrind 报点同源；官方镜像因 Docker data-root 越 Cry 边界未用（如实登记） | `head -2 docs/evidence/m3-completion-20261016/locate-v2/remote/microwalk-probe/m3mw/work3-on/persist/target-m3-on/results-memory/mutual-information.txt` |
-| D04 | 必做 | 冻结类对后开/关锁频统计电池与复测 | `platform-collection-20261016/M3`（12 次运行）；`m3-completion-20261016/RESULT.md`；`stats/holm/` | 已满足 | 家族 m=6、**Holm 拒绝 0**、Δ=−0.73 ns CI[−5.56,+4.10]；跨臂 on/off 因含二进制级常数偏移明确不进 Holm；不得用两版总成本差冒充泄漏 | `grep -n 'Holm 拒绝' docs/evidence/m3-completion-20261016/RESULT.md` |
-| D05 | 必做 | 新结果包与总表、平台行；人工校准独立于真实案例 | `m3-completion-20261016/{RESULT.md,LOCATE_RESULT.md,ENV.md}`；`platform-matrix/RESULT.md` | 已满足 | 定位重验、采数原件、家族、平台行与报告同步；不计为第三个上游 CVE | `sed -n '50,60p' docs/evidence/m3-completion-20261016/RESULT.md` |
-| D06 | 可选 | 真实历史访存例 | （无） | 可选未做 | 不作为人工校准完成条件 | `—` |
-
-### 3.6 Phase E M4 比较/拒绝校准与有界验证（6 行：5 已满足 + E06 可选未做）
-
-| ID | 类型 | 要求产物 | 证据路径 | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| E01 | 必做 | 人工提前退出与恒时意图比较；等价、边界与产物 | `fixtures/early_reject_memcmp/README.md`；`m4-compare-20261016/ctest-{ordinary,sanitize}.log`（4/4）；`m4-completion-20261016/.../software-logs-v2/ctest.txt`（7/7） | 已满足 | 相等性自检（长度 0–32、全部差异位置/字节对标准 memcmp）与 32 字节封装边界均有通过日志；未挂载 KEM，故不触发挂载后复验条件 | `grep -n self_test docs/evidence/m4-compare-20261016/ctest-ordinary.log` |
-| E02 | 必做 | Memcheck 定位非恒时比较 + 关版对照 + 源码/ELF/日志关联 | `m4-compare-20261016/linux-run-250f424b/valgrind-{vulnerable,ct}.log`（32/1 对 0/0）；`m4-completion-20261016/.../formal-vulnerable-disasm.txt` | 已满足 | 新入口/产物重建后重新核验，源码行、ELF 地址、日志三者关联 | `grep 'ERROR SUMMARY' docs/evidence/m4-compare-20261016/linux-run-250f424b/valgrind-{vulnerable,ct}.log` |
-| E03 | 必做 | Binsec 对抽取内核实际执行 + 入口/模型/bound/退出/原日志 | `m4-completion-20261016/FORMAL_RESULT.md`；`formal-v2/`；`formal-v1/{vulnerable,ct}-1-16/stdout.txt` | 已满足 | formal-v2 在新根重装工具并**重跑四次**（vulnerable 两次 insecure、ct 两次有界 secure，含固定长度 16 补运行），pending/cut/discontinued/unknown 全 0；另用 `-sse-depth 5` 截断对照得 unknown，证明退出码 0 不能单独判 secure | `grep -E 'Program status' docs/evidence/m4-completion-20261016/formal-v1/{vulnerable,ct}-1-16/stdout.txt` |
-| E04 | 必做 | 端到端边界与两类输入，冻结后采数 + 统计电池 + 复测 | `platform-collection-20261016/M4`（18 次运行）；`m4-completion-20261016/RESULT.md`；`stats/holm/` | 已满足 | 家族 m=6、**Holm 拒绝 3 项且全部在 vulnerable 臂**（p=0/9.23e−25/3.14e−22），ct 臂三次均不拒绝；截断对照族外，RESULT 明写两者边界不同不可当同一界面的两个长度 | `grep -n 'Holm 拒绝' docs/evidence/m4-completion-20261016/RESULT.md` |
-| E05 | 必做 | 新结果包与总表、报告的校准/有界结论 | `m4-completion-20261016/{RESULT.md,FORMAL_RESULT.md}`；`platform-matrix/RESULT.md`；`report.md` | 已满足 | 定位/形式化/统计三类分列不互相替代；人工夹具阳性明确不等于任何真实库存在同类缺陷 | `sed -n '38,64p' docs/evidence/m4-completion-20261016/RESULT.md` |
-| E06 | 可选 | Binsec 扩大到完整解封装或真实 TLS/KEM 案例 | （无） | 可选未做 | 路径爆炸只限制扩大范围，不免除 E03 小边界实跑（已执行） | `—` |
-
-### 3.7 Phase F Mona、报告与平台图（4 行，全部已满足）
-
-| ID | 类型 | 要求产物 | 证据路径 | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| F01 | 必做 | Mona 对 M1 与 M2 主 CSV 的独立对照行 | `mona-wire-20261016/native-v2/run/m2/m2-mona.csv`；`.../run/m1/m1-mona.csv`；`mona-wire-20261016/RESULT.md` | 已满足 | M1 六份 + M2 六份各出对照行；M2 五份无验证分离、s3 已修臂一次末轮单子集（如实登记，不作受控误报率）；投影自检与多重集等价留证；`holm_member=false` 不入 Holm | `head -3 docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-mona.csv` |
-| F02 | 必做 | 新正式报告含四段链章，实测表/图与证据一一对应 | `deliverables/research/multi-leakage-platform-20261016/{report.pdf,report.tex,report.md,report-tables.json,index.html,r05-flowchart.png,r05_flowchart.py}`；`platform-report-20261016/{VISUAL_QA.md,final4-20261016/pdf-metadata-audit.json}` | 已满足 | 终版 **33 页**（本次以 `pages=33` 与 VISUAL_QA 逐页核验独立确认）、**15 章、11 张对照表、2 张图、31 份来源**；第 4 章为四段链状态；第 8/9 章为 R03/R05 补充；数据格无占位符。两遍 XeLaTeX（`xelatex-final4-{first,second}.log`）**0 Overfull / 0 Underfull / 0 缺字 / 0 hyperref 警告，均 exit 0**。**M4 已改为只引用分臂数值**：正文、表 T3/T5 与矩阵图统一为 vulnerable Δ −4.089 ns / ct Δ +0.055 ns，混臂合并 Δ 在 7 个报告产物中逐文件检索均为 0 次 | `grep -oE 'pages.: *[0-9]+' docs/evidence/platform-report-20261016/final4-20261016/pdf-metadata-audit.json; ! grep -qE '22 页|23 页' docs/evidence/platform-report-20261016/RESULT.md; ! grep -rq '3\.74' deliverables/research/multi-leakage-platform-20261016/report.md deliverables/research/multi-leakage-platform-20261016/report.tex deliverables/research/multi-leakage-platform-20261016/index.html` |
-| F03 | 必做 | 平台矩阵图与可重建源，分三类与各层状态 | `deliverables/research/platform-completion-20261016/figures/{platform-evidence-matrix.svg,CAPTION.md,render_matrix.py}`；`EVIDENCE_MATRIX.csv` | 已满足 | 结果图（明写非计划图）已按新结果刷新，图注明每格证据路径；无 `«待主控数据»`，橙色仅表结构性未运行 | `grep -n 结果图 deliverables/research/platform-completion-20261016/README.md` |
-| F04 | 必做 | deliverables 入口、进度、平台总表及**最终交接**同步；复算路径/边界可读 | `HANDOFF_DONE.md`（§2026-10-16 第二轮完成交接）；`deliverables/research/multi-leakage-platform-20261016/README.md`；`deliverables/research/platform-completion-20261016/{README.md,EVIDENCE_MATRIX.csv}`；`docs/full-work-progress.md`；`docs/evidence/platform-report-20261016/refresh-20261016/{REFRESH.md,zip-recompute-final4.log,run_zip_recompute_final4.sh}`；`docs/evidence/platform-report-20261016/final4-20261016/{package-verification.json,offline-reproduction.json}` | **已满足** | 入口/进度/平台总表/复算路径在 `0d9876b` 已同步（匿名 ZIP final3 **实包解出后 CTest 5/5**、23 页 PDF、离线 HTML、REFRESH 记录），本轮随 final4 再次同步：两份 deliverable README 改为 final4（**784 成员、122 个本地 HTML 链接、33 页**），REFRESH.md 新增"第五阶段"（含三处载体缺陷与一处流程偏离的如实记录），复算日志为 `zip-recompute-final4.log`（**5/5 通过、2.06 s**），审计产物在 `final4-20261016/`。`HANDOFF_DONE.md` 的"第二轮完成交接"整节仍是 `0d9876b` 时点的快照（其中"23 页报告 / final3"是当时的实际交付），本版**不就地改写该历史段落**，而是登记为 C-11 由主控在最终交接时统一刷新 | `grep -n '第二轮完成交接' HANDOFF_DONE.md; test -f deliverables/research/platform-completion-20261016/EVIDENCE_MATRIX.csv; test -f deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final4-20261016.zip; grep -c 'CTest 5/5' docs/evidence/platform-report-20261016/RESULT.md` |
+| ID | 级别 | 内容 | 闭合提交 / 状态 | 实测依据 |
+|---|---|---|---|---|
+| **X-CONT** | 口径行 | 本轮锁频运行 117 次 117/117 四判据全过；不锁频对照 9 次 `config_changed=no` 9/9；两者**不可相加** | 口径行（无判定） | 18+54+36+9 逐份日志与 terminal 重算；见 §2.3 |
+| **D-01** | 已闭 | 报告 §24 第 4 处：R08/R09 控制器日志时间差（`PERF.md`/`r09 RESULT.md` 写"副本没有 controller 目录"） | ✅ **已闭合（`6c10f4d`，05:38）** | 两文件把表述改为"**当时**无法…复核"（原文保留），文末各追加"补充（主控 2026-10-16 05:10）"给出 **54/54** 与 **36/36** 实测；R09 另记 `entry-probes.json` 已在副本内。**残留边界保留**：R08 仍缺 `during.json`/`entry-probes.json`，周期仍只能按名义基频 |
+| **D-02** | 已闭 | 报告 §24 第 1 处：`MAPPING.md` 自述"表内行数 15" vs 实际 16 | ✅ **已闭合（`6c10f4d`）** | §2 改为"表内数据行 **16**（原自述写 15，主控 2026-10-16 按实际行数更正）"；§1 表实测 16 行。**残留见 D-03** |
+| **D-03** | ✅ 已闭 | `MAPPING.md` §2 分组算术原写 6 + 5 + 4 = 15，与同表实际 16 行不符 | ✅ **已闭合（工作区已修正；`HEAD 7387c01` 尚未包含）** | 现文为「上游/历史实现 6 行 + **人工构造校准 6 行**（M3-a/b/c/d 四行 + M4-a/b 两行；原自述写 5 行，主控 2026-10-16 按实际行数更正）+ 上游既有做法 4 行」= **16**，与表内 16 行一致；本次 `grep -q '人工构造校准 6 行'` 实测通过 |
+| **D-04** | ✅ 已闭 | `docs/full-work-progress.md` T34 行原写"23 项"，`SIGNOFF_CHECKLIST.md` 实为 **29 项** | ✅ **已闭合（工作区已修正；`HEAD 7387c01` 尚未包含）** | 现文为「人工复核签字清单（**29 项**，签字栏留空）」；本次 `^\| [A-E][0-9]+ \|` 重数 A8+B4+C6+D6+E5 = **29**，与清单一致 |
+| **D-05** | ❌ **仍未闭（部分修）** | §4 两行家族列已改 **M1 m=6**、§5.1 次句已改「属于 M1 预注册的 m=6 家族」；**但 §5.1 同段首句仍写「但 M1 主类对没有预注册 Holm 家族（`PROTOCOL.md` 写明「没有 Holm」）」**，与次句及本文件 §1「口径更正」块（明写初稿"族外/无家族"是**错的**）直接冲突 | ❌ 未闭（工作区修正未覆盖该句；且未提交） | `sed -n '/## 4[.] 臂级汇总/,/## 5[.]/p' \| grep -c '^| M1 |.*M1 m=6'` = **2** ✅；`grep -q '属于 M1 预注册的 m=6 家族'` ✅；`grep -q '没有预注册 Holm 家族'` **仍命中** ❌。**影响**：MDE 数字与结论不变，但同一段落自相矛盾。**解除**：删改该首句或标注旧口径已被 PLAN/`holm.csv` 取代 |
+| **R-02** | ✅ 已闭 | 报告来源摘要与当前来源字节的时间差 | ✅ **已闭合（`6c10f4d` 改来源 + `e6b35cf` 重跑生成器与两遍 XeLaTeX）** | `REFRESH.md` §J4 第 4 条现写「60 份来源实测 **0 stale**，重出的 PDF 与修正前**逐字节相同**（`d391114c…`）」，原文保留；本次独立实测 `report.pdf` sha256 = `d391114c9269b0c0ed463e06f3fed38a1cbded783be81590b7ae18151960db20`，与 `final5-20261016/pdf-metadata-audit.json` 一致 |
+| **R-03** | ❌ **仍未闭（原缺口已修，新残留）** | 原缺口：`HANDOFF_DONE.md` 未含本轮交付 → **已修**（`83cd9df` 新增"2026-10-16 全量收尾轮交接（主控）"，含 91 页与 final5）。**新残留**：该节写的包 sha256 是 `b54e2e4a…`，而 `7387c01`（晚 65 秒）已按 §J4 护栏重出为 `248e06d2…` | ❌ 未闭（交接指向已被取代的包摘要；且 `HANDOFF_DONE.md` 已提交，无法用"工作区修正"解释） | 磁盘唯一 final5 包实测 sha256 = `248e06d246955252e4232030c7a9d12736e0e9f2aa64d53b2b7c1b927adc885f`，与 `final5-20261016-verification.json` 一致；`b54e2e4a…` 已无对应文件，只在 `final5-20261016-verification-attempt1.json` 留作首次成包记录。**解除**：把该节 sha 改为 `248e06d2…` 或注明两次成包 |
+| **R-04** | ✅ 已闭 | `SIGNOFF_CHECKLIST.md` 表头原写"43 行 × 8 列"，对第 6 版已过期 | ✅ **已闭合（工作区已修正；`HEAD 7387c01` 尚未包含）** | 现文为「**76 行 × 8 列（第 6 版）**、证据路径 0 缺失、**73 条 `verify_command` 全部返回 0**」；本次独立重数 CSV = **76** 行、非占位命令 = **73** 条，与该表头一致（本版未增行，口径保持有效） |
 
 ---
 
-### 3.8 本轮新增补充条目（2 行，原文 ID 清单之外，均为"已满足"）
+## 4. 矛盾清单（硬矛盾 **0** 条；需处理不一致 **C-01…C-11 全部闭合**，**第 6 版登记的 6 条中 4 条已闭（D-03/D-04/R-02/R-04）、2 条仍未闭（D-05、R-03）**）
 
-> 这两行**不占用也不改写**原文 §2–§8 的 41 个 ID：它们记录的是本轮并入正式报告的两块证据。判定标准与原文条目一致——有产物、有可跑命令、有数值级核对（而不是只有文档描述）。
+### 4.1 硬矛盾判定：**0 条**
 
-| ID | 类型 | 要求产物 | 证据路径（已验证） | 状态 | 说明 / 剩余缺口 | 核对命令 |
-|---|---|---|---|---|---|---|
-| S01 | 必做（补充） | R03 格式破损 / 截断输入族外对照：3 臂 × 3 种子、每类 10000 次、锁频单控制器、族外不进 Holm | `docs/evidence/r03-malformed-20261016/{PLAN.md,RESULT.md,logs/status.log}`（+ `R03/<run>/` 18 个运行目录）；报告侧 `deliverables/research/multi-leakage-platform-20261016/{report.tex,report-tables.json}`（第 8 章 + 表 T7/T8/T9 + 表 T5 四行） | **已满足** | 本次独立复核：`logs/status.log` 逐行 **18/18 `controller_exit=0` + `worker_exit_code=0` + `restore_match=yes`**，放行探针 20/20 `in_band=True`；`PLAN.md` 的 sha256 `79edb27f8339691f…` 与 `RESULT.md` 记录的 `--plan-sha256` 逐字一致；对照 A 的 9 个 Δ/CI/原始 p 与对照 B 的 9 行（含"下溢为 0"）逐项与 `RESULT.md` 表一致；族外 dudect 三臂九值一致。报告侧：Δ 全在 +9.8 ～ −3.2 ns、9/9 CI 含 0、9/9 原始 p ≥ 0.28（最大 0.9552）、截断 23.1–23.4 ns 与 Δ ≈ 29.3 µs / 55.1 µs 均逐字可核。**报告与 R05 表两处都写明：族外、不进 Holm、不改 `efca8a1`、截断差是公开长度检查的接口语义而不是泄漏、"未检出"不是恒时证明** | `grep -c 'restore_match=yes' docs/evidence/r03-malformed-20261016/logs/status.log; shasum -a 256 docs/evidence/r03-malformed-20261016/PLAN.md; grep -c 'R03 对照 A' deliverables/research/multi-leakage-platform-20261016/report.tex` |
-| S02 | 必做（补充） | R05 解封装全流程六类来源排查表：3 实现（M1 未修/已修、M2 未修/已修、M5 参考）× 5 步骤 × 6 类 = **90 格**，逐格给结论/证据/修复点；流程图 mermaid 源码保留、PDF 用等价静态图 | `docs/R05-全流程排查表.md`；`deliverables/research/multi-leakage-platform-20261016/{r05-flowchart.png,r05-flowchart.svg,r05_flowchart.py,report.tex,index.html,report-tables.json}`（第 9 章 + 表 T10/T11 + 图 2） | **已满足** | 本次独立复核：该表 §4.1 汇总行为 `5 / 74 / 10 / 1 / 90`，与报告表 T10 逐字一致；5 个"存在"格与唯一"未检查"格（M2 重加密 × 提前返回）的**函数名 + 反汇编地址/行号 + 修复点（982c762、272125f）**同时出现在该表 §4.2/§4.3 与报告表 T11；M5 那处"存在"明确标注只携带公开信息、不可利用。**Binsec 只开 `control-flow,memory-access`、未开乘除法检查**的边界写进报告正文与 T11 表注。流程图：报告生成器**运行期**从该文件正则取出 mermaid 代码块 → `report.md` 原样内嵌、`index.html` 原样放进 `<pre>` 并内联等价 SVG、PDF 用 `r05-flowchart.png`（第 22 页）并在图注指向该文件 | `grep -c '| \*\*合计\*\* | \*\*5\*\* | \*\*74\*\* | \*\*10\*\* | \*\*1\*\* | \*\*90\*\* |' docs/R05-全流程排查表.md; grep -c 'R05 全流程排查表' deliverables/research/multi-leakage-platform-20261016/report.tex` |
+客观核验（本版重跑）：
 
-**两行的共同边界（不因"已满足"而升级）：** S01 是人工构造输入的族外描述性对照，不是上游 CVE，不构成恒时证明，也不给总体误报率；S02 的 74 个"不存在"与 10 个"不适用"只覆盖该表固定的源码、编译器与产物，不覆盖任意输入/编译器/微架构，1 个"未检查"格如实保留未检查（不写成"不存在"）；两张表都**没有**把工具无报警、软件资格或定位结果写成统计结论。
+- CSV 中 **255 条带目录前缀的证据路径全部存在**（脚本复验，0 缺失；若把裸文件名 `HANDOFF_DONE.md`、`BLOCKERS.md` 也计入则为 258 条、同样 0 缺失。第 6 版正文写的 257 其提取规则未随脚本保留，本版改用可复现的规则并把差异写明）；
+- 证据目录内 Markdown 相对链接无断链（沿用第 5 版扫描口径，本版新增文件已并入 CSV 路径集）；
+- CSV 的 **73 条可执行 `verify_command` 全部实跑返回 0**（76 行中 3 行为可选未做、命令列为 `—`）；
+- `COMPLETION_REQUIREMENTS.md` 内 20 条可解析相对引用中 19 条按文档相对路径直接命中，
+  第 20 条是裸名写法 `version-audit/fetch_vendor.sh`（实际文件在
+  `docs/evidence/m2-kyberslash-20261016/version-audit/fetch_vendor.sh`，存在）——判定为**引用写法**问题，
+  硬矛盾仍为 0（与第 5 版同口径）。
 
----
+### 4.2 C-01…C-11（第 1–5 版登记的历史不一致）：**11/11 全部闭合，本版复核未回退**
 
-## 4. 矛盾清单（本版：硬矛盾 0 条；需处理不一致 **0 条**——C-01…C-11 共 **11 条已全部闭合**）
+| 编号 | 状态 | 本版复核 |
+|---|---|---|
+| C-01 | ✅ 已闭合（`a30d7c7` 轮） | `platform-matrix-20261016/RESULT.md` 已同步 M3/M4/M5 行与逐模块运行数表；sha256 与第 5 版一致（`dfdfa60e5ca4c48d`），未回退 |
+| C-02 | ✅ 已闭合（`b637d0d`） | 三个文件的"状态更新（2026-10-16，主控）"块仍在；`m3-memaccess/NOTES.md` sha256 = `88b3a31dba17a520`（第 5 版记录值），未回退 |
+| C-03 | ✅ 已闭合（`b637d0d`） | `partials/S01.md` 的"基线更正"块仍在（本版未改它；本版自己的基线声明写在本文件头部） |
+| C-04 | ✅ 已闭合（`b637d0d`） | `m3-completion-20261016/{RESULT.md,TESTS.md}` 仍在；TESTS.md sha256 = `551ac10462446824`，未回退 |
+| C-05 | ✅ 已闭合（`0d9876b`；随 final4 复审；**本版随 final5 复审**） | 页数权威来源已推进到 **91**：`RESULT.md`、`VISUAL_QA.md`、`final5-20261016/pdf-metadata-audit.json`（`pages: 91`）、`report.pdf` 三路互证一致；第 5 版的 33 页值已随 final5 更新，**未出现新的页数自相矛盾** |
+| C-06 / C-07 / C-08 / C-09 / C-10 | ✅ 已闭合（`0d9876b`；C-10 于 `b94e942` 升级为"已修"） | `.csv.gz` 命名、`platform-boundary-cleanup-20261016/` 入库、`.meta` 静态字段说明、§1.0"blob 内容再算 SHA-256"措辞、`avx2/.gitignore` 已是普通文件——第 5 版逐项复核，本版未发现回退 |
+| C-11 | ✅ 已闭合（`7a71d5c`） | `HANDOFF_DONE.md` 的"2026-10-16 收尾轮交接（主控）"整节仍在。**但该节本身已随本轮交付而过期** → 本版新登记 **R-03**（C-11 的"闭合"指第 5 版指出的那个时点缺口已补；R-03 是新一轮的同类缺口） |
 
-**硬矛盾判定（自述"已满足"但证据缺失 / 路径不存在）：0 条。** 客观核验（本版重跑）：
-- `COMPLETION_REQUIREMENTS.md` 内可解析的相对引用路径 **20 条中 19 条**按文档相对路径直接命中；第 20 条写成裸名 `version-audit/fetch_vendor.sh`，其实际文件在 `docs/evidence/m2-kyberslash-20261016/version-audit/fetch_vendor.sh`（存在，`VERSION_AUDIT.md` 以完整路径引用它）——判定为**引用写法**问题而非缺失产物，**硬矛盾仍为 0**（这条与第 3 版的"21/21"提法不同，本版按可复现的提取规则重算并把差异写明）；
-- CSV 中 **148 条可解析证据路径全部存在**（脚本复验，0 缺失）；
-- 证据目录内 Markdown 相对链接 0 断链；
-- CSV 的 **40 条 `verify_command` 全部实跑返回 0**（43 行中 3 行为可选未做、命令列为 `—`；本次快照复核逐条重跑）；
+### 4.3 第 6 版登记的 6 条：本版复核后的**逐条结论（4 已闭 + 2 未闭）**，全部为文件表述/时点类，**不改变任何数字与判定**
 
-| 编号 | 状态 | 级别 | 内容与本次复核结论 |
+| 编号 | 级别 | 内容与实测依据 | 影响 | 解除条件 |
+|---|---|---|---|---|
+| **D-03** | ✅ 已闭 | 分组现为 6 + **6** + 4 = 16，与同表一致 | 不改任何映射结论 | 已满足；**修正待提交**（工作区） |
+| **D-04** | ✅ 已闭 | 进度记录 T34 现写 **29 项**，与清单实测 29 项一致 | 不受影响 | 已满足；**修正待提交**（工作区） |
+| **D-05** | ❌ **未闭**（低，表述） | §4 已改 **M1 m=6** ✅、§5.1 次句已改 ✅；**但 §5.1 同段首句仍写"没有预注册 Holm 家族"** ❌，与次句和 §1 更正块冲突 | MDE 数字与结论不变，只家族标签在同一段内自相矛盾 | 删改该首句，或标注旧口径已被 PLAN/`holm.csv` 取代；并提交工作区修正 |
+| **R-02** | ✅ 已闭 | `REFRESH.md` §J4 第 4 条已写明重跑后 **0 stale**、PDF 与修正前**逐字节相同**（`d391114c…`） | 已解除 | 已满足（`6c10f4d` + `e6b35cf`） |
+| **R-03** | ❌ **未闭**（中，交接） | 原缺口已修（`83cd9df` 新增"全量收尾轮交接"含 91 页/final5）；**新残留：该节写的包 sha 是被 `7387c01` 取代的 `b54e2e4a…`** | 第三方按该 sha 校验 final5 包会失败；交付载体以本文件 + 两份 deliverable README + `docs/full-work-progress.md` 为准 | 把该节 sha 改为 `248e06d2…`，或注明"首次成包 `b54e2e4a…` → 重出 `248e06d2…`" |
+| **R-04** | ✅ 已闭 | 表头现写 **76 行 × 8 列（第 6 版）/ 73 条命令**，与实测一致 | 不受影响 | 已满足；**修正待提交**（工作区） |
+
+> **与"矛盾清单降到 0 未闭"的关系（如实说明）：** 报告 §24 登记的那 **4 处**（R08/R09 时间差、
+> MAPPING 行数、POWER §5 家族列、M5 4 格措辞）**已全部由 `6c10f4d` 闭合**，逐条核实见 §4.4。
+> 本轮审计在第 6 版登记的 6 处表述/计数/时点缺口，**复核结果为 4 闭 2 未闭**：
+> D-03 ✅、D-04 ✅、R-02 ✅、R-04 ✅；**D-05 ❌（同段首句与次句自相矛盾）**、**R-03 ❌（交接节引用被取代的包 sha）**。
+> 因此本审计结论是：**报告登记的那 4 处 = 0 未闭；本审计口径下的未闭不一致 = 2 处**。
+> 这 2 处**都不是"自述已满足但证据缺失"**（硬矛盾仍为 0），也不改变任何统计数字、泄漏判定或题面 12 条的结论。
+> **另需主控注意的时点事实**：D-03/D-04/D-05/R-04 与本次审计的两个产物目前**只在工作区**，
+> `HEAD 7387c01` 仍是旧文本；`git status` 有 6 个已跟踪文件为 ` M`。
+
+### 4.4 报告 §24 登记的四处不一致：逐条核实到闭合提交
+
+| # | 报告 §24 的原始描述 | 闭合提交 | 本版逐条核实结果 |
 |---|---|---|---|
-| **C-01** | ✅ 已闭合（a30d7c7 轮） | — | `platform-matrix-20261016/RESULT.md` 的 M3/M4/M5 行落后于新证据。上版复核已同步（写明"已采数"、各族 Holm 拒绝数、合并 Δ 与 CI、I²、Microwalk MI、Binsec 有界结论与原件链接），并新增逐模块运行数表（M2 18/18、M5 6/6、M3 12/12、M4 18/18）。 |
-| **C-02** | ✅ **已闭合（b637d0d）** | — | `m3-memaccess-20261016/NOTES.md` 末段"本轮没有实现这两项（顶层 CMake 接入 / 时序 PLAN）"与 `m4-compare-20261016/{NOTES,RESULT}.md`"Binsec 未运行，状态 `not_run`"曾是各自回合的快照。**本次复核：三个文件各追加了一个"状态更新（2026-10-16，主控）"块**（`grep -c` 逐文件 = 1），指明该描述只对当时成立、已被 `*-completion` 取代并给出指向链接，**原文一字未改**；`m3-memaccess/NOTES.md` 的 sha256 由 `f97b285b0cbd22a0` 变为 `88b3a31dba17a520`，正是这次追加。 |
-| **C-03** | ✅ **已闭合（b637d0d）** | — | `partials/S01.md` 曾写"基线固定为 main@ac46e62"。**本次复核：该文件文首已加"基线更正（2026-10-16，主控）"块**，写明当时基线是 `ac46e62`、收尾轮基线是 `origin/main@c849c0f`、本轮再往后另有 R03/R05 收尾提交，并把正文两处"固定为 ac46e62"标注为**已过期**（原文未改写）。完成计数仍按本文件文首的四次快照声明绑定时点，本版另加 A′/B′ 两个合并口径。 |
-| **C-04** | ✅ **已闭合（b637d0d）** | — | `m3-completion-20261016/RESULT.md` 曾把"原生各 6/6"归到 `native-8b6f2d91/`（该目录无独立 ctest 日志）。**本次复核：该行已加更正**（6/6 的原始行在本机 `build-{ordinary,sanitize}.log` 第 68–80 行，原生采数树的 6/6 见 `LOCATE_RESULT.md`），并新增 [`m3-completion-20261016/TESTS.md`](m3-completion-20261016/TESTS.md)（逐测试名 + 耗时 + 行号）；`m3-completion/RESULT.md` 的 sha256 由 `ee9be0e9446d4b1b` 变为 `7364a8116a54e349`，正是这次更正。 |
-| **C-05** | ✅ **已闭合（0d9876b；本轮随 final4 复审）** | — | `platform-report-20261016/RESULT.md` 页数 22/23 自相矛盾，`0d9876b` 已统一为 23 页并标注权威来源。**本轮复审（页数因新增两章变为 33 页）**：`RESULT.md`、`VISUAL_QA.md`、报告 README、support README、`FINAL_AUDIT` 与 `final4-20261016/pdf-metadata-audit.json` 的 `pages` **六处同值 33**；`! grep -qE '22 页|23 页' RESULT.md` 返回 0。**新增一条同类护栏**：三处缺陷修复过程中 PDF 曾产出 32/33 页与两个不同 sha256，发布值以最后一次两遍编译为准，并在 REFRESH §I3 第 6 条写明"改完表格必须重跑生成器再编译、三处必须同值"。 |
-| **C-06** | ✅ **已闭合（0d9876b）** | — | 采集 README 的家族成员表/输出名已改为 `members.csv.gz`、`members-descriptive.csv.gz`、`holm.csv.gz`、`pooled.csv.gz`，与 §3"所有 .csv 以 gzip 存放"一致；实际文件确为 `.csv.gz`。 |
-| **C-07** | ✅ **已闭合（0d9876b）** | — | `docs/evidence/platform-boundary-cleanup-20261016/` **现已真实入库**：`README.txt`（来源、字节数、mtime、处置）、`ORIGINALS.tsv`（两行，含 sha256）、`remote-inputs.sha256`、`local-inputs.sha256` 与 `source-tmp-originals/` 两份副本 —— 记录的是 **RTLF 子任务**在 `/tmp` 写出的两个文件（第三处越界事件，Mona 处另存 `mona-wire/.../failed/out-of-bound-tmp/`）。**本次复核确认该路径存在且内容可核对。** 关于 M2 采集树变量那一处：原件保留在**远端 Cry 内**的 `harness-bug-archive/`，采集 README §2 有文字记录，未产生任何测量值——它本就在 Cry 物理边界内，故**本审计不要求必须拉回仓库**；如需最大可复现性可选择性拉回，不改变任何判定。 |
-| **C-08** | ✅ **已闭合（0d9876b）** | — | 采集 README 新增 §7 第 1 条，明确 `.meta` 的 `cpu_affinity`/`frequency_control` 是**采集件静态字段**（采集件不设亲和性、不写频率），权威来源是控制器落盘的 `baseline.json`/`entry-probes.json`/`during.json`/`0020-restored.json`/`terminal.json` 与 README §1。与本次核对的字段内容一致。 |
-| **C-09** | ✅ **已闭合（0d9876b）** | — | §1.0 措辞已改为"等于对 `git show efca8a1:<该路径>` 取出的 **blob 内容**再算一次 SHA-256"。四个摘要本身仍经本次独立复算（`git cat-file blob … \| shasum -a 256`）与控制器 `plan_sha256` 逐字一致。 |
-| **C-10** | ✅ **已闭合（0d9876b；本轮升级为"已修"）** | — | 采集 README 新增 §7 第 2 条，登记拉回 M2 源码树的 5 个悬空符号链接与两处 `avx2/.gitignore` 的 git ELOOP 警告来自上游 kyber 快照、内容可读、无真实环、不在被测 ELF 链接路径上，并按"上游快照不改名、不修改"的约定**故意保留**。**本轮变化**：`dc6522c` 之前的提交 `b94e942` 已把 `avx2/.gitignore` 的符号链接换成普通文件（原字节内容保留），此后 `git status` 不再出现 ELOOP 类噪声；这条不改变任何测量与判定。 |
-| **C-11** | ✅ **已闭合（7a71d5c）** | — | 第 4 版指出：`HANDOFF_DONE.md` 的"2026-10-16 第二轮完成交接（主控）"整节是 `0d9876b` 时点快照（写 23 页报告与 `final3-20261016`），而交付已前进到 33 页报告 + `final4-20261016`（784 成员）。**本次快照复核：解除条件已满足** —— `7a71d5c` 在 `HANDOFF_DONE.md` 新增 **"## 2026-10-16 收尾轮交接（主控）"** 整节（基线 `origin/main@c849c0f`），含"本轮追加的交付"（R03 18/18 `restore_match=yes` 与族外结论、R05 90 格表、C-02/C-03/C-04 闭合、`avx2/.gitignore` 符号链接清理、**33 页报告**（PDF sha256 `570ab957…`）与 **`final4-20261016.zip`**（sha256 `88395b6c…`、784 成员、`verify_package.py` → `status=pass`、`direct_identity_markers=0`、包内 CTest 5/5）、审计第四版计数）、"频率与恢复"（`global_boost=1`、32 policy 回到 `powersave/2982259/5756452/balance_performance`、无 `active.json`、锁可重取、无残留进程、远端 `/tmp` 无本项目文件）与"未做与不做"（C05/D06/E06、人工验收、未 push）。旧段落**原字节保留**。引用交付载体以该节 + 两份 README + 本文件为准。 |
+| 1 | `MAPPING.md` §1 实际 16 行，§2 自述"表内行数 15" | **`6c10f4d`** | ✅ 已闭。§2 改为"表内数据行 **16**（原自述写 15，主控 2026-10-16 按实际行数更正）"；§1 表实测 16 行。报告表 T18 表注里的"该文件 §2 自述 15…登记为待澄清项"已由本次更正解决（报告不改判）。**同处的分组算术仍不符 → D-03** |
+| 2 | `POWER.md` §1 已更正 M1 为预注册 Holm 家族（m=6），§5 家族列仍标"族外" | **`6c10f4d`** | ✅ 该处已闭。§5 明细表两行改为 `**M1 m=6**` / `0.008333333`；同时 §1 正文、§1.4 家族表也已更正（`grep 族外` 在 §5 已无 M1 行）。**更正未覆盖 §4 臂级汇总两行与 §5.1 → D-05** |
+| 3 | 「M5 × 可变时间比较」4 格：R05 判"不存在" vs `BLOCKERS.md` 第 1 条"工具不适用型 unknown" | **`6c10f4d`** | ✅ 已闭。`BLOCKERS.md` 第 1 条改写为：R05 本体的判定是**"不存在"**（源码层无 `div`），这里说的 **unknown 指工具覆盖**——varlat 这类专查除法的工具对 M5 不适用（三模式各 10 次完整解封装 0 errors/0 contexts），**不是与 R05 冲突、也不是"未检出泄漏"**。两处措辞现已对齐，报告按 R05 本体引用 |
+| 4 | R08/R09 controller 目录补入归档造成的时间差（`PERF.md`/`r09 RESULT.md` 仍写"没有 controller 目录"） | **`6c10f4d`** | ✅ 已闭（对两份文件而言）。两文件把表述限定为"**当时**无法从已拉回副本复核"（不改原文数值），文末追加补充给出 **R08 54/54、R09 36/36** 四判据实测。**残留**：R08 仍无 `during.json`/`entry-probes.json`（周期换算仍只能按名义基频）；报告 §24 仍以"待回填"口径描述 → **R-02** |
 
 ---
 
-## 5. 仍未满足项与理由（本版）
+## 5. 冻结 PLAN sha256 前后一致性（本版独立复算）
 
-| 项 | 状态 | 内容与理由 | 解除条件 |
+**三方比对，全部逐字一致：**
+
+| PLAN 文件 | `BASELINE.md` 记录的执行版 sha256 | 本机当前实测 | `git cat-file blob efca8a1:<path>` |
 |---|---|---|---|
-| **F04** | ✅ **已满足（0d9876b；随后由 `7a71d5c` 复审并解除 C-11）** | 原唯一必做缺口（"最终交接仍停启动轮"）已补齐：`HANDOFF_DONE.md` 新增"2026-10-16 第二轮完成交接（主控）"，含完成范围、本地提交清单与未做/不做；交付载体推进到 final4 后，两份 deliverable README、REFRESH.md、复算日志与 `final4-20261016/` 审计产物均已同步并实跑核验；`HANDOFF_DONE.md` 的历史快照问题由 **`7a71d5c` 新增"收尾轮交接"整节**解决，C-11 随之闭合（本次快照复核确认） | — |
-| **S01 / S02** | ✅ **已满足（本轮新增）** | R03 族外对照与 R05 90 格排查表已并入正式报告：产物、命令与数值级核对见 §3.8；两块证据的来源文件本轮**字节未改**，由 `build_support.py` 的来源摘要检查在成包前复核 | — |
-| C05 / D06 / E06 | 可选未做 | 第二阴性对照（修后 liboqs ref）、真实历史访存例、Binsec 扩大或真实 TLS/KEM 案例——按原文 §10"可选项未做不阻止这一定义下的完整完成" | 无须解除 |
+| `docs/evidence/m2-kem-20261016/PLAN.md` | `ab447adadeb5aae2b79843946ab38a6e7a5412506a13d9abd738c3c22a9a9a20` | ✅ 相同 | `0f706455c6a8fde28ecd3dc18fb12ae4562c2f57dc7e2d991b5ff83c5cd07142`（与 BASELINE 记录一致） |
+| `docs/evidence/m5-completion-20261016/PLAN.md` | `0176288fbe8b95419fbacd0a216fe6aa5106445f5b0ca368d0d33e79b62a408e` | ✅ 相同 | `15738beea1e8d22ae58f83ed741636c2bcf7d9f49e16f0c5c0f2f8590c323e44`（一致） |
+| `docs/evidence/m3-completion-20261016/PLAN.md` | `3fc60d1319d9da2a5246c1aa83760c46bcdac4131f98d610f9805be9f22ed4db` | ✅ 相同 | `be2db4599fb9c5d39852f001d3cf872173b68c2d65ebb4ca542ea0798e01a4a0`（一致） |
+| `docs/evidence/m4-completion-20261016/PLAN.md` | `c1c2c7647c65f85e6b38df12132dc3e73f83cfcd1862207b7f5e24992539d34a` | ✅ 相同 | `767f0378124645f9830b14cfbff61fb2571cbf050b451b93fbe74ac8256f509a`（一致） |
 
-**原文 41 行中已无"部分/未执行/条件未触发"项；剩余仅 3 项可选项。本轮新增的 S01/S02 两行均"已满足"。** 需要特别强调的分层口径（均已按原文要求写在证据里，不构成缺口，也不因"必做 100%"而升级）：
-- **M2**：定位层阳性、除法热点微基准层未检出、完整解封装层未检出——三层互不冒充；族外 dudect 阳性出现在**已修**臂，不可归因于除法变体，证据明确不作泄漏结论。
-- **M3/M4**：均为**人工构造校准**，不是新增上游 CVE；M4 的 insecure/secure 只针对 i386 `-O1`、长度 1–16 的抽取内核。
-- **M5**："CI 含 0 且 Holm 不拒绝"**只是未检出**，不构成恒时证明，也不给总体误报率为零的结论。
-- **M3 在线 dudect**：该版本不产逐样本 CSV，只有 max t 与状态行，已按事实登记，未用离线回放冒充在线。
-- **M4（本轮改口径）**：家族窗口把 vulnerable 与 ct 两臂混在一起（I²=98.6%），故报告的正文、表与图**只引用分臂数值**（vulnerable Δ −4.089 ns、ct Δ +0.055 ns）；Holm 拒绝 3/6 全在 vulnerable 臂这一判定不变，也没有把 M4 的人工夹具阳性外推到真实密码库。
-- **R03 / R05（本轮新增，见 §3.8）**：R03 是族外描述性对照，截断路径的 23.1–23.4 ns 是公开长度检查的接口语义，"未检出"不是恒时证明；R05 的 90 格里 74 个"不存在"、10 个"不适用"只覆盖固定源码/编译器/产物，1 个"未检查"格如实保留未检查，Binsec 只开 `control-flow,memory-access` 的边界已写明。
-- **范围**：本表只覆盖原文 §2–§8 的软件/实验交付条件；竞赛方材料审核、本人签署与官方验收仍须人工完成（原文 §10）。
+**读法（重要，不得混为一谈）：** 执行版摘要与 `efca8a1` blob 摘要是**两套不同的值**，这不是矛盾——
+`efca8a1` 是**冻结那次提交**的 blob；此后各 PLAN 各有一次**文档修订**（不改类对/预算/Holm 家族/α/停止规则），
+执行用的是修订后的内容。`BASELINE.md` 把**两套值都记下来**，本审计把**两套都比对了一遍**：
+执行版 = BASELINE 记录 = 当前文件；冻结版 = BASELINE 记录 = `git cat-file blob efca8a1:<path>` 复算值。
+**不存在"冻结 PLAN 被改动"的情况**：`git diff --stat e81c1ae HEAD -- docs/evidence/*/PLAN.md` 为空，
+本轮 27 个提交没有触碰任何 PLAN 文件。
+
+另有一例独立绑定：`docs/evidence/r03-malformed-20261016/PLAN.md` 的 sha256 `79edb27f8339691f…`
+与同目录 `RESULT.md` 记录的 `--plan-sha256` 逐字一致（第 5 版已复核，本版未变）。
 
 ---
 
 ## 6. 审计方法与快照摘要
 
-完整方法、命令与复算记录见 [`partials/S10.md`](partials/S10.md)（第 4 版与第 5 次快照复核）；第 3 版见 [`partials/S09.md`](partials/S09.md)。要点：
-1. **口径复算**：逐行提取 41 个原文 ID（与 `S01.md` 自述交叉核对：32 阶段项 + 9 贯穿门槛），再新增 S01/S02 两行并按同一标准判定。
-2. **路径存在性**：CSV **148 条可解析路径**脚本复验（0 缺失）+ `COMPLETION_REQUIREMENTS.md` 的 20 条可解析引用（19 条直接命中、1 条为裸名写法但产物存在）+ 证据目录 Markdown 相对链接扫描（0 断链）。
-3. **内容级核验**（不只验存在，本版重跑）：varlat 1280/3 对 0/0；M3 Memcheck 1280/2 对 0/0；M4 Valgrind 32/1 对 0/0；Binsec insecure 对 bounded secure；M5 三模式 0/0 且 exit 0；控制器 54 次 `controller_exit=0`+`restore_match=yes`；Holm 家族与 Δ/CI/I²；RTLF 42/42；Microwalk MI 1.922 bits；Mona M1+M2 十二行；R03 `status.log` 18/18 `restore_match=yes` 且 20/20 探针在带内；R05 §4.1 汇总行 5/74/10/1/90；`final4` 实包复算 CTest 5/5（2.06 s）；PDF 33 页；六库 HEAD 与 REPOS.md 逐一相等。
-4. **G03 密码学绑定复核**：`git cat-file blob efca8a1:<4 个 PLAN 路径> | shasum -a 256` 与 README 表 + 控制器 `plan_sha256` 三方逐字一致；R03 另有独立一例——`PLAN.md` 的 sha256 与 `RESULT.md` 记录的 `--plan-sha256` 相同。
-5. **提交状态**：`44c209a..HEAD` **42 个提交**作者与提交者唯一为 `Gowin-liuyin <yinhaoran0808@outlook.com>`；`origin/main`（`c849c0f`）是 HEAD 的祖先，`origin/main..HEAD` = **10（未 push）**；收尾轮 10 个提交**全部已落到本地 main**，`git status` 无已跟踪改动（第 4 版的"工作区尚未提交"时点声明已在第 5 次复核更新）。
-6. **本版（第 5 次）复核**：只重跑存在性/命令与三项针对性检查（R03/R05、C-02…C-04、符号链接告警）并复核 C-11 闭合；**未改动任何其他判定**。第 4 版（`dc6522c` + 工作区）的完整记录见 [`FINAL_AUDIT-dc6522c.md`](FINAL_AUDIT-dc6522c.md)。
+完整方法、命令与实跑记录见 [`partials/S11.md`](partials/S11.md)（第 6 版）。
+第 4/5 版见 [`partials/S10.md`](partials/S10.md)，第 3 版见 [`partials/S09.md`](partials/S09.md)。
 
-**快照摘要（sha256 前 16 位，供最终比对是否被后续写入改变）：**
+**本版方法要点（全部在 `/bin/sh -c` 下实跑，逐条核对返回码）：**
 
-| 文件 | sha256(16) |
-|---|---|
-| `docs/platform/COMPLETION_REQUIREMENTS.md` | `31cac9c7b848585c`（与前三版一致，未变） |
-| `docs/evidence/platform-collection-20261016/README.md` | `3c230f63f209aa74`（第 3 版 C-06/C-08/C-09/C-10 修正后的值，本轮未变） |
-| `docs/evidence/platform-collection-20261016/status.log` | `7a4302811a382f3b`（未变） |
-| `docs/evidence/platform-collection-20261016/stats/holm/RESULT.md` | `657f9b7b121c3498`（未变） |
-| `docs/evidence/platform-control-qualification-20261016/QUALIFICATION.md` | `f04be2ce7ea06c41`（未变） |
-| `docs/evidence/m2-kem-20261016/RESULT.md` | `3199c8e6344b5824`（未变） |
-| `docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md` | `b52322bfe2c858be`（未变） |
-| `docs/evidence/m3-completion-20261016/RESULT.md` | `7364a8116a54e349`（**本版改变**：b637d0d 的 C-04 更正（第 3 版 `ee9be0e9446d4b1b`）） |
-| `docs/evidence/m3-completion-20261016/TESTS.md` | `551ac10462446824`（b637d0d 新增（C-04）） |
-| `docs/evidence/m3-completion-20261016/LOCATE_RESULT.md` | `d3686fbea2378f1c`（未变） |
-| `docs/evidence/m3-memaccess-20261016/NOTES.md` | `88b3a31dba17a520`（**本版改变**：b637d0d 的 C-02 状态更新块（第 3 版 `f97b285b0cbd22a0`）） |
-| `docs/evidence/m4-compare-20261016/NOTES.md` | `bc0e0268e60e27e5`（**本版改变**：b637d0d 的 C-02 状态更新块） |
-| `docs/evidence/m4-compare-20261016/RESULT.md` | `8135862faf7508c8`（**本版改变**：b637d0d 的 C-02 状态更新块） |
-| `docs/evidence/platform-completion-20261016/partials/S01.md` | `aa503425cc70f4ad`（**本版改变**：b637d0d 的 C-03 基线更正） |
-| `docs/evidence/m4-completion-20261016/RESULT.md` | `d53d2f870139f411`（未变） |
-| `docs/evidence/m4-completion-20261016/FORMAL_RESULT.md` | `294835cea76990d2`（未变） |
-| `docs/evidence/m5-completion-20261016/RESULT.md` | `6838be94f4d9c8d0`（未变） |
-| `docs/evidence/mona-wire-20261016/RESULT.md` | `dca28fa3b086570a`（未变） |
-| `docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md` | `7794b69dc044b6d6`（未变） |
-| `docs/evidence/platform-matrix-20261016/RESULT.md` | `dfdfa60e5ca4c48d`（未变） |
-| `deliverables/research/platform-completion-20261016/EVIDENCE_MATRIX.csv` | `5c90c794d11e69ed`（未变（M4 行本就是分臂 p 值）） |
-| `HANDOFF_DONE.md` | `253085229d540397`（**第 5 版改变**：`7a71d5c` 新增"收尾轮交接（主控）"整节，闭合 C-11；第 4 版为 `b054e9436dbd3c53`） |
-| `docs/evidence/platform-boundary-cleanup-20261016/README.txt` | `859c8531330448ee`（未变） |
-| `docs/R05-全流程排查表.md` | `cc7ecff95ffd5a4e`（本轮新增来源（E30），**本审计与报告均未改动其字节**） |
-| `docs/evidence/r03-malformed-20261016/PLAN.md` | `79edb27f8339691f`（本轮新增来源（E29）；sha256 与 RESULT.md 记录的 plan_sha256 一致） |
-| `docs/evidence/r03-malformed-20261016/RESULT.md` | `3983d24615053af4`（本轮新增来源（E28）） |
-| `docs/evidence/r03-malformed-20261016/logs/status.log` | `5c69b4404ed7e10b`（本轮新增来源（E31），18/18 restore_match=yes） |
-| `deliverables/research/multi-leakage-platform-20261016/report-tables.json` | `260ac02226a60151`（本轮改变（新增 T7–T11、M4 分臂）） |
-| `deliverables/research/multi-leakage-platform-20261016/report-data.json` | `a44bd9f848a65878`（本轮改变（M4 分臂、来源 E28–E31）） |
-| `deliverables/research/multi-leakage-platform-20261016/report.pdf` | `570ab957bc50d6f8`（本轮重出：33 页） |
-| `deliverables/research/multi-leakage-platform-20261016/report.tex` | `b0cd21f600d0349d`（本轮重出） |
-| `docs/evidence/platform-report-20261016/RESULT.md` | `399c110a86c788f6`（**本版改变**：随 final4 重写（第 3 版 `bd7244ef9e526fb2`）） |
-| `docs/evidence/platform-report-20261016/VISUAL_QA.md` | `0a7ae6388a7bb69d`（**本版改变**：33 页逐页核验） |
-| `docs/evidence/platform-report-20261016/refresh-20261016/REFRESH.md` | `82df4145dab6d2e8`（**本版改变**：新增第五阶段（final4）） |
-| `docs/evidence/platform-report-20261016/final4-20261016/pdf-metadata-audit.json` | `e10e140be1197d0d`（本轮新增：33 页、0 私有标记） |
-| `docs/evidence/platform-report-20261016/final4-20261016/package-verification.json` | `5aa79b58a9b52178`（本轮新增：pass / 784 成员 / 0 直接身份字串） |
-| `deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final4-20261016.zip` | `88395b6cc26f205c`（本轮新增匿名包） |
-| `deliverables/research/multi-leakage-platform-20261016/r05_flowchart.py` | `3fdd32213c84d9d2`（本轮新增：R05 流程图静态渲染器） |
-| `docs/evidence/platform-completion-20261016/FINAL_AUDIT-0d9876b.md` | `1e02e10ec96a79b3`（第 3 版原文（本版开始前复制，字节等于 c849c0f 提交内容）） |
+1. **快照冻结与历史保全**：先把第 5 版 `FINAL_AUDIT.{md,csv}` 以 `cp -p` 原字节另存为
+   `FINAL_AUDIT-e81c1ae.{md,csv}`，用 `cmp` 确认逐字节相同，并确认两者的 sha256
+   与 `BASELINE.md` 记录的"关键交付物 sha256"逐字一致——这把第 5 版的字节与该次基线锁定在一起。
+2. **口径复算**：逐行提取 41 个原文 ID（与 `S01.md` 自述交叉核对：32 阶段项 + 9 贯穿门槛），
+   再按同一标准处理第 5 版的 S01/S02 与本轮的 22 项任务行；**A/B 两个口径的分母与分子本版不变**。
+3. **路径存在性**：CSV **257 条路径**逐条 `os.path.exists`（0 缺失，注解用全角括号剥离后判定）；
+   新行追加前先对 26 个新路径做存在性断言（不存在即脚本退出）。
+4. **内容级核验**（不只验存在）：varlat 1280/3 对 0/0；M3 Memcheck 1280/2 对 0/0；
+   M4 Valgrind 32/1 对 0/0；Binsec insecure 对 bounded secure；M5 三模式 0/0 且 exit 0；
+   控制器 **54** 次 `controller_exit=0`+`restore_match=yes`；Holm 家族与 Δ/CI/I²；
+   RTLF 42/42；Microwalk MI 1.922 bits；Mona M1+M2 十二行；R03 `status.log` 18/18 且 20/20 在带内；
+   R05 §4.1 汇总行 5/75/10/0/90；`final5` 实包复算 CTest 5/5；PDF 91 页；六库 HEAD 与 REPOS.md 逐一相等。
+5. **本轮新增的独立重数**（本版特有，不看文稿）：逐目录读 R08 **54** 份与 R09 **36** 份 `terminal.json`
+   按四判据判定（54/54、36/36）；逐份读 R03/R12 `status.log`（18/18、locked 9/9、unlocked 9/9）；
+   逐行数 `robustness.csv`（64）、`result.csv.cells.csv`（12）、`innovation_a.csv`（18）、
+   `TOOL_MATRIX.csv`（9 行 × 5 模块）、`perf.csv`（25）、`perf.csv.comparison.csv`（11）、
+   `ENV_TABLE.md`（28 项）、`SIGNOFF_CHECKLIST.md`（29 项）、`BLOCKERS.md`（5 + 4）、
+   `MAPPING.md`（16 行）、R05 汇总行（5/75/10/0/90）。
+6. **报告三路互证**：`shasum -a 256` 比对审计 json；自写 Python 把 PDF 对象流解压后数 `/Type /Page`
+   （**91**，不经报告生成器）；两遍 XeLaTeX 日志 grep `Output written … (91 pages)` 与五类警告计数**全 0**；
+   逐页 PNG 计数 **91**。题面第 6 条的"部分"用 `grep` 直接命中确认，**未拔高**。
+7. **匿名包实跑**：`shasum -a 256` 比对；用 Python `zipfile` 数成员（**842**）；
+   把包内 `verify_package.py` 解到 `build/` 后**自己重跑**（`status=pass`、`direct_identity_markers=0`）；
+   核对 `zip-recompute-final5.log` 的 `100% tests passed, 0 tests failed out of 5`。
+8. **矛盾闭合核实**：对报告 §24 登记的四处，逐处 `git show 6c10f4d` 看 diff 并回到当前文件 `grep`
+   确认措辞已改到位；同时**主动找残留**，因此在同一批文件里新发现 6 处未闭表述（§4.3）。
+9. **G03 密码学绑定复核**：`git cat-file blob efca8a1:<4 个 PLAN 路径> | shasum -a 256`
+   与 `BASELINE.md` 表逐字一致；执行版与当前文件亦逐字一致（见 §5）。
+10. **提交状态**：`e81c1ae..HEAD` = **27** 个提交，作者与提交者唯一为
+    `Gowin-liuyin <yinhaoran0808@outlook.com>`；`origin/main`（`e81c1ae`）是 HEAD 的祖先，
+    `origin/main..HEAD` = **27（未 push）**；`git status` 无已跟踪改动；
+    `git diff --stat e81c1ae HEAD -- sources vendor` 为空。
+11. **命令实跑**：`python3 build/run_audit_commands.py` 逐条 `/bin/sh -c` 执行 CSV 的 `verify_command`，
+    结果 **ran=73 / exit0=73 / non-zero=0 / no-command=3**（3 条为 C05/D06/E06 可选项、命令列 `—`）。
 
-> 摘要绑定本次读取时点（03:58，快照 `7a71d5c`，全部已提交）。**第 5 版新增/改变的行**：`HANDOFF_DONE.md` → `253085229d540397`（收尾轮交接节，C-11 闭合）；`docs/evidence/platform-report-20261016/RESULT.md` → `399c110a86c788f6`（33 页版）；`report.pdf` → `570ab957bc50d6f8`。**注意：第 3 版（快照 `0d9876b`）的完整摘要表见 [`FINAL_AUDIT-0d9876b.md`](FINAL_AUDIT-0d9876b.md) §6、第 4 版（快照 `dc6522c` + 工作区）见 [`FINAL_AUDIT-dc6522c.md`](FINAL_AUDIT-dc6522c.md) §6**，各表可直接比对哪些文件在哪一轮被改动。最终复核请用 `shasum -a 256` 重跑并比对，命令见 [`partials/S10.md`](partials/S10.md)。
+**快照摘要（sha256，供最终比对是否被后续写入改变）：**
+
+| 文件 | sha256 | 第 5 版值 / 说明 |
+|---|---|---|
+| `docs/platform/COMPLETION_REQUIREMENTS.md` | `31cac9c7b848585c…` | 与第 1–5 版一致，**未变** |
+| `docs/evidence/platform-completion-20261016/FINAL_AUDIT-e81c1ae.md` | `9ec07698f86354cf9eba722b8c334cfafba9b960c1b0793b5908705f677e0d1c` | **第 5 版原文**（= `BASELINE.md` 记录值；`cmp` 与冻结前 `FINAL_AUDIT.md` 逐字节相同） |
+| `docs/evidence/platform-completion-20261016/FINAL_AUDIT-e81c1ae.csv` | `9154df71e724ab11a77343a5abd6819d3b0815411a9741d666bfaf54c4140311` | **第 5 版原文**（= `BASELINE.md` 记录值） |
+| `docs/evidence/platform-completion-20261016/FINAL_AUDIT.md` | **本文件不记自身 sha256**（记了就会被下一次写入作废）；请用 `shasum -a 256` 现算，与 `FINAL_AUDIT.csv` 的 76 行 × 8 列一起比对 | **本版（第 6 版）** |
+| `docs/evidence/platform-completion-20261016/FINAL_AUDIT.csv` | `b9dd03a0ce3fd88c5d1509356ea195446582a41f25c60ab009e8f52e1b383204` | **本版（第 6 版）**：76 数据行 × 8 列；**前 43 行中除 S02 一行（R05 计数更新为 5/75/10/0）外，其余 42 行与第 5 版逐字节相同，行序未变** |
+| `docs/evidence/platform-completion-20261016/partials/S11.md` | `10055541f67fccb1891a480ff4609dc193227159a9a71e44cbdd45966648a75e` | 本版方法记录（本轮新增） |
+| `docs/evidence/closeout-20261016/BASELINE.md` | `9ec07698f86354cf…`/`9154df71e724ab11…` 两值在案 | 记的 FINAL_AUDIT 摘要 = 第 5 版，本版未改该文件 |
+| `deliverables/research/multi-leakage-platform-20261016/report.pdf` | `d391114c9269b0c0ed463e06f3fed38a1cbded783be81590b7ae18151960db20` | **本版核验**：91 页、与 `pdf-metadata-audit.json` 一致（第 5 版为 `570ab957…`/33 页） |
+| `docs/evidence/platform-report-20261016/final5-20261016/pdf-metadata-audit.json` | `pages=91` / `direct_private_markers=0` | 本版核验 |
+| `docs/evidence/platform-report-20261016/final5-20261016/package-verification.json` | `members=842` / `direct_identity_markers=0` | 本版核验；`zip_sha256` 与包实测一致 |
+| `deliverables/support/…/CACR2026EA16XZ-platform-final5-20261016.zip` | `248e06d246955252e4232030c7a9d12736e0e9f2aa64d53b2b7c1b927adc885f` | **第 7 版实测**（`7387c01` 重出）：842 成员、verify pass、包内 ctest 5/5；第 6 版记的 `b54e2e4a…` 为首次成包值 |
+| `docs/evidence/r08-perf-20261016/PERF.md` | 含"补充（主控 2026-10-16 05:10）"节 | `6c10f4d` 追加（D-01 闭合） |
+| `docs/evidence/r09-optlevel-20261016/RESULT.md` | 含 36/36 补充说明节 | `6c10f4d` 追加（D-01 闭合） |
+| `docs/evidence/r06-noleak-20261016/MAPPING.md` | `8510c2e799052497` | §2 分组已改 6 + **6** + 4（D-03 ✅ 闭合；**工作区修正，未提交**） |
+| `docs/evidence/r04-stats-20261016/POWER.md` | `0db3f4d1c24246cb` | §4 两行已为 **M1 m=6**、§5.1 次句已改；**首句仍写"没有预注册 Holm 家族"（D-05 ❌ 未闭）**；工作区 |
+| `docs/full-work-progress.md` | `5e2edf831a0e3c7e` | T34 已改 **29 项**（D-04 ✅ 闭合；工作区） |
+| `docs/evidence/closeout-20261016/SIGNOFF_CHECKLIST.md` | `63a4d1eaf0dfa70e` | 表头已改 **76 行 × 8 列 / 73 条**（R-04 ✅ 闭合；工作区） |
+| `docs/evidence/platform-report-20261016/refresh-20261016/REFRESH.md` | `a830f16e7de0e18f` | §J4 第 4 条写明 **0 stale** 与"逐字节相同"（R-02 ✅ 闭合；已提交） |
+| `HANDOFF_DONE.md` | `c9073d2c586563da` | 已新增"全量收尾轮交接"（原 R-03 缺口已修）；**节内包 sha 仍为被取代的 `b54e2e4a…`（R-03 ❌ 未闭）** |
+| `BLOCKERS.md` | （未变） | 第 1 条已与 R05 本体对齐（`6c10f4d`） |
+| `…/CACR2026EA16XZ-platform-final5-20261016.zip` | `248e06d246955252` | `7387c01` 重出的 final5 包（842 成员、ctest 5/5）；`b54e2e4a…` 见 `-attempt1.json` |
+| `deliverables/research/multi-leakage-platform-20261016/report.pdf` | `d391114c9269b0c0` | 与第 6 版**逐字节相同**，R-02 的"逐字节相同"由此成立 |
+
+> 摘要绑定本次读取时点（约 06:10，快照 `HEAD=7387c01`）。**注意：D-03/D-04/D-05/R-04 的修正与本次审计的两个产物目前只在工作区**，`git show HEAD:<path>` 仍是旧文本。
+> 前五版的完整摘要表分别见 [`FINAL_AUDIT-47033dd.md`](FINAL_AUDIT-47033dd.md)、
+> [`FINAL_AUDIT-a30d7c7.md`](FINAL_AUDIT-a30d7c7.md)、[`FINAL_AUDIT-0d9876b.md`](FINAL_AUDIT-0d9876b.md)、
+> [`FINAL_AUDIT-dc6522c.md`](FINAL_AUDIT-dc6522c.md)、[`FINAL_AUDIT-e81c1ae.md`](FINAL_AUDIT-e81c1ae.md) §6，
+> 可直接比对哪些文件在哪一轮被改动。最终复核请用 `shasum -a 256` 重跑并比对，命令见
+> [`partials/S11.md`](partials/S11.md)。
 
 ---
 
 ## 7. 版本间差异对照
 
-### 7.1 快照 `47033dd`（第 1 版）→ 快照 `a30d7c7`（第 2 版）
+### 7.1–7.4 第 1→5 版
 
-| 行 | 47033dd（02:08） | a30d7c7（02:49） | 触发证据 |
+见 [`FINAL_AUDIT-e81c1ae.md`](FINAL_AUDIT-e81c1ae.md) §7（原字节保留）。
+
+### 7.5 第 5 版（`e81c1ae` 快照）→ 第 6 版（`424d733` + `f8fa4de`，本版）
+
+| 项 | 第 5 版（`e81c1ae`，03:58） | 第 6 版（本版，05:39–05:52） | 触发证据 |
 |---|---|---|---|
-| G03 | 部分 | **已满足** | `efca8a1` 冻结 + 四个执行用 sha256 独立复算一致 |
-| G05 | 部分 | **已满足** | 54 次运行 restore_match=yes + 五条空任务资格 |
-| G06 | 部分 | **已满足** | 42 数据集 raw CSV.gz + .meta + 统计 input.sha256 |
-| G07 | 部分 | **已满足** | 四族 Holm 输出 + RTLF 42/42 族外 |
-| G09 | 部分 | **已满足** | 六个新证据目录全部进入提交；身份唯一；未 push |
-| B04 | 部分 | **已满足** | PLAN 冻结并绑定执行摘要 |
-| B05 | 未执行 | **已满足** | M2 18 次锁频运行 + Holm/RTLF/dudect |
-| B06 | 条件未触发 | **已满足** | 触发成立 + 六个微基准运行（`microbench-0551254c9579`） |
-| B07 | 部分 | **已满足** | 完整运行包 + 平台行 + 报告 |
-| C03 | 未执行 | **已满足** | M5 6 次运行 + Holm m=3 + RTLF/dudect |
-| C04 | 部分 | **已满足** | 三句更新为真实统计 |
-| D03 | 部分 | **已满足** | Microwalk 源码自建 + Pin 3.28 实跑（MI 1.922 bits） |
-| D04 | 未执行 | **已满足** | M3 12 次运行 + Holm m=6 |
-| D05 | 部分 | **已满足** | 结果包与平台行同步 |
-| E04 | 未执行 | **已满足** | M4 18 次运行 + Holm 拒绝 3（全在 vulnerable 臂） |
-| E05 | 部分 | **已满足** | 定位/形式化/统计分列 + 报告同步 |
-| F01 | 部分 | **已满足** | Mona M2 六份对照行 |
-| F02 | 部分 | **已满足** | 23 页终版报告（实测数字回填） |
-| F03 | 部分 | **已满足** | 结果图刷新 + 图注 + 可重建源 |
-| F04 | 部分 | 部分（当时唯一剩余） | 入口/进度/总表/复算已同步，最终交接未更新 |
+| 时点声明 | 快照 `7a71d5c`，全部已提交 | 快照 **`HEAD=f8fa4de`**，全部已提交（本轮产物提交为 `424d733`） | `git rev-parse HEAD`；`git status --porcelain` 无已跟踪条目 |
+| 本轮基线 | 相对 `origin/main`（`c849c0f`）领先 10 | 计划书基线 `c849c0f` **已过期 11 个提交**，本轮实际基线 = `origin/main@e81c1ae` | `git rev-list --count c849c0f..e81c1ae` = 11；`BASELINE.md` |
+| 提交数 | `44c209a..HEAD` = 42；`origin/main..HEAD` = 10 | `e81c1ae..HEAD` = **27**；`origin/main..HEAD` = **27**（未 push） | `git rev-list --count` |
+| 原文 41 行判定 | 38/0/0/0/3 | **38/0/0/0/3（不变）** | 逐行复核，无改判 |
+| 口径 B（32 项） | 29/3 | **29/3（不变）** | 同上 |
+| A′ / B′ | 43 行 40/3；34 项 31/3 | **不变**；另新增 A″ 66 行 63/3、B″ 57 项 54/3 | 本版 §1.3 |
+| CSV 规模 | 43 数据行 × 8 列 | **76 数据行 × 8 列** | 本版新增 33 行 |
+| 命令实跑 | 148 路径 / 40 命令（全部 0） | **257 路径 / 73 命令（全部 0）**；3 条 `—` | `build/run_audit_commands.py` |
+| 报告 | final4：33 页、PDF `570ab957…` | **final5：91 页、PDF `d391114c…`**；两遍 XeLaTeX 仍 0 警告；新增附录 A 题面 12 条矩阵（11 满足 + 第 6 条部分） | `xelatex-final5-*.log`、`pdf-metadata-audit.json`、PDF 对象流计数 |
+| 匿名包 | final4：784 成员、`88395b6c…` | **final5：842 成员、`248e06d2…`**（`7387c01` 重出；首次成包 `b54e2e4a…` 保存在 `final5-20261016-verification-attempt1.json`）、`direct_identity_markers=0`、包内 ctest 5/5 | 自跑 `verify_package.py`；`zip-recompute-final5.log` |
+| 锁频运行 | 平台四模块 54 次 | **117 次（R03 18 + R08 54 + R09 36 + R12 锁频 9），117/117 四判据全过**；另有 9 次不锁频对照；19 次无效运行已归档 | 逐份 `status.log` / 逐份 `terminal.json` |
+| 报告 §24 四处不一致 | 未闭（`dc6522c` 登记 3 处 + 时点差 1 处） | **全部按 `6c10f4d` 核实为已闭合**（逐条见 §4.4） | `git show 6c10f4d` + 当前文件 `grep` |
+| 需处理不一致 | C-01…C-11 **全部闭合，0 未闭** | C-01…C-11 **仍全部闭合**；第 6 版新登记的 6 处经复核 **4 闭（D-03/D-04/R-02/R-04）+ 2 未闭（D-05、R-03）** | §4.3 |
+| 题面第 6 条 | 报告 final4 未设 12 条矩阵 | **如实记"部分"**（唯一缺口 R06 的 F1），D-03/D-05 是文件表述不一致、不是 F1 的替代；F1 **未闭** | 报告附录 A 表 T26 第 6 行；`AUDIT.md` F1 |
 
-**计数变化：** 口径 A 18/15/4/1/3 → **37/1/0/0/3**；口径 B（32 项）14/10/4/1/3 → **28/1/0/0/3**。
+**计数变化（第 6 版 → 第 7 版）：** 口径 A（41）**38/0/0/0/3 不变**；口径 B（32）**29/0/0/0/3 不变**；
+A′（43 行）**40/0/0/0/3 不变**；B′（34 项）**31/0/0/0/3 不变**；A″（66 行）**63/0/0/0/3 不变**、B″（57 项）**54/0/0/0/3 不变**；
+CSV 合计（仍 76 行）**65 已满足 / 3 可选未做 / 6 已闭不一致 / 2 未闭不一致**（第 6 版为 2 已闭 + 6 未闭）。
+**本次复核未改动原文 41 行中任何一行的判定，也未新增行**（故 `SIGNOFF_CHECKLIST.md` 的"76 行 × 8 列 / 73 条"仍然成立）。
 
-### 7.2 快照 `a30d7c7`（第 2 版）→ 快照 `0d9876b`（第 3 版）
-
-| 行 / 编号 | a30d7c7（02:49） | 0d9876b（02:55） | 触发证据 |
-|---|---|---|---|
-| **F04** | 部分（唯一必做缺口） | **已满足** | `HANDOFF_DONE.md` 新增"第二轮完成交接（主控）"整节：完成范围 + 本地提交清单 + 未做与不做；旧段落原字节保留 |
-| C-05 | 未闭 | **已闭合** | `platform-report-20261016/RESULT.md` 三处统一为 23 页并标注权威来源；`! grep -q '22 页'` 通过 |
-| C-06 | 未闭 | **已闭合** | 采集 README 家族表/输出名改为 `.csv.gz` |
-| C-07 | 未闭 | **已闭合** | `docs/evidence/platform-boundary-cleanup-20261016/` 真实入库（README.txt + ORIGINALS.tsv + 两份原件 + `source-tmp-originals/`） |
-| C-08 | 未闭 | **已闭合** | 采集 README §7 第 1 条登记 `.meta` 静态字段与控制器权威来源 |
-| C-09 | 未闭 | **已闭合** | §1.0 措辞改为"对 blob 内容再算 SHA-256" |
-| C-10 | 未闭 | **已闭合** | 采集 README §7 第 2 条登记上游快照的悬空链接与 ELOOP 警告及"不改上游快照"的处置 |
-| C-02 / C-03 / C-04 | 未闭 | **仍未闭**（3 条，均为"快照词/时点/入口描述"类低风险项） | `m3-memaccess/NOTES.md`、`m4-compare/*`、`S01.md`、`m3-completion/RESULT.md` 未被本轮修改（sha256 未变） |
-
-**计数变化：** 口径 A 37/1/0/0/3 → **38/0/0/0/3**；口径 B（32 项）28/1/0/0/3 → **29/0/0/0/3**。需处理不一致由 8 条降至 **3 条**。
-
-### 7.3 快照 `0d9876b`（第 3 版）→ 快照 `dc6522c`（第 4 版，03:50，含当时工作区改动）
-
-| 行 / 编号 | 第 3 版（0d9876b，02:57） | 本版（dc6522c + 工作区，03:50） | 触发证据 |
-|---|---|---|---|
-| F02 | 已满足（23 页、13 章、6 表、27 来源） | **已满足（33 页、15 章、11 表、2 图、31 来源）** | 新增 R03/R05 两章与表 T7–T11、图 2；M4 改为分臂引用；两遍编译 0 Overfull/Underfull/缺字/hyperref |
-| F04 | 已满足（final3、23 页） | **已满足（final4、784 成员、33 页）** | deliverable README、REFRESH 第五阶段、`zip-recompute-final4.log`（CTest 5/5、2.06 s）、`final4-20261016/` 审计产物 |
-| S01 | —（不存在） | **已满足（新增）** | R03 族外对照并入报告；`status.log` 18/18 restore_match=yes；PLAN sha256 与 RESULT 记录一致 |
-| S02 | —（不存在） | **已满足（新增）** | R05 90 格排查表并入报告；汇总行 5/74/10/1/90 与报告表 T10 逐字一致；mermaid 源码在 MD/HTML 原样保留、PDF 用等价静态图 |
-| C-02 | 未闭 | **已闭合** | `b637d0d` 给三个文件追加"状态更新"块（原文未改）；`m3-memaccess/NOTES.md` sha256 由 `f97b285b0cbd22a0` → `88b3a31dba17a520` |
-| C-03 | 未闭 | **已闭合** | `b637d0d` 在 `partials/S01.md` 加"基线更正"并把两处过期措辞标注为已过期 |
-| C-04 | 未闭 | **已闭合** | `b637d0d` 新增 `m3-completion-20261016/TESTS.md`（逐测试名 + 行号）并更正 `RESULT.md` 的归属表述；sha256 由 `ee9be0e9446d4b1b` → `7364a8116a54e349` |
-| C-11 | —（不存在） | **未闭（本轮新增，低）** | `HANDOFF_DONE.md` 的"第二轮完成交接"仍是 `0d9876b` 时点快照（23 页/final3）；本版不改写历史段落，登记给主控在最终交接时刷新 |
-| C-05 | 已闭合 | **复审后仍闭合**（页数改绑 33） | 六处同值 33；另在 REFRESH §I3 记入"改表格后必须重跑生成器再编译、三处必须同值"的护栏 |
-
-**计数变化：** 口径 A 38/0/0/0/3 → **38/0/0/0/3（不变）**；口径 B（32 项）29/0/0/0/3 → **29/0/0/0/3（不变）**；新增口径 A′ 43 行 → **40/0/0/0/3**、B′ 34 项 → **31/0/0/0/3**。需处理不一致由 3 条（C-02/C-03/C-04）→ **1 条（C-11）**。
-
-> 本版的判定口径与第 3 版一致：**新增证据以补充行登记，不改写原文 ID 的判定，也不把可选未做改判**。与第 3 版相比，41 行上没有一行状态发生变化。
-
-### 7.4 快照 `dc6522c`（第 4 版 + 工作区）→ 快照 `7a71d5c`（第 5 版，全部已提交）
-
-| 项 | 第 4 版（dc6522c + 工作区，03:50） | 第 5 版（7a71d5c，03:58） | 触发证据 |
-|---|---|---|---|
-| 时点声明 | "判定同时绑定提交身份与工作区字节；工作区尚未 commit" | **全部已提交**：收尾轮 10 个提交（`b94e942`…`7a71d5c`）落到本地 `main`，`git status` 无已跟踪改动 | `git log --oneline c849c0f..HEAD` = 10；`git status --porcelain` 无已跟踪条目 |
-| 提交数 | `44c209a..HEAD` = 38；`origin/main..HEAD` = 6 | `44c209a..HEAD` = **42**；`origin/main..HEAD` = **10**（未 push） | `git rev-list --count` |
-| 存在性 / 命令 | 148 条路径、40 条命令（第 4 版先修好 F02 命令） | **重跑：148 条路径 0 缺失；40 条命令全部返回 0**（43 行中 3 行可选无命令） | 本次脚本复验 |
-| S01（R03） | 已满足 | **仍已满足**（18/18 `restore_match=yes`；`--plan-sha256` 与 PLAN 一致；族外结论不变） | `docs/evidence/r03-malformed-20261016/{PLAN.md,RESULT.md,logs/status.log}` |
-| S02（R05） | 已满足 | **仍已满足**（90 格 5/74/10/1；mermaid 与静态图并存） | `docs/R05-全流程排查表.md`、`deliverables/.../r05-flowchart.png` |
-| C-02 / C-03 / C-04 | 已闭合（b637d0d） | **仍已闭**（三文件"原文未改 + 状态更新块"仍在；`m3-completion/RESULT.md` 第 40 行已不再冒称该目录含 6/6） | `b637d0d` diff 与三文件当前内容 |
-| 符号链接告警 | C-10 升级为"已修"（`b94e942`） | **复核：`git status` 中 `Too many levels of symbolic links` 计数 = 0**；`avx2/.gitignore` 已是 517 B 普通文件 | `git status --porcelain 2>&1 \| grep -c symbolic` |
-| C-11 | 未闭（1 条） | **已闭合**：`7a71d5c` 在 `HANDOFF_DONE.md` 新增"收尾轮交接（主控）"整节 | `grep -n '收尾轮交接' HANDOFF_DONE.md` |
-| F04 行 | 已满足（final4） | 已满足（文字更新：C-11 已由 `7a71d5c` 解除，不再"登记给主控"） | 同上 |
-
-**计数变化：** 口径 A（41）**38/0/0/0/3 不变**；口径 B（32）**29/0/0/0/3 不变**；A′（43 行）**40/0/0/0/3 不变**；B′（34 项）**31/0/0/0/3 不变**。需处理不一致由 1 条（C-11）→ **0 条（C-01…C-11 全部闭合）**。**本次复核未改动任何一行的判定。**
+| 第 7 版复核项 | 结果 |
+|---|---|
+| `verify_command` | **ran = 73、exit0 = 73、non-zero = 0** |
+| 证据路径 | **255 条（带目录前缀规则）全部存在，0 缺失**；含裸文件名则 258 条、0 缺失 |
+| 六处修补复核 | D-03 ✅、D-04 ✅、R-02 ✅、R-04 ✅、**D-05 ❌（§5.1 首句）**、**R-03 ❌（包 sha 过期）** |
+| zip / PDF sha256 | final5 zip = `248e06d246955252e4232030c7a9d12736e0e9f2aa64d53b2b7c1b927adc885f`（与 `final5-20261016-verification.json` 一致）；PDF = `d391114c9269b0c0ed463e06f3fed38a1cbded783be81590b7ae18151960db20`（未变） |
+| 工作区状态 | 6 个已跟踪文件为 ` M`（D-03/D-04/D-05/R-04 四个修补 + 本审计 md/csv），**尚未提交** |
 
 ---
 
-*本文件由只读审计路 S10 生成（第 5 版，绑定快照 `main@7a71d5c`，全部已提交；前四版 `47033dd`、`a30d7c7`、`0d9876b`、`dc6522c` 原字节另存）；不修改任何被审计产物。最终判定以主控确认为准，并需与比赛方材料审核、本人签署和官方验收分开记录。*
+*本文件由只读审计路 S11 生成（第 7 版，绑定快照 `main@7387c01`；六处修补中 D-03/D-04/D-05/R-04 仅在
+工作区、尚未提交，R-02/R-03 已提交；前六版 `47033dd`、`a30d7c7`、`0d9876b`、`dc6522c`、`e81c1ae`、`f8fa4de` 原字节另存）；
+不修改任何被审计产物。最终判定以主控确认为准，并需与比赛方材料审核、本人签署和官方验收分开记录。*

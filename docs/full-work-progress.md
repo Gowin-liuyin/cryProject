@@ -610,7 +610,7 @@ Binsec 只开 `control-flow,memory-access`、未开乘除法的边界写进正�
 | T30 | 一键复现（quick 档干净 clone ctest 194/194）与参数总表 | `scripts/reproduce_all.sh`、`docs/REPRODUCE-PARAMS.md` |
 | T31 | 报告整合为 **final5：91 页**，附录 A 题面 12 条对照矩阵（1–5、7–12 满足，**第 6 条部分**） | `deliverables/research/multi-leakage-platform-20261016/report.pdf` |
 | T32 | final5 匿名包 842 成员、verify pass 且 `direct_identity_markers=0`、包内 ctest 5/5 | `deliverables/support/…-final5-20261016.zip` |
-| T34 | 人工复核签字清单（23 项，签字栏留空） | `docs/evidence/closeout-20261016/SIGNOFF_CHECKLIST.md` |
+| T34 | 人工复核签字清单（29 项，签字栏留空） | `docs/evidence/closeout-20261016/SIGNOFF_CHECKLIST.md` |
 
 ### 锁频采集与恢复
 
