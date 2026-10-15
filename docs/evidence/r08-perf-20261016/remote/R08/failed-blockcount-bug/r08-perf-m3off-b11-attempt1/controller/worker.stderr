@@ -1,0 +1,4 @@
+usage: perf_measure --run-id ID --seed N --raw NEW.csv [--meta NEW.meta]
+                    [--warmup W] [--decaps-samples D] [--keygen-samples K]
+                    [--encaps-samples E] [--arm NAME] [--block-index B]
+                    [--block-count C] [--order-seed S] | --describe

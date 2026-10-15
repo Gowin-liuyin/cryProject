@@ -1,0 +1,18 @@
+run=r12-m1unfixed-locked-s1 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m1unfixed-unlocked-s1 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m1unfixed-locked-s2 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m1unfixed-unlocked-s2 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m1unfixed-locked-s3 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m1unfixed-unlocked-s3 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m1fixed-locked-s1 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m1fixed-unlocked-s1 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m1fixed-locked-s2 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m1fixed-unlocked-s2 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m1fixed-locked-s3 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m1fixed-unlocked-s3 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m5ref-locked-s1 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m5ref-unlocked-s1 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m5ref-locked-s2 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m5ref-unlocked-s2 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no
+run=r12-m5ref-locked-s3 mode=locked attempt=1 controller_exit=0 reason=worker_finished worker_exit_code=0 restore_match=yes
+run=r12-m5ref-unlocked-s3 mode=unlocked attempt=1 worker_exit_code=0 config_changed=no

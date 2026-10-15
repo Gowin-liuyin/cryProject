@@ -7,7 +7,7 @@ import statistics
 import sys
 
 REPO = pathlib.Path('/Users/yin/code/cryProject')
-ROOT = REPO / 'docs/evidence/r12-innovation-20261016/runs'
+ROOT = REPO / "docs/evidence/r12-innovation-20261016/remote/runs"
 
 ARMS = ['m1unfixed', 'm1fixed', 'm5ref']
 TAGS = ['s1', 's2', 's3']
@@ -96,6 +96,21 @@ for arm in ARMS:
     ratio = unlocked / locked if locked > 0 else float('nan')
     print(f'{arm:10s} locked_SD={locked:9.2f}  unlocked_SD={unlocked:9.2f}  '
           f'unlocked/locked={ratio:6.3f}')
+
+print('\n== 变异系数 CV = SD/mean（按频率归一，避免 ns 机械缩放）==')
+for arm in ARMS:
+    for mode in ('locked', 'unlocked'):
+        cvs = [r['sd0'] / r['mean0'] for r in rows if r['arm'] == arm and r['mode'] == mode]
+        mean_cv = sum(cvs) / len(cvs)
+        summary_cv = summary.get((arm, mode + '_cv'))
+        if summary_cv is None:
+            summary[(arm, mode + '_cv')] = mean_cv
+        print(f'{arm:10s} {mode:9s} CV0 = {mean_cv:.6f}  (逐次 {" ".join(f"{c:.5f}" for c in cvs)})')
+print('\nCV 比（unlocked/locked）：')
+for arm in ARMS:
+    lc = summary[(arm, 'locked_cv')]
+    uc = summary[(arm, 'unlocked_cv')]
+    print(f'  {arm:10s} locked={lc:.6f} unlocked={uc:.6f} ratio={uc/lc:.3f}')
 
 print('\n== 达到检出所需每类样本量（alpha=0.05 双侧、功效 80%）==')
 print(f'{"arm":10s} {"Δ_locked(ns)":>13s} {"n_locked":>10s} {"n_unlocked":>12s} {"n比":>7s}')

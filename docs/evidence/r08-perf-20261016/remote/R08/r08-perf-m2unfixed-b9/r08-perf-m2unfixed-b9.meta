@@ -1,0 +1,37 @@
+tool=perf_measure
+schema=perf_measure_v1
+run_id=r08-perf-m2unfixed-b9
+arm=m2unfixed
+implementation=m2-kyber768-round3-unfixed
+build_flags=/usr/bin/clang-18 -std=c11 -O2 -g -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+test_seed=31337
+warmup_calls_per_operation=100
+operation=decaps samples=25000 window=one_complete_mlkem_decapsulate_on_fixed_valid_ciphertext
+operation=keygen samples=5000 window=one_complete_mlkem_generate_key_pair
+operation=encaps samples=5000 window=one_complete_mlkem_encapsulate_with_fixed_encapsulation_key
+block_index=8
+block_count=12
+order_seed=20261016
+operation_order=decaps,keygen,encaps
+decaps_input=fixed_valid_ciphertext_seed_31337_index_0_accept_path
+encapsulation_key_source=fixed_test_key_pair_seed_31337
+encapsulation_key_sha256=51059dfaf96d6d30bd0da6ce66282d18fc0e5b132f2af09f20002aa3027db9d0
+ciphertext_sha256=4a7d77814d3d5a16c846d7600219e963b8457f9ed39e437bb1cca62ddf79d04a
+time_unit=ns
+timer_source=clock_gettime(CLOCK_MONOTONIC)
+timer_resolution_ns=1
+clock_overhead_subtracted=no
+long_tail_trimmed=no
+preparation_start_ns=3897225214147719
+timed_window_start_ns=3897225229280956
+timed_window_end_ns=3897227133956202
+zero_elapsed_count=0
+run_status=complete
+cpu_model=AMD Ryzen 9 9950X 16-Core Processor
+uname_sysname=Linux
+uname_release=6.17.0-35-generic
+uname_machine=x86_64
+cpu_affinity=not_pinned
+frequency_control=not_configured
+csv_header=run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
+executable_sha256=3623c656d40f66af7f58bf3c5aefab8db1dde16404310a9a48947fcd98e673a0
