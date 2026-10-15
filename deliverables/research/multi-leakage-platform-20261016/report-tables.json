@@ -1,7 +1,7 @@
 {
   "date": "2026-10-16",
   "placeholder_token": "«待主控数据»",
-  "note": "本文件的每个实测数字都必须能回到 sources 中列出的证据文件和其中的字段/表行；未执行的格子写“未执行”，仍未回填的写 «待主控数据»，两者都不写成阴性。M2–M5 的锁频家族统计本轮已回填；仍未回填的只有 RTLF α=.01 族外结果、Mona 对 M2 的对照行与 M2 微基准层。",
+  "note": "本文件的每个实测数字都必须能回到 sources 中列出的证据文件和其中的字段/表行；未执行的格子写“未执行”，两者都不写成阴性。M2–M5 的锁频家族统计、RTLF 族外交叉（42/42）、Mona 对 M2 的对照行、M2 除法热点微基准层、R03 格式破损 / 截断族的族外对照与 R05 的 90 格排查表均已回填；«待主控数据» 占位符为 0。",
   "tables": [
     {
       "id": "T1",
@@ -103,7 +103,7 @@
         ],
         [
           "置信区间",
-          "两组样本均值差 Δ、Welch 标准误与 95% 区间；实现为大样本正态近似（z=1.9599639845），不称有限样本精确 Student-t。M2 +4.58 [−3.08, +12.25]；M3 −0.73 [−5.56, +4.10]；M4 −3.74 [−3.87, −3.62]（混合两臂，I²=98.6%）；M5 −5.30 [−11.77, +1.16]",
+          "两组样本均值差 Δ、Welch 标准误与 95% 区间；实现为大样本正态近似（z=1.9599639845），不称有限样本精确 Student-t。M2 +4.58 [−3.08, +12.25]；M3 −0.73 [−5.56, +4.10]；M4 按臂分列：vulnerable −4.089 [−4.215, −3.963]、ct +0.055 [−0.363, +0.473]（家族窗口把两臂混在一起、I²=98.6%，故不引用合并 Δ）；M5 −5.30 [−11.77, +1.16]",
           "已执行",
           "[E08] [E20]"
         ],
@@ -138,7 +138,7 @@
           "[E01] [E13] [E20]"
         ]
       ],
-      "note": "四个家族各自独立判定；M4 的三项拒绝只针对人工提前退出夹具，不外推到真实密码库。RTLF 与 Mona 行仍待回填。"
+      "note": "四个家族各自独立判定；M4 的三项拒绝只针对人工提前退出夹具，不外推到真实密码库。M4 的效应量只按臂引用（vulnerable −4.089 ns / ct +0.055 ns）。RTLF、Mona、R03 族外对照均已回填并单列。"
     },
     {
       "id": "T4",
@@ -219,8 +219,8 @@
         ["M3 家族 m3_lut_arm_end_to_end_v1（m=6）", "臂内主类对原始 p：开臂 0.189 / 0.268 / 0.315，关臂 0.375 / 0.458 / 0.480；Holm 拒绝 0；合并 Δ −0.73 ns，CI [−5.56, +4.10]，I²=12.5%", "[E14](../../../docs/evidence/m3-completion-20261016/RESULT.md)、[E20](../../../docs/evidence/platform-collection-20261016/stats/holm/RESULT.md)", "跨臂 on/off 含二进制级常数偏移，不进 Holm"],
         ["M3 定位层", "Memcheck 开臂 1280 errors/2 contexts 对关臂 0/0；Microwalk poly_frommsg+30/+59 MI 1.922 bits（全场最高）对关臂 0.722", "[E21](../../../docs/evidence/m3-completion-20261016/LOCATE_RESULT.md)", "人工构造校准；不是上游 CVE"],
         ["M3 族外 online dudect", "on/off max|t| = 1.93/2.24、3.41/3.37、2.81/3.03，均 state=1", "[E14](../../../docs/evidence/m3-completion-20261016/RESULT.md)", "预算内无证据；不进 Holm"],
-        ["M4 家族 m4_compare_arm_session_v1（m=6）", "vulnerable 原始 p = 0 / 9.23e−25 / 3.14e−22；ct = 0.386 / 0.438 / 0.399；Holm 拒绝 3（全在 vulnerable 臂）；合并 Δ −3.74 ns，CI [−3.87, −3.62]，I²=98.6%", "[E16](../../../docs/evidence/m4-completion-20261016/RESULT.md)、[E20](../../../docs/evidence/platform-collection-20261016/stats/holm/RESULT.md)", "合并 I² 高＝混合泄漏臂与不泄漏臂；按臂读更可读"],
-        ["M4 按臂描述性", "vulnerable −4.089 [−4.215, −3.963]；ct +0.055 [−0.363, +0.473]", "[E19](../../../docs/evidence/platform-collection-20261016/README.md)", "人工夹具；不外推到真实密码库"],
+        ["M4 家族 m4_compare_arm_session_v1（m=6）", "vulnerable 原始 p = 0 / 9.23e−25 / 3.14e−22；ct = 0.386 / 0.438 / 0.399；Holm 拒绝 3（全在 vulnerable 臂）；家族窗口 I²=98.6%（两臂异质，故不引用混臂合并 Δ）", "[E16](../../../docs/evidence/m4-completion-20261016/RESULT.md)、[E20](../../../docs/evidence/platform-collection-20261016/stats/holm/RESULT.md)", "家族判定只用 Holm 拒绝数；效应量按臂读，不引用混臂合并值"],
+        ["M4 分臂效应量（正文、表与图唯一引用的 Δ）", "vulnerable Δ −4.089 ns，95% CI [−4.215, −3.963]；ct Δ +0.055 ns，95% CI [−0.363, +0.473]", "[E19](../../../docs/evidence/platform-collection-20261016/README.md)", "两臂分列；人工夹具，不外推到真实密码库"],
         ["M4 族外截断对照与 dudect", "--compare-bytes 16：p = 6.25e−202 / 0.00563 / 4.44e−177；dudect vulnerable 356.6 / 396.9 / 395.6（leakage_found）、ct 2.06 / 1.90 / 2.27（无证据）", "[E16](../../../docs/evidence/m4-completion-20261016/RESULT.md)、[E23](../../../docs/evidence/m4-completion-20261016/MEASURE_V2.md)", "截断对照边界不同（内核 vs 完整封装），不进 Holm"],
         ["M4 Binsec（有界）", "insecure（反例 0x8049047，compare_early.c:9）对 bounded secure；halt 32/32 对 16/16；pending/cut/discontinued/unknown 全 0；-sse-depth 5 得 unknown", "[E22](../../../docs/evidence/m4-completion-20261016/FORMAL_RESULT.md)", "i386 -O1、公开长度 1–16；secure 是有限模型结论"],
         ["M5 家族 m5_reference_end_to_end_v1（m=3）", "原始 p = 0.249 / 0.410 / 0.427；Holm 拒绝 0；合并 Δ −5.30 ns，CI [−11.77, +1.16]，I²=0%", "[E15](../../../docs/evidence/m5-completion-20261016/RESULT.md)、[E20](../../../docs/evidence/platform-collection-20261016/stats/holm/RESULT.md)", "未检出只限本机、本产物、本类对与本预算"],
@@ -230,7 +230,12 @@
         ["Mona 对 M1 六份类对", "成功/失败记录：0/9、1/8、0/9、1/1、0/9、0/0", "[E09](../../../docs/evidence/mona-wire-20261016/RESULT.md)", "上游自适应箱体；与既有检测方向不一致，完整保留"],
         ["RTLF（M2–M5，族外 α=.01）", "42/42 完成、无 blocked/failed：no_difference_detected 30 项、difference_detected 12 项。M4：vulnerable 主类对 3/3 检出（显著上分位 40–70）、ct 3/3 未检出；截断对照 vulnerable 3/3 检出（60–70）、ct 3/3 未检出。M2：主类对 6/6 检出（10–70 段，未修与已修两臂都检出）、对照类对 6/6 未检出。M3 12/12、M5 6/6 未检出。42/42 数据集 zero_X=zero_Y=0", "[E26](../../../docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md)", "α=0.01、seed 2026101605、bootstrap 10000、二值结论、族外、不进 Holm；与 Welch/Holm 均值判定分列互不替代；未检出≠恒时证明"],
         ["Mona 对 M2 六份主类对（族外）", "六份各一行：三个未修臂与 s1/s2 已修臂均 no_validated_box_separation（0/9、0/9、0/9、0/7、0/9）；s3 已修臂 validated_box_separation（1/8，X<Y 箱 0.27–0.34、5120 值、子集数 1＝末轮单子集 100%）；最高批次成功% 依次 74/18/34/29/34/100；holm_member=false", "[E24](../../../docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-mona.csv)、[E25](../../../docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-details.csv)、[E09](../../../docs/evidence/mona-wire-20261016/RESULT.md)", "上游自适应箱体；批次成功百分比不是 p 值或覆盖区间；无分离不证明恒时、不推翻 Welch/Holm/RTLF/dudect"],
-        ["实包解出后的独立复算", "命令与通过数见 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute.log 与 docs/evidence/platform-report-20261016/final-20261016/offline-reproduction.json（两份都是成包后生成的日志，不进本包）", "见上两处仓库相对路径", "只从实际 ZIP 解出后构建；不复用仓库本体"]
+        ["R03 族外对照（valid vs malformed）", "9 组「臂 × 种子」Δ 全部落在 +9.8 ～ −3.2 ns；9/9 的 95% CI 含 0；9/9 原始 p ≥ 0.28（最大 0.9552）；方向在两臂间摆动", "[E28](../../../docs/evidence/r03-malformed-20261016/RESULT.md)", "族外、不做 Holm、不改 efca8a1 与 M1/M5 既有判定；未检出≠恒时证明"],
+        ["R03 族外对照（valid vs truncated）", "truncated 三臂实测 23.1–23.4 ns；Δ ≈ 29.3 µs（M5）/ ≈ 55.1 µs（M1）；原始 p 双精度下溢打印为 0（下溢，不得当精确零）", "[E28](../../../docs/evidence/r03-malformed-20261016/RESULT.md)", "公开长度检查的接口语义，不是秘密相关泄漏；不进 Holm"],
+        ["R03 族外 online dudect", "M1 未修末批 max|t| = 10.78 / 11.43 / 12.02（越过上游 >10 阈值）；M1 已修 1.12 / 2.05 / 2.01；M5 1.35 / 1.52 / 2.00", "[E28](../../../docs/evidence/r03-malformed-20261016/RESULT.md)", "类对为该入口自带 message-zero vs message-ones；最大 t 不转伪 p、不进 Holm"],
+        ["R03 采集条件与有效性", "3 臂 × 3 种子，每类 10000、预热 100 在窗口外；boost=0、governor/EPP=performance、min=max=4300000 kHz、taskset -c 2|6；9 次 measure + 9 次族外 dudect = 18 次控制器运行", "[E29](../../../docs/evidence/r03-malformed-20261016/PLAN.md)、[E31](../../../docs/evidence/r03-malformed-20261016/logs/status.log)", "18/18 restore_match=yes、worker_exit_code=0、放行探针全在 ±2% 带内"],
+        ["R05 全流程排查表（90 格）", "3 实现 × 5 步骤 × 6 类 = 90：存在 5、不存在 74、不适用 10、未检查 1；5 个「存在」＝M1 2（982c762 覆盖）、M2 2（272125f 覆盖）、M5 1（公开信息、不可利用）", "[E30](../../../docs/R05-全流程排查表.md)", "判定以反汇编地址与 Memcheck/varlat 输出为准；「不存在」不是恒时证明；人工夹具不计为上游 CVE"],
+        ["实包解出后的独立复算", "命令与通过数见 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final4.log 与 docs/evidence/platform-report-20261016/final4-20261016/offline-reproduction.json（两份都是成包后生成的日志，不进本包）", "见上两处仓库相对路径", "只从实际 ZIP 解出后构建；不复用仓库本体"]
       ],
       "note": "表中所有非占位数字均可在所引文件中逐字核对；M1 行为封存引用，其余为本轮锁频采数产物的原文数字。"
     },
@@ -243,6 +248,86 @@
         ["M2 除法热点微基准层（原 not_run）", "家族 m2_div_hotspot_microbench_v1 m=6，Holm 拒绝 0，Δ +0.044 ns、CI [−0.430, +0.517]、I²=68.7%；六 run 全部 restore_match=yes", "[E27](../../../docs/evidence/m2-kem-20261016/microbench-0551254c9579/RESULT.md)"]
       ],
       "note": "本轮已清空全部 «待主控数据»：RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已落盘并回填。报告中仍标“未执行”的只有题面第 5 条中结构性未做的单元格（如数据相关循环），它们不是占位符、也不是阴性。"
+    },
+    {
+      "id": "T7",
+      "title": "R03 对照 A：valid − malformed（族外，不做 Holm）",
+      "landscape": true,
+      "columns": ["臂", "种子", "Δ（ns）", "95% 正态近似 CI（ns）", "原始 p", "n0/n1"],
+      "rows": [
+        ["M1 未修 liboqs 0.10.0", "31337", "+7.9", "[−6.6, +22.3]", "0.2849", "10000/10000"],
+        ["M1 未修 liboqs 0.10.0", "424242", "+1.6", "[−8.5, +11.6]", "0.7591", "10000/10000"],
+        ["M1 未修 liboqs 0.10.0", "7", "−3.2", "[−17.6, +11.1]", "0.6581", "10000/10000"],
+        ["M1 + 982c762", "31337", "+4.7", "[−12.9, +22.2]", "0.6043", "10000/10000"],
+        ["M1 + 982c762", "424242", "+9.8", "[−8.5, +28.1]", "0.2934", "10000/10000"],
+        ["M1 + 982c762", "7", "+0.5", "[−15.9, +16.9]", "0.9552", "10000/10000"],
+        ["M5 mlkem-native b3ba7b3", "31337", "−2.2", "[−11.0, +6.5]", "0.6153", "10000/10000"],
+        ["M5 mlkem-native b3ba7b3", "424242", "−1.2", "[−12.1, +9.7]", "0.8280", "10000/10000"],
+        ["M5 mlkem-native b3ba7b3", "7", "−2.6", "[−9.5, +4.3]", "0.4648", "10000/10000"]
+      ],
+      "note": "malformed 是长度正确（1088 B）但 u 字段前 960 B 置 0xFF、v 字段后 128 B 置 0x00 的密文，按设计走完整重加密与隐式拒绝。9/9 的 CI 含 0、9/9 原始 p ≥ 0.28（最大 0.9552），方向在两臂间摆动＝未检出额外的可区分路径。族外描述性对照：不做 Holm、不做任何多重比较校正、不进任何家族，也不改变 efca8a1 与 M1/M5 既有判定。原始值、逐类输入摘要与零值行数见 docs/evidence/r03-malformed-20261016/R03/<run>/ 与 logs/status.log。"
+    },
+    {
+      "id": "T8",
+      "title": "R03 对照 B：valid − truncated（族外，不做 Holm）",
+      "landscape": true,
+      "columns": ["臂", "种子", "Δ（ns）", "95% CI（ns）", "原始 p", "truncated 均值（ns）"],
+      "rows": [
+        ["M1 未修 liboqs 0.10.0", "31337", "+55437.8", "[55427.9, 55447.8]", "下溢为 0", "23.2"],
+        ["M1 未修 liboqs 0.10.0", "424242", "+55232.5", "[55225.3, 55239.6]", "下溢为 0", "23.2"],
+        ["M1 未修 liboqs 0.10.0", "7", "+55100.7", "[55089.8, 55111.7]", "下溢为 0", "23.2"],
+        ["M1 + 982c762", "31337", "+54767.8", "[54754.4, 54781.2]", "下溢为 0", "23.2"],
+        ["M1 + 982c762", "424242", "+55117.1", "[55102.5, 55131.7]", "下溢为 0", "23.4"],
+        ["M1 + 982c762", "7", "+54947.7", "[54936.3, 54959.1]", "下溢为 0", "23.1"],
+        ["M5 mlkem-native b3ba7b3", "31337", "+29341.4", "[29335.1, 29347.7]", "下溢为 0", "23.2"],
+        ["M5 mlkem-native b3ba7b3", "424242", "+29294.1", "[29286.0, 29302.1]", "下溢为 0", "23.3"],
+        ["M5 mlkem-native b3ba7b3", "7", "+29321.8", "[29317.0, 29326.7]", "下溢为 0", "23.2"]
+      ],
+      "note": "truncated 只喂 1087 字节，耗时与臂无关（23.1–23.4 ns），说明它在进入 KEM 之前就命中封装层的公开长度检查——这是接口语义，不是秘密相关泄漏。原始 p 是双精度下溢后原样打印的 0，不得解释为“精确零”；差异本身由 CI 说明（例如 M5 的 [29335.1, 29347.7] ns）。Δ ≈ 29.3 µs（M5）/ ≈ 55.1 µs（M1）。同样不进 Holm。"
+    },
+    {
+      "id": "T9",
+      "title": "R03 族外 online dudect（入口自带的 message-zero vs message-ones 类对）",
+      "columns": ["臂", "种子", "末批 max |t|", "状态", "解释"],
+      "rows": [
+        ["M1 未修 liboqs 0.10.0", "31337", "10.78", "0", "越过上游 t>10 阈值"],
+        ["M1 未修 liboqs 0.10.0", "424242", "11.43", "0", "同上"],
+        ["M1 未修 liboqs 0.10.0", "7", "12.02", "0", "同上"],
+        ["M1 + 982c762", "31337", "1.12", "1", "预算内无证据"],
+        ["M1 + 982c762", "424242", "2.05", "1", "预算内无证据"],
+        ["M1 + 982c762", "7", "2.01", "1", "预算内无证据"],
+        ["M5 mlkem-native b3ba7b3", "31337", "1.35", "1", "预算内无证据"],
+        ["M5 mlkem-native b3ba7b3", "424242", "1.52", "1", "预算内无证据"],
+        ["M5 mlkem-native b3ba7b3", "7", "2.00", "1", "预算内无证据"]
+      ],
+      "note": "dudect 需要两个都能跑完的类，因此它测的不是 malformed/truncated 类对，而是该入口自带的 message-zero vs message-ones；valid vs truncated 的三个数量级差已由 Welch 给出，不需要也不适合用 dudect 复核。M1 未修臂三次都越过阈值、已修臂三次都在 2.05 以下，与既有定位结论同向，只作族外印证：最大 t 不转伪 p、不进 Holm。"
+    },
+    {
+      "id": "T10",
+      "title": "R05 全流程排查表：90 格四类结论汇总",
+      "columns": ["实现", "存在", "不存在", "不适用", "未检查", "小计"],
+      "rows": [
+        ["M1 liboqs 0.10.0 未修 / 982c762 已修", "2", "25", "3", "0", "30"],
+        ["M2 kyber768 a621b8d / 272125f", "2", "24", "3", "1", "30"],
+        ["M5 mlkem-native b3ba7b3 参考", "1", "25", "4", "0", "30"],
+        ["合计", "5", "74", "10", "1", "90"]
+      ],
+      "note": "计数口径：总格数 = 3 实现 × 5 步骤（解密、哈希 G/H/J、重加密、密文比较、隐式拒绝 / cmov）× 6 类来源 = 90，每格只计一次，由该文件正文 15 张表逐行程序化统计得到。“不适用”10 格全部是异常处理（第 6 类）× 该函数不可能失败；“未检查”1 格是 M2 重加密 × 提前返回。"
+    },
+    {
+      "id": "T11",
+      "title": "R05 非「不存在」格清单：5 个「存在」+ 1 个「未检查」",
+      "landscape": true,
+      "columns": ["#", "实现 / 步骤 / 类别", "结论", "证据（函数名 + 反汇编地址或行号）", "修复点"],
+      "rows": [
+        ["1", "M1 未修 / 重加密 / 1 提前返回", "存在", "pqcrystals_ml_kem_768_ipd_ref_poly_frommsg：16e: bt %ecx,%r8d → 172: jae 179（locked-poly-frommsg-vulnerable.s 第 8–9 行）；Memcheck 报 poly_frommsg (…/poly.c:179)「Conditional jump or move depends on uninitialised value(s)」，调用栈含 indcpa_enc (indcpa.c:271)（valgrind-ct/vulnerable.log）", "官方 982c762（setb + cmov_int16）；patch-apply.txt 证明补丁覆盖 …ml-kem-768-ipd_ref/poly.c"],
+        ["2", "M1 未修 / 隐式拒绝 / 2 可变时间比较", "存在（机制存在、未在本产物上观测到分支）", "钉版 vendor/liboqs-0.10.0/…/verify.c 的 cmov 无 __asm__ 值屏障（计数 0），对比 vendor/kyber-kyberslash-unfixed/ref/verify.c:44-52 已带屏障；982c762 恰好一并改了该文件", "官方 982c762（同一补丁的 verify.c 值屏障）；本轮未单独出 cmov 调用点反汇编，故不升级为“已检出泄漏”"],
+        ["3", "M2 未修 / 解密 / 2 可变时间比较", "存在", "poly_tomsg：3689: mov $0xd01,%r9d（= 3329）+ 36a5: movswl (%rsi,%rcx,2),%eax（秘密被除数）+ 36bf: div %r9d；varlat 报 poly_tomsg (ref/poly.c:188)，1280 errors / 3 contexts、exit 99", "dda29cc（KyberSlash1，只修此处）→ 完整已修 272125f"],
+        ["4", "M2 未修 / 重加密 / 2 可变时间比较", "存在", "poly_compress：34f2: mov $0xd01,%r8d + 3507: movswl (%rsi,%r9,2),%eax + 3523: div %r8d；polyvec_compress：38c7: div %r8d；varlat 另两条上下文 poly_compress (ref/poly.c:28)、polyvec_compress (ref/polyvec.c:48)；机器可读计数见 ordinary-unfixed-qualification.division-counts.txt", "官方 272125f（KyberSlash2）；已修三热点 div 计数全 0"],
+        ["5", "M5 参考 / 隐式拒绝 / 1 提前返回（公开信息，非可利用）", "存在（有界例外，如实登记）", "归档内 logs-v2/poison.disasm 第 9033–9036 行：a404: call 8a80 <baseline_native_check_sk> → a40c: test %eax,%eax → a40e: jne ad87（检查失败提前跳到清零与 ret 入口）；公开性声明见 vendor/mlkem-native/mlkem/src/kem.c:92-99", "无：上游有意的 FIPS 203 §7.3 sk 哈希检查，不是缺陷；该差异只携带公开信息，但“sk 不可信”不在本轮 CCA 模型内"],
+        ["6", "M2 未修 / 已修 / 重加密 / 1 提前返回", "未检查", "该实现确实有对应结构：poly_frommsg 源码与 M1 未修逐字相同（vendor/kyber-kyberslash-unfixed/ref/poly.c:155-170，indcpa.c:269 调用），但本轮 native-qualification/ 与 microbench-…/disasm/ 的 .asm 清单都不含 poly_frommsg（只有 mlkem_decapsulate、dec、poly_tomsg、poly_compress、polyvec_compress）。不把“源码相同”当“产物相同”，故记未检查", "无（272125f 的 diff 不碰 poly_frommsg）。补做方式：对同一 ELF 运行 objdump -d --disassemble=pqcrystals_kyber768_ref_poly_frommsg"]
+      ],
+      "note": "逐格证据与修复点原文见 docs/R05-全流程排查表.md §4.2/§4.3。边界：本轮 M4 的 Binsec -checkct-features 只开了 control-flow,memory-access，未开 multiplication/dividend/divisor（工具帮助原文 “Multiplication and division checks are experimental”），因此现有 Binsec 结果不能用来判定 M2 的 div 类来源。所有“不存在/阴性”都不是恒时证明；人工夹具不计为上游 CVE。"
     }
   ]
 }

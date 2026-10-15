@@ -14,8 +14,12 @@ import re
 import subprocess
 from pathlib import Path
 
+import r05_flowchart
+
 DIRECTORY = Path(__file__).resolve().parent
 REPOSITORY = DIRECTORY.parents[2]
+R05_TABLE_PATH = "docs/R05-全流程排查表.md"
+R05_FIGURE_TEX = "deliverables/research/multi-leakage-platform-20261016/r05-flowchart.png"
 LINK_PATTERN = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 MATH_REPLACEMENTS = [
     ("×10⁻⁵", r"\texorpdfstring{$\times 10^{-5}$}{x10^-5}"),
@@ -63,6 +67,15 @@ def escape_plain(value, output_format):
     if output_format == "tex":
         return tex_escape(value)
     return html.escape(value)
+
+
+def load_mermaid_source():
+    """从 docs/R05-全流程排查表.md 原样取出 §5 的 mermaid 代码块；该文件一个字节也不改。"""
+    text = (REPOSITORY / R05_TABLE_PATH).read_text()
+    match = re.search(r"```mermaid\n(.*?)\n```", text, re.S)
+    if match is None:
+        raise ValueError("找不到 " + R05_TABLE_PATH + " 的 mermaid 代码块")
+    return match.group(1)
 
 
 def render_text(value, output_format):
@@ -145,7 +158,7 @@ def get_sections(data, tables):
             "普通计时应覆盖声明的完整调用；输入生成、分配、日志、结果消费与 I/O 位于窗口外。热点微基准和独立夹具必须另标调用边界，不与完整解封装混合。普通长尾保留；动态检查产物与正式采集产物分开。源、未提交改动摘要、编译器、选项、ISA、时钟单位、种子、CPU 与二进制摘要共同限定结果。",
             "正式采数前须冻结并本地提交 PLAN，写明主类对、样本预算、停止条件、复测与参数假设族。锁频任务由主控在 CPU2/CPU6 串行调度：boost 关闭、performance、约 4.30 GHz、taskset，并保存进入、采中、退出记录；退出必须实际核对 restore_match。请求频率、可见回读与真实物理恒频是不同声明。本轮 M2–M5 的 54 次控制器运行全部 restore_match=yes，放行探针 20/20 落在 4300000 ±2% 且跨度 ≤50000 kHz；这是工程控制观测，不主张逐调用物理恒频或物理误差界。 [E19]",
             "现有 C 电池使用两组样本均值、样本方差、Welch t 与自由度；95% 区间与 p 值采用大样本正态近似（z=1.9599639845），不能称有限样本精确 Student-t。零方差、数据不足、缺工具或失败均单列状态。参数 p 按事前家族做 Holm；RTLF 固定 α=.01；dudect 最大 t、RTLF 二值结果与 Mona 结果不伪造为 p 纳入 Holm。",
-            "本轮冻结的家族口径：M2 与 M5 的家族成员为主类对 × 3 次运行 × 2 版；M3 与 M4 的家族成员为臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 对比只作受控对照（含二进制级常数偏移），不进 Holm 家族；RTLF（α=.01、seed 2026101605、bootstrap 10000，只给二值结论）与 online dudect 一律族外、不进 Holm；RTLF 检验的是分布差异（含尾部与分位），Welch/CI 检验的是均值差，两者分列、互不替代。本轮 RTLF 42/42 完成、无 blocked/failed：no_difference_detected 30 项、difference_detected 12 项。M4 与其 Welch/Holm 方向一致（vulnerable 主类对与截断对照各 3/3 检出、ct 各 3/3 未检出），是两种方法在同一批数据上的独立印证；M2 主类对 6/6 检出，但**未修与已修两个臂都检出**，因此不可归因于除法变体，与 Welch/Holm 拒绝 0 的差异最一致的读法是类构造（message-zero 与 message-ones 各自是同一份确定性密文的 10000 次重复，而 bit-flipped 与 random 逐样本变化）加上未受控漂移，**不据此作任一方向的泄漏结论**；M3 12/12、M5 6/6 未检出。家族实际运行结果：M2 m=6 拒绝 0（合并 Δ +4.58 ns，CI [−3.08, +12.25]，I²=58.3%）；M3 m=6 拒绝 0（−0.73 ns，[−5.56, +4.10]，I²=12.5%）；M4 m=6 拒绝 3 且全在 vulnerable 臂（−3.74 ns，[−3.87, −3.62]，I²=98.6%）；M5 m=3 拒绝 0（−5.30 ns，[−11.77, +1.16]，I²=0%）。 [E01,E08,E19,E20]"
+            "本轮冻结的家族口径：M2 与 M5 的家族成员为主类对 × 3 次运行 × 2 版；M3 与 M4 的家族成员为臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 对比只作受控对照（含二进制级常数偏移），不进 Holm 家族；RTLF（α=.01、seed 2026101605、bootstrap 10000，只给二值结论）与 online dudect 一律族外、不进 Holm；RTLF 检验的是分布差异（含尾部与分位），Welch/CI 检验的是均值差，两者分列、互不替代。本轮 RTLF 42/42 完成、无 blocked/failed：no_difference_detected 30 项、difference_detected 12 项。M4 与其 Welch/Holm 方向一致（vulnerable 主类对与截断对照各 3/3 检出、ct 各 3/3 未检出），是两种方法在同一批数据上的独立印证；M2 主类对 6/6 检出，但**未修与已修两个臂都检出**，因此不可归因于除法变体，与 Welch/Holm 拒绝 0 的差异最一致的读法是类构造（message-zero 与 message-ones 各自是同一份确定性密文的 10000 次重复，而 bit-flipped 与 random 逐样本变化）加上未受控漂移，**不据此作任一方向的泄漏结论**；M3 12/12、M5 6/6 未检出。家族实际运行结果：M2 m=6 拒绝 0（合并 Δ +4.58 ns，CI [−3.08, +12.25]，I²=58.3%）；M3 m=6 拒绝 0（−0.73 ns，[−5.56, +4.10]，I²=12.5%）；M4 m=6 拒绝 3 且全在 vulnerable 臂；M5 m=3 拒绝 0（−5.30 ns，[−11.77, +1.16]，I²=0%）。**M4 的家族窗口把泄漏臂与不泄漏臂混在一起（I²=98.6%），因此本报告只引用分臂数值：vulnerable 臂 Δ −4.089 ns、95% CI [−4.215, −3.963]；ct 臂 Δ +0.055 ns、95% CI [−0.363, +0.473]；家族窗口的合并 Δ 不在正文、表或图中出现。** [E01,E08,E19,E20]"
         ], []),
         ("检测—定位—修复—复测：四段链状态", [
             "检测段回答“不同类别的执行时间是否可区分”，必须给样本预算、描述统计、区间与检验族；定位段回答“差异对应源码或产物中的哪个机制”，必须给工具、命中位置与实际调用边界；修复段优先使用上游官方修复，人工校准使用明确标注的目标机制开关，并先核对功能等价与拒绝语义；复测段在同规程下独立再运行，比较修复或关闭前后的同向性与稳定性。",
@@ -153,7 +166,7 @@ def get_sections(data, tables):
         ], ["T1"]),
         ("题面第 3 条对照：输入分类与测试", [
             "题面第 3 条要求至少两类具有明确区别的解封装输入、足够次数的重复实验并记录解封装时间，且不应只比较长度明显不同、路径完全不同的数据。平台的做法是：合法密文之间只改解密消息位（message-zero 与 message-ones，同为等长合法密文），异常输入使用同长度的位翻转、随机与验证失败密文；长度类拒绝在封装层先检查，不计入内核类别样本。",
-            "重复次数与时间记录按模块分列：M1 已完成每类 10000 值 × 3 次独立运行；M2–M5 本轮同样完成每类 10000 次、预热 100（窗口外）与 r1/r2/r3 三次独立运行（换种子、换物理核），共 54 次控制器运行全部 restore_match=yes。定位层的 10 次完整标记调用（M3/M5）是有限动态检查，不作为统计样本。 [E19]"
+            "重复次数与时间记录按模块分列：M1 已完成每类 10000 值 × 3 次独立运行；M2–M5 本轮同样完成每类 10000 次、预热 100（窗口外）与 r1/r2/r3 三次独立运行（换种子、换物理核），共 54 次控制器运行全部 restore_match=yes。定位层的 10 次完整标记调用（M3/M5）是有限动态检查，不作为统计样本。此外，R03 另做了一组**族外**的异常输入对照（长度正确的破损密文与长度不足的截断密文对合法密文，3 臂 × 3 种子、每类 10000 次、18/18 restore_match=yes），用来回答「异常输入会不会引出额外的可区分路径」；它不进 Holm、不改任何既有判定，详见第 8 节。 [E19,E28]"
         ], ["T2"]),
         ("题面第 4 条对照：侧信道统计检测", [
             "题面第 4 条要求用统计方法判断不同输入类别是否存在显著可区分性，可使用均值、方差、分位数、置信区间与适当的统计检验，且不能仅凭少量样本或单次测试结论。平台实现分三层：描述统计（均值、标准差、分位数）、参数推断（Welch 均值差与 95% 正态近似区间、Holm 逐步校正）与族外交叉（RTLF α=.01、在线 dudect、Mona 统计对照）。",
@@ -161,8 +174,23 @@ def get_sections(data, tables):
         ], ["T3"]),
         ("题面第 5 条对照：六类泄漏来源 × 解封装步骤", [
             "题面第 5 条列举六类泄漏来源——敏感条件分支、提前返回、可变时间比较函数、数据相关循环、数据相关内存访问、失败路径及异常处理——并要求说明其与 ML-KEM 解封装流程的对应关系。下表按四个步骤逐格给出“查了什么工具或方法、结果如何”：解密（indcpa_dec 与 poly_tomsg 消息解码）、重加密（indcpa_enc）、比较（verify ct 与 ct'）、隐式拒绝（J(z‖ct) 与统一错误路径）。",
-            "表格只写已有证据：M1 为真实历史案例，已有 Valgrind、反汇编与三次独立统计；M2 为真实历史案例，静态除法差异与热点探针 varlat 已执行且为阳性，完整调用端到端统计已执行但未检出（Holm 拒绝 0，CI 含 0）；M3 与 M4 的阳性全部为人工构造校准；M5 的 0 errors/0 contexts 只覆盖固定源码、编译器与有限输入。没有证据的格子写“未执行”。KyberSlash 的秘密操作数除法不属于题面六类，单独列在末行以免与“可变时间比较函数”混淆。"
+            "表格只写已有证据：M1 为真实历史案例，已有 Valgrind、反汇编与三次独立统计；M2 为真实历史案例，静态除法差异与热点探针 varlat 已执行且为阳性，完整调用端到端统计已执行但未检出（Holm 拒绝 0，CI 含 0）；M3 与 M4 的阳性全部为人工构造校准；M5 的 0 errors/0 contexts 只覆盖固定源码、编译器与有限输入。没有证据的格子写“未执行”。KyberSlash 的秘密操作数除法不属于题面六类，单独列在末行以免与“可变时间比较函数”混淆。本表按四个步骤展开；R05 的 90 格排查表（3 实现 × 5 步骤 × 6 类）是同一批证据的逐格版本，见第 9 节。 [E30]"
         ], ["T4"]),
+        ("题面第 3 条补充：R03 格式破损 / 截断族的族外对照", [
+            "本节的对照对象是「长度正确但内容破损」与「长度不足」两类异常输入，与主检验的 message-zero / message-ones 不同：三臂（M1 未修 liboqs 0.10.0、M1 加官方修复 982c762、M5 mlkem-native b3ba7b3）× 三个种子（31337、424242、7），每类 10000 次、预热 100 在窗口外；三个输入类是 valid（一份固定合法 ML-KEM-768 密文 1088 B）、malformed（同一份密文 u 字段前 960 B 置 0xFF、v 字段后 128 B 置 0x00，长度仍为 1088）与 truncated（同一份密文只喂 1087 B）。采集由唯一锁频控制器串行调度（boost=0、governor/EPP=performance、min=max=4300000 kHz、taskset -c 2|6）：3 臂 × 3 种子 = 9 次 measure + 9 次族外 online dudect = 18 次控制器运行，**18/18 restore_match=yes**、worker_exit_code=0、放行探针全部在 ±2% 带内。证据路径：docs/evidence/r03-malformed-20261016/ 下的 PLAN.md、RESULT.md、R03/<run>/ 与 logs/status.log。 [E28,E29,E31]",
+            "**对照 A（valid − malformed）**：9 个 Δ 全部落在 +9.8 ～ −3.2 ns 之间，**9/9 的 95% 正态近似 CI 含 0，9/9 的原始 p ≥ 0.28（最大 0.9552）**，方向在两臂之间来回摆动（未修臂 +7.9/+1.6/−3.2，已修臂 +4.7/+9.8/+0.5）。这与「隐式拒绝路径按设计就走完整重加密，破损密文与合法密文耗时一致」的预期相符：**未检出额外的可区分路径**。这**不是恒时证明**，只覆盖本机、本编译产物、本样本预算。 [E28]",
+            "**对照 B（valid − truncated）**：截断路径在三臂上的实测均值是 **23.1–23.4 ns**，比完整解封装低约 3 个数量级；Δ ≈ 29.3 µs（M5）/ ≈ 55.1 µs（M1）。这里的原始 p 是双精度下溢后原样打印的 `0`，**是下溢，不得当作精确零**；差异本身已由 CI 说明（例如 M5 的 [29335.1, 29347.7] ns）。该耗时**与臂无关**，说明它在进入 KEM 之前就命中了封装层的**公开长度检查**——长度是公开输入，按固定路径常数时间拒绝本来就是正确行为，**这是接口语义，不是秘密相关泄漏**。 [E28]",
+            "**族外 online dudect**（该入口自带的 message-zero vs message-ones 类对，因为 dudect 需要两个都能跑完的类）：M1 未修臂三次末批 max|t| = **10.78 / 11.43 / 12.02**（越过上游 >10 阈值），M1 已修臂 = 1.12 / 2.05 / 2.01，M5 = 1.35 / 1.52 / 2.00（均未越过）。它与 M1 既有定位结论（未修产物上 `poly_frommsg` 的消息位分支存在、982c762 后消失）**同向**，只作族外印证；**最大 t 不转伪 p、不进 Holm**。 [E28]",
+            "**为什么不进主检验**（设计性理由，不是数据性理由）：(1) FIPS 203 §7.3 的隐式拒绝本来就不论密文是否合法都走完整 `Dec → Re-Enc → 常数时间比较 → J(z‖c)` 路径，所以「破损密文是否引出额外的可区分路径」本该由主类对回答，不需要一个长度维度去触发；(2) 该对照能回答的问题更小、更弱——它只需要证明「同样的调用序列、同样的路径集合被走到」，这是定性结论，不需要 p 值，写进主家族反而会被误读成时序恒时的证据；(3) 破损输入会改变输入生成本身的代价分布，与本仓库「输入生成在窗口外」的可加性模型不兼容；(4) 即使破损类对出现可区分，也无法区分「破损处理逻辑本身有时间差」与机器漂移，要定位仍须回到题面第 5 条的逐格排查。**因此本节只给原始 p、Δ 与 95% CI，不做 Holm、不做任何多重比较校正，不改变 efca8a1 冻结的家族口径，也不改变 M1/M5 的任何既有判定。** [E28,E30]",
+            "**边界**：输入是人工构造的，这不是上游 CVE；「未检出」只说明在该机、该编译产物、该类对、该样本预算下没有额外的可区分路径，**不构成恒时证明**，也不给出总体误报率。本项目不做密钥恢复，不运行 exploit demo。 [E28]"
+        ], ["T7", "T8", "T9"]),
+        ("题面第 5 条补充：R05 全流程六类来源排查表（90 格）", [
+            "题面第 5 条除要求说明六类来源与解封装流程的对应关系外，还要逐格给出「查了什么、结果如何」。R05 排查表把对象定为 3 个实现（M1 liboqs 0.10.0 未修 / 982c762 已修、M2 pq-crystals kyber768 a621b8d / 272125f、M5 mlkem-native b3ba7b3 参考）× 5 个步骤（解密、哈希 G/H/J、重加密、密文比较、隐式拒绝 / cmov）× 6 类来源（提前返回、可变时间比较、数据相关循环、数据相关访存、失败路径、异常处理）＝ **90 格**；每格只写三件事：结论（存在 / 不存在 / 不适用 / 未检查）、证据（函数名 + 反汇编地址或行号，或工具输出路径）、修复点（上游提交或本项目补丁，没有就写“无”）。**阴性的含义被收窄为**：在下列固定源码、固定编译器与选项、固定产物上，已查工具没有报出该类来源；它不覆盖任意输入、任意编译器或微架构，**不是物理恒时、不是总体误报率、不是密钥恢复**。人工构造的夹具一律标注“人工构造校准”，不当作真实历史实现。 [E30]",
+            "**90 格汇总：存在 5、不存在 74、不适用 10、未检查 1**（每格只计一次，计数由该文件正文 15 张表逐行程序化统计得到）。5 个「存在」格的归属是 M1 两个、M2 两个、M5 一个；10 个「不适用」全部是异常处理 × 该函数不可能失败；**唯一的「未检查」格是 M2 重加密 × 提前返回**——该实现的 `poly_frommsg` 与 M1 未修源码逐字相同，但本轮没有对它出反汇编，**不把“源码相同”当“产物相同”**，补做方式是对同一 ELF 运行 `objdump -d --disassemble=pqcrystals_kyber768_ref_poly_frommsg`。M5 的那个「存在」格是 `mlk_kem_check_sk` 在 sk 完整性检查失败时的提前返回，**只携带公开信息、不可利用**，属上游有意的 FIPS 203 §7.3 检查而非缺陷，已如实登记。 [E30]",
+            "**修复点**：M1 的两处（重加密 / 提前返回、隐式拒绝 / 可变时间比较）由同一份官方补丁 **982c762** 覆盖（`setb` + `cmov_int16`，以及 `verify.c` 的值屏障）；M2 的两处由 **272125f** 覆盖（解密侧经中间提交 dda29cc 只修 KyberSlash1，完整修复才是 272125f）。 [E30]",
+            "**必须一并记住的边界**：(1) 本轮 M4 的 Binsec 参数 -checkct-features **只开了 control-flow 与 memory-access 两项，未开乘法 / 除法检查**（工具帮助原文为 “Multiplication and division checks are experimental”），因此**现有 Binsec 结果不能用来判定 M2 的 `div` 类来源**，M2 第 2 类的判定全部来自反汇编与 varlat；(2) M1 隐式拒绝 × 可变时间比较是「机制存在、未在本产物上观测到分支」，证据是钉版 `cmov` 缺值屏障且 982c762 恰好补了它，不是在 M1 产物上看到了跳转；(3) M1 隐式拒绝 × 失败路径的强度弱于 M2 / M5，本轮没有出 `cmov` 调用点的反汇编；(4) M2 的除法机制只在 `-Oz` 产物成立，换优化级别会让它静默消失。这些边界都已写进该表本体。 [E30]",
+            "下图是 R05 排查表 §5 mermaid 流程图的等价静态渲染（同一份节点文字、三条主链、同一套颜色语义；虚线箭头是修复映射，边标签原样写在图注里）。**mermaid 源码原样保留在 docs/R05-全流程排查表.md §5 与本报告的离线 HTML 中**；PDF 只能承载静态图，故此处用等价渲染，不改变任何一格结论。 [E30]"
+        ], ["T10", "T11", "R05_FLOW"]),
         ("M1 既有真实案例与 Mona 对照", [
             "既有 M1 针对固定 liboqs 0.10.0、Clang 18 与便携 C 路径，保留原源码、产物分支、工具、逐次数据与官方修复复测证据。本报告只引用 [E02](../../../docs/evidence/r02-r04-close-20261016/RESULT.md) 的限定结论，不修改旧 CSV、旧家族或原报告。",
             "原 E02 表中主类对三次未修均值差为 +39.337、+31.117、+22.337 ns；对应已修为 −13.209、+8.354、−4.885 ns。Holm 家族 m=6 只拒绝未修主检验（p=1.30×10⁻⁵ 对阈值 0.00833）。这些数字是封存引用，不是本报告生成时的新采集；区间、预算、环境与原族以 [E17](../../../docs/evidence/liboqs010-locked-20261015/README.md) 与 [E02](../../../docs/evidence/r02-r04-close-20261016/RESULT.md) 为准。",
@@ -190,7 +218,7 @@ def get_sections(data, tables):
         ], []),
         ("实测数值、证据对照与复算入口", [
             "下表把本报告出现的每个实测数字指向具体证据文件；M1 各行是封存引用，其余为本轮新增产物的原文数字。任何数字不能回到文件字段的，一律不写。",
-            "复算入口分两层：(1) 统计与图形由仓库内显式数据文件重建（report-data.json、report-tables.json、EVIDENCE_MATRIX.csv）；(2) 匿名 ZIP 解出后在独立目录重新构建并执行包内 CTest，命令与通过数记录在 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute.log（刷新包）与 docs/evidence/platform-report-20261016/final-20261016/offline-reproduction.json（终版包），不复用仓库本体充当复算。离线复算只重算已有数据，不算新硬件实验；外部 RTLF、Mona、dudect 与 Binsec 不在该入口重执行。"
+            "复算入口分两层：(1) 统计与图形由仓库内显式数据文件重建（report-data.json、report-tables.json、EVIDENCE_MATRIX.csv、r05_flowchart.py）；(2) 匿名 ZIP 解出后在独立目录重新构建并执行包内 CTest，命令与通过数记录在 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final4.log（本轮终版包）与 docs/evidence/platform-report-20261016/final4-20261016/offline-reproduction.json，不复用仓库本体充当复算。离线复算只重算已有数据，不算新硬件实验；外部 RTLF、Mona、dudect 与 Binsec 不在该入口重执行。"
         ], ["T5"]),
         ("当前局限、占位符与后续验收", [
             data.get("remaining_summary", "完整 KEM 与人工挂载的适用资格已有新原生证据；各新模块的正式时序、在线 dudect 与复测须继续核对。"),
@@ -271,9 +299,14 @@ def main():
     (DIRECTORY / "evidence-snapshot.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n")
     matrix_svg = render_matrix_svg(data["modules"])
     (DIRECTORY / "platform-matrix.svg").write_text(matrix_svg)
-    summary = "真实历史案例与人工构造校准分列；检测、定位、修复、复测四段链逐模块给出实际状态，未运行不写成未检出。M2–M5 的锁频家族统计、Mona 对 M2 对照、RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已回填，报告内已无 «待主控数据»；结构性未做的检查写“未执行”。"
+    mermaid_source = load_mermaid_source()
+    r05_plan = r05_flowchart.layout()
+    r05_svg = r05_flowchart.render_svg(r05_plan)
+    (DIRECTORY / "r05-flowchart.svg").write_text(r05_svg)
+    r05_flowchart.render_png(DIRECTORY / "r05-flowchart.png", r05_plan)
+    summary = "真实历史案例与人工构造校准分列；检测、定位、修复、复测四段链逐模块给出实际状态，未运行不写成未检出。M2–M5 的锁频家族统计、Mona 对 M2 对照、RTLF 族外交叉（42/42）与 M2 除法热点微基准层均已回填，报告内已无 «待主控数据»；结构性未做的检查写“未执行”。本轮新增两块：R03 格式破损 / 截断族的族外对照（3 臂 × 3 种子、18/18 restore_match=yes；破损类对 9/9 CI 含 0，截断路径 23.1–23.4 ns 属公开长度检查的接口语义；族外 dudect 在 M1 未修臂越过上游阈值），以及 R05 全流程六类来源排查表（3 实现 × 5 步骤 × 6 类 = 90 格：存在 5、不存在 74、不适用 10、未检查 1）。M4 只引用分臂数值（vulnerable Δ −4.089 ns、ct Δ +0.055 ns），不引用混臂的家族合并 Δ。"
     markdown = ["# " + data["title"], data["subtitle"], "日期：" + data["date"], "摘要：" + summary]
-    tex = [r"\documentclass[UTF8,fontset=fandol,11pt,a4paper]{ctexart}", r"\usepackage[margin=23mm]{geometry}", r"\usepackage{booktabs,longtable,array,amsmath,xcolor,colortbl,pdflscape,hyperref,seqsplit,graphicx}", r"\definecolor{headergray}{gray}{0.88}", r"\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={},pdftitle={多泄漏模块检测平台补充报告},pdfsubject={CACR2026EA16XZ},pdfcreator={XeLaTeX}}", r"\setlength{\parindent}{2em}\setlength{\parskip}{0.5em}\linespread{1.18}\raggedbottom\pagestyle{plain}\emergencystretch=2em", r"\begin{document}", r"\thispagestyle{empty}\vspace*{16mm}\begin{center}{\LARGE\bfseries " + tex_escape(data["title"]) + r"\par}\vspace{8mm}{\large " + tex_escape(data["subtitle"]) + r"\par}\vspace{9mm}参赛编号：CACR2026EA16XZ\par " + data["date"] + r"\end{center}\vspace{12mm}", r"\section*{摘要}", tex_escape(summary), r"本报告围绕统一检测、定位、修复与复测工程，整理五个模块的可追溯证据，并按题面第 3、4、5 条给出逐项对照表。固定历史真实路径用于真实案例，人工夹具用于机制校准，参考实现用于阴性对照候选。M2–M5 的锁频端到端家族统计已按各自 PLAN 执行并回填（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂）；Mona 对 M2 的六份主类对对照、RTLF 族外交叉（42/42，二值、族外、不进 Holm）与 M2 除法热点微基准层（m=6，Holm 拒绝 0，Δ +0.044 ns）本轮亦已回填，报告内不再有 «待主控数据» 占位符；结构性未做的检查写“未执行”。", r"\par\vspace{6mm}\noindent\textbf{关键词：}侧信道检测；KyberSlash；秘密标记；人工机制校准；可复算证据", r"\vfill\noindent 版本性质：多机制平台补充载体。旧报告与原始证据保留；未运行项见正文、对照表与证据索引。"]
+    tex = [r"\documentclass[UTF8,fontset=fandol,11pt,a4paper]{ctexart}", r"\usepackage[margin=23mm]{geometry}", r"\usepackage{booktabs,longtable,array,amsmath,xcolor,colortbl,pdflscape,hyperref,seqsplit,graphicx}", r"\definecolor{headergray}{gray}{0.88}", r"\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={},pdftitle={多泄漏模块检测平台补充报告},pdfsubject={CACR2026EA16XZ},pdfcreator={XeLaTeX}}", r"\setlength{\parindent}{2em}\setlength{\parskip}{0.5em}\linespread{1.18}\raggedbottom\pagestyle{plain}\emergencystretch=2em", r"\begin{document}", r"\thispagestyle{empty}\vspace*{16mm}\begin{center}{\LARGE\bfseries " + tex_escape(data["title"]) + r"\par}\vspace{8mm}{\large " + tex_escape(data["subtitle"]) + r"\par}\vspace{9mm}参赛编号：CACR2026EA16XZ\par " + data["date"] + r"\end{center}\vspace{12mm}", r"\section*{摘要}", tex_escape(summary), r"本报告围绕统一检测、定位、修复与复测工程，整理五个模块的可追溯证据，并按题面第 3、4、5 条给出逐项对照表。固定历史真实路径用于真实案例，人工夹具用于机制校准，参考实现用于阴性对照候选。M2–M5 的锁频端到端家族统计已按各自 PLAN 执行并回填（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂，M4 只引用分臂数值）；Mona 对 M2 的六份主类对对照、RTLF 族外交叉（42/42，二值、族外、不进 Holm）与 M2 除法热点微基准层（m=6，Holm 拒绝 0，Δ +0.044 ns）本轮亦已回填；本轮新增 R03 格式破损 / 截断族的族外对照（不进 Holm，不改既有判定）与 R05 全流程六类来源排查表（90 格），R05 的 mermaid 流程图在离线 HTML 中保留源码、在本 PDF 中为等价静态渲染。报告内不再有 «待主控数据» 占位符；结构性未做的检查写“未执行”。", r"\par\vspace{6mm}\noindent\textbf{关键词：}侧信道检测；KyberSlash；秘密标记；人工机制校准；格式破损对照；六类来源排查；可复算证据", r"\vfill\noindent 版本性质：多机制平台补充载体。旧报告与原始证据保留；未运行项见正文、对照表与证据索引。"]
     html_sections = []
     for section_index, (title, paragraphs, table_ids) in enumerate(sections, 1):
         markdown.extend(["\n## " + str(section_index) + " " + title, *paragraphs])
@@ -284,6 +317,12 @@ def main():
                 markdown.append("![平台证据矩阵（结果图）](platform-matrix.svg)")
                 tex.append(render_tex_matrix(data["modules"]))
                 html_sections.append("<figure>" + matrix_svg + "<figcaption>图1：平台证据矩阵（结果图）。橙色格为未运行（not_run），不是阴性。</figcaption></figure>")
+                continue
+            if table_id == "R05_FLOW":
+                markdown.append("```mermaid\n" + mermaid_source + "\n```")
+                tex.append(r"\begin{samepage}\noindent\includegraphics[width=0.94\textwidth]{" + R05_FIGURE_TEX + r"}\par\vspace{1mm}\noindent 图2：R05 全流程排查表 §5 mermaid 流程图的等价静态渲染（三实现泳道；红色＝本轮判定「存在」，绿色＝修复后的同一位置，黄色虚框＝人工构造校准或未检查项，蓝色＝无该类来源）。虚线箭头＝修复映射：982c762 修复（M1C2→M1C3）、982c762 verify.c 值屏障（M1E2→M1E3）、dda29cc → 272125f 修复（M2A2→M2A3）、272125f 修复（M2C2→M2C3）。\textbf{mermaid 源码原样保存在 docs/R05-全流程排查表.md 第 5 节}，本 PDF 只承载等价静态图（XeLaTeX 不渲染 mermaid），逐格证据见该文件 §4.2 与本节表 T11。\par\end{samepage}\vspace{3mm}")
+                html_sections.append("<figure>" + r05_svg + '<figcaption>图2：R05 全流程排查表 §5 mermaid 流程图的等价静态渲染。虚线箭头＝修复映射（982c762 修复 M1C2→M1C3、982c762 verify.c 值屏障 M1E2→M1E3、dda29cc → 272125f 修复 M2A2→M2A3、272125f 修复 M2C2→M2C3）。</figcaption></figure>')
+                html_sections.append('<p class="table-title">R05 排查表 §5 的 mermaid 源码（原样保留；同一来源见 <code>docs/R05-全流程排查表.md</code>）</p><pre class="mermaid-source">' + html.escape(mermaid_source) + "</pre>")
                 continue
             table = table_map[table_id]
             markdown.append(render_table(table, "md"))
@@ -298,16 +337,17 @@ def main():
     tex.extend([r"\clearpage\section*{证据来源索引}\begingroup\small\setlength{\parskip}{0.2em}", r"各来源的完整摘要见 evidence-snapshot.json。状态字段保留生成时点；来源为仓库相对路径。\par\vspace{2mm}"])
     markdown.append("\n## 证据来源索引")
     html_sections.append('<section id="sources"><h2>证据来源索引</h2><ul>')
-    state_labels = {"requirements_only": "验收条件", "frozen_reference": "封存引用", "localization_only": "定位层", "pinned_history": "历史钉版", "software_only": "前置软件", "software_contract": "软件协议", "offline_replay_only": "既有数据离线回放", "architecture": "架构", "source_inventory": "来源及许可", "software_contract_only": "软件合同", "native_functional_qualified_statistics_not_run": "原生功能资格；统计未运行", "native_functional_and_localization_statistics_not_run": "原生功能与定位；统计未运行", "native_limited_dynamic_negative_statistics_not_run": "有限原生标记无报警；统计未运行", "bounded_formal_complete_statistics_not_run": "小模型有界验证完成；统计未运行", "locked_reference": "锁频原始证据（封存引用）", "tool_cross_check": "开源检测器交叉印证"}
+    state_labels = {"requirements_only": "验收条件", "frozen_reference": "封存引用", "localization_only": "定位层", "pinned_history": "历史钉版", "software_only": "前置软件", "software_contract": "软件协议", "offline_replay_only": "既有数据离线回放", "architecture": "架构", "source_inventory": "来源及许可", "software_contract_only": "软件合同", "native_functional_qualified_statistics_not_run": "原生功能资格；统计未运行", "native_functional_and_localization_statistics_not_run": "原生功能与定位；统计未运行", "native_limited_dynamic_negative_statistics_not_run": "有限原生标记无报警；统计未运行", "bounded_formal_complete_statistics_not_run": "小模型有界验证完成；统计未运行", "locked_reference": "锁频原始证据（封存引用）", "tool_cross_check": "开源检测器交叉印证", "extra_family_descriptive": "族外描述性对照（不进 Holm）", "extra_family_plan": "族外对照采集计划", "flow_matrix_review": "解封装全流程逐格排查", "extra_family_controller_log": "族外对照控制器逐条状态"}
     for source in source_records:
         markdown.append("- [" + source["id"] + "] " + source["label"] + "；" + source["state"] + "；" + source["path"])
-        tex.append(r"\begin{samepage}\noindent\textbf{" + tex_escape(source["id"] + " " + source["label"]) + r"}（" + tex_escape(state_labels.get(source["state"], source["state"])) + r"）\par\noindent\path{" + source["path"] + r"}\par\vspace{1.5mm}\end{samepage}")
+        path_tex = r"\path{" + source["path"] + "}" if source["path"].isascii() else tex_escape(source["path"])
+        tex.append(r"\begin{samepage}\noindent\textbf{" + tex_escape(source["id"] + " " + source["label"]) + r"}（" + tex_escape(state_labels.get(source["state"], source["state"])) + r"）\par\noindent " + path_tex + r"\par\vspace{1.5mm}\end{samepage}")
         html_sections.append("<li><strong>" + html.escape(source["id"] + " " + source["label"]) + "</strong> · " + html.escape(source["state"]) + "<br><code>" + html.escape(source["path"]) + "</code></li>")
     html_sections.append("</ul></section>")
     tex.append(r"\endgroup\end{document}")
     (DIRECTORY / "report.md").write_text("\n\n".join(markdown) + "\n")
     (DIRECTORY / "report.tex").write_text("\n".join(tex) + "\n")
-    html_document = '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + html.escape(data["title"]) + '</title><style>body{font:17px/1.9 system-ui,sans-serif;color:#193248;background:#f3f5f6;margin:0}main{max-width:1100px;margin:0 auto;padding:55px 35px;background:white}h1{font-size:34px;line-height:1.3}h2{font-size:25px;margin-top:45px}p{max-width:62em}a{color:#185d85}code{overflow-wrap:anywhere;font-size:13px}li{margin:15px 0}svg{width:100%;height:auto}figcaption{font-size:14px;color:#536475}nav{border:1px solid #d9e1e5;padding:18px}footer{margin-top:50px;color:#536475}table{border-collapse:collapse;width:100%;font-size:14px;margin:12px 0}th,td{border:1px solid #cbd6dd;padding:7px 9px;vertical-align:top;text-align:left}th{background:#eef2f5}.table-title{font-weight:600;margin:26px 0 6px}.table-note{font-size:13.5px;color:#536475}</style><main><h1>' + html.escape(data["title"]) + "</h1><p>" + html.escape(data["subtitle"]) + " · " + data["date"] + "</p><p>" + html.escape(summary) + '</p><nav><a href="report.pdf">打开PDF</a> · <a href="report.tex">LaTeX源</a> · <a href="report-tables.json">对照表数据</a> · <a href="evidence-snapshot.json">状态与摘要</a> · <a href="#sources">证据索引</a></nav>' + "".join(html_sections) + "<footer>静态离线展示，无远端资源、脚本、遥测或新硬件采集。表内 «待主控数据» 表示锁频采数尚未回填，不是阴性结果。</footer></main></html>"
+    html_document = '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + html.escape(data["title"]) + '</title><style>body{font:17px/1.9 system-ui,sans-serif;color:#193248;background:#f3f5f6;margin:0}main{max-width:1100px;margin:0 auto;padding:55px 35px;background:white}h1{font-size:34px;line-height:1.3}h2{font-size:25px;margin-top:45px}p{max-width:62em}a{color:#185d85}code{overflow-wrap:anywhere;font-size:13px}li{margin:15px 0}svg{width:100%;height:auto}figcaption{font-size:14px;color:#536475}nav{border:1px solid #d9e1e5;padding:18px}footer{margin-top:50px;color:#536475}table{border-collapse:collapse;width:100%;font-size:14px;margin:12px 0}th,td{border:1px solid #cbd6dd;padding:7px 9px;vertical-align:top;text-align:left}th{background:#eef2f5}.table-title{font-weight:600;margin:26px 0 6px}.table-note{font-size:13.5px;color:#536475}</style><main><h1>' + html.escape(data["title"]) + "</h1><p>" + html.escape(data["subtitle"]) + " · " + data["date"] + "</p><p>" + html.escape(summary) + '</p><nav><a href="report.pdf">打开PDF</a> · <a href="report.tex">LaTeX源</a> · <a href="report-tables.json">对照表数据</a> · <a href="evidence-snapshot.json">状态与摘要</a> · <a href="#sources">证据索引</a></nav>' + "".join(html_sections) + "<footer>静态离线展示，无远端资源、脚本、遥测或新硬件采集。数据格内已无 «待主控数据» 占位符；标「未执行」的格子是结构性未做，不等于阴性，也不等于恒时。</footer></main></html>"
     (DIRECTORY / "index.html").write_text(html_document)
     print(json.dumps({"sources": len(source_records), "sections": len(sections), "tables": len(tables), "document_state": data["document_state"]}, ensure_ascii=False))
 
