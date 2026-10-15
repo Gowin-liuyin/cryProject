@@ -1,0 +1,55 @@
+
+/home/nss-marker/yhr/Cry/platform-s7-20261016-idAExSCX/build-ordinary/mem_lut_leak_on:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001880 <mem_lut_apply>:
+    1880:	f3 0f 1e fa          	endbr64
+    1884:	48 83 ec 38          	sub    $0x38,%rsp
+    1888:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    188f:	00 00 
+    1891:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+    1896:	31 c0                	xor    %eax,%eax
+    1898:	48 85 ff             	test   %rdi,%rdi
+    189b:	74 62                	je     18ff <mem_lut_apply+0x7f>
+    189d:	48 85 d2             	test   %rdx,%rdx
+    18a0:	74 5d                	je     18ff <mem_lut_apply+0x7f>
+    18a2:	48 83 fe 20          	cmp    $0x20,%rsi
+    18a6:	75 57                	jne    18ff <mem_lut_apply+0x7f>
+    18a8:	48 83 f9 1f          	cmp    $0x1f,%rcx
+    18ac:	76 51                	jbe    18ff <mem_lut_apply+0x7f>
+    18ae:	4c 8d 05 2b 09 00 00 	lea    0x92b(%rip),%r8        # 21e0 <substitution_table>
+    18b5:	48 89 e6             	mov    %rsp,%rsi
+    18b8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    18bf:	00 
+    18c0:	0f b6 0c 07          	movzbl (%rdi,%rax,1),%ecx
+    18c4:	41 0f b6 0c 08       	movzbl (%r8,%rcx,1),%ecx
+    18c9:	88 0c 06             	mov    %cl,(%rsi,%rax,1)
+    18cc:	48 83 c0 01          	add    $0x1,%rax
+    18d0:	48 83 f8 20          	cmp    $0x20,%rax
+    18d4:	75 ea                	jne    18c0 <mem_lut_apply+0x40>
+    18d6:	66 0f 6f 04 24       	movdqa (%rsp),%xmm0
+    18db:	66 0f 6f 4c 24 10    	movdqa 0x10(%rsp),%xmm1
+    18e1:	31 c0                	xor    %eax,%eax
+    18e3:	0f 11 02             	movups %xmm0,(%rdx)
+    18e6:	0f 11 4a 10          	movups %xmm1,0x10(%rdx)
+    18ea:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
+    18ef:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+    18f6:	00 00 
+    18f8:	75 0c                	jne    1906 <mem_lut_apply+0x86>
+    18fa:	48 83 c4 38          	add    $0x38,%rsp
+    18fe:	c3                   	ret
+    18ff:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+    1904:	eb e4                	jmp    18ea <mem_lut_apply+0x6a>
+    1906:	e8 95 f7 ff ff       	call   10a0 <__stack_chk_fail@plt>
+
+Disassembly of section .fini:

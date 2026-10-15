@@ -1,0 +1,12 @@
+[ 12%] Building C object CMakeFiles/mem_lut_off_kernel.dir/mem_lut.c.o
+[ 25%] Building C object CMakeFiles/mem_lut_on_kernel.dir/mem_lut.c.o
+[ 37%] Linking C static library libmem_lut_on_kernel.a
+[ 50%] Linking C static library libmem_lut_off_kernel.a
+[ 50%] Built target mem_lut_on_kernel
+[ 50%] Built target mem_lut_off_kernel
+[ 62%] Building C object CMakeFiles/mem_lut_leak_on.dir/main.c.o
+[ 75%] Building C object CMakeFiles/mem_lut_leak_off.dir/main.c.o
+[ 87%] Linking C executable mem_lut_leak_on
+[100%] Linking C executable mem_lut_leak_off
+[100%] Built target mem_lut_leak_on
+[100%] Built target mem_lut_leak_off

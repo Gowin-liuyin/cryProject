@@ -1,0 +1,40 @@
+Start testing: Oct 16 01:19 CST
+----------------------------------------------------------
+1/2 Testing: mem_lut_on_selftest
+1/2 Test: mem_lut_on_selftest
+Command: "/Users/yin/code/cryProject/build/platform-s7/ordinary/mem_lut_leak_on" "--selftest"
+Directory: /Users/yin/code/cryProject/build/platform-s7/ordinary
+"mem_lut_on_selftest" start time: Oct 16 01:19 CST
+Output:
+----------------------------------------------------------
+fixture=artificial_mem_lut mode=on selftest=pass mappings=8192 boundary=pass overlap=pass
+<end of output>
+Test time =   0.76 sec
+----------------------------------------------------------
+Test Passed.
+"mem_lut_on_selftest" end time: Oct 16 01:19 CST
+"mem_lut_on_selftest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: mem_lut_off_selftest
+2/2 Test: mem_lut_off_selftest
+Command: "/Users/yin/code/cryProject/build/platform-s7/ordinary/mem_lut_leak_off" "--selftest"
+Directory: /Users/yin/code/cryProject/build/platform-s7/ordinary
+"mem_lut_off_selftest" start time: Oct 16 01:19 CST
+Output:
+----------------------------------------------------------
+fixture=artificial_mem_lut mode=off selftest=pass mappings=8192 boundary=pass overlap=pass
+<end of output>
+Test time =   0.33 sec
+----------------------------------------------------------
+Test Passed.
+"mem_lut_off_selftest" end time: Oct 16 01:19 CST
+"mem_lut_off_selftest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 16 01:19 CST
+
+fixture =   1.09 sec*proc
+
+mem_lut =   1.09 sec*proc
+

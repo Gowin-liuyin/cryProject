@@ -1,0 +1,45 @@
+
+build/platform-s7/ordinary/libmem_lut_on_kernel.a(mem_lut.c.o):	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000000000000 <ltmp0>:
+       0:      	sub	sp, sp, #0x40
+       4:      	stp	x29, x30, [sp, #0x30]
+       8:      	add	x29, sp, #0x30
+       c:      	mov	x8, x0
+      10:      	adrp	x9, 0x0 <ltmp0>
+      14:      	ldr	x9, [x9]
+      18:      	ldr	x9, [x9]
+      1c:      	stur	x9, [x29, #-0x8]
+      20:      	mov	w0, #-0x1               ; =-1
+      24:      	cmp	x3, #0x20
+      28:      	b.lo	0x74 <ltmp0+0x74>
+      2c:      	cmp	x1, #0x20
+      30:      	b.ne	0x74 <ltmp0+0x74>
+      34:      	cbz	x8, 0x74 <ltmp0+0x74>
+      38:      	cbz	x2, 0x74 <ltmp0+0x74>
+      3c:      	mov	x9, #0x0                ; =0
+      40:      	adrp	x10, 0x0 <ltmp0>
+      44:      	add	x10, x10, #0x0
+      48:      	add	x11, sp, #0x8
+      4c:      	ldrb	w12, [x8, x9]
+      50:      	ldrb	w12, [x10, x12]
+      54:      	strb	w12, [x11, x9]
+      58:      	add	x9, x9, #0x1
+      5c:      	cmp	x9, #0x20
+      60:      	b.ne	0x4c <ltmp0+0x4c>
+      64:      	mov	w0, #0x0                ; =0
+      68:      	ldur	q0, [sp, #0x8]
+      6c:      	ldur	q1, [sp, #0x18]
+      70:      	stp	q0, q1, [x2]
+      74:      	ldur	x8, [x29, #-0x8]
+      78:      	adrp	x9, 0x0 <ltmp0>
+      7c:      	ldr	x9, [x9]
+      80:      	ldr	x9, [x9]
+      84:      	cmp	x9, x8
+      88:      	b.ne	0x98 <ltmp0+0x98>
+      8c:      	ldp	x29, x30, [sp, #0x30]
+      90:      	add	sp, sp, #0x40
+      94:      	ret
+      98:      	bl	0x98 <ltmp0+0x98>
