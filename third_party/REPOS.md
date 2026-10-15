@@ -1,0 +1,92 @@
+# 平台第三方工具固定清单（2026-10-16）
+
+本清单由 S2 维护。实际根目录为 `/Users/yin/code/cryProject`，环境为
+`Darwin arm64`、`git version 2.54.0 (Apple Git-157)`。
+仅获取并只读检查上游源码；没有运行安装脚本、构建、计时、攻击或系统配置修改。
+`third_party/` 被根 `.gitignore` 忽略，可提交副本见
+`docs/evidence/platform-matrix-20261016/partials/S02.md`。
+
+## 固定来源与状态
+
+| 目录 | origin | 完整提交号 | 状态 | 许可证核对 |
+|---|---|---|---|---|
+| `RTLF/` | https://github.com/tls-attacker/RTLF.git | `2497d660e4b23fc9acd21b077a35e82178fcd728` | 复用已有浅克隆；干净 | 未发现 LICENSE 或明确许可声明；待上游确认 |
+| `dudect/` | https://github.com/oreparaz/dudect.git | `dc269651fb2567e46755cfb2a13d3875592968b5` | 复用已有浅克隆；干净 | MIT，根 `LICENSE` |
+| `ctgrind/` | https://github.com/agl/ctgrind.git | `ca93f4f6f97b0249682c3291ddc241be56e22760` | 复用已有浅克隆；干净 | 未发现 LICENSE 或明确许可声明；待上游确认 |
+| `mona-timing-lib/` | https://github.com/seecurity/mona-timing-lib.git | `81e4de2971a5b379eb60fb4218e8ff771c554a1b` | 本轮完整克隆；干净 | 未发现库本体 LICENSE 或明确许可声明；待上游确认 |
+| `mona-timing-report/` | https://github.com/seecurity/mona-timing-report.git | `4c74fb7e629b4d057b2d5d4accdb120d920774b7` | 本轮完整克隆；干净 | 未发现程序本体明确许可；保留 `license/` 内第三方依赖声明 |
+| `Microwalk/` | https://github.com/microwalk-project/Microwalk.git | `7760a921353eae5837b3c0d52c9c7abc7f0c530a` | 本轮完整克隆；干净 | MIT，根 `LICENSE`；README 另列 logo 为 CC-BY-SA |
+
+六库的 `git fsck --full --no-reflogs` 均退出 0，`git status --porcelain=v1`
+均为空。复用目录未 fetch、切换提交或改写；新克隆使用 `--no-tags`，未执行子模块初始化。
+“克隆完成”仅证明源码可用，不代表这些工具在 Linux 上安装或测试成功。
+
+| 目录 | 固定 HEAD tree |
+|---|---|
+| `RTLF/` | `5b10f3e919c552ba237935d783b3aa5caa121be2` |
+| `dudect/` | `62537c853a900cefced5e711aeecaf3773ce373c` |
+| `ctgrind/` | `5f51076ec909f8abf8d7ec3aaa79c82abae02d0e` |
+| `mona-timing-lib/` | `3f5de66e65496b9d1c81abd43f631eae21fada24` |
+| `mona-timing-report/` | `507bba2ad89423354ffe4657a3ed102c3864b3c0` |
+| `Microwalk/` | `11b835ff2e9616faf17f273ff744dd8d63ed5b7f` |
+
+## 复现获取
+
+以下命令仅用于一个尚无同名子目录的本地仓库根；现有目录先核对 origin、
+HEAD 与工作区，不覆盖。每个 URL 和提交号以上表为准，以同一形式分别取六库：
+
+```sh
+git clone --no-checkout -- <origin> third_party/<目录名>
+git -C third_party/<目录名> checkout --detach <完整提交号>
+git -C third_party/<目录名> fsck --full --no-reflogs
+git -C third_party/<目录名> rev-parse HEAD
+git -C third_party/<目录名> status --porcelain=v1
+```
+
+若在裸金属复现，源码、输入、构建、日志、缓存和临时目录的真实路径均必须在
+`/home/nss-marker/yhr/Cry` 内；本轮没有远端落盘或执行。
+
+## 给各模块的接口摘录
+
+- RTLF：固定 README 支持两列时间宽表，也支持 `V1,V2`（X/Y 类别与时间）长表。
+  离线入口为 `Rscript third_party/RTLF/rtlf.R -i <CSV> -a 0.01 -o <JSON> -q`。
+  依赖 R 与 `tidyverse`、`optparse`、`jsonlite`；本轮没有安装或运行。
+- dudect：`src/dudect.h` 是单头 C 库，原版没有离线 CSV CLI。
+  运行型 harness 需要 `do_one_computation`、`prepare_inputs` 与 `dudect_main`。
+  CSV 回放若采用项目适配器，应明确命名并保留适配源码，不能冒称新采集；
+  dudect 最大 t 及其判别不进入 Holm 家族。
+- ctgrind：README 中的历史补丁针对 Valgrind SVN r11097，并拦截
+  `ct_poison` / `ct_unpoison`。此旧库克隆成功不能替代现代 Valgrind
+  client request 或 varlat 补丁的实际验证。
+- Mona 库：README 要求 Python 2.7、SWIG 与 python-dev；
+  `make linux` / `make osx` 为上游构建入口，本轮没有执行。
+- Mona report：输入三列为唯一 identifier、secret/class、time；上游构建入口为
+  `ant`，报告入口为
+  `java -jar ReportingTool.jar --inputFile=<file> --name=<name>`。
+  依赖 JDK、Ant、gnuplot、pdflatex、makeindex；`build.xml` 固定 source/target 1.6，
+  现代 JDK 的兼容性尚未验证。默认过滤参数不得未经 PLAN 说明用于本项目原始长尾。
+- Microwalk：README 主程序要求 .NET 8 SDK；PinTracer 要求 Intel Pin 完整 SDK。
+  README 推荐预构建 Docker，但 `docker/README.md` 中仍有 .NET 6 示例，
+  后续必须核对固定镜像摘要与真实依赖，不把文档命令视为已安装环境。
+  本轮没有下载 Pin、接受许可证、启动 Docker 或生成轨迹。
+
+## 原样许可证摘要
+
+| 文件 | SHA-256 |
+|---|---|
+| `dudect/LICENSE` | `ee7cd5d500ab72e03a6c8aefe69c6311d698c83e732b19d152a6fa38fd521720` |
+| `Microwalk/LICENSE` | `5a3763310889a9cdea20cc39b67b036d6e46d727324ee8a13f506c07de7ab640` |
+| `mona-timing-report/license/LICENSE_COMMONS_LANG` | `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30` |
+| `mona-timing-report/license/LICENSE_JSAP` | `3b4ed4d4eb8e0c25072f0e64fe424bdd98c8d6a0a4f8e3305c918521f37abdc6` |
+| `mona-timing-report/license/LICENSE_ini4j` | `c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4` |
+
+Mona report 的 Commons Lang 与 ini4j 声明为 Apache-2.0；JSAP 声明 LGPL，
+该文件没有指定版本。它们不能被当作 Mona report 程序本体的许可授权。
+未明确许可的工具先保留本地获取记录，不据此给其源码或二进制作再分发许可结论。
+
+## 本轮边界
+
+本路不修改 M1 vendor 或历史结论，不触碰其他路文件，不采数，不做密钥恢复，
+不运行 clangover/KyberSlash exploit demo，不 stage、commit 或 push。
+锁频采数仍须由主控串行调度，在冻结 PLAN 后执行 boost 关、performance、
+约 4.30 GHz、taskset、进出 `restore_match` 并退出恢复。
