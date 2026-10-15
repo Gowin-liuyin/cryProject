@@ -38,8 +38,11 @@ set(LIBOQS010_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/liboqs010-build")
 file(MAKE_DIRECTORY "${LIBOQS010_INSTALL_DIR}/include")
 file(MAKE_DIRECTORY "${LIBOQS010_INSTALL_DIR}/lib")
 
-# Minimal portable-C build of ML-KEM-768-ipd only. Avoid dist/AVX2 so the
-# clangover-relevant poly_frommsg comes from the *_ref sources.
+# 只编 ML-KEM-768-ipd 的 portable C。OQS_DIST_BUILD=OFF 在具备
+# AVX2/BMI2/POPCNT 的机器上仍会打开 AVX2 并在运行时分发过去；
+# clangover 的对象是 *_ref 的 poly_frommsg，因此显式关掉该后端。
+# RelWithDebInfo 的 -O2 写在 CMAKE_C_FLAGS 之后，会盖掉 -Os 并重新
+# 打开向量化，所以同一组标志也写入各配置专用变量。
 set(_liboqs010_cmake_args
     "-DCMAKE_INSTALL_PREFIX=${LIBOQS010_INSTALL_DIR}"
     "-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}"
@@ -49,8 +52,18 @@ set(_liboqs010_cmake_args
     "-DOQS_BUILD_ONLY_LIB=ON"
     "-DOQS_USE_OPENSSL=OFF"
     "-DOQS_DIST_BUILD=OFF"
+    "-DOQS_OPT_TARGET=generic"
+    "-DOQS_USE_AVX2_INSTRUCTIONS=OFF"
+    "-DOQS_ENABLE_KEM_ml_kem_768_ipd_avx2=OFF"
     "-DOQS_MINIMAL_BUILD=KEM_ml_kem_768_ipd"
 )
+if(NOT "${LIBOQS010_C_FLAGS}" STREQUAL "")
+    list(APPEND _liboqs010_cmake_args
+         "-DCMAKE_C_FLAGS_DEBUG=${LIBOQS010_C_FLAGS} -g"
+         "-DCMAKE_C_FLAGS_RELEASE=${LIBOQS010_C_FLAGS} -DNDEBUG"
+         "-DCMAKE_C_FLAGS_RELWITHDEBINFO=${LIBOQS010_C_FLAGS} -g -DNDEBUG"
+         "-DCMAKE_C_FLAGS_MINSIZEREL=${LIBOQS010_C_FLAGS} -DNDEBUG")
+endif()
 
 ExternalProject_Add(
     liboqs010_ep
