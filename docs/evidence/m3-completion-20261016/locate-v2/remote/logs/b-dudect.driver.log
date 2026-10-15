@@ -1,0 +1,15 @@
+step=b1-third-party-dudect-present                exit=0
+step=b2-reconfigure                               exit=0
+step=b3-target-list                               exit=0
+step=b4-build-dudect                              exit=0
+step=b5-dudect-identity                           exit=0
+step=b6-dudect-linkline                           exit=0
+step=b7-dudect-selftest                           exit=0
+step=b8-dudect-describe                           exit=0
+step=b9-dudect-collect-usage-only                 exit=0
+step=b10-build-m3dudect-on                        exit=0
+step=b11-m3dudect-on-selftest                     exit=0
+step=b10-build-m3dudect-off                       exit=0
+step=b11-m3dudect-off-selftest                    exit=0
+step=b12-implementation-names                     exit=0
+dudect_probe_complete

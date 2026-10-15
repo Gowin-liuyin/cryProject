@@ -1,0 +1,15 @@
+==254913== Memcheck, a memory error detector
+==254913== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==254913== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==254913== Command: /home/nss-marker/yhr/Cry/platform-m3-20261016-8b6f2d91/build-ordinary/platform_m3_off_probe --defined
+==254913== Parent PID: 251993
+==254913== 
+==254913== 
+==254913== HEAP SUMMARY:
+==254913==     in use at exit: 0 bytes in 0 blocks
+==254913==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated
+==254913== 
+==254913== All heap blocks were freed -- no leaks are possible
+==254913== 
+==254913== For lists of detected and suppressed errors, rerun with: -s
+==254913== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

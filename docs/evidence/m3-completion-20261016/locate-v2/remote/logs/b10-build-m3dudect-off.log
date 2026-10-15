@@ -1,0 +1,8 @@
+### step=b10-build-m3dudect-off
+### date=2026-10-16T02:18:01+08:00
+### cmd=clang -O2 -g -DNDEBUG -std=c11 -DMLK_CONFIG_FILE='"baseline_config.h"' -DPLATFORM_IMPLEMENTATION_NAME='"platform-m3-lut-off"' -DPLATFORM_M3_LUT_LEAK=0 -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3-off-source/mlkem -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/vendor/mlkem-native/mlkem -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/src /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/src/inputs.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/libmlkem.a -lm -o /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off && ls -l /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off && sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off
+### begin-output
+-rwxrwxr-x 1 nss-marker nss-marker 208952 10月 16 02:18 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off
+e73601c3aa5755a5a205bd344a18dbebb4da58f4377c37bacb88368b96758acc  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off
+### end-output
+### exit=0

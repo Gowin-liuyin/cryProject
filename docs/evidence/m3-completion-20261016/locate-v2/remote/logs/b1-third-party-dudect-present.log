@@ -1,0 +1,38 @@
+### step=b1-third-party-dudect-present
+### date=2026-10-16T02:17:59+08:00
+### cmd=ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/src/dudect.h && sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/src/dudect.h && find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect -type f | sort | head -30
+### begin-output
+-rw-r--r-- 1 nss-marker nss-marker 15227 10月 15 18:54 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/src/dudect.h
+3fb3b2bd7f9e17ae34b7c92518c1311c67342c56facc80da925d85f121b649da  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/src/dudect.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aes32/dut_aes32.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aes32/rijndael-alg-fst.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aes32/rijndael-alg-fst.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/afternm_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/api.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/beforenm_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/common_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/common.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/consts_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/consts.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/crypto_stream_aes128ctr.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/crypto_uint32.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/crypto_uint64.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/dut_aesbitsliced.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/export.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/int128_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/int128.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/stream_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/types.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/aesbitsliced/xor_afternm_aes128ctr.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/donnabad/curve25519-donnabad.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/donnabad/donna.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/donnabad/dut_donnabad.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/donna/curve25519-donna.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/donna/donna.h
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/donna/dut_donna.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/examples/simple/example.c
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/.git/config
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/.git/description
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/third_party/dudect/.git/HEAD
+### end-output
+### exit=0

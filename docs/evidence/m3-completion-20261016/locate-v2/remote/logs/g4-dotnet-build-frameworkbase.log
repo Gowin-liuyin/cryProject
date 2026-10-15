@@ -1,0 +1,17 @@
+### step=g4-dotnet-build-frameworkbase
+### date=2026-10-16T02:10:56+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master && dotnet build Microwalk.FrameworkBase/Microwalk.FrameworkBase.csproj -c Release 2>&1 | tail -15
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+  正在确定要还原的项目…
+  所有项目均是最新的，无法还原。
+  Microwalk.FrameworkBase -> /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.FrameworkBase/bin/Release/net8.0/Microwalk.FrameworkBase.dll
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.39
+### end-output
+### exit=0

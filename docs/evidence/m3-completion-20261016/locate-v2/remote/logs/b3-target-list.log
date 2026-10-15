@@ -1,0 +1,19 @@
+### step=b3-target-list
+### date=2026-10-16T02:17:59+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary && cmake --build . --target help 2>/dev/null | grep -i 'dudect'
+### begin-output
+... platform_dudect_replay
+... platform_m4_dudect_ct
+... platform_m4_dudect_vulnerable
+... platform_m5_dudect
+... scripts/platform_stats/dudect_replay.o
+... scripts/platform_stats/dudect_replay.i
+... scripts/platform_stats/dudect_replay.s
+... tools/platform_m4/dudect_online.o
+... tools/platform_m4/dudect_online.i
+... tools/platform_m4/dudect_online.s
+... tools/platform_m5/dudect.o
+... tools/platform_m5/dudect.i
+... tools/platform_m5/dudect.s
+### end-output
+### exit=0

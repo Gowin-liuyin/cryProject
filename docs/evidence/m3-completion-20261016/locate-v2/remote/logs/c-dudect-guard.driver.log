@@ -1,0 +1,15 @@
+step=c1-original-identity                           exit=0
+step=c2-patched-guard                               exit=0
+step=c3-diff                                        exit=0
+step=c4-build-m3dudect-on                           exit=0
+step=c4-build-m3dudect-off                          exit=0
+step=c5-identity                                    exit=0
+step=c6-implementation-strings                      exit=0
+step=c7-selftest-on                                 exit=0
+step=c7-selftest-off                                exit=0
+step=c8-selftest-raw-on                             exit=1
+step=c8-selftest-raw-off                            exit=1
+step=c9-measure-identity                            exit=0
+step=c10-ctest                                      exit=0
+step=c11-ref-target-still-selftest                  exit=0
+dudect_guard_fix_complete

@@ -1,0 +1,10 @@
+### step=m2b-target-source
+### date=2026-10-16T02:13:06+08:00
+### cmd=ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/main.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/m3mwtarget.c && sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/main.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/m3mwtarget.c
+### begin-output
+-rw-rw-r-- 1 nss-marker nss-marker 1394 10月 16 02:13 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/m3mwtarget.c
+-rw-rw-r-- 1 nss-marker nss-marker 4457  3月 14  2025 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/main.c
+31596a90c90d0e7e93ca53a7904e01a3050cbfdacb3cdebdb9f46bb1b995b669  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/main.c
+2499fb43613ca5a2435a7ba03772dba2759a33b31157fe97d748726271fd561b  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/m3mwtarget.c
+### end-output
+### exit=0

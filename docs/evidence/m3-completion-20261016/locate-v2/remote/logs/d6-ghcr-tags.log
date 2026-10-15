@@ -1,0 +1,8 @@
+### step=d6-ghcr-tags
+### date=2026-10-16T02:11:11+08:00
+### cmd=bash -c curl -sSL --max-time 60 -H 'Authorization: Bearer djE6bWljcm93YWxrLXByb2plY3QvbWljcm93YWxrOjE3OTIwODc4NzA5NzUyMjYyOTA='          'https://ghcr.io/v2/microwalk-project/microwalk/tags/list' -o /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/ghcr/tags.json -w 'http_code=%{http_code}\n' && head -c 3000 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/ghcr/tags.json
+### begin-output
+http_code=200
+{"name":"microwalk-project/microwalk","tags":["jalangi2","3.0.0-jalangi2","pin","3.0.0-pin","3.0.1-jalangi2","3.0.1-pin","3.0.2-jalangi2","3.0.2-pin","3.0.3-jalangi2","3.0.3-pin","3.0.4-jalangi2","3.0.4-pin","3.0.5-jalangi2","3.0.5-pin","3.0.6-jalangi2","3.0.6-pin","3.1.0-jalangi2","3.1.0-pin","3.1.1-jalangi2","3.1.1-pin","3.2.0-jalangi2","3.2.0-pin"]}
+### end-output
+### exit=0

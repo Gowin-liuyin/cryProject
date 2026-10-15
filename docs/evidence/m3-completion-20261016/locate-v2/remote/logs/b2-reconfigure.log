@@ -1,0 +1,10 @@
+### step=b2-reconfigure
+### date=2026-10-16T02:17:59+08:00
+### cmd=cmake -S /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source -B /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DBASELINE_SANITIZERS=OFF -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF -DPLATFORM_M3_CTGRIND=ON
+### begin-output
+-- M2 vendor missing; run the fixed version-audit/fetch_vendor.sh first
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary
+### end-output
+### exit=0

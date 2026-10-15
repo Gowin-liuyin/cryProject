@@ -1,0 +1,7 @@
+### step=n2-relink-target-m3-off
+### date=2026-10-16T02:14:52+08:00
+### cmd=gcc /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/main.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/m3mwtarget.c -g -fno-inline -fno-split-stack -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -L/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw -Wl,-rpath,/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw -Wl,-z,now -lm3off -o /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-off && cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/bin/Release/net8.0 && dotnet MapFileGenerator.dll /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-off /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-off.map && wc -l /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-off.map
+### begin-output
+37 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-off.map
+### end-output
+### exit=0

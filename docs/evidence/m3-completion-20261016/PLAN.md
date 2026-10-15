@@ -213,7 +213,8 @@ INDCPA 解密出的消息位；`message-zero`/`message-ones` 正是"解封装重
 
 ### 5.1 停止规则（任一命中即停止，不进采数或立即中止）
 
-- 本 PLAN 未提交，或提交后内容与执行清单不符；§1.3 的占位符未由主控填实（未指定用哪棵树）；
+- 本 PLAN 未提交，或提交后内容与执行清单不符；采集臂 ELF 的 sha256 与 §1.3 选定的新根实读值不符，
+  或两臂来自不同树/不同编译配置；
 - 采集 ELF 的 sha256 与 §1.3 冻结值不符，或开/关两臂来自不同树/不同编译配置；
 - 软件资格失败：两版独立 NIST KAT、接口边界、随机源失败、64 公开种子 × 5 类完整字节等价
   （含原始未修改参考版）、拒绝类 `J(z||c)` 验证、严格 patch dry-run；
@@ -266,7 +267,7 @@ INDCPA 解密出的消息位；`message-zero`/`message-ones` 正是"解封装重
 sudo -n /usr/bin/python3 -I -B <控制根>/controller.py run \
     --control-root <控制根> --run-name m3-r01-on --cpu 2 --timeout-seconds <T> \
     --plan <控制根>/PLAN.md --plan-sha256 <冻结PLAN的SHA256> \
-    -- <选定树>/build-ordinary/platform-m3/on/measure \
+    -- /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/measure \
         m3_r01_on 31337 10000 <新目录>/m3_r01_on.csv <新目录>/m3_r01_on.meta
 ```
 
@@ -351,16 +352,16 @@ sha256sum /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/t
 # 50e5d4e5239e492337a131afaf2d1e3c0fdcadbb902d5433d56eac2ead1bd04e
 ```
 
-## 附录 B：占位符与未实现项清单（采数准入硬阻断）
+## 附录 B：待定项清单
 
 | 项 | 状态 | 处置 |
 |---|---|---|
-| 采集两臂 ELF 摘要 | **已冻结** | 新根 `platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/{on,off}/measure`，`a371ed08…` / `8daaea28…`；旧根不用于采集 |
+| 采集两臂 ELF 摘要 | **已冻结（主控选定新根；`plans` 独立复核）** | 新根 `platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/{on,off}/measure`，`a371ed08…` / `8daaea28…`；旧根不用于采集 |
 | `<T>` | 待定 | 单进程管理上限（秒），主控准入时按实测设定 |
 | Microwalk/Pin（`D03`） | 条件项 | 实际探测后按 `NOTES.md` 记录成功或可复核降级 |
 
-**对照类对不需要待填 ELF**：它取自同一 CSV 的 `bit-flipped`/`random`（§2.3），
-**本模块的采集 ELF 摘要占位符已全部填定**；`<T>` 与 Microwalk 两项不是 ELF 占位符。
+**对照类对不需要待填 ELF**：它取自同一 CSV 的 `bit-flipped`/`random`（§2.3）。
+**本模块待填 ELF 占位符共 0 个**；`<T>` 与 Microwalk 两项不是 ELF 占位符。
 
 ## 附录 C：被取代的旧 PLAN 原文（逐字保留，便于追溯）
 

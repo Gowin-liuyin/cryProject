@@ -1,0 +1,24 @@
+step=m1-build-libm3on                           exit=0
+step=m2-map-libm3on                             exit=0
+step=m1-build-libm3off                          exit=0
+step=m2-map-libm3off                            exit=0
+step=m2b-target-source                          exit=0
+step=m3-build-target-m3-on                      exit=0
+step=m4-map-target-m3-on                        exit=0
+step=m3-build-target-m3-off                     exit=0
+step=m4-map-target-m3-off                       exit=0
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/run-m3-microwalk.sh: 第 64 行： printf: 使用了 \x 但缺少十六进制数
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/run-m3-microwalk.sh: 第 64 行： printf: 使用了 \x 但缺少十六进制数
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/run-m3-microwalk.sh: 第 64 行： printf: 使用了 \x 但缺少十六进制数
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/run-m3-microwalk.sh: 第 64 行： printf: 使用了 \x 但缺少十六进制数
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/run-m3-microwalk.sh: 第 64 行： printf: 使用了 \x 但缺少十六进制数
+step=m5-testcases                               exit=0
+step=m6-dryrun-target-m3-on                     exit=0
+step=m6-dryrun-target-m3-off                    exit=0
+step=m7-config-m3-on                            exit=0
+step=m7-config-m3-off                           exit=0
+step=m8-microwalk-run-m3-on                     exit=0
+step=m8-microwalk-run-m3-off                    exit=0
+step=m9-report-m3-on                            exit=0
+step=m9-report-m3-off                           exit=0
+m3_microwalk_run_complete

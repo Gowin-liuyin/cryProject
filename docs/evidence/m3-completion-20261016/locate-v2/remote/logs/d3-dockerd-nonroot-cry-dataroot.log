@@ -1,0 +1,7 @@
+### step=d3-dockerd-nonroot-cry-dataroot
+### date=2026-10-16T02:11:10+08:00
+### cmd=bash -c timeout 45 dockerd --data-root=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/docker-data --exec-root=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/docker-exec --pidfile=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dockerd.pid --host=unix:///home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/docker.sock --iptables=false --bridge=none 2>&1 | tail -20
+### begin-output
+unable to configure the Docker daemon with file /etc/docker/daemon.json: the following directives are specified both as a flag and in the configuration file: data-root: (from flag: /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/docker-data, from file: /home/docker-data)
+### end-output
+### exit=0

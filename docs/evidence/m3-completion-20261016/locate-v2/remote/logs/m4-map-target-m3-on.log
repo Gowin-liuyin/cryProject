@@ -1,0 +1,7 @@
+### step=m4-map-target-m3-on
+### date=2026-10-16T02:13:06+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/bin/Release/net8.0 && dotnet MapFileGenerator.dll /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on.map && wc -l /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on.map
+### begin-output
+37 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on.map
+### end-output
+### exit=0

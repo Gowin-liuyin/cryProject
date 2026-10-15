@@ -1,0 +1,20 @@
+### step=g7-locate-dotnet-outputs
+### date=2026-10-16T02:10:57+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master -name 'Microwalk.dll' -o -name 'Microwalk.Plugins.PinTracer.dll' -o -name 'MapFileGenerator.dll' | sort
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/bin/Release/net8.0/Microwalk.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/obj/Release/net8.0/Microwalk.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/obj/Release/net8.0/refint/Microwalk.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/obj/Release/net8.0/ref/Microwalk.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/bin/Release/net8.0/Microwalk.Plugins.PinTracer.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/obj/Release/net8.0/Microwalk.Plugins.PinTracer.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/obj/Release/net8.0/refint/Microwalk.Plugins.PinTracer.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/obj/Release/net8.0/ref/Microwalk.Plugins.PinTracer.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/bin/Release/net8.0/MapFileGenerator.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/obj/Release/net8.0/MapFileGenerator.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/obj/Release/net8.0/refint/MapFileGenerator.dll
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/obj/Release/net8.0/ref/MapFileGenerator.dll
+### end-output
+### exit=0

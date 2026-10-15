@@ -1,0 +1,8 @@
+### step=g9b-template-map-library
+### date=2026-10-16T02:10:57+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/bin/Release/net8.0 && dotnet MapFileGenerator.dll /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/libexample.so /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/libexample.map 2>&1 | tail -5
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+### end-output
+### exit=0

@@ -1,0 +1,10 @@
+### step=g9a-template-build-library
+### date=2026-10-16T02:10:57+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run && make -j4 all 2>&1 | tail -10
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+cc -O2 -fPIC -g   -c -o src/my_lib.o src/my_lib.c
+cc -O2 -fPIC -g src/my_lib.o -o libexample.so -shared
+### end-output
+### exit=0

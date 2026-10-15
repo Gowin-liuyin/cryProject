@@ -1,0 +1,18 @@
+### step=h3-template-microwalk-run
+### date=2026-10-16T02:11:25+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk && TESTCASE_DIRECTORY=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/testcases/target-example TARGET_NAME=target-example WORK_DIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run PIN_PATH='/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/pin/pin-3.28-98749-g6643ecee5-gcc-linux' PINTOOL='/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/PinTracer/obj-intel64/PinTracer.so' dotnet '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/bin/Release/net8.0/Microwalk.dll' '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/config.yml' -p '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/bin/Release/net8.0'
+### begin-output
+00:00:00 [info] Enabling process monitor
+00:00:00 [info] Found 16 testcase files.
+00:00:00 [info] Start testcase thread -> pipeline start
+00:00:00 [warn] No MAP file found for image #4 "libc.so.6"
+00:00:00 [info] Pipeline completed, executing final analysis steps
+00:00:00 [info] [analyze:cfl] Running control flow leakage analysis
+00:00:00 [info] [analyze:cfl] Control flow leakage analysis completed, writing results
+00:00:00 [info] [analyze:cfl] Writing analysis result
+00:00:00 [rslt] [analyze:cfl] Total number of leakages: 2
+00:00:00 [rslt] [analyze:cfl] Unique leaking instructions: 2
+00:00:01 [info] [monitor] Maximum private memory size: 161546240 bytes (154.062 MB)
+00:00:01 [info] Program completed.
+### end-output
+### exit=0

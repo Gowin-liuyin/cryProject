@@ -1,0 +1,35 @@
+0000000000002a20 <baseline_native_poly_frommsg>:
+    2a20:	55                   	push   %rbp
+    2a21:	41 57                	push   %r15
+    2a23:	41 56                	push   %r14
+    2a25:	53                   	push   %rbx
+    2a26:	50                   	push   %rax
+    2a27:	48 89 f3             	mov    %rsi,%rbx
+    2a2a:	49 89 fe             	mov    %rdi,%r14
+    2a2d:	45 31 ff             	xor    %r15d,%r15d
+    2a30:	44 89 f9             	mov    %r15d,%ecx
+    2a33:	80 e1 07             	and    $0x7,%cl
+    2a36:	44 89 f8             	mov    %r15d,%eax
+    2a39:	c1 e8 03             	shr    $0x3,%eax
+    2a3c:	0f b6 2c 03          	movzbl (%rbx,%rax,1),%ebp
+    2a40:	b0 01                	mov    $0x1,%al
+    2a42:	d2 e0                	shl    %cl,%al
+    2a44:	0f b6 f8             	movzbl %al,%edi
+    2a47:	e8 34 00 00 00       	call   2a80 <mlk_value_barrier_u8>
+    2a4c:	40 20 e8             	and    %bpl,%al
+    2a4f:	0f b6 d0             	movzbl %al,%edx
+    2a52:	bf 81 06 00 00       	mov    $0x681,%edi
+    2a57:	31 f6                	xor    %esi,%esi
+    2a59:	e8 32 00 00 00       	call   2a90 <mlk_ct_sel_int16>
+    2a5e:	66 43 89 04 7e       	mov    %ax,(%r14,%r15,2)
+    2a63:	49 ff c7             	inc    %r15
+    2a66:	49 81 ff 00 01 00 00 	cmp    $0x100,%r15
+    2a6d:	75 c1                	jne    2a30 <baseline_native_poly_frommsg+0x10>
+    2a6f:	48 83 c4 08          	add    $0x8,%rsp
+    2a73:	5b                   	pop    %rbx
+    2a74:	41 5e                	pop    %r14
+    2a76:	41 5f                	pop    %r15
+    2a78:	5d                   	pop    %rbp
+    2a79:	c3                   	ret
+    2a7a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+

@@ -1,0 +1,7 @@
+### step=m2-map-libm3on
+### date=2026-10-16T02:13:05+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Tools/MapFileGenerator/bin/Release/net8.0 && dotnet MapFileGenerator.dll /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/libm3on.so /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/libm3on.map && wc -l /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/libm3on.map
+### begin-output
+150 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/libm3on.map
+### end-output
+### exit=0

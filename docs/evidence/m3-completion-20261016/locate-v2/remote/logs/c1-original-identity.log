@@ -1,0 +1,22 @@
+### step=c1-original-identity
+### date=2026-10-16T02:19:23+08:00
+### cmd=sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/evidence/dudect.c.original; sed -n '36,50p' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c
+### begin-output
+8beb2994757ee0d81b0a6207f7b1502fdc66019cc9e126afb46e67a9ebb2a367  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/evidence/dudect.c.original
+            encapsulation_key,
+            class_ciphertexts[0]) != 0 ||
+        generate_test_ciphertext(INPUT_MESSAGE_ONES,
+            test_seed,
+            0u,
+            encapsulation_key,
+            class_ciphertexts[1]) != 0) {
+        return 1;
+    }
+    return strcmp(mlkem_implementation_name(), "reference") != 0;
+}
+
+uint8_t do_one_computation(uint8_t *input_data)
+{
+    if (callback_count >= M5_DUDECT_MEASUREMENTS_PER_BATCH) {
+### end-output
+### exit=0

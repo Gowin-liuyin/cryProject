@@ -1,0 +1,9 @@
+step=o1-config3-m3-on                             exit=0
+step=o1-config3-m3-off                            exit=0
+step=o2-microwalk3-m3-on                          exit=0
+step=o2-microwalk3-m3-off                         exit=0
+step=o3-callstacks-m3-on                          exit=0
+step=o4-memory-report-m3-on                       exit=0
+step=o3-callstacks-m3-off                         exit=0
+step=o4-memory-report-m3-off                      exit=0
+m3_microwalk_fix3_complete

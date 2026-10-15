@@ -1,0 +1,8 @@
+### step=d4-ghcr-token
+### date=2026-10-16T02:11:10+08:00
+### cmd=bash -c curl -sSL --max-time 60 'https://ghcr.io/token?scope=repository:microwalk-project/microwalk:pull&service=ghcr.io' -o /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/ghcr/token.json -w 'http_code=%{http_code}\n' && jq -r '"token_length=\(.token|length)"' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/ghcr/token.json
+### begin-output
+http_code=200
+token_length=68
+### end-output
+### exit=0

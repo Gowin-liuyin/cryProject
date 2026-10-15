@@ -1,0 +1,6 @@
+step=h1-mkdir-objdir-and-build-pin            exit=0
+step=h2-template-library-and-target-present   exit=0
+step=h3-template-microwalk-run                exit=0
+step=h4-template-artifacts                    exit=0
+step=h5-template-results                      exit=0
+microwalk_fix_run_complete

@@ -1,0 +1,12 @@
+step=d1-build-implname-on                           exit=0
+step=d2-implname-on                                 exit=0
+step=d1-build-implname-off                          exit=0
+step=d2-implname-off                                exit=0
+step=d3-arm-libraries                               exit=0
+step=d4-poly-frommsg-disasm-on                      exit=0
+step=d4-poly-frommsg-disasm-off                     exit=0
+step=d4b-disasm-diff                                exit=0
+step=d5-collect-usage-form                          exit=0
+step=d6-describe-unsupported                        exit=0
+step=d7-no-csv-writer                               exit=0
+final_checks_complete

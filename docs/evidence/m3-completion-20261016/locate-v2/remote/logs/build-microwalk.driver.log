@@ -1,0 +1,16 @@
+step=g1-dotnet-build-microwalk              exit=0
+step=g2-dotnet-build-pintracer-plugin       exit=0
+step=g3-dotnet-build-mapfilegenerator       exit=0
+step=g4-dotnet-build-frameworkbase          exit=0
+step=g5-make-pin-tool                       exit=0
+step=g6-pin-tool-artifact                   exit=0
+step=g7-locate-dotnet-outputs               exit=0
+step=g8-check-required-paths                exit=0
+step=g9a-template-build-library             exit=0
+step=g9b-template-map-library               exit=0
+step=g9c-template-build-target              exit=0
+step=g9d-template-map-target                exit=0
+step=g9e-template-testcases                 exit=0
+step=g10-template-microwalk-run             exit=0
+step=g11-template-results                   exit=0
+microwalk_build_and_template_run_complete

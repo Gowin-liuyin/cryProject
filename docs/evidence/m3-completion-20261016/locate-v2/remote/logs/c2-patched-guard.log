@@ -1,0 +1,28 @@
+### step=c2-patched-guard
+### date=2026-10-16T02:19:23+08:00
+### cmd=sed -n '36,56p' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c; sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c
+### begin-output
+            encapsulation_key,
+            class_ciphertexts[0]) != 0 ||
+        generate_test_ciphertext(INPUT_MESSAGE_ONES,
+            test_seed,
+            0u,
+            encapsulation_key,
+            class_ciphertexts[1]) != 0) {
+        return 1;
+    }
+    /* 采数准入：M5 参考臂与 M3 人工 LUT 夹具的开/关两臂共用同一套自检；
+       其他实现名仍拒绝，避免把未审查的实现当成可采数对象。 */
+    const char *implementation_name = mlkem_implementation_name();
+    return strcmp(implementation_name, "reference") != 0 &&
+        strcmp(implementation_name, "platform-m3-lut-on") != 0 &&
+        strcmp(implementation_name, "platform-m3-lut-off") != 0;
+}
+
+uint8_t do_one_computation(uint8_t *input_data)
+{
+    if (callback_count >= M5_DUDECT_MEASUREMENTS_PER_BATCH) {
+        abort();
+67eb4dca28f4d1d4ed33a34c8c76aab4d40b7c68e725eacf023482fbd2166d58  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c
+### end-output
+### exit=0

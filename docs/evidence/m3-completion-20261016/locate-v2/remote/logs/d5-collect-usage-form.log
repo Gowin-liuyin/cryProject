@@ -1,0 +1,8 @@
+### step=d5-collect-usage-form
+### date=2026-10-16T02:20:14+08:00
+### cmd=TERM=dumb /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on --collect --seed 1 --raw probe.csv; echo malformed_collect_exit=$?
+### begin-output
+usage: platform_m5_dudect --self-test | --collect --seed N
+malformed_collect_exit=2
+### end-output
+### exit=0

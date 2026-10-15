@@ -1,0 +1,19 @@
+### step=g1-dotnet-build-microwalk
+### date=2026-10-16T02:10:46+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master && dotnet build Microwalk/Microwalk.csproj -c Release 2>&1 | tail -25
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+  正在确定要还原的项目…
+  已还原 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.FrameworkBase/Microwalk.FrameworkBase.csproj (用时 34 毫秒)。
+  已还原 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/Microwalk.csproj (用时 5.15 秒)。
+  Microwalk.FrameworkBase -> /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.FrameworkBase/bin/Release/net8.0/Microwalk.FrameworkBase.dll
+  Microwalk -> /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/bin/Release/net8.0/Microwalk.dll
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:06.57
+### end-output
+### exit=0

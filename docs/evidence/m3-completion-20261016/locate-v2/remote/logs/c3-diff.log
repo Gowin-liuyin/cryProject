@@ -1,0 +1,23 @@
+### step=c3-diff
+### date=2026-10-16T02:19:23+08:00
+### cmd=diff -u /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/evidence/dudect.c.original /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c; echo diff_exit=$?
+### begin-output
+--- /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/evidence/dudect.c.original	2026-10-16 01:44:38.076554800 +0800
++++ /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c	2026-10-16 02:19:23.058586631 +0800
+@@ -42,7 +42,12 @@
+             class_ciphertexts[1]) != 0) {
+         return 1;
+     }
+-    return strcmp(mlkem_implementation_name(), "reference") != 0;
++    /* 采数准入：M5 参考臂与 M3 人工 LUT 夹具的开/关两臂共用同一套自检；
++       其他实现名仍拒绝，避免把未审查的实现当成可采数对象。 */
++    const char *implementation_name = mlkem_implementation_name();
++    return strcmp(implementation_name, "reference") != 0 &&
++        strcmp(implementation_name, "platform-m3-lut-on") != 0 &&
++        strcmp(implementation_name, "platform-m3-lut-off") != 0;
+ }
+ 
+ uint8_t do_one_computation(uint8_t *input_data)
+diff_exit=1
+### end-output
+### exit=0

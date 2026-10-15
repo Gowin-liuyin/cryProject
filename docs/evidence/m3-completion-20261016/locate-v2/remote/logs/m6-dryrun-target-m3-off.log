@@ -1,0 +1,7 @@
+### step=m6-dryrun-target-m3-off
+### date=2026-10-16T02:13:06+08:00
+### cmd=printf 't 0 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t0.testcase\nt 4 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t4.testcase\ne 0\n' | LD_LIBRARY_PATH=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-off
+### begin-output
+Error opening input file 't 4 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t4.testcase': [2] No such file or directory
+### end-output
+### exit=0

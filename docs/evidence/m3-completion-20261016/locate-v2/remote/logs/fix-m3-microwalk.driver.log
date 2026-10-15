@@ -1,0 +1,12 @@
+step=n1-testcases-fixed                           exit=0
+step=n2-relink-target-m3-on                       exit=0
+step=n2-relink-target-m3-off                      exit=0
+step=n3-dryrun-target-m3-on                       exit=0
+step=n3-dryrun-target-m3-off                      exit=0
+step=n4-config2-m3-on                             exit=0
+step=n4-config2-m3-off                            exit=0
+step=n5-microwalk2-m3-on                          exit=0
+step=n5-microwalk2-m3-off                         exit=0
+step=n6-report2-m3-on                             exit=1
+step=n6-report2-m3-off                            exit=1
+m3_microwalk_fix2_complete

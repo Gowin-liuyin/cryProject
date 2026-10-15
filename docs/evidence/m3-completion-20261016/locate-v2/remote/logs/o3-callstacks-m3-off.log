@@ -1,0 +1,48 @@
+### step=o3-callstacks-m3-off
+### date=2026-10-16T02:18:09+08:00
+### cmd=cat /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work3-off/persist/target-m3-off/results/call-stacks.txt
+### begin-output
+target-m3-off:TraceFunc+1d3 -> target-m3-off:RunTarget+0 ($42328C0BFD39F49C)
+  target-m3-off:RunTarget+97 -> target-m3-off:_init+1b0 ($93F80863CE67325F)
+    [L] libm3off.so:generate_test_ciphertext+2a (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.72 +/- 0.00 bits, min 0.72 bits, max 0.72 bits
+      - Cond. guessing entropy: 2.20 +/- 0.00, min 2.20, max 2.20, score 40.00 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+      - Testcase IDs:
+       ─ 0-4 (5 total)
+         ├─ 0 (1 total) (2.32 bits global leakage)
+         └─ 1-4 (4 total) (0.32 bits global leakage)
+    [L] libm3off.so:generate_test_ciphertext+63 (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.91 +/- 0.00 bits, min 0.91 bits, max 0.91 bits
+      - Cond. guessing entropy: 1.40 +/- 0.00, min 1.40, max 1.40, score 80.00 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+      - Testcase IDs:
+       ─ 1-4 (4 total)
+         ├─ 1 3 4 (3 total) (0.42 bits global leakage)
+         └─ 2 (1 total) (2.00 bits global leakage)
+    [L] libm3off.so:generate_test_ciphertext+6b (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.99 +/- 0.00 bits, min 0.99 bits, max 0.99 bits
+      - Cond. guessing entropy: 0.80 +/- 0.00, min 0.80, max 0.80, score 110.00 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+      - Testcase IDs:
+       ─ 1 3 4 (3 total)
+         ├─ 1 4 (2 total) (0.58 bits global leakage)
+         └─ 3 (1 total) (1.58 bits global leakage)
+    [L] libm3off.so:generate_test_ciphertext+c6 (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.93 +/- 0.00 bits, min 0.93 bits, max 0.93 bits
+      - Cond. guessing entropy: 0.40 +/- 0.00, min 0.40, max 0.40, score 130.00 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+      - Testcase IDs:
+       ─ 1 4 (2 total)
+         ├─ 1 (1 total) (1.00 bits global leakage)
+         └─ 4 (1 total) (1.00 bits global leakage)
+### end-output
+### exit=0

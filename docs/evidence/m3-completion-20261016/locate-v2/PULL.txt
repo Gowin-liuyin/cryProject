@@ -1,0 +1,17 @@
+# locate-v2 证据拉回说明
+
+远端新根：/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+本地目录：docs/evidence/m3-completion-20261016/locate-v2/remote/  （保持远端相对路径）
+
+拉回载体（远端 evidence/pull/locate-v2-evidence.tar）：
+  sha256 0b325dd53f7e8bbc2dee419329c10c68a9e6a30e171318ce956df63985bd5221
+  下载到本地后复算摘要一致。
+
+未拉回（体量原因，原件保留在远端同根）：
+  microwalk-probe/m3mw/work3-{on,off}/persist/*/results/call-tree-dump.txt
+  （各 ~130 MB，Microwalk dump-call-tree 产物）；本地只保留前 200000 字节
+  evidence/pull/excerpts/call-tree-dump-{on,off}.head.txt。
+  source/ 整棵树（348 文件 + 追加的 third_party/dudect）、build-ordinary/ 构建树、
+  Microwalk/Pin/.NET 安装树均留在远端新根，未拉回。
+
+本地 SHA256SUMS 覆盖 remote/ 下全部拉回文件。

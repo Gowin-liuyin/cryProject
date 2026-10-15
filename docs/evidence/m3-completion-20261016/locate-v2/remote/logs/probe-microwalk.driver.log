@@ -1,0 +1,18 @@
+step=a1-dotnet-install-script-download exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/a1-dotnet-install-script-download.log
+step=a2-dotnet-sdk-install-channel8 exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/a2-dotnet-sdk-install-channel8.log
+step=a3-dotnet-info               exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/a3-dotnet-info.log
+step=a4-dotnet-list-sdks          exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/a4-dotnet-list-sdks.log
+step=b1-pin-known-url-head        exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/b1-pin-known-url-head.log
+step=b2-pin-3.28-url-head         exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/b2-pin-3.28-url-head.log
+step=b3-pin-download-331          exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/b3-pin-download-331.log
+step=b4-pin-archive-identify      exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/b4-pin-archive-identify.log
+step=b5-pin-extract               exit=2 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/b5-pin-extract.log
+step=b6-pin-license-list          exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/b6-pin-license-list.log
+step=c1-github-api-release-latest exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/c1-github-api-release-latest.log
+step=c2-github-api-releases-list  exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/c2-github-api-releases-list.log
+step=c3-github-api-pin-action-repo exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/c3-github-api-pin-action-repo.log
+已终止
+step=c4-git-clone-microwalk       exit=143 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/c4-git-clone-microwalk.log
+step=d1-docker-info-rootdir       exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/d1-docker-info-rootdir.log
+step=d2-dockerd-nonroot-custom-root exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/d2-dockerd-nonroot-custom-root.log
+step=d3-ghcr-token                exit=0 log=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/d3-ghcr-token.log

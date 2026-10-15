@@ -1,0 +1,19 @@
+### step=m5-testcases
+### date=2026-10-16T02:13:06+08:00
+### cmd=ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/ && for f in /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/*.testcase; do printf '%s=' $f; od -An -tu1 $f; done
+### begin-output
+总计 28
+drwxrwxr-x 2 nss-marker nss-marker 4096 10月 16 02:13 .
+drwxrwxr-x 3 nss-marker nss-marker 4096 10月 16 02:13 ..
+-rw-rw-r-- 1 nss-marker nss-marker    4 10月 16 02:13 t0.testcase
+-rw-rw-r-- 1 nss-marker nss-marker    4 10月 16 02:13 t1.testcase
+-rw-rw-r-- 1 nss-marker nss-marker    4 10月 16 02:13 t2.testcase
+-rw-rw-r-- 1 nss-marker nss-marker    4 10月 16 02:13 t3.testcase
+-rw-rw-r-- 1 nss-marker nss-marker    4 10月 16 02:13 t4.testcase
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t0.testcase=  92 120  48  48
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t1.testcase=  92 120  48  49
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t2.testcase=  92 120  48  50
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t3.testcase=  92 120  48  51
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t4.testcase=  92 120  48  52
+### end-output
+### exit=0

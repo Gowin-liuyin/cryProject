@@ -1,0 +1,8 @@
+### step=c7-selftest-off
+### date=2026-10-16T02:19:23+08:00
+### cmd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off --self-test; echo selftest_exit=$?
+### begin-output
+M5 dudect callback self-test passed; no clocks or collection invoked
+selftest_exit=0
+### end-output
+### exit=0

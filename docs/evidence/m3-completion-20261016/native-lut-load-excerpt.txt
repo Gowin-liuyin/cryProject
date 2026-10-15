@@ -1,0 +1,30 @@
+    5ccd:	0f 1f 00             	nopl   (%rax)
+    5cd0:	89 c2                	mov    %eax,%edx
+    5cd2:	c1 ea 03             	shr    $0x3,%edx
+    5cd5:	41 0f b6 34 14       	movzbl (%r12,%rdx,1),%esi
+    5cda:	89 c7                	mov    %eax,%edi
+    5cdc:	83 e7 06             	and    $0x6,%edi
+    5cdf:	45 31 c0             	xor    %r8d,%r8d
+    5ce2:	0f a3 fe             	bt     %edi,%esi
+    5ce5:	41 0f 92 c0          	setb   %r8b
+    5ce9:	41 c1 e0 06          	shl    $0x6,%r8d
+    5ced:	41 0f b7 34 08       	movzwl (%r8,%rcx,1),%esi
+    5cf2:	66 89 b4 44 60 08 00 	mov    %si,0x860(%rsp,%rax,2)
+    5cf9:	00 
+    5cfa:	41 0f b6 14 14       	movzbl (%r12,%rdx,1),%edx
+    5cff:	8d 70 01             	lea    0x1(%rax),%esi
+    5cf2:	66 89 b4 44 60 08 00 	mov    %si,0x860(%rsp,%rax,2)
+    5cf9:	00 
+    5cfa:	41 0f b6 14 14       	movzbl (%r12,%rdx,1),%edx
+    5cff:	8d 70 01             	lea    0x1(%rax),%esi
+    5d02:	40 0f b6 f6          	movzbl %sil,%esi
+    5d06:	83 e6 07             	and    $0x7,%esi
+    5d09:	31 ff                	xor    %edi,%edi
+    5d0b:	0f a3 f2             	bt     %esi,%edx
+    5d0e:	40 0f 92 c7          	setb   %dil
+    5d12:	c1 e7 06             	shl    $0x6,%edi
+    5d15:	0f b7 14 0f          	movzwl (%rdi,%rcx,1),%edx
+    5d19:	66 89 94 44 62 08 00 	mov    %dx,0x862(%rsp,%rax,2)
+    5d20:	00 
+    5d21:	48 83 c0 02          	add    $0x2,%rax
+    5d25:	48 3d 00 01 00 00    	cmp    $0x100,%rax

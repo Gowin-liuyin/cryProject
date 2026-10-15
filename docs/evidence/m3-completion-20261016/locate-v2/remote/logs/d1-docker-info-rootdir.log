@@ -1,0 +1,9 @@
+### step=d1-docker-info-rootdir
+### date=2026-10-16T02:11:10+08:00
+### cmd=bash -c docker info --format 'DockerRootDir={{.DockerRootDir}}'; docker info --format 'Driver={{.Driver}}'; docker info --format 'ServerVersion={{.ServerVersion}}'
+### begin-output
+DockerRootDir=/home/docker-data
+Driver=overlayfs
+ServerVersion=29.1.3
+### end-output
+### exit=0

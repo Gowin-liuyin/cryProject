@@ -1,0 +1,9 @@
+### step=c8-selftest-raw-on
+### date=2026-10-16T02:19:23+08:00
+### cmd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on --self-test-raw /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp/m3dudect-on.selftest.csv; echo selftest_raw_exit=$?; head -3 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp/m3dudect-on.selftest.csv
+### begin-output
+usage: platform_m5_dudect --self-test | --collect --seed N
+selftest_raw_exit=2
+head: 无法以读模式打开 '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp/m3dudect-on.selftest.csv': 没有那个文件或目录
+### end-output
+### exit=1

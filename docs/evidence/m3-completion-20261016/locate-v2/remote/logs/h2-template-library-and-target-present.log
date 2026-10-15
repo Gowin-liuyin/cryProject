@@ -1,0 +1,10 @@
+### step=h2-template-library-and-target-present
+### date=2026-10-16T02:11:25+08:00
+### cmd=ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/libexample.so /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/target-example /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/libexample.map /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/target-example.map
+### begin-output
+-rwxrwxr-x 1 nss-marker nss-marker 17696 10月 16 02:10 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/libexample.so
+-rw-rw-r-- 1 nss-marker nss-marker   479 10月 16 02:10 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/libexample.map
+-rwxrwxr-x 1 nss-marker nss-marker 23568 10月 16 02:10 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/target-example
+-rw-rw-r-- 1 nss-marker nss-marker   794 10月 16 02:10 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/target-example.map
+### end-output
+### exit=0

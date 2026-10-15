@@ -1,0 +1,11 @@
+### step=c5-identity
+### date=2026-10-16T02:19:23+08:00
+### cmd=ls -l /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off; sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off; file /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on
+### begin-output
+-rwxrwxr-x 1 nss-marker nss-marker 209120 10月 16 02:19 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off
+-rwxrwxr-x 1 nss-marker nss-marker 208744 10月 16 02:19 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on
+8ae8979f7d521411f478c4097ce25d6cbf74ce965810a5ac3fd89183e8a1c66a  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on
+73a2b04223fb46d83e534ccd1f270979f8de846f0e188edfc1c8cd6a5ac12006  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=76210a92fde39cc50112d78643fe0e4e097caf5a, for GNU/Linux 3.2.0, with debug_info, not stripped
+### end-output
+### exit=0

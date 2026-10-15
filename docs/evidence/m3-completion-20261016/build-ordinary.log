@@ -1,0 +1,86 @@
+[  0%] Generating platform-m3-on-source/patched.stamp
+[  0%] Generating platform-m3-off-source/patched.stamp
+patching file 'mlkem/src/compress.c'
+patching file 'mlkem/src/compress.c'
+[  0%] Built target platform_m3_off_prepare
+[  0%] Built target platform_m3_on_prepare
+[  0%] Building C object CMakeFiles/platform_m3_off_kernel.dir/platform_m3_off_kernel.c.o
+[ 20%] Building C object CMakeFiles/platform_m3_off_kernel.dir/src/mlkem.c.o
+[ 20%] Building C object CMakeFiles/platform_m3_on_kernel.dir/platform_m3_on_kernel.c.o
+[ 20%] Building C object CMakeFiles/platform_m3_on_kernel.dir/src/mlkem.c.o
+[ 40%] Building C object CMakeFiles/platform_m3_on_kernel.dir/src/random.c.o
+[ 40%] Building C object CMakeFiles/platform_m3_on_kernel.dir/src/inputs.c.o
+[ 40%] Building C object CMakeFiles/platform_m3_off_kernel.dir/src/random.c.o
+[ 40%] Building C object CMakeFiles/platform_m3_off_kernel.dir/src/inputs.c.o
+[ 40%] Linking C static library platform-m3/off/libmlkem.a
+[ 40%] Linking C static library platform-m3/on/libmlkem.a
+[ 40%] Built target platform_m3_off_kernel
+[ 40%] Built target platform_m3_on_kernel
+[ 40%] Built target build_identity
+[ 40%] Building C object CMakeFiles/platform_m3_on_baseline.dir/src/main.c.o
+[ 40%] Building C object CMakeFiles/platform_m3_off_baseline.dir/src/main.c.o
+[ 40%] Building C object CMakeFiles/platform_m3_on_measure.dir/src/measure.c.o
+[ 60%] Building C object CMakeFiles/platform_m3_off_measure.dir/src/measure.c.o
+[ 80%] Linking C executable platform-m3/off/baseline
+[ 80%] Linking C executable platform-m3/on/baseline
+[100%] Linking C executable platform-m3/on/measure
+[100%] Linking C executable platform-m3/off/measure
+[100%] Built target platform_m3_on_baseline
+[100%] Built target platform_m3_off_baseline
+[100%] Built target platform_m3_off_measure
+[100%] Built target platform_m3_on_measure
+[100%] Built target platform_m3
+[  0%] Built target platform_m3_on_prepare
+[  0%] Built target platform_m3_off_prepare
+[ 14%] Built target platform_m3_on_kernel
+[ 14%] Building C object CMakeFiles/platform_m3_on_test_mlkem.dir/tests/test_mlkem.c.o
+[ 28%] Building C object CMakeFiles/platform_m3_on_test_random_failure.dir/tests/test_random_failure.c.o
+[ 42%] Built target platform_m3_off_kernel
+[ 57%] Building C object CMakeFiles/platform_m3_on_equivalence.dir/tests/test_platform_m3_equivalence.c.o
+[ 57%] Linking C executable platform_m3_on_test_random_failure
+[ 57%] Linking C executable platform_m3_on_equivalence
+[ 57%] Linking C executable platform_m3_on_test_mlkem
+[ 57%] Built target platform_m3_on_test_random_failure
+[ 57%] Building C object CMakeFiles/platform_m3_off_equivalence.dir/tests/test_platform_m3_equivalence.c.o
+[ 57%] Built target platform_m3_on_test_mlkem
+[ 57%] Built target platform_m3_on_equivalence
+[ 57%] Building C object CMakeFiles/platform_m3_off_test_mlkem.dir/tests/test_mlkem.c.o
+[ 71%] Building C object CMakeFiles/platform_m3_off_test_random_failure.dir/tests/test_random_failure.c.o
+[ 71%] Linking C executable platform_m3_off_equivalence
+[ 71%] Linking C executable platform_m3_off_test_random_failure
+[ 71%] Built target platform_m3_off_equivalence
+[ 71%] Linking C executable platform_m3_off_test_mlkem
+[ 71%] Built target platform_m3_off_test_random_failure
+[ 71%] Built target platform_m3_off_test_mlkem
+[ 71%] Built target build_identity
+[ 85%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 85%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 85%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 85%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[100%] Linking C static library reference/libmlkem.a
+[100%] Built target mlkem_reference
+[100%] Building C object CMakeFiles/platform_m3_reference_equivalence.dir/tests/test_platform_m3_equivalence.c.o
+[100%] Linking C executable platform_m3_reference_equivalence
+[100%] Built target platform_m3_reference_equivalence
+Test project /Users/yin/code/cryProject/build/platform-m3-s6/ordinary-fixed
+Connected to MAKE jobserver
+    Start 70: platform_m3_on_kat
+1/6 Test #70: platform_m3_on_kat ....................   Passed    0.41 sec
+    Start 71: platform_m3_on_random_failure
+2/6 Test #71: platform_m3_on_random_failure .........   Passed    0.35 sec
+    Start 72: platform_m3_off_kat
+3/6 Test #72: platform_m3_off_kat ...................   Passed    0.34 sec
+    Start 73: platform_m3_off_random_failure
+4/6 Test #73: platform_m3_off_random_failure ........   Passed    0.35 sec
+    Start 74: platform_m3_full_output_equivalence
+5/6 Test #74: platform_m3_full_output_equivalence ...   Passed    1.11 sec
+    Start 75: platform_m3_patch_dry_run
+6/6 Test #75: platform_m3_patch_dry_run .............   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Label Time Summary:
+platform_m3    =   2.59 sec*proc (6 tests)
+
+Total Test time (real) =   2.59 sec
+[100%] Built target platform_m3_check

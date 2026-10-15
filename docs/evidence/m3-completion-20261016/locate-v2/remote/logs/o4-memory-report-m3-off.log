@@ -1,0 +1,60 @@
+### step=o4-memory-report-m3-off
+### date=2026-10-16T02:18:09+08:00
+### cmd=ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work3-off/persist/target-m3-off/results-memory/; echo '=== mutual-information.txt (top 25) ==='; sort -t, -k2 -gr /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work3-off/persist/target-m3-off/results-memory/mutual-information.txt 2>/dev/null | head -25; echo '=== conditional-guessing-entropy head ==='; head -20 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work3-off/persist/target-m3-off/results-memory/conditional-guessing-entropy.txt 2>/dev/null
+### begin-output
+总计 180
+drwxrwxr-x 2 nss-marker nss-marker  4096 10月 16 02:18 .
+drwxrwxr-x 4 nss-marker nss-marker  4096 10月 16 02:18 ..
+-rw-rw-r-- 1 nss-marker nss-marker 38423 10月 16 02:18 conditional-guessing-entropy.txt
+-rw-rw-r-- 1 nss-marker nss-marker 58163 10月 16 02:18 minimum-conditional-guessing-entropy.txt
+-rw-rw-r-- 1 nss-marker nss-marker 36731 10月 16 02:18 minimum-entropy.txt
+-rw-rw-r-- 1 nss-marker nss-marker 36731 10月 16 02:18 mutual-information.txt
+=== mutual-information.txt (top 25) ===
+Instruction target-m3-off:TraceFunc+1c9: 0.000 bits
+Instruction target-m3-off:RunTarget+ee: 0.000 bits
+Instruction target-m3-off:RunTarget+dd: 0.000 bits
+Instruction target-m3-off:RunTarget+da: 0.000 bits
+Instruction target-m3-off:RunTarget+c: 0.000 bits
+Instruction target-m3-off:RunTarget+77: 0.000 bits
+Instruction target-m3-off:RunTarget+74: 0.000 bits
+Instruction target-m3-off:RunTarget+50: 0.000 bits
+Instruction target-m3-off:RunTarget+23: 0.000 bits
+Instruction target-m3-off:RunTarget+1f: 0.000 bits
+Instruction target-m3-off:RunTarget+19: 0.000 bits
+Instruction target-m3-off:RunTarget+102: 0.000 bits
+Instruction target-m3-off:PinNotifyTestcaseStart+b: 0.000 bits
+Instruction target-m3-off:PinNotifyTestcaseStart+8: 0.000 bits
+Instruction libm3off.so:mlk_unpack_pk+25: 0.722 bits
+Instruction libm3off.so:mlk_unpack_pk+20: 0.722 bits
+Instruction libm3off.so:mlk_unpack_pk+19: 0.722 bits
+Instruction libm3off.so:mlk_unpack_pk+12: 0.722 bits
+Instruction libm3off.so:mlk_rej_uniform_c+7f: 0.722 bits
+Instruction libm3off.so:mlk_rej_uniform_c+56: 0.722 bits
+Instruction libm3off.so:mlk_rej_uniform_c+43: 0.722 bits
+Instruction libm3off.so:mlk_rej_uniform_c+2c: 0.722 bits
+Instruction libm3off.so:mlk_rej_uniform_c+23: 0.722 bits
+Instruction libm3off.so:mlk_polyvec_basemul_acc_montgomery_cached_c+b8: 0.722 bits
+Instruction libm3off.so:mlk_polyvec_basemul_acc_montgomery_cached_c+b2: 0.722 bits
+=== conditional-guessing-entropy head ===
+Instruction libm3off.so:generate_test_ciphertext+71: 1.000 guesses
+Instruction libm3off.so:generate_test_ciphertext+77: 1.000 guesses
+Instruction libm3off.so:generate_test_ciphertext+82: 1.000 guesses
+Instruction libm3off.so:generate_test_ciphertext+88: 1.000 guesses
+Instruction libm3off.so:generate_test_ciphertext+f9: 1.000 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+11: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+20: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+2b: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+2f: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+3d: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+48: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+4c: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+5a: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+65: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+69: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+77: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+83: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+92: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+97: 2.200 guesses
+Instruction libm3off.so:mlk_poly_compress_d4_c+9c: 2.200 guesses
+### end-output
+### exit=0

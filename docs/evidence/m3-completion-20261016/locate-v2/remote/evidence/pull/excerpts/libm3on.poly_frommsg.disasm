@@ -1,0 +1,30 @@
+0000000000002a20 <baseline_native_poly_frommsg>:
+    2a20:	31 c0                	xor    %eax,%eax
+    2a22:	48 8d 0d 57 46 00 00 	lea    0x4657(%rip),%rcx        # 7080 <platform_m3_message_bit_table>
+    2a29:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    2a30:	89 c2                	mov    %eax,%edx
+    2a32:	c1 ea 03             	shr    $0x3,%edx
+    2a35:	44 0f b6 04 16       	movzbl (%rsi,%rdx,1),%r8d
+    2a3a:	41 89 c1             	mov    %eax,%r9d
+    2a3d:	41 83 e1 06          	and    $0x6,%r9d
+    2a41:	45 31 d2             	xor    %r10d,%r10d
+    2a44:	45 0f a3 c8          	bt     %r9d,%r8d
+    2a48:	41 0f 92 c2          	setb   %r10b
+    2a4c:	41 c1 e2 06          	shl    $0x6,%r10d
+    2a50:	45 0f b7 04 0a       	movzwl (%r10,%rcx,1),%r8d
+    2a55:	66 44 89 04 47       	mov    %r8w,(%rdi,%rax,2)
+    2a5a:	0f b6 14 16          	movzbl (%rsi,%rdx,1),%edx
+    2a5e:	44 8d 40 01          	lea    0x1(%rax),%r8d
+    2a62:	45 0f b6 c0          	movzbl %r8b,%r8d
+    2a66:	41 83 e0 07          	and    $0x7,%r8d
+    2a6a:	45 31 c9             	xor    %r9d,%r9d
+    2a6d:	44 0f a3 c2          	bt     %r8d,%edx
+    2a71:	41 0f 92 c1          	setb   %r9b
+    2a75:	41 c1 e1 06          	shl    $0x6,%r9d
+    2a79:	41 0f b7 14 09       	movzwl (%r9,%rcx,1),%edx
+    2a7e:	66 89 54 47 02       	mov    %dx,0x2(%rdi,%rax,2)
+    2a83:	48 83 c0 02          	add    $0x2,%rax
+    2a87:	48 3d 00 01 00 00    	cmp    $0x100,%rax
+    2a8d:	75 a1                	jne    2a30 <baseline_native_poly_frommsg+0x10>
+    2a8f:	c3                   	ret
+

@@ -1,0 +1,11 @@
+### step=b4-build-dudect
+### date=2026-10-16T02:17:59+08:00
+### cmd=cmake --build /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary --parallel 4 --target platform_m5_dudect
+### begin-output
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 50%] Building C object CMakeFiles/platform_m5_dudect.dir/tools/platform_m5/dudect.c.o
+[100%] Linking C executable platform_m5_dudect
+[100%] Built target platform_m5_dudect
+### end-output
+### exit=0

@@ -1,0 +1,13 @@
+### step=c6-implementation-strings
+### date=2026-10-16T02:19:23+08:00
+### cmd=strings /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on | grep -m3 'platform-m3-lut'; echo '--- off ---'; strings /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off | grep -m3 'platform-m3-lut'; echo '--- reference in on? ---'; strings /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on | grep -c '^reference$'
+### begin-output
+platform-m3-lut-on
+platform-m3-lut-off
+--- off ---
+platform-m3-lut-on
+platform-m3-lut-off
+--- reference in on? ---
+1
+### end-output
+### exit=0

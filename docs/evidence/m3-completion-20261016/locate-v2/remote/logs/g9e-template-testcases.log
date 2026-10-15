@@ -1,0 +1,27 @@
+### step=g9e-template-testcases
+### date=2026-10-16T02:10:57+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/testcases/*/ | head -20
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+总计 72
+drwxrwxr-x 2 nss-marker nss-marker 4096  3月 14  2025 .
+drwxrwxr-x 3 nss-marker nss-marker 4096  3月 14  2025 ..
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t0.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t10.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t11.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t12.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t13.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t14.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t15.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t1.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t2.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t3.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t4.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t5.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t6.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t7.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t8.testcase
+-rw-rw-r-- 1 nss-marker nss-marker   32  3月 14  2025 t9.testcase
+### end-output
+### exit=0

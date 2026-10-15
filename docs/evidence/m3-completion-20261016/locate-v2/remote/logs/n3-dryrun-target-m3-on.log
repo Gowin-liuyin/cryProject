@@ -1,0 +1,7 @@
+### step=n3-dryrun-target-m3-on
+### date=2026-10-16T02:14:52+08:00
+### cmd=printf 't 0\n/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t0.testcase\nt 4\n/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases/t4.testcase\ne 0\n' | LD_LIBRARY_PATH=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on; echo dryrun_status=$?
+### begin-output
+dryrun_status=0
+### end-output
+### exit=0

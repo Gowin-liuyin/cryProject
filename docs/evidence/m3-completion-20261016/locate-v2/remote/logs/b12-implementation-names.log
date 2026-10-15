@@ -1,0 +1,11 @@
+### step=b12-implementation-names
+### date=2026-10-16T02:18:01+08:00
+### cmd=strings /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_on_probe | grep -m2 'platform-m3-lut'; strings /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_off_probe | grep -m2 'platform-m3-lut'; strings /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c | grep -m2 'reference'; grep -n 'strcmp(mlkem_implementation_name' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/tools/platform_m5/dudect.c
+### begin-output
+platform-m3-lut-on
+platform-m3-lut-off
+    return strcmp(mlkem_implementation_name(), "reference") != 0;
+    printf("module=M5 backend=reference seed=%" PRIu64
+45:    return strcmp(mlkem_implementation_name(), "reference") != 0;
+### end-output
+### exit=0

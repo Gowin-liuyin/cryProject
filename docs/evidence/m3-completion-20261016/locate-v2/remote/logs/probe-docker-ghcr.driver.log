@@ -1,0 +1,7 @@
+step=d1-docker-info-rootdir             exit=0
+step=d2-docker-images-readonly          exit=0
+step=d3-dockerd-nonroot-cry-dataroot    exit=0
+step=d4-ghcr-token                      exit=0
+step=d5-ghcr-manifest-index             exit=0
+step=d6-ghcr-tags                       exit=0
+docker_ghcr_probe_complete

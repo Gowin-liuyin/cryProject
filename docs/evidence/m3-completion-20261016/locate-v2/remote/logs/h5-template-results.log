@@ -1,0 +1,24 @@
+### step=h5-template-results
+### date=2026-10-16T02:11:27+08:00
+### cmd=find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/persist -type f | while read f; do echo "== $f"; head -c 2000 "$f"; echo; done
+### begin-output
+== /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/persist/target-example/results/call-stacks.json
+{"CallStack":[{"CallStackId":"AA9B09424234BA9E","SourceInstructionImageName":"target-example","SourceInstructionOffset":5638,"SourceInstructionFormatted":"target-example:TraceFunc+1d3","TargetInstructionImageName":"target-example","TargetInstructionOffset":5732,"TargetInstructionFormatted":"target-example:RunTarget+0","LeakageEntries":[],"Children":[{"CallStackId":"38A94CF889D33A8B","SourceInstructionImageName":"target-example","SourceInstructionOffset":5805,"SourceInstructionFormatted":"target-example:RunTarget+49","TargetInstructionImageName":"target-example","TargetInstructionOffset":4480,"TargetInstructionFormatted":"target-example:_init+180","LeakageEntries":[{"ImageName":"libexample.so","Offset":4489,"Type":"jump","NumberOfCalls":1,"TreeDepth":{"Mean":2.00,"StandardDeviation":0.00,"Minimum":2,"Maximum":2},"MutualInformation":{"Mean":0.34,"StandardDeviation":0.00,"Minimum":0.34,"Maximum":0.34,},"ConditionalGuessingEntropy":{"Mean":7.56,"StandardDeviation":0.00,"Minimum":7.56,"Maximum":7.56,"Score":12.50,"ScoreStandardDeviation":0.00},"MinimumConditionalGuessingEntropy":{"Mean":1.00,"StandardDeviation":0.00,"Minimum":1.00,"Maximum":1.00,"Score":100.00,"ScoreStandardDeviation":0.00},},{"ImageName":"libexample.so","Offset":4519,"Type":"jump","NumberOfCalls":1,"TreeDepth":{"Mean":6.00,"StandardDeviation":0.00,"Minimum":6,"Maximum":6},"MutualInformation":{"Mean":1.67,"StandardDeviation":0.00,"Minimum":1.67,"Maximum":1.67,},"ConditionalGuessingEntropy":{"Mean":3.75,"StandardDeviation":0.00,"Minimum":3.75,"Maximum":3.75,"Score":63.33,"ScoreStandardDeviation":0.00},"MinimumConditionalGuessingEntropy":{"Mean":1.00,"StandardDeviation":0.00,"Minimum":1.00,"Maximum":1.00,"Score":100.00,"ScoreStandardDeviation":0.00},},],"Children":[]},]},]}
+== /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/persist/target-example/results/call-stacks.txt
+target-example:TraceFunc+1d3 -> target-example:RunTarget+0 ($AA9B09424234BA9E)
+  target-example:RunTarget+49 -> target-example:_init+180 ($38A94CF889D33A8B)
+    [L] libexample.so:some_function+9 (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.34 +/- 0.00 bits, min 0.34 bits, max 0.34 bits
+      - Cond. guessing entropy: 7.56 +/- 0.00, min 7.56, max 7.56, score 12.50 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+    [L] libexample.so:some_function+27 (jump)
+      - Number of calls: 1
+      - Tree depth: 6.00 +/- 0.00, min 6, max 6
+      - Mutual information: 1.67 +/- 0.00 bits, min 1.67 bits, max 1.67 bits
+      - Cond. guessing entropy: 3.75 +/- 0.00, min 3.75, max 3.75, score 63.33 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+
+### end-output
+### exit=0

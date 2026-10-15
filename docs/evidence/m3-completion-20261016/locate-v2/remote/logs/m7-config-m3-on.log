@@ -1,0 +1,62 @@
+### step=m7-config-m3-on
+### date=2026-10-16T02:13:06+08:00
+### cmd=cat /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/on/config.yml
+### begin-output
+constants:
+  TARGET_PATH: $$CONFIG_PATH$$/target-m3-on
+  LIBRARY_PATH: /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw
+  WORK_DIR: $$$WORK_DIR$$$/work/target-m3-on
+  PERSIST_DIR: $$$WORK_DIR$$$/persist/target-m3-on
+---
+
+general:
+  logger:
+    log-level: info
+    file: $$WORK_DIR$$/log.txt
+
+testcase:
+  module: load
+  module-options:
+    input-directory: $$$TESTCASE_DIRECTORY$$$
+
+trace:
+  module: pin
+  module-options:
+    output-directory: $$WORK_DIR$$/traces
+    pin-tool-path: $$$PINTOOL$$$
+    pin-path: $$$PIN_PATH$$/pin
+    wrapper-path: $$TARGET_PATH$$
+    environment:
+      LD_LIBRARY_PATH: $$LIBRARY_PATH$$
+    images:
+      - target-m3-on
+      - libm3on.so
+  options:
+    input-buffer-size: 4
+
+preprocess:
+  module: pin
+  module-options:
+    output-directory: $$WORK_DIR$$/traces
+    store-traces: true
+    keep-raw-traces: false
+  options:
+    input-buffer-size: 2
+    max-parallel-threads: 4
+
+analysis:
+  modules:
+    - module: control-flow-leakage
+      module-options:
+        output-directory: $$PERSIST_DIR$$/results
+        map-files:
+          - $$TARGET_PATH$$.map
+          - /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/libm3on.map
+        dump-call-tree: true
+        include-testcases-in-call-stacks: true
+
+  options:
+    input-buffer-size: 1
+    max-parallel-threads: 1
+### end-output
+### exit=0

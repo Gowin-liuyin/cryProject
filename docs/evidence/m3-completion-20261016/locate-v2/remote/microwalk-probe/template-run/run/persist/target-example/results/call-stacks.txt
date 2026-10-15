@@ -1,0 +1,14 @@
+target-example:TraceFunc+1d3 -> target-example:RunTarget+0 ($AA9B09424234BA9E)
+  target-example:RunTarget+49 -> target-example:_init+180 ($38A94CF889D33A8B)
+    [L] libexample.so:some_function+9 (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.34 +/- 0.00 bits, min 0.34 bits, max 0.34 bits
+      - Cond. guessing entropy: 7.56 +/- 0.00, min 7.56, max 7.56, score 12.50 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+    [L] libexample.so:some_function+27 (jump)
+      - Number of calls: 1
+      - Tree depth: 6.00 +/- 0.00, min 6, max 6
+      - Mutual information: 1.67 +/- 0.00 bits, min 1.67 bits, max 1.67 bits
+      - Cond. guessing entropy: 3.75 +/- 0.00, min 3.75, max 3.75, score 63.33 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00

@@ -1,0 +1,7 @@
+### step=b6-dudect-linkline
+### date=2026-10-16T02:18:01+08:00
+### cmd=find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary -name link.txt | xargs grep -l platform_m5_dudect | head -1 | xargs cat
+### begin-output
+/usr/bin/clang -O2 -g -DNDEBUG CMakeFiles/platform_m5_dudect.dir/tools/platform_m5/dudect.c.o -o platform_m5_dudect  reference/libmlkem.a -lm 
+### end-output
+### exit=0

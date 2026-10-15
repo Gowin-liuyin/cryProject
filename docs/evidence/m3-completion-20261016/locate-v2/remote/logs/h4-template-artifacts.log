@@ -1,0 +1,29 @@
+### step=h4-template-artifacts
+### date=2026-10-16T02:11:27+08:00
+### cmd=find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run -type f | head -60; echo '--- sizes ---'; du -sh /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/* 2>/dev/null
+### begin-output
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/persist/target-example/results/call-stacks.json
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/persist/target-example/results/call-stacks.txt
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/log.txt
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t14.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t12.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t4.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t6.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t2.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t13.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t10.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t8.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t7.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t9.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t5.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/prefix.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t15.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t3.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t1.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t11.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work/target-example/traces/t0.trace.preprocessed
+--- sizes ---
+20K	/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/persist
+128K	/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run/work
+### end-output
+### exit=0

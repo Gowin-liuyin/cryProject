@@ -1,0 +1,8 @@
+### step=b8-dudect-describe
+### date=2026-10-16T02:18:01+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary && ./platform_m5_dudect --describe; echo describe_exit=$?
+### begin-output
+usage: platform_m5_dudect --self-test | --collect --seed N
+describe_exit=2
+### end-output
+### exit=0

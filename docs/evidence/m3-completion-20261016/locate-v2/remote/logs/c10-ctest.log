@@ -1,0 +1,21 @@
+### step=c10-ctest
+### date=2026-10-16T02:19:23+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary && ctest -R platform_m3 --output-on-failure 2>&1 | tail -15
+### begin-output
+    Start 66: platform_m3_off_kat
+3/6 Test #66: platform_m3_off_kat ...................   Passed    0.01 sec
+    Start 67: platform_m3_off_random_failure
+4/6 Test #67: platform_m3_off_random_failure ........   Passed    0.00 sec
+    Start 68: platform_m3_full_output_equivalence
+5/6 Test #68: platform_m3_full_output_equivalence ...   Passed    0.06 sec
+    Start 69: platform_m3_patch_dry_run
+6/6 Test #69: platform_m3_patch_dry_run .............   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Label Time Summary:
+platform_m3    =   0.08 sec*proc (6 tests)
+
+Total Test time (real) =   0.08 sec
+### end-output
+### exit=0

@@ -1,0 +1,7 @@
+### step=m3-build-target-m3-on
+### date=2026-10-16T02:13:06+08:00
+### cmd=gcc /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/main.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/m3mwtarget.c -g -fno-inline -fno-split-stack -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -L/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw -Wl,-rpath,/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw -lm3on -o /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on && ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on
+### begin-output
+-rwxrwxr-x 1 nss-marker nss-marker 24856 10月 16 02:13 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/target-m3-on
+### end-output
+### exit=0

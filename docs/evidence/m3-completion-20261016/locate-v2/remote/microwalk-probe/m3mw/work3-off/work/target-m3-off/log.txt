@@ -1,0 +1,11 @@
+00:00:00 [info] Found 5 testcase files.
+00:00:00 [info] Start testcase thread -> pipeline start
+00:00:03 [info] Pipeline completed, executing final analysis steps
+00:00:03 [info] [analyze:cfl] Running control flow leakage analysis
+00:00:04 [info] [analyze:cfl] Control flow leakage analysis completed, writing results
+00:00:04 [info] [analyze:cfl] Writing analysis result
+00:00:04 [rslt] [analyze:cfl] Total number of leakages: 4
+00:00:04 [rslt] [analyze:cfl] Unique leaking instructions: 4
+00:00:04 [info] Running memory access trace leakage analysis
+00:00:04 [info] Memory access trace leakage analysis completed, writing results
+00:00:05 [info] Program completed.

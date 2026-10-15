@@ -1,0 +1,173 @@
+
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/libm3off.so：     文件格式 elf64-x86-64
+
+SYMBOL TABLE:
+0000000000000000 l    df *ABS*	0000000000000000              crtstuff.c
+0000000000002490 l     F .text	0000000000000000              deregister_tm_clones
+00000000000024c0 l     F .text	0000000000000000              register_tm_clones
+0000000000002500 l     F .text	0000000000000000              __do_global_dtors_aux
+000000000000a230 l     O .bss	0000000000000001              completed.0
+0000000000009e00 l     O .fini_array	0000000000000000              __do_global_dtors_aux_fini_array_entry
+0000000000002540 l     F .text	0000000000000000              frame_dummy
+0000000000009df8 l     O .init_array	0000000000000000              __frame_dummy_init_array_entry
+0000000000000000 l    df *ABS*	0000000000000000              mlkem_native.c
+0000000000002560 l     F .text	00000000000000e7              mlk_poly_compress_d4_c
+0000000000005e70 l     F .text	000000000000000f              mlk_scalar_compress_d4
+0000000000002660 l     F .text	00000000000000a9              mlk_poly_compress_d10_c
+0000000000005e80 l     F .text	000000000000001f              mlk_scalar_compress_d10
+0000000000002720 l     F .text	000000000000004a              mlk_poly_decompress_d4_c
+0000000000005ea0 l     F .text	000000000000000d              mlk_scalar_decompress_d4
+0000000000002780 l     F .text	00000000000000b5              mlk_poly_decompress_d10_c
+0000000000005eb0 l     F .text	000000000000000f              mlk_scalar_decompress_d10
+0000000000002850 l     F .text	0000000000000042              mlk_poly_tobytes_c
+00000000000028b0 l     F .text	0000000000000165              mlk_poly_frombytes_c
+0000000000002a80 l     F .text	0000000000000003              mlk_value_barrier_u8
+0000000000002a90 l     F .text	000000000000001b              mlk_ct_sel_int16
+0000000000005ec0 l     F .text	000000000000000d              mlk_ct_cmask_nonzero_u16
+0000000000002ba0 l     F .text	000000000000000f              mlk_scalar_compress_d1
+0000000000003030 l     F .text	0000000000000010              mlk_zeroize
+0000000000004a90 l     F .text	0000000000000005              mlk_rej_uniform
+0000000000003220 l     F .text	000000000000006c              mlk_keypair_getnoise_eta1
+0000000000003310 l     F .text	000000000000005d              mlk_matvec_mul
+0000000000003420 l     F .text	0000000000000005              mlk_pack_sk
+0000000000003430 l     F .text	000000000000002e              mlk_pack_pk
+0000000000004c10 l     F .text	00000000000000fc              mlk_keccak_absorb_once
+0000000000004d60 l     F .text	0000000000000054              mlk_keccak_squeeze_once
+0000000000003640 l     F .text	0000000000000031              mlk_unpack_pk
+0000000000003680 l     F .text	0000000000000070              mlk_enc_getnoise_eta1_eta2
+0000000000003820 l     F .text	0000000000000028              mlk_pack_ciphertext
+0000000000004460 l     F .text	00000000000003db              mlk_polyvec_basemul_acc_montgomery_cached_c
+0000000000004320 l     F .text	0000000000000092              mlk_poly_invntt_tomont_c
+00000000000041f0 l     F .text	000000000000003b              mlk_poly_reduce_c
+0000000000005ee0 l     F .text	0000000000000005              baseline_native_poly_compress_dv
+0000000000003950 l     F .text	000000000000002b              mlk_unpack_ciphertext
+0000000000003980 l     F .text	0000000000000005              mlk_unpack_sk
+0000000000005ef0 l     F .text	0000000000000005              baseline_native_poly_decompress_dv
+0000000000003b90 l     F .text	0000000000000205              mlk_ct_memcmp
+0000000000005f00 l     F .text	0000000000000008              mlk_ct_cmask_nonzero_u8
+0000000000004150 l     F .text	0000000000000049              mlk_ct_cmov_zero
+0000000000005f10 l     F .text	000000000000001c              mlk_ct_sel_uint8
+00000000000041b0 l     F .text	0000000000000038              mlk_poly_tomont_c
+0000000000005f30 l     F .text	0000000000000018              mlk_fqmul
+0000000000005f50 l     F .text	0000000000000017              mlk_barrett_reduce
+0000000000005f70 l     F .text	0000000000000023              mlk_scalar_signed_to_unsigned_q
+0000000000004240 l     F .text	0000000000000063              mlk_poly_mulcache_compute_c
+0000000000007060 l     O .rodata	0000000000000100              mlk_zetas
+00000000000042c0 l     F .text	000000000000005d              mlk_poly_ntt_c
+0000000000005fb0 l     F .text	0000000000000062              mlk_ntt_layer
+0000000000006080 l     F .text	00000000000000ee              mlk_invntt_layer
+0000000000004400 l     F .text	0000000000000005              baseline_native_poly_compress_du
+0000000000004450 l     F .text	0000000000000005              baseline_native_poly_decompress_du
+0000000000004a00 l     F .text	0000000000000005              mlk_poly_cbd_eta1
+0000000000004dc0 l     F .text	0000000000000119              mlk_keccak_absorb_once_x4
+0000000000004ee0 l     F .text	000000000000007a              mlk_keccak_squeezeblocks_x4
+0000000000006170 l     F .text	0000000000000098              mlk_rej_uniform_c
+0000000000004d10 l     F .text	000000000000004c              mlk_keccak_squeezeblocks
+0000000000004c00 l     F .text	0000000000000003              mlk_load32_littleendian
+0000000000005110 l     F .text	0000000000000055              mlk_shake256x4_absorb_once
+0000000000005170 l     F .text	000000000000000f              mlk_shake256x4_squeezeblocks
+00000000000053e0 l     F .text	0000000000000072              mlk_keccakf1600x4_extract_bytes_c
+0000000000005470 l     F .text	0000000000000072              mlk_keccakf1600x4_xor_bytes_c
+0000000000005540 l     F .text	0000000000000921              mlk_keccakf1600_permute_c
+0000000000007160 l     O .rodata	00000000000000c0              mlk_KeccakF_RoundConstants
+0000000000005ed0 l     F .text	0000000000000003              mlk_value_barrier_i32
+0000000000005fa0 l     F .text	000000000000000b              mlk_ct_cmask_neg_i16
+0000000000006020 l     F .text	0000000000000052              mlk_ntt_butterfly_block
+0000000000000000 l    df *ABS*	0000000000000000              mlkem.c
+0000000000000000 l    df *ABS*	0000000000000000              random.c
+0000000000000000 l    df *ABS*	0000000000000000              inputs.c
+0000000000007278 l     O .rodata	0000000000000014              reltable.input_category_name
+0000000000000000 l    df *ABS*	0000000000000000              crtstuff.c
+00000000000089f4 l     O .eh_frame	0000000000000000              __FRAME_END__
+0000000000000000 l    df *ABS*	0000000000000000              
+00000000000068f4 l     F .fini	0000000000000000              _fini
+000000000000a228 l     O .data	0000000000000000              __dso_handle
+0000000000009e08 l     O .dynamic	0000000000000000              _DYNAMIC
+000000000000728c l       .eh_frame_hdr	0000000000000000              __GNU_EH_FRAME_HDR
+000000000000a230 l     O .data	0000000000000000              __TMC_END__
+0000000000009fe8 l     O .got.plt	0000000000000000              _GLOBAL_OFFSET_TABLE_
+0000000000002000 l     F .init	0000000000000000              _init
+0000000000006210 g     F .text	0000000000000008              mlkem_implementation_name
+0000000000002840 g     F .text	0000000000000002              baseline_native_poly_tobytes
+0000000000004ae0 g     F .text	0000000000000005              baseline_native_shake128_squeezeblocks
+0000000000004a10 g     F .text	0000000000000001              baseline_native_shake128x4_init
+0000000000004ac0 g     F .text	0000000000000016              baseline_native_shake128_absorb_once
+0000000000000000       F *UND*	0000000000000000              __errno_location@GLIBC_2.2.5
+0000000000000000  w      *UND*	0000000000000000              _ITM_deregisterTMCloneTable
+0000000000002710 g     F .text	0000000000000002              baseline_native_poly_decompress_d4
+0000000000003700 g     F .text	0000000000000025              baseline_native_polyvec_invntt_tomont
+0000000000002d30 g     F .text	000000000000022a              baseline_native_poly_rej_uniform_x4
+0000000000004aa0 g     F .text	000000000000000a              baseline_native_shake128x4_release
+00000000000032c0 g     F .text	0000000000000042              baseline_native_polyvec_mulcache_compute
+0000000000006290 g     F .text	000000000000007b              mlkem_encapsulate
+0000000000004840 g     F .text	00000000000001b5              baseline_native_poly_getnoise_eta1_4x
+0000000000003730 g     F .text	0000000000000005              baseline_native_poly_invntt_tomont
+0000000000005530 g     F .text	0000000000000002              baseline_native_keccakf1600_permute
+00000000000040f0 g     F .text	000000000000005b              baseline_native_shake256
+0000000000003370 g     F .text	0000000000000025              baseline_native_polyvec_tomont
+0000000000004a80 g     F .text	000000000000000f              baseline_native_shake128x4_squeezeblocks
+00000000000054f0 g     F .text	0000000000000031              baseline_native_keccakf1600x4_permute
+00000000000041a0 g     F .text	0000000000000002              baseline_native_poly_tomont
+0000000000005180 g     F .text	000000000000011b              baseline_native_keccakf1600_extract_bytes
+0000000000003e70 g     F .text	000000000000005b              baseline_native_keypair_derand
+00000000000066e0 g     F .text	00000000000000a0              expand_test_seed
+00000000000052a0 g     F .text	000000000000012f              baseline_native_keccakf1600_xor_bytes
+0000000000004f60 g     F .text	00000000000001a6              baseline_native_shake256x4
+0000000000003990 g     F .text	00000000000000c2              baseline_native_poly_sub
+0000000000000000       F *UND*	0000000000000000              memset@GLIBC_2.2.5
+0000000000004230 g     F .text	0000000000000002              baseline_native_poly_mulcache_compute
+0000000000003f90 g     F .text	000000000000015c              baseline_native_dec
+0000000000000000       F *UND*	0000000000000000              close@GLIBC_2.2.5
+00000000000042b0 g     F .text	0000000000000002              baseline_native_poly_ntt
+0000000000006440 g     F .text	0000000000000071              erase_secret_bytes
+0000000000000000       F *UND*	0000000000000000              read@GLIBC_2.2.5
+00000000000033a0 g     F .text	0000000000000042              baseline_native_polyvec_add
+0000000000000000       F *UND*	0000000000000000              strtoull@GLIBC_2.2.5
+0000000000003ed0 g     F .text	00000000000000bf              baseline_native_enc_derand
+0000000000000000       F *UND*	0000000000000000              strcmp@GLIBC_2.2.5
+00000000000067e0 g     F .text	0000000000000113              generate_test_ciphertext
+0000000000004af0 g     F .text	000000000000000a              baseline_native_shake128_release
+0000000000003af0 g     F .text	0000000000000042              baseline_native_polyvec_frombytes
+0000000000000000  w      *UND*	0000000000000000              __gmon_start__
+0000000000000000       F *UND*	0000000000000000              memcpy@GLIBC_2.14
+0000000000006780 g     F .text	0000000000000053              generate_test_key_pair
+0000000000004410 g     F .text	000000000000003f              baseline_native_polyvec_decompress_du
+0000000000006220 g     F .text	0000000000000066              mlkem_generate_key_pair
+00000000000064c0 g     F .text	00000000000000bf              system_random_bytes
+0000000000003a60 g     F .text	0000000000000087              baseline_native_check_pk
+0000000000002550 g     F .text	0000000000000002              baseline_native_poly_compress_d4
+0000000000003040 g     F .text	0000000000000178              baseline_native_indcpa_keypair_derand
+0000000000003e10 g     F .text	0000000000000056              baseline_native_sha3_256
+0000000000003290 g     F .text	0000000000000025              baseline_native_polyvec_ntt
+00000000000065a0 g     F .text	00000000000000aa              parse_input_category
+0000000000002bb0 g     F .text	0000000000000176              baseline_native_gen_matrix
+0000000000003da0 g     F .text	0000000000000068              baseline_native_check_sk
+0000000000002ab0 g     F .text	00000000000000e6              baseline_native_poly_tomsg
+00000000000028a0 g     F .text	0000000000000002              baseline_native_poly_frombytes
+0000000000000000       F *UND*	0000000000000000              open@GLIBC_2.2.5
+0000000000006350 g     F .text	00000000000000ed              mlkem_self_test
+0000000000002a20 g     F .text	000000000000005a              baseline_native_poly_frommsg
+0000000000003810 g     F .text	0000000000000005              baseline_native_poly_reduce
+00000000000036f0 g     F .text	0000000000000005              baseline_native_polyvec_basemul_acc_montgomery_cached
+00000000000031c0 g     F .text	0000000000000056              baseline_native_sha3_512
+0000000000002f60 g     F .text	00000000000000c4              baseline_native_poly_rej_uniform
+00000000000053d0 g     F .text	0000000000000002              baseline_native_keccakf1600x4_extract_bytes
+0000000000006580 g     F .text	000000000000001e              input_category_name
+00000000000033f0 g     F .text	0000000000000025              baseline_native_polyvec_reduce
+0000000000003460 g     F .text	00000000000001d8              baseline_native_indcpa_enc
+0000000000005460 g     F .text	0000000000000002              baseline_native_keccakf1600x4_xor_bytes
+0000000000003850 g     F .text	00000000000000fc              baseline_native_indcpa_dec
+0000000000003b40 g     F .text	0000000000000042              baseline_native_polyvec_tobytes
+0000000000006310 g     F .text	0000000000000038              mlkem_decapsulate
+0000000000004b00 g     F .text	00000000000000f8              baseline_native_poly_cbd2
+0000000000000000  w      *UND*	0000000000000000              _ITM_registerTMCloneTable
+0000000000004a20 g     F .text	0000000000000055              baseline_native_shake128x4_absorb_once
+0000000000003740 g     F .text	00000000000000c2              baseline_native_poly_add
+0000000000002770 g     F .text	0000000000000002              baseline_native_poly_decompress_d10
+0000000000002650 g     F .text	0000000000000002              baseline_native_poly_compress_d10
+0000000000000000  w    F *UND*	0000000000000000              __cxa_finalize@GLIBC_2.2.5
+0000000000004ab0 g     F .text	0000000000000001              baseline_native_shake128_init
+00000000000043c0 g     F .text	000000000000003f              baseline_native_polyvec_compress_du
+0000000000006650 g     F .text	0000000000000086              parse_unsigned_integer
+
+

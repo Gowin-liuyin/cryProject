@@ -1,0 +1,35 @@
+### step=g10-template-microwalk-run
+### date=2026-10-16T02:10:57+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk && TESTCASE_DIRECTORY=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/testcases/target-example TARGET_NAME=target-example WORK_DIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/run PIN_PATH='/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/pin/pin-3.28-98749-g6643ecee5-gcc-linux' PINTOOL='/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/PinTracer/obj-intel64/PinTracer.so' dotnet '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/bin/Release/net8.0/Microwalk.dll' -p '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/bin/Release/net8.0' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/config.yml 2>&1 | tail -60
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+Could not find plugin directory '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/template-run/microwalk/config.yml'.
+Please specify a configuration file, as described in the documentation.
+
+Available modules:
+  Testcase generation:
+    load                    Loads existing testcase files from a given directory.
+    random                  Generates random byte arrays of a given length.
+    command                 Calls an external application to generate test cases.
+
+  Trace generation:
+    load                    Loads existing raw traces from a given directory.
+    passthrough             Passes through the test cases without generating traces.
+    pin                     Generates traces using a Pin tool.
+
+  Trace preprocessing:
+    passthrough             Passes through the raw traces without preprocessing.
+    load                    Loads existing preprocessed traces from a given directory.
+    pin                     Preprocesses traces generated with the Pin tool.
+    pin-dump                Dumps raw Pin trace files in a human-readable form.
+
+  Analysis:
+    dump                    Dumps preprocessed trace files in a human-readable form.
+    instruction-memory-access-trace-leakage Calculates several trace leakage measures for each memory accessing instruction.
+    call-stack-memory-access-trace-leakage Calculates several trace leakage measures for each call stack of a memory accessing instruction.
+    control-flow-leakage    Finds control flow variations on each call stack level.
+    passthrough             Ignores all passed traces.
+
+### end-output
+### exit=0

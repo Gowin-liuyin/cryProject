@@ -1,0 +1,19 @@
+### step=g2-dotnet-build-pintracer-plugin
+### date=2026-10-16T02:10:53+08:00
+### cwd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+### cmd=bash -c cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master && dotnet build Microwalk.Plugins.PinTracer/Microwalk.Plugins.PinTracer.csproj -c Release 2>&1 | tail -25
+### env=TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home DOTNET_CLI_HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/dotnet-home NUGET_PACKAGES=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/nuget
+### begin-output
+  正在确定要还原的项目…
+  已还原 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/Microwalk.Plugins.PinTracer.csproj (用时 32 毫秒)。
+  1 个项目(共 2 个)是最新的，无法还原。
+  Microwalk.FrameworkBase -> /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.FrameworkBase/bin/Release/net8.0/Microwalk.FrameworkBase.dll
+  Microwalk.Plugins.PinTracer -> /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/bin/Release/net8.0/Microwalk.Plugins.PinTracer.dll
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.58
+### end-output
+### exit=0

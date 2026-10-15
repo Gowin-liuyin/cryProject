@@ -1,0 +1,24 @@
+0000000000002c60 <baseline_native_poly_frommsg>:
+    2c60:	31 c0                	xor    %eax,%eax
+    2c62:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    2c69:	1f 84 00 00 00 00 00 
+    2c70:	89 c1                	mov    %eax,%ecx
+    2c72:	80 e1 07             	and    $0x7,%cl
+    2c75:	89 c2                	mov    %eax,%edx
+    2c77:	41 b0 01             	mov    $0x1,%r8b
+    2c7a:	41 d2 e0             	shl    %cl,%r8b
+    2c7d:	c1 ea 03             	shr    $0x3,%edx
+    2c80:	0f b6 0c 16          	movzbl (%rsi,%rdx,1),%ecx
+    2c84:	41 20 c8             	and    %cl,%r8b
+    2c87:	41 0f b6 c8          	movzbl %r8b,%ecx
+    2c8b:	f7 d9                	neg    %ecx
+    2c8d:	c1 e9 10             	shr    $0x10,%ecx
+    2c90:	81 e1 81 06 00 00    	and    $0x681,%ecx
+    2c96:	66 89 0c 47          	mov    %cx,(%rdi,%rax,2)
+    2c9a:	48 ff c0             	inc    %rax
+    2c9d:	48 3d 00 01 00 00    	cmp    $0x100,%rax
+    2ca3:	75 cb                	jne    2c70 <baseline_native_poly_frommsg+0x10>
+    2ca5:	c3                   	ret
+    2ca6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    2cad:	00 00 00 
+

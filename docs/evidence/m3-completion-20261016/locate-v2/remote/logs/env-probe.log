@@ -1,0 +1,185 @@
+
+===== identity =====
+2026-10-16T02:06:07+08:00
+nss-m
+Linux nss-m 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+uid=1000(nss-marker) gid=1000(nss-marker) 组=1000(nss-marker),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),125(docker)
+NEWROOT=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8
+
+===== tool-presence =====
+dotnet     -> MISSING
+pin        -> MISSING
+docker     -> /usr/bin/docker
+podman     -> MISSING
+nerdctl    -> MISSING
+microwalk  -> MISSING
+git        -> /usr/bin/git
+curl       -> /usr/bin/curl
+wget       -> /usr/bin/wget
+unzip      -> /usr/bin/unzip
+tar        -> /usr/bin/tar
+clang      -> /usr/bin/clang
+gcc        -> /usr/bin/gcc
+cmake      -> /usr/bin/cmake
+ninja      -> /usr/bin/ninja
+java       -> /usr/bin/java
+valgrind   -> /usr/bin/valgrind
+objdump    -> /usr/bin/objdump
+
+===== dotnet =====
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/probe-env.sh: 行 33: dotnet: 未找到命令
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/probe-env.sh: 行 34: dotnet: 未找到命令
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/probe-env.sh: 行 35: dotnet: 未找到命令
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/probe-env.sh: 行 36: dotnet: 未找到命令
+ls: 无法访问 '/usr/share/dotnet': 没有那个文件或目录
+ls: 无法访问 '/usr/lib/dotnet': 没有那个文件或目录
+ls: 无法访问 '/opt/dotnet': 没有那个文件或目录
+ls: 无法访问 '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home/.dotnet': 没有那个文件或目录
+ii  fonts-dejavu-mono                                2.37-8                                           all          Vera font family derivate with additional characters
+ii  fonts-freefont-otf                               20211204+svn4273-2                               all          Freefont Serif, Sans and Mono OpenType fonts
+ii  fonts-freefont-ttf                               20211204+svn4273-2                               all          Freefont Serif, Sans and Mono Truetype fonts
+ii  fonts-noto-mono                                  20201225-2                                       all          "No Tofu" monospaced font family with large Unicode coverage
+ii  fonts-tlwg-mono                                  1:0.7.3-1                                        all          Thai TlwgMono font (dependency package)
+ii  fonts-tlwg-mono-otf                              1:0.7.3-1                                        all          Thai TlwgMono OpenType font
+ii  r-cran-squarem                                   2021.1-1                                         all          Squared Extrapolation Methods for Accelerating EM-Like Monotone Algorithms
+ii  ubuntu-mono                                      24.04-0ubuntu1                                   all          Ubuntu Mono Icon theme
+dotnet-sdk-8.0:
+  已安装：(无)
+  候选： 8.0.131-0ubuntu1~24.04.1
+  版本列表：
+     8.0.131-0ubuntu1~24.04.1 500
+        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
+        500 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages
+     8.0.104-0ubuntu1 500
+        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+dotnet-runtime-8.0:
+  已安装：(无)
+  候选： 8.0.31-0ubuntu1~24.04.1
+  版本列表：
+     8.0.31-0ubuntu1~24.04.1 500
+        500 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages
+        500 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages
+     8.0.4-0ubuntu1 500
+        500 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages
+
+===== pin =====
+ls: 无法访问 '/opt/pin*': 没有那个文件或目录
+ls: 无法访问 '/usr/local/pin*': 没有那个文件或目录
+ls: 无法访问 '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home/pin*': 没有那个文件或目录
+ii  pinentry-curses                                  1.2.1-3ubuntu5                                   amd64        curses-based PIN or pass-phrase entry dialog for GnuPG
+ii  pinentry-gnome3                                  1.2.1-3ubuntu5                                   amd64        GNOME 3 PIN or pass-phrase entry dialog for GnuPG
+
+===== docker =====
+Client:
+ Version:           29.1.3
+ API version:       1.52
+ Go version:        go1.24.4
+ Git commit:        29.1.3-0ubuntu3~24.04.2
+ Built:             Wed Apr 29 16:41:06 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server:
+ Engine:
+  Version:          29.1.3
+  API version:      1.52 (minimum version 1.44)
+  Go version:       go1.24.4
+  Git commit:       29.1.3-0ubuntu3~24.04.2
+  Built:            Wed Apr 29 16:41:06 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          2.2.1
+  GitCommit:        
+ runc:
+  Version:          1.3.4-0ubuntu1~24.04.1
+  GitCommit:        
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+Client:
+ Version:    29.1.3
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  compose: Docker Compose (Docker Inc.)
+    Version:  2.40.3+ds1-0ubuntu1~24.04.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+  trust: Manage trust on Docker images (Docker Inc.)
+    Version:  29.1.3
+    Path:     /usr/libexec/docker/cli-plugins/docker-trust
+
+Server:
+ Containers: 4
+  Running: 3
+  Paused: 0
+  Stopped: 1
+ Images: 4
+ Server Version: 29.1.3
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 
+ runc version: 
+ init version: 
+ Security Options:
+  apparmor
+NAME        DESCRIPTION                               DOCKER ENDPOINT               ERROR
+default *   Current DOCKER_HOST based configuration   unix:///var/run/docker.sock   
+active
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-09-01 01:58:00 CST; 1 month 14 days ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 2613 (dockerd)
+      Tasks: 38
+     Memory: 119.7M (peak: 404.2M)
+        CPU: 5min 53.699s
+     CGroup: /system.slice/docker.service
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/probe-env.sh: 行 52: podman: 未找到命令
+
+===== network-reachability =====
+https://dotnet.microsoft.com                       302
+https://dot.net                                    301
+https://builds.dotnet.com                          000CURLFAIL
+https://software.intel.com                         301
+https://www.intel.com                              301
+https://github.com                                 200CURLFAIL
+https://raw.githubusercontent.com                  301
+https://ghcr.io/v2/                                401
+https://registry-1.docker.io/v2/                   000CURLFAIL
+https://pypi.org                                   200
+https://mirrors.tuna.tsinghua.edu.cn               200
+
+===== network-dns =====
+dotnet.microsoft.com                     2620:1ec:bdf::73 s-part-0045.t-0009.t-msedge.net dotnet.microsoft.com dotnetwebsite.azurefd.net firstparty-azurefd-prod.trafficmanager.net shed.dual-low.s-part-0045.t-0009.t-msedge.net 
+builds.dotnet.microsoft.com              2600:1417:4400:36::17c8:e64e a441.dscd.akamai.net builds.dotnet.microsoft.com dotnetcli.trafficmanager.net builds.dotnet.microsoft.com.edgesuite.net 2600:1417:4400:36::17c8:e64b a441.dscd.akamai.net builds.dotnet.microsoft.com dotnetcli.trafficmanager.net builds.dotnet.microsoft.com.edgesuite.net 
+software.intel.com                       2600:140e:3:484::1ea2 e7842.dsca.akamaiedge.net software.intel.com intel11.edgekey.net 2600:140e:3:4b8::1ea2 e7842.dsca.akamaiedge.net software.intel.com intel11.edgekey.net 
+github.com                               20.205.243.166  github.com 
+ghcr.io                                  20.205.243.164  ghcr.io 
+registry-1.docker.io                     2a03:2880:f102:183:face:b00c:0:25de registry-1.docker.io 
+
+===== proxy-env =====
+no proxy env vars
+
+===== disk-and-boundary =====
+文件系统        大小  已用  可用 已用% 挂载点
+/dev/nvme1n1p2  915G  703G  204G   78% /
+docker root (if daemon readable): /home/docker-data
+TMPDIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/tmp
+HOME=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/home

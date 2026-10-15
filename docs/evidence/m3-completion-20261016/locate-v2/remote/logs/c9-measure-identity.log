@@ -1,0 +1,10 @@
+### step=c9-measure-identity
+### date=2026-10-16T02:19:23+08:00
+### cmd=ls -l /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/measure /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/measure; sha256sum /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/measure /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/measure
+### begin-output
+-rwxrwxr-x 1 nss-marker nss-marker 248928 10月 16 02:07 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/measure
+-rwxrwxr-x 1 nss-marker nss-marker 248544 10月 16 02:07 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/measure
+a371ed089e857d92069dbd670afab2f0de546e0042be869bba7c9c5da680a1f7  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/on/measure
+8daaea28ffe97cb71800195e6113245080205f3d044859709834c22d99b4425d  /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/measure
+### end-output
+### exit=0

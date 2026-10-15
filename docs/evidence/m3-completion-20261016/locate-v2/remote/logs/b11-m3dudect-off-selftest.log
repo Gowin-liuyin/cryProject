@@ -1,0 +1,7 @@
+### step=b11-m3dudect-off-selftest
+### date=2026-10-16T02:18:01+08:00
+### cmd=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off --self-test; echo selftest_exit=$?
+### begin-output
+selftest_exit=1
+### end-output
+### exit=0

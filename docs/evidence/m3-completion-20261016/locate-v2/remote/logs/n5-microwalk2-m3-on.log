@@ -1,0 +1,13 @@
+### step=n5-microwalk2-m3-on
+### date=2026-10-16T02:14:52+08:00
+### cmd=cd /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/on && TESTCASE_DIRECTORY=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/testcases TARGET_NAME=target-m3-on WORK_DIR=/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work2-on PIN_PATH='/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/pin/pin-3.28-98749-g6643ecee5-gcc-linux' PINTOOL='/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/PinTracer/obj-intel64/PinTracer.so' dotnet '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/bin/Release/net8.0/Microwalk.dll' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/on/config2.yml -p '/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.Plugins.PinTracer/bin/Release/net8.0'
+### begin-output
+00:00:00 [info] Found 5 testcase files.
+00:00:00 [fail] A general error occurred:
+00:00:00 [fail] Microwalk.FrameworkBase.Exceptions.ConfigurationException: Missing output format.
+                   at Microwalk.Analysis.Modules.InstructionMemoryAccessTraceLeakage.InitAsync(MappingNode moduleOptions) in /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/Analysis/Modules/InstructionMemoryAccessTraceLeakage.cs:line 401
+                   at Microwalk.FrameworkBase.ModuleFactory`1.CreateAsync(String name, ILogger logger, MappingNode moduleOptions, CancellationToken cancellationToken) in /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk.FrameworkBase/ModuleFactory.cs:line 59
+                   at Microwalk.Program.RunAsync(CommandLineOptions commandLineOptions) in /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/src/Microwalk-master/Microwalk/Program.cs:line 272
+                
+### end-output
+### exit=0

@@ -1,0 +1,12 @@
+step=f1-pin-328-download                exit=0
+step=f2-pin-328-file                    exit=0
+step=f3-pin-328-extract                 exit=0
+step=f4-pin-328-list                    exit=0
+step=f5-pin-328-version                 exit=0
+step=f6-pin-328-license                 exit=0
+step=f7-pin-328-inspect-head            exit=0
+step=f8-microwalk-tarball-download      exit=0
+step=f9-microwalk-tarball-file          exit=0
+step=f10-microwalk-tarball-extract      exit=0
+step=f11-microwalk-tarball-list         exit=0
+pin_fix_complete

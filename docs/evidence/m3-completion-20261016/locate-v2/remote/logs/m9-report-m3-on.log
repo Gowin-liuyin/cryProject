@@ -1,0 +1,30 @@
+### step=m9-report-m3-on
+### date=2026-10-16T02:13:15+08:00
+### cmd=find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on -type f | sort | head -40; echo '--- report txt ---'; cat /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/persist/target-m3-on/results/call-stacks.txt 2>/dev/null | head -80; echo '--- report json head ---'; head -c 3000 /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/persist/target-m3-on/results/call-stacks.json 2>/dev/null
+### begin-output
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/persist/target-m3-on/results/call-stacks.json
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/persist/target-m3-on/results/call-stacks.txt
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/persist/target-m3-on/results/call-tree-dump.txt
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/log.txt
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/traces/prefix.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/traces/t0.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/traces/t1.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/traces/t2.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/traces/t3.trace.preprocessed
+/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work-on/work/target-m3-on/traces/t4.trace.preprocessed
+--- report txt ---
+target-m3-on:TraceFunc+1d3 -> target-m3-on:RunTarget+0 ($42328C0BFD39F49C)
+  target-m3-on:RunTarget+d5 -> target-m3-on:_init+220 ($66E1E29E3F4BFEBA)
+    [L] libm3on.so:_init+1c0 (jump)
+      - Number of calls: 1
+      - Tree depth: 2.00 +/- 0.00, min 2, max 2
+      - Mutual information: 0.72 +/- 0.00 bits, min 0.72 bits, max 0.72 bits
+      - Cond. guessing entropy: 2.20 +/- 0.00, min 2.20, max 2.20, score 40.00 +/- 0.00
+      - Min. cond. guessing entropy: 1.00 +/- 0.00, min 1.00, max 1.00, score 100.00 +/- 0.00
+      - Testcase IDs:
+       ─ 0-4 (5 total)
+         ├─ 0 (1 total) (2.32 bits global leakage)
+         └─ 1-4 (4 total) (0.32 bits global leakage)
+--- report json head ---
+{"CallStack":[{"CallStackId":"42328C0BFD39F49C","SourceInstructionImageName":"target-m3-on","SourceInstructionOffset":5702,"SourceInstructionFormatted":"target-m3-on:TraceFunc+1d3","TargetInstructionImageName":"target-m3-on","TargetInstructionOffset":5859,"TargetInstructionFormatted":"target-m3-on:RunTarget+0","LeakageEntries":[],"Children":[{"CallStackId":"66E1E29E3F4BFEBA","SourceInstructionImageName":"target-m3-on","SourceInstructionOffset":6072,"SourceInstructionFormatted":"target-m3-on:RunTarget+d5","TargetInstructionImageName":"target-m3-on","TargetInstructionOffset":4640,"TargetInstructionFormatted":"target-m3-on:_init+220","LeakageEntries":[{"ImageName":"libm3on.so","Offset":8640,"Type":"jump","NumberOfCalls":1,"TreeDepth":{"Mean":2.00,"StandardDeviation":0.00,"Minimum":2,"Maximum":2},"MutualInformation":{"Mean":0.72,"StandardDeviation":0.00,"Minimum":0.72,"Maximum":0.72,},"ConditionalGuessingEntropy":{"Mean":2.20,"StandardDeviation":0.00,"Minimum":2.20,"Maximum":2.20,"Score":40.00,"ScoreStandardDeviation":0.00},"MinimumConditionalGuessingEntropy":{"Mean":1.00,"StandardDeviation":0.00,"Minimum":1.00,"Maximum":1.00,"Score":100.00,"ScoreStandardDeviation":0.00},},],"Children":[]},]},]}### end-output
+### exit=0

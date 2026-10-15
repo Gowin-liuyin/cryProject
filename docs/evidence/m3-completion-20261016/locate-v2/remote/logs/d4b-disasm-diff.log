@@ -1,0 +1,47 @@
+### step=d4b-disasm-diff
+### date=2026-10-16T02:20:14+08:00
+### cmd=diff <(objdump -d --demangle /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on | sed -n '/<baseline_native_poly_frommsg>:/,/^$/p') <(objdump -d --demangle /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off | sed -n '/<baseline_native_poly_frommsg>:/,/^$/p') | head -40; echo disasm_diff_lines=$(diff <(objdump -d --demangle /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-on | sed -n '/<baseline_native_poly_frommsg>:/,/^$/p') <(objdump -d --demangle /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3dudect-off | sed -n '/<baseline_native_poly_frommsg>:/,/^$/p') | wc -l)
+### begin-output
+3,29c3,23
+<     2c62:	48 8d 0d 17 d9 00 00 	lea    0xd917(%rip),%rcx        # 10580 <platform_m3_message_bit_table>
+<     2c69:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+<     2c70:	89 c2                	mov    %eax,%edx
+<     2c72:	c1 ea 03             	shr    $0x3,%edx
+<     2c75:	44 0f b6 04 16       	movzbl (%rsi,%rdx,1),%r8d
+<     2c7a:	41 89 c1             	mov    %eax,%r9d
+<     2c7d:	41 83 e1 06          	and    $0x6,%r9d
+<     2c81:	45 31 d2             	xor    %r10d,%r10d
+<     2c84:	45 0f a3 c8          	bt     %r9d,%r8d
+<     2c88:	41 0f 92 c2          	setb   %r10b
+<     2c8c:	41 c1 e2 06          	shl    $0x6,%r10d
+<     2c90:	45 0f b7 04 0a       	movzwl (%r10,%rcx,1),%r8d
+<     2c95:	66 44 89 04 47       	mov    %r8w,(%rdi,%rax,2)
+<     2c9a:	0f b6 14 16          	movzbl (%rsi,%rdx,1),%edx
+<     2c9e:	44 8d 40 01          	lea    0x1(%rax),%r8d
+<     2ca2:	45 0f b6 c0          	movzbl %r8b,%r8d
+<     2ca6:	41 83 e0 07          	and    $0x7,%r8d
+<     2caa:	45 31 c9             	xor    %r9d,%r9d
+<     2cad:	44 0f a3 c2          	bt     %r8d,%edx
+<     2cb1:	41 0f 92 c1          	setb   %r9b
+<     2cb5:	41 c1 e1 06          	shl    $0x6,%r9d
+<     2cb9:	41 0f b7 14 09       	movzwl (%r9,%rcx,1),%edx
+<     2cbe:	66 89 54 47 02       	mov    %dx,0x2(%rdi,%rax,2)
+<     2cc3:	48 83 c0 02          	add    $0x2,%rax
+<     2cc7:	48 3d 00 01 00 00    	cmp    $0x100,%rax
+<     2ccd:	75 a1                	jne    2c70 <baseline_native_poly_frommsg+0x10>
+<     2ccf:	c3                   	ret
+---
+>     2c62:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+>     2c69:	1f 84 00 00 00 00 00 
+>     2c70:	89 c1                	mov    %eax,%ecx
+>     2c72:	80 e1 07             	and    $0x7,%cl
+>     2c75:	89 c2                	mov    %eax,%edx
+>     2c77:	41 b0 01             	mov    $0x1,%r8b
+>     2c7a:	41 d2 e0             	shl    %cl,%r8b
+>     2c7d:	c1 ea 03             	shr    $0x3,%edx
+>     2c80:	0f b6 0c 16          	movzbl (%rsi,%rdx,1),%ecx
+>     2c84:	41 20 c8             	and    %cl,%r8b
+>     2c87:	41 0f b6 c8          	movzbl %r8b,%ecx
+disasm_diff_lines=50
+### end-output
+### exit=0

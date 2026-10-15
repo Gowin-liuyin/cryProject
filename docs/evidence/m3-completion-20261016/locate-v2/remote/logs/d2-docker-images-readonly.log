@@ -1,0 +1,11 @@
+### step=d2-docker-images-readonly
+### date=2026-10-16T02:11:10+08:00
+### cmd=docker images --digests
+### begin-output
+REPOSITORY                         TAG                        DIGEST                                                                    IMAGE ID       CREATED         SIZE
+prom/node-exporter                 latest                     sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205   e9cff4fc67b1   6 months ago    40.7MB
+ghcr.io/easytier/easytier          v2.4.5                     sha256:30b99a6726c19270288123bf617a1caf1feb1f4dd1e5da6bf7dce4abdab3a3f4   30b99a6726c1   12 months ago   76.6MB
+nvidia/cuda                        12.1.1-devel-ubuntu20.04   sha256:ba22ff76e7fc1cfe5f1977f2af4cd9499037ce6f9db600dfae8a845f37383d62   ba22ff76e7fc   2 years ago     11GB
+nvcr.io/nvidia/k8s/dcgm-exporter   latest                     sha256:a1d913783fd185d78ed8b725334f75adc86eb594afe82961a73aa63c5d0ef423   a1d913783fd1   4 years ago     884MB
+### end-output
+### exit=0

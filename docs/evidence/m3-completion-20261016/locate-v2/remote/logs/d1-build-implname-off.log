@@ -1,0 +1,6 @@
+### step=d1-build-implname-off
+### date=2026-10-16T02:20:14+08:00
+### cmd=clang -O2 -g -std=c11 -DMLK_CONFIG_FILE='"baseline_config.h"' -DPLATFORM_IMPLEMENTATION_NAME='"platform-m3-lut-off"' -DPLATFORM_M3_LUT_LEAK=0 -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3-off-source/mlkem -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/vendor/mlkem-native/mlkem /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/impl_name.c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3/off/libmlkem.a -o /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/impl-name-off
+### begin-output
+### end-output
+### exit=0

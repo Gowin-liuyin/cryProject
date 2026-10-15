@@ -1,0 +1,13 @@
+### step=o1-config3-m3-on
+### date=2026-10-16T02:17:59+08:00
+### cmd=grep -n 'output-format\|results-memory\|module:' /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/on/config3.yml
+### begin-output
+14:  module: load
+19:  module: pin
+35:  module: pin
+46:    - module: control-flow-leakage
+54:    - module: instruction-memory-access-trace-leakage
+56:        output-directory: $$PERSIST_DIR$$/results-memory
+57:        output-format: txt
+### end-output
+### exit=0

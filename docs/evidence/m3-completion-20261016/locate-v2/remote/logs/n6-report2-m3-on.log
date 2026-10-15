@@ -1,0 +1,13 @@
+### step=n6-report2-m3-on
+### date=2026-10-16T02:14:53+08:00
+### cmd=find /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work2-on/persist -type f | sort; echo '--- call-stacks.txt ---'; cat /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work2-on/persist/target-m3-on/results/call-stacks.txt 2>/dev/null | head -100; echo '--- memory results list ---'; ls -la /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work2-on/persist/target-m3-on/results-memory/ 2>/dev/null | head -20; echo '--- memory report head ---'; for f in /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work2-on/persist/target-m3-on/results-memory/*.txt; do echo "== $f"; head -60 "$f"; done 2>/dev/null
+### begin-output
+--- call-stacks.txt ---
+--- memory results list ---
+总计 8
+drwxrwxr-x 2 nss-marker nss-marker 4096 10月 16 02:14 .
+drwxrwxr-x 4 nss-marker nss-marker 4096 10月 16 02:14 ..
+--- memory report head ---
+== /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/microwalk-probe/m3mw/work2-on/persist/target-m3-on/results-memory/*.txt
+### end-output
+### exit=1
