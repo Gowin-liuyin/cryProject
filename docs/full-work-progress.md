@@ -1,5 +1,7 @@
 # 完整作品进度
 
+2026-10-15在 `nss-m` 核对 liboqs 0.10.0 的 clangover 历史对象。Clang 18.1.3、`-Os -fno-vectorize`、portable C `*_ref` 的 `poly_frommsg` 含消息位 `bt`/`jae`（写入 `0x681`）。官方提交 `982c762` 的 `cmov_int16` 只编在副本上，条件跳转不再出现；钉住的 vendor 树未改。种子 `31337` 的 5×1000 解封装试点里，全 0 与全 1 消息均值差 34.411 ns，CPU2 的 min/max 请求没有稳住频率。这不是时序阳性，也不是密钥恢复或 FIPS 203 结论。记录见 [liboqs010-historical-20261015](evidence/liboqs010-historical-20261015/README.md)。R02、R04 不因此关闭。
+
 2026-10-14按用户提供的 Methods 审稿意见完成事实复核和报告修订。当前[根目录 Word](../CACR2026EA16XZ-作品设计报告.docx)已同步摘要、方法、表 4、尝试表及结论；[文字与版本记录](../deliverables/submission/CACR2026EA16XZ/methods-revision-20261014/README.md)和[逐项复核](methods-review-20261014.md)另存。v1–v3 统一按开发历史，v4 仅首会话后在覆盖率 0 停止、主令牌 `not_run`，交替对照未开始。新表计数为 38/38/38/36/40/40；旧原件不改。补明 `not_linear` 不排除漂移、v2/v3 逐次记录缺口、R=2 对应每密文 4 调用、候选分母与插桩边界，纠正审稿关于 34 项全量测试和固定应答的误判。软件实现本轮无新增；实验执行无新增；假设与防护因果未升级；竞赛验收 R02/R04 仍部分。下文“Word 未重新生成”仅描述 2026-10-13 当时状态。
 
 2026-10-13在 `nss-m` 执行另冻的频率保持探测。规则 `v4_frequency_hold_20261014` 不改 0.99 和 `4257000..4343000` kHz，探测时把 boost 写成 0，并把 CPU2 与 CPU18 的 governor、EPP 写成 performance，min/max 仍请求 4300000 kHz。前 3 次 40 ms 覆盖率是 1。第 4 次覆盖率是 0.66671003122281247，读数 4346969 kHz 高于带上沿，探测停止。没有使用确认种子，交替对照没有开始。退出时 32 路策略与 boost 与进入时一致。记录见 [v4-hold-probe-20261014](evidence/v4-hold-probe-20261014/README.md)。这不是 Holm 拒绝或防护因果。确认采集、交替对照、QQ 图、Shapiro-Wilk、会话内自相关，以及单密文混淆、方向反转和防护因果，都保持未闭合。频带不改到能盖住 4346969 kHz。R02、R04 仍不关闭。

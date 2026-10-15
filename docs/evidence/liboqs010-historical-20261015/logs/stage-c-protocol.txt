@@ -1,0 +1,20 @@
+stage=C-pilot
+declared_utc=2026-10-15T09:27:52Z
+purpose=descriptive decapsulation timing of historical liboqs 0.10.0 ref
+seed=31337
+samples_per_category=1000
+categories=valid,bit-flipped,random,message-zero,message-ones
+primary_pair=message-zero,message-ones
+affinity=taskset -c 2
+statistical_test=not_run
+threshold=not_chosen
+key_recovery=not_attempted
+cpu2_before_min_khz=2982259
+cpu2_before_max_khz=5756452
+cpu2_before_governor=powersave
+cpu2_before_epp=balance_performance
+cpu2_before_cur_khz=2982259
+lock_request=cpu2 scaling_min=scaling_max=2982259; other cpus unchanged; global boost unchanged
+cpu2_lock_readback_ok=yes
+cpu2_during_request_min=2982259
+cpu2_during_request_max=2982259

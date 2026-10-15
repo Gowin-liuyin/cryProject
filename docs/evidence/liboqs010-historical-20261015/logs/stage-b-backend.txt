@@ -1,0 +1,18 @@
+--- backend ---
+avx2_objects=0
+#define OQS_VERSION_TEXT "0.10.0"
+/* #undef OQS_DIST_BUILD */
+#define OQS_OPT_TARGET "generic"
+/* #undef OQS_USE_AVX2_INSTRUCTIONS */
+#define OQS_ENABLE_KEM_ml_kem_768_ipd 1
+/* #undef OQS_ENABLE_KEM_ml_kem_768_ipd_avx2 */
+--- poly compile line filtered ---
+flags 
+--- symbols ---
+000000000000015f T pqcrystals_ml_kem_768_ipd_ref_poly_frommsg
+                 U pqcrystals_ml_kem_768_ipd_ref_poly_frommsg
+000000000000015f T pqcrystals_ml_kem_768_ipd_ref_poly_frommsg
+symbol=pqcrystals_ml_kem_768_ipd_ref_poly_frommsg
+--- flags and disassembly ---
+C_DEFINES = 
+C_FLAGS = -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3

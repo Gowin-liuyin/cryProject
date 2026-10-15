@@ -1,0 +1,195 @@
+stage=B
+started_utc=2026-10-15T09:20:19Z
+preset=historical-clangover
+Preset CMake variables:
+
+  A113_ARCHIVED_CASE_ONLY="OFF"
+  BASELINE_ENABLE_LIBOQS010="ON"
+  BASELINE_SANITIZERS="OFF"
+  BUILD_TESTING="ON"
+  CMAKE_BUILD_TYPE="RelWithDebInfo"
+  CMAKE_C_COMPILER="clang"
+  LIBOQS010_C_FLAGS="-Os -fno-vectorize"
+
+-- The C compiler identification is Clang 18.1.3
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.43.0") 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Historical liboqs 0.10.0 (36be57445d8ca53f7095160fde548efe82ace09d) enabled; clangover timing still requires x86_64 Clang 15-18 with -Os/-O1 (see docs/historical-liboqs-0.10.0.md)
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover
+configure_exit=0
+build_started_utc=2026-10-15T09:20:42Z
+targets=historical historical_test_selftest
+[  0%] Creating directories for 'liboqs010_ep'
+Use the repository root or a verified source export with SOURCE_EXPORT.sha256.
+gmake[3]: *** [CMakeFiles/build_identity.dir/build.make:70: CMakeFiles/build_identity] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:1128: CMakeFiles/build_identity.dir/all] Error 2
+gmake[2]: *** Waiting for unfinished jobs....
+[  0%] No download step for 'liboqs010_ep'
+[ 16%] No update step for 'liboqs010_ep'
+[ 16%] No patch step for 'liboqs010_ep'
+[ 16%] Performing configure step for 'liboqs010_ep'
+-- The C compiler identification is Clang 18.1.3
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: /usr/bin/clang
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test CC_SUPPORTS_WA_NOEXECSTACK
+-- Performing Test CC_SUPPORTS_WA_NOEXECSTACK - Success
+-- Performing Test LD_SUPPORTS_WL_Z_NOEXECSTACK
+-- Performing Test LD_SUPPORTS_WL_Z_NOEXECSTACK - Success
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Algorithms filtered for KEM_ml_kem_768_ipd
+-- Looking for getentropy
+-- Looking for getentropy - found
+-- Looking for aligned_alloc
+-- Looking for aligned_alloc - found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for memalign
+-- Looking for memalign - found
+-- Looking for explicit_bzero
+-- Looking for explicit_bzero - found
+-- Looking for memset_s
+-- Looking for memset_s - not found
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build
+[ 33%] Performing build step for 'liboqs010_ep'
+[  5%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o
+[  5%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o
+[  8%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o
+[ 14%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o
+[ 14%] Building C object src/common/sha3/xkcp_low/CMakeFiles/xkcp_low_keccakp_1600times4_serial.dir/KeccakP-1600times4/serial/KeccakP-1600-times4-on1.c.o
+[ 17%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o
+[ 20%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o
+[ 23%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o
+[ 26%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o
+[ 29%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o
+[ 35%] Building C object src/common/sha3/xkcp_low/CMakeFiles/xkcp_low_keccakp_1600_plain64.dir/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c.o
+[ 35%] Building C object src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o
+[ 50%] Building C object src/common/CMakeFiles/internal.dir/aes/aes_c.c.o
+[ 50%] Building C object src/common/CMakeFiles/common.dir/aes/aes_c.c.o
+[ 50%] Building C object src/common/CMakeFiles/common.dir/sha2/sha2.c.o
+[ 50%] Building C object src/common/CMakeFiles/common.dir/sha2/sha2_c.c.o
+[ 50%] Building C object src/common/CMakeFiles/internal.dir/aes/aes.c.o
+[ 64%] Building C object src/common/CMakeFiles/common.dir/sha3/xkcp_sha3.c.o
+[ 64%] Building C object src/common/CMakeFiles/common.dir/sha3/xkcp_sha3x4.c.o
+[ 64%] Building C object src/common/CMakeFiles/common.dir/pqclean_shims/fips202.c.o
+[ 64%] Building C object src/common/CMakeFiles/common.dir/common.c.o
+[ 64%] Building C object src/common/CMakeFiles/common.dir/aes/aes.c.o
+[ 67%] Building C object src/common/CMakeFiles/common.dir/rand/rand.c.o
+[ 70%] Building C object src/common/CMakeFiles/common.dir/pqclean_shims/fips202x4.c.o
+[ 76%] Building C object src/common/CMakeFiles/internal.dir/sha3/xkcp_sha3.c.o
+[ 76%] Building C object src/common/CMakeFiles/internal.dir/sha2/sha2.c.o
+[ 85%] Building C object src/common/CMakeFiles/internal.dir/sha2/sha2_c.c.o
+[ 85%] Building C object src/common/CMakeFiles/internal.dir/sha3/xkcp_sha3x4.c.o
+[ 85%] Building C object src/common/CMakeFiles/internal.dir/common.c.o
+[ 88%] Building C object src/common/CMakeFiles/internal.dir/rand/rand_nist.c.o
+[ 88%] Built target xkcp_low_keccakp_1600times4_serial
+[ 88%] Built target ml_kem_768_ipd_ref
+[ 88%] Built target common
+[ 88%] Built target internal
+[ 88%] Built target xkcp_low_keccakp_1600_plain64
+[ 91%] Building C object src/CMakeFiles/oqs.dir/kem/kem.c.o
+[ 94%] Linking C static library ../lib/liboqs-internal.a
+[ 97%] Building C object src/CMakeFiles/oqs.dir/sig/sig.c.o
+[100%] Linking C static library ../lib/liboqs.a
+[100%] Built target oqs-internal
+[100%] Built target oqs
+[ 50%] Performing install step for 'liboqs010_ep'
+[  5%] Built target xkcp_low_keccakp_1600_plain64
+[  5%] Built target xkcp_low_keccakp_1600times4_serial
+[ 35%] Built target common
+[ 88%] Built target ml_kem_768_ipd_ref
+[ 82%] Built target internal
+[ 97%] Built target oqs
+[100%] Built target oqs-internal
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/cmake/liboqs/liboqsConfig.cmake
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/cmake/liboqs/liboqsConfigVersion.cmake
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/pkgconfig/liboqs.pc
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/liboqs.a
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/cmake/liboqs/liboqsTargets.cmake
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/lib/cmake/liboqs/liboqsTargets-relwithdebinfo.cmake
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/oqs.h
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/common.h
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/rand.h
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/kem.h
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/sig.h
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/kem_ml_kem.h
+-- Installing: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include/oqs/oqsconfig.h
+[ 50%] Completed 'liboqs010_ep'
+[ 50%] Built target liboqs010_ep
+gmake[1]: *** [CMakeFiles/Makefile2:3964: CMakeFiles/historical.dir/rule] Error 2
+gmake: *** [Makefile:1929: historical] Error 2
+build_exit=2
+build_finished_utc=2026-10-15T09:20:44Z
+--- source export ---
+export_started_utc=2026-10-15T09:21:49Z
+480784f1ae747856f226837b8312aa0fb979cd564379c7bedcff5fbdcc2019a1  SOURCE_EXPORT.sha256
+3886 SOURCE_EXPORT.sha256
+source_export_check_exit=0
+vendor/mlkem-native/mlkem/src/verify.c: OK
+vendor/mlkem-native/mlkem/src/verify.h: OK
+vendor/mlkem-native/mlkem/src/zetas.inc: OK
+rebuild_started_utc=2026-10-15T09:21:49Z
+rebuild_exit=0
+[ 50%] Built target liboqs010_ep
+[ 50%] Built target build_identity
+[ 66%] Building C object CMakeFiles/mlkem_historical.dir/src/mlkem_liboqs010.c.o
+[ 83%] Building C object CMakeFiles/mlkem_historical.dir/src/inputs_liboqs010.c.o
+[ 83%] Building C object CMakeFiles/mlkem_historical.dir/src/random.c.o
+[ 83%] Linking C static library historical/libmlkem.a
+[ 83%] Built target mlkem_historical
+[ 83%] Building C object CMakeFiles/historical_measure.dir/src/measure.c.o
+[ 83%] Building C object CMakeFiles/historical_baseline.dir/src/main.c.o
+[100%] Linking C executable historical/baseline
+[100%] Built target historical_baseline
+[100%] Linking C executable historical/measure
+[100%] Built target historical_measure
+[100%] Built target historical
+[ 50%] Built target liboqs010_ep
+[ 50%] Built target build_identity
+[ 83%] Built target mlkem_historical
+[100%] Building C object CMakeFiles/historical_test_selftest.dir/tests/test_historical_selftest.c.o
+[100%] Linking C executable historical/test_selftest
+[100%] Built target historical_test_selftest
+--- tests ---
+test_started_utc=2026-10-15T09:22:21Z
+ctest_exit=0
+selftest_exit=0
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover
+Test project /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover
+    Start 61: historical_selftest
+1/1 Test #61: historical_selftest ..............   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Label Time Summary:
+historical    =   0.00 sec*proc (1 test)
+
+Total Test time (real) =   0.00 sec
+--- selftest ---
+historical: system-random keygen/encaps/decaps roundtrip passed
+ctest_historical=1/1
+baseline_selftest=passed
+backend=pqcrystals_ml_kem_768_ipd_ref
+avx2_kem=undefined
+frequency_control=not_configured
+timing_collection=not_run
+verify_finished_utc=2026-10-15T09:23:05Z
