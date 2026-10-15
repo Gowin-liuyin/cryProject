@@ -1,0 +1,22 @@
+==420335== Memcheck, a memory error detector
+==420335== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==420335== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==420335== Command: /home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/src/r06_syscall_canary
+==420335== Parent PID: 420334
+==420335== 
+==420335== Syscall param write(buf) points to uninitialised byte(s)
+==420335==    at 0x498A844: write (write.c:26)
+==420335==    by 0x109151: main (r06_syscall_canary.c:26)
+==420335==  Address 0x1fff0008f0 is on thread 1's stack
+==420335==  in frame #1, created by main (r06_syscall_canary.c:20)
+==420335== 
+==420335== 
+==420335== HEAP SUMMARY:
+==420335==     in use at exit: 0 bytes in 0 blocks
+==420335==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==420335== 
+==420335== All heap blocks were freed -- no leaks are possible
+==420335== 
+==420335== Use --track-origins=yes to see where uninitialised values come from
+==420335== For lists of detected and suppressed errors, rerun with: -s
+==420335== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

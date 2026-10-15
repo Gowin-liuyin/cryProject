@@ -1,0 +1,35 @@
+=== diff valid.stdout valid.stdout ===
+(no difference)
+=== diff valid.stderr valid.stderr ===
+(no difference)
+=== rc valid=0, valid=0, ===
+=== diff valid.stdout bit-flipped.stdout ===
+(no difference)
+=== diff valid.stderr bit-flipped.stderr ===
+(no difference)
+=== rc valid=0, bit-flipped=0, ===
+=== diff valid.stdout random.stdout ===
+(no difference)
+=== diff valid.stderr random.stderr ===
+(no difference)
+=== rc valid=0, random=0, ===
+=== diff valid.stdout message-zero.stdout ===
+(no difference)
+=== diff valid.stderr message-zero.stderr ===
+(no difference)
+=== rc valid=0, message-zero=0, ===
+=== diff valid.stdout message-ones.stdout ===
+(no difference)
+=== diff valid.stderr message-ones.stderr ===
+(no difference)
+=== rc valid=0, message-ones=0, ===
+=== diff valid.stdout malformed-zero-tail.stdout ===
+(no difference)
+=== diff valid.stderr malformed-zero-tail.stderr ===
+(no difference)
+=== rc valid=0, malformed-zero-tail=0, ===
+=== diff valid.stdout malformed-ff-tail.stdout ===
+(no difference)
+=== diff valid.stderr malformed-ff-tail.stderr ===
+(no difference)
+=== rc valid=0, malformed-ff-tail=0, ===

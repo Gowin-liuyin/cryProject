@@ -1,0 +1,11 @@
+seed=31337 class=valid complete_decapsulation=ok
+seed=31337 class=bit-flipped complete_decapsulation=ok
+seed=31337 class=random complete_decapsulation=ok
+seed=31337 class=message-zero complete_decapsulation=ok
+seed=31337 class=message-ones complete_decapsulation=ok
+seed=424242 class=valid complete_decapsulation=ok
+seed=424242 class=bit-flipped complete_decapsulation=ok
+seed=424242 class=random complete_decapsulation=ok
+seed=424242 class=message-zero complete_decapsulation=ok
+seed=424242 class=message-ones complete_decapsulation=ok
+mode=functional_only pke_secret_bytes=1152 rejection_secret_bytes=32 ciphertext=public

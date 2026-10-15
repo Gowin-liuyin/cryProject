@@ -1,0 +1,2310 @@
+[dynamic] 探针=/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/src/r06_observable_probe
+[dynamic] 重复次数/模式=120，种子=31337，运行包装=''
+[dynamic] valid: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] bit-flipped: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] random: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-zero: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-ones: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-zero-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-ff-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] diff 差异块数=0（0 表示 stdout/stderr 逐字节一致）
+[dynamic] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/diff/matrix.tsv 与 /Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/diff/diff-results.txt
+[window] 摘录：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/window/window-source-excerpt.txt
+[window] 摘录区间内 I/O/日志命中=4（0 表示窗口内无 I/O）
+=== M2 collector 计时窗口 (/Users/yin/code/cryProject/tools/platform_m2/collector.c) ===
+  窗口行范围：471..681（1-based，含两侧 fence）
+  --- 窗口原文 ---
+    471|         "\nwindow=clock_gettime;atomic_signal_fence(memory_order_seq_cst);mlkem_decapsulate("
+    472|         "MLKEM_CIPHERTEXT_BYTES,MLKEM_DECAPSULATION_KEY_BYTES);"
+    473|         "atomic_signal_fence(memory_order_seq_cst);clock_gettime"
+    474|         "\norder=balanced_fisher_yates_shake256_tag4\n"
+    475|         "window_scope=one_complete_mlkem_decapsulate\n"
+    476|         "input_generation_window=outside\nresult_consumption_window=outside\n"
+    477|         "io_window=outside\noutput_buffer_bytes=%zu\n"
+    478|         "chosen_message_classes=message-zero,message-ones\n"
+    479|         "implicit_rejection_classes=malformed-zero-tail,malformed-ff-tail\n"
+    480|         "malformed_tail_bytes=%u\n",
+    481|         resolution_nanoseconds,
+    482|         row_count * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    483|         (unsigned)M2_COLLECTOR_TAIL_BYTES);
+    484|     meta_printf(meta_file,
+    485|         &operation_status,
+    486|         "public_key_path=%s\npublic_key_bytes=%u\npublic_key_sha3_256=",
+    487|         options->public_key_path,
+    488|         (unsigned)MLKEM_ENCAPSULATION_KEY_BYTES);
+    489|     write_digest_hex(meta_file, &operation_status, public_key_digest);
+    490|     meta_printf(meta_file,
+    491|         &operation_status,
+    492|         "\nsecret_key_path=%s\nsecret_key_bytes=%u\nsecret_key_sha3_256=",
+    493|         options->secret_key_path,
+    494|         (unsigned)MLKEM_DECAPSULATION_KEY_BYTES);
+    495|     write_digest_hex(meta_file, &operation_status, secret_key_digest);
+    496|     meta_printf(meta_file, &operation_status, "\ninput_sequence_digest_algorithm=SHA3-256\n"
+    497|                                               "input_sequence_digest=");
+    498|     write_digest_hex(meta_file, &operation_status, input_digest);
+    499|     meta_printf(meta_file, &operation_status, "\nexecutable_sha3_256=");
+    500|     write_digest_hex(meta_file, &operation_status, executable_digest);
+    501|     meta_printf(meta_file,
+    502|         &operation_status,
+    503|         "\nzero_elapsed_count=%" PRIu64 "\nminimum_elapsed_nanoseconds=%" PRIu64
+    504|         "\nmaximum_elapsed_nanoseconds=%" PRIu64 "\nfailed_decapsulation_count=%" PRIu64
+    505|         "\nchosen_message_accept_mismatch_count=%" PRIu64 "\n",
+    506|         zero_elapsed_count,
+    507|         minimum_elapsed_nanoseconds,
+    508|         maximum_elapsed_nanoseconds,
+    509|         failed_decapsulation_count,
+    510|         accept_mismatch_count);
+    511|     meta_printf(meta_file,
+    512|         &operation_status,
+    513|         "csv_path=%s\ncpu_affinity=not_pinned\nfrequency_control=not_configured\n"
+    514|         "os=%s %s %s\ncpu_model=%s\nwall_clock_unix_seconds=%jd\n",
+    515|         options->raw_path,
+    516|         machine_information.sysname,
+    517|         machine_information.release,
+    518|         machine_information.machine,
+    519|         cpu_model,
+    520|         (intmax_t)wall_clock_seconds);
+    521|     meta_printf(meta_file,
+    522|         &operation_status,
+    523|         "run_status=%s\n",
+    524|         (operation_status == 0 && failed_decapsulation_count == 0 && accept_mismatch_count == 0)
+    525|             ? "complete"
+    526|             : "failed");
+    527|     if (fflush(csv_file) != 0) {
+    528|         operation_status = 1;
+    529|     }
+    530|     if (fclose(csv_file) != 0) {
+    531|         operation_status = 1;
+    532|     }
+    533|     if (fclose(meta_file) != 0) {
+    534|         operation_status = 1;
+    535|     }
+    536|     return operation_status;
+    537| }
+    538| 
+    539| int main(int argument_count, char **argument_values)
+    540| {
+    541|     struct collector_options options;
+    542|     uint8_t *public_key = NULL;
+    543|     uint8_t *secret_key = NULL;
+    544|     uint8_t *class_ciphertexts = NULL;
+    545|     uint8_t *ordered_ciphertexts = NULL;
+    546|     enum m2_collector_class *row_classes = NULL;
+    547|     uint8_t *row_secrets = NULL;
+    548|     uint64_t *elapsed_nanoseconds = NULL;
+    549|     uint8_t expected_secrets[2][MLKEM_SHARED_SECRET_BYTES] = {{0}};
+    550|     uint8_t public_key_digest[32];
+    551|     uint8_t secret_key_digest[32];
+    552|     uint8_t input_digest[32];
+    553|     uint8_t executable_digest[32];
+    554|     uint8_t shared_secret[MLKEM_SHARED_SECRET_BYTES];
+    555|     uint64_t resolution_nanoseconds = 0;
+    556|     uint64_t zero_elapsed_count = 0;
+    557|     uint64_t minimum_elapsed_nanoseconds = UINT64_MAX;
+    558|     uint64_t maximum_elapsed_nanoseconds = 0;
+    559|     uint64_t failed_decapsulation_count = 0;
+    560|     uint64_t accept_mismatch_count = 0;
+    561|     uint64_t warmup_attempted_calls = 0;
+    562|     uint64_t warmup_completed_calls = 0;
+    563|     size_t row_count = 0;
+    564|     int operation_status = 1;
+    565|     if (argument_count == 2 &&
+    566|         (strcmp(argument_values[1], "--help") == 0 || strcmp(argument_values[1], "-h") == 0)) {
+    567|         print_usage(stdout);
+    568|         return 0;
+    569|     }
+    570|     if (argument_count == 1) {
+    571|         print_usage(stderr);
+    572|         return 2;
+    573|     }
+    574|     if (parse_options(argument_count, argument_values, &options) != 0) {
+    575|         fputs("invalid arguments\n", stderr);
+    576|         print_usage(stderr);
+    577|         return 2;
+    578|     }
+    579|     {
+    580|         struct timespec clock_resolution;
+    581|         if (clock_getres(CLOCK_MONOTONIC, &clock_resolution) != 0 || clock_resolution.tv_sec < 0 ||
+    582|             clock_resolution.tv_nsec < 0) {
+    583|             fputs("clock resolution check failed\n", stderr);
+    584|             return 1;
+    585|         }
+    586|         resolution_nanoseconds = (uint64_t)clock_resolution.tv_sec * UINT64_C(1000000000) +
+    587|                                  (uint64_t)clock_resolution.tv_nsec;
+    588|         if (resolution_nanoseconds == 0) {
+    589|             fputs("clock resolution is zero\n", stderr);
+    590|             return 1;
+    591|         }
+    592|     }
+    593|     row_count = options.class_count * (size_t)options.samples_per_class;
+    594|     public_key = malloc(MLKEM_ENCAPSULATION_KEY_BYTES);
+    595|     secret_key = malloc(MLKEM_DECAPSULATION_KEY_BYTES);
+    596|     class_ciphertexts = malloc((size_t)M2_COLLECTOR_CLASS_COUNT * MLKEM_CIPHERTEXT_BYTES);
+    597|     ordered_ciphertexts = malloc(row_count * (size_t)MLKEM_CIPHERTEXT_BYTES);
+    598|     row_secrets = malloc(row_count * (size_t)MLKEM_SHARED_SECRET_BYTES);
+    599|     row_classes = malloc(row_count * sizeof(*row_classes));
+    600|     elapsed_nanoseconds = malloc(row_count * sizeof(*elapsed_nanoseconds));
+    601|     if (public_key == NULL || secret_key == NULL || class_ciphertexts == NULL ||
+    602|         ordered_ciphertexts == NULL || row_secrets == NULL || row_classes == NULL ||
+    603|         elapsed_nanoseconds == NULL) {
+    604|         fputs("allocation failed\n", stderr);
+    605|         goto cleanup;
+    606|     }
+    607|     if (read_fixed_file(options.public_key_path, public_key, MLKEM_ENCAPSULATION_KEY_BYTES) != 0) {
+    608|         fputs("public key file must hold exactly MLKEM_ENCAPSULATION_KEY_BYTES bytes\n", stderr);
+    609|         goto cleanup;
+    610|     }
+    611|     if (read_fixed_file(options.secret_key_path, secret_key, MLKEM_DECAPSULATION_KEY_BYTES) != 0) {
+    612|         fputs("secret key file must hold exactly MLKEM_DECAPSULATION_KEY_BYTES bytes\n", stderr);
+    613|         goto cleanup;
+    614|     }
+    615|     platform_m2_sha3_256(public_key_digest, public_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+    616|     platform_m2_sha3_256(secret_key_digest, secret_key, MLKEM_DECAPSULATION_KEY_BYTES);
+    617|     for (size_t class_slot = 0; class_slot < options.class_count; ++class_slot) {
+    618|         enum m2_collector_class class_index = options.class_list[class_slot];
+    619|         uint8_t *class_ciphertext =
+    620|             class_ciphertexts + (size_t)class_index * MLKEM_CIPHERTEXT_BYTES;
+    621|         uint8_t *expected_secret = NULL;
+    622|         if (class_index == M2_COLLECTOR_MESSAGE_ZERO) {
+    623|             expected_secret = expected_secrets[0];
+    624|         } else if (class_index == M2_COLLECTOR_MESSAGE_ONES) {
+    625|             expected_secret = expected_secrets[1];
+    626|         }
+    627|         if (m2_collector_build_ciphertext(class_index, public_key, class_ciphertext, expected_secret) !=
+    628|             0) {
+    629|             fputs("ciphertext construction failed\n", stderr);
+    630|             goto cleanup;
+    631|         }
+    632|     }
+    633|     if (m2_collector_build_schedule(options.class_list,
+    634|             options.class_count,
+    635|             options.samples_per_class,
+    636|             options.test_seed,
+    637|             row_classes) != 0) {
+    638|         fputs("schedule construction failed\n", stderr);
+    639|         goto cleanup;
+    640|     }
+    641|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+    642|         memcpy(ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    643|             class_ciphertexts + (size_t)row_classes[row_index] * MLKEM_CIPHERTEXT_BYTES,
+    644|             MLKEM_CIPHERTEXT_BYTES);
+    645|     }
+    646|     if (m2_collector_digest_ciphertexts(ordered_ciphertexts, row_count, input_digest) != 0 ||
+    647|         hash_running_executable(executable_digest) != 0) {
+    648|         fputs("input/executable digest failed\n", stderr);
+    649|         goto cleanup;
+    650|     }
+    651|     for (uint64_t warmup_index = 0; warmup_index < options.warmup_count; ++warmup_index) {
+    652|         size_t selected_row = (size_t)(warmup_index % (uint64_t)row_count);
+    653|         warmup_attempted_calls += 1U;
+    654|         if (mlkem_decapsulate(shared_secret,
+    655|                 sizeof(shared_secret),
+    656|                 ordered_ciphertexts + selected_row * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    657|                 MLKEM_CIPHERTEXT_BYTES,
+    658|                 secret_key,
+    659|                 MLKEM_DECAPSULATION_KEY_BYTES) != 0) {
+    660|             fputs("warmup decapsulation failed\n", stderr);
+    661|             goto cleanup;
+    662|         }
+    663|         warmup_completed_calls += 1U;
+    664|         result_sink ^= shared_secret[0];
+    665|     }
+    666|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+    667|         uint64_t start_nanoseconds;
+    668|         uint64_t end_nanoseconds;
+    669|         unsigned decapsulation_status;
+    670|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+    671|             fputs("clock read failed\n", stderr);
+    672|             goto cleanup;
+    673|         }
+    674|         atomic_signal_fence(memory_order_seq_cst);
+    675|         decapsulation_status = (unsigned)mlkem_decapsulate(shared_secret,
+    676|             sizeof(shared_secret),
+    677|             ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    678|             MLKEM_CIPHERTEXT_BYTES,
+    679|             secret_key,
+    680|             MLKEM_DECAPSULATION_KEY_BYTES);
+    681|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内 I/O/日志/分配/内存调用：fclose,fflush,fputs,malloc,memcpy
+  窗口外 I/O 相关行数：42（证明 I/O 在窗口之外执行）
+
+=== M5 reference measure 计时窗口 (/Users/yin/code/cryProject/src/measure.c) ===
+  窗口行范围：173..760（1-based，含两侧 fence）
+  --- 窗口原文 ---
+    173|         atomic_signal_fence(memory_order_seq_cst);
+    174|         atomic_signal_fence(memory_order_seq_cst);
+    175|         if (read_monotonic_nanoseconds(&end_nanoseconds) != 0 ||
+    176|             end_nanoseconds < start_nanoseconds) {
+    177|             return 1;
+    178|         }
+    179|         empty_windows_nanoseconds[window_index] = end_nanoseconds - start_nanoseconds;
+    180|     }
+    181| #endif
+    182|     return has_clock_progress ? 0 : 1;
+    183| }
+    184| 
+    185| #ifdef BASELINE_ORDINARY_WORKLOAD
+    186| static int hash_ordered_inputs(const struct measurement_sample *samples,
+    187|     size_t sample_count,
+    188|     const uint8_t encapsulation_key[MLKEM_ENCAPSULATION_KEY_BYTES])
+    189| {
+    190|     static const uint8_t stream_header[] = "ordinary_input_stream_v1:ML-KEM-768";
+    191|     size_t header_bytes = sizeof(stream_header) - 1u;
+    192|     size_t input_byte_count = header_bytes + MLKEM_ENCAPSULATION_KEY_BYTES + 8u +
+    193|         sample_count * (1u + MLKEM_CIPHERTEXT_BYTES);
+    194|     uint8_t *input_bytes = malloc(input_byte_count);
+    195|     if (input_bytes == NULL) {
+    196|         return 1;
+    197|     }
+    198|     memcpy(input_bytes, stream_header, header_bytes);
+    199|     memcpy(input_bytes + header_bytes, encapsulation_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+    200|     size_t write_offset = header_bytes + MLKEM_ENCAPSULATION_KEY_BYTES;
+    201|     for (unsigned byte_index = 0; byte_index < 8u; ++byte_index) {
+    202|         input_bytes[write_offset++] = (uint8_t)((uint64_t)sample_count >> (8u * byte_index));
+    203|     }
+    204|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+    205|         input_bytes[write_offset++] = (uint8_t)samples[sample_index].category;
+    206|         memcpy(input_bytes + write_offset,
+    207|             samples[sample_index].ciphertext,
+    208|             MLKEM_CIPHERTEXT_BYTES);
+    209|         write_offset += MLKEM_CIPHERTEXT_BYTES;
+    210|     }
+    211|     measure_sha3_256(accounting.ordered_input_digest, input_bytes, input_byte_count);
+    212|     free(input_bytes);
+    213|     return 0;
+    214| }
+    215| 
+    216| static int finish_cost_record(FILE *cost_file, int operation_status)
+    217| {
+    218|     uint64_t finish_nanoseconds;
+    219|     if (read_monotonic_nanoseconds(&finish_nanoseconds) != 0 ||
+    220|         finish_nanoseconds < accounting.start_nanoseconds) {
+    221|         (void)fclose(cost_file);
+    222|         return 1;
+    223|     }
+    224|     if (fprintf(cost_file,
+    225|             "final_state=%s\nstart_ns=%" PRIu64 "\npreparation_end_ns=%" PRIu64
+    226|             "\nwarmup_end_ns=%" PRIu64 "\ncollection_end_ns=%" PRIu64 "\nfinish_ns=%" PRIu64
+    227|             "\nchild_total_wall_ns=%" PRIu64 "\nwarmup_attempted_calls=%" PRIu64
+    228|             "\nwarmup_completed_calls=%" PRIu64 "\nformal_attempted_calls=%" PRIu64
+    229|             "\nformal_completed_calls=%" PRIu64 "\noutputs_consumed=%" PRIu64
+    230|             "\ncost_file_final_write=outside_child_total_use_parent_wall\n",
+    231|             operation_status == 0 ? "complete" : "failed",
+    232|             accounting.start_nanoseconds,
+    233|             accounting.preparation_end_nanoseconds,
+    234|             accounting.warmup_end_nanoseconds,
+    235|             accounting.collection_end_nanoseconds,
+    236|             finish_nanoseconds,
+    237|             finish_nanoseconds - accounting.start_nanoseconds,
+    238|             accounting.warmup_attempted_calls,
+    239|             accounting.warmup_completed_calls,
+    240|             accounting.formal_attempted_calls,
+    241|             accounting.formal_completed_calls,
+    242|             accounting.outputs_consumed) < 0) {
+    243|         operation_status = 1;
+    244|     }
+    245|     if (fclose(cost_file) != 0) {
+    246|         operation_status = 1;
+    247|     }
+    248|     return operation_status;
+    249| }
+    250| 
+    251| static int save_workload_identity(FILE *metadata_file, size_t sample_count)
+    252| {
+    253|     if (fprintf(metadata_file,
+    254|             "paired_metadata_version=paired_workload_v1\nmethod=" MEASUREMENT_METHOD
+    255|             "\nbatch_size=%zu\n"
+    256|             "parameter_set=ML-KEM-768\ninput_rule=ordinary_input_stream_v1\n"
+    257|             "upstream_commit=b3ba7b32773e657dd37f6f87bce82528459ad8a4\n"
+    258|             "valid_count=%zu\nbit_flipped_count=%zu\nrandom_count=%zu\n"
+    259|             "formal_attempted_calls=%" PRIu64 "\nformal_completed_calls=%" PRIu64
+    260|             "\nwarmup_attempted_calls=%" PRIu64 "\nwarmup_completed_calls=%" PRIu64
+    261|             "\noutputs_consumed=%" PRIu64 "\nordered_input_digest_algorithm=SHA3-256\n"
+    262|             "ordered_input_digest=",
+    263|             measurement_batch_size,
+    264|             sample_count / 3u,
+    265|             sample_count / 3u,
+    266|             sample_count / 3u,
+    267|             accounting.formal_attempted_calls,
+    268|             accounting.formal_completed_calls,
+    269|             accounting.warmup_attempted_calls,
+    270|             accounting.warmup_completed_calls,
+    271|             accounting.outputs_consumed) < 0) {
+    272|         return 1;
+    273|     }
+    274|     for (size_t byte_index = 0; byte_index < 32u; ++byte_index) {
+    275|         if (fprintf(metadata_file, "%02x", accounting.ordered_input_digest[byte_index]) < 0) {
+    276|             return 1;
+    277|         }
+    278|     }
+    279|     return fputc('\n', metadata_file) == EOF;
+    280| }
+    281| 
+    282| static int save_timer_diagnostics(FILE *metadata_file)
+    283| {
+    284|     uint64_t minimum_positive_step_nanoseconds = UINT64_MAX;
+    285|     uint64_t maximum_step_nanoseconds = 0;
+    286|     size_t zero_step_count = 0;
+    287|     uint64_t empty_minimum_nanoseconds = UINT64_MAX;
+    288|     uint64_t empty_maximum_nanoseconds = 0;
+    289|     size_t empty_zero_count = 0;
+    290|     long double empty_total_nanoseconds = 0.0L;
+    291|     for (size_t step_index = 0;
+    292|         step_index < sizeof(clock_read_steps_nanoseconds) / sizeof(clock_read_steps_nanoseconds[0]);
+    293|         ++step_index) {
+    294|         uint64_t step_nanoseconds = clock_read_steps_nanoseconds[step_index];
+    295|         if (step_nanoseconds == 0) {
+    296|             ++zero_step_count;
+    297|         } else if (step_nanoseconds < minimum_positive_step_nanoseconds) {
+    298|             minimum_positive_step_nanoseconds = step_nanoseconds;
+    299|         }
+    300|         if (step_nanoseconds > maximum_step_nanoseconds) {
+    301|             maximum_step_nanoseconds = step_nanoseconds;
+    302|         }
+    303|         if (fprintf(metadata_file,
+    304|                 "clock_read_step=%zu elapsed_ns=%" PRIu64 "\n",
+    305|                 step_index,
+    306|                 step_nanoseconds) < 0) {
+    307|             return 1;
+    308|         }
+    309|     }
+    310|     for (size_t window_index = 0; window_index < EMPTY_WINDOW_COUNT; ++window_index) {
+    311|         uint64_t duration_nanoseconds = empty_windows_nanoseconds[window_index];
+    312|         empty_total_nanoseconds += (long double)duration_nanoseconds;
+    313|         if (duration_nanoseconds == 0) {
+    314|             ++empty_zero_count;
+    315|         }
+    316|         if (duration_nanoseconds < empty_minimum_nanoseconds) {
+    317|             empty_minimum_nanoseconds = duration_nanoseconds;
+    318|         }
+    319|         if (duration_nanoseconds > empty_maximum_nanoseconds) {
+    320|             empty_maximum_nanoseconds = duration_nanoseconds;
+    321|         }
+    322|         if (fprintf(metadata_file,
+    323|                 "empty_window=%zu elapsed_ns=%" PRIu64 "\n",
+    324|                 window_index,
+    325|                 duration_nanoseconds) < 0) {
+    326|             return 1;
+    327|         }
+    328|     }
+    329|     return fprintf(metadata_file,
+    330|                "clock_monotonicity=passed\nclock_read_count=10001\nclock_zero_step_count=%zu\n"
+    331|                "clock_minimum_positive_step_ns=%" PRIu64 "\nclock_maximum_step_ns=%" PRIu64
+    332|                "\nempty_window_count=%u\nempty_window_zero_count=%zu\nempty_window_mean_ns=%.6Lf\n"
+    333|                "empty_window_min_ns=%" PRIu64 "\nempty_window_max_ns=%" PRIu64 "\n"
+    334|                "overhead_subtraction=none\n",
+    335|                zero_step_count,
+    336|                minimum_positive_step_nanoseconds,
+    337|                maximum_step_nanoseconds,
+    338|                EMPTY_WINDOW_COUNT,
+    339|                empty_zero_count,
+    340|                empty_total_nanoseconds / (long double)EMPTY_WINDOW_COUNT,
+    341|                empty_minimum_nanoseconds,
+    342|                empty_maximum_nanoseconds) < 0;
+    343| }
+    344| #endif
+    345| 
+    346| static uint64_t draw_order_value(uint64_t test_seed, uint64_t *draw_index, uint64_t upper_bound)
+    347| {
+    348|     uint64_t random_value;
+    349|     uint64_t rejection_threshold = (UINT64_C(0) - upper_bound) % upper_bound;
+    350|     do {
+    351|         uint8_t random_bytes[8];
+    352|         expand_test_seed(random_bytes, sizeof(random_bytes), test_seed, (*draw_index)++, 4);
+    353|         random_value = 0;
+    354|         for (unsigned byte_index = 0; byte_index < 8u; ++byte_index) {
+    355|             random_value |= (uint64_t)random_bytes[byte_index] << (8u * byte_index);
+    356|         }
+    357|     } while (random_value < rejection_threshold);
+    358|     return random_value % upper_bound;
+    359| }
+    360| 
+    361| static int hash_running_executable(uint8_t executable_digest[32])
+    362| {
+    363|     char executable_path[4096];
+    364|     FILE *executable_file;
+    365|     struct stat file_status;
+    366|     uint8_t *executable_bytes;
+    367|     size_t executable_byte_count;
+    368|     int operation_status = 0;
+    369| #ifdef __APPLE__
+    370|     uint32_t executable_path_capacity_bytes = (uint32_t)sizeof(executable_path);
+    371|     if (_NSGetExecutablePath(executable_path, &executable_path_capacity_bytes) != 0) {
+    372|         return 1;
+    373|     }
+    374| #else
+    375|     ssize_t path_byte_count =
+    376|         readlink("/proc/self/exe", executable_path, sizeof(executable_path) - 1u);
+    377|     if (path_byte_count < 0 || (size_t)path_byte_count >= sizeof(executable_path) - 1u) {
+    378|         return 1;
+    379|     }
+    380|     executable_path[path_byte_count] = '\0';
+    381| #endif
+    382|     executable_file = fopen(executable_path, "rb");
+    383|     if (executable_file == NULL) {
+    384|         return 1;
+    385|     }
+    386|     if (fstat(fileno(executable_file), &file_status) != 0 || file_status.st_size <= 0 ||
+    387|         file_status.st_size > 67108864) {
+    388|         (void)fclose(executable_file);
+    389|         return 1;
+    390|     }
+    391|     executable_byte_count = (size_t)file_status.st_size;
+    392|     executable_bytes = malloc(executable_byte_count);
+    393|     if (executable_bytes == NULL) {
+    394|         (void)fclose(executable_file);
+    395|         return 1;
+    396|     }
+    397|     if (fread(executable_bytes, 1, executable_byte_count, executable_file) !=
+    398|             executable_byte_count ||
+    399|         fgetc(executable_file) != EOF || ferror(executable_file)) {
+    400|         operation_status = 1;
+    401|     }
+    402|     if (fclose(executable_file) != 0) {
+    403|         operation_status = 1;
+    404|     }
+    405|     if (operation_status == 0) {
+    406|         measure_sha3_256(executable_digest, executable_bytes, executable_byte_count);
+    407|     }
+    408|     free(executable_bytes);
+    409|     return operation_status;
+    410| }
+    411| 
+    412| static int save_measurements(const char *csv_path,
+    413|     const char *metadata_path,
+    414|     const char *run_id,
+    415|     uint64_t test_seed,
+    416|     const struct measurement_sample *samples,
+    417|     size_t sample_count,
+    418|     uint64_t resolution_nanoseconds,
+    419|     const uint8_t executable_digest[32])
+    420| {
+    421|     struct utsname machine_information;
+    422|     char cpu_model[256];
+    423|     FILE *csv_file;
+    424|     FILE *metadata_file;
+    425|     int operation_status = 0;
+    426|     time_t wall_clock_seconds = time(NULL);
+    427|     if (uname(&machine_information) != 0 || wall_clock_seconds == (time_t)-1) {
+    428|         return 1;
+    429|     }
+    430|     read_cpu_model(cpu_model, sizeof(cpu_model));
+    431|     csv_file = fopen(csv_path, "wx");
+    432|     if (csv_file == NULL) {
+    433|         return 1;
+    434|     }
+    435|     metadata_file = fopen(metadata_path, "wx");
+    436|     if (metadata_file == NULL) {
+    437|         (void)fclose(csv_file);
+    438|         (void)remove(csv_path);
+    439|         return 1;
+    440|     }
+    441| #ifdef BASELINE_BATCH_WORKLOAD
+    442|     (void)samples;
+    443|     size_t window_count = (sample_count + measurement_batch_size - 1u) / measurement_batch_size;
+    444|     if (fputs("run_id,block_id,method,window_index,input_start,input_end,call_count,valid_count,"
+    445|               "bit_flipped_count,random_count,elapsed_nanoseconds,time_unit,status\n",
+    446|             csv_file) == EOF) {
+    447|         operation_status = 1;
+    448|     }
+    449|     for (size_t window_index = 0; window_index < window_count; ++window_index) {
+    450|         const struct batch_window *window = &batch_windows[window_index];
+    451|         if (fprintf(csv_file,
+    452|                 "%s,%s,candidate,%zu,%zu,%zu,%zu,%zu,%zu,%zu,%" PRIu64 ",ns,complete\n",
+    453|                 run_id,
+    454|                 run_id,
+    455|                 window_index,
+    456|                 window->first_input_index,
+    457|                 window->first_input_index + window->call_count,
+    458|                 window->call_count,
+    459|                 window->category_counts[0],
+    460|                 window->category_counts[1],
+    461|                 window->category_counts[2],
+    462|                 window->total_nanoseconds) < 0) {
+    463|             operation_status = 1;
+    464|         }
+    465|     }
+    466| #else
+    467|     if (fprintf(csv_file,
+    468|             "run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit\n") <
+    469|         0) {
+    470|         operation_status = 1;
+    471|     }
+    472|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+    473|         if (fprintf(csv_file,
+    474|                 "%s,%s,%s,%zu,%" PRIu64 ",ns\n",
+    475|                 run_id,
+    476|                 mlkem_implementation_name(),
+    477|                 input_category_name(samples[sample_index].category),
+    478|                 sample_index,
+    479|                 samples[sample_index].elapsed_nanoseconds) < 0) {
+    480|             operation_status = 1;
+    481|         }
+    482|     }
+    483| #endif
+    484|     if (fprintf(metadata_file,
+    485|             "run_id=%s\nimplementation=%s\ntest_seed=%" PRIu64 "\nsample_count=%zu\n"
+    486|             "clock=CLOCK_MONOTONIC\ntime_unit=ns\nclock_resolution_ns=%" PRIu64 "\n"
+    487|             "warmup_decapsulations=100\norder=balanced_fisher_yates_shake256_tag4\n"
+    488|             "wall_clock_unix_seconds=%jd\nos=%s %s\narchitecture=%s\ncpu_model=%s\n"
+    489|             "cpu_affinity=not_pinned\nfrequency_control=not_configured\n"
+    490|             "executable_digest_algorithm=SHA3-256\nexecutable_digest=",
+    491|             run_id,
+    492|             mlkem_implementation_name(),
+    493|             test_seed,
+    494|             sample_count,
+    495|             resolution_nanoseconds,
+    496|             (intmax_t)wall_clock_seconds,
+    497|             machine_information.sysname,
+    498|             machine_information.release,
+    499|             machine_information.machine,
+    500|             cpu_model) < 0) {
+    501|         operation_status = 1;
+    502|     }
+    503|     for (size_t byte_index = 0; byte_index < 32u; ++byte_index) {
+    504|         if (fprintf(metadata_file, "%02x", executable_digest[byte_index]) < 0) {
+    505|             operation_status = 1;
+    506|         }
+    507|     }
+    508|     if (fputc('\n', metadata_file) == EOF) {
+    509|         operation_status = 1;
+    510|     }
+    511|     for (size_t line_index = 0;
+    512|         line_index < sizeof(build_identity_lines) / sizeof(build_identity_lines[0]);
+    513|         ++line_index) {
+    514|         if (fputs(build_identity_lines[line_index], metadata_file) == EOF) {
+    515|             operation_status = 1;
+    516|         }
+    517|     }
+    518| #ifdef BASELINE_ORDINARY_WORKLOAD
+    519|     if (fputs("measurement_format=" MEASUREMENT_FORMAT "\n"
+    520|               "workload=valid:bit-flipped:random=1:1:1\n"
+    521|               "input_index_rule=category_local_index_shared_across_categories\n"
+    522|               "virtualization=not_verified_by_program_see_environment_log\n",
+    523|             metadata_file) == EOF ||
+    524|         save_timer_diagnostics(metadata_file) != 0 ||
+    525|         save_workload_identity(metadata_file, sample_count) != 0) {
+    526|         operation_status = 1;
+    527|     }
+    528|     if (fflush(metadata_file) != 0) {
+    529|         operation_status = 1;
+    530|     }
+    531| #endif
+    532|     if (fclose(csv_file) != 0) {
+    533|         operation_status = 1;
+    534|     }
+    535| #ifdef BASELINE_ORDINARY_WORKLOAD
+    536|     if (fprintf(metadata_file, "run_status=%s\n", operation_status == 0 ? "complete" : "failed") <
+    537|         0) {
+    538|         operation_status = 1;
+    539|     }
+    540| #endif
+    541|     if (fclose(metadata_file) != 0) {
+    542|         operation_status = 1;
+    543|     }
+    544|     return operation_status;
+    545| }
+    546| 
+    547| int main(int argument_count, char **argument_values)
+    548| {
+    549|     uint64_t test_seed;
+    550|     uint64_t samples_per_category;
+    551|     uint64_t resolution_nanoseconds;
+    552|     uint64_t order_draw_index = 0;
+    553|     uint8_t encapsulation_key[MLKEM_ENCAPSULATION_KEY_BYTES];
+    554|     uint8_t decapsulation_key[MLKEM_DECAPSULATION_KEY_BYTES];
+    555|     uint8_t shared_secret[MLKEM_SHARED_SECRET_BYTES];
+    556|     uint8_t executable_digest[32];
+    557|     struct measurement_sample *samples = NULL;
+    558|     size_t sample_count;
+    559|     int operation_status = 1;
+    560| #ifdef BASELINE_BATCH_WORKLOAD
+    561|     uint8_t batch_shared_secrets[MAXIMUM_BATCH_CALLS][MLKEM_SHARED_SECRET_BYTES] = {{0}};
+    562| #endif
+    563| #ifdef BASELINE_ORDINARY_WORKLOAD
+    564|     FILE *cost_file = NULL;
+    565|     char cost_path[4096];
+    566| #endif
+    567|     if (argument_count != MEASUREMENT_ARGUMENT_COUNT ||
+    568|         parse_unsigned_integer(argument_values[2], &test_seed) != 0 ||
+    569|         parse_unsigned_integer(argument_values[3], &samples_per_category) != 0 ||
+    570|         samples_per_category == 0 || samples_per_category > 20000u) {
+    571| #ifdef BASELINE_BATCH_WORKLOAD
+    572|         fputs("Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE\n",
+    573|             stderr);
+    574| #else
+    575|         fputs(
+    576|             "Usage: measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE (count 1..20000)\n",
+    577|             stderr);
+    578| #endif
+    579|         return 2;
+    580|     }
+    581| #ifdef BASELINE_BATCH_WORKLOAD
+    582|     uint64_t requested_batch_size;
+    583|     if (parse_unsigned_integer(argument_values[4], &requested_batch_size) != 0 ||
+    584|         (requested_batch_size != 1u && requested_batch_size != 4u && requested_batch_size != 16u)) {
+    585|         fputs("batch size must be 1, 4 or 16\n", stderr);
+    586|         return 2;
+    587|     }
+    588|     measurement_batch_size = (size_t)requested_batch_size;
+    589| #endif
+    590|     if (strlen(argument_values[1]) == 0 || strlen(argument_values[1]) > 64u) {
+    591|         fputs("invalid RUN_ID: length must be 1..64 characters\n", stderr);
+    592|         return 2;
+    593|     }
+    594|     for (const char *character = argument_values[1]; *character != '\0'; ++character) {
+    595|         if (!((*character >= 'a' && *character <= 'z') ||
+    596|                 (*character >= 'A' && *character <= 'Z') ||
+    597|                 (*character >= '0' && *character <= '9') || *character == '_' ||
+    598|                 *character == '-')) {
+    599|             fputs("invalid RUN_ID: use only ASCII letters, digits, underscore or hyphen\n", stderr);
+    600|             return 2;
+    601|         }
+    602|     }
+    603| #ifdef BASELINE_ORDINARY_WORKLOAD
+    604|     int path_byte_count =
+    605|         snprintf(cost_path, sizeof(cost_path), "%s.cost", argument_values[CSV_ARGUMENT_INDEX]);
+    606|     if (path_byte_count < 0 || (size_t)path_byte_count >= sizeof(cost_path) ||
+    607|         read_monotonic_nanoseconds(&accounting.start_nanoseconds) != 0) {
+    608|         return 1;
+    609|     }
+    610|     cost_file = fopen(cost_path, "wx");
+    611|     if (cost_file == NULL) {
+    612|         return 1;
+    613|     }
+    614|     if (fprintf(cost_file,
+    615|             "cost_format=measurement_cost_v1\ninitial_state=started\nrun_id=%s\n",
+    616|             argument_values[1]) < 0 ||
+    617|         fflush(cost_file) != 0) {
+    618|         goto cleanup;
+    619|     }
+    620| #endif
+    621|     if (check_timer(&resolution_nanoseconds) != 0 ||
+    622|         hash_running_executable(executable_digest) != 0) {
+    623|         fputs("timer/executable identity check failed\n", stderr);
+    624| #ifdef BASELINE_ORDINARY_WORKLOAD
+    625|         goto cleanup;
+    626| #else
+    627|         return 1;
+    628| #endif
+    629|     }
+    630|     sample_count = (size_t)samples_per_category * MEASUREMENT_CATEGORY_COUNT;
+    631|     samples = calloc(sample_count, sizeof(*samples));
+    632| #ifdef BASELINE_BATCH_WORKLOAD
+    633|     batch_windows = calloc((sample_count + measurement_batch_size - 1u) / measurement_batch_size,
+    634|         sizeof(*batch_windows));
+    635|     if (batch_windows == NULL) {
+    636|         goto cleanup;
+    637|     }
+    638| #endif
+    639|     if (samples == NULL ||
+    640|         generate_test_key_pair(test_seed, encapsulation_key, decapsulation_key) != 0) {
+    641|         goto cleanup;
+    642|     }
+    643|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+    644|         samples[sample_index].category =
+    645|             (enum input_category)(sample_index % MEASUREMENT_CATEGORY_COUNT);
+    646|         if (generate_test_ciphertext(samples[sample_index].category,
+    647|                 test_seed,
+    648|                 sample_index / MEASUREMENT_CATEGORY_COUNT,
+    649|                 encapsulation_key,
+    650|                 samples[sample_index].ciphertext) != 0) {
+    651|             goto cleanup;
+    652|         }
+    653|     }
+    654|     for (size_t remaining_count = sample_count; remaining_count > 1u; --remaining_count) {
+    655|         size_t selected_index =
+    656|             (size_t)draw_order_value(test_seed, &order_draw_index, remaining_count);
+    657|         struct measurement_sample selected_sample = samples[selected_index];
+    658|         samples[selected_index] = samples[remaining_count - 1u];
+    659|         samples[remaining_count - 1u] = selected_sample;
+    660|     }
+    661| #ifdef BASELINE_ORDINARY_WORKLOAD
+    662|     if (hash_ordered_inputs(samples, sample_count, encapsulation_key) != 0 ||
+    663|         read_monotonic_nanoseconds(&accounting.preparation_end_nanoseconds) != 0) {
+    664|         goto cleanup;
+    665|     }
+    666| #endif
+    667|     for (unsigned warmup_index = 0; warmup_index < 100u; ++warmup_index) {
+    668| #ifdef BASELINE_ORDINARY_WORKLOAD
+    669|         ++accounting.warmup_attempted_calls;
+    670| #endif
+    671|         if (mlkem_decapsulate(shared_secret,
+    672|                 sizeof(shared_secret),
+    673|                 samples[warmup_index % sample_count].ciphertext,
+    674|                 MLKEM_CIPHERTEXT_BYTES,
+    675|                 decapsulation_key,
+    676|                 sizeof(decapsulation_key)) != 0) {
+    677|             goto cleanup;
+    678|         }
+    679|         result_sink ^= shared_secret[0];
+    680| #ifdef BASELINE_ORDINARY_WORKLOAD
+    681|         ++accounting.warmup_completed_calls;
+    682|         ++accounting.outputs_consumed;
+    683| #endif
+    684|     }
+    685| #ifdef BASELINE_ORDINARY_WORKLOAD
+    686|     if (read_monotonic_nanoseconds(&accounting.warmup_end_nanoseconds) != 0) {
+    687|         goto cleanup;
+    688|     }
+    689| #endif
+    690| #ifdef BASELINE_BATCH_WORKLOAD
+    691|     for (size_t first_input_index = 0; first_input_index < sample_count;
+    692|         first_input_index += measurement_batch_size) {
+    693|         struct batch_window *window = &batch_windows[first_input_index / measurement_batch_size];
+    694|         const uint8_t *ciphertexts[MAXIMUM_BATCH_CALLS];
+    695|         int call_statuses[MAXIMUM_BATCH_CALLS];
+    696|         uint64_t start_nanoseconds;
+    697|         uint64_t end_nanoseconds;
+    698|         window->first_input_index = first_input_index;
+    699|         window->call_count = sample_count - first_input_index < measurement_batch_size
+    700|             ? sample_count - first_input_index
+    701|             : measurement_batch_size;
+    702|         for (size_t call_index = 0; call_index < window->call_count; ++call_index) {
+    703|             const struct measurement_sample *sample = &samples[first_input_index + call_index];
+    704|             ciphertexts[call_index] = sample->ciphertext;
+    705|             ++window->category_counts[(unsigned)sample->category];
+    706|         }
+    707|         accounting.formal_attempted_calls += (uint64_t)window->call_count;
+    708|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+    709|             accounting.formal_attempted_calls -= (uint64_t)window->call_count;
+    710|             goto cleanup;
+    711|         }
+    712|         atomic_signal_fence(memory_order_seq_cst);
+    713|         int batch_status = run_batch_decapsulations(window->call_count,
+    714|             ciphertexts,
+    715|             decapsulation_key,
+    716|             batch_shared_secrets,
+    717|             call_statuses);
+    718|         atomic_signal_fence(memory_order_seq_cst);
+    719|         if (read_monotonic_nanoseconds(&end_nanoseconds) != 0 ||
+    720|             end_nanoseconds < start_nanoseconds || batch_status != 0) {
+    721|             goto cleanup;
+    722|         }
+    723|         window->total_nanoseconds = end_nanoseconds - start_nanoseconds;
+    724|         int has_failed_call = 0;
+    725|         for (size_t call_index = 0; call_index < window->call_count; ++call_index) {
+    726|             if (call_statuses[call_index] != 0) {
+    727|                 has_failed_call = 1;
+    728|             } else {
+    729|                 ++accounting.formal_completed_calls;
+    730|                 result_sink ^=
+    731|                     batch_shared_secrets[call_index][(first_input_index + call_index) % 32u];
+    732|                 ++accounting.outputs_consumed;
+    733|             }
+    734|         }
+    735|         if (has_failed_call) {
+    736|             goto cleanup;
+    737|         }
+    738|     }
+    739| #else
+    740|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+    741|         uint64_t start_nanoseconds;
+    742|         uint64_t end_nanoseconds;
+    743|         int decapsulation_status;
+    744| #ifdef BASELINE_ORDINARY_WORKLOAD
+    745|         ++accounting.formal_attempted_calls;
+    746| #endif
+    747|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+    748| #ifdef BASELINE_ORDINARY_WORKLOAD
+    749|             --accounting.formal_attempted_calls;
+    750| #endif
+    751|             goto cleanup;
+    752|         }
+    753|         atomic_signal_fence(memory_order_seq_cst);
+    754|         decapsulation_status = mlkem_decapsulate(shared_secret,
+    755|             sizeof(shared_secret),
+    756|             samples[sample_index].ciphertext,
+    757|             MLKEM_CIPHERTEXT_BYTES,
+    758|             decapsulation_key,
+    759|             sizeof(decapsulation_key));
+    760|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内 I/O/日志/分配/内存调用：calloc,fclose,fflush,fopen,fprintf,fputc,fputs,fread,free,malloc,memcpy,readlink,remove,snprintf
+  窗口外 I/O 相关行数：11（证明 I/O 在窗口之外执行）
+
+=== M2 micro 热点窗口 (/Users/yin/code/cryProject/tools/platform_m2_micro/m2_hotspot_microbench.c) ===
+  窗口行范围：549..773（1-based，含两侧 fence）
+  --- 窗口原文 ---
+    549|         "\nwindow=clock_gettime;atomic_signal_fence(memory_order_seq_cst);%s("
+    550|         "KYBER_INDCPA_MSGBYTES,poly);atomic_signal_fence(memory_order_seq_cst);clock_gettime"
+    551|         "\nwindow_scope=one_poly_tomsg_call\n"
+    552|         "hotspot_function=%s\nhotspot_symbol=%s\n"
+    553|         "hotspot_input=indcpa_dec_prefix_of_class_ciphertext\n"
+    554|         "order=balanced_fisher_yates_shake256_tag4\n"
+    555|         "input_generation_window=outside\nresult_consumption_window=outside\n"
+    556|         "io_window=outside\noutput_buffer_bytes=%zu\n"
+    557|         "chosen_message_classes=message-zero,message-ones\n",
+    558|         resolution_nanoseconds,
+    559|         M2_MICRO_HOTSPOT_FUNCTION,
+    560|         M2_MICRO_HOTSPOT_FUNCTION,
+    561|         M2_MICRO_HOTSPOT_SYMBOL,
+    562|         row_count * M2_MICRO_MESSAGE_BYTES);
+    563|     meta_printf(meta_file,
+    564|         &operation_status,
+    565|         "public_key_path=%s\npublic_key_bytes=%u\npublic_key_sha3_256=",
+    566|         options->public_key_path,
+    567|         (unsigned)MLKEM_ENCAPSULATION_KEY_BYTES);
+    568|     write_digest_hex(meta_file, &operation_status, public_key_digest);
+    569|     meta_printf(meta_file,
+    570|         &operation_status,
+    571|         "\nsecret_key_path=%s\nsecret_key_bytes=%u\nsecret_key_sha3_256=",
+    572|         options->secret_key_path,
+    573|         (unsigned)MLKEM_DECAPSULATION_KEY_BYTES);
+    574|     write_digest_hex(meta_file, &operation_status, secret_key_digest);
+    575|     meta_printf(meta_file, &operation_status, "\ninput_sequence_digest_algorithm=SHA3-256\n"
+    576|                                               "input_sequence_digest=");
+    577|     write_digest_hex(meta_file, &operation_status, input_digest);
+    578|     meta_printf(meta_file, &operation_status, "\nhotspot_input_digest_algorithm=SHA3-256\n"
+    579|                                               "hotspot_input_digest=");
+    580|     write_digest_hex(meta_file, &operation_status, hotspot_input_digest);
+    581|     meta_printf(meta_file, &operation_status, "\nexpected_message_digest_algorithm=SHA3-256\n"
+    582|                                               "expected_message_digest=");
+    583|     write_digest_hex(meta_file, &operation_status, message_pattern_digest);
+    584|     meta_printf(meta_file, &operation_status, "\nexecutable_sha3_256=");
+    585|     write_digest_hex(meta_file, &operation_status, executable_digest);
+    586|     meta_printf(meta_file,
+    587|         &operation_status,
+    588|         "\nzero_elapsed_count=%" PRIu64 "\nminimum_elapsed_nanoseconds=%" PRIu64
+    589|         "\nmaximum_elapsed_nanoseconds=%" PRIu64 "\nfailed_hotspot_call_count=%" PRIu64
+    590|         "\nchosen_message_hotspot_mismatch_count=%" PRIu64 "\n",
+    591|         zero_elapsed_count,
+    592|         minimum_elapsed_nanoseconds,
+    593|         maximum_elapsed_nanoseconds,
+    594|         failed_hotspot_calls,
+    595|         chosen_message_mismatch_count);
+    596|     meta_printf(meta_file,
+    597|         &operation_status,
+    598|         "csv_path=%s\ncpu_affinity=not_pinned\nfrequency_control=not_configured\n"
+    599|         "os=%s %s %s\ncpu_model=%s\nwall_clock_unix_seconds=%jd\n",
+    600|         options->raw_path,
+    601|         machine_information.sysname,
+    602|         machine_information.release,
+    603|         machine_information.machine,
+    604|         cpu_model,
+    605|         (intmax_t)wall_clock_seconds);
+    606|     meta_printf(meta_file,
+    607|         &operation_status,
+    608|         "run_status=%s\n",
+    609|         (operation_status == 0 && failed_hotspot_calls == 0 && chosen_message_mismatch_count == 0)
+    610|             ? "complete"
+    611|             : "failed");
+    612|     if (fflush(csv_file) != 0) {
+    613|         operation_status = 1;
+    614|     }
+    615|     if (fclose(csv_file) != 0) {
+    616|         operation_status = 1;
+    617|     }
+    618|     if (fclose(meta_file) != 0) {
+    619|         operation_status = 1;
+    620|     }
+    621|     return operation_status;
+    622| }
+    623| 
+    624| int main(int argument_count, char **argument_values)
+    625| {
+    626|     struct micro_options options;
+    627|     uint8_t *public_key = NULL;
+    628|     uint8_t *secret_key = NULL;
+    629|     uint8_t *class_ciphertexts = NULL;
+    630|     uint8_t *ordered_ciphertexts = NULL;
+    631|     poly *class_hotspot_inputs = NULL;
+    632|     poly *row_hotspot_inputs = NULL;
+    633|     enum m2_collector_class *row_classes = NULL;
+    634|     uint8_t *row_messages = NULL;
+    635|     uint64_t *elapsed_nanoseconds = NULL;
+    636|     uint8_t public_key_digest[32];
+    637|     uint8_t secret_key_digest[32];
+    638|     uint8_t input_digest[32];
+    639|     uint8_t hotspot_input_digest[32];
+    640|     uint8_t message_pattern_digest[32];
+    641|     uint8_t executable_digest[32];
+    642|     uint8_t window_message[KYBER_INDCPA_MSGBYTES];
+    643|     uint64_t resolution_nanoseconds = 0;
+    644|     uint64_t zero_elapsed_count = 0;
+    645|     uint64_t minimum_elapsed_nanoseconds = UINT64_MAX;
+    646|     uint64_t maximum_elapsed_nanoseconds = 0;
+    647|     uint64_t failed_hotspot_calls = 0;
+    648|     uint64_t chosen_message_mismatch_count = 0;
+    649|     uint64_t warmup_attempted_calls = 0;
+    650|     uint64_t warmup_completed_calls = 0;
+    651|     size_t row_count = 0;
+    652|     int operation_status = 1;
+    653|     if (argument_count == 2 &&
+    654|         (strcmp(argument_values[1], "--help") == 0 || strcmp(argument_values[1], "-h") == 0)) {
+    655|         print_usage(stdout);
+    656|         return 0;
+    657|     }
+    658|     if (argument_count == 1) {
+    659|         print_usage(stderr);
+    660|         return 2;
+    661|     }
+    662|     if (parse_options(argument_count, argument_values, &options) != 0) {
+    663|         fputs("invalid arguments\n", stderr);
+    664|         print_usage(stderr);
+    665|         return 2;
+    666|     }
+    667|     {
+    668|         struct timespec clock_resolution;
+    669|         if (clock_getres(CLOCK_MONOTONIC, &clock_resolution) != 0 || clock_resolution.tv_sec < 0 ||
+    670|             clock_resolution.tv_nsec < 0) {
+    671|             fputs("clock resolution check failed\n", stderr);
+    672|             return 1;
+    673|         }
+    674|         resolution_nanoseconds = (uint64_t)clock_resolution.tv_sec * UINT64_C(1000000000) +
+    675|                                  (uint64_t)clock_resolution.tv_nsec;
+    676|         if (resolution_nanoseconds == 0) {
+    677|             fputs("clock resolution is zero\n", stderr);
+    678|             return 1;
+    679|         }
+    680|     }
+    681|     row_count = options.class_count * (size_t)options.samples_per_class;
+    682|     public_key = malloc(MLKEM_ENCAPSULATION_KEY_BYTES);
+    683|     secret_key = malloc(MLKEM_DECAPSULATION_KEY_BYTES);
+    684|     class_ciphertexts = malloc((size_t)M2_COLLECTOR_CLASS_COUNT * MLKEM_CIPHERTEXT_BYTES);
+    685|     ordered_ciphertexts = malloc(row_count * (size_t)MLKEM_CIPHERTEXT_BYTES);
+    686|     class_hotspot_inputs = malloc((size_t)M2_COLLECTOR_CLASS_COUNT * sizeof(poly));
+    687|     row_hotspot_inputs = malloc(row_count * sizeof(poly));
+    688|     row_classes = malloc(row_count * sizeof(*row_classes));
+    689|     row_messages = malloc(row_count * M2_MICRO_MESSAGE_BYTES);
+    690|     elapsed_nanoseconds = malloc(row_count * sizeof(*elapsed_nanoseconds));
+    691|     if (public_key == NULL || secret_key == NULL || class_ciphertexts == NULL ||
+    692|         ordered_ciphertexts == NULL || class_hotspot_inputs == NULL || row_hotspot_inputs == NULL ||
+    693|         row_classes == NULL || row_messages == NULL || elapsed_nanoseconds == NULL) {
+    694|         fputs("allocation failed\n", stderr);
+    695|         goto cleanup;
+    696|     }
+    697|     if (read_fixed_file(options.public_key_path, public_key, MLKEM_ENCAPSULATION_KEY_BYTES) != 0) {
+    698|         fputs("public key file must hold exactly MLKEM_ENCAPSULATION_KEY_BYTES bytes\n", stderr);
+    699|         goto cleanup;
+    700|     }
+    701|     if (read_fixed_file(options.secret_key_path, secret_key, MLKEM_DECAPSULATION_KEY_BYTES) != 0) {
+    702|         fputs("secret key file must hold exactly MLKEM_DECAPSULATION_KEY_BYTES bytes\n", stderr);
+    703|         goto cleanup;
+    704|     }
+    705|     platform_m2_sha3_256(public_key_digest, public_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+    706|     platform_m2_sha3_256(secret_key_digest, secret_key, MLKEM_DECAPSULATION_KEY_BYTES);
+    707|     for (size_t class_slot = 0; class_slot < options.class_count; ++class_slot) {
+    708|         enum m2_collector_class class_index = options.class_list[class_slot];
+    709|         uint8_t *class_ciphertext =
+    710|             class_ciphertexts + (size_t)class_index * MLKEM_CIPHERTEXT_BYTES;
+    711|         uint8_t expected_secret[MLKEM_SHARED_SECRET_BYTES];
+    712|         /* 与采集件同一份 collector_inputs.c：同一固定公钥、同一确定性密文构造。 */
+    713|         if (m2_collector_build_ciphertext(class_index, public_key, class_ciphertext, expected_secret) !=
+    714|             0) {
+    715|             fputs("ciphertext construction failed\n", stderr);
+    716|             goto cleanup;
+    717|         }
+    718|         erase_secret_bytes(expected_secret, sizeof(expected_secret));
+    719|         derive_hotspot_input(&class_hotspot_inputs[class_index], class_ciphertext, secret_key);
+    720|     }
+    721|     /* 热点输出的功能门：期望解密消息必须逐字节等于该类选定的消息形态。 */
+    722|     for (size_t class_slot = 0; class_slot < options.class_count; ++class_slot) {
+    723|         enum m2_collector_class class_index = options.class_list[class_slot];
+    724|         poly_tomsg(window_message, &class_hotspot_inputs[class_index]);
+    725|         for (size_t byte_index = 0; byte_index < M2_MICRO_MESSAGE_BYTES; ++byte_index) {
+    726|             if (window_message[byte_index] != expected_message_byte(class_index)) {
+    727|                 chosen_message_mismatch_count += 1U;
+    728|             }
+    729|         }
+    730|     }
+    731|     if (m2_collector_build_schedule(options.class_list,
+    732|             options.class_count,
+    733|             options.samples_per_class,
+    734|             options.test_seed,
+    735|             row_classes) != 0) {
+    736|         fputs("schedule construction failed\n", stderr);
+    737|         goto cleanup;
+    738|     }
+    739|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+    740|         memcpy(ordered_ciphertexts + row_index * MLKEM_CIPHERTEXT_BYTES,
+    741|             class_ciphertexts + (size_t)row_classes[row_index] * MLKEM_CIPHERTEXT_BYTES,
+    742|             MLKEM_CIPHERTEXT_BYTES);
+    743|         row_hotspot_inputs[row_index] = class_hotspot_inputs[row_classes[row_index]];
+    744|     }
+    745|     if (m2_collector_digest_ciphertexts(ordered_ciphertexts, row_count, input_digest) != 0 ||
+    746|         digest_hotspot_inputs(options.class_list,
+    747|             options.class_count,
+    748|             class_hotspot_inputs,
+    749|             hotspot_input_digest) != 0 ||
+    750|         digest_expected_messages(options.class_list,
+    751|             options.class_count,
+    752|             message_pattern_digest) != 0 ||
+    753|         hash_running_executable(executable_digest) != 0) {
+    754|         fputs("input/executable digest failed\n", stderr);
+    755|         goto cleanup;
+    756|     }
+    757|     for (uint64_t warmup_index = 0; warmup_index < options.warmup_count; ++warmup_index) {
+    758|         size_t selected_row = (size_t)(warmup_index % (uint64_t)row_count);
+    759|         warmup_attempted_calls += 1U;
+    760|         poly_tomsg(window_message, &row_hotspot_inputs[selected_row]);
+    761|         result_sink ^= window_message[0];
+    762|         warmup_completed_calls += 1U;
+    763|     }
+    764|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+    765|         uint64_t start_nanoseconds;
+    766|         uint64_t end_nanoseconds;
+    767|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+    768|             fputs("clock read failed\n", stderr);
+    769|             goto cleanup;
+    770|         }
+    771|         atomic_signal_fence(memory_order_seq_cst);
+    772|         poly_tomsg(window_message, &row_hotspot_inputs[row_index]);
+    773|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内 I/O/日志/分配/内存调用：fclose,fflush,fputs,malloc,memcpy
+  窗口外 I/O 相关行数：49（证明 I/O 在窗口之外执行）
+
+=== M4 measure 窗口 (/Users/yin/code/cryProject/tools/platform_m4/measure.c) ===
+  窗口行范围：177..184（1-based，含两侧 fence）
+  --- 窗口原文 ---
+    177|         atomic_signal_fence(memory_order_seq_cst);
+    178|         if (read_nanoseconds(&start_nanoseconds) != 0) {
+    179|             collection_status = 1;
+    180|             break;
+    181|         }
+    182|         int compare_status = compare_once(working_secret, candidate_inputs[0],
+    183|             compare_length_bytes, &is_equal);
+    184|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内 I/O/日志/分配/内存调用：无
+  窗口外 I/O 相关行数：24（证明 I/O 在窗口之外执行）
+
+R06_WINDOW_PROBLEM_WINDOWS=3
+[window] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/window/window-check.txt
+=== M2 collector 计时窗口 (/Users/yin/code/cryProject/tools/platform_m2/collector.c) ===
+  计时窗口（fence 到 fence）：行 471..681
+  上下文区间（含窗口外错误处理）：行 471..681
+  --- 窗口原文（^ 标记属于严格窗口内的行）---
+  ^  471|         "\nwindow=clock_gettime;atomic_signal_fence(memory_order_seq_cst);mlkem_decapsulate("
+  ^  472|         "MLKEM_CIPHERTEXT_BYTES,MLKEM_DECAPSULATION_KEY_BYTES);"
+  ^  473|         "atomic_signal_fence(memory_order_seq_cst);clock_gettime"
+  ^  474|         "\norder=balanced_fisher_yates_shake256_tag4\n"
+  ^  475|         "window_scope=one_complete_mlkem_decapsulate\n"
+  ^  476|         "input_generation_window=outside\nresult_consumption_window=outside\n"
+  ^  477|         "io_window=outside\noutput_buffer_bytes=%zu\n"
+  ^  478|         "chosen_message_classes=message-zero,message-ones\n"
+  ^  479|         "implicit_rejection_classes=malformed-zero-tail,malformed-ff-tail\n"
+  ^  480|         "malformed_tail_bytes=%u\n",
+  ^  481|         resolution_nanoseconds,
+  ^  482|         row_count * (size_t)MLKEM_CIPHERTEXT_BYTES,
+  ^  483|         (unsigned)M2_COLLECTOR_TAIL_BYTES);
+  ^  484|     meta_printf(meta_file,
+  ^  485|         &operation_status,
+  ^  486|         "public_key_path=%s\npublic_key_bytes=%u\npublic_key_sha3_256=",
+  ^  487|         options->public_key_path,
+  ^  488|         (unsigned)MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  489|     write_digest_hex(meta_file, &operation_status, public_key_digest);
+  ^  490|     meta_printf(meta_file,
+  ^  491|         &operation_status,
+  ^  492|         "\nsecret_key_path=%s\nsecret_key_bytes=%u\nsecret_key_sha3_256=",
+  ^  493|         options->secret_key_path,
+  ^  494|         (unsigned)MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  495|     write_digest_hex(meta_file, &operation_status, secret_key_digest);
+  ^  496|     meta_printf(meta_file, &operation_status, "\ninput_sequence_digest_algorithm=SHA3-256\n"
+  ^  497|                                               "input_sequence_digest=");
+  ^  498|     write_digest_hex(meta_file, &operation_status, input_digest);
+  ^  499|     meta_printf(meta_file, &operation_status, "\nexecutable_sha3_256=");
+  ^  500|     write_digest_hex(meta_file, &operation_status, executable_digest);
+  ^  501|     meta_printf(meta_file,
+  ^  502|         &operation_status,
+  ^  503|         "\nzero_elapsed_count=%" PRIu64 "\nminimum_elapsed_nanoseconds=%" PRIu64
+  ^  504|         "\nmaximum_elapsed_nanoseconds=%" PRIu64 "\nfailed_decapsulation_count=%" PRIu64
+  ^  505|         "\nchosen_message_accept_mismatch_count=%" PRIu64 "\n",
+  ^  506|         zero_elapsed_count,
+  ^  507|         minimum_elapsed_nanoseconds,
+  ^  508|         maximum_elapsed_nanoseconds,
+  ^  509|         failed_decapsulation_count,
+  ^  510|         accept_mismatch_count);
+  ^  511|     meta_printf(meta_file,
+  ^  512|         &operation_status,
+  ^  513|         "csv_path=%s\ncpu_affinity=not_pinned\nfrequency_control=not_configured\n"
+  ^  514|         "os=%s %s %s\ncpu_model=%s\nwall_clock_unix_seconds=%jd\n",
+  ^  515|         options->raw_path,
+  ^  516|         machine_information.sysname,
+  ^  517|         machine_information.release,
+  ^  518|         machine_information.machine,
+  ^  519|         cpu_model,
+  ^  520|         (intmax_t)wall_clock_seconds);
+  ^  521|     meta_printf(meta_file,
+  ^  522|         &operation_status,
+  ^  523|         "run_status=%s\n",
+  ^  524|         (operation_status == 0 && failed_decapsulation_count == 0 && accept_mismatch_count == 0)
+  ^  525|             ? "complete"
+  ^  526|             : "failed");
+  ^  527|     if (fflush(csv_file) != 0) {
+  ^  528|         operation_status = 1;
+  ^  529|     }
+  ^  530|     if (fclose(csv_file) != 0) {
+  ^  531|         operation_status = 1;
+  ^  532|     }
+  ^  533|     if (fclose(meta_file) != 0) {
+  ^  534|         operation_status = 1;
+  ^  535|     }
+  ^  536|     return operation_status;
+  ^  537| }
+  ^  538| 
+  ^  539| int main(int argument_count, char **argument_values)
+  ^  540| {
+  ^  541|     struct collector_options options;
+  ^  542|     uint8_t *public_key = NULL;
+  ^  543|     uint8_t *secret_key = NULL;
+  ^  544|     uint8_t *class_ciphertexts = NULL;
+  ^  545|     uint8_t *ordered_ciphertexts = NULL;
+  ^  546|     enum m2_collector_class *row_classes = NULL;
+  ^  547|     uint8_t *row_secrets = NULL;
+  ^  548|     uint64_t *elapsed_nanoseconds = NULL;
+  ^  549|     uint8_t expected_secrets[2][MLKEM_SHARED_SECRET_BYTES] = {{0}};
+  ^  550|     uint8_t public_key_digest[32];
+  ^  551|     uint8_t secret_key_digest[32];
+  ^  552|     uint8_t input_digest[32];
+  ^  553|     uint8_t executable_digest[32];
+  ^  554|     uint8_t shared_secret[MLKEM_SHARED_SECRET_BYTES];
+  ^  555|     uint64_t resolution_nanoseconds = 0;
+  ^  556|     uint64_t zero_elapsed_count = 0;
+  ^  557|     uint64_t minimum_elapsed_nanoseconds = UINT64_MAX;
+  ^  558|     uint64_t maximum_elapsed_nanoseconds = 0;
+  ^  559|     uint64_t failed_decapsulation_count = 0;
+  ^  560|     uint64_t accept_mismatch_count = 0;
+  ^  561|     uint64_t warmup_attempted_calls = 0;
+  ^  562|     uint64_t warmup_completed_calls = 0;
+  ^  563|     size_t row_count = 0;
+  ^  564|     int operation_status = 1;
+  ^  565|     if (argument_count == 2 &&
+  ^  566|         (strcmp(argument_values[1], "--help") == 0 || strcmp(argument_values[1], "-h") == 0)) {
+  ^  567|         print_usage(stdout);
+  ^  568|         return 0;
+  ^  569|     }
+  ^  570|     if (argument_count == 1) {
+  ^  571|         print_usage(stderr);
+  ^  572|         return 2;
+  ^  573|     }
+  ^  574|     if (parse_options(argument_count, argument_values, &options) != 0) {
+  ^  575|         fputs("invalid arguments\n", stderr);
+  ^  576|         print_usage(stderr);
+  ^  577|         return 2;
+  ^  578|     }
+  ^  579|     {
+  ^  580|         struct timespec clock_resolution;
+  ^  581|         if (clock_getres(CLOCK_MONOTONIC, &clock_resolution) != 0 || clock_resolution.tv_sec < 0 ||
+  ^  582|             clock_resolution.tv_nsec < 0) {
+  ^  583|             fputs("clock resolution check failed\n", stderr);
+  ^  584|             return 1;
+  ^  585|         }
+  ^  586|         resolution_nanoseconds = (uint64_t)clock_resolution.tv_sec * UINT64_C(1000000000) +
+  ^  587|                                  (uint64_t)clock_resolution.tv_nsec;
+  ^  588|         if (resolution_nanoseconds == 0) {
+  ^  589|             fputs("clock resolution is zero\n", stderr);
+  ^  590|             return 1;
+  ^  591|         }
+  ^  592|     }
+  ^  593|     row_count = options.class_count * (size_t)options.samples_per_class;
+  ^  594|     public_key = malloc(MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  595|     secret_key = malloc(MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  596|     class_ciphertexts = malloc((size_t)M2_COLLECTOR_CLASS_COUNT * MLKEM_CIPHERTEXT_BYTES);
+  ^  597|     ordered_ciphertexts = malloc(row_count * (size_t)MLKEM_CIPHERTEXT_BYTES);
+  ^  598|     row_secrets = malloc(row_count * (size_t)MLKEM_SHARED_SECRET_BYTES);
+  ^  599|     row_classes = malloc(row_count * sizeof(*row_classes));
+  ^  600|     elapsed_nanoseconds = malloc(row_count * sizeof(*elapsed_nanoseconds));
+  ^  601|     if (public_key == NULL || secret_key == NULL || class_ciphertexts == NULL ||
+  ^  602|         ordered_ciphertexts == NULL || row_secrets == NULL || row_classes == NULL ||
+  ^  603|         elapsed_nanoseconds == NULL) {
+  ^  604|         fputs("allocation failed\n", stderr);
+  ^  605|         goto cleanup;
+  ^  606|     }
+  ^  607|     if (read_fixed_file(options.public_key_path, public_key, MLKEM_ENCAPSULATION_KEY_BYTES) != 0) {
+  ^  608|         fputs("public key file must hold exactly MLKEM_ENCAPSULATION_KEY_BYTES bytes\n", stderr);
+  ^  609|         goto cleanup;
+  ^  610|     }
+  ^  611|     if (read_fixed_file(options.secret_key_path, secret_key, MLKEM_DECAPSULATION_KEY_BYTES) != 0) {
+  ^  612|         fputs("secret key file must hold exactly MLKEM_DECAPSULATION_KEY_BYTES bytes\n", stderr);
+  ^  613|         goto cleanup;
+  ^  614|     }
+  ^  615|     platform_m2_sha3_256(public_key_digest, public_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  616|     platform_m2_sha3_256(secret_key_digest, secret_key, MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  617|     for (size_t class_slot = 0; class_slot < options.class_count; ++class_slot) {
+  ^  618|         enum m2_collector_class class_index = options.class_list[class_slot];
+  ^  619|         uint8_t *class_ciphertext =
+  ^  620|             class_ciphertexts + (size_t)class_index * MLKEM_CIPHERTEXT_BYTES;
+  ^  621|         uint8_t *expected_secret = NULL;
+  ^  622|         if (class_index == M2_COLLECTOR_MESSAGE_ZERO) {
+  ^  623|             expected_secret = expected_secrets[0];
+  ^  624|         } else if (class_index == M2_COLLECTOR_MESSAGE_ONES) {
+  ^  625|             expected_secret = expected_secrets[1];
+  ^  626|         }
+  ^  627|         if (m2_collector_build_ciphertext(class_index, public_key, class_ciphertext, expected_secret) !=
+  ^  628|             0) {
+  ^  629|             fputs("ciphertext construction failed\n", stderr);
+  ^  630|             goto cleanup;
+  ^  631|         }
+  ^  632|     }
+  ^  633|     if (m2_collector_build_schedule(options.class_list,
+  ^  634|             options.class_count,
+  ^  635|             options.samples_per_class,
+  ^  636|             options.test_seed,
+  ^  637|             row_classes) != 0) {
+  ^  638|         fputs("schedule construction failed\n", stderr);
+  ^  639|         goto cleanup;
+  ^  640|     }
+  ^  641|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+  ^  642|         memcpy(ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+  ^  643|             class_ciphertexts + (size_t)row_classes[row_index] * MLKEM_CIPHERTEXT_BYTES,
+  ^  644|             MLKEM_CIPHERTEXT_BYTES);
+  ^  645|     }
+  ^  646|     if (m2_collector_digest_ciphertexts(ordered_ciphertexts, row_count, input_digest) != 0 ||
+  ^  647|         hash_running_executable(executable_digest) != 0) {
+  ^  648|         fputs("input/executable digest failed\n", stderr);
+  ^  649|         goto cleanup;
+  ^  650|     }
+  ^  651|     for (uint64_t warmup_index = 0; warmup_index < options.warmup_count; ++warmup_index) {
+  ^  652|         size_t selected_row = (size_t)(warmup_index % (uint64_t)row_count);
+  ^  653|         warmup_attempted_calls += 1U;
+  ^  654|         if (mlkem_decapsulate(shared_secret,
+  ^  655|                 sizeof(shared_secret),
+  ^  656|                 ordered_ciphertexts + selected_row * (size_t)MLKEM_CIPHERTEXT_BYTES,
+  ^  657|                 MLKEM_CIPHERTEXT_BYTES,
+  ^  658|                 secret_key,
+  ^  659|                 MLKEM_DECAPSULATION_KEY_BYTES) != 0) {
+  ^  660|             fputs("warmup decapsulation failed\n", stderr);
+  ^  661|             goto cleanup;
+  ^  662|         }
+  ^  663|         warmup_completed_calls += 1U;
+  ^  664|         result_sink ^= shared_secret[0];
+  ^  665|     }
+  ^  666|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+  ^  667|         uint64_t start_nanoseconds;
+  ^  668|         uint64_t end_nanoseconds;
+  ^  669|         unsigned decapsulation_status;
+  ^  670|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+  ^  671|             fputs("clock read failed\n", stderr);
+  ^  672|             goto cleanup;
+  ^  673|         }
+  ^  674|         atomic_signal_fence(memory_order_seq_cst);
+  ^  675|         decapsulation_status = (unsigned)mlkem_decapsulate(shared_secret,
+  ^  676|             sizeof(shared_secret),
+  ^  677|             ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+  ^  678|             MLKEM_CIPHERTEXT_BYTES,
+  ^  679|             secret_key,
+  ^  680|             MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  681|         atomic_signal_fence(memory_order_seq_cst);
+  严格窗口内 I/O/日志/分配/内存调用：fclose,fflush,fputs,malloc,memcpy
+  仅上下文（窗口外）出现：无
+  上下文区间之外的 I/O 相关行数：42（I/O 在窗口之外执行）
+
+=== M5 reference measure 计时窗口 (/Users/yin/code/cryProject/src/measure.c) ===
+  计时窗口（fence 到 fence）：行 173..760
+  上下文区间（含窗口外错误处理）：行 173..760
+  --- 窗口原文（^ 标记属于严格窗口内的行）---
+  ^  173|         atomic_signal_fence(memory_order_seq_cst);
+  ^  174|         atomic_signal_fence(memory_order_seq_cst);
+  ^  175|         if (read_monotonic_nanoseconds(&end_nanoseconds) != 0 ||
+  ^  176|             end_nanoseconds < start_nanoseconds) {
+  ^  177|             return 1;
+  ^  178|         }
+  ^  179|         empty_windows_nanoseconds[window_index] = end_nanoseconds - start_nanoseconds;
+  ^  180|     }
+  ^  181| #endif
+  ^  182|     return has_clock_progress ? 0 : 1;
+  ^  183| }
+  ^  184| 
+  ^  185| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  186| static int hash_ordered_inputs(const struct measurement_sample *samples,
+  ^  187|     size_t sample_count,
+  ^  188|     const uint8_t encapsulation_key[MLKEM_ENCAPSULATION_KEY_BYTES])
+  ^  189| {
+  ^  190|     static const uint8_t stream_header[] = "ordinary_input_stream_v1:ML-KEM-768";
+  ^  191|     size_t header_bytes = sizeof(stream_header) - 1u;
+  ^  192|     size_t input_byte_count = header_bytes + MLKEM_ENCAPSULATION_KEY_BYTES + 8u +
+  ^  193|         sample_count * (1u + MLKEM_CIPHERTEXT_BYTES);
+  ^  194|     uint8_t *input_bytes = malloc(input_byte_count);
+  ^  195|     if (input_bytes == NULL) {
+  ^  196|         return 1;
+  ^  197|     }
+  ^  198|     memcpy(input_bytes, stream_header, header_bytes);
+  ^  199|     memcpy(input_bytes + header_bytes, encapsulation_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  200|     size_t write_offset = header_bytes + MLKEM_ENCAPSULATION_KEY_BYTES;
+  ^  201|     for (unsigned byte_index = 0; byte_index < 8u; ++byte_index) {
+  ^  202|         input_bytes[write_offset++] = (uint8_t)((uint64_t)sample_count >> (8u * byte_index));
+  ^  203|     }
+  ^  204|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+  ^  205|         input_bytes[write_offset++] = (uint8_t)samples[sample_index].category;
+  ^  206|         memcpy(input_bytes + write_offset,
+  ^  207|             samples[sample_index].ciphertext,
+  ^  208|             MLKEM_CIPHERTEXT_BYTES);
+  ^  209|         write_offset += MLKEM_CIPHERTEXT_BYTES;
+  ^  210|     }
+  ^  211|     measure_sha3_256(accounting.ordered_input_digest, input_bytes, input_byte_count);
+  ^  212|     free(input_bytes);
+  ^  213|     return 0;
+  ^  214| }
+  ^  215| 
+  ^  216| static int finish_cost_record(FILE *cost_file, int operation_status)
+  ^  217| {
+  ^  218|     uint64_t finish_nanoseconds;
+  ^  219|     if (read_monotonic_nanoseconds(&finish_nanoseconds) != 0 ||
+  ^  220|         finish_nanoseconds < accounting.start_nanoseconds) {
+  ^  221|         (void)fclose(cost_file);
+  ^  222|         return 1;
+  ^  223|     }
+  ^  224|     if (fprintf(cost_file,
+  ^  225|             "final_state=%s\nstart_ns=%" PRIu64 "\npreparation_end_ns=%" PRIu64
+  ^  226|             "\nwarmup_end_ns=%" PRIu64 "\ncollection_end_ns=%" PRIu64 "\nfinish_ns=%" PRIu64
+  ^  227|             "\nchild_total_wall_ns=%" PRIu64 "\nwarmup_attempted_calls=%" PRIu64
+  ^  228|             "\nwarmup_completed_calls=%" PRIu64 "\nformal_attempted_calls=%" PRIu64
+  ^  229|             "\nformal_completed_calls=%" PRIu64 "\noutputs_consumed=%" PRIu64
+  ^  230|             "\ncost_file_final_write=outside_child_total_use_parent_wall\n",
+  ^  231|             operation_status == 0 ? "complete" : "failed",
+  ^  232|             accounting.start_nanoseconds,
+  ^  233|             accounting.preparation_end_nanoseconds,
+  ^  234|             accounting.warmup_end_nanoseconds,
+  ^  235|             accounting.collection_end_nanoseconds,
+  ^  236|             finish_nanoseconds,
+  ^  237|             finish_nanoseconds - accounting.start_nanoseconds,
+  ^  238|             accounting.warmup_attempted_calls,
+  ^  239|             accounting.warmup_completed_calls,
+  ^  240|             accounting.formal_attempted_calls,
+  ^  241|             accounting.formal_completed_calls,
+  ^  242|             accounting.outputs_consumed) < 0) {
+  ^  243|         operation_status = 1;
+  ^  244|     }
+  ^  245|     if (fclose(cost_file) != 0) {
+  ^  246|         operation_status = 1;
+  ^  247|     }
+  ^  248|     return operation_status;
+  ^  249| }
+  ^  250| 
+  ^  251| static int save_workload_identity(FILE *metadata_file, size_t sample_count)
+  ^  252| {
+  ^  253|     if (fprintf(metadata_file,
+  ^  254|             "paired_metadata_version=paired_workload_v1\nmethod=" MEASUREMENT_METHOD
+  ^  255|             "\nbatch_size=%zu\n"
+  ^  256|             "parameter_set=ML-KEM-768\ninput_rule=ordinary_input_stream_v1\n"
+  ^  257|             "upstream_commit=b3ba7b32773e657dd37f6f87bce82528459ad8a4\n"
+  ^  258|             "valid_count=%zu\nbit_flipped_count=%zu\nrandom_count=%zu\n"
+  ^  259|             "formal_attempted_calls=%" PRIu64 "\nformal_completed_calls=%" PRIu64
+  ^  260|             "\nwarmup_attempted_calls=%" PRIu64 "\nwarmup_completed_calls=%" PRIu64
+  ^  261|             "\noutputs_consumed=%" PRIu64 "\nordered_input_digest_algorithm=SHA3-256\n"
+  ^  262|             "ordered_input_digest=",
+  ^  263|             measurement_batch_size,
+  ^  264|             sample_count / 3u,
+  ^  265|             sample_count / 3u,
+  ^  266|             sample_count / 3u,
+  ^  267|             accounting.formal_attempted_calls,
+  ^  268|             accounting.formal_completed_calls,
+  ^  269|             accounting.warmup_attempted_calls,
+  ^  270|             accounting.warmup_completed_calls,
+  ^  271|             accounting.outputs_consumed) < 0) {
+  ^  272|         return 1;
+  ^  273|     }
+  ^  274|     for (size_t byte_index = 0; byte_index < 32u; ++byte_index) {
+  ^  275|         if (fprintf(metadata_file, "%02x", accounting.ordered_input_digest[byte_index]) < 0) {
+  ^  276|             return 1;
+  ^  277|         }
+  ^  278|     }
+  ^  279|     return fputc('\n', metadata_file) == EOF;
+  ^  280| }
+  ^  281| 
+  ^  282| static int save_timer_diagnostics(FILE *metadata_file)
+  ^  283| {
+  ^  284|     uint64_t minimum_positive_step_nanoseconds = UINT64_MAX;
+  ^  285|     uint64_t maximum_step_nanoseconds = 0;
+  ^  286|     size_t zero_step_count = 0;
+  ^  287|     uint64_t empty_minimum_nanoseconds = UINT64_MAX;
+  ^  288|     uint64_t empty_maximum_nanoseconds = 0;
+  ^  289|     size_t empty_zero_count = 0;
+  ^  290|     long double empty_total_nanoseconds = 0.0L;
+  ^  291|     for (size_t step_index = 0;
+  ^  292|         step_index < sizeof(clock_read_steps_nanoseconds) / sizeof(clock_read_steps_nanoseconds[0]);
+  ^  293|         ++step_index) {
+  ^  294|         uint64_t step_nanoseconds = clock_read_steps_nanoseconds[step_index];
+  ^  295|         if (step_nanoseconds == 0) {
+  ^  296|             ++zero_step_count;
+  ^  297|         } else if (step_nanoseconds < minimum_positive_step_nanoseconds) {
+  ^  298|             minimum_positive_step_nanoseconds = step_nanoseconds;
+  ^  299|         }
+  ^  300|         if (step_nanoseconds > maximum_step_nanoseconds) {
+  ^  301|             maximum_step_nanoseconds = step_nanoseconds;
+  ^  302|         }
+  ^  303|         if (fprintf(metadata_file,
+  ^  304|                 "clock_read_step=%zu elapsed_ns=%" PRIu64 "\n",
+  ^  305|                 step_index,
+  ^  306|                 step_nanoseconds) < 0) {
+  ^  307|             return 1;
+  ^  308|         }
+  ^  309|     }
+  ^  310|     for (size_t window_index = 0; window_index < EMPTY_WINDOW_COUNT; ++window_index) {
+  ^  311|         uint64_t duration_nanoseconds = empty_windows_nanoseconds[window_index];
+  ^  312|         empty_total_nanoseconds += (long double)duration_nanoseconds;
+  ^  313|         if (duration_nanoseconds == 0) {
+  ^  314|             ++empty_zero_count;
+  ^  315|         }
+  ^  316|         if (duration_nanoseconds < empty_minimum_nanoseconds) {
+  ^  317|             empty_minimum_nanoseconds = duration_nanoseconds;
+  ^  318|         }
+  ^  319|         if (duration_nanoseconds > empty_maximum_nanoseconds) {
+  ^  320|             empty_maximum_nanoseconds = duration_nanoseconds;
+  ^  321|         }
+  ^  322|         if (fprintf(metadata_file,
+  ^  323|                 "empty_window=%zu elapsed_ns=%" PRIu64 "\n",
+  ^  324|                 window_index,
+  ^  325|                 duration_nanoseconds) < 0) {
+  ^  326|             return 1;
+  ^  327|         }
+  ^  328|     }
+  ^  329|     return fprintf(metadata_file,
+  ^  330|                "clock_monotonicity=passed\nclock_read_count=10001\nclock_zero_step_count=%zu\n"
+  ^  331|                "clock_minimum_positive_step_ns=%" PRIu64 "\nclock_maximum_step_ns=%" PRIu64
+  ^  332|                "\nempty_window_count=%u\nempty_window_zero_count=%zu\nempty_window_mean_ns=%.6Lf\n"
+  ^  333|                "empty_window_min_ns=%" PRIu64 "\nempty_window_max_ns=%" PRIu64 "\n"
+  ^  334|                "overhead_subtraction=none\n",
+  ^  335|                zero_step_count,
+  ^  336|                minimum_positive_step_nanoseconds,
+  ^  337|                maximum_step_nanoseconds,
+  ^  338|                EMPTY_WINDOW_COUNT,
+  ^  339|                empty_zero_count,
+  ^  340|                empty_total_nanoseconds / (long double)EMPTY_WINDOW_COUNT,
+  ^  341|                empty_minimum_nanoseconds,
+  ^  342|                empty_maximum_nanoseconds) < 0;
+  ^  343| }
+  ^  344| #endif
+  ^  345| 
+  ^  346| static uint64_t draw_order_value(uint64_t test_seed, uint64_t *draw_index, uint64_t upper_bound)
+  ^  347| {
+  ^  348|     uint64_t random_value;
+  ^  349|     uint64_t rejection_threshold = (UINT64_C(0) - upper_bound) % upper_bound;
+  ^  350|     do {
+  ^  351|         uint8_t random_bytes[8];
+  ^  352|         expand_test_seed(random_bytes, sizeof(random_bytes), test_seed, (*draw_index)++, 4);
+  ^  353|         random_value = 0;
+  ^  354|         for (unsigned byte_index = 0; byte_index < 8u; ++byte_index) {
+  ^  355|             random_value |= (uint64_t)random_bytes[byte_index] << (8u * byte_index);
+  ^  356|         }
+  ^  357|     } while (random_value < rejection_threshold);
+  ^  358|     return random_value % upper_bound;
+  ^  359| }
+  ^  360| 
+  ^  361| static int hash_running_executable(uint8_t executable_digest[32])
+  ^  362| {
+  ^  363|     char executable_path[4096];
+  ^  364|     FILE *executable_file;
+  ^  365|     struct stat file_status;
+  ^  366|     uint8_t *executable_bytes;
+  ^  367|     size_t executable_byte_count;
+  ^  368|     int operation_status = 0;
+  ^  369| #ifdef __APPLE__
+  ^  370|     uint32_t executable_path_capacity_bytes = (uint32_t)sizeof(executable_path);
+  ^  371|     if (_NSGetExecutablePath(executable_path, &executable_path_capacity_bytes) != 0) {
+  ^  372|         return 1;
+  ^  373|     }
+  ^  374| #else
+  ^  375|     ssize_t path_byte_count =
+  ^  376|         readlink("/proc/self/exe", executable_path, sizeof(executable_path) - 1u);
+  ^  377|     if (path_byte_count < 0 || (size_t)path_byte_count >= sizeof(executable_path) - 1u) {
+  ^  378|         return 1;
+  ^  379|     }
+  ^  380|     executable_path[path_byte_count] = '\0';
+  ^  381| #endif
+  ^  382|     executable_file = fopen(executable_path, "rb");
+  ^  383|     if (executable_file == NULL) {
+  ^  384|         return 1;
+  ^  385|     }
+  ^  386|     if (fstat(fileno(executable_file), &file_status) != 0 || file_status.st_size <= 0 ||
+  ^  387|         file_status.st_size > 67108864) {
+  ^  388|         (void)fclose(executable_file);
+  ^  389|         return 1;
+  ^  390|     }
+  ^  391|     executable_byte_count = (size_t)file_status.st_size;
+  ^  392|     executable_bytes = malloc(executable_byte_count);
+  ^  393|     if (executable_bytes == NULL) {
+  ^  394|         (void)fclose(executable_file);
+  ^  395|         return 1;
+  ^  396|     }
+  ^  397|     if (fread(executable_bytes, 1, executable_byte_count, executable_file) !=
+  ^  398|             executable_byte_count ||
+  ^  399|         fgetc(executable_file) != EOF || ferror(executable_file)) {
+  ^  400|         operation_status = 1;
+  ^  401|     }
+  ^  402|     if (fclose(executable_file) != 0) {
+  ^  403|         operation_status = 1;
+  ^  404|     }
+  ^  405|     if (operation_status == 0) {
+  ^  406|         measure_sha3_256(executable_digest, executable_bytes, executable_byte_count);
+  ^  407|     }
+  ^  408|     free(executable_bytes);
+  ^  409|     return operation_status;
+  ^  410| }
+  ^  411| 
+  ^  412| static int save_measurements(const char *csv_path,
+  ^  413|     const char *metadata_path,
+  ^  414|     const char *run_id,
+  ^  415|     uint64_t test_seed,
+  ^  416|     const struct measurement_sample *samples,
+  ^  417|     size_t sample_count,
+  ^  418|     uint64_t resolution_nanoseconds,
+  ^  419|     const uint8_t executable_digest[32])
+  ^  420| {
+  ^  421|     struct utsname machine_information;
+  ^  422|     char cpu_model[256];
+  ^  423|     FILE *csv_file;
+  ^  424|     FILE *metadata_file;
+  ^  425|     int operation_status = 0;
+  ^  426|     time_t wall_clock_seconds = time(NULL);
+  ^  427|     if (uname(&machine_information) != 0 || wall_clock_seconds == (time_t)-1) {
+  ^  428|         return 1;
+  ^  429|     }
+  ^  430|     read_cpu_model(cpu_model, sizeof(cpu_model));
+  ^  431|     csv_file = fopen(csv_path, "wx");
+  ^  432|     if (csv_file == NULL) {
+  ^  433|         return 1;
+  ^  434|     }
+  ^  435|     metadata_file = fopen(metadata_path, "wx");
+  ^  436|     if (metadata_file == NULL) {
+  ^  437|         (void)fclose(csv_file);
+  ^  438|         (void)remove(csv_path);
+  ^  439|         return 1;
+  ^  440|     }
+  ^  441| #ifdef BASELINE_BATCH_WORKLOAD
+  ^  442|     (void)samples;
+  ^  443|     size_t window_count = (sample_count + measurement_batch_size - 1u) / measurement_batch_size;
+  ^  444|     if (fputs("run_id,block_id,method,window_index,input_start,input_end,call_count,valid_count,"
+  ^  445|               "bit_flipped_count,random_count,elapsed_nanoseconds,time_unit,status\n",
+  ^  446|             csv_file) == EOF) {
+  ^  447|         operation_status = 1;
+  ^  448|     }
+  ^  449|     for (size_t window_index = 0; window_index < window_count; ++window_index) {
+  ^  450|         const struct batch_window *window = &batch_windows[window_index];
+  ^  451|         if (fprintf(csv_file,
+  ^  452|                 "%s,%s,candidate,%zu,%zu,%zu,%zu,%zu,%zu,%zu,%" PRIu64 ",ns,complete\n",
+  ^  453|                 run_id,
+  ^  454|                 run_id,
+  ^  455|                 window_index,
+  ^  456|                 window->first_input_index,
+  ^  457|                 window->first_input_index + window->call_count,
+  ^  458|                 window->call_count,
+  ^  459|                 window->category_counts[0],
+  ^  460|                 window->category_counts[1],
+  ^  461|                 window->category_counts[2],
+  ^  462|                 window->total_nanoseconds) < 0) {
+  ^  463|             operation_status = 1;
+  ^  464|         }
+  ^  465|     }
+  ^  466| #else
+  ^  467|     if (fprintf(csv_file,
+  ^  468|             "run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit\n") <
+  ^  469|         0) {
+  ^  470|         operation_status = 1;
+  ^  471|     }
+  ^  472|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+  ^  473|         if (fprintf(csv_file,
+  ^  474|                 "%s,%s,%s,%zu,%" PRIu64 ",ns\n",
+  ^  475|                 run_id,
+  ^  476|                 mlkem_implementation_name(),
+  ^  477|                 input_category_name(samples[sample_index].category),
+  ^  478|                 sample_index,
+  ^  479|                 samples[sample_index].elapsed_nanoseconds) < 0) {
+  ^  480|             operation_status = 1;
+  ^  481|         }
+  ^  482|     }
+  ^  483| #endif
+  ^  484|     if (fprintf(metadata_file,
+  ^  485|             "run_id=%s\nimplementation=%s\ntest_seed=%" PRIu64 "\nsample_count=%zu\n"
+  ^  486|             "clock=CLOCK_MONOTONIC\ntime_unit=ns\nclock_resolution_ns=%" PRIu64 "\n"
+  ^  487|             "warmup_decapsulations=100\norder=balanced_fisher_yates_shake256_tag4\n"
+  ^  488|             "wall_clock_unix_seconds=%jd\nos=%s %s\narchitecture=%s\ncpu_model=%s\n"
+  ^  489|             "cpu_affinity=not_pinned\nfrequency_control=not_configured\n"
+  ^  490|             "executable_digest_algorithm=SHA3-256\nexecutable_digest=",
+  ^  491|             run_id,
+  ^  492|             mlkem_implementation_name(),
+  ^  493|             test_seed,
+  ^  494|             sample_count,
+  ^  495|             resolution_nanoseconds,
+  ^  496|             (intmax_t)wall_clock_seconds,
+  ^  497|             machine_information.sysname,
+  ^  498|             machine_information.release,
+  ^  499|             machine_information.machine,
+  ^  500|             cpu_model) < 0) {
+  ^  501|         operation_status = 1;
+  ^  502|     }
+  ^  503|     for (size_t byte_index = 0; byte_index < 32u; ++byte_index) {
+  ^  504|         if (fprintf(metadata_file, "%02x", executable_digest[byte_index]) < 0) {
+  ^  505|             operation_status = 1;
+  ^  506|         }
+  ^  507|     }
+  ^  508|     if (fputc('\n', metadata_file) == EOF) {
+  ^  509|         operation_status = 1;
+  ^  510|     }
+  ^  511|     for (size_t line_index = 0;
+  ^  512|         line_index < sizeof(build_identity_lines) / sizeof(build_identity_lines[0]);
+  ^  513|         ++line_index) {
+  ^  514|         if (fputs(build_identity_lines[line_index], metadata_file) == EOF) {
+  ^  515|             operation_status = 1;
+  ^  516|         }
+  ^  517|     }
+  ^  518| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  519|     if (fputs("measurement_format=" MEASUREMENT_FORMAT "\n"
+  ^  520|               "workload=valid:bit-flipped:random=1:1:1\n"
+  ^  521|               "input_index_rule=category_local_index_shared_across_categories\n"
+  ^  522|               "virtualization=not_verified_by_program_see_environment_log\n",
+  ^  523|             metadata_file) == EOF ||
+  ^  524|         save_timer_diagnostics(metadata_file) != 0 ||
+  ^  525|         save_workload_identity(metadata_file, sample_count) != 0) {
+  ^  526|         operation_status = 1;
+  ^  527|     }
+  ^  528|     if (fflush(metadata_file) != 0) {
+  ^  529|         operation_status = 1;
+  ^  530|     }
+  ^  531| #endif
+  ^  532|     if (fclose(csv_file) != 0) {
+  ^  533|         operation_status = 1;
+  ^  534|     }
+  ^  535| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  536|     if (fprintf(metadata_file, "run_status=%s\n", operation_status == 0 ? "complete" : "failed") <
+  ^  537|         0) {
+  ^  538|         operation_status = 1;
+  ^  539|     }
+  ^  540| #endif
+  ^  541|     if (fclose(metadata_file) != 0) {
+  ^  542|         operation_status = 1;
+  ^  543|     }
+  ^  544|     return operation_status;
+  ^  545| }
+  ^  546| 
+  ^  547| int main(int argument_count, char **argument_values)
+  ^  548| {
+  ^  549|     uint64_t test_seed;
+  ^  550|     uint64_t samples_per_category;
+  ^  551|     uint64_t resolution_nanoseconds;
+  ^  552|     uint64_t order_draw_index = 0;
+  ^  553|     uint8_t encapsulation_key[MLKEM_ENCAPSULATION_KEY_BYTES];
+  ^  554|     uint8_t decapsulation_key[MLKEM_DECAPSULATION_KEY_BYTES];
+  ^  555|     uint8_t shared_secret[MLKEM_SHARED_SECRET_BYTES];
+  ^  556|     uint8_t executable_digest[32];
+  ^  557|     struct measurement_sample *samples = NULL;
+  ^  558|     size_t sample_count;
+  ^  559|     int operation_status = 1;
+  ^  560| #ifdef BASELINE_BATCH_WORKLOAD
+  ^  561|     uint8_t batch_shared_secrets[MAXIMUM_BATCH_CALLS][MLKEM_SHARED_SECRET_BYTES] = {{0}};
+  ^  562| #endif
+  ^  563| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  564|     FILE *cost_file = NULL;
+  ^  565|     char cost_path[4096];
+  ^  566| #endif
+  ^  567|     if (argument_count != MEASUREMENT_ARGUMENT_COUNT ||
+  ^  568|         parse_unsigned_integer(argument_values[2], &test_seed) != 0 ||
+  ^  569|         parse_unsigned_integer(argument_values[3], &samples_per_category) != 0 ||
+  ^  570|         samples_per_category == 0 || samples_per_category > 20000u) {
+  ^  571| #ifdef BASELINE_BATCH_WORKLOAD
+  ^  572|         fputs("Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE\n",
+  ^  573|             stderr);
+  ^  574| #else
+  ^  575|         fputs(
+  ^  576|             "Usage: measure RUN_ID SEED SAMPLES_PER_CATEGORY CSV_FILE META_FILE (count 1..20000)\n",
+  ^  577|             stderr);
+  ^  578| #endif
+  ^  579|         return 2;
+  ^  580|     }
+  ^  581| #ifdef BASELINE_BATCH_WORKLOAD
+  ^  582|     uint64_t requested_batch_size;
+  ^  583|     if (parse_unsigned_integer(argument_values[4], &requested_batch_size) != 0 ||
+  ^  584|         (requested_batch_size != 1u && requested_batch_size != 4u && requested_batch_size != 16u)) {
+  ^  585|         fputs("batch size must be 1, 4 or 16\n", stderr);
+  ^  586|         return 2;
+  ^  587|     }
+  ^  588|     measurement_batch_size = (size_t)requested_batch_size;
+  ^  589| #endif
+  ^  590|     if (strlen(argument_values[1]) == 0 || strlen(argument_values[1]) > 64u) {
+  ^  591|         fputs("invalid RUN_ID: length must be 1..64 characters\n", stderr);
+  ^  592|         return 2;
+  ^  593|     }
+  ^  594|     for (const char *character = argument_values[1]; *character != '\0'; ++character) {
+  ^  595|         if (!((*character >= 'a' && *character <= 'z') ||
+  ^  596|                 (*character >= 'A' && *character <= 'Z') ||
+  ^  597|                 (*character >= '0' && *character <= '9') || *character == '_' ||
+  ^  598|                 *character == '-')) {
+  ^  599|             fputs("invalid RUN_ID: use only ASCII letters, digits, underscore or hyphen\n", stderr);
+  ^  600|             return 2;
+  ^  601|         }
+  ^  602|     }
+  ^  603| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  604|     int path_byte_count =
+  ^  605|         snprintf(cost_path, sizeof(cost_path), "%s.cost", argument_values[CSV_ARGUMENT_INDEX]);
+  ^  606|     if (path_byte_count < 0 || (size_t)path_byte_count >= sizeof(cost_path) ||
+  ^  607|         read_monotonic_nanoseconds(&accounting.start_nanoseconds) != 0) {
+  ^  608|         return 1;
+  ^  609|     }
+  ^  610|     cost_file = fopen(cost_path, "wx");
+  ^  611|     if (cost_file == NULL) {
+  ^  612|         return 1;
+  ^  613|     }
+  ^  614|     if (fprintf(cost_file,
+  ^  615|             "cost_format=measurement_cost_v1\ninitial_state=started\nrun_id=%s\n",
+  ^  616|             argument_values[1]) < 0 ||
+  ^  617|         fflush(cost_file) != 0) {
+  ^  618|         goto cleanup;
+  ^  619|     }
+  ^  620| #endif
+  ^  621|     if (check_timer(&resolution_nanoseconds) != 0 ||
+  ^  622|         hash_running_executable(executable_digest) != 0) {
+  ^  623|         fputs("timer/executable identity check failed\n", stderr);
+  ^  624| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  625|         goto cleanup;
+  ^  626| #else
+  ^  627|         return 1;
+  ^  628| #endif
+  ^  629|     }
+  ^  630|     sample_count = (size_t)samples_per_category * MEASUREMENT_CATEGORY_COUNT;
+  ^  631|     samples = calloc(sample_count, sizeof(*samples));
+  ^  632| #ifdef BASELINE_BATCH_WORKLOAD
+  ^  633|     batch_windows = calloc((sample_count + measurement_batch_size - 1u) / measurement_batch_size,
+  ^  634|         sizeof(*batch_windows));
+  ^  635|     if (batch_windows == NULL) {
+  ^  636|         goto cleanup;
+  ^  637|     }
+  ^  638| #endif
+  ^  639|     if (samples == NULL ||
+  ^  640|         generate_test_key_pair(test_seed, encapsulation_key, decapsulation_key) != 0) {
+  ^  641|         goto cleanup;
+  ^  642|     }
+  ^  643|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+  ^  644|         samples[sample_index].category =
+  ^  645|             (enum input_category)(sample_index % MEASUREMENT_CATEGORY_COUNT);
+  ^  646|         if (generate_test_ciphertext(samples[sample_index].category,
+  ^  647|                 test_seed,
+  ^  648|                 sample_index / MEASUREMENT_CATEGORY_COUNT,
+  ^  649|                 encapsulation_key,
+  ^  650|                 samples[sample_index].ciphertext) != 0) {
+  ^  651|             goto cleanup;
+  ^  652|         }
+  ^  653|     }
+  ^  654|     for (size_t remaining_count = sample_count; remaining_count > 1u; --remaining_count) {
+  ^  655|         size_t selected_index =
+  ^  656|             (size_t)draw_order_value(test_seed, &order_draw_index, remaining_count);
+  ^  657|         struct measurement_sample selected_sample = samples[selected_index];
+  ^  658|         samples[selected_index] = samples[remaining_count - 1u];
+  ^  659|         samples[remaining_count - 1u] = selected_sample;
+  ^  660|     }
+  ^  661| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  662|     if (hash_ordered_inputs(samples, sample_count, encapsulation_key) != 0 ||
+  ^  663|         read_monotonic_nanoseconds(&accounting.preparation_end_nanoseconds) != 0) {
+  ^  664|         goto cleanup;
+  ^  665|     }
+  ^  666| #endif
+  ^  667|     for (unsigned warmup_index = 0; warmup_index < 100u; ++warmup_index) {
+  ^  668| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  669|         ++accounting.warmup_attempted_calls;
+  ^  670| #endif
+  ^  671|         if (mlkem_decapsulate(shared_secret,
+  ^  672|                 sizeof(shared_secret),
+  ^  673|                 samples[warmup_index % sample_count].ciphertext,
+  ^  674|                 MLKEM_CIPHERTEXT_BYTES,
+  ^  675|                 decapsulation_key,
+  ^  676|                 sizeof(decapsulation_key)) != 0) {
+  ^  677|             goto cleanup;
+  ^  678|         }
+  ^  679|         result_sink ^= shared_secret[0];
+  ^  680| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  681|         ++accounting.warmup_completed_calls;
+  ^  682|         ++accounting.outputs_consumed;
+  ^  683| #endif
+  ^  684|     }
+  ^  685| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  686|     if (read_monotonic_nanoseconds(&accounting.warmup_end_nanoseconds) != 0) {
+  ^  687|         goto cleanup;
+  ^  688|     }
+  ^  689| #endif
+  ^  690| #ifdef BASELINE_BATCH_WORKLOAD
+  ^  691|     for (size_t first_input_index = 0; first_input_index < sample_count;
+  ^  692|         first_input_index += measurement_batch_size) {
+  ^  693|         struct batch_window *window = &batch_windows[first_input_index / measurement_batch_size];
+  ^  694|         const uint8_t *ciphertexts[MAXIMUM_BATCH_CALLS];
+  ^  695|         int call_statuses[MAXIMUM_BATCH_CALLS];
+  ^  696|         uint64_t start_nanoseconds;
+  ^  697|         uint64_t end_nanoseconds;
+  ^  698|         window->first_input_index = first_input_index;
+  ^  699|         window->call_count = sample_count - first_input_index < measurement_batch_size
+  ^  700|             ? sample_count - first_input_index
+  ^  701|             : measurement_batch_size;
+  ^  702|         for (size_t call_index = 0; call_index < window->call_count; ++call_index) {
+  ^  703|             const struct measurement_sample *sample = &samples[first_input_index + call_index];
+  ^  704|             ciphertexts[call_index] = sample->ciphertext;
+  ^  705|             ++window->category_counts[(unsigned)sample->category];
+  ^  706|         }
+  ^  707|         accounting.formal_attempted_calls += (uint64_t)window->call_count;
+  ^  708|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+  ^  709|             accounting.formal_attempted_calls -= (uint64_t)window->call_count;
+  ^  710|             goto cleanup;
+  ^  711|         }
+  ^  712|         atomic_signal_fence(memory_order_seq_cst);
+  ^  713|         int batch_status = run_batch_decapsulations(window->call_count,
+  ^  714|             ciphertexts,
+  ^  715|             decapsulation_key,
+  ^  716|             batch_shared_secrets,
+  ^  717|             call_statuses);
+  ^  718|         atomic_signal_fence(memory_order_seq_cst);
+  ^  719|         if (read_monotonic_nanoseconds(&end_nanoseconds) != 0 ||
+  ^  720|             end_nanoseconds < start_nanoseconds || batch_status != 0) {
+  ^  721|             goto cleanup;
+  ^  722|         }
+  ^  723|         window->total_nanoseconds = end_nanoseconds - start_nanoseconds;
+  ^  724|         int has_failed_call = 0;
+  ^  725|         for (size_t call_index = 0; call_index < window->call_count; ++call_index) {
+  ^  726|             if (call_statuses[call_index] != 0) {
+  ^  727|                 has_failed_call = 1;
+  ^  728|             } else {
+  ^  729|                 ++accounting.formal_completed_calls;
+  ^  730|                 result_sink ^=
+  ^  731|                     batch_shared_secrets[call_index][(first_input_index + call_index) % 32u];
+  ^  732|                 ++accounting.outputs_consumed;
+  ^  733|             }
+  ^  734|         }
+  ^  735|         if (has_failed_call) {
+  ^  736|             goto cleanup;
+  ^  737|         }
+  ^  738|     }
+  ^  739| #else
+  ^  740|     for (size_t sample_index = 0; sample_index < sample_count; ++sample_index) {
+  ^  741|         uint64_t start_nanoseconds;
+  ^  742|         uint64_t end_nanoseconds;
+  ^  743|         int decapsulation_status;
+  ^  744| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  745|         ++accounting.formal_attempted_calls;
+  ^  746| #endif
+  ^  747|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+  ^  748| #ifdef BASELINE_ORDINARY_WORKLOAD
+  ^  749|             --accounting.formal_attempted_calls;
+  ^  750| #endif
+  ^  751|             goto cleanup;
+  ^  752|         }
+  ^  753|         atomic_signal_fence(memory_order_seq_cst);
+  ^  754|         decapsulation_status = mlkem_decapsulate(shared_secret,
+  ^  755|             sizeof(shared_secret),
+  ^  756|             samples[sample_index].ciphertext,
+  ^  757|             MLKEM_CIPHERTEXT_BYTES,
+  ^  758|             decapsulation_key,
+  ^  759|             sizeof(decapsulation_key));
+  ^  760|         atomic_signal_fence(memory_order_seq_cst);
+  严格窗口内 I/O/日志/分配/内存调用：calloc,fclose,fflush,fopen,fprintf,fputc,fputs,fread,free,malloc,memcpy,readlink,remove,snprintf
+  仅上下文（窗口外）出现：无
+  上下文区间之外的 I/O 相关行数：11（I/O 在窗口之外执行）
+
+=== M2 micro 热点窗口 (/Users/yin/code/cryProject/tools/platform_m2_micro/m2_hotspot_microbench.c) ===
+  计时窗口（fence 到 fence）：行 549..773
+  上下文区间（含窗口外错误处理）：行 549..773
+  --- 窗口原文（^ 标记属于严格窗口内的行）---
+  ^  549|         "\nwindow=clock_gettime;atomic_signal_fence(memory_order_seq_cst);%s("
+  ^  550|         "KYBER_INDCPA_MSGBYTES,poly);atomic_signal_fence(memory_order_seq_cst);clock_gettime"
+  ^  551|         "\nwindow_scope=one_poly_tomsg_call\n"
+  ^  552|         "hotspot_function=%s\nhotspot_symbol=%s\n"
+  ^  553|         "hotspot_input=indcpa_dec_prefix_of_class_ciphertext\n"
+  ^  554|         "order=balanced_fisher_yates_shake256_tag4\n"
+  ^  555|         "input_generation_window=outside\nresult_consumption_window=outside\n"
+  ^  556|         "io_window=outside\noutput_buffer_bytes=%zu\n"
+  ^  557|         "chosen_message_classes=message-zero,message-ones\n",
+  ^  558|         resolution_nanoseconds,
+  ^  559|         M2_MICRO_HOTSPOT_FUNCTION,
+  ^  560|         M2_MICRO_HOTSPOT_FUNCTION,
+  ^  561|         M2_MICRO_HOTSPOT_SYMBOL,
+  ^  562|         row_count * M2_MICRO_MESSAGE_BYTES);
+  ^  563|     meta_printf(meta_file,
+  ^  564|         &operation_status,
+  ^  565|         "public_key_path=%s\npublic_key_bytes=%u\npublic_key_sha3_256=",
+  ^  566|         options->public_key_path,
+  ^  567|         (unsigned)MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  568|     write_digest_hex(meta_file, &operation_status, public_key_digest);
+  ^  569|     meta_printf(meta_file,
+  ^  570|         &operation_status,
+  ^  571|         "\nsecret_key_path=%s\nsecret_key_bytes=%u\nsecret_key_sha3_256=",
+  ^  572|         options->secret_key_path,
+  ^  573|         (unsigned)MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  574|     write_digest_hex(meta_file, &operation_status, secret_key_digest);
+  ^  575|     meta_printf(meta_file, &operation_status, "\ninput_sequence_digest_algorithm=SHA3-256\n"
+  ^  576|                                               "input_sequence_digest=");
+  ^  577|     write_digest_hex(meta_file, &operation_status, input_digest);
+  ^  578|     meta_printf(meta_file, &operation_status, "\nhotspot_input_digest_algorithm=SHA3-256\n"
+  ^  579|                                               "hotspot_input_digest=");
+  ^  580|     write_digest_hex(meta_file, &operation_status, hotspot_input_digest);
+  ^  581|     meta_printf(meta_file, &operation_status, "\nexpected_message_digest_algorithm=SHA3-256\n"
+  ^  582|                                               "expected_message_digest=");
+  ^  583|     write_digest_hex(meta_file, &operation_status, message_pattern_digest);
+  ^  584|     meta_printf(meta_file, &operation_status, "\nexecutable_sha3_256=");
+  ^  585|     write_digest_hex(meta_file, &operation_status, executable_digest);
+  ^  586|     meta_printf(meta_file,
+  ^  587|         &operation_status,
+  ^  588|         "\nzero_elapsed_count=%" PRIu64 "\nminimum_elapsed_nanoseconds=%" PRIu64
+  ^  589|         "\nmaximum_elapsed_nanoseconds=%" PRIu64 "\nfailed_hotspot_call_count=%" PRIu64
+  ^  590|         "\nchosen_message_hotspot_mismatch_count=%" PRIu64 "\n",
+  ^  591|         zero_elapsed_count,
+  ^  592|         minimum_elapsed_nanoseconds,
+  ^  593|         maximum_elapsed_nanoseconds,
+  ^  594|         failed_hotspot_calls,
+  ^  595|         chosen_message_mismatch_count);
+  ^  596|     meta_printf(meta_file,
+  ^  597|         &operation_status,
+  ^  598|         "csv_path=%s\ncpu_affinity=not_pinned\nfrequency_control=not_configured\n"
+  ^  599|         "os=%s %s %s\ncpu_model=%s\nwall_clock_unix_seconds=%jd\n",
+  ^  600|         options->raw_path,
+  ^  601|         machine_information.sysname,
+  ^  602|         machine_information.release,
+  ^  603|         machine_information.machine,
+  ^  604|         cpu_model,
+  ^  605|         (intmax_t)wall_clock_seconds);
+  ^  606|     meta_printf(meta_file,
+  ^  607|         &operation_status,
+  ^  608|         "run_status=%s\n",
+  ^  609|         (operation_status == 0 && failed_hotspot_calls == 0 && chosen_message_mismatch_count == 0)
+  ^  610|             ? "complete"
+  ^  611|             : "failed");
+  ^  612|     if (fflush(csv_file) != 0) {
+  ^  613|         operation_status = 1;
+  ^  614|     }
+  ^  615|     if (fclose(csv_file) != 0) {
+  ^  616|         operation_status = 1;
+  ^  617|     }
+  ^  618|     if (fclose(meta_file) != 0) {
+  ^  619|         operation_status = 1;
+  ^  620|     }
+  ^  621|     return operation_status;
+  ^  622| }
+  ^  623| 
+  ^  624| int main(int argument_count, char **argument_values)
+  ^  625| {
+  ^  626|     struct micro_options options;
+  ^  627|     uint8_t *public_key = NULL;
+  ^  628|     uint8_t *secret_key = NULL;
+  ^  629|     uint8_t *class_ciphertexts = NULL;
+  ^  630|     uint8_t *ordered_ciphertexts = NULL;
+  ^  631|     poly *class_hotspot_inputs = NULL;
+  ^  632|     poly *row_hotspot_inputs = NULL;
+  ^  633|     enum m2_collector_class *row_classes = NULL;
+  ^  634|     uint8_t *row_messages = NULL;
+  ^  635|     uint64_t *elapsed_nanoseconds = NULL;
+  ^  636|     uint8_t public_key_digest[32];
+  ^  637|     uint8_t secret_key_digest[32];
+  ^  638|     uint8_t input_digest[32];
+  ^  639|     uint8_t hotspot_input_digest[32];
+  ^  640|     uint8_t message_pattern_digest[32];
+  ^  641|     uint8_t executable_digest[32];
+  ^  642|     uint8_t window_message[KYBER_INDCPA_MSGBYTES];
+  ^  643|     uint64_t resolution_nanoseconds = 0;
+  ^  644|     uint64_t zero_elapsed_count = 0;
+  ^  645|     uint64_t minimum_elapsed_nanoseconds = UINT64_MAX;
+  ^  646|     uint64_t maximum_elapsed_nanoseconds = 0;
+  ^  647|     uint64_t failed_hotspot_calls = 0;
+  ^  648|     uint64_t chosen_message_mismatch_count = 0;
+  ^  649|     uint64_t warmup_attempted_calls = 0;
+  ^  650|     uint64_t warmup_completed_calls = 0;
+  ^  651|     size_t row_count = 0;
+  ^  652|     int operation_status = 1;
+  ^  653|     if (argument_count == 2 &&
+  ^  654|         (strcmp(argument_values[1], "--help") == 0 || strcmp(argument_values[1], "-h") == 0)) {
+  ^  655|         print_usage(stdout);
+  ^  656|         return 0;
+  ^  657|     }
+  ^  658|     if (argument_count == 1) {
+  ^  659|         print_usage(stderr);
+  ^  660|         return 2;
+  ^  661|     }
+  ^  662|     if (parse_options(argument_count, argument_values, &options) != 0) {
+  ^  663|         fputs("invalid arguments\n", stderr);
+  ^  664|         print_usage(stderr);
+  ^  665|         return 2;
+  ^  666|     }
+  ^  667|     {
+  ^  668|         struct timespec clock_resolution;
+  ^  669|         if (clock_getres(CLOCK_MONOTONIC, &clock_resolution) != 0 || clock_resolution.tv_sec < 0 ||
+  ^  670|             clock_resolution.tv_nsec < 0) {
+  ^  671|             fputs("clock resolution check failed\n", stderr);
+  ^  672|             return 1;
+  ^  673|         }
+  ^  674|         resolution_nanoseconds = (uint64_t)clock_resolution.tv_sec * UINT64_C(1000000000) +
+  ^  675|                                  (uint64_t)clock_resolution.tv_nsec;
+  ^  676|         if (resolution_nanoseconds == 0) {
+  ^  677|             fputs("clock resolution is zero\n", stderr);
+  ^  678|             return 1;
+  ^  679|         }
+  ^  680|     }
+  ^  681|     row_count = options.class_count * (size_t)options.samples_per_class;
+  ^  682|     public_key = malloc(MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  683|     secret_key = malloc(MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  684|     class_ciphertexts = malloc((size_t)M2_COLLECTOR_CLASS_COUNT * MLKEM_CIPHERTEXT_BYTES);
+  ^  685|     ordered_ciphertexts = malloc(row_count * (size_t)MLKEM_CIPHERTEXT_BYTES);
+  ^  686|     class_hotspot_inputs = malloc((size_t)M2_COLLECTOR_CLASS_COUNT * sizeof(poly));
+  ^  687|     row_hotspot_inputs = malloc(row_count * sizeof(poly));
+  ^  688|     row_classes = malloc(row_count * sizeof(*row_classes));
+  ^  689|     row_messages = malloc(row_count * M2_MICRO_MESSAGE_BYTES);
+  ^  690|     elapsed_nanoseconds = malloc(row_count * sizeof(*elapsed_nanoseconds));
+  ^  691|     if (public_key == NULL || secret_key == NULL || class_ciphertexts == NULL ||
+  ^  692|         ordered_ciphertexts == NULL || class_hotspot_inputs == NULL || row_hotspot_inputs == NULL ||
+  ^  693|         row_classes == NULL || row_messages == NULL || elapsed_nanoseconds == NULL) {
+  ^  694|         fputs("allocation failed\n", stderr);
+  ^  695|         goto cleanup;
+  ^  696|     }
+  ^  697|     if (read_fixed_file(options.public_key_path, public_key, MLKEM_ENCAPSULATION_KEY_BYTES) != 0) {
+  ^  698|         fputs("public key file must hold exactly MLKEM_ENCAPSULATION_KEY_BYTES bytes\n", stderr);
+  ^  699|         goto cleanup;
+  ^  700|     }
+  ^  701|     if (read_fixed_file(options.secret_key_path, secret_key, MLKEM_DECAPSULATION_KEY_BYTES) != 0) {
+  ^  702|         fputs("secret key file must hold exactly MLKEM_DECAPSULATION_KEY_BYTES bytes\n", stderr);
+  ^  703|         goto cleanup;
+  ^  704|     }
+  ^  705|     platform_m2_sha3_256(public_key_digest, public_key, MLKEM_ENCAPSULATION_KEY_BYTES);
+  ^  706|     platform_m2_sha3_256(secret_key_digest, secret_key, MLKEM_DECAPSULATION_KEY_BYTES);
+  ^  707|     for (size_t class_slot = 0; class_slot < options.class_count; ++class_slot) {
+  ^  708|         enum m2_collector_class class_index = options.class_list[class_slot];
+  ^  709|         uint8_t *class_ciphertext =
+  ^  710|             class_ciphertexts + (size_t)class_index * MLKEM_CIPHERTEXT_BYTES;
+  ^  711|         uint8_t expected_secret[MLKEM_SHARED_SECRET_BYTES];
+  ^  712|         /* 与采集件同一份 collector_inputs.c：同一固定公钥、同一确定性密文构造。 */
+  ^  713|         if (m2_collector_build_ciphertext(class_index, public_key, class_ciphertext, expected_secret) !=
+  ^  714|             0) {
+  ^  715|             fputs("ciphertext construction failed\n", stderr);
+  ^  716|             goto cleanup;
+  ^  717|         }
+  ^  718|         erase_secret_bytes(expected_secret, sizeof(expected_secret));
+  ^  719|         derive_hotspot_input(&class_hotspot_inputs[class_index], class_ciphertext, secret_key);
+  ^  720|     }
+  ^  721|     /* 热点输出的功能门：期望解密消息必须逐字节等于该类选定的消息形态。 */
+  ^  722|     for (size_t class_slot = 0; class_slot < options.class_count; ++class_slot) {
+  ^  723|         enum m2_collector_class class_index = options.class_list[class_slot];
+  ^  724|         poly_tomsg(window_message, &class_hotspot_inputs[class_index]);
+  ^  725|         for (size_t byte_index = 0; byte_index < M2_MICRO_MESSAGE_BYTES; ++byte_index) {
+  ^  726|             if (window_message[byte_index] != expected_message_byte(class_index)) {
+  ^  727|                 chosen_message_mismatch_count += 1U;
+  ^  728|             }
+  ^  729|         }
+  ^  730|     }
+  ^  731|     if (m2_collector_build_schedule(options.class_list,
+  ^  732|             options.class_count,
+  ^  733|             options.samples_per_class,
+  ^  734|             options.test_seed,
+  ^  735|             row_classes) != 0) {
+  ^  736|         fputs("schedule construction failed\n", stderr);
+  ^  737|         goto cleanup;
+  ^  738|     }
+  ^  739|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+  ^  740|         memcpy(ordered_ciphertexts + row_index * MLKEM_CIPHERTEXT_BYTES,
+  ^  741|             class_ciphertexts + (size_t)row_classes[row_index] * MLKEM_CIPHERTEXT_BYTES,
+  ^  742|             MLKEM_CIPHERTEXT_BYTES);
+  ^  743|         row_hotspot_inputs[row_index] = class_hotspot_inputs[row_classes[row_index]];
+  ^  744|     }
+  ^  745|     if (m2_collector_digest_ciphertexts(ordered_ciphertexts, row_count, input_digest) != 0 ||
+  ^  746|         digest_hotspot_inputs(options.class_list,
+  ^  747|             options.class_count,
+  ^  748|             class_hotspot_inputs,
+  ^  749|             hotspot_input_digest) != 0 ||
+  ^  750|         digest_expected_messages(options.class_list,
+  ^  751|             options.class_count,
+  ^  752|             message_pattern_digest) != 0 ||
+  ^  753|         hash_running_executable(executable_digest) != 0) {
+  ^  754|         fputs("input/executable digest failed\n", stderr);
+  ^  755|         goto cleanup;
+  ^  756|     }
+  ^  757|     for (uint64_t warmup_index = 0; warmup_index < options.warmup_count; ++warmup_index) {
+  ^  758|         size_t selected_row = (size_t)(warmup_index % (uint64_t)row_count);
+  ^  759|         warmup_attempted_calls += 1U;
+  ^  760|         poly_tomsg(window_message, &row_hotspot_inputs[selected_row]);
+  ^  761|         result_sink ^= window_message[0];
+  ^  762|         warmup_completed_calls += 1U;
+  ^  763|     }
+  ^  764|     for (size_t row_index = 0; row_index < row_count; ++row_index) {
+  ^  765|         uint64_t start_nanoseconds;
+  ^  766|         uint64_t end_nanoseconds;
+  ^  767|         if (read_monotonic_nanoseconds(&start_nanoseconds) != 0) {
+  ^  768|             fputs("clock read failed\n", stderr);
+  ^  769|             goto cleanup;
+  ^  770|         }
+  ^  771|         atomic_signal_fence(memory_order_seq_cst);
+  ^  772|         poly_tomsg(window_message, &row_hotspot_inputs[row_index]);
+  ^  773|         atomic_signal_fence(memory_order_seq_cst);
+  严格窗口内 I/O/日志/分配/内存调用：fclose,fflush,fputs,malloc,memcpy
+  仅上下文（窗口外）出现：无
+  上下文区间之外的 I/O 相关行数：49（I/O 在窗口之外执行）
+
+=== M4 measure 窗口 (/Users/yin/code/cryProject/tools/platform_m4/measure.c) ===
+  计时窗口（fence 到 fence）：行 177..184
+  上下文区间（含窗口外错误处理）：行 177..184
+  --- 窗口原文（^ 标记属于严格窗口内的行）---
+  ^  177|         atomic_signal_fence(memory_order_seq_cst);
+  ^  178|         if (read_nanoseconds(&start_nanoseconds) != 0) {
+  ^  179|             collection_status = 1;
+  ^  180|             break;
+  ^  181|         }
+  ^  182|         int compare_status = compare_once(working_secret, candidate_inputs[0],
+  ^  183|             compare_length_bytes, &is_equal);
+  ^  184|         atomic_signal_fence(memory_order_seq_cst);
+  严格窗口内 I/O/日志/分配/内存调用：无
+  仅上下文（窗口外）出现：无
+  上下文区间之外的 I/O 相关行数：24（I/O 在窗口之外执行）
+
+R06_WINDOW_PROBLEM_WINDOWS=3
+[window] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/window/window-check.txt
+=== M2 collector 计时窗口 (/Users/yin/code/cryProject/tools/platform_m2/collector.c) ===
+  --- 窗口 #1：行 674..681 ---
+    674|         atomic_signal_fence(memory_order_seq_cst);
+    675|         decapsulation_status = (unsigned)mlkem_decapsulate(shared_secret,
+    676|             sizeof(shared_secret),
+    677|             ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    678|             MLKEM_CIPHERTEXT_BYTES,
+    679|             secret_key,
+    680|             MLKEM_DECAPSULATION_KEY_BYTES);
+    681|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M5 reference measure 计时窗口 (/Users/yin/code/cryProject/src/measure.c) ===
+  --- 窗口 #1：行 173..174 ---
+    173|         atomic_signal_fence(memory_order_seq_cst);
+    174|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+  --- 窗口 #2：行 712..718 ---
+    712|         atomic_signal_fence(memory_order_seq_cst);
+    713|         int batch_status = run_batch_decapsulations(window->call_count,
+    714|             ciphertexts,
+    715|             decapsulation_key,
+    716|             batch_shared_secrets,
+    717|             call_statuses);
+    718|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+  --- 窗口 #3：行 753..760 ---
+    753|         atomic_signal_fence(memory_order_seq_cst);
+    754|         decapsulation_status = mlkem_decapsulate(shared_secret,
+    755|             sizeof(shared_secret),
+    756|             samples[sample_index].ciphertext,
+    757|             MLKEM_CIPHERTEXT_BYTES,
+    758|             decapsulation_key,
+    759|             sizeof(decapsulation_key));
+    760|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M2 micro 热点窗口 (/Users/yin/code/cryProject/tools/platform_m2_micro/m2_hotspot_microbench.c) ===
+  --- 窗口 #1：行 771..773 ---
+    771|         atomic_signal_fence(memory_order_seq_cst);
+    772|         poly_tomsg(window_message, &row_hotspot_inputs[row_index]);
+    773|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M4 measure 窗口 (/Users/yin/code/cryProject/tools/platform_m4/measure.c) ===
+  --- 窗口 #1：行 177..184 ---
+    177|         atomic_signal_fence(memory_order_seq_cst);
+    178|         if (read_nanoseconds(&start_nanoseconds) != 0) {
+    179|             collection_status = 1;
+    180|             break;
+    181|         }
+    182|         int compare_status = compare_once(working_secret, candidate_inputs[0],
+    183|             compare_length_bytes, &is_equal);
+    184|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+R06_WINDOW_TOTAL=6
+R06_WINDOW_PROBLEM_WINDOWS=0
+[window] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/window/window-check.txt
+[static] 扫描文件数=128
+Traceback (most recent call last):
+  File "/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/src/r06_static_classify.py", line 210, in <module>
+    main()
+  File "/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/src/r06_static_classify.py", line 154, in main
+    with open(path, "r", encoding="utf-8", errors="replace") as handle:
+FileNotFoundError: [Errno 2] No such file or directory: 'fixtures/early_reject_memcmp/binsec_harness.c'
+[static] grep 原始命中行数=1640
+[static] 秘密标识符命中行数=668
+[static] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/static/call-sites.tsv
+[static] 扫描文件数=128
+TOTAL_CALL_SITES=1048
+TOUCHES_SECRET=122
+OTHER=926
+[static] grep 原始命中行数=1640
+[static] 秘密标识符命中行数=668
+[static] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/static/call-sites.tsv
+=== M2 collector 计时窗口 (/Users/yin/code/cryProject/tools/platform_m2/collector.c) ===
+  --- 窗口 #1：行 674..681 ---
+    674|         atomic_signal_fence(memory_order_seq_cst);
+    675|         decapsulation_status = (unsigned)mlkem_decapsulate(shared_secret,
+    676|             sizeof(shared_secret),
+    677|             ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    678|             MLKEM_CIPHERTEXT_BYTES,
+    679|             secret_key,
+    680|             MLKEM_DECAPSULATION_KEY_BYTES);
+    681|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M5 reference measure 计时窗口 (/Users/yin/code/cryProject/src/measure.c) ===
+  --- 窗口 #1：行 173..174 ---
+    173|         atomic_signal_fence(memory_order_seq_cst);
+    174|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+  --- 窗口 #2：行 712..718 ---
+    712|         atomic_signal_fence(memory_order_seq_cst);
+    713|         int batch_status = run_batch_decapsulations(window->call_count,
+    714|             ciphertexts,
+    715|             decapsulation_key,
+    716|             batch_shared_secrets,
+    717|             call_statuses);
+    718|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+  --- 窗口 #3：行 753..760 ---
+    753|         atomic_signal_fence(memory_order_seq_cst);
+    754|         decapsulation_status = mlkem_decapsulate(shared_secret,
+    755|             sizeof(shared_secret),
+    756|             samples[sample_index].ciphertext,
+    757|             MLKEM_CIPHERTEXT_BYTES,
+    758|             decapsulation_key,
+    759|             sizeof(decapsulation_key));
+    760|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M2 micro 热点窗口 (/Users/yin/code/cryProject/tools/platform_m2_micro/m2_hotspot_microbench.c) ===
+  --- 窗口 #1：行 771..773 ---
+    771|         atomic_signal_fence(memory_order_seq_cst);
+    772|         poly_tomsg(window_message, &row_hotspot_inputs[row_index]);
+    773|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M4 measure 窗口 (/Users/yin/code/cryProject/tools/platform_m4/measure.c) ===
+  --- 窗口 #1：行 177..184 ---
+    177|         atomic_signal_fence(memory_order_seq_cst);
+    178|         if (read_nanoseconds(&start_nanoseconds) != 0) {
+    179|             collection_status = 1;
+    180|             break;
+    181|         }
+    182|         int compare_status = compare_once(working_secret, candidate_inputs[0],
+    183|             compare_length_bytes, &is_equal);
+    184|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== perf_measure 计时窗口 (/Users/yin/code/cryProject/tools/platform_perf/perf_measure.c) ===
+  --- 窗口 #1：行 628..639 ---
+    628|             atomic_signal_fence(memory_order_seq_cst);
+    629|             if (operation_index == PERF_DECAPS_OPERATION) {
+    630|                 perf_decapsulate_once(
+    631|                     ciphertext, decapsulation_key, shared_secret, &call_status);
+    632|             } else if (operation_index == PERF_KEYGEN_OPERATION) {
+    633|                 perf_generate_key_pair_once(
+    634|                     encapsulation_key, decapsulation_key, &call_status);
+    635|             } else {
+    636|                 perf_encapsulate_once(
+    637|                     encapsulation_key, ciphertext, shared_secret, &call_status);
+    638|             }
+    639|             atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+R06_WINDOW_TOTAL=7
+R06_WINDOW_PROBLEM_WINDOWS=0
+[window] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/window/window-check.txt
+[dynamic] 探针=/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/src/r06_observable_probe
+[dynamic] 重复次数/模式=100，种子=31337，运行包装=''
+[dynamic] valid: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] bit-flipped: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] random: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-zero: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-ones: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-zero-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-ff-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] diff 差异块数=0（0 表示 stdout/stderr 逐字节一致）
+[dynamic] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/diff/matrix.tsv 与 /Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/diff/diff-results.txt
+[dynamic] 探针=/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/src/r06_observable_probe
+[dynamic] 重复次数/模式=120，种子=31337，运行包装=''
+[dynamic] valid: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] bit-flipped: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] random: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-zero: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-ones: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-zero-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-ff-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] diff 差异块数=0（0 表示 stdout/stderr 逐字节一致）
+[dynamic] 结果：/Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/diff/matrix.tsv 与 /Users/yin/code/cryProject/docs/evidence/r06-noleak-20261016/diff/diff-results.txt

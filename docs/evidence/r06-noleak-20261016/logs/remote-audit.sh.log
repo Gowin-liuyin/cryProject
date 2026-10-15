@@ -1,0 +1,27 @@
+[dynamic] 探针=/home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/src/r06_observable_probe
+[dynamic] 重复次数/模式=120，种子=31337，运行包装='taskset -c 0,1,3'
+[dynamic] valid: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] bit-flipped: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] random: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-zero: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-ones: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-zero-tail: rc唯一集=[2,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-ff-tail: rc唯一集=[2,] stdout唯一数=1 stderr唯一数=1
+[dynamic] diff 差异块数=4（0 表示 stdout/stderr 逐字节一致）
+[dynamic] 结果：/home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/diff/matrix.tsv 与 /home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/diff/diff-results.txt
+[dynamic] 探针=/home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/src/r06_observable_probe
+[dynamic] 重复次数/模式=120，种子=31337，运行包装='taskset -c 0,1,3'
+[dynamic] valid: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] bit-flipped: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] random: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-zero: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] message-ones: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-zero-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] malformed-ff-tail: rc唯一集=[0,] stdout唯一数=1 stderr唯一数=1
+[dynamic] diff 差异块数=0（0 表示 stdout/stderr 逐字节一致）
+[dynamic] 结果：/home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/diff/matrix.tsv 与 /home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/diff/diff-results.txt
+[memcheck] harness=/home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/src/platform_m5_poison_valgrind
+[memcheck] --self-test rc=0（stdout=624B）
+[memcheck] --poison rc=0
+==420222== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+[memcheck] 未发现 Syscall param 未初始化/秘密传播报错
