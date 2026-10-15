@@ -32,3 +32,16 @@ Linux 原始只读探测见 `linux-run-250f424b/environment.log`、`docker-probe
 
 当前已有的是 Linux Valgrind poison 对照与对应函数反汇编，详见 `RESULT.md`。
 未做密钥恢复、exploit、统计采数或频率配置。
+
+---
+
+> **状态更新（2026-10-16，主控）**：本文件是当时那一轮的**快照**，其中的"本轮未实现/未运行"
+> 描述只对该时点成立，**已被后续完成版取代**，请以完成版为准：
+> - M3 → [`../m3-completion-20261016/RESULT.md`](../m3-completion-20261016/RESULT.md) 与
+>   [`../m3-completion-20261016/LOCATE_RESULT.md`](../m3-completion-20261016/LOCATE_RESULT.md)
+>   （挂载到完整解封装、Memcheck 四组合 1280/2 对 0/0、Microwalk 真实运行、锁频端到端统计）。
+> - M4 → [`../m4-completion-20261016/RESULT.md`](../m4-completion-20261016/RESULT.md) 与
+>   [`../m4-completion-20261016/FORMAL_RESULT.md`](../m4-completion-20261016/FORMAL_RESULT.md)
+>   （Binsec `-sse -checkct` 四次实跑、截断对照、锁频端到端统计）。
+>
+> 本文件的**原文一字未改**，包括当时的阻塞记录与降级说明，保留作为历史时点。

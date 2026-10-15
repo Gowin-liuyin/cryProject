@@ -37,7 +37,10 @@
 - `PLAN.md` / `STATISTICAL_PLAN.md`：本轮功能定位范围与尚未执行的统计草案。
 - `source-upload.json`、`source-SHA256SUMS`：真实上传快照与未提交状态。
 - `build-{ordinary,sanitize}.log`：本机各 6/6，`patch-*.log` 是应用与严格 dry-run。
-- `native-8b6f2d91/`：原生环境、各 6/6、四组 Memcheck、完整 measure/probe 反汇编与结束核对。
+- `native-8b6f2d91/`：原生环境、四组 Memcheck、完整 measure/probe 反汇编与结束核对。
+  **更正**：本机两配置的 6/6 原始行其实在 `build-{ordinary,sanitize}.log` 第 68–80 行，
+  该目录里没有独立的 ctest 日志；逐测试名与行号见 [TESTS.md](TESTS.md)。原生采数树的 6/6 见
+  [LOCATE_RESULT.md](LOCATE_RESULT.md)（原始输出在 `locate-v2/`）。原文其余部分未改。
 - `native-probe-identity.txt`、`native-lut-load-excerpt.txt`：同 ELF 摘要、源码行及 load 定位。
 - `native-build-identity.txt`、`native-compile_commands.json`：原生真实编译输入与选项。
 - `ENV.md`、`NOTES.md`：完整原件位置、全归档摘要、工具降级及有限结论。

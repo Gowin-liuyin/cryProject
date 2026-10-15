@@ -9,3 +9,16 @@ S2 固定的 [Microwalk](https://github.com/microwalk-project/Microwalk) 为 `77
 Docker 备选还必须先解决云端持久层、镜像、容器临时层及工作挂载都落在 Cry 物理边界的问题；默认 daemon 存储位置不满足当前项目约定。只存在 `docker` 命令不足以解除阻塞。
 
 后续两步：主控先将本独立子目录纳入顶层 CMake/CTest；再根据 M2 主线进度冻结独立 M3 时序 PLAN，决定是否接入真实解封装路径和 Microwalk wrapper。本轮没有实现这两项，也没有统计阳性或阴性结论。开、关读取工作量差异大，跨版本总耗时差异不能用作秘密类对泄漏证据。
+
+---
+
+> **状态更新（2026-10-16，主控）**：本文件是当时那一轮的**快照**，其中的"本轮未实现/未运行"
+> 描述只对该时点成立，**已被后续完成版取代**，请以完成版为准：
+> - M3 → [`../m3-completion-20261016/RESULT.md`](../m3-completion-20261016/RESULT.md) 与
+>   [`../m3-completion-20261016/LOCATE_RESULT.md`](../m3-completion-20261016/LOCATE_RESULT.md)
+>   （挂载到完整解封装、Memcheck 四组合 1280/2 对 0/0、Microwalk 真实运行、锁频端到端统计）。
+> - M4 → [`../m4-completion-20261016/RESULT.md`](../m4-completion-20261016/RESULT.md) 与
+>   [`../m4-completion-20261016/FORMAL_RESULT.md`](../m4-completion-20261016/FORMAL_RESULT.md)
+>   （Binsec `-sse -checkct` 四次实跑、截断对照、锁频端到端统计）。
+>
+> 本文件的**原文一字未改**，包括当时的阻塞记录与降级说明，保留作为历史时点。
