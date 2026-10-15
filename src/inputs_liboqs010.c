@@ -1,7 +1,7 @@
 #include "inputs.h"
 
-#include <oqs/oqs.h>
 #include "sha3/sha3.h"
+#include <oqs/oqs.h>
 
 #include <errno.h>
 #include <stdlib.h>
@@ -86,8 +86,9 @@ int generate_test_key_pair(uint64_t test_seed,
     uint8_t key_seed[MLKEM_KEY_SEED_BYTES];
     int operation_status;
     expand_test_seed(key_seed, sizeof(key_seed), test_seed, 0, 1);
-    operation_status =
-        pqcrystals_ml_kem_768_ipd_ref_keypair_derand(encapsulation_key, decapsulation_key, key_seed);
+    operation_status = pqcrystals_ml_kem_768_ipd_ref_keypair_derand(encapsulation_key,
+        decapsulation_key,
+        key_seed);
     erase_secret_bytes(key_seed, sizeof(key_seed));
     return operation_status == 0 ? 0 : -1;
 }
