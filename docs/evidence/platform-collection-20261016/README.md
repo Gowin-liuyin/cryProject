@@ -10,8 +10,8 @@
 ### 1.0 冻结计划与实际执行版本
 
 四份 PLAN 在**采数之前**由一次提交 `efca8a1` 冻结。控制器对每次运行校验
-`--plan-sha256`，下面四个值就是**实际通过校验并在采集日志里逐字记录**的摘要
-（等于 `git show efca8a1:<该路径>` 的 blob 摘要）：
+`--plan-sha256`，下面四个值就是**实际通过校验并在采集日志里逐字记录**的摘要，
+等于对 `git show efca8a1:<该路径>` 取出的 **blob 内容**再算一次 SHA-256（已由审计独立复核逐字一致）：
 
 | 模块 | 计划路径 | 执行用 sha256 |
 |---|---|---|
@@ -82,11 +82,11 @@ Holm 家族与 m、α、停止规则或频率恢复合同，但确实改动了 M
 `input.sha256`、`tools.sha256`、`input.csv.gz`、`normalized.csv.gz`）；电池以
 `--format measure --classes <c0> <c1> --no-external` 运行，**不做 Holm**。
 
-`stats/members/members.csv` 是预注册家族的成员表，`stats/holm/` 是 `platform_holm`
-（提交见 `tools/platform_stats/holm.c`）的输出：`holm.csv`、`pooled.csv`、
+`stats/members/members.csv.gz` 是预注册家族的成员表，`stats/holm/` 是 `platform_holm`
+（提交见 `tools/platform_stats/holm.c`）的输出：`holm.csv.gz`、`pooled.csv.gz`、
 `holm_summary.json`、`RESULT.md`。每个模块一个家族，α（全族）= 0.05。
 
-`stats/members/members-descriptive.csv` 与 `stats/holm-descriptive/` 是**描述性分层**
+`stats/members/members-descriptive.csv.gz` 与 `stats/holm-descriptive/` 是**描述性分层**
 （按臂合并、对照类对合并），**不是独立家族，不改变任何 Holm 判定**，只用于读数。
 
 ## 5. 结论（详见各模块 RESULT.md）
@@ -116,3 +116,15 @@ fixed −11.20 [−24.56, 2.15]）——这是**臂间漂移**而非可归因泄
 - RTLF（α=0.01）与 online dudect 一律**族外**，dudect 的最大 t 不得转成伪 p 参与 Holm。
 - 采数期间机器上仍运行着与本项目无关的常驻服务；这一点不改变单核绑核与频率门的记录，
   但意味着"整机独占"不是本页的主张。
+
+
+## 7. 两条引用时容易误读的登记
+
+1. **各 run 的 `.meta` 写死 `cpu_affinity=not_pinned` 与 `frequency_control=not_configured`**，
+   因为采集件自身不设亲和性、也不写频率——这两项由外层控制器负责。第三方若只读 `.meta`
+   会得到与锁频记录相反的表述；**权威来源是控制器落盘的 `controller/baseline.json`、
+   `entry-probes.json`、`during.json`、`0020-restored.json`、`terminal.json` 与本 README §1**。
+2. **拉回的 M2 源码证据树里有 5 个悬空符号链接与两处 `avx2/.gitignore` 的 git ELOOP 警告**。
+   它们来自上游 kyber 快照（`avx2/.gitignore -> ../ref/.gitignore` 一类），内容可读、
+   没有真实环，也不在被测 ELF 的构建链接路径上；为保持"上游快照不改名、不修改"的约定，
+   本轮**没有**改动这些符号链接，仅在此登记。

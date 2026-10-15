@@ -7,7 +7,7 @@
 
 ## 报告载体（F02）
 
-- 当前 PDF 为 **22 页**：`deliverables/research/multi-leakage-platform-20261016/report.pdf`，
+- 当前 PDF 为 **23 页**（权威值见 `final3-20261016/pdf-metadata-audit.json` 的 `pages`）：`deliverables/research/multi-leakage-platform-20261016/report.pdf`，
   SHA-256 `bd0ddf92d42b5cad32b27cfdc073cdb51c4ed925483900198426df528c0211af`。
 - 正文 13 章、**6 张对照表**、27 份来源；`report.md`、`report.tex`、`index.html`、
   `platform-matrix.svg`、`report-tables.json`、`evidence-snapshot.json` 同时生成。
@@ -61,7 +61,7 @@ SHA-256：`60deadaba9ef2b204a7cbf4fae2a915349b407667959762e2a6b3803b69b91e1`。
 [refresh-20261016/zip-recompute-final3.log](refresh-20261016/zip-recompute-final3.log)，逐项命令汇总见
 [refresh-20261016/REFRESH.md](refresh-20261016/REFRESH.md)（含第一阶段 refresh-20261016 的记录）。**没有用仓库本体的构建充当本次复算。**
 
-独立包审计（`audit_revision.py final3-20261016`，产物在 [final3-20261016/](final3-20261016/)）另给：`pdf-metadata-audit.json`（22 页、
+独立包审计（`audit_revision.py final3-20261016`，产物在 [final3-20261016/](final3-20261016/)）另给：`pdf-metadata-audit.json`（23 页、
 作者空、0 直接私有标记、无文档级 JavaScript）、`offline-replay.log` 与
 `offline-reproduction.json`（只从实包解出后重建，CTest 5/5，6 份数据集回放、12 个 C 输出
 逐字一致、包内原始时间输入字节未变；外部 RTLF/Mona/dudect/Binsec 未在该入口重执行）、

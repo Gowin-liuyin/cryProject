@@ -101,3 +101,42 @@ CPU2/CPU6锁频采数严格串行。先提交采集PLAN，再boost关、performa
 本文件及最终矩阵/进度的收口提交不自引用hash；完整提交清单可执行
 `git log --oneline 4a3a4ab..HEAD`。作者/提交者均为Gowin-liuyin，使用用户确认的已验证邮箱。
 建议审阅本交接与diff后允许push；本轮未执行push。
+
+---
+
+## 2026-10-16 第二轮完成交接（主控）
+
+上一节记录的是本轮启动时的 8 路分工（截至 `aa4d920`）。本节记录**本轮实际完成的内容**
+与本地提交清单，取代"待办"表述；旧段落保留原字节作为历史时点。
+
+### 完成范围
+
+1. **根集成构建**：`make -j4` 的 jobserver 告警消除（recipe 清空 `MAKEFLAGS` + 显式
+   `--parallel $(BUILD_JOBS)`，默认 4）。普通 **57/57**、ASan/UBSan **57/57**、
+   平台开配置 **87/87**，`format-check` 通过；`native_digest` 的 OpenSSL 3 前置条件
+   改为配置期能力探测（LibreSSL 会在配置期给出可操作错误，逃生开关下该测试明确 Skipped）。
+2. **锁频控制器资格**：五条空任务全部通过（四条 `restore_match=yes`，q-contention 在
+   共享锁上于任何频率写入之前被拒）。两次失败尝试的原件与根因分别保留在
+   `failed-attempt-1/`、`failed-attempt-2/`。
+3. **采数合同冻结**：M2/M5/M3/M4 四份 PLAN 由 `efca8a1` **一次提交冻结**；
+   执行用 blob 摘要见 `docs/evidence/platform-collection-20261016/README.md` §1.0。
+4. **锁频采数**：**54 次**控制器运行全部 `restore_match=yes`、放行探针 20/20 在 ±2% 带内
+   （M2 18、M5 6、M3 12、M4 18）；另有 M2 微基准 **6 次**同条件运行。
+5. **统计**：四个预注册 Holm 家族（α 全族 0.05）+ 固定效应合并；RTLF（α=0.01）42/42
+   族外交叉；online dudect 族外；Mona 对 M1/M2 各六行对照。结论分层：
+   **M4 vulnerable 臂端到端阳性（Holm 拒绝 3），M2/M3/M5 端到端未检出**；
+   M2 定位层与 varlat 阳性、热点微基准层未检出，三层互不冒充。
+6. **交付刷新**：23 页报告、平台矩阵图、离线 HTML 与匿名 ZIP（`final3-20261016`），
+   并从 ZIP 解出后独立复算 CTest 5/5。
+
+### 本地提交清单（本轮，自 `44c209a` 起）
+
+详见 `git log --oneline 44c209a..HEAD`；按模块划分：
+控制器白名单与沉降修复 → 构建并行度 → M2 KEM → M3 路径 → M4 Binsec/截断对照 → M5 工具 →
+Mona → `platform_holm` → 根 CMake 与共享入口 → PLAN 冻结与采数证据 → 微基准 → RTLF →
+报告/图/匿名包 → 完成条件与末次审计 → 进度与交接。
+
+### 未做与不做
+
+`git push` 未执行（等用户确认）。可选未做：C05（第二阴性）、D06（真实历史访存例）、
+E06（Binsec 扩大范围）。比赛方的材料审核、本人签署与官方验收仍需人工完成。
