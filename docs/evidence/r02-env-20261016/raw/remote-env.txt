@@ -1,0 +1,281 @@
+===== LOCAL: date -u +%Y-%m-%dT%H:%M:%SZ (本机时间戳)
+2026-10-15T19:59:47Z
+
+===== CMD: hostname; echo "---"; uname -a
+----- OUTPUT BEGIN
+nss-m
+---
+Linux nss-m 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+----- OUTPUT END (exit=0)
+
+===== CMD: cat /etc/os-release
+----- OUTPUT BEGIN
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+----- OUTPUT END (exit=0)
+
+===== CMD: cat /proc/cmdline
+----- OUTPUT BEGIN
+BOOT_IMAGE=/boot/vmlinuz-6.17.0-35-generic root=UUID=4a69ef09-597f-4e06-b988-36525528f82c ro quiet splash vt.handoff=7
+----- OUTPUT END (exit=0)
+
+===== CMD: nproc; echo "---"; getconf _NPROCESSORS_ONLN; echo "---"; free -k; echo "---"; head -3 /proc/meminfo
+----- OUTPUT BEGIN
+32
+---
+32
+---
+               total        used        free      shared  buff/cache   available
+内存：      63385244     9489292      962968       73244    53718688    53895952
+交换：       8388604     1579324     6809280
+---
+MemTotal:       63385244 kB
+MemFree:          962968 kB
+MemAvailable:   53895952 kB
+----- OUTPUT END (exit=0)
+
+===== CMD: lscpu
+----- OUTPUT BEGIN
+架构：                                   x86_64
+CPU 运行模式：                           32-bit, 64-bit
+Address sizes:                           48 bits physical, 48 bits virtual
+字节序：                                 Little Endian
+CPU:                                     32
+在线 CPU 列表：                          0-31
+厂商 ID：                                AuthenticAMD
+型号名称：                               AMD Ryzen 9 9950X 16-Core Processor
+CPU 系列：                               26
+型号：                                   68
+每个核的线程数：                         2
+每个座的核数：                           16
+座：                                     1
+步进：                                   0
+Frequency boost:                         启用
+CPU(s) scaling MHz:                      54%
+CPU 最大 MHz：                           5756.4521
+CPU 最小 MHz：                           624.1940
+BogoMIPS：                               8583.30
+标记：                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect flush_l1d amd_lbr_pmc_freeze
+虚拟化：                                 AMD-V
+L1d 缓存：                               768 KiB (16 instances)
+L1i 缓存：                               512 KiB (16 instances)
+L2 缓存：                                16 MiB (16 instances)
+L3 缓存：                                64 MiB (2 instances)
+NUMA 节点：                              1
+NUMA 节点0 CPU：                         0-31
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Mitigation; IBPB on VMEXIT only
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB on VMEXIT
+----- OUTPUT END (exit=0)
+
+===== CMD: cat /sys/devices/system/cpu/smt/active; echo "---"; cat /sys/devices/system/cpu/smt/control
+----- OUTPUT BEGIN
+1
+---
+on
+----- OUTPUT END (exit=0)
+
+===== CMD: for t in clang clang-18 gcc g++ cmake ninja valgrind binsec z3 python3 openssl taskset; do p=$(command -v "$t" 2>/dev/null || true); if [ -n "$p" ]; then printf "%s\t%s\n" "$t" "$p"; else printf "%s\tNOT-INSTALLED\n" "$t"; fi; done
+----- OUTPUT BEGIN
+clang	/usr/bin/clang
+clang-18	/usr/bin/clang-18
+gcc	/usr/bin/gcc
+g++	/usr/bin/g++
+cmake	/usr/bin/cmake
+ninja	/usr/bin/ninja
+valgrind	/usr/bin/valgrind
+binsec	NOT-INSTALLED
+z3	NOT-INSTALLED
+python3	/usr/bin/python3
+openssl	/usr/bin/openssl
+taskset	/usr/bin/taskset
+----- OUTPUT END (exit=0)
+
+===== CMD: clang --version; echo "---"; clang-18 --version; echo "---"; gcc --version | head -1; echo "---"; cmake --version | head -1; echo "---"; ninja --version
+----- OUTPUT BEGIN
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+---
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+---
+cmake version 3.28.3
+---
+1.11.1
+----- OUTPUT END (exit=0)
+
+===== CMD: valgrind --version 2>&1 | head -2; echo "---"; binsec -version 2>&1 | head -5; echo "---"; z3 --version 2>&1 | head -2
+----- OUTPUT BEGIN
+valgrind-3.22.0
+---
+bash: 行 1: binsec: 未找到命令
+---
+bash: 行 1: z3: 未找到命令
+----- OUTPUT END (exit=0)
+
+===== CMD: cat /sys/devices/system/cpu/cpufreq/boost 2>&1; echo "--- amd_pstate"; cat /sys/devices/system/cpu/amd_pstate/status 2>&1; echo "--- policy2"; for f in scaling_driver scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq energy_performance_preference; do printf "%s=%s\n" "$f" "$(cat /sys/devices/system/cpu/cpufreq/policy2/$f 2>&1)"; done; echo "--- policy6"; for f in scaling_driver scaling_governor scaling_min_freq scaling_max_freq scaling_cur_freq energy_performance_preference; do printf "%s=%s\n" "$f" "$(cat /sys/devices/system/cpu/cpufreq/policy6/$f 2>&1)"; done
+----- OUTPUT BEGIN
+1
+--- amd_pstate
+active
+--- policy2
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+energy_performance_preference=balance_performance
+--- policy6
+scaling_driver=amd-pstate-epp
+scaling_governor=powersave
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+energy_performance_preference=balance_performance
+----- OUTPUT END (exit=0)
+
+===== CMD: head -40 /proc/interrupts; echo "--- grep cpu2/6 columns already in header above"; echo "--- irqbalance"; systemctl is-active irqbalance 2>&1; echo "--- default_smp_affinity"; cat /proc/irq/default_smp_affinity 2>&1
+----- OUTPUT BEGIN
+            CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       CPU6       CPU7       CPU8       CPU9       CPU10      CPU11      CPU12      CPU13      CPU14      CPU15      CPU16      CPU17      CPU18      CPU19      CPU20      CPU21      CPU22      CPU23      CPU24      CPU25      CPU26      CPU27      CPU28      CPU29      CPU30      CPU31      
+   0:        128          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-IO-APIC    2-edge      timer
+   7:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-IO-APIC    7-fasteoi   pinctrl_amd
+   8:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-IO-APIC    8-edge      rtc0
+   9:          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-IO-APIC    9-fasteoi   acpi
+  10:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-IO-APIC   10-edge      AMDI0010:00
+  27:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:00.2    0-edge      AMD-Vi
+  28:          0          0          0          0          0      20997          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:01.1    0-edge      PCIe PME, PCIe bwctrl
+  29:          0          0          0          0          0          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:01.2    0-edge      PCIe PME, PCIe bwctrl
+  30:          0          0          0          0          0          0          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:01.3    0-edge      PCIe PME, PCIe bwctrl
+  31:          0          0          0          0          0          0          0          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:02.1    0-edge      PCIe PME, PCIe bwctrl
+  32:          0          0          0          0          0          0          0          0          0         15          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:02.2    0-edge      PCIe PME, PCIe bwctrl
+  33:          0          0          0          0          0          0          0          0          0          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:08.1    0-edge      PCIe PME, PCIe bwctrl
+  34:          0          0          0          0          0          0          0          0          0          0          0          2          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:00:08.3    0-edge      PCIe PME, PCIe bwctrl
+  35:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:05:00.0    0-edge      PCIe bwctrl
+  36:          0          0          0          0          0          0          0          0          0          0          0          0          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:05:06.0    0-edge      PCIe bwctrl
+  38:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:05:07.0    0-edge      PCIe bwctrl
+  39:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:05:08.0    0-edge      PCIe bwctrl
+  41:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:0d:00.0    0-edge      pciehp
+  42:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSI-0000:0d:01.0    0-edge      pciehp
+  43:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0        509          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:0a:00.0    0-edge      xhci_hcd
+  51:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:72:00.0    0-edge      xhci_hcd
+  60:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:74:00.3    0-edge      xhci_hcd
+  69:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:74:00.4    0-edge      xhci_hcd
+  77:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0       9335          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:75:00.0    0-edge      xhci_hcd
+  85:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0        941          0          0          0          0          0          0 IR-PCI-MSIX-0000:73:00.0    0-edge      thunderbolt
+  86:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0        941          0          0          0          0          0 IR-PCI-MSIX-0000:73:00.0    1-edge      thunderbolt
+  92:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0     181295          0          0          0          0          0          0          0 IR-PCI-MSI-0000:0b:00.0    0-edge      ahci[0000:0b:00.0]
+ 104:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0    4957199          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    0-edge      nvme0q0
+ 105:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0    4957165          0          0          0 IR-PCI-MSIX-0000:03:00.0    0-edge      nvme1q0
+ 106:          0          0          0          0  741240901          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:07:00.0    0-edge      eno1
+ 107:        102          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    1-edge      nvme0q1
+ 108:          0         35          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    2-edge      nvme0q2
+ 109:          0          0         96          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    3-edge      nvme0q3
+ 110:          0          0          0        402          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    4-edge      nvme0q4
+ 111:          0          0          0          0         98          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    5-edge      nvme0q5
+ 112:          0          0          0          0          0         32          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    6-edge      nvme0q6
+ 113:          0          0          0          0          0          0          3          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    7-edge      nvme0q7
+ 114:          0          0          0          0          0          0          0         39          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    8-edge      nvme0q8
+ 115:          0          0          0          0          0          0          0          0        369          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0 IR-PCI-MSIX-0000:02:00.0    9-edge      nvme0q9
+--- grep cpu2/6 columns already in header above
+--- irqbalance
+inactive
+--- default_smp_affinity
+ffffffff
+----- OUTPUT END (exit=0)
+
+===== CMD: systemctl list-units --type=service --state=running --no-pager --no-legend 2>&1 | head -60; echo "--- unit count"; systemctl list-units --type=service --state=running --no-pager --no-legend 2>&1 | wc -l
+----- OUTPUT BEGIN
+  accounts-daemon.service       loaded active running Accounts Service
+  avahi-daemon.service          loaded active running Avahi mDNS/DNS-SD Stack
+  bluetooth.service             loaded active running Bluetooth service
+  bolt.service                  loaded active running Thunderbolt system service
+  codex-mihomo.service          loaded active running Codex Mihomo Proxy
+  colord.service                loaded active running Manage, Install and Generate Color Profiles
+  containerd.service            loaded active running containerd container runtime
+  cron.service                  loaded active running Regular background program processing daemon
+  cups-browsed.service          loaded active running Make remote CUPS printers available locally
+  cups.service                  loaded active running CUPS Scheduler
+  dbus.service                  loaded active running D-Bus System Message Bus
+  docker.service                loaded active running Docker Application Container Engine
+  fail2ban.service              loaded active running Fail2Ban Service
+  fwupd.service                 loaded active running Firmware update daemon
+  gdm.service                   loaded active running GNOME Display Manager
+  gnome-remote-desktop.service  loaded active running GNOME Remote Desktop
+  kerneloops.service            loaded active running Tool to automatically collect and submit kernel crash signatures
+  ModemManager.service          loaded active running Modem Manager
+  NetworkManager.service        loaded active running Network Manager
+  nvidia-persistenced.service   loaded active running NVIDIA Persistence Daemon
+  polkit.service                loaded active running Authorization Manager
+  power-profiles-daemon.service loaded active running Power Profiles daemon
+  rsyslog.service               loaded active running System Logging Service
+  rtkit-daemon.service          loaded active running RealtimeKit Scheduling Policy Service
+  snapd.service                 loaded active running Snap Daemon
+  ssh.service                   loaded active running OpenBSD Secure Shell server
+  switcheroo-control.service    loaded active running Switcheroo Control Proxy service
+  systemd-journald.service      loaded active running Journal Service
+  systemd-logind.service        loaded active running User Login Management
+  systemd-oomd.service          loaded active running Userspace Out-Of-Memory (OOM) Killer
+  systemd-resolved.service      loaded active running Network Name Resolution
+  systemd-timesyncd.service     loaded active running Network Time Synchronization
+  systemd-udevd.service         loaded active running Rule-based Manager for Device Events and Files
+  udisks2.service               loaded active running Disk Manager
+  unattended-upgrades.service   loaded active running Unattended Upgrades Shutdown
+  upower.service                loaded active running Daemon for power management
+  user@1000.service             loaded active running User Manager for UID 1000
+  user@120.service              loaded active running User Manager for UID 120
+  wpa_supplicant.service        loaded active running WPA supplicant
+--- unit count
+39
+----- OUTPUT END (exit=0)
+
+===== CMD: cat /sys/devices/system/clocksource/clocksource0/current_clocksource 2>&1; echo "--- available"; cat /sys/devices/system/clocksource/clocksource0/available_clocksource 2>&1; echo "--- uptime"; cat /proc/uptime; echo "--- boot_id"; cat /proc/sys/kernel/random/boot_id
+----- OUTPUT BEGIN
+tsc
+--- available
+tsc hpet acpi_pm 
+--- uptime
+3895385.67 124249010.99
+--- boot_id
+1d5a4300-d997-4a45-a9d6-95165d68dcd9
+----- OUTPUT END (exit=0)
+
+===== CMD: nvidia-smi -L 2>&1 | head -3; echo "--- lspci net"; lspci 2>/dev/null | grep -i -E "ethernet|network" | head -5
+----- OUTPUT BEGIN
+GPU 0: NVIDIA GeForce RTX 4090 (UUID: GPU-94550b01-cd83-b86d-2d92-2789357e25ca)
+--- lspci net
+07:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8125 2.5GbE Controller (rev 0c)
+08:00.0 Network controller: MEDIATEK Corp. Device 7925
+----- OUTPUT END (exit=0)

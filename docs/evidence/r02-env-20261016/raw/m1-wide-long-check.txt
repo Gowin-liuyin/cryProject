@@ -1,0 +1,10 @@
+arm=vulnerable header=['message-zero', 'message-ones']
+  n wide=10000/10000 long=10000/10000
+  message-zero multiset equal: True   (row order equal: True)
+  message-ones  multiset equal: True   (row order equal: True)
+arm=fixed header=['message-zero', 'message-ones']
+  n wide=10000/10000 long=10000/10000
+  message-zero multiset equal: True   (row order equal: True)
+  message-ones  multiset equal: True   (row order equal: True)
+
+CONCLUSION same_sample_set=yes

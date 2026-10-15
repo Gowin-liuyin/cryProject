@@ -1,0 +1,529 @@
+########################################################################
+# T07 各模块构建树的真实编译行（只读远端 python3/cat 取得，未写远端文件）
+#
+# 重要：被测 ELF 的构建树以每次 run 的 controller/command.json 记录为准，
+#       而不是以模块证据目录里另存/另建的构建树为准。三处已登记差异：
+#         M2 -> collector-v2-2e894561892a/build-ordinary（无 compile_commands.json，取 flags.make/link.txt/build.make 规则）
+#         M3 -> platform-m3-locate-20261016-4b102a339cc8/build-ordinary（不是 platform-m3-20261016-8b6f2d91）
+#         M4 -> platform-m4-20261016-6hRHRUxH/build-software-v3（不是 build-software-v2）
+#       M1/M5 的构建树与 .meta 的 compile_commands= 字段一致。
+#
+# 被测 ELF 的 SHA3-256 / SHA-256 与上述树的核验见 ENV_TABLE.md §3.3。
+########################################################################
+
+########## M5-ordinary（build-v2-ordinary，被测 ELF reference/measure）
+### BUILD /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/compile_commands.json
+### ENTRY_COUNT 230  DISTINCT_FLAGSETS 26
+FLAGSET n=115 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: analyze.c, analyze_groups.c, analyze_paired.c, attribution_v3.c, attribution_v3_run.c, audit.c
+FLAGSET n=28 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, network_frame.c, protocol_decision.c, test_batch_measurement.c, test_controlled_statistics.c, test_diagnostic_trace.c
+FLAGSET n=12 | -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: binsec_harness.c, compare_checked.c, compare_ct.c, compare_early.c, driver.c, self_test.c
+FLAGSET n=8 | -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_hardened_kernel.c, hardened_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=8 | -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_vulnerable_kernel.c, inputs.c, mlkem.c, random.c, vulnerable_kernel.c
+FLAGSET n=8 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: attribution_v3.c, protocol_decision.c, v4_collect.c, v4_stats.c
+FLAGSET n=5 | -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: compare_checked.c, compare_ct.c, inputs.c, measure.c, test_platform_m4.c
+FLAGSET n=5 | -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: compare_checked.c, compare_early.c, inputs.c, measure.c, test_platform_m4.c
+FLAGSET n=4 | -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: deployable_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_mask_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_branch_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-off\" -DPLATFORM_M3_LUT_LEAK=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: inputs.c, mlkem.c, platform_m3_off_kernel.c, random.c
+FLAGSET n=4 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-on\" -DPLATFORM_M3_LUT_LEAK=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: inputs.c, mlkem.c, platform_m3_on_kernel.c, random.c
+FLAGSET n=4 | -O2 -g -DNDEBUG -std=c11 -m32 -O1 -g -ffreestanding -fno-pie -fno-stack-protector -fno-builtin | files: binsec_harness.c, compare_ct.c, compare_early.c
+FLAGSET n=3 | -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: measure.c
+FLAGSET n=3 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_stages.c
+FLAGSET n=2 | -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, measure.c
+FLAGSET n=1 | -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: dudect_online.c
+FLAGSET n=1 | -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: dudect_online.c
+FLAGSET n=1 | -DMECHANISM_OBJDUMP=\"/usr/bin/objdump\" -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mechanism_audit.c
+FLAGSET n=1 | -DMEM_LUT_CTGRIND=0 -DMEM_LUT_LEAK_ENABLED=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: main.c
+FLAGSET n=1 | -DMEM_LUT_CTGRIND=0 -DMEM_LUT_LEAK_ENABLED=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: main.c
+FLAGSET n=1 | -DMEM_LUT_LEAK_ENABLED=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mem_lut.c
+FLAGSET n=1 | -DMEM_LUT_LEAK_ENABLED=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mem_lut.c
+FLAGSET n=1 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_M5_HAVE_VALGRIND=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: poison.c
+FLAGSET n=1 | -O2 -g -DNDEBUG -std=c11 | files: dudect_replay.c
+### MATCHING_TARGETS
+TARGET CMakeFiles/reference_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/hardened_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/deployable_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/reference_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/batch_measurement.c
+  FLAGS -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/batch_measurement.c
+TARGET CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tests/test_batch_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tests/test_batch_measurement.c
+TARGET CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/batch_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/batch_measurement.c
+TARGET CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tests/test_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_measurement.dir/tests/test_measurement.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tests/test_measurement.c
+TARGET CMakeFiles/platform_m3_on_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m3_on_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/platform_m3_off_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/build-v2-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/include -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m3_off_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/src/measure.c
+TARGET CMakeFiles/platform_m4_measure_vulnerable.dir/tools/platform_m4/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tools/platform_m4/measure.c
+  FLAGS -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DM4_VARIANT_NAME=\"vulnerable\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/fixtures/early_reject_memcmp -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tools/platform_m4 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m4_measure_vulnerable.dir/tools/platform_m4/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tools/platform_m4/measure.c
+TARGET CMakeFiles/platform_m4_measure_ct.dir/tools/platform_m4/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tools/platform_m4/measure.c
+  FLAGS -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang-18 -DM4_VARIANT_NAME=\"ct\" -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/fixtures/early_reject_memcmp -I/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tools/platform_m4 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m4_measure_ct.dir/tools/platform_m4/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/tools/platform_m4/measure.c
+
+########## M1-unfixed
+### TARGET_REGEX measure|poly
+### BUILD /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/compile_commands.json
+### ENTRY_COUNT 180  DISTINCT_FLAGSETS 15
+FLAGSET n=101 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: analyze.c, analyze_groups.c, analyze_paired.c, attribution_v3.c, attribution_v3_run.c, audit.c
+FLAGSET n=28 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, network_frame.c, protocol_decision.c, test_batch_measurement.c, test_controlled_statistics.c, test_diagnostic_trace.c
+FLAGSET n=8 | -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_hardened_kernel.c, hardened_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=8 | -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_vulnerable_kernel.c, inputs.c, mlkem.c, random.c, vulnerable_kernel.c
+FLAGSET n=8 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: attribution_v3.c, protocol_decision.c, v4_collect.c, v4_stats.c
+FLAGSET n=4 | -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: deployable_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_mask_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_branch_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=3 | -DBASELINE_HISTORICAL=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra | files: inputs_liboqs010.c, mlkem_liboqs010.c, random.c
+FLAGSET n=3 | -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: measure.c
+FLAGSET n=3 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_stages.c
+FLAGSET n=2 | -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, measure.c
+FLAGSET n=2 | -DBASELINE_HISTORICAL=1 -O2 -g -DNDEBUG -std=c11 | files: main.c, measure.c
+FLAGSET n=1 | -DMECHANISM_OBJDUMP=\"/usr/bin/objdump\" -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mechanism_audit.c
+FLAGSET n=1 | -O2 -g -DNDEBUG -std=c11 | files: test_historical_selftest.c
+### MATCHING_TARGETS
+TARGET CMakeFiles/reference_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/hardened_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/deployable_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/reference_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+  FLAGS -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+TARGET CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_batch_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_batch_measurement.c
+TARGET CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+TARGET CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_measurement.dir/tests/test_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_measurement.c
+TARGET CMakeFiles/historical_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_HISTORICAL=1 -O2 -g -DNDEBUG -std=c11
+  RAW   /usr/bin/clang -DBASELINE_HISTORICAL=1 -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -isystem /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-install/include -O2 -g -DNDEBUG -std=c11 -o CMakeFiles/historical_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+
+########## M1-fixed
+### TARGET_REGEX measure|poly
+### BUILD /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/compile_commands.json
+### ENTRY_COUNT 180  DISTINCT_FLAGSETS 15
+FLAGSET n=101 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: analyze.c, analyze_groups.c, analyze_paired.c, attribution_v3.c, attribution_v3_run.c, audit.c
+FLAGSET n=28 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, network_frame.c, protocol_decision.c, test_batch_measurement.c, test_controlled_statistics.c, test_diagnostic_trace.c
+FLAGSET n=8 | -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_hardened_kernel.c, hardened_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=8 | -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_vulnerable_kernel.c, inputs.c, mlkem.c, random.c, vulnerable_kernel.c
+FLAGSET n=8 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: attribution_v3.c, protocol_decision.c, v4_collect.c, v4_stats.c
+FLAGSET n=4 | -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: deployable_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_mask_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_branch_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=3 | -DBASELINE_HISTORICAL=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra | files: inputs_liboqs010.c, mlkem_liboqs010.c, random.c
+FLAGSET n=3 | -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: measure.c
+FLAGSET n=3 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_stages.c
+FLAGSET n=2 | -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, measure.c
+FLAGSET n=2 | -DBASELINE_HISTORICAL=1 -O2 -g -DNDEBUG -std=c11 | files: main.c, measure.c
+FLAGSET n=1 | -DMECHANISM_OBJDUMP=\"/usr/bin/objdump\" -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mechanism_audit.c
+FLAGSET n=1 | -O2 -g -DNDEBUG -std=c11 | files: test_historical_selftest.c
+### MATCHING_TARGETS
+TARGET CMakeFiles/reference_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/vulnerable_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/hardened_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/deployable_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/reference_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/hardened_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/deployable_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+TARGET CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+  FLAGS -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+TARGET CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_batch_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/tests/test_batch_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_batch_measurement.c
+TARGET CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_batch_measurement.dir/src/batch_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/batch_measurement.c
+TARGET CMakeFiles/test_measurement.dir/tests/test_measurement.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_measurement.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/test_measurement.dir/tests/test_measurement.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/tests/test_measurement.c
+TARGET CMakeFiles/historical_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+  FLAGS -DBASELINE_HISTORICAL=1 -O2 -g -DNDEBUG -std=c11
+  RAW   /usr/bin/clang -DBASELINE_HISTORICAL=1 -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/include -isystem /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-install/include -O2 -g -DNDEBUG -std=c11 -o CMakeFiles/historical_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/src/measure.c
+
+########## M1-liboqs010-subbuild-unfixed
+### MATCHING_TARGETS
+TARGET CMakeFiles/oqs.dir/kem/kem.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/kem.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -o CMakeFiles/oqs.dir/kem/kem.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/kem.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/kem_ml_kem_768_ipd.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/kem_ml_kem_768_ipd.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+
+########## M1-liboqs010-subbuild-fixed
+### MATCHING_TARGETS
+TARGET CMakeFiles/oqs.dir/kem/kem.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/kem.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -o CMakeFiles/oqs.dir/kem/kem.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/kem.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/kem_ml_kem_768_ipd.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/kem_ml_kem_768_ipd.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c
+TARGET CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o
+  FILE /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+  FLAGS -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3
+  RAW   /usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+
+
+########################################################################
+# T07 实际被测 ELF 的构建树（路径取自各 run 的 controller/command.json）
+########################################################################
+
+########## M3：platform-m3-locate-20261016-4b102a339cc8/build-ordinary
+### TARGET_REGEX /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/compile_commands.json
+### MATCHING_TARGETS
+TARGET CMakeFiles/platform_m3_on_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m3_on_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/src/measure.c
+TARGET CMakeFiles/platform_m3_off_measure.dir/src/measure.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/src/measure.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/generated/RelWithDebInfo -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m3_off_measure.dir/src/measure.c.o -c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/src/measure.c
+
+
+########## M3：locate 树全部去重选项集（regex 'mlkem' 只用于让 MATCHING_TARGETS 为空）
+### ENTRY_COUNT 232  DISTINCT_FLAGSETS 26
+FLAGSET n=117 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: analyze.c, analyze_groups.c, analyze_paired.c, attribution_v3.c, attribution_v3_run.c, audit.c
+FLAGSET n=28 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, network_frame.c, protocol_decision.c, test_batch_measurement.c, test_controlled_statistics.c, test_diagnostic_trace.c
+FLAGSET n=12 | -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: binsec_harness.c, compare_checked.c, compare_ct.c, compare_early.c, driver.c, self_test.c
+FLAGSET n=8 | -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_hardened_kernel.c, hardened_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=8 | -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_vulnerable_kernel.c, inputs.c, mlkem.c, random.c, vulnerable_kernel.c
+FLAGSET n=8 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: attribution_v3.c, protocol_decision.c, v4_collect.c, v4_stats.c
+FLAGSET n=5 | -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: compare_checked.c, compare_ct.c, inputs.c, measure.c, test_platform_m4.c
+FLAGSET n=5 | -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: compare_checked.c, compare_early.c, inputs.c, measure.c, test_platform_m4.c
+FLAGSET n=4 | -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: deployable_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_mask_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_branch_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-off\" -DPLATFORM_M3_LUT_LEAK=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: inputs.c, mlkem.c, platform_m3_off_kernel.c, random.c
+FLAGSET n=4 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-on\" -DPLATFORM_M3_LUT_LEAK=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: inputs.c, mlkem.c, platform_m3_on_kernel.c, random.c
+FLAGSET n=4 | -O2 -g -DNDEBUG -std=c11 -m32 -O1 -g -ffreestanding -fno-pie -fno-stack-protector -fno-builtin | files: binsec_harness.c, compare_ct.c, compare_early.c
+FLAGSET n=3 | -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: measure.c
+FLAGSET n=3 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_stages.c
+FLAGSET n=2 | -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, measure.c
+FLAGSET n=1 | -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: dudect_online.c
+FLAGSET n=1 | -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: dudect_online.c
+FLAGSET n=1 | -DMECHANISM_OBJDUMP=\"/usr/bin/objdump\" -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mechanism_audit.c
+FLAGSET n=1 | -DMEM_LUT_CTGRIND=0 -DMEM_LUT_LEAK_ENABLED=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: main.c
+FLAGSET n=1 | -DMEM_LUT_CTGRIND=0 -DMEM_LUT_LEAK_ENABLED=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: main.c
+FLAGSET n=1 | -DMEM_LUT_LEAK_ENABLED=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mem_lut.c
+FLAGSET n=1 | -DMEM_LUT_LEAK_ENABLED=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mem_lut.c
+FLAGSET n=1 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_M5_HAVE_VALGRIND=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: poison.c
+FLAGSET n=1 | -O2 -g -DNDEBUG -std=c11 | files: dudect_replay.c
+
+########## M2：实际被测 collector 构建树 collector-v2-2e894561892a/build-ordinary（无 compile_commands.json）
+##### CMD: cat .../CMakeFiles/m2_collector_unfixed_collector.dir/flags.make
+# CMAKE generated file: DO NOT EDIT!
+# Generated by "Unix Makefiles" Generator, CMake Version 3.28
+
+# compile C with /usr/bin/clang-18
+C_DEFINES = 
+
+C_INCLUDES = -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/include -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tools/platform_m2 -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/vendor/kyber-kyberslash-unfixed/ref
+
+C_FLAGS = -isystem /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/dependencies/sysroot/usr/include/x86_64-linux-gnu -O2 -g -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+
+----- link.txt
+/usr/bin/clang-18 -isystem /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/dependencies/sysroot/usr/include/x86_64-linux-gnu -O2 -g -DNDEBUG CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o -o collector/unfixed/m2_decaps_collector  libm2_collector_unfixed.a libm2_collector_unfixed_vendor.a 
+##### CMD: grep 编译规则 .../CMakeFiles/m2_collector_unfixed_collector.dir/build.make
+CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o: CMakeFiles/m2_collector_unfixed_collector.dir/flags.make
+CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tools/platform_m2/collector.c
+CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o: CMakeFiles/m2_collector_unfixed_collector.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o"
+	/usr/bin/clang-18 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o -MF CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o.d -o CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o -c /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tools/platform_m2/collector.c
+
+##### CMD: cat .../CMakeFiles/m2_collector_fixed_collector.dir/flags.make
+# CMAKE generated file: DO NOT EDIT!
+# Generated by "Unix Makefiles" Generator, CMake Version 3.28
+
+# compile C with /usr/bin/clang-18
+C_DEFINES = 
+
+C_INCLUDES = -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/include -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tools/platform_m2 -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/vendor/kyber-kyberslash-fixed/ref
+
+C_FLAGS = -isystem /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/dependencies/sysroot/usr/include/x86_64-linux-gnu -O2 -g -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+
+----- link.txt
+/usr/bin/clang-18 -isystem /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/dependencies/sysroot/usr/include/x86_64-linux-gnu -O2 -g -DNDEBUG CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o -o collector/fixed/m2_decaps_collector  libm2_collector_fixed.a libm2_collector_fixed_vendor.a 
+##### CMD: grep 编译规则 .../CMakeFiles/m2_collector_fixed_collector.dir/build.make
+CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o: CMakeFiles/m2_collector_fixed_collector.dir/flags.make
+CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tools/platform_m2/collector.c
+CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o: CMakeFiles/m2_collector_fixed_collector.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o"
+	/usr/bin/clang-18 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o -MF CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o.d -o CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o -c /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/tools/platform_m2/collector.c
+
+
+########## M4：实际被测 ELF 来自 build-software-v3（不是 software-native 里记录的 build-software-v2）
+##### CMD: cat .../build-software-v3/CMakeFiles/platform_m4_measure_vulnerable.dir/flags.make
+# CMAKE generated file: DO NOT EDIT!
+# Generated by "Unix Makefiles" Generator, CMake Version 3.28
+
+# compile C with /usr/bin/cc
+C_DEFINES = -DM4_VARIANT_NAME=\"vulnerable\"
+
+C_INCLUDES = -I/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v3/fixtures/early_reject_memcmp -I/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v3/tools/platform_m4
+
+C_FLAGS = -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+
+----- link.txt
+/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/platform_m4_measure_vulnerable.dir/measure.c.o -o platform_m4_measure_vulnerable  libplatform_m4_vulnerable_kernel.a 
+##### CMD: cat .../build-software-v3/CMakeFiles/platform_m4_measure_ct.dir/flags.make
+# CMAKE generated file: DO NOT EDIT!
+# Generated by "Unix Makefiles" Generator, CMake Version 3.28
+
+# compile C with /usr/bin/cc
+C_DEFINES = -DM4_VARIANT_NAME=\"ct\"
+
+C_INCLUDES = -I/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v3/fixtures/early_reject_memcmp -I/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v3/tools/platform_m4
+
+C_FLAGS = -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+
+----- link.txt
+/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/platform_m4_measure_ct.dir/measure.c.o -o platform_m4_measure_ct  libplatform_m4_ct_kernel.a 
+
+########## M2：被测 collector 的 vendor（Kyber）目标选项
+##### CMD: cat .../CMakeFiles/m2_collector_unfixed_vendor.dir/flags.make
+# CMAKE generated file: DO NOT EDIT!
+# Generated by "Unix Makefiles" Generator, CMake Version 3.28
+
+# compile C with /usr/bin/clang-18
+C_DEFINES = -DKYBER_K=3 -Drandombytes=platform_m2_randombytes
+
+C_INCLUDES = -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/vendor/kyber-kyberslash-unfixed/ref
+
+C_FLAGS = -isystem /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/dependencies/sysroot/usr/include/x86_64-linux-gnu -O2 -g -DNDEBUG -Oz -g -fno-vectorize -fno-slp-vectorize
+
+##### CMD: cat .../CMakeFiles/m2_collector_fixed_vendor.dir/flags.make
+# CMAKE generated file: DO NOT EDIT!
+# Generated by "Unix Makefiles" Generator, CMake Version 3.28
+
+# compile C with /usr/bin/clang-18
+C_DEFINES = -DKYBER_K=3 -Drandombytes=platform_m2_randombytes
+
+C_INCLUDES = -I/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/source/vendor/kyber-kyberslash-fixed/ref
+
+C_FLAGS = -isystem /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/dependencies/sysroot/usr/include/x86_64-linux-gnu -O2 -g -DNDEBUG -Oz -g -fno-vectorize -fno-slp-vectorize
+
+
+########## M3：locate 树去重选项集
+### ENTRY_COUNT 232  DISTINCT_FLAGSETS 26
+FLAGSET n=117 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: analyze.c, analyze_groups.c, analyze_paired.c, attribution_v3.c, attribution_v3_run.c, audit.c
+FLAGSET n=28 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, network_frame.c, protocol_decision.c, test_batch_measurement.c, test_controlled_statistics.c, test_diagnostic_trace.c
+FLAGSET n=12 | -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: binsec_harness.c, compare_checked.c, compare_ct.c, compare_early.c, driver.c, self_test.c
+FLAGSET n=8 | -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_hardened_kernel.c, hardened_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=8 | -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_vulnerable_kernel.c, inputs.c, mlkem.c, random.c, vulnerable_kernel.c
+FLAGSET n=8 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: attribution_v3.c, protocol_decision.c, v4_collect.c, v4_stats.c
+FLAGSET n=5 | -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: compare_checked.c, compare_ct.c, inputs.c, measure.c, test_platform_m4.c
+FLAGSET n=5 | -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: compare_checked.c, compare_early.c, inputs.c, measure.c, test_platform_m4.c
+FLAGSET n=4 | -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: deployable_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_mask_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: encoder_branch_kernel.c, inputs.c, mlkem.c, random.c
+FLAGSET n=4 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-off\" -DPLATFORM_M3_LUT_LEAK=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: inputs.c, mlkem.c, platform_m3_off_kernel.c, random.c
+FLAGSET n=4 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-on\" -DPLATFORM_M3_LUT_LEAK=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: inputs.c, mlkem.c, platform_m3_on_kernel.c, random.c
+FLAGSET n=4 | -O2 -g -DNDEBUG -std=c11 -m32 -O1 -g -ffreestanding -fno-pie -fno-stack-protector -fno-builtin | files: binsec_harness.c, compare_ct.c, compare_early.c
+FLAGSET n=3 | -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: measure.c
+FLAGSET n=3 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: diagnostic_stages.c
+FLAGSET n=2 | -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: batch_measurement.c, measure.c
+FLAGSET n=1 | -DM4_VARIANT_NAME=\"ct\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: dudect_online.c
+FLAGSET n=1 | -DM4_VARIANT_NAME=\"vulnerable\" -O2 -g -DNDEBUG -std=c11 -UNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: dudect_online.c
+FLAGSET n=1 | -DMECHANISM_OBJDUMP=\"/usr/bin/objdump\" -DMLK_CONFIG_FILE=\"baseline_config.h\" -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mechanism_audit.c
+FLAGSET n=1 | -DMEM_LUT_CTGRIND=0 -DMEM_LUT_LEAK_ENABLED=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: main.c
+FLAGSET n=1 | -DMEM_LUT_CTGRIND=0 -DMEM_LUT_LEAK_ENABLED=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: main.c
+FLAGSET n=1 | -DMEM_LUT_LEAK_ENABLED=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mem_lut.c
+FLAGSET n=1 | -DMEM_LUT_LEAK_ENABLED=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: mem_lut.c
+FLAGSET n=1 | -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_M5_HAVE_VALGRIND=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror | files: poison.c
+FLAGSET n=1 | -O2 -g -DNDEBUG -std=c11 | files: dudect_replay.c
+
+########## M3：locate 树 on/off kernel 目标编译行
+### MATCHING_TARGETS
+TARGET CMakeFiles/platform_m3_on_kernel.dir/platform_m3_on_kernel.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_on_kernel.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-on\" -DPLATFORM_M3_LUT_LEAK=1 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-on\" -DPLATFORM_M3_LUT_LEAK=1 -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3-on-source/mlkem -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m3_on_kernel.dir/platform_m3_on_kernel.c.o -c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_on_kernel.c
+TARGET CMakeFiles/platform_m3_off_kernel.dir/platform_m3_off_kernel.c.o
+  FILE /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_off_kernel.c
+  FLAGS -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-off\" -DPLATFORM_M3_LUT_LEAK=0 -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+  RAW   /usr/bin/clang -DMLK_CONFIG_FILE=\"baseline_config.h\" -DPLATFORM_IMPLEMENTATION_NAME=\"platform-m3-lut-off\" -DPLATFORM_M3_LUT_LEAK=0 -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform-m3-off-source/mlkem -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/include -I/home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/source/vendor/mlkem-native/mlkem -O2 -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/platform_m3_off_kernel.dir/platform_m3_off_kernel.c.o -c /home/nss-marker/yhr/Cry/platform-m3-locate-20261016-4b102a339cc8/build-ordinary/platform_m3_off_kernel.c
+

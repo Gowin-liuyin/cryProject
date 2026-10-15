@@ -1,0 +1,15 @@
+output/P1.csv: elapsed==after-before mismatch rows = 0
+output/P2.csv: elapsed==after-before mismatch rows = 0
+output/P3.csv: elapsed==after-before mismatch rows = 0
+
+| series | n | mean_ns | p50_ns | p90_ns | p99_ns | p99.9_ns | min_ns | max_ns | zeros |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| output/P1.csv warmup | 1000 | 17.621000 | 20.0 | 20.0 | 21.0 | 30.0 | 10 | 50 | 0 |
+| output/P1.csv main | 100000 | 17.521420 | 20.0 | 20.0 | 21.0 | 21.0 | 10 | 2004 | 0 |
+| output/P2.csv warmup | 1000 | 17.523000 | 20.0 | 20.0 | 21.0 | 21.0 | 10 | 50 | 0 |
+| output/P2.csv main | 100000 | 17.500800 | 20.0 | 20.0 | 21.0 | 21.0 | 10 | 1603 | 0 |
+| output/P3.csv warmup | 1000 | 17.672000 | 20.0 | 20.0 | 21.0 | 21.0 | 10 | 50 | 0 |
+| output/P3.csv main | 100000 | 17.480480 | 20.0 | 20.0 | 21.0 | 21.0 | 10 | 501 | 0 |
+| P1+P2+P3 main pooled | 300000 | 17.500900 | 20.0 | 20.0 | 21.0 | 21.0 | 10 | 2004 | 0 |
+
+archive_sha256_target=/Users/yin/code/cryProject/docs/evidence/raw-clock-20261010/run-aa43771/remote-originals.tar.gz

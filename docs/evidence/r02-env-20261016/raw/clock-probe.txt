@@ -1,0 +1,38 @@
+### sha256 of remote probe source
+c0e5775755646f80776c0109e343653b280cce935656f6abdda5fdd0971120f2  /home/nss-marker/yhr/Cry/r02-env-20261016-cad9a98501db/clock_overhead_probe.c
+### compile line
+/usr/bin/clang -O2 -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o /home/nss-marker/yhr/Cry/r02-env-20261016-cad9a98501db/clock_overhead_probe /home/nss-marker/yhr/Cry/r02-env-20261016-cad9a98501db/clock_overhead_probe.c
+### run line
+taskset -c 8 /home/nss-marker/yhr/Cry/r02-env-20261016-cad9a98501db/clock_overhead_probe
+observed_cpu=8
+affinity_cpus=8,
+clocksource_hint=see /sys/devices/system/clocksource/clocksource0/current_clocksource
+SERIES CLOCK_MONOTONIC
+  clock_getres_ns=1
+  n=100000 failures=0
+  min_ns=10
+  max_ns=2916
+  mean_ns=17.422940
+  p50_ns=20.0
+  p90_ns=21.0
+  p99_ns=40.0
+  p999_ns=41.0
+SERIES CLOCK_MONOTONIC_RAW
+  clock_getres_ns=1
+  n=100000 failures=0
+  min_ns=10
+  max_ns=2544
+  mean_ns=16.195490
+  p50_ns=20.0
+  p90_ns=20.0
+  p99_ns=21.0
+  p999_ns=21.0
+### clocksource
+tsc
+### tree
+总计 40
+drwxrwxr-x  3 nss-marker nss-marker  4096 10月 16 04:04 .
+drwxrwxr-x 69 nss-marker nss-marker  4096 10月 16 04:04 ..
+-rwxr-xr-x  1 nss-marker nss-marker 16816 10月 16 04:04 clock_overhead_probe
+-rw-r--r--  1 nss-marker nss-marker  4226 10月 16 04:04 clock_overhead_probe.c
+drwxrwxr-x  2 nss-marker nss-marker  4096 10月 16 04:04 tmp
