@@ -197,10 +197,11 @@ C05（第二阴性）、D06（真实历史访存例）、E06（Binsec 扩大范�
   25 节 / 26 张对照表 / 60 份来源；新增题面 12 条对照矩阵附录（表 T26，1–5、7–12 满足，**第 6 条部分**，
   唯一缺口是 R06 的低危发现 F1）。
 - **匿名包 final5**：`CACR2026EA16XZ-platform-final5-20261016.zip`，sha256
-  `248e06d246955252e4232030c7a9d12736e0e9f2aa64d53b2b7c1b927adc885f`（**当前有效**），842 成员；
-  （首次成包为 `b54e2e4a41065fc7c550dfe14a07f6e95ec7608cd86042aecf457cc10ade8e75`，
-  随后因四处口径修正刷新了来源摘要、按护栏重新成包而被取代；
-  首次成包的验证结果保留在 `final5-20261016-verification-attempt1.json`，未静默丢弃）；
+  `cacf94534bf7c0fda213007c427d5edbc5a9292fc7c4eea6fc0ffb4ba8289e2c`（**当前有效**），842 成员；
+  （两次被取代的成包分别是 `b54e2e4a…`（首次）与 `248e06d2…`（第一次重出）：
+  每次来源摘要刷新都会按 `build_support.py` 的护栏重新成包。两次的验证结果分别保留在
+  `final5-20261016-verification-attempt1.json` 与 `-attempt2.json`，未静默丢弃。
+  三者成员数与 `direct_identity_markers=0` 相同，包内 ctest 均为 5/5）；
   `verify_package` → `status=pass`、`direct_identity_markers=0`；包内解出后 CTest **5/5**；
   `audit_revision` → 91 页、6 数据集回放、12 输出比对、原始字节未变。
 - **新证据目录**：`r01-kat`（向量与等价）、`r02-env`（环境/规则/稳健性）、`r04-stats`（MDE/分位数/45 图）、

@@ -7,8 +7,8 @@
 -- Configuring done (0.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/yin/code/cryProject/build/platform-report-s8/offline-final5-20261016/build
-[  8%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/driver.c.o
 [  8%] Building C object CMakeFiles/support_reference.dir/source/src/kernel.c.o
+[  8%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/driver.c.o
 [ 12%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/self_test.c.o
 [ 16%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/compare_checked.c.o
 [ 20%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/compare_early.c.o
@@ -33,23 +33,23 @@
 [ 83%] Building C object CMakeFiles/support_reference.dir/source/src/inputs.c.o
 [ 87%] Linking C static library libsupport_reference.a
 [ 87%] Built target support_reference
-[ 95%] Building C object CMakeFiles/platform_stats.dir/source/src/timing_statistics.c.o
 [ 95%] Building C object CMakeFiles/platform_stats.dir/source/scripts/platform_stats/stats_csv.c.o
+[ 95%] Building C object CMakeFiles/platform_stats.dir/source/src/timing_statistics.c.o
 [100%] Linking C executable platform_stats
 [100%] Built target platform_stats
 Test project /Users/yin/code/cryProject/build/platform-report-s8/offline-final5-20261016/build
     Start 1: support_stats_qualification
-1/5 Test #1: support_stats_qualification ......   Passed    1.10 sec
+1/5 Test #1: support_stats_qualification ......   Passed    1.14 sec
     Start 2: m4_vulnerable_self_test
-2/5 Test #2: m4_vulnerable_self_test ..........   Passed    0.39 sec
+2/5 Test #2: m4_vulnerable_self_test ..........   Passed    0.34 sec
     Start 3: m4_vulnerable_probe_smoke
 3/5 Test #3: m4_vulnerable_probe_smoke ........   Passed    0.00 sec
     Start 4: m4_ct_self_test
-4/5 Test #4: m4_ct_self_test ..................   Passed    0.35 sec
+4/5 Test #4: m4_ct_self_test ..................   Passed    0.39 sec
     Start 5: m4_ct_probe_smoke
-5/5 Test #5: m4_ct_probe_smoke ................   Passed    0.01 sec
+5/5 Test #5: m4_ct_probe_smoke ................   Passed    0.00 sec
 
 100% tests passed, 0 tests failed out of 5
 
-Total Test time (real) =   1.86 sec
+Total Test time (real) =   1.88 sec
 offline_replay=pass; hardware_collection=not_run; external_tools=not_reexecuted
