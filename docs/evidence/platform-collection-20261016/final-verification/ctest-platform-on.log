@@ -1,0 +1,190 @@
+Test project /Users/yin/code/cryProject/build/final-verify
+      Start  1: reference_kat
+ 1/87 Test  #1: reference_kat .........................   Passed    0.83 sec
+      Start  2: reference_random_failure
+ 2/87 Test  #2: reference_random_failure ..............   Passed    0.35 sec
+      Start  3: vulnerable_kat
+ 3/87 Test  #3: vulnerable_kat ........................   Passed    0.38 sec
+      Start  4: vulnerable_random_failure
+ 4/87 Test  #4: vulnerable_random_failure .............   Passed    0.34 sec
+      Start  5: hardened_kat
+ 5/87 Test  #5: hardened_kat ..........................   Passed    0.36 sec
+      Start  6: hardened_random_failure
+ 6/87 Test  #6: hardened_random_failure ...............   Passed    0.34 sec
+      Start  7: deployable_kat
+ 7/87 Test  #7: deployable_kat ........................   Passed    0.34 sec
+      Start  8: deployable_random_failure
+ 8/87 Test  #8: deployable_random_failure .............   Passed    0.32 sec
+      Start  9: encoder_branch_kat
+ 9/87 Test  #9: encoder_branch_kat ....................   Passed    0.39 sec
+      Start 10: encoder_mask_kat
+10/87 Test #10: encoder_mask_kat ......................   Passed    0.33 sec
+      Start 11: temp_directory
+11/87 Test #11: temp_directory ........................   Passed    0.31 sec
+      Start 12: performance_replay
+12/87 Test #12: performance_replay ....................   Passed    0.78 sec
+      Start 13: audit_workflow
+13/87 Test #13: audit_workflow ........................   Passed    0.77 sec
+      Start 14: source_export
+14/87 Test #14: source_export .........................   Passed    0.13 sec
+      Start 15: controlled_statistics
+15/87 Test #15: controlled_statistics .................   Passed    0.32 sec
+      Start 16: calibration_oracle
+16/87 Test #16: calibration_oracle ....................   Passed    0.00 sec
+      Start 17: reference_label_control_failures
+17/87 Test #17: reference_label_control_failures ......   Passed    0.35 sec
+      Start 18: controlled_cli
+18/87 Test #18: controlled_cli ........................   Passed    0.07 sec
+      Start 19: compare_replay_failures
+19/87 Test #19: compare_replay_failures ...............   Passed    0.63 sec
+      Start 20: native_digest
+20/87 Test #20: native_digest .........................   Passed    0.66 sec
+      Start 21: paired_prepare
+21/87 Test #21: paired_prepare ........................   Passed    2.01 sec
+      Start 22: paired_runner
+22/87 Test #22: paired_runner .........................   Passed    1.86 sec
+      Start 23: paired_statistics
+23/87 Test #23: paired_statistics .....................   Passed    0.42 sec
+      Start 24: paired_data
+24/87 Test #24: paired_data ...........................   Passed    0.38 sec
+      Start 25: paired_rejections
+25/87 Test #25: paired_rejections .....................   Passed    1.01 sec
+      Start 26: batch_measurement
+26/87 Test #26: batch_measurement .....................   Passed    0.39 sec
+      Start 27: reference_benchmark
+27/87 Test #27: reference_benchmark ...................   Passed    0.39 sec
+      Start 28: timing_diagnostics
+28/87 Test #28: timing_diagnostics ....................   Passed    0.68 sec
+      Start 29: equivalence_vulnerable
+29/87 Test #29: equivalence_vulnerable ................   Passed    0.70 sec
+      Start 30: equivalence_hardened
+30/87 Test #30: equivalence_hardened ..................   Passed    0.37 sec
+      Start 31: equivalence_deployable
+31/87 Test #31: equivalence_deployable ................   Passed    0.38 sec
+      Start 32: cli
+32/87 Test #32: cli ...................................   Passed    1.62 sec
+      Start 33: reference_cli
+33/87 Test #33: reference_cli .........................   Passed    0.05 sec
+      Start 34: measurement
+34/87 Test #34: measurement ...........................   Passed    1.83 sec
+      Start 35: vector_parser
+35/87 Test #35: vector_parser .........................   Passed    0.10 sec
+      Start 36: reference_vector_parser
+36/87 Test #36: reference_vector_parser ...............   Passed    0.03 sec
+      Start 37: analysis
+37/87 Test #37: analysis ..............................   Passed    0.54 sec
+      Start 38: analysis_groups
+38/87 Test #38: analysis_groups .......................   Passed    0.58 sec
+      Start 39: analysis_round1_replay
+39/87 Test #39: analysis_round1_replay ................   Passed    0.03 sec
+      Start 40: trace_account
+40/87 Test #40: trace_account .........................   Passed    0.38 sec
+      Start 41: session_window
+41/87 Test #41: session_window ........................   Passed    0.75 sec
+      Start 42: diagnostic_trace
+42/87 Test #42: diagnostic_trace ......................   Passed    0.66 sec
+      Start 43: diagnostic_trace_vulnerable
+43/87 Test #43: diagnostic_trace_vulnerable ...........   Passed    0.36 sec
+      Start 44: trace_overhead
+44/87 Test #44: trace_overhead ........................   Passed    0.02 sec
+      Start 45: attribution_v3_fixture
+45/87 Test #45: attribution_v3_fixture ................   Passed    0.55 sec
+      Start 46: attribution_v3_sealed
+46/87 Test #46: attribution_v3_sealed .................   Passed    0.37 sec
+      Start 47: v4_stats
+47/87 Test #47: v4_stats ..............................   Passed    0.35 sec
+      Start 48: v4_window_coverage
+48/87 Test #48: v4_window_coverage ....................   Passed    0.33 sec
+      Start 49: v4_window_sibling
+49/87 Test #49: v4_window_sibling .....................   Passed    0.00 sec
+      Start 50: v4_window_hold_policy
+50/87 Test #50: v4_window_hold_policy .................   Passed    0.00 sec
+      Start 51: v4_hold_policy
+51/87 Test #51: v4_hold_policy ........................   Passed    0.39 sec
+      Start 52: v4_schedule_fixture
+52/87 Test #52: v4_schedule_fixture ...................   Passed    0.53 sec
+      Start 53: v4_analyze_fixture
+53/87 Test #53: v4_analyze_fixture ....................   Passed    0.17 sec
+      Start 54: v4_sealed_decision
+54/87 Test #54: v4_sealed_decision ....................   Passed    0.06 sec
+      Start 55: reference_label_redraw
+55/87 Test #55: reference_label_redraw ................   Passed    1.01 sec
+      Start 56: protocol_decision
+56/87 Test #56: protocol_decision .....................   Passed    0.74 sec
+      Start 57: localize_rank
+57/87 Test #57: localize_rank .........................   Passed    0.77 sec
+      Start 58: network_frame
+58/87 Test #58: network_frame .........................   Passed    1.03 sec
+      Start 59: mechanism_audit
+59/87 Test #59: mechanism_audit .......................   Passed    0.77 sec
+      Start 60: vector_integrity
+60/87 Test #60: vector_integrity ......................   Passed    0.01 sec
+      Start 61: platform_m5_poison_functional
+61/87 Test #61: platform_m5_poison_functional .........   Passed    0.35 sec
+      Start 62: platform_stats_battery
+62/87 Test #62: platform_stats_battery ................   Passed    0.90 sec
+      Start 63: platform_holm
+63/87 Test #63: platform_holm .........................   Passed    0.72 sec
+      Start 64: platform_m2_unfixed_functional
+64/87 Test #64: platform_m2_unfixed_functional ........   Passed    0.40 sec
+      Start 65: platform_m2_unfixed_random_failure
+65/87 Test #65: platform_m2_unfixed_random_failure ....   Passed    0.34 sec
+      Start 66: platform_m2_fixed_functional
+66/87 Test #66: platform_m2_fixed_functional ..........   Passed    0.33 sec
+      Start 67: platform_m2_fixed_random_failure
+67/87 Test #67: platform_m2_fixed_random_failure ......   Passed    0.34 sec
+      Start 68: platform_m2_semantic_equivalence
+68/87 Test #68: platform_m2_semantic_equivalence ......   Passed    0.04 sec
+      Start 69: platform_m2_unfixed_public_kat
+69/87 Test #69: platform_m2_unfixed_public_kat ........   Passed    0.34 sec
+      Start 70: platform_m2_fixed_public_kat
+70/87 Test #70: platform_m2_fixed_public_kat ..........   Passed    0.35 sec
+      Start 71: platform_m3_on_kat
+71/87 Test #71: platform_m3_on_kat ....................   Passed    0.39 sec
+      Start 72: platform_m3_on_random_failure
+72/87 Test #72: platform_m3_on_random_failure .........   Passed    0.34 sec
+      Start 73: platform_m3_off_kat
+73/87 Test #73: platform_m3_off_kat ...................   Passed    0.37 sec
+      Start 74: platform_m3_off_random_failure
+74/87 Test #74: platform_m3_off_random_failure ........   Passed    0.41 sec
+      Start 75: platform_m3_full_output_equivalence
+75/87 Test #75: platform_m3_full_output_equivalence ...   Passed    1.13 sec
+      Start 76: platform_m3_patch_dry_run
+76/87 Test #76: platform_m3_patch_dry_run .............   Passed    0.04 sec
+      Start 77: platform_m4_vulnerable_inputs
+77/87 Test #77: platform_m4_vulnerable_inputs .........   Passed    0.34 sec
+      Start 78: platform_m4_vulnerable_describe
+78/87 Test #78: platform_m4_vulnerable_describe .......   Passed    0.34 sec
+      Start 79: platform_m4_ct_inputs
+79/87 Test #79: platform_m4_ct_inputs .................   Passed    0.34 sec
+      Start 80: platform_m4_ct_describe
+80/87 Test #80: platform_m4_ct_describe ...............   Passed    0.34 sec
+      Start 81: platform_m4_cli_rejections
+81/87 Test #81: platform_m4_cli_rejections ............   Passed    0.03 sec
+      Start 82: mem_lut_on_selftest
+82/87 Test #82: mem_lut_on_selftest ...................   Passed    0.34 sec
+      Start 83: mem_lut_off_selftest
+83/87 Test #83: mem_lut_off_selftest ..................   Passed    0.35 sec
+      Start 84: m4_vulnerable_self_test
+84/87 Test #84: m4_vulnerable_self_test ...............   Passed    0.35 sec
+      Start 85: m4_vulnerable_probe_smoke
+85/87 Test #85: m4_vulnerable_probe_smoke .............   Passed    0.00 sec
+      Start 86: m4_ct_self_test
+86/87 Test #86: m4_ct_self_test .......................   Passed    0.33 sec
+      Start 87: m4_ct_probe_smoke
+87/87 Test #87: m4_ct_probe_smoke .....................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 87
+
+Label Time Summary:
+fixture          =   0.69 sec*proc (2 tests)
+m4               =   1.40 sec*proc (5 tests)
+m5               =   0.35 sec*proc (1 test)
+mem_lut          =   0.69 sec*proc (2 tests)
+platform         =   3.37 sec*proc (8 tests)
+platform_m3      =   2.69 sec*proc (6 tests)
+reference        =   1.28 sec*proc (5 tests)
+software_only    =   2.12 sec*proc (6 tests)
+stats            =   0.72 sec*proc (1 test)
+
+Total Test time (real) =  40.21 sec
