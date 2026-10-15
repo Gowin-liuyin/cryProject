@@ -1,0 +1,18 @@
+[vulnerable] rows=50000
+vulnerable valid n=10000 mean=57657.958 median=57599.000 stdev=585.636
+vulnerable bit-flipped n=10000 mean=57678.999 median=57608.000 stdev=693.664
+vulnerable random n=10000 mean=57668.016 median=57608.000 stdev=650.760
+vulnerable message-zero n=10000 mean=56889.226 median=56837.000 stdev=673.165
+vulnerable message-ones n=10000 mean=56849.889 median=56807.000 stdev=600.339
+vulnerable mean_zero_minus_ones_ns=39.337 se=9.020 ci95_low=21.658 ci95_high=57.017 includes0=False
+vulnerable cpu2_cur n=94 min=4300000 max=4338728 median=4309283
+[fixed] rows=50000
+fixed valid n=10000 mean=57815.507 median=57739.000 stdev=787.345
+fixed bit-flipped n=10000 mean=57814.257 median=57739.000 stdev=851.999
+fixed random n=10000 mean=57803.637 median=57739.000 stdev=700.209
+fixed message-zero n=10000 mean=57797.567 median=57739.000 stdev=719.578
+fixed message-ones n=10000 mean=57810.776 median=57739.000 stdev=725.495
+fixed mean_zero_minus_ones_ns=-13.209 se=10.219 ci95_low=-33.238 ci95_high=6.820 includes0=True
+fixed cpu2_cur n=95 min=4299390 max=4339301 median=4307689
+buried=yes
+decaps_buried=no

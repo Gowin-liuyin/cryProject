@@ -1,5 +1,7 @@
 # 完整作品进度
 
+2026-10-15在 `nss-m` 把 liboqs 0.10.0 的锁频复测补上。全局 boost 写成 0，CPU2 为 performance，min=max=4300000 kHz；接受探针跨度 35324 kHz，采集中当前频率约 4.30–4.34 GHz，退出后回到进入时的 boost、powersave 和 min/max。种子 `31337`、每类 10000、`taskset -c 2`。未修复的 `message-zero` 减 `message-ones` 为 39.337 ns，事先写明的 95% 区间 21.658 到 57.017。`982c762` 整包重链后的同一差是 −13.209 ns，区间 −33.238 到 6.820。未修复区间不含 0，因此没有另跑 `poly_frommsg` 微基准。只关 `OQS_DIST_BUILD` 仍会走 AVX2，这次两边都额外关掉了 AVX2 分发。记录见 [liboqs010-locked-20261015](evidence/liboqs010-locked-20261015/README.md)。这不是 Holm 或密钥恢复。R02、R04 不因此关闭。
+
 2026-10-15在 `nss-m` 核对 liboqs 0.10.0 的 clangover 历史对象。Clang 18.1.3、`-Os -fno-vectorize`、portable C `*_ref` 的 `poly_frommsg` 含消息位 `bt`/`jae`（写入 `0x681`）。官方提交 `982c762` 的 `cmov_int16` 只编在副本上，条件跳转不再出现；钉住的 vendor 树未改。种子 `31337` 的 5×1000 解封装试点里，全 0 与全 1 消息均值差 34.411 ns，CPU2 的 min/max 请求没有稳住频率。这不是时序阳性，也不是密钥恢复或 FIPS 203 结论。记录见 [liboqs010-historical-20261015](evidence/liboqs010-historical-20261015/README.md)。R02、R04 不因此关闭。
 
 2026-10-14按用户提供的 Methods 审稿意见完成事实复核和报告修订。当前[根目录 Word](../CACR2026EA16XZ-作品设计报告.docx)已同步摘要、方法、表 4、尝试表及结论；[文字与版本记录](../deliverables/submission/CACR2026EA16XZ/methods-revision-20261014/README.md)和[逐项复核](methods-review-20261014.md)另存。v1–v3 统一按开发历史，v4 仅首会话后在覆盖率 0 停止、主令牌 `not_run`，交替对照未开始。新表计数为 38/38/38/36/40/40；旧原件不改。补明 `not_linear` 不排除漂移、v2/v3 逐次记录缺口、R=2 对应每密文 4 调用、候选分母与插桩边界，纠正审稿关于 34 项全量测试和固定应答的误判。软件实现本轮无新增；实验执行无新增；假设与防护因果未升级；竞赛验收 R02/R04 仍部分。下文“Word 未重新生成”仅描述 2026-10-13 当时状态。

@@ -1,0 +1,21 @@
+stage=D
+declared_utc=2026-10-15T10:28:45Z
+purpose=same-seed decapsulation comparison after a frequency request, then the linked 982c762 tree
+seed=31337
+samples_per_category=10000
+categories=valid,bit-flipped,random,message-zero,message-ones
+primary_pair=message-zero minus message-ones
+affinity=taskset -c 2
+binaries=historical-clangover/measure and historical-fixed-982c762/measure
+fix=full liboqs commit 982c762 applied to a 0.10.0 copy and relinked
+pinned_vendor=unmodified
+avx2=forced off in both builds; OQS_DIST_BUILD=OFF alone is not sufficient
+frequency_request=global boost 0; cpu2 governor performance; cpu2 epp performance; cpu2 scaling_min=scaling_max=4300000 kHz
+lock_accept=20 samples of cpu2 scaling_cur_freq over about 1 s, all within 2 percent of the requested kHz; otherwise one retarget to the median of those samples and accept only if the new 20 samples span at most 50000 kHz
+if_lock_rejected=restore and do not collect
+interval=normal approximation, z=1.96, sample variance with divisor n-1, declared before the run
+buried=vulnerable primary interval includes 0
+if_buried=time poly_frommsg alone, 2000 batches of 1000 calls, messages 32 zero bytes and 32 0xff bytes, same taskset, same lock window, reported separately from decapsulation
+statistical_test=not Holm
+threshold_for_significance=not chosen beyond the predeclared interval
+key_recovery=not_attempted
