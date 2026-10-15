@@ -1,0 +1,6 @@
+本目录是 platform-m2kem-20261016-d75a4019/dependencies 的逐字节副本（cp -a），
+只作为 collector-v2 独立构建的只读输入；原件保留在父目录，不改动。
+  sysroot/usr/include                 libssl-dev 3.0.13-0ubuntu3.16 头文件
+  sysroot/usr/include/x86_64-linux-gnu 架构相关 openssl 头
+  libssl-dev.deb / apt-metadata.txt    来源与版本元数据
+  runtime-libcrypto.sha256             KAT 运行期系统 libcrypto.so.3 摘要

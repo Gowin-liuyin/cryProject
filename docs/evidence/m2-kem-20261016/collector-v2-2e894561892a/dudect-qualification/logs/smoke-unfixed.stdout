@@ -1,0 +1,5 @@
+module=M2 variant=m2-kyber768-round3-unfixed case=chosen_message_prefix mode=upstream_dudect_online unit=tsc_ticks holm_member=0 seed=31337 batch_calls=10000 requested_batches=3
+meas:    0.01 M, not enough measurements (11 still to go).
+meas:    0.02 M, max t:   +1.59, max tau: 1.13e-02, (5/tau)^2: 1.97e+05. For the moment, maybe constant time.
+battery_dudect_status=online_no_evidence_yet
+completed_batches=3 total_calls=30000 warmup_batches=1 measurement_batches=2 first_positive_batch=none stop_on_positive=0 endpoint_discarded_per_update=11

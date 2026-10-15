@@ -1,0 +1,21 @@
+build_system=CMake @CMAKE_VERSION@
+generator=@CMAKE_GENERATOR@
+configuration=$<CONFIG>
+compiler_flags=@CMAKE_C_FLAGS@ $<$<CONFIG:Debug>:@CMAKE_C_FLAGS_DEBUG@>$<$<CONFIG:Release>:@CMAKE_C_FLAGS_RELEASE@>$<$<CONFIG:RelWithDebInfo>:@CMAKE_C_FLAGS_RELWITHDEBINFO@>$<$<CONFIG:MinSizeRel>:@CMAKE_C_FLAGS_MINSIZEREL@> -std=c11
+compile_options=$<JOIN:$<TARGET_PROPERTY:baseline_options,INTERFACE_COMPILE_OPTIONS>, >
+compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+include_directories=@CMAKE_CURRENT_SOURCE_DIR@/include @vendor_root@
+measure_include=@identity_directory@
+reference_kernel_include=@vendor_root@
+vulnerable_kernel_include=@overlay_root_vulnerable@/mlkem
+hardened_kernel_include=@overlay_root_hardened@/mlkem
+deployable_kernel_include=@overlay_root_deployable@/mlkem
+baseline_config_parameter_set=MLK_CONFIG_PARAMETER_SET=768
+baseline_config_randomized_api=MLK_CONFIG_NO_RANDOMIZED_API
+baseline_config_backend=portable C arithmetic and builtin portable FIPS202 (no native or custom backend definitions)
+target_interprocedural_optimization=FALSE (additional compiler flags must be checked separately)
+vulnerable_definition=BASELINE_VULNERABLE=1
+vulnerable_encoder=optnone+noinline (Clang); O0+noinline (GCC)
+sanitizers=@BASELINE_SANITIZERS@
+link_flags=@CMAKE_EXE_LINKER_FLAGS@ $<$<CONFIG:Debug>:@CMAKE_EXE_LINKER_FLAGS_DEBUG@>$<$<CONFIG:Release>:@CMAKE_EXE_LINKER_FLAGS_RELEASE@>$<$<CONFIG:RelWithDebInfo>:@CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO@>$<$<CONFIG:MinSizeRel>:@CMAKE_EXE_LINKER_FLAGS_MINSIZEREL@> $<JOIN:$<TARGET_PROPERTY:baseline_options,INTERFACE_LINK_OPTIONS>, >
+compile_commands=@CMAKE_CURRENT_BINARY_DIR@/compile_commands.json

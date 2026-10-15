@@ -1,0 +1,23 @@
+check pass: dudect ELF exists (unfixed)
+describe-unfixed                         exit=0
+smoke-unfixed                            exit=0
+check pass: smoke row count (unfixed)
+check pass: smoke has battery status (unfixed)
+check pass: smoke reports 3 batches and 1 warmup (unfixed)
+check pass: describe reports upstream online mode (unfixed)
+check pass: dudect ELF exists (fixed)
+describe-fixed                           exit=0
+smoke-fixed                              exit=0
+check pass: smoke row count (fixed)
+check pass: smoke has battery status (fixed)
+check pass: smoke reports 3 batches and 1 warmup (fixed)
+check pass: describe reports upstream online mode (fixed)
+check pass: smoke label order identical across variants
+check pass: smoke class counts balanced
+check pass: second write to same raw path fails
+readiness-unfixed                        exit=0
+check pass: readiness row count (unfixed)
+readiness-fixed                          exit=0
+check pass: readiness row count (fixed)
+failures=0
+dudect readiness passed

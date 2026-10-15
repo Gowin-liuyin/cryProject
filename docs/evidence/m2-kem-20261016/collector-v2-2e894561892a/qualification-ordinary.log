@@ -1,0 +1,104 @@
+check pass: ordinary collector ELF exists (unfixed)
+check pass: ordinary collector ELF exists (fixed)
+keypair-unfixed                                exit=0
+keypair-fixed                                  exit=0
+check pass: public key identical across variants
+check pass: secret key identical across variants
+selftest-unfixed                               exit=0
+selftest-transcript-unfixed                    exit=0
+platform-functional-unfixed                    exit=0
+platform-rng-failure-unfixed                   exit=0
+platform-public-kat-unfixed                    exit=0
+selftest-fixed                                 exit=0
+selftest-transcript-fixed                      exit=0
+platform-functional-fixed                      exit=0
+platform-rng-failure-fixed                     exit=0
+platform-public-kat-fixed                      exit=0
+check pass: collector transcripts identical across variants
+smoke_u_seed31337                              exit=0
+smoke_f_seed31337                              exit=0
+smoke_u_seed31337_replay                       exit=0
+smoke_u_seed424242                             exit=0
+main_u_seed31337                               exit=0
+main_f_seed31337                               exit=0
+check pass: meta run_status complete: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta zero elapsed zero: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta no failed decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta no accept mismatch: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta clock monotonic: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta time unit ns: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta warmup 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta warmup completed 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta warmup attempted 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: meta window is one complete decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337.meta
+check pass: smoke_u_seed31337 keeps the smallest raw value
+check pass: meta run_status complete: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta zero elapsed zero: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta no failed decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta no accept mismatch: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta clock monotonic: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta time unit ns: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta warmup 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta warmup completed 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta warmup attempted 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: meta window is one complete decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_f_seed31337.meta
+check pass: smoke_f_seed31337 keeps the smallest raw value
+check pass: meta run_status complete: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta zero elapsed zero: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta no failed decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta no accept mismatch: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta clock monotonic: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta time unit ns: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta warmup 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta warmup completed 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta warmup attempted 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: meta window is one complete decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed31337_replay.meta
+check pass: smoke_u_seed31337_replay keeps the smallest raw value
+check pass: meta run_status complete: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta zero elapsed zero: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta no failed decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta no accept mismatch: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta clock monotonic: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta time unit ns: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta warmup 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta warmup completed 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta warmup attempted 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: meta window is one complete decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/smoke_u_seed424242.meta
+check pass: smoke_u_seed424242 keeps the smallest raw value
+check pass: meta run_status complete: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta zero elapsed zero: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta no failed decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta no accept mismatch: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta clock monotonic: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta time unit ns: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta warmup 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta warmup completed 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta warmup attempted 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: meta window is one complete decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_u_seed31337.meta
+check pass: main_u_seed31337 keeps the smallest raw value
+check pass: meta run_status complete: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta zero elapsed zero: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta no failed decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta no accept mismatch: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta clock monotonic: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta time unit ns: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta warmup 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta warmup completed 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta warmup attempted 100: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: meta window is one complete decapsulation: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary/smoke/main_f_seed31337.meta
+check pass: main_f_seed31337 keeps the smallest raw value
+check pass: smoke data rows 800 (4 classes x 200)
+check pass: main-pair data rows 200 (2 classes x 100)
+check pass: per-class row counts all equal 200
+check pass: per-class row counts all equal 100
+check pass: same seed replays identical class order
+check pass: same seed replays identical input digest
+check pass: different seed changes class order
+check pass: different seed keeps the class multiset
+check pass: both variants share seed 31337 class order
+check pass: both variants share seed 31337 input digest
+check pass: both variants share main-pair class order
+check pass: both variants share main-pair input digest
+check pass: malformed classes present in control run
+steps=18 failures=0
+collector qualification passed

@@ -1,0 +1,22 @@
+module=M2 variant=m2-kyber768-round3-fixed case=chosen_message_prefix mode=upstream_dudect_online unit=tsc_ticks holm_member=0 seed=31337 batch_calls=10000 requested_batches=20
+meas:    0.01 M, not enough measurements (11 still to go).
+meas:    0.02 M, max t:   +0.69, max tau: 4.89e-03, (5/tau)^2: 1.05e+06. For the moment, maybe constant time.
+meas:    0.02 M, max t:  +11.67, max tau: 7.40e-02, (5/tau)^2: 4.57e+03. Probably not constant time.
+meas:    0.03 M, max t:  +13.29, max tau: 7.25e-02, (5/tau)^2: 4.76e+03. Probably not constant time.
+meas:    0.04 M, max t:  +15.90, max tau: 7.67e-02, (5/tau)^2: 4.25e+03. Probably not constant time.
+meas:    0.05 M, max t:  +17.26, max tau: 7.56e-02, (5/tau)^2: 4.37e+03. Probably not constant time.
+meas:    0.06 M, max t:  +19.49, max tau: 7.86e-02, (5/tau)^2: 4.05e+03. Probably not constant time.
+meas:    0.07 M, max t:  +21.13, max tau: 7.95e-02, (5/tau)^2: 3.95e+03. Probably not constant time.
+meas:    0.08 M, max t:  +22.50, max tau: 7.96e-02, (5/tau)^2: 3.95e+03. Probably not constant time.
+meas:    0.09 M, max t:  +23.97, max tau: 8.04e-02, (5/tau)^2: 3.87e+03. Probably not constant time.
+meas:    0.10 M, max t:  +24.62, max tau: 7.87e-02, (5/tau)^2: 4.03e+03. Probably not constant time.
+meas:    0.11 M, max t:  +25.51, max tau: 7.82e-02, (5/tau)^2: 4.09e+03. Probably not constant time.
+meas:    0.11 M, max t:  +26.07, max tau: 7.70e-02, (5/tau)^2: 4.22e+03. Probably not constant time.
+meas:    0.12 M, max t:  +26.85, max tau: 7.66e-02, (5/tau)^2: 4.26e+03. Probably not constant time.
+meas:    0.13 M, max t:  +27.65, max tau: 7.63e-02, (5/tau)^2: 4.30e+03. Probably not constant time.
+meas:    0.14 M, max t:  +27.87, max tau: 7.53e-02, (5/tau)^2: 4.41e+03. Probably not constant time.
+meas:    0.14 M, max t:  +27.78, max tau: 7.50e-02, (5/tau)^2: 4.44e+03. Probably not constant time.
+meas:    0.14 M, max t:  +27.53, max tau: 7.44e-02, (5/tau)^2: 4.52e+03. Probably not constant time.
+meas:    0.14 M, max t:  +27.52, max tau: 7.43e-02, (5/tau)^2: 4.52e+03. Probably not constant time.
+battery_dudect_status=online_leakage_found
+completed_batches=20 total_calls=200000 warmup_batches=1 measurement_batches=19 first_positive_batch=yes stop_on_positive=0 endpoint_discarded_per_update=11

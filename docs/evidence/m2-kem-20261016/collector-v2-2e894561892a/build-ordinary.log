@@ -1,0 +1,22 @@
+[ 17%] Built target m2_collector_unfixed_vendor
+[ 35%] Built target m2_collector_fixed_vendor
+[ 43%] Built target m2_collector_unfixed
+[ 51%] Built target m2_collector_fixed
+[ 66%] Built target m2_collector_unfixed_selftest
+[ 62%] Building C object CMakeFiles/m2_collector_unfixed_dudect.dir/dudect_online.c.o
+[ 66%] Built target m2_collector_unfixed_functional
+[ 62%] Built target m2_collector_unfixed_keypair
+[ 62%] Built target m2_collector_unfixed_collector
+[ 79%] Built target m2_collector_unfixed_kat
+[ 80%] Built target m2_collector_fixed_selftest
+[ 79%] Built target m2_collector_fixed_collector
+[ 79%] Built target m2_collector_unfixed_rng_failure
+[ 83%] Built target m2_collector_fixed_keypair
+[ 85%] Building C object CMakeFiles/m2_collector_fixed_dudect.dir/dudect_online.c.o
+[ 88%] Built target m2_collector_fixed_rng_failure
+[ 93%] Built target m2_collector_fixed_kat
+[ 96%] Built target m2_collector_fixed_functional
+[100%] Linking C executable collector/fixed/m2_dudect
+[100%] Linking C executable collector/unfixed/m2_dudect
+[100%] Built target m2_collector_fixed_dudect
+[100%] Built target m2_collector_unfixed_dudect

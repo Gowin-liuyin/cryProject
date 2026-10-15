@@ -39,8 +39,8 @@
 
 ### 1.3 采集用普通 ELF 的 SHA-256
 
-本轮 M2 采集用 collector 是 T2 正在产出的**新独立 ELF**（`collector-v2-2e894561892a`），它**不替换**、
-**不改动**现有 `build-ordinary/platform-m2/{unfixed,fixed}/measure` 两个只读原件。
+本轮 M2 采集用 collector 是 T2 已产出并**冻结**的新独立 ELF（`collector-v2-2e894561892a`），
+它**不替换**、**不改动**现有 `build-ordinary/platform-m2/{unfixed,fixed}/measure` 两个只读原件。
 
 | 角色 | 绝对路径 | SHA-256 |
 |---|---|---|
@@ -49,16 +49,15 @@
 | 只读原件（不采集） | `<Cry>/.../build-ordinary/platform-m2/unfixed/measure` | `dd4073ba38d9ba6b465fca9b6f2e94ef11d8ebc8948901e41f0ba9926ee674e7` |
 | 只读原件（不采集） | `<Cry>/.../build-ordinary/platform-m2/fixed/measure` | `c48f89a5bc7f9bd8117a0319eacbc40bf9d061ecae2bad48812376d04745ada7` |
 
-`<nonce>` 与两个占位符必须由实际构建者（T2）给出确切值、并由主控在提交本 PLAN 后填入
-`COLLECTOR_CONTRACT.md`（计划路径 `docs/evidence/m2-kem-20261016/COLLECTOR_CONTRACT.md`）。
-**未填齐的两个 sha256 就是采数准入的硬阻断项**：不得用只读原件冒充采集产物，也不得用占位符启动采集。
-实读命令与原始输出见文末附录 A。
+上表四条摘要均由 `plans` 于 2026-10-16 远端**独立实读复核**（附录 A 有命令与原始输出）；
+两臂 collector 与两臂 `m2_dudect` 的绝对路径、sha256、ldd、调用边界与可直接复制的确切命令行，
+另记于 `docs/evidence/m2-kem-20261016/COLLECTOR_CONTRACT.md`。**采集必须使用上表两条 collector**：
+不得用只读原件冒充采集产物，也不得用已被取代的中间构建（见下方警告）。
 
-> **中间构建警告（T2 实读，2026-10-16）**：`collector-v2-2e894561892a` 下已存在一版普通 ELF
-> （unfixed `fd66e3a00d26d77da7b0d804a10f445a704662ebb7657a3b1c949f0f8905aa96`、
-> fixed `bf402abfbc0c6fa64799c852ea02fa463be55689c81afe8854b8ef5cad0a845d`），
-> 但它是**补 `warmup_*` meta 字段之前**的构建，**不是**本轮采集 ELF。
-> 该中间版本及其摘要**不得**被填入上方占位符、也不得用于采集；以 T2 重建后的最终产物为准。
+> **中间构建警告（T2 实读，2026-10-16）**：同一 nonce 目录下曾有一版**补 `warmup_*` meta 字段之前**的
+> 构建（unfixed `fd66e3a00d26d77da7b0d804a10f445a704662ebb7657a3b1c949f0f8905aa96`、
+> fixed `bf402abfbc0c6fa64799c852ea02fa463be55689c81afe8854b8ef5cad0a845d`）。
+> 该中间版本**已重建并被上表摘要取代**，**不得**用于采集；采集 ELF 的 sha256 必须等于上表值。
 
 ### 1.4 采集工具链（固定）
 
@@ -68,7 +67,7 @@
 | 统计电池 | `scripts/run_stats_battery.sh` |
 | `platform_stats` | `/home/nss-marker/yhr/Cry/platform-s5-20261016-b4cd8480318c/build-v2/platform_stats`，SHA-256 `ddc48b9ef92a010e9b804389cabc4089e042c814ac8af4b3fa89e541bf4ac9e2` |
 | RTLF | `/home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/third_party/RTLF/rtlf.R`，SHA-256 `50e5d4e5239e492337a131afaf2d1e3c0fdcadbb902d5433d56eac2ead1bd04e` |
-| 在线 dudect 适配 | **候选入口**：T2 在同一棵 collector-v2 树内产出的 `m2_dudect`（钉版上游 `dudect_main` + 每批 10000 + 首批上游预热 + 固定多批 + 阳性粘滞）。路径/sha256/确切命令待 T2 写入 `COLLECTOR_CONTRACT.md` 后由主控冻结；**未交付就不跑**，写 `blocked/not_run`，不得用离线回放冒充在线 |
+| 在线 dudect 适配 | **已冻结**：`collector-v2-2e894561892a/build-ordinary/collector/{unfixed,fixed}/m2_dudect`；未修 `1c4e19866e7e1986f784d0819a14d993cc76ab5ebcc3ae636483cd9728103c1a`、已修 `ff92c5df271dc337c78e4b78311fa0e9b99cced59c1b754466e9dea52e038858`（`plans` 独立复核）。CLI：`m2_dudect --collect <新CSV> 20 31337 <pk.bin> <sk.bin>`；每批 10000、batch 0 为上游预热/分位批，**20 批 = 1 预热 + 19 检验批 = 200000 次**；默认阳性粘滞。**仅在绑核 + 锁频的在线运行里出结论**（未受控运行的环境漂移见 §4.2）；未执行即写 `blocked/not_run`，不得用离线回放冒充在线 |
 | 主机 | `nss-m`，Linux `6.17.0-35-generic`，x86_64，AMD Ryzen 9 9950X 16-Core / 32 逻辑 CPU |
 
 ---
@@ -124,9 +123,11 @@
 
 - 每 run 每臂主类对 **20000** 次完整解封装；对照类对另 **20000** 次。
 - 全轮主类对 **3 run × 2 臂 × 2 类 × 10000 = 120000** 次；对照类对同为 **120000** 次（族外）。
-- **预热 100 次**：每个采集进程在计时循环前执行 100 次完整解封装，预热样本**不进 CSV**，
-  预热必须在窗口外（collector-v2 必须实现并在 meta 中记录 `warmup_completed_calls=100`；
-  未实现预热即视为不满足本合同）。全轮预热 = 12 进程 × 100 = **1200** 次。
+- **预热 100 次**：每个采集进程在计时循环前执行 100 次完整解封装（collector-v2 的显式
+  `--warmup 100` 参数，默认即 100），预热样本**不进 CSV**、在窗口外，meta 记
+  `warmup_decapsulations=100`、`warmup_attempted_calls=100`、`warmup_completed_calls=100`
+  三个字段（资格脚本已断言这三项）。全轮预热 = 12 进程 × 100 = **1200** 次。
+  预热字段缺失或不等于 100 即视为该 run 无效。
 - **窗口只包一次完整 `mlkem_decapsulate`**：两个 `CLOCK_MONOTONIC` 纳秒读钟之间夹一次完整解封装，
   两侧 `atomic_signal_fence`；输入生成、分配、类别乱序、结果消费、日志与 I/O **全部在窗口外**。
 - **全量保留长尾**：不做截尾、不删普通长尾、不扣读钟开销、不把 ns 换算成 CPU cycles。
@@ -157,10 +158,18 @@
 - **RTLF：α = 0.01，bootstrap 种子 2026101605，族外。** 每份主类对 CSV 各执行一次，
   使用固定上游脚本（§1.4 摘要）。其**二值结果不转换成连续 p、不进 Holm**；工具缺失或阻塞时
   按 `not_run`/明确状态保留原值，**不当阴性**。
-- **online dudect：族外。** 候选入口为 T2 的 `m2_dudect`（钉版上游 `dudect_main`），每臂一次、
-  固定预算（每批 10000 次回调、最多 21 批、首批为上游预热/分位阶段），保留上游原裁剪/二阶辅助检验
-  与 `max|t| > 10` 阈值，阳性粘滞（不因提前阳性而减批）。**最大 t 不得转换成伪 p，不得进入 Holm**；
-  未交付/未冻结入口即写 `blocked/not_run`，不得用离线回放补签。
+- **online dudect：族外。** 入口为 `m2_dudect`（钉版上游 `dudect_main`，已交付并冻结），每臂一次、
+  **固定 20 批**：每批 10000 次回调，**batch 0 是上游预热/分位批次、不计入 t 检验**，
+  故 20 批 = 1 预热 + 19 检验批 = **200000 次**完整解封装；保留上游原裁剪/二阶辅助检验与
+  `max|t| > 10` 阈值。**默认阳性粘滞**（跑满 20 批，符合本合同"无论是否提前遇到阳性都保留 20 批"），
+  不使用 `--stop-on-positive`。**最大 t 不得转换成伪 p，不得进入 Holm**。
+  命令：`m2_dudect --collect <新CSV> 20 31337 <pk.bin> <sk.bin>`（两臂各一次，独立 CSV）。
+  未执行即写 `blocked/not_run`，不得用离线回放补签。
+- **⚠️ dudect 结论只允许来自绑核 + 锁频的在线运行**：T2 的在**未绑核、未锁频**条件下的就绪运行出现
+  `max|t| > 10`——4 次交替顺序诊断里 3 次阳性、**与变体顺序无关**，同期 `avg_mhz` 在 3105–3901 间漂移。
+  该现象说明未受控环境下阈值会被环境漂移击穿，**不得引用这些未受控数字作为任一方向（阳性或阴性）
+  的泄漏结论**；正式 online dudect 必须在 §7 的锁频控制器内、CPU2/6 绑核执行。
+  这也是"未完成不补签"口径的一部分。
 - 对照类对（§2.2）同样**不进 Holm**：它只做族外描述性检查与链路灵敏度说明；单独 CSV、单独输出目录，
   **不并入** `holm.csv`。
 
@@ -254,13 +263,30 @@
 
 ## 8. 执行入口（主控串行，固定形态）
 
+主类对（collector-v2 确切 CLI，参数名以 `COLLECTOR_CONTRACT.md` §7 为准）：
+
 ```sh
 sudo -n /usr/bin/python3 -I -B <控制根>/controller.py run \
     --control-root <控制根> --run-name m2-r01-unfixed-main --cpu 2 --timeout-seconds <T> \
     --plan <控制根>/PLAN.md --plan-sha256 <冻结PLAN的SHA256> \
-    -- <Cry内 M2 collector-v2 未修绝对路径> --collect <新CSV> --class message-zero,message-ones \
-        --count 10000 --seed 31337 --run-id m2_r01_unfixed
+    -- /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/unfixed/m2_decaps_collector \
+        --class message-zero,message-ones --samples 10000 --seed 31337 --warmup 100 \
+        --raw <新目录>/m2_r01_unfixed.csv --meta <新目录>/m2_r01_unfixed.meta \
+        --run-id m2_r01_unfixed \
+        --public-key <fixtures>/pk.bin --secret-key <fixtures>/sk.bin
 ```
+
+族外对照类对：同一 ELF，改 `--class malformed-zero-tail,malformed-ff-tail`、换**另一个**
+`--raw`/`--meta`/`--run-id`（**绝不混入主 CSV**）。已修臂把路径中的 `unfixed` 换成 `fixed`；
+run2 用 `--seed 424242`，run3 用 `--seed 31337` 且 CPU 换 6。
+在线 dudect（族外，两臂各一次，仅锁频后执行，命令同形）：
+
+```sh
+    -- /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/unfixed/m2_dudect \
+        --collect <新目录>/m2_dudect_unfixed.csv 20 31337 <fixtures>/pk.bin <fixtures>/sk.bin
+```
+
+`--samples` 上限 20000/类；`--warmup` 默认 100；类对两次采集必须是**两个独立调用、两个独立 CSV**。
 
 - 每个 (run, 臂, 类对) 一个**新** run-name、一个**新**输出目录；已存在文件必须失败。
 - 统计（每份原 CSV 一个**新**输出目录）：
@@ -305,9 +331,10 @@ scripts/run_stats_battery.sh --input <对照CSV> --format measure \
 
 ## 附录 A：ELF sha256 实读记录
 
-实读时间：2026-10-16 02:0x（CST），操作者 `plans`（task-7），**只读，未写入远端**。
+实读时间：2026-10-16 02:0x–02:2x（CST），操作者 `plans`（task-7），**只读，未写入远端**。
+本节含两段：(A) 只读原件基线；(B) **采集用 collector-v2 与 `m2_dudect` 的独立复核**（采集取此段）。
 
-命令（原始，逐字）：
+**(A) 只读原件基线（不用于采集）** —— 命令（原始，逐字）：
 
 ```sh
 ssh -o ControlPath=/Users/yin/.ssh/cm-cry-nss.sock nss-marker@10.144.144.5 \
@@ -323,6 +350,23 @@ dd4073ba38d9ba6b465fca9b6f2e94ef11d8ebc8948901e41f0ba9926ee674e7  platform-m2kem
 c48f89a5bc7f9bd8117a0319eacbc40bf9d061ecae2bad48812376d04745ada7  platform-m2kem-20261016-d75a4019/build-ordinary/platform-m2/fixed/measure
 ```
 
+**(B) 采集用 collector-v2 与 `m2_dudect` 复核（`plans` 独立实读）** —— 命令（原始，逐字）：
+
+```sh
+ssh -o ControlPath=/Users/yin/.ssh/cm-cry-nss.sock nss-marker@10.144.144.5 \
+  'cd /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector \
+   && sha256sum unfixed/m2_decaps_collector fixed/m2_decaps_collector unfixed/m2_dudect fixed/m2_dudect'
+```
+
+原始输出（逐字）：
+
+```text
+b1e820e848d83cb334a967c64573c3c3355451e6e72778b45af96724e9c96b5d  unfixed/m2_decaps_collector
+c9cecdafb6bb855c44f08e52289baf2754fc6376fde0422ec004ec8945f4e9a8  fixed/m2_decaps_collector
+1c4e19866e7e1986f784d0819a14d993cc76ab5ebcc3ae636483cd9728103c1a  unfixed/m2_dudect
+ff92c5df271dc337c78e4b78311fa0e9b99cced59c1b754466e9dea52e038858  fixed/m2_dudect
+```
+
 补充实读（源码载体与工具）：
 
 ```sh
@@ -334,13 +378,15 @@ sha256sum /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/t
 # 50e5d4e5239e492337a131afaf2d1e3c0fdcadbb902d5433d56eac2ead1bd04e
 ```
 
-## 附录 B：占位符清单（采数准入硬阻断）
+## 附录 B：待定项与非阻断记录
 
-| 占位符 | 待填内容 | 填入者 |
+| 项 | 状态 | 处置 |
 |---|---|---|
-| 在线 dudect（族外工具，两臂） | 未修 `1c4e19866e7e1986f784d0819a14d993cc76ab5ebcc3ae636483cd9728103c1a`；已修 `ff92c5df271dc337c78e4b78311fa0e9b99cced59c1b754466e9dea52e038858` | 已冻结（路径 `<…>/collector-v2-2e894561892a/build-ordinary/collector/{unfixed,fixed}/m2_dudect`） |
-| `<Cry>` | `/home/nss-marker/yhr/Cry` | 本文档书写约定，非阻断 |
-| `<nonce>` | collector-v2 构建目录的 12 位十六进制 nonce | T2 |
-| `<T>` | 单进程管理上限（秒） | 主控准入时按实测设定 |
+| 采集两臂 collector-v2 | **已冻结（`plans` 独立复核）** | 未修 `b1e820e8…`、已修 `c9cecdaf…`，路径见 §1.3 |
+| 在线 dudect 两臂 `m2_dudect` | **已冻结（`plans` 独立复核）** | 未修 `1c4e1986…`、已修 `ff92c5df…`；20 批 = 200000 次、默认阳性粘滞；**仅在绑核 + 锁频运行出结论** |
+| 未受控 dudect 就绪数字（`dudect-readiness/` 等） | **登记为环境漂移，不是泄漏结论** | 4 次交替诊断 3 次阳性、与变体无关、`avg_mhz` 3105–3901；任一方向都不得引用（§4.2） |
+| 中间构建 `fd66e3a0…`/`bf402abf…` | **已被取代，不用于采集** | 见 §1.3 中间构建警告；原件与旧资格日志归档在该树 `superseded/`，**保留不删** |
+| `<Cry>` | 书写约定 | `/home/nss-marker/yhr/Cry`，非阻断 |
+| `<T>` | 待定 | 单进程管理上限（秒），主控准入时按实测设定 |
 
-未填齐前，§1.3 的采集 ELF 不存在，**不得启动任何 M2 采集**。
+**本模块待填 ELF 占位符共 0 个**：采集两臂与 dudect 两臂摘要均已实读填实（附录 A 段 B）。

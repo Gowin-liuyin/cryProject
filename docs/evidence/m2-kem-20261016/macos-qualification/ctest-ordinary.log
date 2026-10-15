@@ -1,0 +1,115 @@
+Start testing: Oct 16 01:37 CST
+----------------------------------------------------------
+59/71 Testing: platform_m2_unfixed_functional
+59/71 Test: platform_m2_unfixed_functional
+Command: "/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_unfixed_test"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_unfixed_functional" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+M2: random roundtrip, boundary guards, chosen messages and 64 implicit rejections passed
+<end of output>
+Test time =   0.82 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_unfixed_functional" end time: Oct 16 01:37 CST
+"platform_m2_unfixed_functional" time elapsed: 00:00:00
+----------------------------------------------------------
+
+60/71 Testing: platform_m2_unfixed_random_failure
+60/71 Test: platform_m2_unfixed_random_failure
+Command: "/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_unfixed_rng_failure"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_unfixed_random_failure" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+M2: failing random provider returns an error and clears full output buffers
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_unfixed_random_failure" end time: Oct 16 01:37 CST
+"platform_m2_unfixed_random_failure" time elapsed: 00:00:00
+----------------------------------------------------------
+
+61/71 Testing: platform_m2_fixed_functional
+61/71 Test: platform_m2_fixed_functional
+Command: "/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_fixed_test"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_fixed_functional" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+M2: random roundtrip, boundary guards, chosen messages and 64 implicit rejections passed
+<end of output>
+Test time =   0.32 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_fixed_functional" end time: Oct 16 01:37 CST
+"platform_m2_fixed_functional" time elapsed: 00:00:00
+----------------------------------------------------------
+
+62/71 Testing: platform_m2_fixed_random_failure
+62/71 Test: platform_m2_fixed_random_failure
+Command: "/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_fixed_rng_failure"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_fixed_random_failure" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+M2: failing random provider returns an error and clears full output buffers
+<end of output>
+Test time =   0.31 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_fixed_random_failure" end time: Oct 16 01:37 CST
+"platform_m2_fixed_random_failure" time elapsed: 00:00:00
+----------------------------------------------------------
+
+63/71 Testing: platform_m2_semantic_equivalence
+63/71 Test: platform_m2_semantic_equivalence
+Command: "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake" "-DM2_unfixed_TEST=/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_unfixed_test" "-DM2_fixed_TEST=/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_fixed_test" "-P" "/Users/yin/code/cryProject/tests/test_platform_m2_equivalence.cmake"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_semantic_equivalence" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+-- Both M2 versions agree on key bytes and 160 ciphertext/decapsulation cases
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_semantic_equivalence" end time: Oct 16 01:37 CST
+"platform_m2_semantic_equivalence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+64/71 Testing: platform_m2_unfixed_public_kat
+64/71 Test: platform_m2_unfixed_public_kat
+Command: "/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_unfixed_kat" "/Users/yin/code/cryProject/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_unfixed_public_kat" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+m2-kyber768-round3-unfixed: 100 independent official round3 KAT keygen/encap/decap cases passed
+<end of output>
+Test time =   0.33 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_unfixed_public_kat" end time: Oct 16 01:37 CST
+"platform_m2_unfixed_public_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+65/71 Testing: platform_m2_fixed_public_kat
+65/71 Test: platform_m2_fixed_public_kat
+Command: "/Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary/platform_m2_fixed_kat" "/Users/yin/code/cryProject/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp"
+Directory: /Users/yin/code/cryProject/build/platform-s4/m2-kem/ordinary
+"platform_m2_fixed_public_kat" start time: Oct 16 01:37 CST
+Output:
+----------------------------------------------------------
+m2-kyber768-round3-fixed: 100 independent official round3 KAT keygen/encap/decap cases passed
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m2_fixed_public_kat" end time: Oct 16 01:37 CST
+"platform_m2_fixed_public_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 16 01:37 CST

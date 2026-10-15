@@ -1,0 +1,110 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "baseline",
+      "displayName": "ML-KEM baseline",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "BUILD_TESTING": "ON",
+        "BASELINE_SANITIZERS": "OFF"
+      }
+    },
+    {
+      "name": "sanitize",
+      "inherits": "baseline",
+      "displayName": "ASan and UBSan checks",
+      "binaryDir": "${sourceDir}/build/cmake-sanitize",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BASELINE_SANITIZERS": "ON"
+      }
+    },
+    {
+      "name": "historical",
+      "inherits": "baseline",
+      "displayName": "liboqs 0.10.0 historical positive-control (functional)",
+      "binaryDir": "${sourceDir}/build/historical",
+      "cacheVariables": {
+        "BASELINE_ENABLE_LIBOQS010": "ON",
+        "A113_ARCHIVED_CASE_ONLY": "OFF"
+      }
+    },
+    {
+      "name": "historical-clangover",
+      "inherits": "historical",
+      "displayName": "liboqs 0.10.0 clangover flags (x86_64 Clang 15-18 evidence host)",
+      "binaryDir": "${sourceDir}/build/historical-clangover",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "LIBOQS010_C_FLAGS": "-Os -fno-vectorize",
+        "BASELINE_SANITIZERS": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "baseline",
+      "configurePreset": "baseline"
+    },
+    {
+      "name": "sanitize",
+      "configurePreset": "sanitize"
+    },
+    {
+      "name": "historical",
+      "configurePreset": "historical"
+    },
+    {
+      "name": "historical-clangover",
+      "configurePreset": "historical-clangover"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "baseline",
+      "configurePreset": "baseline",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "sanitize",
+      "configurePreset": "sanitize",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "historical",
+      "configurePreset": "historical",
+      "output": {
+        "outputOnFailure": true
+      },
+      "filter": {
+        "include": {
+          "label": "historical"
+        }
+      }
+    },
+    {
+      "name": "historical-clangover",
+      "configurePreset": "historical-clangover",
+      "output": {
+        "outputOnFailure": true
+      },
+      "filter": {
+        "include": {
+          "label": "historical"
+        }
+      }
+    }
+  ]
+}

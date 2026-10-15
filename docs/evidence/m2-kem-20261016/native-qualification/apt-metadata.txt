@@ -1,0 +1,31 @@
+Package: libssl-dev
+Source: openssl
+Priority: optional
+Section: libdevel
+Installed-Size: 13009
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Version: 3.0.13-0ubuntu3.16
+Suggests: libssl-doc
+Depends: libssl3t64 (= 3.0.13-0ubuntu3.16)
+Filename: pool/main/o/openssl/libssl-dev_3.0.13-0ubuntu3.16_amd64.deb
+Size: 2408684
+MD5sum: adc05020a21eb2e2122aba01360bb74e
+SHA1: 835362a626eba716d3ded619d8fd0085e585614c
+SHA256: 2b4734df0475e305ac03abb0a2cc5659651ed37ef02d967a1c4033a154cf714b
+SHA512: e24c4b41e21fd6aafd1a27207e4840faea6ede4c08be14da5b36d32cb7eebb3aee0949da78c1b9b70b34fe850bd97a889a450b8c02d2529de182b355f853389e
+Homepage: https://www.openssl.org/
+Description-en: Secure Sockets Layer toolkit - development files
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains development libraries, header files, and manpages for libssl
+ and libcrypto.
+Description-md5: 27044468897c45b271f879c7c6e135fe
+Multi-Arch: same
+Original-Maintainer: Debian OpenSSL Team <pkg-openssl-devel@alioth-lists.debian.net>
+Origin: Ubuntu
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Task: kubuntu-desktop, kubuntu-full
+

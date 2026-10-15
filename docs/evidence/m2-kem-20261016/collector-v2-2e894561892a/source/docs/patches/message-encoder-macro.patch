@@ -1,0 +1,62 @@
+--- a/mlkem/src/compress.c
++++ b/mlkem/src/compress.c
+@@ -694,35 +694,35 @@
+  *              `(msg[i] >> j) & 1` which the compiler can reason must
+  *              be either 0 or 1. */
+ MLK_INTERNAL_API
+-void mlk_poly_frommsg(mlk_poly *r, const uint8_t msg[MLKEM_INDCPA_MSGBYTES])
++#if defined(__clang__)
++__attribute__((optnone, noinline))
++#elif defined(__GNUC__)
++__attribute__((optimize("O0"), noinline))
++#else
++#error "The encoder macro needs a verified per-function optimization control"
++#endif
++void mlk_poly_frommsg(mlk_poly *message_polynomial,
++    const uint8_t message_bytes[MLKEM_INDCPA_MSGBYTES])
+ {
+-  unsigned i;
+ #if (MLKEM_INDCPA_MSGBYTES != MLKEM_N / 8)
+ #error "MLKEM_INDCPA_MSGBYTES must be equal to MLKEM_N/8 bytes!"
+ #endif
+-
+-  for (i = 0; i < MLKEM_N / 8; i++)
+-  __loop__(
+-    invariant(i <= MLKEM_N / 8)
+-    invariant(array_bound(r->coeffs, 0, 8 * i, 0, MLKEM_Q))
+-    decreases(MLKEM_N / 8 - i))
+-  {
+-    unsigned j;
+-    for (j = 0; j < 8; j++)
+-    __loop__(
+-      invariant(i <  MLKEM_N / 8 && j <= 8)
+-      invariant(array_bound(r->coeffs, 0, 8 * i + j, 0, MLKEM_Q))
+-      decreases(8 - j))
+-    {
+-      /* mlk_ct_sel_int16(MLKEM_Q_HALF, 0, b) is `Decompress_1(b != 0)`
+-       * as per @[FIPS203, Eq (4.8)]. */
+-
+-      /* Prevent the compiler from recognizing this as a bit selection */
+-      uint8_t mask = mlk_value_barrier_u8((uint8_t)(1u << j));
+-      r->coeffs[8 * i + j] = mlk_ct_sel_int16(MLKEM_Q_HALF, 0, msg[i] & mask);
++    /* 两侧只有 MESSAGE_ENCODER_BRANCH 不同，优化属性和系数语义保持一致。 */
++    for (unsigned coefficient_index = 0; coefficient_index < MLKEM_N; ++coefficient_index) {
++        uint16_t message_bit =
++            (uint16_t)((message_bytes[coefficient_index / 8u] >> (coefficient_index % 8u)) & 1u);
++#if MESSAGE_ENCODER_BRANCH
++        if (message_bit != 0u) {
++            message_polynomial->coeffs[coefficient_index] = (int16_t)MLKEM_Q_HALF;
++        } else {
++            message_polynomial->coeffs[coefficient_index] = 0;
++        }
++#else
++        uint16_t selection_mask = (uint16_t)(0u - (unsigned)message_bit);
++        message_polynomial->coeffs[coefficient_index] =
++            (int16_t)(selection_mask & (uint16_t)MLKEM_Q_HALF);
++#endif
+     }
+-  }
+-  mlk_assert_abs_bound(r, MLKEM_N, MLKEM_Q);
+ }
+ #endif /* !MLK_CONFIG_NO_ENCAPS_API || !MLK_CONFIG_NO_DECAPS_API */
+ 

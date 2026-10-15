@@ -1,0 +1,62 @@
+--- a/mlkem/src/compress.c
++++ b/mlkem/src/compress.c
+@@ -693,36 +693,31 @@
+  *              The reference implementation contains the expression
+  *              `(msg[i] >> j) & 1` which the compiler can reason must
+  *              be either 0 or 1. */
+-MLK_INTERNAL_API
+-void mlk_poly_frommsg(mlk_poly *r, const uint8_t msg[MLKEM_INDCPA_MSGBYTES])
+-{
+-  unsigned i;
+-#if (MLKEM_INDCPA_MSGBYTES != MLKEM_N / 8)
+-#error "MLKEM_INDCPA_MSGBYTES must be equal to MLKEM_N/8 bytes!"
++#if PLATFORM_M3_LUT_LEAK
++/* 人工校准：两种解压系数跨缓存行，查得的值直接成为重加密系数。 */
++_Alignas(64) static const volatile int16_t platform_m3_message_bit_table[2][32] = {
++    {0},
++    {MLKEM_Q_HALF},
++};
+ #endif
+
+-  for (i = 0; i < MLKEM_N / 8; i++)
+-  __loop__(
+-    invariant(i <= MLKEM_N / 8)
+-    invariant(array_bound(r->coeffs, 0, 8 * i, 0, MLKEM_Q))
+-    decreases(MLKEM_N / 8 - i))
+-  {
+-    unsigned j;
+-    for (j = 0; j < 8; j++)
+-    __loop__(
+-      invariant(i <  MLKEM_N / 8 && j <= 8)
+-      invariant(array_bound(r->coeffs, 0, 8 * i + j, 0, MLKEM_Q))
+-      decreases(8 - j))
+-    {
+-      /* mlk_ct_sel_int16(MLKEM_Q_HALF, 0, b) is `Decompress_1(b != 0)`
+-       * as per @[FIPS203, Eq (4.8)]. */
+-
+-      /* Prevent the compiler from recognizing this as a bit selection */
+-      uint8_t mask = mlk_value_barrier_u8((uint8_t)(1u << j));
+-      r->coeffs[8 * i + j] = mlk_ct_sel_int16(MLKEM_Q_HALF, 0, msg[i] & mask);
+-    }
+-  }
+-  mlk_assert_abs_bound(r, MLKEM_N, MLKEM_Q);
++MLK_INTERNAL_API
++void mlk_poly_frommsg(mlk_poly *message_polynomial,
++    const uint8_t message_bytes[MLKEM_INDCPA_MSGBYTES])
++{
++    for (unsigned coefficient_index = 0; coefficient_index < MLKEM_N; ++coefficient_index) {
++        unsigned message_bit_index = coefficient_index % 8u;
++        uint8_t message_byte = message_bytes[coefficient_index / 8u];
++#if PLATFORM_M3_LUT_LEAK
++        unsigned message_bit = ((unsigned)message_byte >> message_bit_index) & 1u;
++        message_polynomial->coeffs[coefficient_index] =
++            platform_m3_message_bit_table[message_bit][0];
++#else
++        uint8_t message_mask = mlk_value_barrier_u8((uint8_t)(1u << message_bit_index));
++        message_polynomial->coeffs[coefficient_index] =
++            mlk_ct_sel_int16(MLKEM_Q_HALF, 0, message_byte & message_mask);
++#endif
++    }
+ }
+ #endif /* !MLK_CONFIG_NO_ENCAPS_API || !MLK_CONFIG_NO_DECAPS_API */
+

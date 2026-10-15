@@ -1,0 +1,20 @@
+[ 18%] Built target m2_collector_fixed_vendor
+[ 37%] Built target m2_collector_unfixed_vendor
+[ 46%] Built target m2_collector_fixed
+[ 55%] Built target m2_collector_unfixed
+[ 58%] Built target m2_collector_fixed_keypair
+[ 60%] Building C object CMakeFiles/m2_collector_fixed_collector.dir/collector.c.o
+[ 63%] Built target m2_collector_fixed_functional
+[ 65%] Building C object CMakeFiles/m2_collector_unfixed_collector.dir/collector.c.o
+[ 68%] Built target m2_collector_fixed_selftest
+[ 72%] Built target m2_collector_unfixed_keypair
+[ 77%] Built target m2_collector_unfixed_functional
+[ 79%] Built target m2_collector_unfixed_rng_failure
+[ 82%] Built target m2_collector_unfixed_selftest
+[ 86%] Built target m2_collector_fixed_rng_failure
+[ 96%] Built target m2_collector_unfixed_kat
+[ 96%] Built target m2_collector_fixed_kat
+[ 98%] Linking C executable collector/unfixed/m2_decaps_collector
+[100%] Linking C executable collector/fixed/m2_decaps_collector
+[100%] Built target m2_collector_unfixed_collector
+[100%] Built target m2_collector_fixed_collector

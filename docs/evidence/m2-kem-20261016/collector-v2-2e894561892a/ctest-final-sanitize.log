@@ -1,0 +1,41 @@
+Internal ctest changing into directory: /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-sanitize
+Test project /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-sanitize
+      Start  1: m2_collector_unfixed_selftest
+ 1/14 Test  #1: m2_collector_unfixed_selftest ..........   Passed    0.00 sec
+      Start  2: m2_platform_unfixed_functional
+ 2/14 Test  #2: m2_platform_unfixed_functional .........   Passed    0.04 sec
+      Start  3: m2_platform_unfixed_random_failure
+ 3/14 Test  #3: m2_platform_unfixed_random_failure .....   Passed    0.00 sec
+      Start  4: m2_collector_unfixed_cli_guards
+ 4/14 Test  #4: m2_collector_unfixed_cli_guards ........   Passed    0.09 sec
+      Start  5: m2_collector_unfixed_dudect_describe
+ 5/14 Test  #5: m2_collector_unfixed_dudect_describe ...   Passed    0.00 sec
+      Start  6: m2_collector_fixed_selftest
+ 6/14 Test  #6: m2_collector_fixed_selftest ............   Passed    0.00 sec
+      Start  7: m2_platform_fixed_functional
+ 7/14 Test  #7: m2_platform_fixed_functional ...........   Passed    0.04 sec
+      Start  8: m2_platform_fixed_random_failure
+ 8/14 Test  #8: m2_platform_fixed_random_failure .......   Passed    0.00 sec
+      Start  9: m2_collector_fixed_cli_guards
+ 9/14 Test  #9: m2_collector_fixed_cli_guards ..........   Passed    0.10 sec
+      Start 10: m2_collector_fixed_dudect_describe
+10/14 Test #10: m2_collector_fixed_dudect_describe .....   Passed    0.00 sec
+      Start 11: m2_platform_semantic_equivalence
+11/14 Test #11: m2_platform_semantic_equivalence .......   Passed    0.09 sec
+      Start 12: m2_collector_transcript_equivalence
+12/14 Test #12: m2_collector_transcript_equivalence ....   Passed    0.02 sec
+      Start 13: m2_platform_unfixed_public_kat
+13/14 Test #13: m2_platform_unfixed_public_kat .........   Passed    0.05 sec
+      Start 14: m2_platform_fixed_public_kat
+14/14 Test #14: m2_platform_fixed_public_kat ...........   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 14
+
+Label Time Summary:
+collector      =   0.49 sec*proc (14 tests)
+equivalence    =   0.11 sec*proc (2 tests)
+kat            =   0.09 sec*proc (2 tests)
+m2             =   0.49 sec*proc (14 tests)
+platform       =   0.49 sec*proc (14 tests)
+
+Total Test time (real) =   0.50 sec

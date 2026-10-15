@@ -1,0 +1,13 @@
+tag=ordinary-collector-v2
+date_utc=2026-10-15T18:13:52Z
+build_root=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary
+output_dir=/home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/qualification-ordinary
+key_seed=cryproject-m2-collector-v2-public-test-key-20261016
+Linux nss-m 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+nproc=32
+Ubuntu clang version 18.1.3 (1ubuntu1)
+cmake version 3.28.3
+-rwxrwxr-x 1 nss-marker nss-marker 131000 10月 16 02:13 /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/fixed/m2_decaps_collector
+-rwxrwxr-x 1 nss-marker nss-marker 130968 10月 16 02:13 /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/unfixed/m2_decaps_collector
+fd66e3a00d26d77da7b0d804a10f445a704662ebb7657a3b1c949f0f8905aa96  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/unfixed/m2_decaps_collector
+bf402abfbc0c6fa64799c852ea02fa463be55689c81afe8854b8ef5cad0a845d  /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/collector-v2-2e894561892a/build-ordinary/collector/fixed/m2_decaps_collector

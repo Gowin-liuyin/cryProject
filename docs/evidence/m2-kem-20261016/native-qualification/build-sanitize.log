@@ -1,0 +1,92 @@
+[  9%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/indcpa.c.o
+[  9%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/kem.c.o
+[ 18%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/kem.c.o
+[ 18%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/indcpa.c.o
+[ 18%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/poly.c.o
+[ 18%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/polyvec.c.o
+[ 18%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/poly.c.o
+[ 27%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/ntt.c.o
+[ 27%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/cbd.c.o
+[ 27%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/reduce.c.o
+[ 27%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/verify.c.o
+[ 36%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/fips202.c.o
+[ 45%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/polyvec.c.o
+[ 45%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/ntt.c.o
+[ 45%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/cbd.c.o
+[ 54%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/reduce.c.o
+[ 54%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/verify.c.o
+[ 54%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/fips202.c.o
+[ 54%] Building C object CMakeFiles/platform_m2_fixed_vendor.dir/vendor/kyber-kyberslash-fixed/ref/symmetric-shake.c.o
+[ 54%] Building C object CMakeFiles/platform_m2_unfixed_vendor.dir/vendor/kyber-kyberslash-unfixed/ref/symmetric-shake.c.o
+[ 54%] Linking C static library libplatform_m2_unfixed_vendor.a
+[ 54%] Built target platform_m2_unfixed_vendor
+[ 54%] Building C object CMakeFiles/platform_m2_unfixed.dir/src/platform_m2_adapter.c.o
+[ 54%] Building C object CMakeFiles/platform_m2_unfixed.dir/src/platform_m2_inputs.c.o
+[ 63%] Building C object CMakeFiles/platform_m2_unfixed.dir/src/random.c.o
+[ 72%] Linking C static library libplatform_m2_fixed_vendor.a
+[ 72%] Linking C static library libplatform_m2_unfixed.a
+[ 72%] Built target platform_m2_fixed_vendor
+[ 72%] Building C object CMakeFiles/platform_m2_fixed.dir/src/platform_m2_adapter.c.o
+[ 81%] Building C object CMakeFiles/platform_m2_fixed.dir/src/platform_m2_inputs.c.o
+[ 81%] Built target platform_m2_unfixed
+[ 81%] Building C object CMakeFiles/platform_m2_fixed.dir/src/random.c.o
+[ 81%] Linking C static library libplatform_m2_fixed.a
+[ 81%] Built target platform_m2_fixed
+[ 81%] Built target build_identity
+[ 81%] Building C object CMakeFiles/platform_m2_fixed_measure.dir/src/measure.c.o
+[ 90%] Building C object CMakeFiles/platform_m2_unfixed_measure.dir/src/measure.c.o
+[100%] Building C object CMakeFiles/platform_m2_fixed_baseline.dir/src/main.c.o
+[100%] Building C object CMakeFiles/platform_m2_unfixed_baseline.dir/src/main.c.o
+[100%] Linking C executable platform-m2/unfixed/baseline
+[100%] Linking C executable platform-m2/fixed/baseline
+[100%] Linking C executable platform-m2/fixed/measure
+[100%] Linking C executable platform-m2/unfixed/measure
+[100%] Built target platform_m2_fixed_baseline
+[100%] Built target platform_m2_unfixed_baseline
+[100%] Built target platform_m2_fixed_measure
+[100%] Built target platform_m2_unfixed_measure
+[100%] Built target platform_m2
+[ 30%] Built target platform_m2_fixed_vendor
+[ 53%] Built target platform_m2_unfixed_vendor
+[ 61%] Built target platform_m2_fixed
+[ 69%] Built target platform_m2_unfixed
+[ 69%] Building C object CMakeFiles/platform_m2_fixed_test.dir/tests/test_platform_m2.c.o
+[ 76%] Building C object CMakeFiles/platform_m2_fixed_rng_failure.dir/tests/test_platform_m2_random_failure.c.o
+[ 76%] Building C object CMakeFiles/platform_m2_fixed_kat.dir/tests/test_platform_m2_kat.c.o
+[ 84%] Building C object CMakeFiles/platform_m2_unfixed_test.dir/tests/test_platform_m2.c.o
+[ 84%] Linking C executable platform_m2_fixed_rng_failure
+[ 84%] Linking C executable platform_m2_fixed_test
+[ 84%] Building C object CMakeFiles/platform_m2_fixed_kat.dir/vendor/kyber-kyberslash-fixed/ref/rng.c.o
+[ 84%] Linking C executable platform_m2_unfixed_test
+[ 84%] Built target platform_m2_fixed_rng_failure
+[ 84%] Building C object CMakeFiles/platform_m2_unfixed_rng_failure.dir/tests/test_platform_m2_random_failure.c.o
+[ 84%] Built target platform_m2_fixed_test
+[ 84%] Built target platform_m2_unfixed_test
+[ 92%] Building C object CMakeFiles/platform_m2_unfixed_kat.dir/tests/test_platform_m2_kat.c.o
+[ 92%] Building C object CMakeFiles/platform_m2_unfixed_kat.dir/vendor/kyber-kyberslash-unfixed/ref/rng.c.o
+[ 92%] Linking C executable platform_m2_unfixed_rng_failure
+[100%] Linking C executable platform_m2_fixed_kat
+[100%] Built target platform_m2_unfixed_rng_failure
+[100%] Linking C executable platform_m2_unfixed_kat
+[100%] Built target platform_m2_fixed_kat
+[100%] Built target platform_m2_unfixed_kat
+Test project /home/nss-marker/yhr/Cry/platform-m2kem-20261016-d75a4019/build-sanitize
+    Start 59: platform_m2_unfixed_functional
+1/7 Test #59: platform_m2_unfixed_functional .......   Passed    0.03 sec
+    Start 60: platform_m2_unfixed_random_failure
+2/7 Test #60: platform_m2_unfixed_random_failure ...   Passed    0.00 sec
+    Start 61: platform_m2_fixed_functional
+3/7 Test #61: platform_m2_fixed_functional .........   Passed    0.03 sec
+    Start 62: platform_m2_fixed_random_failure
+4/7 Test #62: platform_m2_fixed_random_failure .....   Passed    0.00 sec
+    Start 63: platform_m2_semantic_equivalence
+5/7 Test #63: platform_m2_semantic_equivalence .....   Passed    0.07 sec
+    Start 64: platform_m2_unfixed_public_kat
+6/7 Test #64: platform_m2_unfixed_public_kat .......   Passed    0.04 sec
+    Start 65: platform_m2_fixed_public_kat
+7/7 Test #65: platform_m2_fixed_public_kat .........   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 7
+
+Total Test time (real) =   0.22 sec
+[100%] Built target platform_m2_check
