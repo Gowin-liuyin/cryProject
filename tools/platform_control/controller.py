@@ -22,6 +22,12 @@ CRY_ROOT = Path('/home/nss-marker/yhr/Cry')
 CPU_ROOT = Path('/sys/devices/system/cpu')
 STATE_ROOT = CRY_ROOT / 'platform-control-20261016-state'
 TARGET_KHZ = '4300000'
+# 写后固定沉降间隔：amd-pstate 从旧工作点切到 min=max=4300000 需要过渡时间，
+# 过渡期内 scaling_cur_freq 仍报旧频率（实测 CPU6 首样本 4150137 kHz）。
+# 固定等待后再采 20 个样本，接受带与跨度判据不变，不放过沉降后的漂移。
+SETTLE_SECONDS = 1.0
+PROBE_COUNT = 20
+PROBE_INTERVAL_SECONDS = 0.05
 CONTROL_FIELDS = ('scaling_governor', 'scaling_min_freq', 'scaling_max_freq',
                   'energy_performance_preference')
 IDENTITY_FIELDS = ('affected_cpus', 'related_cpus', 'scaling_driver',
@@ -379,12 +385,14 @@ def guardian(arguments, run_path, store, gate, lifetime_reader, ready_writer, wo
         gate.write('active.json', {'run_path': str(run_path),
                                    'baseline_sha256': sha256(run_path / 'baseline.json')})
         transaction.apply(check_cancel)
+        check_cancel()
+        time.sleep(SETTLE_SECONDS)
         probes = []
-        for probe_index in range(20):
+        for probe_index in range(PROBE_COUNT):
             check_cancel()
             transaction.assert_active()
             probes.append(frequency.sample())
-            time.sleep(0.05)
+            time.sleep(PROBE_INTERVAL_SECONDS)
         store.write('entry-probes.json', probes)
         observed = [probe['cur_khz'] for probe in probes]
         require(all(4214000 <= value <= 4386000 for value in observed) and

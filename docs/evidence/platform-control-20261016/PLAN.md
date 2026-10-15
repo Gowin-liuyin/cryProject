@@ -28,7 +28,7 @@
 | q-timeout | 2 | `/usr/bin/sleep 20` | 2秒 | reason=worker_timeout，空任务被终止/回收，主控非0，restore_match=yes，active 消失 |
 | q-controller-loss | 6 | `/usr/bin/sleep 20` | 5秒 | guardian 记录 worker 身份后前台 controller 仅杀自身 SIGKILL；guardian 收到EOF（或 ready pipe断开）回收空任务并恢复。单独核对 guardian/worker 原 PID消失、两锁释放、active 消失；前台137不能当恢复证明 |
 
-sleep 只用于空任务恢复故障演练，不进入密码实现、测量窗口或统计样本。每项先保存完整 baseline、属性身份与计划/源码摘要，再请求 global boost0、目标 governor/EPP=performance、min=max4300000，原请求逐项撤销并回读。预门固定20次、50ms间隔，当前频率均在4300000±2%、跨度≤50000 kHz；不自动重定频率、不补人为热身负载。任何不通过均保留失败原件，不声称锁频资格成功。
+sleep 只用于空任务恢复故障演练，不进入密码实现、测量窗口或统计样本。每项先保存完整 baseline、属性身份与计划/源码摘要，再请求 global boost0、目标 governor/EPP=performance、min=max4300000，原请求逐项撤销并回读。写入与回读全部完成后**固定沉降 1.0 秒**，再取固定 20 次、50ms 间隔的当前频率，要求全部落在 4300000±2%、跨度 ≤50000 kHz；沉降间隔固定、不做重试择优（第一次资格实测 CPU6 首样本 4150137 kHz 是写后过渡期的旧工作点，失败原件归档在控制根 `failed-attempt-1/`）；不自动重定频率、不补人为热身负载。任何不通过均保留失败原件，不声称锁频资格成功。
 
 q-timeout 的 worker 已启动后，可由主控只增加一次 q-contention 尝试（CPU6，normal=true），要求因共用锁在 baseline/频率写入之前拒绝；它不形成第二个采数任务。若没有足够时窗可靠观察，不追跑该项，记录未执行，并保持主控串行排程。
 

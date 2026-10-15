@@ -8,7 +8,7 @@ ctest --test-dir build/platform-control --output-on-failure
 python3 -I -B tools/platform_control/controller.py --help
 ```
 
-`controller.py run` 仅接受 Linux x86_64、经 sudo 启动的非 root 原用户。固定目标 CPU2 或 CPU6；全局 boost=0，目标 singleton policy 的 governor/EPP=performance、min=max=4300000 kHz。无自动重定目标。先保存全部可见 policy 控制/身份及全局快照，再逐写保存 intent、fsync、回读；20 次 50ms 间隔的当前频率均在目标 ±2% 且跨度不超过 50000 kHz才放行 worker。这只是工程观测门，不代表逐调用物理恒频。
+`controller.py run` 仅接受 Linux x86_64、经 sudo 启动的非 root 原用户。固定目标 CPU2 或 CPU6；全局 boost=0，目标 singleton policy 的 governor/EPP=performance、min=max=4300000 kHz。无自动重定目标。先保存全部可见 policy 控制/身份及全局快照，再逐写保存 intent、fsync、回读；写入与回读全部完成后固定沉降 1.0 秒，再取 20 次 50ms 间隔的当前频率，要求全部落在目标 ±2% 且跨度不超过 50000 kHz 才放行 worker。沉降间隔固定，只用于避开 amd-pstate 写后过渡期（实测 CPU6 首样本读到 4150137 kHz 的旧工作点），接受带与跨度判据不因失败放宽、不做重试择优；这只是工程观测门，不代表逐调用物理恒频。
 
 空任务只允许固定运行名/精确命令：`q-normal`、`q-contention` 对应 `/usr/bin/true`，`q-failure` 对应 `/usr/bin/false`，`q-timeout`、`q-controller-loss` 对应 `/usr/bin/sleep 20`。运行名自动选择对应资格模式；显式 `--qualification` 必须相符，且不得忽略或替换用户传入的其他命令。其他运行名始终只接受 Cry 内 collector；不能用资格参数绕过路径边界。修复证据见 `docs/evidence/platform-control-fix-20261016/`，旧失败原件保留。
 
