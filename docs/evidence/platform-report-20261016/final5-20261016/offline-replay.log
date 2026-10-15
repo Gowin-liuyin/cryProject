@@ -39,17 +39,17 @@
 [100%] Built target platform_stats
 Test project /Users/yin/code/cryProject/build/platform-report-s8/offline-final5-20261016/build
     Start 1: support_stats_qualification
-1/5 Test #1: support_stats_qualification ......   Passed    1.11 sec
+1/5 Test #1: support_stats_qualification ......   Passed    1.10 sec
     Start 2: m4_vulnerable_self_test
-2/5 Test #2: m4_vulnerable_self_test ..........   Passed    0.37 sec
+2/5 Test #2: m4_vulnerable_self_test ..........   Passed    0.39 sec
     Start 3: m4_vulnerable_probe_smoke
 3/5 Test #3: m4_vulnerable_probe_smoke ........   Passed    0.00 sec
     Start 4: m4_ct_self_test
-4/5 Test #4: m4_ct_self_test ..................   Passed    0.34 sec
+4/5 Test #4: m4_ct_self_test ..................   Passed    0.35 sec
     Start 5: m4_ct_probe_smoke
-5/5 Test #5: m4_ct_probe_smoke ................   Passed    0.00 sec
+5/5 Test #5: m4_ct_probe_smoke ................   Passed    0.01 sec
 
 100% tests passed, 0 tests failed out of 5
 
-Total Test time (real) =   1.83 sec
+Total Test time (real) =   1.86 sec
 offline_replay=pass; hardware_collection=not_run; external_tools=not_reexecuted

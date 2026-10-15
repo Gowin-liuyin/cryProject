@@ -653,7 +653,7 @@ pdftoppm -r 100 -png deliverables/research/multi-leakage-platform-20261016/repor
    （`restore_match=yes`、`worker_exit_code=0`、`worker_drained=true`）。
    处理：**当作补充登记**写进报告 §15 与表 T21 的表注，新增 E59/E60 两个代表文件作证据路径，
    并在报告第 24 节登记该时间差；**没有改写 `PERF.md` / `RESULT.md` 的任何数值与结论**。
-   两文件同步更新后应回填并重新生成报告——届时 `evidence-snapshot.json` 里的来源摘要会变化，
+   两文件已于 `6c10f4d` 同步更新，报告也已在 `e6b35cf` 重新生成——生成后 `evidence-snapshot.json` 的 60 份来源实测 **0 stale**，重出的 PDF 与修正前**逐字节相同**（`d391114c…`），因此"报告与来源同字节"这条成立；留此条仅为记录当时的时间差。原文如下：两文件同步更新后应回填并重新生成报告——届时 `evidence-snapshot.json` 里的来源摘要会变化，
    `build_support.py` 会拒绝用旧包（属预期行为）。
 
 ## J5. 本轮没有做的事
