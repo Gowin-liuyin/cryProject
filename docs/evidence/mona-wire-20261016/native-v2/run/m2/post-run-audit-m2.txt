@@ -1,0 +1,16 @@
+audit_time: 2026-10-16T02:29:34+08:00
+== remaining java processes ==
+none
+== symlinks under mona root ==
+0
+== caller affinity ==
+pid 393123 的当前亲和力列表：0-31
+== read-only recheck: six raw M2 csv hashes vs input-mapping ==
+raw_hashes_ok=6 raw_hashes_changed=0
+== collect root M2 files newer than 02:28 (read-only observation) ==
+== /tmp and /var/tmp entries newer than 02:28 ==
+/tmp
+/tmp/hsperfdata_nss-marker
+== HOME depth<=2 newer than 02:28 outside Cry ==
+== M1 outputs unchanged ==
+41211c15954b39a008676600965f82a9ec0d70827a3b3177f022f11147436d55  /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/m1/m1-mona.csv

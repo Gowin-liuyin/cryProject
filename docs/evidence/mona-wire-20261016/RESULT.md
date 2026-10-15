@@ -222,6 +222,9 @@ sh <source>/scripts/platform_mona/run_native.sh <source> <assigned-root>/run
 
 ## M2 状态：未接入（如实标注）
 
+> 状态更新（2026-10-16 02:28）：主控完成 M2 锁频采数后已接入，六行结果见文末
+> 「本轮追加：M2 对照行（native-v2/run/m2）」。本节保留接入前的原始记录。
+
 本轮没有 `platform-collect-20261016-*` 主 CSV，因此 M2 **未执行**，不报“阴性”，
 也不用 Mona 名义转发其他工具结果。主控产出 M2 CSV 后，可直接复用同一新根与
 class 目录接入（输出目录必须不存在）：
@@ -249,3 +252,87 @@ awk -F, 'NR==1 {print "message-zero,message-ones"; next} \
 接入后仍按本节口径保存：输入副本与 SHA-256、`mona.json/csv/md`、
 `mona-validations.csv`、`box-results.csv`、原始 `mona.log`、退出码、`tools.sha256`
 与 `upstream-verification.log`；`holm_member=false` 不变，阴性不证明恒时。
+
+---
+
+# 本轮追加：M2 对照行（native-v2/run/m2，2026-10-16 02:28–02:30 +0800）
+
+上一节记录的是接入前状态。主控本轮 M2 锁频采数完成后，本节用同一固定入口与新根
+接入 M2 主类对，六份各出一行。**M1 未重跑**：`run/m1/m1-mona.csv` 前后 SHA-256
+均为 `41211c15954b39a008676600965f82a9ec0d70827a3b3177f022f11147436d55`。
+
+## M2 输入与投影
+
+- 原始输入在主控只读根 `/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/`：
+  六份 6 列 measure 长表
+  `run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit`，
+  各 20001 行（表头 + 2 类 × 10000），`time_unit=ns`，`sample_index` 全局升序，
+  `class_list=message-zero,message-ones`。本路未写入、未改名、未删除该根任何文件。
+- 投影规则：按类内出现顺序配对（第 i 个 `message-zero` ↔ 第 i 个 `message-ones`），
+  输出表头 `message-zero,message-ones` 的两列宽表；同一规则在 M1 上曾把封存
+  `samples.csv` 还原成逐字节相同的宽表。脚本
+  `native-v2/run/m2/scripts/project-m2-measure.sh`（SHA-256 `bdc1f9be…`）。
+- 投影自检（`projection-verification.log`，六份全过）：表头、字段数、非负整数 ns、
+  `time_unit=ns`、每类 10000、`sample_index` 严格升序；投影两列与原始对应类**排序后
+  多重集完全相同**（无丢失、无改值、无抽样、无截尾）。
+- `input-mapping.csv` 记录 arm/run/seed/cpu、原始绝对路径与 SHA-256、投影文件
+  SHA-256 与类计数。seed 取自各 `.meta` 的 `test_seed`（s1=31337、s2=424242、
+  s3=31337）；CPU2/CPU6 归属来自主控本轮说明（表中 `cpu_source=lead-message-20261016`），
+  各 `.meta` 本身记 `cpu_affinity=not_pinned`、`frequency_control=not_configured`，
+  本路不据此改称锁频或恒定频率。
+- 身份与设置：`mona-timing-report@4c74fb7e629b4d057b2d5d4accdb120d920774b7`
+  （tree `507bba2a…`）未修改，上游校验 28/28 OK；仍调用
+  `StatisticEvaluation.calibrationPhase()`；实测以 `LC_ALL=C LANG=C`、
+  `taskset -c 0,1`、JVM `-XX:-UsePerfData` 运行，class 目录沿用 v2 轮构建。
+
+## M2 对照行（六份各一行）
+
+`native-v2/run/m2/m2-mona.csv`，验证行明细见同目录 `m2-details.csv`：
+
+| 数据集 | arm | run | seed | CPU | 状态 | validated | rejected | 单子集验证行 |
+|---|---|---|---|---:|---|---:|---:|---|
+| m2-s1-unfixed | unfixed | s1 | 31337 | CPU2 | no_validated_box_separation | 0 | 9 | 无 |
+| m2-s1-fixed | fixed | s1 | 31337 | CPU2 | no_validated_box_separation | 0 | 9 | 无 |
+| m2-s2-unfixed | unfixed | s2 | 424242 | CPU2 | no_validated_box_separation | 0 | 9 | 无 |
+| m2-s2-fixed | fixed | s2 | 424242 | CPU2 | no_validated_box_separation | 0 | 7 | 无 |
+| m2-s3-unfixed | unfixed | s3 | 31337 | CPU6 | no_validated_box_separation | 0 | 9 | 无 |
+| m2-s3-fixed | fixed | s3 | 31337 | CPU6 | validated_box_separation | 1 | 8 | `X<Y` 0.27–0.34，5120 值，子集数 1，100% |
+
+六批箱体验证的最高成功百分比依次为 74%、18%、34%、29%、34%、100%；只有
+s3-fixed 达到 100%，且同样出现在迭代扩展子集后只剩 1 个子集的末轮（与 M1 两项
+fixed 的表现同型）。
+
+**如实结论：三个 unfixed（未修）运行在 Mona 的箱体规则下都没有通过验证的箱体
+分离（0/9、0/9、0/9），即这条工具规则在本批 M2 数据上没有检出未修臂的差异**；
+s1/s2 的 fixed 同样没有分离，s3 的 fixed 出现一次上述末轮单子集“分离”。这既不说明
+两臂等价或恒定时间，也不推翻 M1/M2 既有的 Welch CI、Holm、RTLF、dudect 结论：
+Mona 只是补充对照，`Confidence Interval` 字段是批次成功百分比而非 p 值或覆盖区间，
+自适应箱体搜索可产生假阳性，无分离不证明恒时。本路没有把 RTLF 或 dudect 的结果
+改称 Mona，也没有采集任何新的硬件时间。
+
+## M2 证据、边界与边界更正
+
+- 拉回 `native-v2/run/m2/`：113 份原件，其中 111 份与远端 M2 轮清单逐字节一致
+  （`local-verification-m2.log`）；另 2 份为清单文件自身与包摘要，按设计不入清单。
+  六份原始 M2 CSV 未复制进仓库（主控采集根只读引用），其路径与 SHA-256 见
+  `input-mapping.csv`；Mona 实际读入的投影副本在各数据集目录的 `input.csv`。
+- M2 轮清单 `ORIGINAL_SHA256SUMS.m2` 111 行，远端 `sha256sum -c` 111/111 通过；
+  轮 archive `originals-m2.tar.gz` 383,833 字节，SHA-256
+  `d0ac3d87a47ab09a0573a2f93fbbefbc8b67c7b17daf7f6651436fd2751a6aab`，本地副本
+  `private-originals/native-v2-originals-m2-1256c4cca76d.tar.gz`。上一轮根清单
+  （902 行）与本轮清单各自独立、互不混用，旧件未改写。
+- 结束核对（`post-run-audit-m2.txt`）：无 java 残留进程；Mona 根无符号链接；
+  调用者亲和性 `0-31`（`0,1` 只施加于回放子进程）；只读重算六份原始 M2 CSV
+  的 SHA-256 与映射表一致（6/6 未变）；主控采集根 `M2/` 在 02:28 后无文件变化；
+  M1 输出摘要未变。
+- **边界更正（如实记录）**：`run-m2-mona.sh` 第 28 行最初的 `java -version` 探测
+  未带 `-XX:-UsePerfData`，JVM 在 `/tmp/hsperfdata_nss-marker/` 建了一个**空**目录
+  （单个文件、内容为空；正式回放经 `run.sh` 始终带 `-XX:-UsePerfData`，不受影响）。
+  该 Cry 外目录已按边界约定原样搬回本根
+  `failed/out-of-bound-tmp/hsperfdata_nss-marker/`，并附 `README.txt` 记录来源、
+  原 mtime 与条目数；核对后用 `mv` 移除 `/tmp` 原路径（未删除其它文件）。脚本随即
+  改为 `java -XX:-UsePerfData -version`：执行版另存
+  `scripts/run-m2-mona.sh.as-executed`（`50468798…`），修正版
+  `scripts/run-m2-mona.sh`（`1e0fe336…`），两版仅该行不同。修正后复扫 `/tmp`、
+  `/var/tmp` 已无本路文件。
+- 未 git add/commit/push；未 sudo；未修改 M1 封存证据，也未改动主控 M2 采集根。

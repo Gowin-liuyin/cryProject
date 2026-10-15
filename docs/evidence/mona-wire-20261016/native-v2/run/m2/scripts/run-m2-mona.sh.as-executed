@@ -1,0 +1,63 @@
+#!/bin/sh
+set -eu
+# 用已验证的 run.sh 一行式接口对六份 M2 投影宽表各跑一次固定上游 Mona 统计，
+# 汇总成 6 行 m2-mona.csv。M1 结果不重跑、不改动。
+
+root=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d
+work=$root/m2
+inputs=$work/inputs
+classes=$root/run/build/platform-mona/classes
+upstream=$root/source/third_party/mona-timing-report
+runner=$root/source/scripts/platform_mona/run.sh
+aggregate=$work/m2-mona.csv
+log=$work/run-verification.log
+
+[ -f "$runner" ]
+[ -d "$classes" ]
+[ -d "$upstream" ]
+[ -f "$work/input-mapping.csv" ]
+if [ -e "$aggregate" ] || [ -e "$log" ]; then
+    printf '%s\n' 'run outputs must not exist.' >&2
+    exit 2
+fi
+{
+    printf 'run_time: %s\n' "$(date -Is)"
+    printf 'runner: %s sha256=%s\n' "$runner" "$(sha256sum "$runner" | cut -d' ' -f1)"
+    printf 'mona_replay_class_dir: %s\n' "$classes"
+    printf 'upstream_dir: %s\n' "$upstream"
+    printf 'jdk: %s\n' "$(java -version 2>&1 | head -1)"
+    printf 'locale: LC_ALL=%s LANG=%s\n' "${LC_ALL:-}" "${LANG:-}"
+    printf 'affinity: %s\n' "$(taskset -pc $$ 2>&1)"
+} > "$log"
+printf 'dataset,arm,run,seed,cpu,tool,status,class0_count,class1_count,validated_records,rejected_records,holm_member,single_subset_validated_records\n' > "$aggregate"
+
+for dataset in m2-s1-unfixed m2-s1-fixed m2-s2-unfixed m2-s2-fixed m2-s3-unfixed m2-s3-fixed; do
+    input=$inputs/$dataset.csv
+    output=$work/$dataset
+    [ -f "$input" ]
+    if [ -e "$output" ]; then
+        printf 'output already exists: %s\n' "$output" >&2
+        exit 2
+    fi
+    taskset -c 0,1 env LC_ALL=C LANG=C \
+        JAVA_TOOL_OPTIONS="-XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=$root/run/runtime" \
+        sh "$runner" --input "$input" --output-dir "$output" \
+        --class-dir "$classes" --upstream-dir "$upstream" \
+        > "$work/$dataset.runner-stdout.log" 2>&1
+    exit_status=$(cat "$output/exit-status.txt")
+    [ "$exit_status" -eq 0 ]
+    mapping_line=$(awk -F, -v d="$dataset" '$1 == d {print $2 "," $3 "," $4 "," $5}' "$work/input-mapping.csv")
+    single=$(grep -o '"single_subset_validated_records": [0-9]*' "$output/mona.json" | grep -o '[0-9]*$')
+    row=$(tail -1 "$output/mona.csv")
+    printf '%s,%s,%s\n' "$dataset" "$mapping_line" "$row,$single" >> "$aggregate"
+    {
+        printf '== %s ==\n' "$dataset"
+        printf 'input_sha256=%s\n' "$(cut -d' ' -f1 "$output/input.sha256")"
+        printf 'exit_status=%s\n' "$exit_status"
+        printf 'mona.csv=%s\n' "$row"
+        printf 'single_subset_validated_records=%s\n' "$single"
+    } >> "$log"
+done
+
+printf 'aggregate=%s\n' "$aggregate" >> "$log"
+cat "$aggregate"

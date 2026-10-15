@@ -1,0 +1,11 @@
+pulled_files_total=113
+checked_against_remote_inventory=111
+mismatches=0
+missing_inventory=0
+excluded_by_design=2
+excluded_files=ORIGINAL_SHA256SUMS.m2,originals-m2.tar.gz.sha256
+exclusion_reason=清单文件自身与包摘要文件不进入清单，避免自引用；完整包 originals-m2.tar.gz 单独存 private-originals
+inventory_source=platform-mona2-20261016-1256c4cca76d/m2/ORIGINAL_SHA256SUMS.m2
+inventory_lines=111
+remote_inventory_selfcheck=111/111 OK（在 /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d 下执行 sha256sum -c）
+note=六份原始 M2 CSV 未复制到本仓库（主控采集根只读引用），其绝对路径与 SHA-256 见 input-mapping.csv；Mona 实际读入的投影副本在各数据集输出目录的 input.csv。

@@ -1,0 +1,7 @@
+dataset,arm,run,seed,cpu,tool,status,class0_count,class1_count,validated_records,rejected_records,holm_member,single_subset_validated_records
+m2-s1-unfixed,unfixed,s1,31337,CPU2,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false,0
+m2-s1-fixed,fixed,s1,31337,CPU2,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false,0
+m2-s2-unfixed,unfixed,s2,424242,CPU2,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false,0
+m2-s2-fixed,fixed,s2,424242,CPU2,mona_upstream_offline,no_validated_box_separation,10000,10000,0,7,false,0
+m2-s3-unfixed,unfixed,s3,31337,CPU6,mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false,0
+m2-s3-fixed,fixed,s3,31337,CPU6,mona_upstream_offline,validated_box_separation,10000,10000,1,8,false,1

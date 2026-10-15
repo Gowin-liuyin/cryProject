@@ -1,0 +1,7 @@
+dataset,status,validated_records,rejected_records,single_subset_validated_records,validation_rows,max_success_percentage,validated_box_row
+m2-s1-unfixed,no_validated_box_separation,0,9,0,9,74.0,"none"
+m2-s1-fixed,no_validated_box_separation,0,9,0,9,18.0,"none"
+m2-s2-unfixed,no_validated_box_separation,0,9,0,9,34.0,"none"
+m2-s2-fixed,no_validated_box_separation,0,7,0,7,29.0,"none"
+m2-s3-unfixed,no_validated_box_separation,0,9,0,9,34.0,"none"
+m2-s3-fixed,validated_box_separation,1,8,1,9,100.0,"X<Y box 0.27-0.34 size 5120 subsets 1"

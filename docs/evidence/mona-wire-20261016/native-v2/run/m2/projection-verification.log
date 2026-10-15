@@ -1,0 +1,59 @@
+projection_time: 2026-10-16T02:29:10+08:00
+rule: per-class rank-order pairing (message-zero i-th <-> message-ones i-th)
+raw_source: /home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2 (read-only)
+expected_header: run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
+== m2-s1-unfixed ==
+raw=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s1-unfixed/unfixed-main.csv
+raw_sha256=d46686f9653fc7d8f80459557a6ba0c7f63570e78aa978baf1ed6c1c89bad79c raw_bytes=1688971
+projected=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/inputs/m2-s1-unfixed.csv
+projected_sha256=bfc806872dd05e085f37aedff1f93f036e3da6d86f84800fb389e96d10987723
+class_counts=message-zero:10000,message-ones:10000 pairs=10000
+multiset_check=sort(col1)==sort(raw message-zero) and sort(col2)==sort(raw message-ones): OK
+sample_index_strictly_ascending=OK header=OK time_unit=ns elapsed=nonneg-int:OK
+projected_stats min0=56288 max0=64643 mean0=56840.770 min1=56269 max1=101488 mean1=56830.240
+== m2-s1-fixed ==
+raw=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s1-fixed/fixed-main.csv
+raw_sha256=d4235c6da47c89e5eb7af95dda50f216fd2518c5dd344a0f6397ed2728b05aa1 raw_bytes=1568971
+projected=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/inputs/m2-s1-fixed.csv
+projected_sha256=7abdcc0d6710a9ed516cb1e2b68baac9363fd3e1d786f45564ef049f50f93e92
+class_counts=message-zero:10000,message-ones:10000 pairs=10000
+multiset_check=sort(col1)==sort(raw message-zero) and sort(col2)==sort(raw message-ones): OK
+sample_index_strictly_ascending=OK header=OK time_unit=ns elapsed=nonneg-int:OK
+projected_stats min0=60186 max0=104092 mean0=60846.373 min1=60186 max1=98983 mean1=60824.716
+== m2-s2-unfixed ==
+raw=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s2-unfixed/unfixed-main.csv
+raw_sha256=83e55897a3b2c53535b143690f52b9850eb793cf9e0f1f85ddb6a3e01988a45a raw_bytes=1688970
+projected=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/inputs/m2-s2-unfixed.csv
+projected_sha256=f91c818e2ea60a5a45a466fb1255749a2b958fedcc960459c7b2869fa4e34c6b
+class_counts=message-zero:10000,message-ones:10000 pairs=10000
+multiset_check=sort(col1)==sort(raw message-zero) and sort(col2)==sort(raw message-ones): OK
+sample_index_strictly_ascending=OK header=OK time_unit=ns elapsed=nonneg-int:OK
+projected_stats min0=55989 max0=87053 mean0=56767.759 min1=55978 max1=85891 mean1=56748.633
+== m2-s2-fixed ==
+raw=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s2-fixed/fixed-main.csv
+raw_sha256=b0c6d41092e6ab19fb7621640d3c7b8e25ce05ad92009b5442b37f9afcd12fc8 raw_bytes=1568970
+projected=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/inputs/m2-s2-fixed.csv
+projected_sha256=c541d93100759c3ee78657c1b4a643442a99154c0be4e90976a702c1c0147518
+class_counts=message-zero:10000,message-ones:10000 pairs=10000
+multiset_check=sort(col1)==sort(raw message-zero) and sort(col2)==sort(raw message-ones): OK
+sample_index_strictly_ascending=OK header=OK time_unit=ns elapsed=nonneg-int:OK
+projected_stats min0=60165 max0=98984 mean0=60766.596 min1=60156 max1=99936 mean1=60783.676
+== m2-s3-unfixed ==
+raw=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s3-unfixed/unfixed-main.csv
+raw_sha256=cd348312177e9f0471a2d582becf3abdaf5e827d6da28d50eb14c7ce05562e12 raw_bytes=1688970
+projected=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/inputs/m2-s3-unfixed.csv
+projected_sha256=465c55f98f79a5b76c47f9c3dceceda105a3b93f32c28384cb9fa4f2b4907999
+class_counts=message-zero:10000,message-ones:10000 pairs=10000
+multiset_check=sort(col1)==sort(raw message-zero) and sort(col2)==sort(raw message-ones): OK
+sample_index_strictly_ascending=OK header=OK time_unit=ns elapsed=nonneg-int:OK
+projected_stats min0=56319 max0=78579 mean0=56786.235 min1=56289 max1=75953 mean1=56776.252
+== m2-s3-fixed ==
+raw=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01/M2/m2-s3-fixed/fixed-main.csv
+raw_sha256=a32b7e91868962195faece6ac401f2b119d7841304b3eeda0d7d3527e0d556bd raw_bytes=1568970
+projected=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/inputs/m2-s3-fixed.csv
+projected_sha256=1de17eaa3d332a6264425b75cbc234895eadd9d70f3a3f7eb1728098cc47cf81
+class_counts=message-zero:10000,message-ones:10000 pairs=10000
+multiset_check=sort(col1)==sort(raw message-zero) and sort(col2)==sort(raw message-ones): OK
+sample_index_strictly_ascending=OK header=OK time_unit=ns elapsed=nonneg-int:OK
+projected_stats min0=60306 max0=82005 mean0=60832.206 min1=60297 max1=87123 mean1=60847.719
+projection_done datasets=6

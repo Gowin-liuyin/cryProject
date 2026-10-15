@@ -1,0 +1,26 @@
+Picked up JAVA_TOOL_OPTIONS: -XX:-UsePerfData -Djava.awt.headless=true -Djava.io.tmpdir=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/runtime
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchOptimalBox
+WARNING: X < Y: no significant different result found! You need to measure more times.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchOptimalBox
+INFO: Y < X: optimal box 0.44-0.55
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation searchSmallestSize
+INFO: Y < X: amount of minimal measures per secret: 20
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 20: 458 out of 500 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 40: 225 out of 250 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 80: 108 out of 125 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 160: 46 out of 62 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 320: 23 out of 31 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 640: 10 out of 15 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 1280: 5 out of 7 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 2560: 3 out of 3 comparisons returned wrong results.
+Oct 16, 2026 2:29:15 AM de.fau.pi1.timerReporter.evaluation.StatisticEvaluation validationPhase
+INFO: Y < X: validate smallest size 5120: 1 out of 1 comparisons returned wrong results.
+battery_mona_status=no_validated_box_separation

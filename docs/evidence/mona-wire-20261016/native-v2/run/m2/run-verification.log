@@ -1,0 +1,38 @@
+run_time: 2026-10-16T02:29:13+08:00
+runner: /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/scripts/platform_mona/run.sh sha256=12214c380088c4183de6c8bbbebae7f3bfb93246b01086b43aca694f7e6372c6
+mona_replay_class_dir: /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/run/build/platform-mona/classes
+upstream_dir: /home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/source/third_party/mona-timing-report
+jdk: openjdk version "21.0.12.1" 2026-08-18
+locale: LC_ALL= LANG=zh_CN.UTF-8
+affinity: pid 392338 的当前亲和力列表：0-31
+== m2-s1-unfixed ==
+input_sha256=bfc806872dd05e085f37aedff1f93f036e3da6d86f84800fb389e96d10987723
+exit_status=0
+mona.csv=mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+single_subset_validated_records=0
+== m2-s1-fixed ==
+input_sha256=7abdcc0d6710a9ed516cb1e2b68baac9363fd3e1d786f45564ef049f50f93e92
+exit_status=0
+mona.csv=mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+single_subset_validated_records=0
+== m2-s2-unfixed ==
+input_sha256=f91c818e2ea60a5a45a466fb1255749a2b958fedcc960459c7b2869fa4e34c6b
+exit_status=0
+mona.csv=mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+single_subset_validated_records=0
+== m2-s2-fixed ==
+input_sha256=c541d93100759c3ee78657c1b4a643442a99154c0be4e90976a702c1c0147518
+exit_status=0
+mona.csv=mona_upstream_offline,no_validated_box_separation,10000,10000,0,7,false
+single_subset_validated_records=0
+== m2-s3-unfixed ==
+input_sha256=465c55f98f79a5b76c47f9c3dceceda105a3b93f32c28384cb9fa4f2b4907999
+exit_status=0
+mona.csv=mona_upstream_offline,no_validated_box_separation,10000,10000,0,9,false
+single_subset_validated_records=0
+== m2-s3-fixed ==
+input_sha256=1de17eaa3d332a6264425b75cbc234895eadd9d70f3a3f7eb1728098cc47cf81
+exit_status=0
+mona.csv=mona_upstream_offline,validated_box_separation,10000,10000,1,8,false
+single_subset_validated_records=1
+aggregate=/home/nss-marker/yhr/Cry/platform-mona2-20261016-1256c4cca76d/m2/m2-mona.csv
