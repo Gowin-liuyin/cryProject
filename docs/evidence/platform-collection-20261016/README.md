@@ -50,7 +50,7 @@ Holm 家族与 m、α、停止规则或频率恢复合同，但确实改动了 M
 | 模块 | 控制器运行数 | 组成 |
 |---|---:|---|
 | M5 | 6 | 3 次运行 ×（measure 1 + online dudect 1） |
-| M3 | 12 | 3 次运行 × 2 臂 ×（measure 1 + online dudect 1） |
+| M3 | 12 | 3 次运行 × 2 臂 ×（measure 1 + online dudect 1；dudect 该版本只输出 max t 到 stdout，无逐样本 CSV） |
 | M4 | 18 | 3 次运行 × 2 臂 ×（主路径 1 + 截断对照 1 + dudect 1） |
 | M2 | 18 | 3 次运行 × 2 臂 ×（主类对 1 + 对照类对 1）+ 3 次运行 × 2 臂 dudect |
 
