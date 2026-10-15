@@ -1,0 +1,252 @@
+% =====================================================================
+% T28 威胁模型章 —— 可直接 \input{} 的 LaTeX 片段（R11，2026-10-16）
+% 独立稿（中文）：docs/evidence/r11-threat-20261016/THREAT_MODEL.md
+%
+% 依赖报告既有导言区，不额外引宏包：
+%   ctexart + geometry + booktabs/longtable/array/amsmath/xcolor/colortbl/pdflscape/
+%   hyperref/seqsplit/graphicx；\rowcolor{headergray}；\path{}（由 hyperref 载入 url 提供）。
+% 约定：\path{} 内只放纯 ASCII 路径（本仓库踩过的坑）；含中文的文件名走 \texttt{}。
+% 本片段不是完整文档：不含导言区、不含 document 环境、不含 \label，也不改动任何既有章节。
+% =====================================================================
+
+\section{威胁模型}
+
+本章回答四件事：攻击者能控制什么、能看到什么、具备哪些能力（第 A 节）；哪些内容明确不在本轮范围内以及为什么（第 B 节）；
+本地高精度观测与远程网络之间的边界在哪里（第 C 节）；以及本平台的结论如何分成「已执行且检出 / 已执行且未检出 / 未执行」三档（第 D 节）。
+本章只读复述已有证据，不新增采集、不做密钥恢复；所有数字以其引用的证据文件为准。
+
+\subsection{攻击者模型}
+
+\noindent\textbf{A.1 攻击者可控输入}\par
+攻击者可控制的全部密码学输入是\textbf{密文本身，包括长度与内容}：合法密文 1088 B；同长度但 u/v 字段被整体改写的「格式破损」密文；
+以及少 1 字节的「截断」密文。攻击者还可以选择重复次数（本轮每类 10000 次，预热 100 次在计时窗口外）。
+证据：\path{docs/evidence/r03-malformed-20261016/RESULT.md} 第 2 节「三个输入类」、第 1 节。\par
+\textbf{公开公钥与封装接口是公开面}：keygen、encaps 以及公钥材料不保密，三个臂都能各自独立产生合法密文；
+公开向量（NIST/ACVP 与 CRYSTALS 第 3 轮提交包）可独立复算。
+证据：\path{docs/evidence/r01-kat-20261016/README.md}、\path{docs/evidence/r01-kat-20261016/VECTORS.md}、\path{docs/evidence/r01-kat-20261016/EQUIV.md}、\path{docs/evidence/m2-kem-20261016/RESULT.md}。\par
+\textbf{攻击者不持有私钥}。实测的秘密标记口径是「PKE 秘密 1152 B + 拒绝种子 32 B 为秘密，密文为公开」：
+\texttt{\seqsplit{mode=valgrind\_secret\_marked pke\_secret\_bytes=1152 rejection\_secret\_bytes=32 ciphertext=public}}。
+本平台从不假设攻击者持有解封装私钥。需要写清的一条边界：\textbf{采集件自身必须持有一份密钥对}才能驱动解封装——它通过
+\texttt{--public-key} 与 \texttt{--secret-key} 读取资格夹具里的\textbf{固定测试密钥对}（\texttt{qualification-ordinary/fixtures/} 下的 \texttt{pk.bin} 与 \texttt{sk.bin}）；
+这份测试密钥是资格夹具的一部分、可由公开材料复现，\textbf{不是}任何真实受害者的私钥；被秘密标记的正是这份测试私钥在解密链内的使用，而密文与公钥始终处于公开面。
+证据：\path{docs/evidence/r05-locate-20261016/RESULT.md} 第 4.1 节；\path{docs/evidence/m2-kem-20261016/COLLECTOR_CONTRACT.md} 第 7 节；\path{docs/evidence/m3-completion-20261016/RESULT.md}（「公开测试私钥」口径）。\par
+\textbf{攻击者没有物理接触}：全部实验是本机进程级实验（\texttt{taskset} 绑核 + 控制器写频），没有接探头、没有换硬件；
+\texttt{taskset} 亲和性加写频\textbf{不是}内核级 CPU 隔离。
+证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 9 节；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 1 节。
+
+\noindent\textbf{A.2 攻击者可观测量：只有单次调用耗时}\par
+可观测量限定为\textbf{一次完整调用（或夹具调用）的单次耗时}，逐样本原始值全部落盘、不做主观剔除。计时窗口与调用边界如下：
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{6.4cm}>{\raggedright\arraybackslash}p{5.4cm}@{}}
+\rowcolor{headergray}\textbf{对象} & \textbf{计时窗口（窗口内只有调用本身）} & \textbf{证据}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{对象} & \textbf{计时窗口（窗口内只有调用本身）} & \textbf{证据}\\\hline
+\endhead
+M1 / M2 / M3 / M5 / R03 & 一次完整解封装：两次 \texttt{clock\_gettime} 之间只有该调用与 \texttt{atomic\_signal\_fence} & \path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 4.1 节；\path{docs/evidence/m2-kem-20261016/COLLECTOR_CONTRACT.md}\\\hline
+M4（人工构造校准） & 一次完整受检比较（32 字节），\texttt{\seqsplit{boundary=complete\_checked\_compare}}；\textbf{不是}完整解封装 & \path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 4.1 节逐字 \texttt{.meta} 抽样\\\hline
+M3（人工构造校准） & 一次完整解封装，重加密路径内挂人工秘密下标 LUT & \path{docs/evidence/m3-completion-20261016/RESULT.md}\\\hline
+\end{longtable}
+
+\noindent 输入生成、内存分配、结果消费、日志与 I/O 全部位于窗口外；窗口内没有 I/O、日志或分配。
+证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 0 节「计时窗口 I/O」行与第 4 节（7 个 fence 到 fence 窗口按白名单核对）；
+逐类 \texttt{zero\_elapsed\_rows} 全为 0、\texttt{window\_scope=one\_mlkem\_decapsulate\_call}，见 \path{docs/evidence/r03-malformed-20261016/RESULT.md} 第 2 节。\par
+\textbf{「返回值以外的内部状态」不构成本轮的攻击者可观测量。}这是\textbf{负面对照，不等于零泄露}：7 种输入模式（1 合法 + 6 隐式拒绝）
+各 120 次，退出码唯一值均为 0、stdout 与 stderr \textbf{逐字节一致}；静态扫描 122 个接触秘密标识符的调用点，\textbf{0 条}把秘密字节写进
+stdout/stderr/返回码/errno；\texttt{mlkem\_*} 返回码只表示参数、长度、空指针与随机源错误，\textbf{不表示}重加密比较结果。
+但本轮如实保留一项低危发现（F1）：\texttt{tools/platform\_m2/collector.c} 在功能门失败时把批级的接受/拒绝汇总写进 stderr、进程退出码与 meta 的
+\texttt{run\_status}；正常采集路径不触发（rc 恒 0、stderr 恒空），但「同一批输入在不同实现或构建下退出码不同」本身仍是一个可观察信号。
+证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 0、1.3、2、3 节与第 6 节第 5、6 条。
+
+\noindent\textbf{A.3 测量条件：本地同机、单核绑核、锁频控制器}\par
+被测机器是裸金属 \texttt{nss-m}（AMD Ryzen 9 9950X，16 核 $\times$ 2 SMT = 32 线程，单 socket 单 NUMA），
+Linux 6.17.0-35-generic / Ubuntu 24.04.4 / x86\_64；采集时以 \texttt{taskset -c 2} 或 \texttt{-c 6} 绑定\textbf{单核}，
+由唯一控制器写 \texttt{boost=0}、governor 与 EPP 为 \texttt{performance}、\texttt{min=max=4300000} kHz，
+沉降 1.0 s 后取 20 次 $\times$ 50 ms 的 \texttt{scaling\_cur\_freq}，全部落在 $\pm$2\% 且跨度不超过 50000 kHz；
+54 次正式运行全部 \texttt{restore\_match=yes}。
+证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 1.1、1.2、1.4、1.6 节；
+\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 1、2 节；\path{docs/evidence/platform-control-qualification-20261016/QUALIFICATION.md}。\par
+\textbf{必须与数字一起读的一条口径}：这是\textbf{本地同机、单核绑核、锁频控制器下的工程观测}；
+\textbf{\texttt{scaling\_cur\_freq} 不是示波器测量}——它是内核暴露的观测量，本平台\textbf{不主张}逐调用物理恒频，也\textbf{不给}物理误差界。
+证据：\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 6 节第 1 条；
+\path{docs/evidence/platform-control-qualification-20261016/QUALIFICATION.md}；
+\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 7、9 节。
+
+\noindent\textbf{A.4 攻击者能力}\par
+\textbf{具备}：本地同机可执行（能绑到同一逻辑 CPU 并重复发起解封装）；可重复发起并可自行加样本量（本轮每类 10000 次 $\times$ 3 次独立运行，
+换种子、换物理核）；可与自己的参考实现做差分（实现是公开固定提交，公开 KAT 可独立复算，并已做过双平台独立差分运行）。
+证据：\path{docs/evidence/r03-malformed-20261016/RESULT.md} 第 1 节；\texttt{\seqsplit{docs/evidence/r02-r04-close-20261016/RESULT.md}} 第 2.1 节；
+\path{docs/evidence/r01-kat-20261016/README.md}；\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 2 节。\par
+\textbf{不假设}：不假设能读被测进程内存或测量进程的内部状态（本轮\textbf{未检查} \texttt{cmdline}、文件描述符、\texttt{maps}、core dump、
+\texttt{wait4}、信号、\texttt{/proc/<pid>/stat}、文件名与 mtime 等进程可观察面——它们既不是已排除的通道，也不是本模型授予的能力）；
+不假设侧信道之外的物理通道（功耗、电磁、声、温度、供电抖动）；不假设能改机器配置。
+证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 5 条；\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 9 节。
+
+\subsection{不在范围内}
+
+以下五条明确排除，每条给一句理由。
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{10.7cm}@{}}
+\rowcolor{headergray}\textbf{不在范围内的内容} & \textbf{为什么}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{不在范围内的内容} & \textbf{为什么}\\\hline
+\endhead
+B1 密钥恢复与 exploit demo & 本平台不做，也不作为交付：全部结论停留在「类间耗时是否可区分」与「差异对应哪段源码或产物」，没有恢复私钥、内部消息或共享秘密的步骤，也不给可利用性结论。证据：\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 6 节；R05 排查表第 7 节第 6 条。\\\hline
+B2 物理侧信道（功耗 / 电磁 / 缓存抢占的交叉核攻击） & 本平台只有软件计时一条通道，没有功耗或电磁采集设备；SMT 兄弟线程未隔离，但本轮\textbf{没有}把跨核缓存抢占建模为攻击通道，也没有做抢占实验。证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 5.1、9 节。\\\hline
+B3 远程网络时序 & 本轮只有同机场景，可选的同机网络对照（计划 T25）\textbf{未执行}，没有任何网络采集产物；同机锁频结果不能外推网络。证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条（网络路径端到端差分未执行）；计划条目见 \texttt{docs/全量收尾计划与提示词-20261016.md} 的 T25 行。详见第 C.6 节。\\\hline
+B4 编译器与操作系统之外的微架构特性建模（如 SMT 抢占的定量模型） & 本平台没有 SMT 抢占的定量模型：SMT 只作为\textbf{环境事实}登记（\texttt{SMT active=1}、兄弟线程未排除），抢占率、抢占代价与占用模型都没有进入统计。证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 5.1 节；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 6 节末条。\\\hline
+B5 对上游库未固定版本的结论外推 & 所有结论都绑定到固定提交、固定编译器与选项、固定产物；换版本、换优化级别或换 ISA 分发后结论不适用。证据：\path{docs/evidence/m2-kem-20261016/RESULT.md}（历史 Kyber768 不冒称 FIPS 203）；R05 排查表第 7 节第 4 条；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 6 节。\\\hline
+\end{longtable}
+
+\noindent 注：B1--B5 是\textbf{范围声明}，不是「已排除的风险」；其中 B3 的状态是「未执行」，不得读作「未检出」。
+
+\subsection{本地高精度与远程网络的边界}
+
+\noindent\textbf{C.1 读钟开销}\par
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.1cm}>{\raggedleft\arraybackslash}p{1.9cm}>{\raggedleft\arraybackslash}p{2.2cm}>{\raggedleft\arraybackslash}p{1.8cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.5cm}@{}}
+\rowcolor{headergray}\textbf{串} & \textbf{n} & \textbf{均值} & \textbf{中位数} & \textbf{p99} & \textbf{min}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{串} & \textbf{n} & \textbf{均值} & \textbf{中位数} & \textbf{p99} & \textbf{min}\\\hline
+\endhead
+\texttt{CLOCK\_MONOTONIC}（新探针，CPU8） & 100000 & \textbf{17.423 ns} & \textbf{20 ns} & \textbf{40 ns} & 10 ns\\\hline
+\texttt{CLOCK\_MONOTONIC\_RAW}（新探针，CPU8） & 100000 & 16.195 ns & 20 ns & 21 ns & 10 ns\\\hline
+\texttt{CLOCK\_MONOTONIC\_RAW}（既有归档复算，绑 CPU2） & 300000 & 17.50 ns & 20 ns & 21 ns & 10 ns\\\hline
+\end{longtable}
+
+\noindent 读钟开销与被测窗口\textbf{同量级}（均值约 17 ns、中位数 20 ns、p99 40 ns），这正是 M4 夹具（20--30 ns）出现大量并列值的原因；
+但\textbf{不能}把新探针（\texttt{taskset -c 8}）的数值当作采集窗口（CPU2/CPU6）的读钟开销，绑 CPU2 的复算见上表第三行；
+两个 CLOCK 的中位数都是 20 ns，而 \texttt{CLOCK\_MONOTONIC} 的 p99（40 ns）明显高于 \texttt{CLOCK\_MONOTONIC\_RAW}（21 ns），M4 用的正是后者。
+读钟开销是\textbf{软件观测}，不是硬件时间戳单元的精度界。
+证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 4.1、4.3、4.4、9 节。
+
+\noindent\textbf{C.2 量化尺度}\par
+本机 \texttt{clock\_gettime} 的实际最小步进是 \textbf{10 ns 量级}，\textbf{不是} \texttt{clock\_getres} 报的 1 ns；
+把每个主类对的两类取值合起来看，\textbf{相邻不同取值的间隔中位数是 9 ns}（各主类对范围 \textbf{9--10 ns}，最小间隔 1 ns），
+即本批数据的\textbf{有效计时量化尺度约 10 ns}：均值可以靠 $n=10000$ 平均出 1 ns 以下的差异，但\textbf{分位数只能落在约 10 ns 的格点上}。
+这解释了 63 条分位差恰为 0、以及分位与秩方法相对均值方法的判定翻转——格点跳一格就是 $\pm$10 ns，翻转是检验功效差或秩方法失效，\textbf{不是新的泄漏证据}。
+证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 4.3 节第 3 点；\path{docs/evidence/r04-stats-20261016/QUANTILE_CI.md} 第 4.4 节；\path{docs/evidence/r02-env-20261016/ROBUSTNESS.md} 第 0、6.1 节。
+
+\noindent\textbf{C.3 同机干扰面：本地高精度不等于理想实验室}\par
+SMT \textbf{开启}（\texttt{SMT active=1}、\texttt{control=on}），绑核只固定线程、\textbf{没有}排除同核兄弟线程；
+\textbf{没有} \texttt{isolcpus}（\texttt{/sys/devices/system/cpu/isolated} 为空，内核命令行无 \texttt{isolcpus=}、\texttt{nohz\_full=}、\texttt{rcu\_nocbs=}）；
+CPU2 与 CPU6 \textbf{都不是零中断}（例如 CPU2 累计 \texttt{nvme1q3} 1984127 次、\texttt{amdgpu} 86152 次，CPU6 累计 \texttt{nvme1q7} 357101 次——这是开机以来累计计数，
+不是采集窗口内计数，但本页不主张窗口内零中断）；\texttt{irqbalance} 为 \texttt{inactive}，\texttt{default\_smp\_affinity=ffffffff}；
+机器上另有 \textbf{39 个常驻 running service}。因此\textbf{整机独占、零中断、物理核独占都不是本平台的主张}。
+证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 5.1、5.2、5.3、6、9 节。\par
+统计侧同样要读这条：M2 家族虽未拒绝，但两个臂的描述性合并\textbf{方向相反}（未修 $+12.35$ ns、已修 $-11.20$ ns），
+这与未受控漂移一致，\textbf{不据此作任一方向的泄漏结论}。证据：\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 5 节。
+
+\noindent\textbf{C.4 功效与 MDE：「未检出」的确切含义}\par
+对每个主类对，用\textbf{实测标准差}与样本量计算 $\alpha=0.05$（以及 Holm 校正后的有效 $\alpha$）、功效 80\% 下的最小可检测效应：
+
+\begin{quote}
+M2、M3、M5 「端到端未检出」的确切含义是：在本机、本编译产物、本类对与本次样本预算下，观测到的类间均值差\textbf{小于}本设计的
+最小可检测效应 MDE（\textbf{M2 约 25--67 ns、M3 约 18--34 ns、M5 约 14--28 ns}），所以这套预算\textbf{分辨不出}任何小于该量级的效应；
+「未检出」等于「观测效应 $<$ MDE」，\textbf{不等于零效应}，也不构成恒时证明或物理泄漏界。
+\end{quote}
+
+\noindent MDE 是\textbf{统计可检测性}，不是物理泄漏阈值，也不是密钥恢复门槛；它用本次实测标准差计算，属\textbf{事后功效描述}，不改变任何已提交的 Holm 判定。
+端到端未检出\textbf{不覆盖定位层}：M2 的定位层是阳性（未修链三个热点各含 1 个 \texttt{div}、已修链 0 个），那是指令与数据流层面的结论，
+\textbf{不是}本机测到的物理时差，两层互不冒充。
+证据：\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 1.3、2、5.1、5.2、6 节；\path{docs/evidence/m2-kyberslash-20261016/RESULT.md}。
+
+\noindent\textbf{C.5 锁频与不锁频：锁频的价值是固定工作点，不是「必然降低方差」}\par
+族外对照 R12 在 M1 未修、M1 已修、M5 三个臂上各做 locked（控制器写 \texttt{boost=0}、\texttt{performance}、\texttt{min=max=4300000}）与
+unlocked（\textbf{完全不写 sysfs}，默认 \texttt{boost=1}、\texttt{powersave}、\texttt{min=2982259}、\texttt{max=5756452}、EPP 为 \texttt{balance\_performance}）
+各 9 次运行。频率归一后（变异系数 $CV=SD/\text{mean}$）的比值是 0.964、1.006、1.089：
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{3.0cm}>{\raggedleft\arraybackslash}p{3.0cm}@{}}
+\rowcolor{headergray}\textbf{臂} & \textbf{locked CV} & \textbf{unlocked CV} & \textbf{unlocked / locked}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{臂} & \textbf{locked CV} & \textbf{unlocked CV} & \textbf{unlocked / locked}\\\hline
+\endhead
+M1 未修 & 0.011725 & 0.011302 & 0.964\\\hline
+M1 已修 & 0.013044 & 0.013127 & \textbf{1.006}\\\hline
+M5 & 0.014603 & 0.015897 & \textbf{1.089}\\\hline
+\end{longtable}
+
+\noindent \textbf{结论}：在本机、本体、本负载下，「锁到 4.30 GHz」与「默认 powersave 加 boost」的\textbf{相对变异基本相等}
+（比值 0.96--1.09，跨臂方向不一致）。ns 尺度上不锁频看起来「更稳」，主要是\textbf{频率更高、每次调用耗时更短}造成的机械效应，
+\textbf{不是噪声真的更小}。因此\textbf{锁频控制器的价值应当表述为确定性、可核对与可恢复的固定工作点}
+（\texttt{boost=0}、固定 \texttt{min=max}、进出快照加 \texttt{restore\_match=yes}），
+\textbf{而不是「必然降低测量方差」}。该对照\textbf{族外、不进 Holm}，也不改变 M1 与 M5 的任何既有判定；
+unlocked 臂「未改动配置」只证明采集进程没有写 sysfs，\textbf{不证明}系统频率恒定——恰恰相反，它就是不恒定的那一臂；
+结论限定本机、本体、本负载，不能外推到其它 CPU、其它 governor 或远程场景。
+证据：\path{docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md} 第 1、4、5、7、8 节。
+
+\noindent\textbf{C.6 远程网络时序：未执行}\par
+本轮\textbf{没有}做任何网络采集：没有回环 TCP、没有 \texttt{netns} 加 \texttt{veth} 加 \texttt{netem}、也没有任何网络产物目录。
+计划中的同机网络场景（T25）登记为可选，本轮\textbf{未执行}，因此这里写「\textbf{未执行}」而不是「未检出」。
+已有证据也明确登记「网络路径未做端到端差分」。\textbf{不能外推}：本章 C.1 至 C.5 的全部数值都是本地同机、单核绑核、锁频控制器下的观测；
+远程网络会引入排队、协议栈、链路抖动与对端调度等本机不存在的量，同机结果\textbf{不能}用来推断远程可检测性。
+若后续执行 T25，引用时必须标注「\textbf{同机模拟、非真实远程}」并保留该标注。
+证据：\texttt{docs/全量收尾计划与提示词-20261016.md} 的 T25 行与风险表；\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条。
+
+\subsection{结论等级表}
+
+本平台把结论分成三档，三档互不冒充：\textbf{「未执行」不写成阴性，「未检出」不写成恒时}。
+
+\noindent\textbf{D1 已执行且检出}\par
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{6.8cm}>{\raggedright\arraybackslash}p{4.7cm}@{}}
+\rowcolor{headergray}\textbf{实例} & \textbf{数值} & \textbf{证据}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{实例} & \textbf{数值} & \textbf{证据}\\\hline
+\endhead
+\textbf{M1 未修端到端}（真实历史案例） & $\Delta=+39.337$ ns、95\% CI $[+21.658,+57.017]$（不含 0）、dudect 最大 $t=+26.41$；换种子与换物理核两次独立复测方向一致（$+31.117$、$+22.337$） & \texttt{\seqsplit{docs/evidence/r02-r04-close-20261016/RESULT.md}} 第 2.1 节；原始件 \texttt{\seqsplit{docs/evidence/liboqs010-locked-20261015/README.md}}\\\hline
+\textbf{M4 vulnerable 臂}（\textbf{人工构造校准}） & 家族 Holm 拒绝 \textbf{3/3}（原始 $p=0$、$9.23\times10^{-25}$、$3.14\times10^{-22}$）；\textbf{分臂}描述性合并 $\Delta=-4.089$ ns、95\% CI $[-4.215,-3.963]$；同批 ct 臂 0/3 拒绝（$+0.055$ ns、$[-0.363,+0.473]$） & \texttt{\seqsplit{docs/evidence/platform-collection-20261016/stats/holm/RESULT.md}}；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 5 节；\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 3、5.1 节\\\hline
+\end{longtable}
+
+\noindent 引用注意：M4 \textbf{只引分臂数值}，不引家族窗口的合并 $\Delta$（家族 $I^2=98.6\%$ 是把泄漏臂与不泄漏臂混在一起造成的）；
+M4 的 \texttt{insecure} 只针对人工提前退出夹具，\textbf{不是}新增上游 CVE。
+证据：\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 5、6 节；\path{docs/evidence/m4-completion-20261016/FORMAL_RESULT.md}。
+
+\noindent\textbf{D2 已执行且未检出}\par
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{6.8cm}>{\raggedright\arraybackslash}p{4.7cm}@{}}
+\rowcolor{headergray}\textbf{实例} & \textbf{数值} & \textbf{证据}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{实例} & \textbf{数值} & \textbf{证据}\\\hline
+\endhead
+\textbf{M2 端到端}（真实历史案例） & 家族 \texttt{m2\_end\_to\_end\_full\_decaps\_v1}（$m=6$）Holm 拒绝 \textbf{0}；合并 $\Delta=+4.58$ ns、95\% CI $[-3.08,+12.25]$（含 0）、$I^2=58.3\%$；MDE(Holm) 24.7--67.1 ns & \texttt{\seqsplit{docs/evidence/platform-collection-20261016/stats/holm/RESULT.md}}；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 5 节；\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 2、5.1 节\\\hline
+\textbf{M3 端到端}（\textbf{人工构造校准}） & 家族（$m=6$）Holm 拒绝 \textbf{0}；合并 $\Delta=-0.73$ ns、95\% CI $[-5.56,+4.10]$、$I^2=12.5\%$；MDE(Holm) 17.7--33.7 ns & 同上三处\\\hline
+\textbf{M5 端到端}（阴性对照候选） & 家族（$m=3$）Holm 拒绝 \textbf{0}；合并 $\Delta=-5.30$ ns、95\% CI $[-11.77,+1.16]$、$I^2=0\%$；MDE(Holm) 13.5--28.3 ns & 同上三处；\texttt{\seqsplit{docs/evidence/m5-completion-20261016/RESULT.md}}\\\hline
+\textbf{R03 对照 A：合法 vs 格式破损}（\textbf{族外、不进 Holm}） & 3 臂 $\times$ 3 种子共 9 个组合：$\Delta$ 全落在 $\pm$10 ns 内、\textbf{9/9 的 95\% CI 含 0}、\textbf{9/9 原始 $p\ge0.28$}，方向在两臂之间来回摆动 & \path{docs/evidence/r03-malformed-20261016/RESULT.md} 第 3 节；\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 3、5.1 节\\\hline
+\end{longtable}
+
+\noindent「未检出」的确切措辞只能是「观测效应 $<$ MDE」，并附工具、输入范围与调用边界；它\textbf{不}推出零效应、物理恒时、不可利用，
+也不推出换机器、换编译产物、换类对或换样本预算后仍成立。证据：\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 5.2 节。\par
+\noindent 同批的阳性侧对照（防止把 D2 误读成「平台测不出东西」）：R03 \textbf{对照 B（合法 vs 截断）} 的 $\Delta$ 约 \textbf{29--55 $\mu$s}，
+比该对比的 MDE（约 7--21 ns）大 3 至 4 个数量级；截断输入耗时与臂无关（三臂都是 \textbf{23.1--23.4 ns}），走的是封装层公开长度检查，
+属\textbf{接口语义}，不是秘密相关泄漏，同样\textbf{族外}。
+证据：\path{docs/evidence/r03-malformed-20261016/RESULT.md} 第 0、4 节；\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 5.1 节。
+
+\noindent\textbf{D3 未执行}\par
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{5.4cm}>{\raggedright\arraybackslash}p{5.0cm}@{}}
+\rowcolor{headergray}\textbf{实例} & \textbf{状态} & \textbf{证据}\\\hline
+\endfirsthead
+\rowcolor{headergray}\textbf{实例} & \textbf{状态} & \textbf{证据}\\\hline
+\endhead
+R05 排查表中标注 \texttt{unknown} 的格：M5 重加密步骤的 Binsec \texttt{checkct} & \textbf{unknown（带参数）}，不写「不存在」。三条已实测阻塞：Binsec 0.11.3 无法解码 x86-64；\texttt{checkct} 缺显式 \texttt{secret global} 时在 0 路径上仍打印 \texttt{secure}，把输入声明成 \texttt{public} 时甚至对 M4 的已知脆弱内核给出假阴性；M5 重加密消息为 32 字节自由值，路径数达 $2^{256}$ 量级，有界模型内必然 \texttt{unknown} & \path{docs/evidence/r05-locate-20261016/RESULT.md} 第 5 节；\texttt{docs/R05-全流程排查表.md} 第 4.4 节与第 7 节第 8 条；命令与产物 \path{docs/evidence/r05-locate-20261016/remote-tree/binsec-m5/}\\\hline
+可选网络场景（计划 T25） & \textbf{未执行}：本轮没有任何网络采集产物；网络路径的端到端差分亦登记为未执行。详见第 C.6 节 & \texttt{docs/全量收尾计划与提示词-20261016.md} 的 T25 行；\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条\\\hline
+相关登记：R05 的 90 格中「未检查」= \textbf{0} 格（存在 5、不存在 75、不适用 10），另有 1 项按 \texttt{unknown} 登记 & 已执行且已更新 & \texttt{docs/R05-全流程排查表.md} 第 4.1 至 4.3 节\\\hline
+\end{longtable}
+
+\subsection{遗留与边界}
+
+\begin{enumerate}
+  \item 本章\textbf{不做密钥恢复}，不运行 exploit demo，不给总体误报率或检出率，不给物理误差界；「未检出」一律不得改写为恒时证明。
+  证据：\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 6 节；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 6 节。
+  \item \textbf{人工夹具标注}：M3（秘密下标 LUT）与 M4（提前退出比较）是\textbf{人工构造校准}，阳性只能检验检测器能否识别目标机制，不计为新的真实 CVE。
+  证据：\path{docs/platform/ARCHITECTURE.md} 第 1 节；\path{docs/evidence/m4-completion-20261016/RESULT.md} 的边界段。
+  \item \textbf{族外标注}：R03 的两个对照与 R12 的锁频对照一律\textbf{族外、不进 Holm}，不改变任何已冻结家族判定；dudect 的最大 $t$ 与 RTLF 的二值结果同样族外，\textbf{不转伪 $p$}。
+  证据：\path{docs/evidence/r03-malformed-20261016/RESULT.md} 开头与第 6 节；\path{docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md} 第 1、8 节；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 1.0、6 节。
+  \item \textbf{观测量边界}：本章把攻击者的可观测量限定为单次调用耗时；R06 的 F1（M2 采集件把批级接受/拒绝汇总写进退出码、stderr 与 meta）与 R06 未检查的进程可观察面
+  （\texttt{cmdline}、文件描述符、\texttt{maps}、core dump、\texttt{wait4}、信号、\texttt{/proc/<pid>/stat}、文件名与 mtime）都\textbf{不在}本章的观测面内，本轮也\textbf{未执行}对这些面的检查。
+  证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 1.3 节 F1 与第 6 节第 5 条。
+  \item \textbf{网络与 M1 家族口径两处待整合}：(1) 若后续执行 T25，第 C.6 节与 D3 表第二行需改为引用网络结果并标注「同机模拟、非真实远程」；
+  (2) \texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 5.1 节写「M1 主类对没有预注册 Holm 家族」，而 \texttt{\seqsplit{docs/evidence/r02-r04-close-20261016/RESULT.md}} 第 3 节写参数检验族为 $m=6$，
+  本节只引用 M1 的检出事实与数值，\textbf{不断言} M1 的 Holm 确认状态，口径需由主控在两份证据之间确定后再写入报告。
+  \item 本章是只读复述与登记，不是新的采集、不是新的统计、不是验收结论；数字如有冲突，以被引用文件为准。
+\end{enumerate}
