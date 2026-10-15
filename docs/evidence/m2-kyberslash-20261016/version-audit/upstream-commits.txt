@@ -1,0 +1,26 @@
+commit a621b8dde405cc507cbcfc5f794570a4f98d69cc
+Merge: 518de24 9c32260
+Author:     Peter Schwabe <peter@cryptojedi.org>
+AuthorDate: Tue May 9 10:50:53 2023 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue May 9 10:50:53 2023 +0200
+
+    Merge pull request #55 from jschanck/value-barrier
+    
+    Add a value barrier on the `cmov` control flag
+
+commit dda29cc63af721981ee2c831cf00822e69be3220
+Author:     Peter Schwabe <peter@cryptojedi.org>
+AuthorDate: Fri Dec 1 13:33:48 2023 +0100
+Commit:     Peter Schwabe <peter@cryptojedi.org>
+CommitDate: Fri Dec 1 13:33:48 2023 +0100
+
+    Updated poly_tomsg to prevent a compiler from using DIV. Thanks to Goutam Tamvada, Karthikeyan Bhargavan, and Franziskus Kiefer @Cryspen for pointing this out
+
+commit 272125f6acc8e8b6850fd68ceb901a660ff48196
+Author:     Peter Schwabe <peter@cryptojedi.org>
+AuthorDate: Fri Dec 29 11:47:08 2023 +0100
+Commit:     Peter Schwabe <peter@cryptojedi.org>
+CommitDate: Sat Dec 30 06:37:10 2023 +0100
+
+    Removed "/KYBER_Q" in poly_compress and polyvec_compress; thanks to Prasanna Ravi and Matthias Kannwischer for pointing out that a DIV instruction could turn into a plaintext-checking oracle

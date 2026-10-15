@@ -9,5 +9,9 @@
 /vendor/liboqs-0.10.0.tar.gz
 /vendor/liboqs-fetch.*/
 
+# M2 historical upstream trees are reproduced from the adjacent PIN files.
+/vendor/kyber-kyberslash-unfixed/
+/vendor/kyber-kyberslash-fixed/
+
 # Upstream tool checkouts recorded by commit in evidence REPOS.md.
 /third_party/

@@ -1,0 +1,255 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+html{overflow-y:scroll}
+body{font-family:"Noto Sans","Droid Sans","DejaVu Sans","Arial",sans-serif;line-height:1.5}
+tt,code{background-color:#f0f0f0;font-family:"Noto Sans Mono","Droid Sans Mono","DejaVu Sans Mono","Courier New",monospace,sans-serif;font-size:1em;}
+pre{margin-left:3em}
+p,ul,ol,blockquote,pre{font-size:1.0em;line-height:1.6}
+li p{font-size:1.0em}
+blockquote p{font-size:1.0em}
+h1{font-size:1.5em}
+h2{font-size:1.3em}
+h3{font-size:1.0em}
+h1 a{text-decoration:none}
+table{border-collapse:collapse}
+th,td{border:1px solid black}
+table a{text-decoration:none}
+table tr{font-size:1.0em;line-height:1.6}
+.headline{padding:0;font-weight:bold;font-size:1.5em;vertical-align:top;padding-bottom:0.5em;color:#a00040}
+.navt{display:inline-block;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;
+min-width:14%;margin:0;padding:0;padding-left:0.5em;padding-right:0.5em;vertical-align:center;
+font-weight:bold;font-size:1.1em;text-align:center;border:1px solid black}
+.here{border-bottom:0px;background-color:#ffffff}
+.away{background-color:#a00040;}
+.away a{text-decoration:none;display:block;color:#ffffff}
+.away a:hover,.away a:active{text-decoration:underline}
+.main{margin:0;padding-top:0em;padding-bottom:1%;clear:both}
+</style>
+<title>
+KyberSlash:
+Libraries
+</title>
+</head>
+<body>
+<div class=headline>
+KyberSlash: division timings depending on secrets in Kyber software
+</div>
+<div class=nav>
+<div class="navt away"><a href=index.html>Introduction</a>
+</div><div class="navt away"><a href=papers.html>Papers</a>
+</div><div class="navt away"><a href=demos.html>Demos</a>
+</div><div class="navt away"><a href=faq.html>FAQ</a>
+</div><div class="navt here">Libraries
+</div></div>
+<div class=main>
+<p>This page does not guarantee that it is a comprehensive survey,
+and does not guarantee accuracy of any particular item.
+Please check status directly with your library maintainers.</p>
+<p>Kyber libraries that
+have divisions with secret inputs
+as of 22 August 2025
+(libraries are listed in alphabetical order):</p>
+<ul>
+<li>
+<p>antontutoveanu/crystals-kyber-javascript:
+  patched
+  <a href="https://github.com/antontutoveanu/crystals-kyber-javascript/commit/6d8afe67f2cd4c5d8cb57b23b07a8453953b2da8">13 March 2025</a>
+  for KyberSlash1;
+  <a href="https://github.com/antontutoveanu/crystals-kyber-javascript/blob/main/kyber1024.js#L835">not patched yet</a>
+  for KyberSlash2;
+  no security announcement yet</p>
+</li>
+<li>
+<p>Argyle-Software/kyber:
+  <a href="https://github.com/Argyle-Software/kyber/issues/108">not patched yet</a>;
+  security announcement
+  <a href="https://github.com/advisories/GHSA-x5j2-g63m-f8g4">9 February 2024</a>
+  (apparently announced by bwesterb/argyle-kyber)</p>
+</li>
+</ul>
+<p>Kyber libraries that had divisions with secret inputs at the start of December 2023,
+but have been patched for KyberSlash1 and KyberSlash2
+(libraries are listed in reverse chronological order of KyberSlash2 patch date):</p>
+<ul>
+<li>
+<p>PQClean/PQClean/crypto_kem/kyber*/aarch64:
+  patched
+  <a href="https://github.com/PQClean/PQClean/commit/058dae1933514e3fe54d943dea5b1caa30e1e919">19 September 2024</a>
+  for KyberSlash1 and KyberSlash2;
+  security announcement
+  <a href="https://github.com/PQClean/PQClean/blob/master/SECURITY.md">25 January 2024</a></p>
+</li>
+<li>
+<p>sebastienrousseau/kyberlib/src/reference:
+  patched
+  <a href="https://github.com/sebastienrousseau/kyberlib/commit/39652f62b204af8930de0d282bbe0abf5ac37350">12 May 2024</a>
+  for KyberSlash1 and KyberSlash2;
+  no security announcement yet</p>
+</li>
+<li>
+<p>mupq/pqm4/crypto_kem/kyber*:
+  patched
+  <a href="https://github.com/mupq/pqm4/issues/319">20 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/mupq/pqm4/commit/edcf6f6af44c680c435c6d9c258e93aa285f28f2">23 February 2024</a>
+  for KyberSlash2;
+  no security announcement yet (but maintainer <a href="https://github.com/mupq/pqm4/issues/319">comments</a> "Scary")</p>
+</li>
+<li>
+<p>JamesTheAwesomeDude/pypqc:
+  patched
+  <a href="https://github.com/JamesTheAwesomeDude/pypqc/commit/b33fec8cd36e865f8db6215c64b2d01f429a1ed6">26 January 2024</a>
+  for KyberSlash1 and KyberSlash2;
+  patch labeled as "upstream security fix"</p>
+</li>
+<li>
+<p>rustpq/pqcrypto/pqcrypto-kyber:
+  patched
+  <a href="https://github.com/rustpq/pqcrypto/commit/f921490a48508d88d88bf7b7b18f10878e98fdf1">25 January 2024</a>
+  for KyberSlash1 and KyberSlash2
+  ("potential" side-channel vulnerabilities);
+  had also been
+  <a href="https://github.com/signalapp/libsignal/issues/545">patched downstream in Signal on 5 January 2024</a></p>
+</li>
+<li>
+<p>PQClean/PQClean/crypto_kem/kyber*/clean:
+  patched
+  <a href="https://github.com/PQClean/PQClean/commit/3b43bc6fe46fe47be38f87af5019a7f1462ae6dd">25 January 2024</a>
+  for KyberSlash1 and KyberSlash2;
+  security announcement
+  <a href="https://github.com/PQClean/PQClean/blob/master/SECURITY.md">25 January 2024</a></p>
+</li>
+<li>
+<p>kudelskisecurity/crystals-go:
+  patched
+  <a href="https://github.com/kudelskisecurity/crystals-go/issues/19">10 January 2024</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/kudelskisecurity/crystals-go/pull/21">16 January 2024</a>
+  for KyberSlash2;
+  security announcement
+  <a href="https://github.com/kudelskisecurity/crystals-go/security/advisories/GHSA-f6jh-hvg2-9525">16 January 2024</a></p>
+</li>
+<li>
+<p>liboqs/src/kem/kyber:
+  patched
+  <a href="https://github.com/open-quantum-safe/liboqs/pull/1631">15 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/open-quantum-safe/liboqs/issues/1645">8 January 2024</a>
+  for KyberSlash2;
+  security announcement
+  <a href="https://github.com/open-quantum-safe/liboqs/releases/tag/0.9.2">16 January 2024</a></p>
+</li>
+<li>
+<p>randombit/botan:
+  patched
+  <a href="https://github.com/randombit/botan/issues/3844">20 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/randombit/botan/commit/0e8d32928abf86470ab71ca07d0705504fad95e5">4 January 2024</a>
+  for KyberSlash2;
+  security announcement
+  <a href="https://github.com/randombit/botan/commit/0688d06bc12e7339aee39b2e9d86cd6fd9099148">13 February 2024</a>
+  ("Fix potential timing side channels in Kyber")</p>
+</li>
+<li>
+<p>aws/aws-lc/crypto/kyber, fips-2022-11-02 branch:
+  patched
+  <a href="https://github.com/aws/aws-lc/pull/1366">19 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/aws/aws-lc/commit/dd7de625facaaa4cc52b366467ec534411b6d696">4 January 2024</a>
+  for KyberSlash2;
+  no security announcement yet</p>
+</li>
+<li>
+<p>aws/aws-lc/crypto/kyber, main branch:
+  patched
+  <a href="https://github.com/aws/aws-lc/pull/1360">16 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/aws/aws-lc/pull/1376">2 January 2024</a>
+  for KyberSlash2;
+  no security announcement yet</p>
+</li>
+<li>
+<p>cloudflare/circl:
+  patched
+  <a href="https://github.com/cloudflare/circl/commit/75ef91e8a2f438e6ce2b6e620d236add8be1887d">1 January 2024</a>
+  for KyberSlash2 (says KyberSlash1 wasn't applicable);
+  security announcement
+  <a href="https://github.com/cloudflare/circl/security/advisories/GHSA-9763-4f94-gfch">8 January 2024</a>
+  for KyberSlash2</p>
+</li>
+<li>
+<p>symbolicsoft/kyber-k2so:
+  patched
+  <a href="https://github.com/symbolicsoft/kyber-k2so/issues/7">16 December 2023</a>
+  for KyberSlash1;
+  security announcement
+  <a href="https://symbolic.software/blog/2023-12-19-kyberk2sovariabletiming/">19 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/symbolicsoft/kyber-k2so/commit/2d16efee71ae195a6aef2fb36f5ed60768d78c98">30 December 2023</a>
+  for KyberSlash2;
+  security announcement updated 30 December 2023 for KyberSlash2</p>
+</li>
+<li>
+<p>pq-crystals/kyber/ref:
+  patched
+  <a href="https://github.com/pq-crystals/kyber/commit/dda29cc63af721981ee2c831cf00822e69be3220">1 December 2023</a>
+  for KyberSlash1;
+  patched
+  <a href="https://github.com/pq-crystals/kyber/commit/272125f6acc8e8b6850fd68ceb901a660ff48196">30 December 2023</a>
+  for KyberSlash2;
+  no security announcement yet</p>
+</li>
+<li>
+<p>zig/lib/std/crypto/kyber_d00.zig:
+  patched
+  <a href="https://github.com/ziglang/zig/pull/18316">22 December 2023</a>
+  for KyberSlash (in a unified division function,
+  so both KyberSlash1 and KyberSlash2 are covered);
+  no security announcement yet</p>
+</li>
+</ul>
+<p>Kyber libraries that reportedly never had divisions with secret inputs,
+part 1, released before KyberSlash was announced:</p>
+<ul>
+<li>
+<p>boringssl/crypto/kyber</p>
+</li>
+<li>
+<p>filippo.io/mlkem768</p>
+</li>
+<li>
+<p>formosa-crypto/libjade/src/crypto_kem/kyber/common/amd64/avx2</p>
+</li>
+<li>
+<p>formosa-crypto/libjade/src/crypto_kem/kyber/common/amd64/ref</p>
+</li>
+<li>
+<p>pq-crystals/kyber/avx2</p>
+</li>
+<li>
+<p>pqclean/crypto_kem/kyber*/avx2</p>
+</li>
+<li>
+<p>sebastienrousseau/kyberlib/src/avx2</p>
+</li>
+</ul>
+<p>Kyber libraries that reportedly never had divisions with secret inputs,
+part 2, released after KyberSlash was announced:</p>
+<ul>
+<li>awslabs/LibMLKEM</li>
+</ul><hr><font size=1><b>Version:</b>
+This is version 2025.08.23 of the "Libraries" web page.
+</font>
+</div>
+</body>
+</html>
