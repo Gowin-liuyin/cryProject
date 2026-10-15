@@ -584,3 +584,46 @@ M5 全行标注**不是修复**（上游既有做法，无对应 CVE），M2 的
 Binsec 只开 `control-flow,memory-access`、未开乘除法的边界写进正文。
 
 本轮不 `git add/commit/push`；不改 `docs/evidence/{m2-kem,m2-kyberslash,m3-*,m4-*,m5-*}-20261016/` 任何原始数据。
+
+---
+
+## 2026-10-16 全量收尾轮（主控）
+
+基线声明：计划书写明的 `origin/main@c849c0f` 已过期 11 个提交；本轮实际基线为
+`origin/main@e81c1ae`（本地与远端一致）。T01–T04、T10–T14、T16、T32（final4）、T33（第 4/5 版）
+已在上一轮完成并推送，本轮不重做。
+
+### 本轮新增交付
+
+| 任务 | 内容 | 关键位置 |
+|---|---|---|
+| T00 | 基线核验与冻结文件哈希、三套 ctest（87/57/57） | `docs/evidence/closeout-20261016/BASELINE.md` |
+| T05/T06 | 向量来源总表与修复语义等价（三对 diff 全空 + 1000 例 + 隐式拒绝检查） | `docs/evidence/r01-kat-20261016/` |
+| T07/T08/T09 | 环境总表 28 项、异常样本规则、稳健性 64 类对 × 4 方法（翻转 12/64，不改 Holm 判定） | `docs/evidence/r02-env-20261016/` |
+| T15/T17 | R05 补格（未检查 1 → 0；存在 5 / 不存在 75 / 不适用 10）、修复手段映射 16 行 | `docs/R05-全流程排查表.md`、`docs/evidence/r05-locate-20261016/`、`docs/evidence/r06-noleak-20261016/MAPPING.md` |
+| T18 | 日志/异常/返回码泄露专项（秘密内容泄露 0 条；发现项 F1 低危） | `docs/evidence/r06-noleak-20261016/AUDIT.md` |
+| T19/T20/T21 | 性能 PLAN + 锁频采集 54 次 + 性能表（ns 与周期两套） | `docs/evidence/r08-perf-20261016/` |
+| T22/T23/T24 | 优化级别 12 格构建/反汇编/Memcheck + 锁频 36 次 + 结论 | `docs/evidence/r09-optlevel-20261016/` |
+| T26/T27 | MDE（M2 25–67 / M3 18–34 / M5 14–28 ns）、分位数 CI 与 45 张图 | `docs/evidence/r04-stats-20261016/` |
+| T28 | 威胁模型章（含可 `\input` 的 LaTeX 片段，实测可编译） | `docs/evidence/r11-threat-20261016/` |
+| T29 | 创新对照：锁频 vs 不锁频（CV 比 0.96–1.09，**锁频不必然降方差**）、多工具矩阵 9×5 | `docs/evidence/r12-innovation-20261016/` |
+| T30 | 一键复现（quick 档干净 clone ctest 194/194）与参数总表 | `scripts/reproduce_all.sh`、`docs/REPRODUCE-PARAMS.md` |
+| T31 | 报告整合为 **final5：91 页**，附录 A 题面 12 条对照矩阵（1–5、7–12 满足，**第 6 条部分**） | `deliverables/research/multi-leakage-platform-20261016/report.pdf` |
+| T32 | final5 匿名包 842 成员、verify pass 且 `direct_identity_markers=0`、包内 ctest 5/5 | `deliverables/support/…-final5-20261016.zip` |
+| T34 | 人工复核签字清单（23 项，签字栏留空） | `docs/evidence/closeout-20261016/SIGNOFF_CHECKLIST.md` |
+
+### 锁频采集与恢复
+
+本轮锁频控制器运行 **117 次**（R03 18 + R08 54 + R09 36 + R12 锁频臂 9），
+**117/117 `restore_match=yes` 且四判据全过（100%）**；另有 R12 不锁频臂 9 次，
+运行前后全量频率快照逐字相同（`config_changed=no` 9/9）。
+无效运行 19 次全部归档后重跑或不计入：R08 18 次（`--block-count` 校验 bug）、R09 1 次（放行探针跨度超限）。
+结束核对：`global_boost=1`，全部 32 policy 回到 `powersave / 2982259 / 5756452 / balance_performance`，
+状态根无 `active.json`，锁空闲，无残留进程。
+
+### 未做与不做
+
+T25 同机网络场景未执行（可选，见 `BLOCKERS.md` B01）；M5 重加密的 Binsec `checkct` 仍为 unknown（B02）；
+Microwalk 官方镜像不可用（B03，已有源码自建替代）；ctgrind 上游补丁与 Valgrind 3.22 不兼容（B04）；
+干净 clone 缺 gitignore 的 vendor（B05，quick 档已按缺件跳过）。
+**不做第二架构（aarch64/Mac）**；比赛方材料审核、本人签署与官方验收仍须人工完成。
