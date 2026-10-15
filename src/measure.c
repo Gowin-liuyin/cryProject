@@ -4,7 +4,10 @@
 #endif
 #include "build_identity.h"
 #include "inputs.h"
-#ifdef BASELINE_HISTORICAL
+#if defined(PLATFORM_M2_KYBER)
+#include "platform_m2.h"
+#define measure_sha3_256 platform_m2_sha3_256
+#elif defined(BASELINE_HISTORICAL)
 /* liboqs internal SHA3 (same digest width); not part of the public OQS API. */
 void OQS_SHA3_sha3_256(uint8_t *output, const uint8_t *input, size_t input_byte_count);
 #define measure_sha3_256 OQS_SHA3_sha3_256
