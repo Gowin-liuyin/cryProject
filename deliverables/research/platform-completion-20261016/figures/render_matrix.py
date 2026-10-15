@@ -53,7 +53,7 @@ svg_fragments = [
     '<g font-family="Arial, PingFang SC, sans-serif" fill="#17212b">',
     '<text x="22" y="38" font-size="25" font-weight="600">多泄漏模块平台：结果矩阵（真实案例 / 人工校准 / 阴性对照 / 各层状态）</text>',
     '<text x="22" y="68" font-size="16">结果图，不是计划图；审计时点 2026-10-16 · 数据源 EVIDENCE_MATRIX.csv · 证据路径见图注 CAPTION.md</text>',
-    '<text x="22" y="94" font-size="16">“未运行”与“已执行且未检出”分列；«待主控数据» 表示锁频采数尚未回填，不是阴性结果。</text>',
+    '<text x="22" y="94" font-size="16">“未运行”与“已执行且未检出”分列；M2–M5 家族统计与 Mona 对 M2 对照已回填，«待主控数据» 只剩 RTLF（partial）与 M2 微基准（not_run）。</text>',
 ]
 
 
@@ -183,7 +183,7 @@ footer_top = current_top + 12
 svg_fragments.extend(
     [
         f'<text x="22" y="{footer_top}" font-size="15.5">图注：格内数字是工具错误次数 / 报警上下文数或统计结论词，不是时间样本量、效应量或攻击成功率。</text>',
-        f'<text x="22" y="{footer_top + 26}" font-size="15.5">M1 为已封存真实案例的引用；M2 为真实历史路径但时间统计 «待主控数据»；M3/M4 是人工构造校准；M5 是阴性对照候选。</text>',
+        f'<text x="22" y="{footer_top + 26}" font-size="15.5">M1 为已封存真实案例的引用；M2 为真实历史路径（端到端未检出、定位层阳性）；M3/M4 是人工构造校准；M5 是阴性对照候选（仅限本预算）。</text>',
         f'<text x="22" y="{footer_top + 52}" font-size="15.5">定位阳性、工具无报警、预算内未检出都不等于恒时证明或总体误报率为零；完整条件见 COMPLETION_REQUIREMENTS.md。</text>',
         "</g></svg>",
     ]

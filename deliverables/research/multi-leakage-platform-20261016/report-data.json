@@ -2,7 +2,7 @@
   "date": "2026-10-16",
   "title": "多泄漏模块检测平台补充报告",
   "subtitle": "统一检测、定位、修复与复测的证据分层",
-  "document_state": "structure_refreshed_20261016_pending_lead_statistics",
+  "document_state": "final2_20261016_mona_filled_rtlf_partial",
   "baseline_commit": "ac46e62",
   "modules": [
     {
@@ -15,55 +15,60 @@
       "formal": "未主张",
       "summary": "在固定 liboqs 0.10.0、Clang 18 和便携 C 条件下引用既有检测与官方修复复测证据：三次独立运行 CI 均不含 0，Holm 家族 m=6 仅主检验被拒绝。本报告不修改或重新签收原结论。",
       "source": "docs/evidence/r02-r04-close-20261016/RESULT.md",
-      "category": "真实历史案例"
+      "category": "真实历史案例",
+      "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
     },
     {
       "id": "M2",
       "name": "秘密操作数除法",
       "case": "真实历史热点",
-      "software": "完整KEM资格",
-      "localization": "已执行",
-      "statistics": "未运行：«待主控数据»",
-      "formal": "未运行",
-      "summary": "历史 Kyber768 完整 keygen/encap/decap 已接通；macOS/ARM 与 x86_64 Linux 普通及 ASan/UBSan 均各 7/7，两版各 100 例官方 round3 KAT 全字段匹配。新生产 ELF 的三热点 div 差异仍在；旧 varlat 1280/3 对 0/0 只按旧热点 ELF 引用。时间统计未运行：«待主控数据»。",
+      "software": "完整KEM资格 7/7",
+      "localization": "已执行（阳性）：三热点 div 各 1→0；varlat 1280/3→0/0",
+      "statistics": "已执行：Holm 拒绝 0/6；合并 Δ +4.58 ns，CI [−3.08, +12.25]（含 0）",
+      "formal": "微基准已触发，not_run",
+      "summary": "历史 Kyber768 完整 keygen/encap/decap 已接通：两版普通与 ASan/UBSan 各 7/7、各 100 例官方 round3 KAT。锁频端到端家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移。族外 online dudect 阳性出现在已修臂（max|t| 36.27/30.94/61.91），不可归因于除法变体。定位层阳性（未修各 1 个 div、varlat 1280/3 对 0/0）与端到端未检出分层记录。",
       "source": "docs/evidence/m2-kem-20261016/RESULT.md",
-      "category": "真实历史案例"
+      "category": "真实历史案例",
+      "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
     },
     {
       "id": "M3",
       "name": "秘密下标访存",
       "case": "人工构造校准",
-      "software": "完整KEM夹具",
-      "localization": "已执行",
-      "statistics": "未运行：«待主控数据»",
+      "software": "完整解封装人工挂载 6/6",
+      "localization": "已执行：Memcheck 1280/2 对 0/0；Microwalk MI 1.922 对 0.722",
+      "statistics": "已执行：Holm 拒绝 0/6；合并 Δ −0.73 ns，CI [−5.56, +4.10]（含 0）",
       "formal": "未运行",
-      "summary": "人工 LUT 已挂载到真实完整 ML-KEM 解封装重加密路径；本机与 Linux 普通及 ASan/UBSan 均各 6/6，64 公开种子乘 5 类的完整字节等价通过。新 Linux 秘密标记 on 为 1280 errors / 2 contexts，off 与两 defined 对照均 0/0。Microwalk 记证据化降级；时间统计未运行：«待主控数据»。",
+      "summary": "人工 LUT 挂载到真实完整 ML-KEM 解封装重加密路径：on/off 普通与 ASan/UBSan 各 6/6、64 公开种子 × 5 类字节等价。定位层开臂 Memcheck 1280 errors/2 contexts（poly_frommsg）对关臂 0/0，Microwalk 开臂 poly_frommsg+30/+59 的 MI 1.922 bits（全场最高）对关臂 0.722。锁频端到端家族 m3_lut_arm_end_to_end_v1（臂内主类对 × 3 次运行 × 2 臂 = m=6）Holm 拒绝 0，合并 Δ −0.73 ns、CI [−5.56, +4.10]、I²=12.5%；跨臂 on/off 含二进制级常数偏移，只作受控对照、不进 Holm。人工构造校准，不计为新 CVE。",
       "source": "docs/evidence/m3-completion-20261016/RESULT.md",
-      "category": "人工构造校准"
+      "category": "人工构造校准",
+      "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
     },
     {
       "id": "M4",
       "name": "比较时提前退出",
       "case": "人工构造校准",
-      "software": "完整夹具资格",
-      "localization": "已执行",
-      "statistics": "未运行：«待主控数据»",
-      "formal": "有界已执行",
-      "summary": "独立 32 字节 checked compare 保留提前退出/全长度归约两版及软件资格。旧 Linux Memcheck 为 32 errors / 1 context 对 0/0。新增 Binsec 0.11.3 与 Z3 4.15.3 对固定 i386 -O1、公开长度 1-16 的抽取内核完整探索：vulnerable 为 insecure，ct 为有界 secure；halt 为 32/32 与 16/16，pending/cut/discontinued/solver unknown 均为零。时间统计未运行：«待主控数据»。",
+      "software": "夹具资格各 4/4",
+      "localization": "已执行：Memcheck 32/1 对 ct 0/0",
+      "statistics": "已执行：Holm 拒绝 3/6（全在 vulnerable 臂）；Δ −3.74 ns",
+      "formal": "Binsec：insecure 对 bounded secure",
+      "summary": "独立 32 字节 checked compare 夹具。定位层 vulnerable 报 32 errors/1 context（compare_early.c:9）对 ct 0/0；Binsec 0.11.3 + Z3 4.15.3 给 insecure（反例 0x8049047）对 bounded secure，-sse-depth 5 截断对照得 unknown。锁频端到端家族 m4_compare_arm_session_v1（臂内主类对 × 3 次运行 × 2 臂 = m=6）Holm 拒绝 3 项，全部来自 vulnerable 臂（原始 p = 0/9.23e−25/3.14e−22），ct 臂 p = 0.386/0.438/0.399；按臂描述性 vulnerable −4.089 [−4.215, −3.963]、ct +0.055 [−0.363, +0.473]。人工构造校准，不是新增 CVE。",
       "source": "docs/evidence/m4-completion-20261016/RESULT.md",
-      "category": "人工构造校准"
+      "category": "人工构造校准",
+      "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
     },
     {
       "id": "M5",
       "name": "mlkem-native 参考",
       "case": "阴性对照候选",
-      "software": "原生功能资格",
-      "localization": "已执行",
-      "statistics": "未运行：«待主控数据»",
+      "software": "原生功能资格 7/7",
+      "localization": "已执行且未检出：Memcheck/varlat 0/0",
+      "statistics": "已执行：Holm 拒绝 0/3；合并 Δ −5.30 ns，CI [−11.77, +1.16]（含 0）",
       "formal": "未主张",
-      "summary": "完整 mlkem-native 参考的原生普通/ASan+UBSan 资格通过；明确标记秘密 PKE 区及拒绝种子 z，保持公钥/hash/密文公开。v2 普通 ELF 在系统 Memcheck 与 patched varlat=no/yes 均各 10 次完整标记调用、0 errors / 0 contexts。在线 dudect 入口已准备但未计时；时间统计未运行：«待主控数据»。",
+      "summary": "固定 mlkem-native 参考（提交 b3ba7b32…）原生功能资格通过：普通与 ASan/UBSan 各 7/7、独立 NIST 向量 25+25+10 与 5 隐式拒绝。定位层对 PKE 秘密与拒绝种子 z 明确标记，Memcheck、varlat=no/yes 各 10 次完整调用 0 errors/0 contexts。锁频端到端家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、CI [−11.77, +1.16]、I²=0%；族外 dudect max|t| 2.10/1.98/2.82（state=1）。阴性只限本预算，不证明恒时。",
       "source": "docs/evidence/m5-completion-20261016/RESULT.md",
-      "category": "阴性对照候选"
+      "category": "阴性对照候选",
+      "statistics_pending": "RTLF α=.01 族外结果与 Mona 对 M2 对照行待补"
     }
   ],
   "sources": [
@@ -173,6 +178,48 @@
       "id": "E18",
       "label": "M1 开源检测器对照",
       "path": "docs/evidence/tooling-strengthen-20261015/RESULT.md",
+      "state": "tool_cross_check"
+    },
+    {
+      "id": "E19",
+      "label": "平台锁频采数原件（M2/M3/M4/M5）",
+      "path": "docs/evidence/platform-collection-20261016/README.md",
+      "state": "locked_collection"
+    },
+    {
+      "id": "E20",
+      "label": "Holm 家族与合并结果",
+      "path": "docs/evidence/platform-collection-20261016/stats/holm/RESULT.md",
+      "state": "family_statistics"
+    },
+    {
+      "id": "E21",
+      "label": "M3 定位复验（Memcheck 与 Microwalk）",
+      "path": "docs/evidence/m3-completion-20261016/LOCATE_RESULT.md",
+      "state": "localization_only"
+    },
+    {
+      "id": "E22",
+      "label": "M4 Binsec 形式化结果",
+      "path": "docs/evidence/m4-completion-20261016/FORMAL_RESULT.md",
+      "state": "bounded_formal"
+    },
+    {
+      "id": "E23",
+      "label": "M4 v2 采集件与口径",
+      "path": "docs/evidence/m4-completion-20261016/MEASURE_V2.md",
+      "state": "software_contract"
+    },
+    {
+      "id": "E24",
+      "label": "Mona 对 M2 六份主类对结果",
+      "path": "docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-mona.csv",
+      "state": "tool_cross_check"
+    },
+    {
+      "id": "E25",
+      "label": "Mona 对 M2 明细（最高成功百分比与箱体）",
+      "path": "docs/evidence/mona-wire-20261016/native-v2/run/m2/m2-details.csv",
       "state": "tool_cross_check"
     }
   ],
@@ -717,5 +764,5 @@
     "docs/evidence/mona-wire-20261016/native-qualification/source/source-identity.json",
     "docs/evidence/mona-wire-20261016/native-qualification/upload-verification.log"
   ],
-  "remaining_summary": "完整 KEM、人工挂载与 M4 小函数有界验证均已有对应证据；M2–M5 的锁频时间统计、在线 dudect、Mona 对 M2 新数据的对照和复测仍待主控采数后回填（占位符 «待主控数据»）。"
+  "remaining_summary": "M2–M5 的锁频端到端家族统计与 Mona 对 M2 的六份主类对对照已回填（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂；Mona 三个未修臂与 s1/s2 已修臂均无通过验证的箱体分离，s3 已修臂出现一次末轮单子集 100%）。仍未回填：RTLF α=.01 的族外结果（partial/in_progress，仅 s1 主类对与对照类对完成且原日志尚未落盘）与 M2 微基准层（触发条件已满足、not_run）。这些位置不是阴性。"
 }

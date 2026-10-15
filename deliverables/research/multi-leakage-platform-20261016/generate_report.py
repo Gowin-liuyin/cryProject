@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """从显式状态、对照表和已存在证据生成文稿，不推断未运行实验的结果。
 
 输入：report-data.json（模块状态与证据来源）、report-tables.json（题面第3/4/5条等对照表）。
@@ -37,6 +38,7 @@ MATH_REPLACEMENTS = [
     ("÷", r"\texorpdfstring{$\div$}{/}"),
     ("·", r"\texorpdfstring{$\cdot$}{.}"),
     ("′", r"\texorpdfstring{$'$}{'}"),
+    ("≠", r"\texorpdfstring{$\neq$}{!=}"),
 ]
 
 
@@ -132,7 +134,7 @@ def get_sections(data, tables):
         ("研究对象与证据口径", [
             "平台把编译器引入分支、秘密操作数除法、秘密访存地址和提前退出比较分开处理，并以固定参考实现作为阴性对照候选。统一接口的目的，是让不同机制接受相同的来源记录、调用窗口、数据格式与结果审查，而不是用模块数量代替安全结论。",
             "M1 与 M2 是固定提交的真实历史路径；M3 与 M4 是人工构造校准（前者为秘密下标查表，后者为提前退出比较），其阳性只能检验检测器能否识别目标机制，不计为新的真实 CVE；M5 是固定 mlkem-native 的阴性对照候选。四条证据链分列，不互相冒充。",
-            "本报告把四种状态写全并区分：(1) 已执行且检出（含人工校准的目标机制）；(2) 已执行且未检出，必须带工具、输入范围与调用边界；(3) 未执行，一律写“未执行”或 not_run，不写成阴性或未检出；(4) 锁频采数尚未回填，写 " + placeholder + "，同样不是阴性。软件资格、源与产物机制、工具定位、原始时间观察、正式统计与竞赛验收互相独立。",
+            "本报告把四种状态写全并区分：(1) 已执行且检出（含人工校准的目标机制）；(2) 已执行且未检出，必须带工具、输入范围与调用边界；(3) 未执行，一律写“未执行”或 not_run，不写成阴性或未检出；(4) 仍未回填的少数位置写 " + placeholder + "，同样不是阴性。本轮 M2–M5 的锁频家族统计已实际执行并回填；仍未回填的只有 RTLF α=.01 族外结果（partial（进行中）：主控报告 s1 主类对 exit 11、同数据集对照类对 exit 10，其余数据集仍在执行且原日志尚未落盘，故本报告记 «待主控数据»）与 M2 微基准层（触发条件已满足、当前 not_run）。Mona 对 M2 的对照行本轮已回填。软件资格、源与产物机制、工具定位、原始时间观察、正式统计与竞赛验收互相独立。",
             "完整完成条件与命令合同以 [E01](../../../docs/platform/COMPLETION_REQUIREMENTS.md) 为准；M1 的旧范围保持封存身份，本报告不重做、不改写。 [E01,E02,E10]"
         ], []),
         ("平台架构与机制矩阵", [
@@ -141,9 +143,9 @@ def get_sections(data, tables):
         ], ["FIGURE"]),
         ("统一测量与统计方法", [
             "普通计时应覆盖声明的完整调用；输入生成、分配、日志、结果消费与 I/O 位于窗口外。热点微基准和独立夹具必须另标调用边界，不与完整解封装混合。普通长尾保留；动态检查产物与正式采集产物分开。源、未提交改动摘要、编译器、选项、ISA、时钟单位、种子、CPU 与二进制摘要共同限定结果。",
-            "正式采数前须冻结并本地提交 PLAN，写明主类对、样本预算、停止条件、复测与参数假设族。锁频任务由主控在 CPU2/CPU6 串行调度：boost 关闭、performance、约 4.30 GHz、taskset，并保存进入、采中、退出记录；退出必须实际核对 restore_match。请求频率、可见回读与真实物理恒频是不同声明；新模块的频率与恢复记录随采数回填：" + placeholder + "。",
+            "正式采数前须冻结并本地提交 PLAN，写明主类对、样本预算、停止条件、复测与参数假设族。锁频任务由主控在 CPU2/CPU6 串行调度：boost 关闭、performance、约 4.30 GHz、taskset，并保存进入、采中、退出记录；退出必须实际核对 restore_match。请求频率、可见回读与真实物理恒频是不同声明。本轮 M2–M5 的 54 次控制器运行全部 restore_match=yes，放行探针 20/20 落在 4300000 ±2% 且跨度 ≤50000 kHz；这是工程控制观测，不主张逐调用物理恒频或物理误差界。 [E19]",
             "现有 C 电池使用两组样本均值、样本方差、Welch t 与自由度；95% 区间与 p 值采用大样本正态近似（z=1.9599639845），不能称有限样本精确 Student-t。零方差、数据不足、缺工具或失败均单列状态。参数 p 按事前家族做 Holm；RTLF 固定 α=.01；dudect 最大 t、RTLF 二值结果与 Mona 结果不伪造为 p 纳入 Holm。",
-            "本轮冻结的家族口径：M2 与 M5 的家族成员为主类对 × 3 次运行 × 2 版；M3 与 M4 的家族成员为臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 对比只作受控对照（含二进制级常数偏移），不进 Holm 家族；RTLF（α=.01）与 online dudect 一律族外。家族实际运行结果：" + placeholder + "。 [E01,E08]"
+            "本轮冻结的家族口径：M2 与 M5 的家族成员为主类对 × 3 次运行 × 2 版；M3 与 M4 的家族成员为臂内主类对 × 3 次运行 × 2 臂 = m=6，跨臂 on/off 对比只作受控对照（含二进制级常数偏移），不进 Holm 家族；RTLF（α=.01，二值结论）与 online dudect 一律族外、不进 Holm；RTLF 的 difference_detected 与 Welch/Holm 的均值判定不冲突（RTLF 检验的是分布差异，不是均值差），两者分列不互相替代。截至本次刷新 RTLF 为 partial（进行中），只有 m2-s1-unfixed 的主类对（退出码 11）与同数据集对照类对（退出码 10）完成且原日志尚未落盘，本报告不把它写成已验证数字或全阴性。家族实际运行结果：M2 m=6 拒绝 0（合并 Δ +4.58 ns，CI [−3.08, +12.25]，I²=58.3%）；M3 m=6 拒绝 0（−0.73 ns，[−5.56, +4.10]，I²=12.5%）；M4 m=6 拒绝 3 且全在 vulnerable 臂（−3.74 ns，[−3.87, −3.62]，I²=98.6%）；M5 m=3 拒绝 0（−5.30 ns，[−11.77, +1.16]，I²=0%）。 [E01,E08,E19,E20]"
         ], []),
         ("检测—定位—修复—复测：四段链状态", [
             "检测段回答“不同类别的执行时间是否可区分”，必须给样本预算、描述统计、区间与检验族；定位段回答“差异对应源码或产物中的哪个机制”，必须给工具、命中位置与实际调用边界；修复段优先使用上游官方修复，人工校准使用明确标注的目标机制开关，并先核对功能等价与拒绝语义；复测段在同规程下独立再运行，比较修复或关闭前后的同向性与稳定性。",
@@ -151,27 +153,27 @@ def get_sections(data, tables):
         ], ["T1"]),
         ("题面第 3 条对照：输入分类与测试", [
             "题面第 3 条要求至少两类具有明确区别的解封装输入、足够次数的重复实验并记录解封装时间，且不应只比较长度明显不同、路径完全不同的数据。平台的做法是：合法密文之间只改解密消息位（message-zero 与 message-ones，同为等长合法密文），异常输入使用同长度的位翻转、随机与验证失败密文；长度类拒绝在封装层先检查，不计入内核类别样本。",
-            "重复次数与时间记录按模块分列：M1 已完成每类 10000 值 × 3 次独立运行；M2–M5 的样本预算已写入各自 PLAN，实际锁频运行 " + placeholder + "。定位层的 10 次完整标记调用（M3/M5）是有限动态检查，不作为统计样本。"
+            "重复次数与时间记录按模块分列：M1 已完成每类 10000 值 × 3 次独立运行；M2–M5 本轮同样完成每类 10000 次、预热 100（窗口外）与 r1/r2/r3 三次独立运行（换种子、换物理核），共 54 次控制器运行全部 restore_match=yes。定位层的 10 次完整标记调用（M3/M5）是有限动态检查，不作为统计样本。 [E19]"
         ], ["T2"]),
         ("题面第 4 条对照：侧信道统计检测", [
             "题面第 4 条要求用统计方法判断不同输入类别是否存在显著可区分性，可使用均值、方差、分位数、置信区间与适当的统计检验，且不能仅凭少量样本或单次测试结论。平台实现分三层：描述统计（均值、标准差、分位数）、参数推断（Welch 均值差与 95% 正态近似区间、Holm 逐步校正）与族外交叉（RTLF α=.01、在线 dudect、Mona 统计对照）。",
-            "M1 三层均已执行，并在换种子、换物理核两次独立复测上复现；M2–M5 的统计层尚未运行，全部记 " + placeholder + "，不画零效应、不填空白区间。工具自身的合成正负校准只证明软件接口，不填充密码实现的结果。"
+            "M1 三层均已执行，并在换种子、换物理核两次独立复测上复现；M2–M5 本轮完成参数层（Welch 95% 正态近似区间与 Holm）与族外 dudect：M2/M3/M5 未拒绝、M4 在 vulnerable 臂拒绝 3 项。工具自身的合成正负校准只证明软件接口，不填充密码实现的结果。 [E20]"
         ], ["T3"]),
         ("题面第 5 条对照：六类泄漏来源 × 解封装步骤", [
             "题面第 5 条列举六类泄漏来源——敏感条件分支、提前返回、可变时间比较函数、数据相关循环、数据相关内存访问、失败路径及异常处理——并要求说明其与 ML-KEM 解封装流程的对应关系。下表按四个步骤逐格给出“查了什么工具或方法、结果如何”：解密（indcpa_dec 与 poly_tomsg 消息解码）、重加密（indcpa_enc）、比较（verify ct 与 ct'）、隐式拒绝（J(z‖ct) 与统一错误路径）。",
-            "表格只写已有证据：M1 为真实历史案例，已有 Valgrind、反汇编与三次独立统计；M2 为真实历史案例，静态除法差异与热点探针 varlat 已执行，完整调用时间统计 " + placeholder + "；M3 与 M4 的阳性全部为人工构造校准；M5 的 0 errors/0 contexts 只覆盖固定源码、编译器与有限输入。没有证据的格子写“未执行”。KyberSlash 的秘密操作数除法不属于题面六类，单独列在末行以免与“可变时间比较函数”混淆。"
+            "表格只写已有证据：M1 为真实历史案例，已有 Valgrind、反汇编与三次独立统计；M2 为真实历史案例，静态除法差异与热点探针 varlat 已执行且为阳性，完整调用端到端统计已执行但未检出（Holm 拒绝 0，CI 含 0）；M3 与 M4 的阳性全部为人工构造校准；M5 的 0 errors/0 contexts 只覆盖固定源码、编译器与有限输入。没有证据的格子写“未执行”。KyberSlash 的秘密操作数除法不属于题面六类，单独列在末行以免与“可变时间比较函数”混淆。"
         ], ["T4"]),
         ("M1 既有真实案例与 Mona 对照", [
             "既有 M1 针对固定 liboqs 0.10.0、Clang 18 与便携 C 路径，保留原源码、产物分支、工具、逐次数据与官方修复复测证据。本报告只引用 [E02](../../../docs/evidence/r02-r04-close-20261016/RESULT.md) 的限定结论，不修改旧 CSV、旧家族或原报告。",
             "原 E02 表中主类对三次未修均值差为 +39.337、+31.117、+22.337 ns；对应已修为 −13.209、+8.354、−4.885 ns。Holm 家族 m=6 只拒绝未修主检验（p=1.30×10⁻⁵ 对阈值 0.00833）。这些数字是封存引用，不是本报告生成时的新采集；区间、预算、环境与原族以 [E17](../../../docs/evidence/liboqs010-locked-20261015/README.md) 与 [E02](../../../docs/evidence/r02-r04-close-20261016/RESULT.md) 为准。",
             "工具交叉印证见 [E18](../../../docs/evidence/tooling-strengthen-20261015/RESULT.md)：Valgrind 只标记 indcpa 私钥前 1152 B 时，未修在 poly_frommsg（poly.c:179）报 1 个秘密条件跳转、已修 0 个；反汇编为 bt+jae 变为 setb 加 cmov_int16；同规程 RTLF 与在线 dudect 与 CI 方向一致。这不是端到端恒时证明。",
-            "新增 Mona 对既有六份类对的真实离线回放并未与既有检测方向一致：三份 vulnerable 均无通过验证的箱体分离；primary 与 seed-424242 的 fixed 各有一个成功记录，CPU6 fixed 未找到最优箱体。两项成功都出现在扩展后只剩一个验证子集的末轮，不能解释为受控总体误报率或上游修复失效。Mona 是族外独立观察，不替换 CI/Welch、Holm、RTLF 或 dudect。 [E09]"
+            "新增 Mona 对既有六份类对的真实离线回放并未与既有检测方向一致：三份 vulnerable 均无通过验证的箱体分离；primary 与 seed-424242 的 fixed 各有一个成功记录，CPU6 fixed 未找到最优箱体。两项成功都出现在扩展后只剩一个验证子集的末轮，不能解释为受控总体误报率或上游修复失效。Mona 是族外独立观察，不替换 CI/Welch、Holm、RTLF 或 dudect。本轮新增 Mona 对 M2 六份主类对的真实执行（工具身份 mona-timing-report@4c74fb7e，离线上游内核，六份原始 CSV 跑完后 sha256 6/6 未变）：**三个未修臂在 Mona 箱体规则下都没有通过验证的箱体分离（0/9 ×3），s1/s2 的已修臂同样无分离（0/9、0/7）；只有 s3 已修臂出现一次 validated_box_separation（1/8，X<Y 箱 0.27–0.34、5120 值、子集数 1），属该自适应实现「末轮只剩 1 个子集」的已知假阳性模式**（与 M1 两项 fixed 同型）。六批最高批次成功百分比依次为 74%、18%、34%、29%、34%、100%。这**不说明两臂等价或恒时，也不推翻 Welch CI + Holm、RTLF 或 dudect 的结论**；Mona 的 `holm_member=false`，`Confidence Interval` 字段是批次成功百分比而非 p 值或覆盖区间。 [E09,E24,E25]"
         ], []),
         ("M2 KyberSlash：真实历史案例", [
             modules[1]["summary"],
             "未修固定为 a621b8dde405cc507cbcfc5f794570a4f98d69cc，完整已修固定为 272125f6acc8e8b6850fd68ceb901a660ff48196；均以完整提交而非 exact tag 钉版。中间 dda29cc 只修 KyberSlash1，不能当作完整修复。对象是历史 Kyber768，不能冒称 FIPS 203 ML-KEM-768。",
             "定位实际在 x86_64 Linux、Clang 18.1.3、-Oz 且关闭向量化的固定产物中执行：poly_tomsg（解密段）与 polyvec_compress、poly_compress（重加密段）的秘密相关操作数数据流与各自一条 div 对应。varlat 默认上下文 PC 落在系数 load，不能直接把该 PC 当成静态 div 地址；归因来自同 ELF 数据流、源码、反汇编及 varlat 开关对照。",
-            "完整 KEM 的适用独立 KAT、边界与原生产物资格见 [E13](../../../docs/evidence/m2-kem-20261016/RESULT.md)；完整调用软件合同 [E12](../../../docs/evidence/m2-kem-20261016/SOFTWARE_CONTRACT.md) 与实际结果分开。新生产 ELF 未重跑旧 varlat 探针，旧定位不倒写成新产物动态结果。完整调用的时间统计 " + placeholder + "；若有限预算内未检出，按已冻结合同保留该结果并分层解释热点微基准。 [E03,E04,E12,E13]"
+            "完整 KEM 的适用独立 KAT、边界与原生产物资格见 [E13](../../../docs/evidence/m2-kem-20261016/RESULT.md)；完整调用软件合同 [E12](../../../docs/evidence/m2-kem-20261016/SOFTWARE_CONTRACT.md) 与实际结果分开。新生产 ELF 未重跑旧 varlat 探针，旧定位不倒写成新产物动态结果。完整调用的端到端统计已执行：家族 m2_end_to_end_full_decaps_v1（m=6）Holm 拒绝 0，合并 Δ +4.58 ns、95% CI [−3.08, +12.25]（含 0）、I²=58.3%，即未检出；按臂描述性方向相反（未修 +12.35、已修 −11.20）＝臂间漂移，不据此新增声明。族外 dudect 的阳性出现在已修臂，不可归因于除法变体。微基准触发条件已满足（端到端未拒绝），但本轮未执行，记 not_run。 [E03,E04,E12,E13,E19,E20]"
         ], []),
         ("M3 与 M4：人工机制校准", [
             modules[2]["summary"],
@@ -184,17 +186,17 @@ def get_sections(data, tables):
             modules[4]["summary"],
             "固定 mlkem-native 提交为 b3ba7b32773e657dd37f6f87bce82528459ad8a4；完整库及许可证共 126 文件复核一致。实际调用链为 reference_measure 到 mlkem_decapsulate，再到 baseline_native_dec；普通测量链接 reference/libmlkem.a，未混入历史 liboqs 或人工补丁变体。",
             "原生定位把 ML-KEM-768 解封装密钥的 PKE 秘密部分与拒绝秘密 z 标记为 undefined，内嵌公开 key、公开 hash 与密文保持 defined；发行版 Memcheck、固定补丁 varlat=no 与 varlat=yes 三模式下各 10 次完整调用均为 0 errors/0 contexts。这是已执行且未检出，只覆盖该源码、编译器、后端与有限输入，不构成恒时证明或总体误报率为零。",
-            "在线 dudect 入口已构建并通过不读钟 callback 与合成 raw 写出自检；正式计时与统计 " + placeholder + "。阴性结论必须来自真实运行的 CI/Holm/RTLF/dudect，不能由“工具没有报警”代替。 [E07,E15]"
+            "在线 dudect 入口已构建并通过不读钟 callback 与合成 raw 写出自检，本轮完成正式采集：家族 m5_reference_end_to_end_v1（m=3）Holm 拒绝 0，合并 Δ −5.30 ns、95% CI [−11.77, +1.16]（含 0）、I²=0%；族外 dudect max|t| = 2.10/1.98/2.82、state=1。这是本预算内的未检出，不是恒时证明，也不给出总体误报率为零；RTLF 的族外结果为 partial（进行中）（主控报告 s1 主类对 exit 11、同数据集对照类对 exit 10；其余数据集仍在执行、原日志尚未落盘），本报告记 «待主控数据»，未完成不等于未检出，也不等于阴性。 [E07,E15,E19,E20]"
         ], []),
         ("实测数值、证据对照与复算入口", [
             "下表把本报告出现的每个实测数字指向具体证据文件；M1 各行是封存引用，其余为本轮新增产物的原文数字。任何数字不能回到文件字段的，一律不写。",
-            "复算入口分两层：(1) 统计与图形由仓库内显式数据文件重建（report-data.json、report-tables.json、EVIDENCE_MATRIX.csv）；(2) 匿名 ZIP 解出后在独立目录重新构建并执行包内 CTest，命令与通过数记录在 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute.log，不复用仓库本体充当复算。离线复算只重算已有数据，不算新硬件实验；外部 RTLF、Mona、dudect 与 Binsec 不在该入口重执行。"
+            "复算入口分两层：(1) 统计与图形由仓库内显式数据文件重建（report-data.json、report-tables.json、EVIDENCE_MATRIX.csv）；(2) 匿名 ZIP 解出后在独立目录重新构建并执行包内 CTest，命令与通过数记录在 docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute.log（刷新包）与 docs/evidence/platform-report-20261016/final-20261016/offline-reproduction.json（终版包），不复用仓库本体充当复算。离线复算只重算已有数据，不算新硬件实验；外部 RTLF、Mona、dudect 与 Binsec 不在该入口重执行。"
         ], ["T5"]),
         ("当前局限、占位符与后续验收", [
             data.get("remaining_summary", "完整 KEM 与人工挂载的适用资格已有新原生证据；各新模块的正式时序、在线 dudect 与复测须继续核对。"),
             "正式统计完成并不要求每个历史实现都在当前 x86_64 上出现阳性。若完整调用不可区分，应报告预算、区间与工具状态，并保留定位与微基准的分层结果；若阴性候选出现阳性，应调查噪声、样本结构与产物机制，不能为了满足预期删除普通长尾或改类。任何工具失败都不能自动归入安全阴性。",
             "本项目不做密钥恢复、不交付 exploit，不把历史 Kyber 等同于最终标准 ML-KEM，也不把人工夹具算作新漏洞。物理精度、逐调用恒频、所有输入下恒时与总体误报率均须单独证据；本报告没有增加这些主张。",
-            "下表列出所有 " + placeholder + " 占位符的回填目标；回填只替换占位符与证据路径，不改动已写明的已执行事实与边界。最终验收以 [E01](../../../docs/platform/COMPLETION_REQUIREMENTS.md) 的逐项条件为准，而不是以文稿、图表或模块数量替代实验完成。 [E01]"
+            "下表列出剩余 " + placeholder + " 占位符与 not_run 项的回填目标（RTLF 族外结果、M2 微基准层）；回填只替换对应文本与证据路径，不改动已写明的口径与边界。最终验收以 [E01](../../../docs/platform/COMPLETION_REQUIREMENTS.md) 的逐项条件为准，而不是以文稿、图表或模块数量替代实验完成。 [E01]"
         ], ["T6"])
     ]
 
@@ -269,9 +271,9 @@ def main():
     (DIRECTORY / "evidence-snapshot.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n")
     matrix_svg = render_matrix_svg(data["modules"])
     (DIRECTORY / "platform-matrix.svg").write_text(matrix_svg)
-    summary = "真实历史案例与人工构造校准分列；检测、定位、修复、复测四段链逐模块给出实际状态，未运行不写成未检出。M2–M5 的锁频时间统计以 «待主控数据» 占位。"
+    summary = "真实历史案例与人工构造校准分列；检测、定位、修复、复测四段链逐模块给出实际状态，未运行不写成未检出。M2–M5 的锁频家族统计与 Mona 对 M2 的六份主类对对照已回填；RTLF 为 partial（进行中）、M2 微基准层为 not_run，两者都不写成阴性。"
     markdown = ["# " + data["title"], data["subtitle"], "日期：" + data["date"], "摘要：" + summary]
-    tex = [r"\documentclass[UTF8,fontset=fandol,11pt,a4paper]{ctexart}", r"\usepackage[margin=23mm]{geometry}", r"\usepackage{booktabs,longtable,array,amsmath,xcolor,colortbl,pdflscape,hyperref,seqsplit,graphicx}", r"\definecolor{headergray}{gray}{0.88}", r"\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={},pdftitle={多泄漏模块检测平台补充报告},pdfsubject={CACR2026EA16XZ},pdfcreator={XeLaTeX}}", r"\setlength{\parindent}{2em}\setlength{\parskip}{0.5em}\linespread{1.18}\raggedbottom\pagestyle{plain}\emergencystretch=2em", r"\begin{document}", r"\thispagestyle{empty}\vspace*{16mm}\begin{center}{\LARGE\bfseries " + tex_escape(data["title"]) + r"\par}\vspace{8mm}{\large " + tex_escape(data["subtitle"]) + r"\par}\vspace{9mm}参赛编号：CACR2026EA16XZ\par " + data["date"] + r"\end{center}\vspace{12mm}", r"\section*{摘要}", tex_escape(summary), r"本报告围绕统一检测、定位、修复与复测工程，整理五个模块的可追溯证据，并按题面第 3、4、5 条给出逐项对照表。固定历史真实路径用于真实案例，人工夹具用于机制校准，参考实现用于阴性对照候选。工具运行、软件资格、定位阳性、统计结果与完整验收分别列示；锁频采数未完成处一律写 «待主控数据»，不预填数值。", r"\par\vspace{6mm}\noindent\textbf{关键词：}侧信道检测；KyberSlash；秘密标记；人工机制校准；可复算证据", r"\vfill\noindent 版本性质：多机制平台补充载体。旧报告与原始证据保留；未运行项见正文、对照表与证据索引。"]
+    tex = [r"\documentclass[UTF8,fontset=fandol,11pt,a4paper]{ctexart}", r"\usepackage[margin=23mm]{geometry}", r"\usepackage{booktabs,longtable,array,amsmath,xcolor,colortbl,pdflscape,hyperref,seqsplit,graphicx}", r"\definecolor{headergray}{gray}{0.88}", r"\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={},pdftitle={多泄漏模块检测平台补充报告},pdfsubject={CACR2026EA16XZ},pdfcreator={XeLaTeX}}", r"\setlength{\parindent}{2em}\setlength{\parskip}{0.5em}\linespread{1.18}\raggedbottom\pagestyle{plain}\emergencystretch=2em", r"\begin{document}", r"\thispagestyle{empty}\vspace*{16mm}\begin{center}{\LARGE\bfseries " + tex_escape(data["title"]) + r"\par}\vspace{8mm}{\large " + tex_escape(data["subtitle"]) + r"\par}\vspace{9mm}参赛编号：CACR2026EA16XZ\par " + data["date"] + r"\end{center}\vspace{12mm}", r"\section*{摘要}", tex_escape(summary), r"本报告围绕统一检测、定位、修复与复测工程，整理五个模块的可追溯证据，并按题面第 3、4、5 条给出逐项对照表。固定历史真实路径用于真实案例，人工夹具用于机制校准，参考实现用于阴性对照候选。M2–M5 的锁频端到端家族统计已按各自 PLAN 执行并回填（M2/M3/M5 Holm 拒绝 0，M4 拒绝 3 项且全在 vulnerable 臂）；Mona 对 M2 的六份主类对对照本轮亦已回填；仍未回填的 RTLF 族外结果（partial（进行中））记 «待主控数据»、M2 微基准层记 not\_run，都不预填数值。", r"\par\vspace{6mm}\noindent\textbf{关键词：}侧信道检测；KyberSlash；秘密标记；人工机制校准；可复算证据", r"\vfill\noindent 版本性质：多机制平台补充载体。旧报告与原始证据保留；未运行项见正文、对照表与证据索引。"]
     html_sections = []
     for section_index, (title, paragraphs, table_ids) in enumerate(sections, 1):
         markdown.extend(["\n## " + str(section_index) + " " + title, *paragraphs])

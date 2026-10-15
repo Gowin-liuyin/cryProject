@@ -1,7 +1,8 @@
 # F02/F03/F04 刷新记录（2026-10-16，本机 macOS/ARM）
 
-本轮把报告正文、平台矩阵图、离线 HTML、匿名 ZIP 刷新到当前状态，并**从实际 ZIP 解出后**
-在独立目录重跑 CMake + build + CTest。没有硬件采数、没有调频、没有改旧封存 DOCX/PDF、
+本文件记录两阶段：**refresh-20261016**（结构、对照表、图与包刷新，统计留占位）与
+**final-20261016**（主控真实锁频数字回填后的终版包，见文末「第二阶段」）。两阶段都**从实际 ZIP
+解出后**在独立目录重跑 CMake + build + CTest。没有硬件采数、没有调频、没有改旧封存 DOCX/PDF、
 没有改 M1 证据、没有 `git add`/`commit`/`push`。
 
 占位符约定：锁频采数尚未回填处一律写 `«待主控数据»`。源文件（JSON/Markdown/HTML/SVG）里
@@ -177,3 +178,180 @@ python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py 
   没有 `sudo`；没有硬件采数、调频或隔离配置写入。
 - 没有把仓库本体的构建冒充当次 ZIP 复算；没有把定位结果、软件资格或工具无报警写成统计结论。
 - draft05/10/11/12 与旧报告载体保持原字节。
+
+---
+
+# 第二阶段：final-20261016（真实锁频数字回填后的终版包）
+
+主控在 2026-10-16 02:30 交付 M2–M5 的真实锁频数字。回填前**逐项与证据文件核对**：
+`docs/evidence/platform-collection-20261016/README.md`、`.../stats/holm/{RESULT.md,holm_summary.json}`、
+`m2-kem-20261016/RESULT.md`、`m3-completion-20261016/{RESULT.md,LOCATE_RESULT.md}`、
+`m4-completion-20261016/{RESULT.md,FORMAL_RESULT.md,MEASURE_V2.md}`、`m5-completion-20261016/RESULT.md`。
+**没有一个数字是口头转述而未在文件中出现**；六项原始 p 值另与 `holm_summary.json` 逐项比对一致。
+
+## F1. 数据与正文回填
+
+更新 `report-data.json`（五模块 `software/localization/statistics/formal` 与摘要、来源增至 23 份、
+`document_state=final_20261016_statistics_filled_rtlf_and_mona_pending`）与 `report-tables.json`
+（T1 四段链、T2 题面第 3 条、T3 第 4 条、T4 六类 × 四步、T5 数字—证据 21 行、T6 剩余占位符），然后：
+
+```sh
+python3 deliverables/research/multi-leakage-platform-20261016/generate_report.py
+```
+
+新增来源：E19 锁频采数原件、E20 Holm 家族结果、E21 M3 定位复验、E22 M4 Binsec 形式化、
+E23 M4 v2 采集件与口径。生成器第 2 行新增 `# -*- coding: utf-8 -*-`：本机无 locale 环境下
+Python 3.9 的 tokenizer 会对含中文的源文件报 `Non-UTF-8 code`，显式声明后稳定（该文件不进包）。
+
+回填的关键数字（均可在 T5 所指文件逐字核对）：M2 m=6 / Holm 拒绝 0 / Δ +4.58 ns CI [−3.08, +12.25] / I²=58.3%；
+M3 m=6 / 0 / −0.73 ns [−5.56, +4.10] / 12.5%；M4 m=6 / **3（全在 vulnerable 臂）** / −3.74 ns
+[−3.87, −3.62] / 98.6%；M5 m=3 / 0 / −5.30 ns [−11.77, +1.16] / 0%。口径按主控要求原样保留：
+M2 定位阳性与端到端未检出分层；M4 的 insecure 只针对该夹具；M3/M4 明写人工构造校准；
+M5 阴性只限本预算；RTLF 与 dudect 一律族外、最大 t 不转伪 p；“CI 含 0 且 Holm 不拒绝”＝未检出。
+
+## F2. PDF 与目视核验
+
+```sh
+for round in 1 2; do xelatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=build/platform-report-s8 \
+  deliverables/research/multi-leakage-platform-20261016/report.tex; done
+cp build/platform-report-s8/report.pdf deliverables/research/multi-leakage-platform-20261016/report.pdf
+pdftoppm -r 100 -png deliverables/research/multi-leakage-platform-20261016/report.pdf \
+  docs/evidence/platform-report-20261016/refresh-20261016/render-final/page
+```
+
+结果：**22 页**，PDF SHA-256 `ee94ee847853a790cfc144b39072e7aabc3b3e4708fa0af0808aa146ddb3b20e`；
+日志 `xelatex-final-first.log` / `xelatex-final-second.log`：**0 Overfull、0 Underfull、0 缺字、
+0 hyperref 警告**。逐页渲染与 contact sheet 见 `render-final/`（横向页 5、6、11、12、13）。
+
+修掉的两类版式缺陷（照实记录）：(a) 表格末列的 `[E06][E16]…` 连写超出列宽，改为 ID 间加空格；
+(b) `≠`（U+2260）在 lmroman 缺字，映射为 `\texorpdfstring{$\neq$}{!=}`。
+
+## F3. 平台矩阵图
+
+```sh
+python3 deliverables/research/platform-completion-20261016/figures/render_matrix.py
+python3 deliverables/research/platform-completion-20261016/figures/render_preview.py
+```
+
+`EVIDENCE_MATRIX.csv` 的 M2–M5 行改为实际家族结果；SVG 1492×975、PNG 2984×1950；
+`CAPTION.md`、`REVIEW.md`、`RENDER_ENV.json`、`SHA256SUMS` 同步；副标题与脚注改为
+“M2–M5 已回填，`«待主控数据»` 只剩 RTLF、Mona 对 M2 行与 M2 微基准”，并保留“结果图不是计划图”。
+
+## F4. 终版匿名包与解出复算
+
+```sh
+python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/build_support.py \
+  --revision final-20261016
+sh docs/evidence/platform-report-20261016/refresh-20261016/run_zip_recompute_final.sh \
+  > docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final.log 2>&1
+python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py final-20261016
+```
+
+- 包：**768 成员、767 摘要、93 个本地 HTML 链接、0 直接身份字串**；ZIP SHA-256
+  `15f8e2e4c71cf0a093ea7b992d5008ede74623500fe1291e1ebbf49f66cf7799`。
+- **解出复算：CTest 5/5 通过、0 失败（总耗时 2.06 s）**，解出到新建
+  `build/zip-recompute-final-20261016/`；原日志 `zip-recompute-final.log`（111 行，含 ZIP 摘要、
+  解出清单、CMake 配置与构建、`ctest -N`、逐项结果与 6 份 data CSV 的 SHA-256）。
+- 独立审计（`docs/evidence/platform-report-20261016/final-20261016/`）：`pdf-metadata-audit.json`
+  （22 页、作者空、0 私有标记、无文档级 JavaScript）、`offline-reproduction.json`
+  （只从实包解出后重建，CTest 5/5，6 数据集回放、12 个 C 输出逐字一致、原始时间输入字节未变）、
+  `validator-rejection-tests.json`（八种坏例全部拒绝）。
+- 包内 report 负载与仓库副本逐字节一致（pdf、tables、data、snapshot、svg 五项摘要相同）。
+
+保留的失败：第一次 `final-20261016` 成包在验证阶段被拒，原因是 T5 的复算日志行仍是
+Markdown 链接、指向包内不存在的 `refresh-20261016/zip-recompute.log`；改为纯路径文本后重新成包，
+失败尝试的暂存目录与半成品 ZIP 已删除。另有一次本记录文件自身的 heredoc 事故：追加本文的命令里
+含示例用的 `PY` 结束行，提前结束了外层 heredoc，使后续示例行被 shell 执行（含一次失败的 xelatex、
+一次无参数的 `build_support.py` 调用与一次复算重跑）。已核对：发布的 PDF、ZIP、包内负载摘要与
+`final-20261016/` 审计产物均未被破坏；被清空的 `zip-recompute-final.log` 已重新实测生成；
+本文件改用编辑工具写入，不再使用内嵌示例命令的 heredoc。
+
+## F5. 剩余占位符（final-20261016 阶段）
+
+数据位 3 处：T3 的 RTLF 状态、T5 的 RTLF 行、T5 的 Mona 对 M2 行（T6 清单列出这三项）。
+它们**都不是阴性**；回填需新 revision 并重跑复算。（final2-20261016 阶段已回填 Mona，
+只剩 RTLF 与 M2 微基准，见下。）
+
+---
+
+# 第三阶段：final2-20261016（Mona 对 M2 回填 + RTLF partial 状态）
+
+主控在 2026-10-16 02:5x 交付 Mona 对 M2 的六份主类对结果与 RTLF 的部分状态。
+**逐项核对**：`docs/evidence/mona-wire-20261016/RESULT.md`「本轮追加：M2 对照行」、
+`native-v2/run/m2/{m2-mona.csv,m2-details.csv}`（两文件逐字读到与主控表格一致）；
+RTLF 的两条退出码**只出现在主控消息中，仓库里没有对应原日志**（`docs/evidence/platform-rtlf-*`
+不存在），因此报告中按“主控报告 + 原日志尚未落盘”归因书写，不写成已验证数字。
+
+## G1. 回填内容与命令
+
+```sh
+# report-data.json：新增 E24（m2-mona.csv）、E25（m2-details.csv），document_state=final2_20261016_mona_filled_rtlf_partial
+# report-tables.json：T5 的 Mona 行改为六份数据集实际状态；T5/T3 的 RTLF 改为 partial（进行中）；T6 去掉 Mona 行
+python3 deliverables/research/multi-leakage-platform-20261016/generate_report.py
+for round in 1 2; do xelatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=build/platform-report-s8 \
+  deliverables/research/multi-leakage-platform-20261016/report.tex; done
+cp build/platform-report-s8/report.pdf deliverables/research/multi-leakage-platform-20261016/report.pdf
+pdftoppm -r 100 -png deliverables/research/multi-leakage-platform-20261016/report.pdf \
+  docs/evidence/platform-report-20261016/refresh-20261016/render-final2/page
+```
+
+结果：**22 页**，PDF SHA-256 `eba21d09f7487bfd1144416022ea529563a84e21aea78a2e5b472271243465bd`；
+日志 `xelatex-final2-first.log` / `xelatex-final2-second.log`：**0 Overfull、0 Underfull、0 缺字、
+0 hyperref 警告**。
+
+修掉的两处 LaTeX 错误（照实记录）：摘要里的 `partial/in_progress` 与 `not_run` 位于**未经过
+tex_escape 的 raw 字符串**中，下划线触发 `Missing $ inserted`；改写为 `partial（进行中）` 与
+`not\_run` 后通过。
+
+## G2. Mona 对 M2 的实际结果（写入报告 §8 与表 T5）
+
+六份主类对各一行、真实执行 exit 0：三个未修臂与 s1/s2 已修臂均 `no_validated_box_separation`
+（0/9、0/9、0/9、0/7、0/9）；只有 s3 已修臂 `validated_box_separation`（1/8，`X<Y` 箱 0.27–0.34、
+5120 值、子集数 1＝末轮单子集 100%），属该自适应实现「末轮只剩 1 个子集」的已知假阳性模式
+（与 M1 两项 fixed 同型）。六批最高批次成功百分比 74/18/34/29/34/100。
+`holm_member=false`；`Confidence Interval` 是批次成功百分比，不是 p 值或覆盖区间。
+**不据此说两臂等价或恒时，不推翻 Welch CI + Holm / RTLF / dudect 结论，也没有把任何
+RTLF/dudect 结果改称 Mona**；工具身份 mona-timing-report@4c74fb7e，六份原始 CSV 跑完后
+sha256 6/6 未变。
+
+## G3. RTLF 状态（族外，partial）
+
+主控报告：`m2-s1-unfixed` 主类对退出码 **11 = difference_detected**、同数据集对照类对
+退出码 **10 = no_difference_detected**；其余数据集仍在执行。报告里写成 **partial（进行中）**，
+并明写「未完成不等于未检出，也不等于阴性」；同时保留口径句：
+「RTLF α=0.01、二值结论、族外、不进 Holm；其 difference_detected 与 Welch/Holm 的均值判定
+不冲突（RTLF 检验的是分布差异，不是均值差），两者分列不互相替代。」
+**该两条退出码在本次刷新时没有仓库内原日志可核**，因此报告中的 T5 格仍标 `«待主控数据»`，
+只把状态写成 partial；原日志落盘后按同一表格回填。
+
+## G4. 终版包（final2）、复算与审计
+
+```sh
+python3 deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/build_support.py \
+  --revision final2-20261016
+sh docs/evidence/platform-report-20261016/refresh-20261016/run_zip_recompute_final2.sh \
+  > docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final2.log 2>&1
+python3 deliverables/research/multi-leakage-platform-20261016/audit_revision.py final2-20261016
+```
+
+- 包：**772 成员、771 摘要、100 个本地 HTML 链接、0 直接身份字串**；ZIP SHA-256
+  `2692d655ee42c4f2eff887d501b849d1ae15344d84f8300f2bff545763cee8ac`。
+- **解出复算：CTest 5/5 通过、0 失败（1.82 s）**，解出到新建
+  `build/zip-recompute-final2-20261016/`；原日志 `zip-recompute-final2.log`（111 行）。
+- 独立审计（`docs/evidence/platform-report-20261016/final2-20261016/`）：PDF 元数据 pass
+  （22 页、作者空、0 私有标记、无 JS）、离线回放 CTest 5/5 且 6 数据集 / 12 输出逐字一致、
+  校验器八种坏例全拒；包内 report 负载与仓库副本五项摘要一致。
+
+## G5. 剩余占位符与 not_run（final2）
+
+`«待主控数据»` 数据位只剩 **2 处**：T3 的 RTLF 状态与 T5 的 RTLF 行（同一事项）；
+`report.md` 全文件 8 次、`report-tables.json` 5 次、`index.html` 11 次、PDF 文本层同量级，
+差额来自 T6 标题与 §1/§3/§13 的说明句。另有 **M2 微基准层**为 `not_run`（触发条件已满足），
+在 T6 中单列。两者都不是阴性。
+
+## G6. 环境清理
+
+第二阶段 heredoc 事故在仓库根留下的 22 个 `\-01.png … \-22.png`（02:35，pdftoppm 前缀被破坏所致）
+已按绝对路径逐个核对为本次事故产物后删除，仓库根不再有该前缀文件；其余文件未动。

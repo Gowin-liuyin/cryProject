@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "actual_package_positive": true,
+  "rejection_checks": [
+    {
+      "case": "digest",
+      "status": "rejected",
+      "reason": "member hash mismatch: report/report.md"
+    },
+    {
+      "case": "missing",
+      "status": "rejected",
+      "reason": "manifest member set mismatch"
+    },
+    {
+      "case": "escape",
+      "status": "rejected",
+      "reason": "unsafe ZIP member: ../escape"
+    },
+    {
+      "case": "duplicate",
+      "status": "rejected",
+      "reason": "duplicate ZIP members"
+    },
+    {
+      "case": "remote",
+      "status": "rejected",
+      "reason": "remote HTML dependency: https://example.invalid/asset.png"
+    },
+    {
+      "case": "active",
+      "status": "rejected",
+      "reason": "active HTML element"
+    },
+    {
+      "case": "private",
+      "status": "rejected",
+      "reason": "direct identity marker: report/report.md"
+    },
+    {
+      "case": "anchor",
+      "status": "rejected",
+      "reason": "missing local HTML anchor"
+    }
+  ]
+}

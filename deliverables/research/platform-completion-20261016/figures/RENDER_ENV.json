@@ -7,14 +7,19 @@
   "data_source": "../EVIDENCE_MATRIX.csv",
   "caption_document": "CAPTION.md",
   "width_css_pixels": 1492,
-  "height_css_pixels": 912,
-  "png_pixels": "2984x1824",
+  "height_css_pixels": 975,
+  "png_pixels": "2984x1950",
   "png_device_scale_factor": 2,
   "svg_text_elements_only": true,
   "python": "3.13.12",
   "pillow": "11.3.0",
   "renderer": "macOS QuickLook (qlmanage -t)",
   "renderer_note": "Chrome headless screenshot/print-to-pdf produced no output in this environment (only GCM error lines), so the preview uses QuickLook on a square wrapper SVG and crops back to the real aspect with Pillow.",
-  "categories": ["historical_real", "artificial_calibration", "negative_control"],
-  "placeholder_token": "«待主控数据»"
+  "categories": [
+    "historical_real",
+    "artificial_calibration",
+    "negative_control"
+  ],
+  "placeholder_token": "«待主控数据»",
+  "statistics_state": "M2-M5 locked-frequency families and Mona-vs-M2 filled; remaining: RTLF (partial), M2 microbench (not_run)"
 }
