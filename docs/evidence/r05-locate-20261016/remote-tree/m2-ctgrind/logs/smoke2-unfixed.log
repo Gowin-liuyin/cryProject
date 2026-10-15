@@ -1,0 +1,24 @@
+==402350== Memcheck, a memory error detector
+==402350== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==402350== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==402350== Command: /home/nss-marker/yhr/Cry/r05-locate-20261016-6039f84e5a09/m2-ctgrind/probe/probe_unfixed 1 0
+==402350== 
+zone_count=1 zone_index=0 secret_marked_bytes=1152 pke_secret_bytes=1152
+==402350== Conditional jump or move depends on uninitialised value(s)
+==402350==    at 0x10BBE8: pqcrystals_kyber768_ref_poly_frommsg (poly.c:167)
+==402350==    by 0x10B384: pqcrystals_kyber768_ref_indcpa_enc (indcpa.c:269)
+==402350==    by 0x10B75C: pqcrystals_kyber768_ref_dec (kem.c:114)
+==402350==    by 0x10940B: main (probe_dec.c:90)
+==402350==  Uninitialised value was created by a client request
+==402350==    at 0x1093A4: mark_secret_range (probe_dec.c:49)
+==402350==    by 0x1093A4: main (probe_dec.c:83)
+==402350== 
+==402350== 
+==402350== HEAP SUMMARY:
+==402350==     in use at exit: 0 bytes in 0 blocks
+==402350==   total heap usage: 7 allocs, 7 frees, 17,800 bytes allocated
+==402350== 
+==402350== All heap blocks were freed -- no leaks are possible
+==402350== 
+==402350== For lists of detected and suppressed errors, rerun with: -s
+==402350== ERROR SUMMARY: 256 errors from 1 contexts (suppressed: 0 from 0)

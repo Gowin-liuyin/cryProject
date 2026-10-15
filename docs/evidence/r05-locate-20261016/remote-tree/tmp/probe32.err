@@ -1,0 +1,14 @@
+/usr/bin/ld: 找不到 Scrt1.o: 没有那个文件或目录
+/usr/bin/ld: 找不到 crti.o: 没有那个文件或目录
+/usr/bin/ld: 找不到 crtbeginS.o: 没有那个文件或目录
+/usr/bin/ld: 找不到 -lgcc: 没有那个文件或目录
+/usr/bin/ld: 找不到 -lgcc_s: 没有那个文件或目录
+/usr/bin/ld: 当搜索用于 /usr/lib/x86_64-linux-gnu/libc.so 时跳过不兼容的 -lc
+/usr/bin/ld: 当搜索用于 /usr/lib/x86_64-linux-gnu/libc.a 时跳过不兼容的 -lc
+/usr/bin/ld: 找不到 -lc: 没有那个文件或目录
+/usr/bin/ld: 当搜索用于 /usr/lib/x86_64-linux-gnu/libc.so 时跳过不兼容的 -lc
+/usr/bin/ld: 找不到 -lgcc: 没有那个文件或目录
+/usr/bin/ld: 找不到 -lgcc_s: 没有那个文件或目录
+/usr/bin/ld: 找不到 crtendS.o: 没有那个文件或目录
+/usr/bin/ld: 找不到 crtn.o: 没有那个文件或目录
+clang: error: linker command failed with exit code 1 (use -v to see invocation)

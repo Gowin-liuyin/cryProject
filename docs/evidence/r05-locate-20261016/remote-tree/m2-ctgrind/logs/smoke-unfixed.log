@@ -1,0 +1,41 @@
+==402308== Memcheck, a memory error detector
+==402308== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==402308== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==402308== Command: /home/nss-marker/yhr/Cry/r05-locate-20261016-6039f84e5a09/m2-ctgrind/probe/probe_unfixed 1 0
+==402308== 
+==402308== Conditional jump or move depends on uninitialised value(s)
+==402308==    at 0x10BB98: pqcrystals_kyber768_ref_poly_frommsg (poly.c:167)
+==402308==    by 0x10B334: pqcrystals_kyber768_ref_indcpa_enc (indcpa.c:269)
+==402308==    by 0x10B70C: pqcrystals_kyber768_ref_dec (kem.c:114)
+==402308==    by 0x1093FB: main (probe_dec.c:90)
+==402308== 
+==402308== Use of uninitialised value of size 8
+==402308==    at 0x48CD052: _itoa_word (_itoa.c:184)
+==402308==    by 0x48D7C9B: __printf_buffer (vfprintf-process-arg.c:155)
+==402308==    by 0x48D973A: __vfprintf_internal (vfprintf-internal.c:1544)
+==402308==    by 0x48CE1B2: printf (printf.c:33)
+==402308==    by 0x10942E: main (probe_dec.c:97)
+==402308== 
+==402308== Conditional jump or move depends on uninitialised value(s)
+==402308==    at 0x48CD064: _itoa_word (_itoa.c:184)
+==402308==    by 0x48D7C9B: __printf_buffer (vfprintf-process-arg.c:155)
+==402308==    by 0x48D973A: __vfprintf_internal (vfprintf-internal.c:1544)
+==402308==    by 0x48CE1B2: printf (printf.c:33)
+==402308==    by 0x10942E: main (probe_dec.c:97)
+==402308== 
+==402308== Conditional jump or move depends on uninitialised value(s)
+==402308==    at 0x48D7D89: __printf_buffer (vfprintf-process-arg.c:186)
+==402308==    by 0x48D973A: __vfprintf_internal (vfprintf-internal.c:1544)
+==402308==    by 0x48CE1B2: printf (printf.c:33)
+==402308==    by 0x10942E: main (probe_dec.c:97)
+==402308== 
+==402308== 
+==402308== HEAP SUMMARY:
+==402308==     in use at exit: 0 bytes in 0 blocks
+==402308==   total heap usage: 7 allocs, 7 frees, 17,800 bytes allocated
+==402308== 
+==402308== All heap blocks were freed -- no leaks are possible
+==402308== 
+==402308== Use --track-origins=yes to see where uninitialised values come from
+==402308== For lists of detected and suppressed errors, rerun with: -s
+==402308== ERROR SUMMARY: 261 errors from 4 contexts (suppressed: 0 from 0)
