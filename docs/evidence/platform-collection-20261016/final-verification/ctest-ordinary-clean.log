@@ -1,0 +1,122 @@
+Test project /Users/yin/code/cryProject/build/cmake
+      Start  1: reference_kat
+ 1/57 Test  #1: reference_kat ......................   Passed    0.75 sec
+      Start  2: reference_random_failure
+ 2/57 Test  #2: reference_random_failure ...........   Passed    0.34 sec
+      Start  3: vulnerable_kat
+ 3/57 Test  #3: vulnerable_kat .....................   Passed    0.37 sec
+      Start  4: vulnerable_random_failure
+ 4/57 Test  #4: vulnerable_random_failure ..........   Passed    0.42 sec
+      Start  5: hardened_kat
+ 5/57 Test  #5: hardened_kat .......................   Passed    0.39 sec
+      Start  6: hardened_random_failure
+ 6/57 Test  #6: hardened_random_failure ............   Passed    0.34 sec
+      Start  7: deployable_kat
+ 7/57 Test  #7: deployable_kat .....................   Passed    0.35 sec
+      Start  8: deployable_random_failure
+ 8/57 Test  #8: deployable_random_failure ..........   Passed    0.34 sec
+      Start  9: encoder_branch_kat
+ 9/57 Test  #9: encoder_branch_kat .................   Passed    0.38 sec
+      Start 10: encoder_mask_kat
+10/57 Test #10: encoder_mask_kat ...................   Passed    0.37 sec
+      Start 11: temp_directory
+11/57 Test #11: temp_directory .....................   Passed    0.35 sec
+      Start 12: performance_replay
+12/57 Test #12: performance_replay .................   Passed    0.79 sec
+      Start 13: audit_workflow
+13/57 Test #13: audit_workflow .....................   Passed    0.79 sec
+      Start 14: source_export
+14/57 Test #14: source_export ......................   Passed    0.14 sec
+      Start 15: controlled_statistics
+15/57 Test #15: controlled_statistics ..............   Passed    0.36 sec
+      Start 16: calibration_oracle
+16/57 Test #16: calibration_oracle .................   Passed    0.00 sec
+      Start 17: reference_label_control_failures
+17/57 Test #17: reference_label_control_failures ...   Passed    0.40 sec
+      Start 18: controlled_cli
+18/57 Test #18: controlled_cli .....................   Passed    0.05 sec
+      Start 19: compare_replay_failures
+19/57 Test #19: compare_replay_failures ............   Passed    0.63 sec
+      Start 20: native_digest
+20/57 Test #20: native_digest ......................   Passed    0.76 sec
+      Start 21: paired_prepare
+21/57 Test #21: paired_prepare .....................   Passed    2.15 sec
+      Start 22: paired_runner
+22/57 Test #22: paired_runner ......................   Passed    1.94 sec
+      Start 23: paired_statistics
+23/57 Test #23: paired_statistics ..................   Passed    0.45 sec
+      Start 24: paired_data
+24/57 Test #24: paired_data ........................   Passed    0.45 sec
+      Start 25: paired_rejections
+25/57 Test #25: paired_rejections ..................   Passed    1.07 sec
+      Start 26: batch_measurement
+26/57 Test #26: batch_measurement ..................   Passed    0.40 sec
+      Start 27: reference_benchmark
+27/57 Test #27: reference_benchmark ................   Passed    0.38 sec
+      Start 28: timing_diagnostics
+28/57 Test #28: timing_diagnostics .................   Passed    0.71 sec
+      Start 29: equivalence_vulnerable
+29/57 Test #29: equivalence_vulnerable .............   Passed    0.73 sec
+      Start 30: equivalence_hardened
+30/57 Test #30: equivalence_hardened ...............   Passed    0.38 sec
+      Start 31: equivalence_deployable
+31/57 Test #31: equivalence_deployable .............   Passed    0.38 sec
+      Start 32: cli
+32/57 Test #32: cli ................................   Passed    1.75 sec
+      Start 33: reference_cli
+33/57 Test #33: reference_cli ......................   Passed    0.05 sec
+      Start 34: vector_parser
+34/57 Test #34: vector_parser ......................   Passed    0.10 sec
+      Start 35: reference_vector_parser
+35/57 Test #35: reference_vector_parser ............   Passed    0.03 sec
+      Start 36: analysis_round1_replay
+36/57 Test #36: analysis_round1_replay .............   Passed    0.38 sec
+      Start 37: trace_account
+37/57 Test #37: trace_account ......................   Passed    0.40 sec
+      Start 38: session_window
+38/57 Test #38: session_window .....................   Passed    0.74 sec
+      Start 39: diagnostic_trace
+39/57 Test #39: diagnostic_trace ...................   Passed    0.70 sec
+      Start 40: diagnostic_trace_vulnerable
+40/57 Test #40: diagnostic_trace_vulnerable ........   Passed    0.35 sec
+      Start 41: trace_overhead
+41/57 Test #41: trace_overhead .....................   Passed    0.03 sec
+      Start 42: attribution_v3_fixture
+42/57 Test #42: attribution_v3_fixture .............   Passed    0.49 sec
+      Start 43: attribution_v3_sealed
+43/57 Test #43: attribution_v3_sealed ..............   Passed    0.38 sec
+      Start 44: v4_stats
+44/57 Test #44: v4_stats ...........................   Passed    0.48 sec
+      Start 45: v4_window_coverage
+45/57 Test #45: v4_window_coverage .................   Passed    0.34 sec
+      Start 46: v4_window_sibling
+46/57 Test #46: v4_window_sibling ..................   Passed    0.00 sec
+      Start 47: v4_window_hold_policy
+47/57 Test #47: v4_window_hold_policy ..............   Passed    0.00 sec
+      Start 48: v4_hold_policy
+48/57 Test #48: v4_hold_policy .....................   Passed    0.39 sec
+      Start 49: v4_schedule_fixture
+49/57 Test #49: v4_schedule_fixture ................   Passed    0.46 sec
+      Start 50: v4_analyze_fixture
+50/57 Test #50: v4_analyze_fixture .................   Passed    0.18 sec
+      Start 51: v4_sealed_decision
+51/57 Test #51: v4_sealed_decision .................   Passed    0.06 sec
+      Start 52: reference_label_redraw
+52/57 Test #52: reference_label_redraw .............   Passed    0.98 sec
+      Start 53: protocol_decision
+53/57 Test #53: protocol_decision ..................   Passed    0.71 sec
+      Start 54: localize_rank
+54/57 Test #54: localize_rank ......................   Passed    0.72 sec
+      Start 55: network_frame
+55/57 Test #55: network_frame ......................   Passed    1.05 sec
+      Start 56: mechanism_audit
+56/57 Test #56: mechanism_audit ....................   Passed    0.79 sec
+      Start 57: vector_integrity
+57/57 Test #57: vector_integrity ...................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 57
+
+Label Time Summary:
+reference    =   1.19 sec*proc (5 tests)
+
+Total Test time (real) =  28.97 sec
