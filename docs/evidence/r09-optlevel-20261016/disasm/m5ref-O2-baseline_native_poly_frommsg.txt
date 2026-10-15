@@ -1,0 +1,79 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m5ref-O2/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000002560 <baseline_native_poly_frommsg>:
+    2560:	add    $0xe,%rdi
+    2564:	xor    %eax,%eax
+    2566:	cs nopw 0x0(%rax,%rax,1)
+    2570:	mov    $0x1,%cl
+    2572:	and    (%rsi,%rax,1),%cl
+    2575:	movzbl %cl,%ecx
+    2578:	neg    %ecx
+    257a:	shr    $0x10,%ecx
+    257d:	and    $0x681,%ecx
+    2583:	mov    %cx,-0xe(%rdi)
+    2587:	mov    $0x2,%cl
+    2589:	and    (%rsi,%rax,1),%cl
+    258c:	movzbl %cl,%ecx
+    258f:	neg    %ecx
+    2591:	shr    $0x10,%ecx
+    2594:	and    $0x681,%ecx
+    259a:	mov    %cx,-0xc(%rdi)
+    259e:	mov    $0x4,%cl
+    25a0:	and    (%rsi,%rax,1),%cl
+    25a3:	movzbl %cl,%ecx
+    25a6:	neg    %ecx
+    25a8:	shr    $0x10,%ecx
+    25ab:	and    $0x681,%ecx
+    25b1:	mov    %cx,-0xa(%rdi)
+    25b5:	mov    $0x8,%cl
+    25b7:	and    (%rsi,%rax,1),%cl
+    25ba:	movzbl %cl,%ecx
+    25bd:	neg    %ecx
+    25bf:	shr    $0x10,%ecx
+    25c2:	and    $0x681,%ecx
+    25c8:	mov    %cx,-0x8(%rdi)
+    25cc:	mov    $0x10,%cl
+    25ce:	and    (%rsi,%rax,1),%cl
+    25d1:	movzbl %cl,%ecx
+    25d4:	neg    %ecx
+    25d6:	shr    $0x10,%ecx
+    25d9:	and    $0x681,%ecx
+    25df:	mov    %cx,-0x6(%rdi)
+    25e3:	mov    $0x20,%cl
+    25e5:	and    (%rsi,%rax,1),%cl
+    25e8:	movzbl %cl,%ecx
+    25eb:	neg    %ecx
+    25ed:	shr    $0x10,%ecx
+    25f0:	and    $0x681,%ecx
+    25f6:	mov    %cx,-0x4(%rdi)
+    25fa:	mov    $0x40,%cl
+    25fc:	and    (%rsi,%rax,1),%cl
+    25ff:	movzbl %cl,%ecx
+    2602:	neg    %ecx
+    2604:	shr    $0x10,%ecx
+    2607:	and    $0x681,%ecx
+    260d:	mov    %cx,-0x2(%rdi)
+    2611:	mov    $0x80,%cl
+    2613:	and    (%rsi,%rax,1),%cl
+    2616:	movzbl %cl,%ecx
+    2619:	neg    %ecx
+    261b:	shr    $0x10,%ecx
+    261e:	and    $0x681,%ecx
+    2624:	mov    %cx,(%rdi)
+    2627:	inc    %rax
+    262a:	add    $0x10,%rdi
+    262e:	cmp    $0x20,%rax
+    2632:	jne    2570 <baseline_native_poly_frommsg+0x10>
+    2638:	ret
+
+Disassembly of section .fini:

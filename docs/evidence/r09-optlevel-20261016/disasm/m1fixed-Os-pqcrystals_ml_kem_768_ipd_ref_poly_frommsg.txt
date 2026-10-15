@@ -1,0 +1,52 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-Os/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+00000000000039bf <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    39bf:	push   %rbp
+    39c0:	mov    %rsp,%rbp
+    39c3:	push   %r15
+    39c5:	push   %r14
+    39c7:	push   %r13
+    39c9:	push   %r12
+    39cb:	push   %rbx
+    39cc:	push   %rax
+    39cd:	mov    %rsi,%rbx
+    39d0:	mov    %rdi,%r14
+    39d3:	xor    %r12d,%r12d
+    39d6:	mov    %r14,%r15
+    39d9:	xor    %r13d,%r13d
+    39dc:	movw   $0x0,(%r15)
+    39e2:	movzbl (%rbx,%r12,1),%eax
+    39e7:	xor    %edx,%edx
+    39e9:	bt     %r13d,%eax
+    39ed:	setb   %dl
+    39f0:	mov    %r15,%rdi
+    39f3:	mov    $0x681,%esi
+    39f8:	call   276d <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    39fd:	inc    %r13
+    3a00:	add    $0x2,%r15
+    3a04:	cmp    $0x8,%r13
+    3a08:	jne    39dc <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x1d>
+    3a0a:	inc    %r12
+    3a0d:	add    $0x10,%r14
+    3a11:	cmp    $0x20,%r12
+    3a15:	jne    39d6 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x17>
+    3a17:	add    $0x8,%rsp
+    3a1b:	pop    %rbx
+    3a1c:	pop    %r12
+    3a1e:	pop    %r13
+    3a20:	pop    %r14
+    3a22:	pop    %r15
+    3a24:	pop    %rbp
+    3a25:	ret
+
+Disassembly of section .fini:

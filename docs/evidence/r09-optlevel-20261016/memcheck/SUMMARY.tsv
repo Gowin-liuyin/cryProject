@@ -1,0 +1,13 @@
+cell	probe	memcheck_contexts	memcheck_errors	valgrind_exit
+m1unfixed-O0	historical_poison_cell	0	0	0
+m1unfixed-O2	historical_poison_cell	8	512	0
+m1unfixed-O3	historical_poison_cell	15	512	0
+m1unfixed-Os	historical_poison_cell	1	512	0
+m1fixed-O0	historical_poison_cell	0	0	0
+m1fixed-O2	historical_poison_cell	0	0	0
+m1fixed-O3	historical_poison_cell	0	0	0
+m1fixed-Os	historical_poison_cell	0	0	0
+m5ref-O0	platform_m5_poison_cell --poison	0	0	0
+m5ref-O2	platform_m5_poison_cell --poison	0	0	0
+m5ref-O3	platform_m5_poison_cell --poison	0	0	0
+m5ref-Os	platform_m5_poison_cell --poison	0	0	0

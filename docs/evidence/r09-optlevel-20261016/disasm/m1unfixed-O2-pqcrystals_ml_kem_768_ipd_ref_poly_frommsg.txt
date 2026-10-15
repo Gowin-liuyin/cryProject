@@ -1,0 +1,68 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O2/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000004770 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    4770:	push   %rbp
+    4771:	mov    %rsp,%rbp
+    4774:	add    $0xe,%rdi
+    4778:	xor    %eax,%eax
+    477a:	jmp    4794 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x24>
+    477c:	nopl   0x0(%rax)
+    4780:	mov    %cx,(%rdi)
+    4783:	inc    %rax
+    4786:	add    $0x10,%rdi
+    478a:	cmp    $0x20,%rax
+    478e:	je     4839 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xc9>
+    4794:	testb  $0x1,(%rsi,%rax,1)
+    4798:	mov    $0x0,%ecx
+    479d:	je     47a4 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x34>
+    479f:	mov    $0x681,%ecx
+    47a4:	mov    %cx,-0xe(%rdi)
+    47a8:	testb  $0x2,(%rsi,%rax,1)
+    47ac:	mov    $0x0,%ecx
+    47b1:	je     47b8 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x48>
+    47b3:	mov    $0x681,%ecx
+    47b8:	mov    %cx,-0xc(%rdi)
+    47bc:	testb  $0x4,(%rsi,%rax,1)
+    47c0:	mov    $0x0,%ecx
+    47c5:	je     47cc <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x5c>
+    47c7:	mov    $0x681,%ecx
+    47cc:	mov    %cx,-0xa(%rdi)
+    47d0:	testb  $0x8,(%rsi,%rax,1)
+    47d4:	mov    $0x0,%ecx
+    47d9:	je     47e0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x70>
+    47db:	mov    $0x681,%ecx
+    47e0:	mov    %cx,-0x8(%rdi)
+    47e4:	testb  $0x10,(%rsi,%rax,1)
+    47e8:	mov    $0x0,%ecx
+    47ed:	je     47f4 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x84>
+    47ef:	mov    $0x681,%ecx
+    47f4:	mov    %cx,-0x6(%rdi)
+    47f8:	testb  $0x20,(%rsi,%rax,1)
+    47fc:	mov    $0x0,%ecx
+    4801:	je     4808 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x98>
+    4803:	mov    $0x681,%ecx
+    4808:	mov    %cx,-0x4(%rdi)
+    480c:	testb  $0x40,(%rsi,%rax,1)
+    4810:	mov    $0x0,%ecx
+    4815:	je     481c <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xac>
+    4817:	mov    $0x681,%ecx
+    481c:	mov    %cx,-0x2(%rdi)
+    4820:	cmpb   $0x0,(%rsi,%rax,1)
+    4824:	mov    $0x0,%ecx
+    4829:	jns    4780 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x10>
+    482f:	mov    $0x681,%ecx
+    4834:	jmp    4780 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x10>
+    4839:	pop    %rbp
+    483a:	ret
+
+Disassembly of section .fini:

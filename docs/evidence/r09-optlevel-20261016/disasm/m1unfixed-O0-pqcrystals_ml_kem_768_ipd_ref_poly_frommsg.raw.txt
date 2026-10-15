@@ -1,0 +1,55 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O0/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000005fb0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    5fb0:	55                   	push   %rbp
+    5fb1:	48 89 e5             	mov    %rsp,%rbp
+    5fb4:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    5fb8:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+    5fbc:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%rbp)
+    5fc3:	83 7d ec 20          	cmpl   $0x20,-0x14(%rbp)
+    5fc7:	0f 83 6f 00 00 00    	jae    603c <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x8c>
+    5fcd:	c7 45 e8 00 00 00 00 	movl   $0x0,-0x18(%rbp)
+    5fd4:	83 7d e8 08          	cmpl   $0x8,-0x18(%rbp)
+    5fd8:	0f 83 4b 00 00 00    	jae    6029 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x79>
+    5fde:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    5fe2:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+    5fe5:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    5fe9:	8b 4d e8             	mov    -0x18(%rbp),%ecx
+    5fec:	d3 f8                	sar    %cl,%eax
+    5fee:	83 e0 01             	and    $0x1,%eax
+    5ff1:	0f bf c8             	movswl %ax,%ecx
+    5ff4:	31 c0                	xor    %eax,%eax
+    5ff6:	29 c8                	sub    %ecx,%eax
+    5ff8:	66 89 45 e6          	mov    %ax,-0x1a(%rbp)
+    5ffc:	0f bf 45 e6          	movswl -0x1a(%rbp),%eax
+    6000:	25 81 06 00 00       	and    $0x681,%eax
+    6005:	66 89 c2             	mov    %ax,%dx
+    6008:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    600c:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+    600f:	c1 e1 03             	shl    $0x3,%ecx
+    6012:	03 4d e8             	add    -0x18(%rbp),%ecx
+    6015:	89 c9                	mov    %ecx,%ecx
+    6017:	66 89 14 48          	mov    %dx,(%rax,%rcx,2)
+    601b:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    601e:	83 c0 01             	add    $0x1,%eax
+    6021:	89 45 e8             	mov    %eax,-0x18(%rbp)
+    6024:	e9 ab ff ff ff       	jmp    5fd4 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x24>
+    6029:	e9 00 00 00 00       	jmp    602e <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x7e>
+    602e:	8b 45 ec             	mov    -0x14(%rbp),%eax
+    6031:	83 c0 01             	add    $0x1,%eax
+    6034:	89 45 ec             	mov    %eax,-0x14(%rbp)
+    6037:	e9 87 ff ff ff       	jmp    5fc3 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x13>
+    603c:	5d                   	pop    %rbp
+    603d:	c3                   	ret
+
+Disassembly of section .fini:

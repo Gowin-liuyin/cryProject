@@ -104,8 +104,23 @@ M1 的 liboqs 归档由 `tools/platform_optlevel/build_liboqs_cell.py` 重建：
 | `generated/build_identity.h` | 诚实的格子身份头 |
 
 **资格检查（构建后、采数前，本地即可做，不需要锁频）**：
-`--describe` 退出 0；小样本试跑退出 0 且 `run_status=complete`、
-`zero_elapsed_count=0`、CSV 表头与 `--format measure` 期望逐字一致。
+用 `measure <run-id> 31337 <小样本> <new.csv> <new.meta>` 跑一次，判据是
+
+1. 退出码 0；
+2. CSV 表头与 `--format measure` 期望**逐字一致**
+   （`run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit`）；
+3. 行数 = `1 + 5 × SAMPLES_PER_CATEGORY`（一次运行采 5 类）；
+4. meta 的 `sample_count` 等于 `5 × SAMPLES_PER_CATEGORY`，`time_unit=ns`、
+   `clock=CLOCK_MONOTONIC`、`warmup_decapsulations=100`、
+   `order=balanced_fisher_yates_shake256_tag4`，且 `cell=` / `optimization_level=`
+   与该格相符。
+
+> 更正记录（2026-10-16，**在任何 T23 采数之前**）：本节早先写的判据里提到
+> `run_status=complete` 与 `zero_elapsed_count=0` 两个字段，实际冻结 `measure.c`
+> 的 meta **没有**这两个键（它写的是 `sample_count`/`clock`/`order` 等）。
+> 判据已按实测字段改正；这条更正只影响本节文字，不改任何采集参数、类对或预算。
+> CSV 与 meta 都用 `"wx"` 新建，已存在即失败。
+
 资格失败就不进入 T23。
 
 ---

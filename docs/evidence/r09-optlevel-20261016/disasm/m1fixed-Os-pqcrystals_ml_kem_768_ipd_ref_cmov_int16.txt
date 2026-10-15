@@ -1,0 +1,25 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-Os/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+000000000000276d <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>:
+    276d:	push   %rbp
+    276e:	mov    %rsp,%rbp
+    2771:	neg    %edx
+    2773:	movzwl (%rdi),%eax
+    2776:	xor    %eax,%esi
+    2778:	and    %edx,%esi
+    277a:	xor    %eax,%esi
+    277c:	mov    %si,(%rdi)
+    277f:	pop    %rbp
+    2780:	ret
+
+Disassembly of section .fini:

@@ -1,0 +1,62 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O0/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000006000 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    6000:	55                   	push   %rbp
+    6001:	48 89 e5             	mov    %rsp,%rbp
+    6004:	48 83 ec 20          	sub    $0x20,%rsp
+    6008:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    600c:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+    6010:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%rbp)
+    6017:	83 7d ec 20          	cmpl   $0x20,-0x14(%rbp)
+    601b:	0f 83 82 00 00 00    	jae    60a3 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xa3>
+    6021:	c7 45 e8 00 00 00 00 	movl   $0x0,-0x18(%rbp)
+    6028:	83 7d e8 08          	cmpl   $0x8,-0x18(%rbp)
+    602c:	0f 83 5e 00 00 00    	jae    6090 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x90>
+    6032:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    6036:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+    6039:	c1 e1 03             	shl    $0x3,%ecx
+    603c:	03 4d e8             	add    -0x18(%rbp),%ecx
+    603f:	89 c9                	mov    %ecx,%ecx
+    6041:	66 c7 04 48 00 00    	movw   $0x0,(%rax,%rcx,2)
+    6047:	48 8b 7d f8          	mov    -0x8(%rbp),%rdi
+    604b:	8b 45 ec             	mov    -0x14(%rbp),%eax
+    604e:	c1 e0 03             	shl    $0x3,%eax
+    6051:	89 c0                	mov    %eax,%eax
+    6053:	48 d1 e0             	shl    $1,%rax
+    6056:	48 01 c7             	add    %rax,%rdi
+    6059:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    605c:	48 d1 e0             	shl    $1,%rax
+    605f:	48 01 c7             	add    %rax,%rdi
+    6062:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    6066:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+    6069:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    606d:	8b 4d e8             	mov    -0x18(%rbp),%ecx
+    6070:	d3 f8                	sar    %cl,%eax
+    6072:	83 e0 01             	and    $0x1,%eax
+    6075:	be 81 06 00 00       	mov    $0x681,%esi
+    607a:	0f b7 d0             	movzwl %ax,%edx
+    607d:	e8 7e e3 ff ff       	call   4400 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    6082:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    6085:	83 c0 01             	add    $0x1,%eax
+    6088:	89 45 e8             	mov    %eax,-0x18(%rbp)
+    608b:	e9 98 ff ff ff       	jmp    6028 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x28>
+    6090:	e9 00 00 00 00       	jmp    6095 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x95>
+    6095:	8b 45 ec             	mov    -0x14(%rbp),%eax
+    6098:	83 c0 01             	add    $0x1,%eax
+    609b:	89 45 ec             	mov    %eax,-0x14(%rbp)
+    609e:	e9 74 ff ff ff       	jmp    6017 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x17>
+    60a3:	48 83 c4 20          	add    $0x20,%rsp
+    60a7:	5d                   	pop    %rbp
+    60a8:	c3                   	ret
+
+Disassembly of section .fini:

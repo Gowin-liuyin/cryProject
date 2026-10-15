@@ -1,0 +1,33 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m5ref-Os/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000002044 <baseline_native_poly_frommsg>:
+    2044:	31 c0                	xor    %eax,%eax
+    2046:	31 c9                	xor    %ecx,%ecx
+    2048:	ba 01 00 00 00       	mov    $0x1,%edx
+    204d:	d3 e2                	shl    %cl,%edx
+    204f:	22 14 06             	and    (%rsi,%rax,1),%dl
+    2052:	0f b6 d2             	movzbl %dl,%edx
+    2055:	f7 da                	neg    %edx
+    2057:	c1 ea 10             	shr    $0x10,%edx
+    205a:	81 e2 81 06 00 00    	and    $0x681,%edx
+    2060:	66 89 14 4f          	mov    %dx,(%rdi,%rcx,2)
+    2064:	48 ff c1             	inc    %rcx
+    2067:	48 83 f9 08          	cmp    $0x8,%rcx
+    206b:	75 db                	jne    2048 <baseline_native_poly_frommsg+0x4>
+    206d:	48 ff c0             	inc    %rax
+    2070:	48 83 c7 10          	add    $0x10,%rdi
+    2074:	48 83 f8 20          	cmp    $0x20,%rax
+    2078:	75 cc                	jne    2046 <baseline_native_poly_frommsg+0x2>
+    207a:	c3                   	ret
+
+Disassembly of section .fini:

@@ -1,0 +1,62 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m5ref-O0/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000002ad0 <baseline_native_poly_frommsg>:
+    2ad0:	push   %rbp
+    2ad1:	mov    %rsp,%rbp
+    2ad4:	sub    $0x20,%rsp
+    2ad8:	mov    %rdi,-0x8(%rbp)
+    2adc:	mov    %rsi,-0x10(%rbp)
+    2ae0:	movl   $0x0,-0x14(%rbp)
+    2ae7:	cmpl   $0x20,-0x14(%rbp)
+    2aeb:	jae    2b6e <baseline_native_poly_frommsg+0x9e>
+    2af1:	movl   $0x0,-0x18(%rbp)
+    2af8:	cmpl   $0x8,-0x18(%rbp)
+    2afc:	jae    2b5b <baseline_native_poly_frommsg+0x8b>
+    2b02:	mov    -0x18(%rbp),%ecx
+    2b05:	mov    $0x1,%eax
+    2b0a:	shl    %cl,%eax
+    2b0c:	movzbl %al,%edi
+    2b0f:	call   2b80 <mlk_value_barrier_u8>
+    2b14:	mov    %al,-0x19(%rbp)
+    2b17:	mov    -0x10(%rbp),%rax
+    2b1b:	mov    -0x14(%rbp),%ecx
+    2b1e:	movzbl (%rax,%rcx,1),%eax
+    2b22:	movzbl -0x19(%rbp),%ecx
+    2b26:	and    %ecx,%eax
+    2b28:	mov    $0x681,%edi
+    2b2d:	xor    %esi,%esi
+    2b2f:	movzwl %ax,%edx
+    2b32:	call   2ba0 <mlk_ct_sel_int16>
+    2b37:	mov    %ax,%dx
+    2b3a:	mov    -0x8(%rbp),%rax
+    2b3e:	mov    -0x14(%rbp),%ecx
+    2b41:	shl    $0x3,%ecx
+    2b44:	add    -0x18(%rbp),%ecx
+    2b47:	mov    %ecx,%ecx
+    2b49:	mov    %dx,(%rax,%rcx,2)
+    2b4d:	mov    -0x18(%rbp),%eax
+    2b50:	add    $0x1,%eax
+    2b53:	mov    %eax,-0x18(%rbp)
+    2b56:	jmp    2af8 <baseline_native_poly_frommsg+0x28>
+    2b5b:	jmp    2b60 <baseline_native_poly_frommsg+0x90>
+    2b60:	mov    -0x14(%rbp),%eax
+    2b63:	add    $0x1,%eax
+    2b66:	mov    %eax,-0x14(%rbp)
+    2b69:	jmp    2ae7 <baseline_native_poly_frommsg+0x17>
+    2b6e:	jmp    2b73 <baseline_native_poly_frommsg+0xa3>
+    2b73:	jmp    2b78 <baseline_native_poly_frommsg+0xa8>
+    2b78:	add    $0x20,%rsp
+    2b7c:	pop    %rbp
+    2b7d:	ret
+
+Disassembly of section .fini:

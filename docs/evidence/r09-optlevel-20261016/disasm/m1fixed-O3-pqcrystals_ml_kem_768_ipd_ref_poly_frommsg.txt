@@ -1,0 +1,96 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O3/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000004b10 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    4b10:	push   %rbp
+    4b11:	mov    %rsp,%rbp
+    4b14:	push   %r15
+    4b16:	push   %r14
+    4b18:	push   %rbx
+    4b19:	push   %rax
+    4b1a:	mov    %rsi,%rbx
+    4b1d:	mov    %rdi,%r14
+    4b20:	xor    %r15d,%r15d
+    4b23:	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    4b30:	lea    (%r14,%r15,1),%rdi
+    4b34:	movw   $0x0,(%r14,%r15,1)
+    4b3b:	movzbl (%rbx),%edx
+    4b3e:	and    $0x1,%edx
+    4b41:	mov    $0x681,%esi
+    4b46:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4b4b:	lea    (%r14,%r15,1),%rdi
+    4b4f:	add    $0x2,%rdi
+    4b53:	movw   $0x0,0x2(%r14,%r15,1)
+    4b5b:	movzbl (%rbx),%edx
+    4b5e:	shr    $1,%edx
+    4b60:	and    $0x1,%edx
+    4b63:	mov    $0x681,%esi
+    4b68:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4b6d:	lea    (%r14,%r15,1),%rdi
+    4b71:	add    $0x4,%rdi
+    4b75:	movw   $0x0,0x4(%r14,%r15,1)
+    4b7d:	movzbl (%rbx),%edx
+    4b80:	shr    $0x2,%edx
+    4b83:	and    $0x1,%edx
+    4b86:	mov    $0x681,%esi
+    4b8b:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4b90:	lea    (%r14,%r15,1),%rdi
+    4b94:	add    $0x6,%rdi
+    4b98:	movw   $0x0,0x6(%r14,%r15,1)
+    4ba0:	movzbl (%rbx),%edx
+    4ba3:	shr    $0x3,%edx
+    4ba6:	and    $0x1,%edx
+    4ba9:	mov    $0x681,%esi
+    4bae:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4bb3:	lea    (%r14,%r15,1),%rdi
+    4bb7:	add    $0x8,%rdi
+    4bbb:	movw   $0x0,0x8(%r14,%r15,1)
+    4bc3:	movzbl (%rbx),%edx
+    4bc6:	shr    $0x4,%edx
+    4bc9:	and    $0x1,%edx
+    4bcc:	mov    $0x681,%esi
+    4bd1:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4bd6:	lea    (%r14,%r15,1),%rdi
+    4bda:	add    $0xa,%rdi
+    4bde:	movw   $0x0,0xa(%r14,%r15,1)
+    4be6:	movzbl (%rbx),%edx
+    4be9:	shr    $0x5,%edx
+    4bec:	and    $0x1,%edx
+    4bef:	mov    $0x681,%esi
+    4bf4:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4bf9:	lea    (%r14,%r15,1),%rdi
+    4bfd:	add    $0xc,%rdi
+    4c01:	movw   $0x0,0xc(%r14,%r15,1)
+    4c09:	movzbl (%rbx),%edx
+    4c0c:	shr    $0x6,%edx
+    4c0f:	and    $0x1,%edx
+    4c12:	mov    $0x681,%esi
+    4c17:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4c1c:	lea    (%r14,%r15,1),%rdi
+    4c20:	add    $0xe,%rdi
+    4c24:	movw   $0x0,0xe(%r14,%r15,1)
+    4c2c:	movzbl (%rbx),%edx
+    4c2f:	shr    $0x7,%edx
+    4c32:	mov    $0x681,%esi
+    4c37:	call   3270 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4c3c:	inc    %rbx
+    4c3f:	add    $0x10,%r15
+    4c43:	cmp    $0x200,%r15
+    4c4a:	jne    4b30 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x20>
+    4c50:	add    $0x8,%rsp
+    4c54:	pop    %rbx
+    4c55:	pop    %r14
+    4c57:	pop    %r15
+    4c59:	pop    %rbp
+    4c5a:	ret
+
+Disassembly of section .fini:

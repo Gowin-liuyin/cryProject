@@ -1,0 +1,52 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-Os/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+00000000000039bf <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    39bf:	55                   	push   %rbp
+    39c0:	48 89 e5             	mov    %rsp,%rbp
+    39c3:	41 57                	push   %r15
+    39c5:	41 56                	push   %r14
+    39c7:	41 55                	push   %r13
+    39c9:	41 54                	push   %r12
+    39cb:	53                   	push   %rbx
+    39cc:	50                   	push   %rax
+    39cd:	48 89 f3             	mov    %rsi,%rbx
+    39d0:	49 89 fe             	mov    %rdi,%r14
+    39d3:	45 31 e4             	xor    %r12d,%r12d
+    39d6:	4d 89 f7             	mov    %r14,%r15
+    39d9:	45 31 ed             	xor    %r13d,%r13d
+    39dc:	66 41 c7 07 00 00    	movw   $0x0,(%r15)
+    39e2:	42 0f b6 04 23       	movzbl (%rbx,%r12,1),%eax
+    39e7:	31 d2                	xor    %edx,%edx
+    39e9:	44 0f a3 e8          	bt     %r13d,%eax
+    39ed:	0f 92 c2             	setb   %dl
+    39f0:	4c 89 ff             	mov    %r15,%rdi
+    39f3:	be 81 06 00 00       	mov    $0x681,%esi
+    39f8:	e8 70 ed ff ff       	call   276d <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    39fd:	49 ff c5             	inc    %r13
+    3a00:	49 83 c7 02          	add    $0x2,%r15
+    3a04:	49 83 fd 08          	cmp    $0x8,%r13
+    3a08:	75 d2                	jne    39dc <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x1d>
+    3a0a:	49 ff c4             	inc    %r12
+    3a0d:	49 83 c6 10          	add    $0x10,%r14
+    3a11:	49 83 fc 20          	cmp    $0x20,%r12
+    3a15:	75 bf                	jne    39d6 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x17>
+    3a17:	48 83 c4 08          	add    $0x8,%rsp
+    3a1b:	5b                   	pop    %rbx
+    3a1c:	41 5c                	pop    %r12
+    3a1e:	41 5d                	pop    %r13
+    3a20:	41 5e                	pop    %r14
+    3a22:	41 5f                	pop    %r15
+    3a24:	5d                   	pop    %rbp
+    3a25:	c3                   	ret
+
+Disassembly of section .fini:

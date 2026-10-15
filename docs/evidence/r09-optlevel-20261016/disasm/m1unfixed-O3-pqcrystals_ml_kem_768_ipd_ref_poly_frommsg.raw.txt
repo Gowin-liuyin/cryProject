@@ -1,0 +1,98 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O3/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000004af0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    4af0:	55                   	push   %rbp
+    4af1:	48 89 e5             	mov    %rsp,%rbp
+    4af4:	48 83 c7 0e          	add    $0xe,%rdi
+    4af8:	31 c0                	xor    %eax,%eax
+    4afa:	eb 18                	jmp    4b14 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x24>
+    4afc:	0f 1f 40 00          	nopl   0x0(%rax)
+    4b00:	66 89 0f             	mov    %cx,(%rdi)
+    4b03:	48 ff c0             	inc    %rax
+    4b06:	48 83 c7 10          	add    $0x10,%rdi
+    4b0a:	48 83 f8 20          	cmp    $0x20,%rax
+    4b0e:	0f 84 4e 01 00 00    	je     4c62 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x172>
+    4b14:	f6 04 06 01          	testb  $0x1,(%rsi,%rax,1)
+    4b18:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b1d:	0f 85 8d 00 00 00    	jne    4bb0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xc0>
+    4b23:	66 89 4f f2          	mov    %cx,-0xe(%rdi)
+    4b27:	f6 04 06 02          	testb  $0x2,(%rsi,%rax,1)
+    4b2b:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b30:	0f 85 92 00 00 00    	jne    4bc8 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xd8>
+    4b36:	66 89 4f f4          	mov    %cx,-0xc(%rdi)
+    4b3a:	f6 04 06 04          	testb  $0x4,(%rsi,%rax,1)
+    4b3e:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b43:	0f 85 97 00 00 00    	jne    4be0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xf0>
+    4b49:	66 89 4f f6          	mov    %cx,-0xa(%rdi)
+    4b4d:	f6 04 06 08          	testb  $0x8,(%rsi,%rax,1)
+    4b51:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b56:	0f 85 9c 00 00 00    	jne    4bf8 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x108>
+    4b5c:	66 89 4f f8          	mov    %cx,-0x8(%rdi)
+    4b60:	f6 04 06 10          	testb  $0x10,(%rsi,%rax,1)
+    4b64:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b69:	0f 85 a1 00 00 00    	jne    4c10 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x120>
+    4b6f:	66 89 4f fa          	mov    %cx,-0x6(%rdi)
+    4b73:	f6 04 06 20          	testb  $0x20,(%rsi,%rax,1)
+    4b77:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b7c:	0f 85 a6 00 00 00    	jne    4c28 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x138>
+    4b82:	66 89 4f fc          	mov    %cx,-0x4(%rdi)
+    4b86:	f6 04 06 40          	testb  $0x40,(%rsi,%rax,1)
+    4b8a:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4b8f:	0f 85 ab 00 00 00    	jne    4c40 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x150>
+    4b95:	66 89 4f fe          	mov    %cx,-0x2(%rdi)
+    4b99:	80 3c 06 00          	cmpb   $0x0,(%rsi,%rax,1)
+    4b9d:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4ba2:	0f 89 58 ff ff ff    	jns    4b00 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x10>
+    4ba8:	e9 ab 00 00 00       	jmp    4c58 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x168>
+    4bad:	0f 1f 00             	nopl   (%rax)
+    4bb0:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4bb5:	66 89 4f f2          	mov    %cx,-0xe(%rdi)
+    4bb9:	f6 04 06 02          	testb  $0x2,(%rsi,%rax,1)
+    4bbd:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4bc2:	0f 84 6e ff ff ff    	je     4b36 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x46>
+    4bc8:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4bcd:	66 89 4f f4          	mov    %cx,-0xc(%rdi)
+    4bd1:	f6 04 06 04          	testb  $0x4,(%rsi,%rax,1)
+    4bd5:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4bda:	0f 84 69 ff ff ff    	je     4b49 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x59>
+    4be0:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4be5:	66 89 4f f6          	mov    %cx,-0xa(%rdi)
+    4be9:	f6 04 06 08          	testb  $0x8,(%rsi,%rax,1)
+    4bed:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4bf2:	0f 84 64 ff ff ff    	je     4b5c <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x6c>
+    4bf8:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4bfd:	66 89 4f f8          	mov    %cx,-0x8(%rdi)
+    4c01:	f6 04 06 10          	testb  $0x10,(%rsi,%rax,1)
+    4c05:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4c0a:	0f 84 5f ff ff ff    	je     4b6f <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x7f>
+    4c10:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4c15:	66 89 4f fa          	mov    %cx,-0x6(%rdi)
+    4c19:	f6 04 06 20          	testb  $0x20,(%rsi,%rax,1)
+    4c1d:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4c22:	0f 84 5a ff ff ff    	je     4b82 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x92>
+    4c28:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4c2d:	66 89 4f fc          	mov    %cx,-0x4(%rdi)
+    4c31:	f6 04 06 40          	testb  $0x40,(%rsi,%rax,1)
+    4c35:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4c3a:	0f 84 55 ff ff ff    	je     4b95 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0xa5>
+    4c40:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4c45:	66 89 4f fe          	mov    %cx,-0x2(%rdi)
+    4c49:	80 3c 06 00          	cmpb   $0x0,(%rsi,%rax,1)
+    4c4d:	b9 00 00 00 00       	mov    $0x0,%ecx
+    4c52:	0f 89 a8 fe ff ff    	jns    4b00 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x10>
+    4c58:	b9 81 06 00 00       	mov    $0x681,%ecx
+    4c5d:	e9 9e fe ff ff       	jmp    4b00 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x10>
+    4c62:	5d                   	pop    %rbp
+    4c63:	c3                   	ret
+
+Disassembly of section .fini:

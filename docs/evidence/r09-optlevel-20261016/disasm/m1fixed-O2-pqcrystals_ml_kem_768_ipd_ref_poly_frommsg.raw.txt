@@ -1,0 +1,104 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O2/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000004790 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    4790:	55                   	push   %rbp
+    4791:	48 89 e5             	mov    %rsp,%rbp
+    4794:	41 57                	push   %r15
+    4796:	41 56                	push   %r14
+    4798:	53                   	push   %rbx
+    4799:	50                   	push   %rax
+    479a:	48 89 f3             	mov    %rsi,%rbx
+    479d:	49 89 fe             	mov    %rdi,%r14
+    47a0:	45 31 ff             	xor    %r15d,%r15d
+    47a3:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    47aa:	84 00 00 00 00 00 
+    47b0:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    47b4:	66 43 c7 04 3e 00 00 	movw   $0x0,(%r14,%r15,1)
+    47bb:	0f b6 13             	movzbl (%rbx),%edx
+    47be:	83 e2 01             	and    $0x1,%edx
+    47c1:	be 81 06 00 00       	mov    $0x681,%esi
+    47c6:	e8 25 e7 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    47cb:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    47cf:	48 83 c7 02          	add    $0x2,%rdi
+    47d3:	66 43 c7 44 3e 02 00 	movw   $0x0,0x2(%r14,%r15,1)
+    47da:	00 
+    47db:	0f b6 13             	movzbl (%rbx),%edx
+    47de:	d1 ea                	shr    $1,%edx
+    47e0:	83 e2 01             	and    $0x1,%edx
+    47e3:	be 81 06 00 00       	mov    $0x681,%esi
+    47e8:	e8 03 e7 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    47ed:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    47f1:	48 83 c7 04          	add    $0x4,%rdi
+    47f5:	66 43 c7 44 3e 04 00 	movw   $0x0,0x4(%r14,%r15,1)
+    47fc:	00 
+    47fd:	0f b6 13             	movzbl (%rbx),%edx
+    4800:	c1 ea 02             	shr    $0x2,%edx
+    4803:	83 e2 01             	and    $0x1,%edx
+    4806:	be 81 06 00 00       	mov    $0x681,%esi
+    480b:	e8 e0 e6 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4810:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    4814:	48 83 c7 06          	add    $0x6,%rdi
+    4818:	66 43 c7 44 3e 06 00 	movw   $0x0,0x6(%r14,%r15,1)
+    481f:	00 
+    4820:	0f b6 13             	movzbl (%rbx),%edx
+    4823:	c1 ea 03             	shr    $0x3,%edx
+    4826:	83 e2 01             	and    $0x1,%edx
+    4829:	be 81 06 00 00       	mov    $0x681,%esi
+    482e:	e8 bd e6 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4833:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    4837:	48 83 c7 08          	add    $0x8,%rdi
+    483b:	66 43 c7 44 3e 08 00 	movw   $0x0,0x8(%r14,%r15,1)
+    4842:	00 
+    4843:	0f b6 13             	movzbl (%rbx),%edx
+    4846:	c1 ea 04             	shr    $0x4,%edx
+    4849:	83 e2 01             	and    $0x1,%edx
+    484c:	be 81 06 00 00       	mov    $0x681,%esi
+    4851:	e8 9a e6 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4856:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    485a:	48 83 c7 0a          	add    $0xa,%rdi
+    485e:	66 43 c7 44 3e 0a 00 	movw   $0x0,0xa(%r14,%r15,1)
+    4865:	00 
+    4866:	0f b6 13             	movzbl (%rbx),%edx
+    4869:	c1 ea 05             	shr    $0x5,%edx
+    486c:	83 e2 01             	and    $0x1,%edx
+    486f:	be 81 06 00 00       	mov    $0x681,%esi
+    4874:	e8 77 e6 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    4879:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    487d:	48 83 c7 0c          	add    $0xc,%rdi
+    4881:	66 43 c7 44 3e 0c 00 	movw   $0x0,0xc(%r14,%r15,1)
+    4888:	00 
+    4889:	0f b6 13             	movzbl (%rbx),%edx
+    488c:	c1 ea 06             	shr    $0x6,%edx
+    488f:	83 e2 01             	and    $0x1,%edx
+    4892:	be 81 06 00 00       	mov    $0x681,%esi
+    4897:	e8 54 e6 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    489c:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+    48a0:	48 83 c7 0e          	add    $0xe,%rdi
+    48a4:	66 43 c7 44 3e 0e 00 	movw   $0x0,0xe(%r14,%r15,1)
+    48ab:	00 
+    48ac:	0f b6 13             	movzbl (%rbx),%edx
+    48af:	c1 ea 07             	shr    $0x7,%edx
+    48b2:	be 81 06 00 00       	mov    $0x681,%esi
+    48b7:	e8 34 e6 ff ff       	call   2ef0 <pqcrystals_ml_kem_768_ipd_ref_cmov_int16>
+    48bc:	48 ff c3             	inc    %rbx
+    48bf:	49 83 c7 10          	add    $0x10,%r15
+    48c3:	49 81 ff 00 02 00 00 	cmp    $0x200,%r15
+    48ca:	0f 85 e0 fe ff ff    	jne    47b0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x20>
+    48d0:	48 83 c4 08          	add    $0x8,%rsp
+    48d4:	5b                   	pop    %rbx
+    48d5:	41 5e                	pop    %r14
+    48d7:	41 5f                	pop    %r15
+    48d9:	5d                   	pop    %rbp
+    48da:	c3                   	ret
+
+Disassembly of section .fini:

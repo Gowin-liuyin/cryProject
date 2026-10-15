@@ -1,0 +1,55 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O0/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000005fb0 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    5fb0:	push   %rbp
+    5fb1:	mov    %rsp,%rbp
+    5fb4:	mov    %rdi,-0x8(%rbp)
+    5fb8:	mov    %rsi,-0x10(%rbp)
+    5fbc:	movl   $0x0,-0x14(%rbp)
+    5fc3:	cmpl   $0x20,-0x14(%rbp)
+    5fc7:	jae    603c <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x8c>
+    5fcd:	movl   $0x0,-0x18(%rbp)
+    5fd4:	cmpl   $0x8,-0x18(%rbp)
+    5fd8:	jae    6029 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x79>
+    5fde:	mov    -0x10(%rbp),%rax
+    5fe2:	mov    -0x14(%rbp),%ecx
+    5fe5:	movzbl (%rax,%rcx,1),%eax
+    5fe9:	mov    -0x18(%rbp),%ecx
+    5fec:	sar    %cl,%eax
+    5fee:	and    $0x1,%eax
+    5ff1:	movswl %ax,%ecx
+    5ff4:	xor    %eax,%eax
+    5ff6:	sub    %ecx,%eax
+    5ff8:	mov    %ax,-0x1a(%rbp)
+    5ffc:	movswl -0x1a(%rbp),%eax
+    6000:	and    $0x681,%eax
+    6005:	mov    %ax,%dx
+    6008:	mov    -0x8(%rbp),%rax
+    600c:	mov    -0x14(%rbp),%ecx
+    600f:	shl    $0x3,%ecx
+    6012:	add    -0x18(%rbp),%ecx
+    6015:	mov    %ecx,%ecx
+    6017:	mov    %dx,(%rax,%rcx,2)
+    601b:	mov    -0x18(%rbp),%eax
+    601e:	add    $0x1,%eax
+    6021:	mov    %eax,-0x18(%rbp)
+    6024:	jmp    5fd4 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x24>
+    6029:	jmp    602e <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x7e>
+    602e:	mov    -0x14(%rbp),%eax
+    6031:	add    $0x1,%eax
+    6034:	mov    %eax,-0x14(%rbp)
+    6037:	jmp    5fc3 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x13>
+    603c:	pop    %rbp
+    603d:	ret
+
+Disassembly of section .fini:

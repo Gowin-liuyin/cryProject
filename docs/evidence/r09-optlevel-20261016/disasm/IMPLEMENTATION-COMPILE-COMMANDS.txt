@@ -1,0 +1,60 @@
+cell=m1unfixed-O0
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O0/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1unfixed-O2
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -O2 -fno-vectorize -O2 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O2/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1unfixed-O3
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -O3 -fno-vectorize -O3 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-O3/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1unfixed-Os
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-clangover/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-Os/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1fixed-O0
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O0/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1fixed-O2
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -O2 -fno-vectorize -O2 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O2/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1fixed-O3
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -O3 -fno-vectorize -O3 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-O3/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m1fixed-Os
+unit=poly.c (contains poly_frommsg)
+archive_member=poly.c.o
+command=/usr/bin/clang -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/build/historical-fixed-982c762/liboqs010-build/include -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/common/pqclean_shims -Os -fno-vectorize -Os -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o /home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1fixed-Os/liboqs-objects/member007_poly.c.o -c /home/nss-marker/yhr/Cry/liboqs010-historical-20261015-86131c2/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+
+cell=m5ref-O0
+unit=kernel.c (contains baseline_native_poly_frommsg)
+archive_member=None
+command=None
+
+cell=m5ref-O2
+unit=kernel.c (contains baseline_native_poly_frommsg)
+archive_member=None
+command=None
+
+cell=m5ref-O3
+unit=kernel.c (contains baseline_native_poly_frommsg)
+archive_member=None
+command=None
+
+cell=m5ref-Os
+unit=kernel.c (contains baseline_native_poly_frommsg)
+archive_member=None
+command=None
+

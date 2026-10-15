@@ -1,0 +1,34 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m1unfixed-Os/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+00000000000039ab <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg>:
+    39ab:	55                   	push   %rbp
+    39ac:	48 89 e5             	mov    %rsp,%rbp
+    39af:	31 c0                	xor    %eax,%eax
+    39b1:	31 c9                	xor    %ecx,%ecx
+    39b3:	44 0f b6 04 06       	movzbl (%rsi,%rax,1),%r8d
+    39b8:	31 d2                	xor    %edx,%edx
+    39ba:	41 0f a3 c8          	bt     %ecx,%r8d
+    39be:	73 05                	jae    39c5 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x1a>
+    39c0:	ba 81 06 00 00       	mov    $0x681,%edx
+    39c5:	66 89 14 4f          	mov    %dx,(%rdi,%rcx,2)
+    39c9:	48 ff c1             	inc    %rcx
+    39cc:	48 83 f9 08          	cmp    $0x8,%rcx
+    39d0:	75 e1                	jne    39b3 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x8>
+    39d2:	48 ff c0             	inc    %rax
+    39d5:	48 83 c7 10          	add    $0x10,%rdi
+    39d9:	48 83 f8 20          	cmp    $0x20,%rax
+    39dd:	75 d2                	jne    39b1 <pqcrystals_ml_kem_768_ipd_ref_poly_frommsg+0x6>
+    39df:	5d                   	pop    %rbp
+    39e0:	c3                   	ret
+
+Disassembly of section .fini:

@@ -26,8 +26,15 @@
 COLLECT=/home/nss-marker/yhr/Cry/platform-collect-20261016-c011ec7a5e01
 CONTROL=/home/nss-marker/yhr/Cry/platform-control-20261016-53929b406f0d
 PLAN=$COLLECT/plans/r09-optlevel-PLAN.md
-PLAN_SHA=0106ee30d1512705f64d7ad7e64df9bd20a0ad1df6e3be5de92dc799291512a7
+PLAN_SHA=732e07c8bf228f21a7be92bb5a4ee5d3a924ae0b6e63e8c7207f663ca40a6115
 R09=/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887
+
+# 更正记录（2026-10-16，在任何 r09 采数之前）：本文件的 PLAN_SHA 由
+#   0106ee30d1512705f64d7ad7e64df9bd20a0ad1df6e3be5de92dc799291512a7 更新为
+#   732e07c8bf228f21a7be92bb5a4ee5d3a924ae0b6e63e8c7207f663ca40a6115。原因是 PLAN §3 的资格判据里写错了两个 meta 字段名
+#   （冻结 measure.c 的 meta 没有 run_status / zero_elapsed_count），
+#   已在 PLAN 内改正并留更正记录。**采集参数、类对、预算、运行表都没有变**；
+#   主控需重新上传 PLAN 后再开跑，并用新摘要核对。
 
 # ------------------------------ m1unfixed-O0 : M1 未修（liboqs 0.10.0 historical-clangover） ------------------------------
 mkdir -p $COLLECT/R09/r09-o0-m1unfixed-s1

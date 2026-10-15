@@ -1,0 +1,62 @@
+
+/home/nss-marker/yhr/Cry/r09-optlevel-20261016-85e46c952887/build/m5ref-O0/measure：     文件格式 elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000002ad0 <baseline_native_poly_frommsg>:
+    2ad0:	55                   	push   %rbp
+    2ad1:	48 89 e5             	mov    %rsp,%rbp
+    2ad4:	48 83 ec 20          	sub    $0x20,%rsp
+    2ad8:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    2adc:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+    2ae0:	c7 45 ec 00 00 00 00 	movl   $0x0,-0x14(%rbp)
+    2ae7:	83 7d ec 20          	cmpl   $0x20,-0x14(%rbp)
+    2aeb:	0f 83 7d 00 00 00    	jae    2b6e <baseline_native_poly_frommsg+0x9e>
+    2af1:	c7 45 e8 00 00 00 00 	movl   $0x0,-0x18(%rbp)
+    2af8:	83 7d e8 08          	cmpl   $0x8,-0x18(%rbp)
+    2afc:	0f 83 59 00 00 00    	jae    2b5b <baseline_native_poly_frommsg+0x8b>
+    2b02:	8b 4d e8             	mov    -0x18(%rbp),%ecx
+    2b05:	b8 01 00 00 00       	mov    $0x1,%eax
+    2b0a:	d3 e0                	shl    %cl,%eax
+    2b0c:	0f b6 f8             	movzbl %al,%edi
+    2b0f:	e8 6c 00 00 00       	call   2b80 <mlk_value_barrier_u8>
+    2b14:	88 45 e7             	mov    %al,-0x19(%rbp)
+    2b17:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    2b1b:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+    2b1e:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    2b22:	0f b6 4d e7          	movzbl -0x19(%rbp),%ecx
+    2b26:	21 c8                	and    %ecx,%eax
+    2b28:	bf 81 06 00 00       	mov    $0x681,%edi
+    2b2d:	31 f6                	xor    %esi,%esi
+    2b2f:	0f b7 d0             	movzwl %ax,%edx
+    2b32:	e8 69 00 00 00       	call   2ba0 <mlk_ct_sel_int16>
+    2b37:	66 89 c2             	mov    %ax,%dx
+    2b3a:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    2b3e:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+    2b41:	c1 e1 03             	shl    $0x3,%ecx
+    2b44:	03 4d e8             	add    -0x18(%rbp),%ecx
+    2b47:	89 c9                	mov    %ecx,%ecx
+    2b49:	66 89 14 48          	mov    %dx,(%rax,%rcx,2)
+    2b4d:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    2b50:	83 c0 01             	add    $0x1,%eax
+    2b53:	89 45 e8             	mov    %eax,-0x18(%rbp)
+    2b56:	e9 9d ff ff ff       	jmp    2af8 <baseline_native_poly_frommsg+0x28>
+    2b5b:	e9 00 00 00 00       	jmp    2b60 <baseline_native_poly_frommsg+0x90>
+    2b60:	8b 45 ec             	mov    -0x14(%rbp),%eax
+    2b63:	83 c0 01             	add    $0x1,%eax
+    2b66:	89 45 ec             	mov    %eax,-0x14(%rbp)
+    2b69:	e9 79 ff ff ff       	jmp    2ae7 <baseline_native_poly_frommsg+0x17>
+    2b6e:	e9 00 00 00 00       	jmp    2b73 <baseline_native_poly_frommsg+0xa3>
+    2b73:	e9 00 00 00 00       	jmp    2b78 <baseline_native_poly_frommsg+0xa8>
+    2b78:	48 83 c4 20          	add    $0x20,%rsp
+    2b7c:	5d                   	pop    %rbp
+    2b7d:	c3                   	ret
+
+Disassembly of section .fini:
