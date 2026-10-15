@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-16",
+  "document_state": "structure_refreshed_20261016_pending_lead_statistics",
+  "baseline_commit": "ac46e62",
+  "worktree_head": "efca8a17d2633b5e8cd8b5e5b9f23e89723f00f3",
+  "sources": [
+    {
+      "id": "E01",
+      "label": "完整完成条件",
+      "path": "docs/platform/COMPLETION_REQUIREMENTS.md",
+      "state": "requirements_only",
+      "sha256": "31cac9c7b848585c679aece93b78c2d666210e660df1df59b44011e3c6d1bd91",
+      "bytes": 18403
+    },
+    {
+      "id": "E02",
+      "label": "M1 既有封存结论",
+      "path": "docs/evidence/r02-r04-close-20261016/RESULT.md",
+      "state": "frozen_reference",
+      "sha256": "2056fbf434dfb1dff64fed6c3ba7e42426a34ba4dfcb2728bb9353c7597c1376",
+      "bytes": 11940
+    },
+    {
+      "id": "E03",
+      "label": "M2 定位结果",
+      "path": "docs/evidence/m2-kyberslash-20261016/RESULT.md",
+      "state": "localization_only",
+      "sha256": "159d5bd8e6a2e0f5eaad3a2e289b9fd7bf5fa4a9430958c23a96541e49c9b9fd",
+      "bytes": 2707
+    },
+    {
+      "id": "E04",
+      "label": "M2 版本审计",
+      "path": "docs/evidence/m2-kyberslash-20261016/VERSION_AUDIT.md",
+      "state": "pinned_history",
+      "sha256": "7e137998427e7f39964b590c3be38abcd6d3df830b12679cfae914d0b69a7fdd",
+      "bytes": 9409
+    },
+    {
+      "id": "E05",
+      "label": "M3 独立校准夹具",
+      "path": "docs/evidence/m3-memaccess-20261016/RESULT.md",
+      "state": "localization_only",
+      "sha256": "714a956f2b307a4f4d1e40c0db37fd6d7f1bd132924e6214d594c3168f8eb393",
+      "bytes": 1754
+    },
+    {
+      "id": "E06",
+      "label": "M4 独立校准夹具",
+      "path": "docs/evidence/m4-compare-20261016/RESULT.md",
+      "state": "localization_only",
+      "sha256": "fd1f53d1ac2bd8b2a58ec0f4681764b30f69c165c896e4dfc484b94d51fa48b7",
+      "bytes": 2104
+    },
+    {
+      "id": "E07",
+      "label": "M5 前置接线",
+      "path": "docs/evidence/m5-mlkem-native-20261016/RESULT.md",
+      "state": "software_only",
+      "sha256": "ce9dd487b5e5256c8c36b6055c293c164d332d5c54abea35d1805995d7bad29c",
+      "bytes": 3830
+    },
+    {
+      "id": "E08",
+      "label": "统计电池协议",
+      "path": "scripts/platform_stats/README.md",
+      "state": "software_contract",
+      "sha256": "2befb3d089df0f43c63c5f51889c2f0a5f3ecb9a65a83163cd41ba5ebe844f3e",
+      "bytes": 4949
+    },
+    {
+      "id": "E09",
+      "label": "Mona 实际对照",
+      "path": "docs/evidence/mona-wire-20261016/RESULT.md",
+      "state": "offline_replay_only",
+      "sha256": "f3c8708bf3af077432ade215deacf2104bf8c1189027c182c67569ed624793d8",
+      "bytes": 16376
+    },
+    {
+      "id": "E10",
+      "label": "架构与证据边界",
+      "path": "docs/platform/ARCHITECTURE.md",
+      "state": "architecture",
+      "sha256": "8f3b1b8a2412ed8c9670515216e2a78dda2009ec2d66b071c13778e9f12a9c35",
+      "bytes": 9884
+    },
+    {
+      "id": "E11",
+      "label": "工具固定来源与许可",
+      "path": "third_party/REPOS.md",
+      "state": "source_inventory",
+      "sha256": "6149b92c4cc83e7e2d5f96b4e8c7d9bbc94d99ea275bc463385baf1d287663a2",
+      "bytes": 6133
+    },
+    {
+      "id": "E12",
+      "label": "M2 完整调用软件合同",
+      "path": "docs/evidence/m2-kem-20261016/SOFTWARE_CONTRACT.md",
+      "state": "software_contract_only",
+      "sha256": "9e200b915556be79f8e8776afc6be3389a88a0806e220560088029e92bf620f7",
+      "bytes": 3766
+    },
+    {
+      "id": "E13",
+      "label": "M2 完整历史 KEM 原生资格",
+      "path": "docs/evidence/m2-kem-20261016/RESULT.md",
+      "state": "native_functional_qualified_statistics_not_run",
+      "sha256": "7638266a90fde2ef5d83249313b2f2e34301f15b0211ade2222b976c23382765",
+      "bytes": 3935
+    },
+    {
+      "id": "E14",
+      "label": "M3 完整解封装人工 LUT",
+      "path": "docs/evidence/m3-completion-20261016/RESULT.md",
+      "state": "native_functional_and_localization_statistics_not_run",
+      "sha256": "50a21f5d257b4a6e6e211d5f5b429277da58e6a74c6b065c6a36d9e629ace922",
+      "bytes": 3290
+    },
+    {
+      "id": "E15",
+      "label": "M5 原生秘密标记与 varlat",
+      "path": "docs/evidence/m5-completion-20261016/RESULT.md",
+      "state": "native_limited_dynamic_negative_statistics_not_run",
+      "sha256": "64df3dfe1f79c95077fc77c72d0fbca9c58410f5ee3db2426d1bab9da5b4b47d",
+      "bytes": 3688
+    },
+    {
+      "id": "E16",
+      "label": "M4 Binsec 实际有界验证",
+      "path": "docs/evidence/m4-completion-20261016/RESULT.md",
+      "state": "bounded_formal_complete_statistics_not_run",
+      "sha256": "7c4260f6351ddaa7cce6bfefb8ba4c79d2c1c236953318bdb2613f05d502f033",
+      "bytes": 3462
+    },
+    {
+      "id": "E17",
+      "label": "M1 锁频原始证据",
+      "path": "docs/evidence/liboqs010-locked-20261015/README.md",
+      "state": "locked_reference",
+      "sha256": "d4f7283a342c6b74a462d030d4d520b688089705c6e4a3c0a87786c00b2b85a7",
+      "bytes": 4324
+    },
+    {
+      "id": "E18",
+      "label": "M1 开源检测器对照",
+      "path": "docs/evidence/tooling-strengthen-20261015/RESULT.md",
+      "state": "tool_cross_check",
+      "sha256": "9c0e3eb041ec56fa55637581fc014a2f7a37ed92ff2e6294397d5baefbb0862b",
+      "bytes": 3138
+    }
+  ],
+  "modules": [
+    {
+      "id": "M1",
+      "name": "编译器消息位分支",
+      "case": "真实历史案例",
+      "software": "封存引用",
+      "localization": "封存引用",
+      "statistics": "封存引用",
+      "formal": "未主张",
+      "summary": "在固定 liboqs 0.10.0、Clang 18 和便携 C 条件下引用既有检测与官方修复复测证据：三次独立运行 CI 均不含 0，Holm 家族 m=6 仅主检验被拒绝。本报告不修改或重新签收原结论。",
+      "source": "docs/evidence/r02-r04-close-20261016/RESULT.md",
+      "category": "真实历史案例"
+    },
+    {
+      "id": "M2",
+      "name": "秘密操作数除法",
+      "case": "真实历史热点",
+      "software": "完整KEM资格",
+      "localization": "已执行",
+      "statistics": "未运行：«待主控数据»",
+      "formal": "未运行",
+      "summary": "历史 Kyber768 完整 keygen/encap/decap 已接通；macOS/ARM 与 x86_64 Linux 普通及 ASan/UBSan 均各 7/7，两版各 100 例官方 round3 KAT 全字段匹配。新生产 ELF 的三热点 div 差异仍在；旧 varlat 1280/3 对 0/0 只按旧热点 ELF 引用。时间统计未运行：«待主控数据»。",
+      "source": "docs/evidence/m2-kem-20261016/RESULT.md",
+      "category": "真实历史案例"
+    },
+    {
+      "id": "M3",
+      "name": "秘密下标访存",
+      "case": "人工构造校准",
+      "software": "完整KEM夹具",
+      "localization": "已执行",
+      "statistics": "未运行：«待主控数据»",
+      "formal": "未运行",
+      "summary": "人工 LUT 已挂载到真实完整 ML-KEM 解封装重加密路径；本机与 Linux 普通及 ASan/UBSan 均各 6/6，64 公开种子乘 5 类的完整字节等价通过。新 Linux 秘密标记 on 为 1280 errors / 2 contexts，off 与两 defined 对照均 0/0。Microwalk 记证据化降级；时间统计未运行：«待主控数据»。",
+      "source": "docs/evidence/m3-completion-20261016/RESULT.md",
+      "category": "人工构造校准"
+    },
+    {
+      "id": "M4",
+      "name": "比较时提前退出",
+      "case": "人工构造校准",
+      "software": "完整夹具资格",
+      "localization": "已执行",
+      "statistics": "未运行：«待主控数据»",
+      "formal": "有界已执行",
+      "summary": "独立 32 字节 checked compare 保留提前退出/全长度归约两版及软件资格。旧 Linux Memcheck 为 32 errors / 1 context 对 0/0。新增 Binsec 0.11.3 与 Z3 4.15.3 对固定 i386 -O1、公开长度 1-16 的抽取内核完整探索：vulnerable 为 insecure，ct 为有界 secure；halt 为 32/32 与 16/16，pending/cut/discontinued/solver unknown 均为零。时间统计未运行：«待主控数据»。",
+      "source": "docs/evidence/m4-completion-20261016/RESULT.md",
+      "category": "人工构造校准"
+    },
+    {
+      "id": "M5",
+      "name": "mlkem-native 参考",
+      "case": "阴性对照候选",
+      "software": "原生功能资格",
+      "localization": "已执行",
+      "statistics": "未运行：«待主控数据»",
+      "formal": "未主张",
+      "summary": "完整 mlkem-native 参考的原生普通/ASan+UBSan 资格通过；明确标记秘密 PKE 区及拒绝种子 z，保持公钥/hash/密文公开。v2 普通 ELF 在系统 Memcheck 与 patched varlat=no/yes 均各 10 次完整标记调用、0 errors / 0 contexts。在线 dudect 入口已准备但未计时；时间统计未运行：«待主控数据»。",
+      "source": "docs/evidence/m5-completion-20261016/RESULT.md",
+      "category": "阴性对照候选"
+    }
+  ],
+  "tables": [
+    {
+      "id": "T1",
+      "title": "检测—定位—修复—复测：五模块四段链状态",
+      "rows": 5,
+      "columns": 6
+    },
+    {
+      "id": "T2",
+      "title": "题面第 3 条（输入分类与测试）逐项对照",
+      "rows": 5,
+      "columns": 4
+    },
+    {
+      "id": "T3",
+      "title": "题面第 4 条（侧信道统计检测）逐项对照",
+      "rows": 7,
+      "columns": 4
+    },
+    {
+      "id": "T4",
+      "title": "题面第 5 条（泄露定位）：六类泄漏来源 × ML-KEM 解封装四个步骤",
+      "rows": 7,
+      "columns": 5
+    },
+    {
+      "id": "T5",
+      "title": "实测数字与证据对照（每个数字指向证据文件）",
+      "rows": 15,
+      "columns": 4
+    },
+    {
+      "id": "T6",
+      "title": "«待主控数据» 占位符清单（回填目标）",
+      "rows": 6,
+      "columns": 3
+    }
+  ],
+  "placeholder_token": "«待主控数据»"
+}
