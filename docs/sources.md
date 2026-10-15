@@ -1,5 +1,11 @@
 # 来源与构建口径
 
+## 角色（2026-10-15）
+
+- **主阳性（历史第三方）**：[liboqs 0.10.0](https://github.com/open-quantum-safe/liboqs/releases/tag/0.10.0)，提交 `36be57445d8ca53f7095160fde548efe82ace09d`，告警 [GHSA-f2v9-5498-2vpp](https://github.com/open-quantum-safe/liboqs/security/advisories/GHSA-f2v9-5498-2vpp)。接入说明见 [historical-liboqs-0.10.0.md](historical-liboqs-0.10.0.md)；销钉文件 [`vendor/liboqs-0.10.0.PIN.md`](../vendor/liboqs-0.10.0.PIN.md)。
+- **附录阴性（当前主实现）**：下文 mlkem-native 固定提交；用于正确性主线与「最硬实现上不显著」的诚实对照。
+- **开发夹具**：人工 `message-branch` 等补丁只作用于构建目录副本，不改 `vendor/mlkem-native` 原件。
+
 参考实现：<https://github.com/pq-code-package/mlkem-native>
 固定提交：`b3ba7b32773e657dd37f6f87bce82528459ad8a4`。
 [上游提交记录](https://github.com/pq-code-package/mlkem-native/commit/b3ba7b32773e657dd37f6f87bce82528459ad8a4)
@@ -16,7 +22,7 @@
 其 README 指向旧 Kyber `b628ba78711bc28327dc7d2d5c074a00f061884e` 的
 poly_frommsg 编译器生成秘密相关分支，列举 x86、Clang 15–18、-Os/-O1 等条件。
 历史案例不能直接冒称本机已复现，也不能将旧 Kyber 身份换成当前 ML-KEM。
-已在当前库上单独维护最小机制回归补丁，并核验实际采集产物的机器码。
+已在当前库上单独维护最小机制回归补丁，并核验实际采集产物的机器码；该补丁现降为开发夹具，主阳性改为 liboqs 0.10.0（见上）。
 
 早期记录（保留当时时点）：macOS Darwin 25.6.0 arm64，Apple Clang 21.0.0
 (clang-2100.3.34.2)，当前 CMake 默认 RelWithDebInfo（本机 `-O2 -g -DNDEBUG`）、C11、严格警告、无 LTO。

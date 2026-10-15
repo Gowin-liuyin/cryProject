@@ -63,7 +63,11 @@ int main(int argument_count, char **argument_values)
         return print_usage();
     }
     if (argument_count == 2 && strcmp(argument_values[1], "version") == 0) {
+#ifdef BASELINE_HISTORICAL
+        printf("%s ML-KEM-768-ipd liboqs-0.10.0\n", mlkem_implementation_name());
+#else
         printf("%s ML-KEM-768 FIPS203\n", mlkem_implementation_name());
+#endif
         return 0;
     }
     if (argument_count == 2 &&

@@ -39,7 +39,13 @@ fi
         printf 'not_applicable_source_export\n'
     fi
     printf 'build_input_manifest_begin\n'
-    find src include vendor docs/patches tools cmake -type f | LC_ALL=C sort | while IFS= read -r source_file; do
+    # vendor/liboqs-0.10.0 is an optional fetched snapshot (gitignored); its
+    # integrity is pinned by vendor/liboqs-0.10.0.PIN.md archive SHA-256, not
+    # by hashing every upstream file into every build identity.
+    find src include vendor/mlkem-native docs/patches tools cmake -type f | LC_ALL=C sort | while IFS= read -r source_file; do
+        shasum -a 256 "$source_file"
+    done
+    find vendor -maxdepth 1 -type f | LC_ALL=C sort | while IFS= read -r source_file; do
         shasum -a 256 "$source_file"
     done
     shasum -a 256 Makefile CMakeLists.txt CMakePresets.json "$configuration_file"

@@ -4,7 +4,14 @@
 #endif
 #include "build_identity.h"
 #include "inputs.h"
+#ifdef BASELINE_HISTORICAL
+/* liboqs internal SHA3 (same digest width); not part of the public OQS API. */
+void OQS_SHA3_sha3_256(uint8_t *output, const uint8_t *input, size_t input_byte_count);
+#define measure_sha3_256 OQS_SHA3_sha3_256
+#else
 #include "src/fips202/fips202.h"
+#define measure_sha3_256 mlk_sha3_256
+#endif
 #ifdef BASELINE_BATCH_WORKLOAD
 #include "batch_measurement.h"
 #endif
@@ -198,7 +205,7 @@ static int hash_ordered_inputs(const struct measurement_sample *samples,
             MLKEM_CIPHERTEXT_BYTES);
         write_offset += MLKEM_CIPHERTEXT_BYTES;
     }
-    mlk_sha3_256(accounting.ordered_input_digest, input_bytes, input_byte_count);
+    measure_sha3_256(accounting.ordered_input_digest, input_bytes, input_byte_count);
     free(input_bytes);
     return 0;
 }
@@ -393,7 +400,7 @@ static int hash_running_executable(uint8_t executable_digest[32])
         operation_status = 1;
     }
     if (operation_status == 0) {
-        mlk_sha3_256(executable_digest, executable_bytes, executable_byte_count);
+        measure_sha3_256(executable_digest, executable_bytes, executable_byte_count);
     }
     free(executable_bytes);
     return operation_status;

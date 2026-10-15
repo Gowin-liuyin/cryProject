@@ -26,6 +26,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(BASELINE_SANITIZERS "Enable ASan/UBSan; do not use these timings as performance evidence"
        OFF
 )
+option(BASELINE_ENABLE_LIBOQS010
+       "Build historical positive-control variant against vendored liboqs 0.10.0" OFF
+)
 option(A113_ARCHIVED_CASE_ONLY "Use archived mechanism cases in the delivery workflow" ON)
 set(A113_MATRIX_OPT
     ""
@@ -863,6 +866,11 @@ if(BUILD_TESTING)
                  "TMPDIR=${test_temp_directory}" "TMP=${test_temp_directory}"
                  "TEMP=${test_temp_directory}"
     )
+endif()
+
+
+if(BASELINE_ENABLE_LIBOQS010)
+    include(cmake/Liboqs010Historical.cmake)
 endif()
 
 set(CLANG_FORMAT_EXECUTABLE

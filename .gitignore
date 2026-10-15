@@ -3,3 +3,8 @@
 .DS_Store
 /cmake-build*/
 /CMakeUserPresets.json
+
+# Historical positive-control snapshot (fetch with tools/fetch_liboqs_0.10.0.sh)
+/vendor/liboqs-0.10.0/
+/vendor/liboqs-0.10.0.tar.gz
+/vendor/liboqs-fetch.*/
