@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 核对已保存的 poly_frommsg 反汇编：未修有消息位条件分支，修后是 setb + call。
 set -eu
 

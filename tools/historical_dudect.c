@@ -47,9 +47,14 @@ uint8_t do_one_computation(uint8_t *data)
 void prepare_inputs(dudect_config_t *config, uint8_t *input_data, uint8_t *classes)
 {
     size_t measurement_index;
+    static uint64_t actual_seed = HISTORICAL_DUDECT_SEED;
 
     if (key_is_ready == 0) {
-        if (generate_test_key_pair(HISTORICAL_DUDECT_SEED,
+        const char *environment_seed = getenv("HISTORICAL_DUDECT_SEED");
+        if (environment_seed != NULL && *environment_seed != '\0') {
+            actual_seed = strtoull(environment_seed, NULL, 0);
+        }
+        if (generate_test_key_pair(actual_seed,
                 encapsulation_key,
                 decapsulation_key) != 0) {
             fputs("historical dudect key generation failed\n", stderr);
@@ -70,7 +75,7 @@ void prepare_inputs(dudect_config_t *config, uint8_t *input_data, uint8_t *class
         }
         ciphertext = input_data + measurement_index * config->chunk_size;
         if (generate_test_ciphertext(category,
-                HISTORICAL_DUDECT_SEED,
+                actual_seed,
                 (uint64_t)measurement_index,
                 encapsulation_key,
                 ciphertext) != 0) {
