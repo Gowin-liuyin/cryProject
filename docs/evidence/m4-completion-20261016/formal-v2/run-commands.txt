@@ -1,0 +1,32 @@
+date=2026-10-16T02:10:26+08:00
+run=vulnerable-1-16
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+z3=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg
+command=sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/run_checkct.sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3 /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-v2/vulnerable-1-16
+
+date=2026-10-16T02:10:26+08:00
+run=ct-1-16
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+z3=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg
+command=sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/run_checkct.sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3 /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-v2/ct-1-16
+
+date=2026-10-16T02:10:26+08:00
+run=vulnerable-fixed16
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+z3=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg
+command=sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/run_checkct.sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3 /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-v2/vulnerable-fixed16
+
+date=2026-10-16T02:10:26+08:00
+run=ct-fixed16
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+z3=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg
+command=sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/run_checkct.sh /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/bin/z3 /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-v2/ct-fixed16
+

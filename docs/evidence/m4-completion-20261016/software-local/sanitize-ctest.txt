@@ -1,0 +1,89 @@
+Start testing: Oct 16 01:48 CST
+----------------------------------------------------------
+1/5 Testing: platform_m4_vulnerable_inputs
+1/5 Test: platform_m4_vulnerable_inputs
+Command: "/Users/yin/code/cryProject/build/platform-m4-s7/sanitize/test_platform_m4_vulnerable"
+Directory: /Users/yin/code/cryProject/build/platform-m4-s7/sanitize
+"platform_m4_vulnerable_inputs" start time: Oct 16 01:48 CST
+Output:
+----------------------------------------------------------
+m4_inputs=pass timing_collection=not_run
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m4_vulnerable_inputs" end time: Oct 16 01:48 CST
+"platform_m4_vulnerable_inputs" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: platform_m4_vulnerable_describe
+2/5 Test: platform_m4_vulnerable_describe
+Command: "/Users/yin/code/cryProject/build/platform-m4-s7/sanitize/platform_m4_measure_vulnerable" "--describe"
+Directory: /Users/yin/code/cryProject/build/platform-m4-s7/sanitize
+"platform_m4_vulnerable_describe" start time: Oct 16 01:48 CST
+Output:
+----------------------------------------------------------
+module=M4 case=artificial_compare boundary=complete_checked_compare bytes=32 classes=mismatch-first,mismatch-last timing_collection=not_run
+<end of output>
+Test time =   0.37 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m4_vulnerable_describe" end time: Oct 16 01:48 CST
+"platform_m4_vulnerable_describe" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: platform_m4_ct_inputs
+3/5 Test: platform_m4_ct_inputs
+Command: "/Users/yin/code/cryProject/build/platform-m4-s7/sanitize/test_platform_m4_ct"
+Directory: /Users/yin/code/cryProject/build/platform-m4-s7/sanitize
+"platform_m4_ct_inputs" start time: Oct 16 01:48 CST
+Output:
+----------------------------------------------------------
+m4_inputs=pass timing_collection=not_run
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m4_ct_inputs" end time: Oct 16 01:48 CST
+"platform_m4_ct_inputs" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: platform_m4_ct_describe
+4/5 Test: platform_m4_ct_describe
+Command: "/Users/yin/code/cryProject/build/platform-m4-s7/sanitize/platform_m4_measure_ct" "--describe"
+Directory: /Users/yin/code/cryProject/build/platform-m4-s7/sanitize
+"platform_m4_ct_describe" start time: Oct 16 01:48 CST
+Output:
+----------------------------------------------------------
+module=M4 case=artificial_compare boundary=complete_checked_compare bytes=32 classes=mismatch-first,mismatch-last timing_collection=not_run
+<end of output>
+Test time =   0.37 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m4_ct_describe" end time: Oct 16 01:48 CST
+"platform_m4_ct_describe" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: platform_m4_cli_rejections
+5/5 Test: platform_m4_cli_rejections
+Command: "/Users/yin/.local/lib/python3.13/site-packages/cmake/data/bin/cmake" "-DVULNERABLE_PROGRAM=/Users/yin/code/cryProject/build/platform-m4-s7/sanitize/platform_m4_measure_vulnerable" "-DCT_PROGRAM=/Users/yin/code/cryProject/build/platform-m4-s7/sanitize/platform_m4_measure_ct" "-P" "/Users/yin/code/cryProject/tests/test_platform_m4_cli.cmake"
+Directory: /Users/yin/code/cryProject/build/platform-m4-s7/sanitize
+"platform_m4_cli_rejections" start time: Oct 16 01:48 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"platform_m4_cli_rejections" end time: Oct 16 01:48 CST
+"platform_m4_cli_rejections" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 16 01:48 CST
+
+m4 =   1.00 sec*proc
+
+platform =   1.00 sec*proc
+
+software_only =   1.00 sec*proc
+

@@ -1,0 +1,90 @@
+# run=vulnerable-1-16
+## status.txt
+exit_status=0
+depth=10000
+analysis_timeout_seconds=120
+solver_timeout_seconds=5
+wall_timeout_seconds=180
+## elapsed.txt
+exit_status=0
+start_epoch=1792087826.064
+end_epoch=1792087826.310
+elapsed_seconds=0.246
+## identity.txt
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+solver=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg
+Binsec version 0.11.3
+Z3 version 4.15.3 - 64 bit
+8b11a6f8054b96f97e2ba4697952c88eef20094933889591cb3f18c2a73b1279  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+80ee070b8ffc2fa964b0b879250b2110c47f84c1256a1f9ab76fc7cf95e46292  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+c06425dab680a5b57cd058f83e73cba9ba5b42bafc709272003d98eca81dde90  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable
+ed11c9391bedf3ad07ca94277109f47d55de8873ff9400bcc8c709be0ee38f2f  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg
+/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, BuildID[sha1]=6db2092de15036d0b34e54caf985c95a2d46c02e, with debug_info, not stripped
+## checkct result/info/leak lines
+[checkct:result] Instruction 0x8049047 has control flow leak (0.033s)
+[checkct:result] Program status is : insecure (0.207)
+[checkct:info] 32 visited paths covering 32 instructions
+[checkct:info] 49 / 50 control flow checks pass
+[checkct:info] 235 / 235 memory access checks pass
+## SMT + exploration (stdout)
+[sse:info] SMT queries
+ Preprocessing simplifications
+ total 65
+ sat 65
+ unsat 0
+ time 0.00
+ 
+ Satisfiability queries
+ total 35
+ sat 33
+ unsat 2
+ unknown 0
+ time 0.19
+ average 0.01
+ 
+ Exploration
+ total paths 32
+ completed/cut paths 32
+ pending paths 0
+ discontinued paths 0
+ failed assertions 0
+ branching points 33
+ max path depth 134
+ visited instructions (unrolled) 335
+ visited instructions (static) 32
+## TOML: CT report + paths
+["CT report"."Insecurity models".0x8049047.public]
+ebx = ["0x1a1a87fa"]
+esi = ["0x0d2edbc1"]
+m4_public_input = ["0x00000000000000000000000000000000"]
+m4_public_length = ["0x00000010"]
+["CT report"."Insecurity models".0x8049047.secret1]
+m4_secret_input = ["0x000000000000000000000000000000ff"]
+["CT report"."Insecurity models".0x8049047.secret2]
+m4_secret_input = ["0x00000000000000000000000000000000"]
+["CT report"."Instructions status"]
+insecure = ["0x8049047"]
+unknown = []
+[Exploration]
+instructions = 335
+max_depth = 134
+time = 0.206979036331
+unique_insts = 32
+[Exploration.paths]
+pending = 0
+total = 32
+[Exploration.paths.completed]
+assertion_failure = 0
+cut = 0
+halt = 32
+unsatisfiable_assumption = 0
+[Exploration.paths.discontinued]
+enumeration_limit = 0
+error = 0
+max_depth = 0
+non_executable_code = 0
+unresolved_formula = 0
+[Exploration.topology]
+## stderr bytes: 0

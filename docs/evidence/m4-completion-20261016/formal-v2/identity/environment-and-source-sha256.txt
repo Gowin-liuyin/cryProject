@@ -1,0 +1,33 @@
+=== environment ===
+Linux nss-m 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+gcc: gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake: cmake version 3.28.3
+ninja: 1.11.1
+curl: curl 8.5.0 (x86_64-pc-linux-gnu) libcurl/8.5.0 OpenSSL/3.0.13 zlib/1.3 brotli/1.1.0 zstd/1.5.5 libidn2/2.3.7 libpsl/0.21.2 (+libidn2/2.3.7) libssh/0.10.6/openssl/zlib nghttp2/1.59.0 librtmp/2.3 OpenLDAP/2.6.10
+nproc: 32
+=== source sha256 ===
+ec5223d18171ff37de29da64d6bd456c6722f87eb45d3b7e22a2cbaceaa75a1f  ./cmake/PlatformM4.cmake
+90ecd93a8362f6437429dbc0c0e80e86311b1ae77d0ac6c71c2bc1d5f49cdf6c  ./fixtures/early_reject_memcmp/binsec_harness.c
+3725e486221af86aef652304f8c8fa1bf89ba6683cb2a5b4beb91cd131aa3d92  ./fixtures/early_reject_memcmp/checkct.cfg
+23c8ed85960ad5e82f7ef5566475cb706d0440adb64b7752b383cd9f3ea4dcde  ./fixtures/early_reject_memcmp/CMakeLists.txt
+12981311b5705d1e618b55ebddef8285c6038da25194ea90d5bc510305ebcd2e  ./fixtures/early_reject_memcmp/compare_checked.c
+a2cbce6fca0d38d99002aa6cc5bbdf4ccc19716c08e747ac821c92b6c278d8e6  ./fixtures/early_reject_memcmp/compare_ct.c
+36637faafef6fdd2a121c8c292c263c40e59f776eda375367e5808264154d2cb  ./fixtures/early_reject_memcmp/compare_early.c
+b45e5f1f9063114854f9601ce5b98d9206a2cd50fcbf78099b292866458c0bd3  ./fixtures/early_reject_memcmp/compare.h
+5855ea9f6a2b6c33e3277242665aa59d72fc2ebbcad60d3fcdfd07cd369733c9  ./fixtures/early_reject_memcmp/driver.c
+53e0cde0f10bb7a1dee506f01ba2817e715bd51cfbfca201270cdf688526725f  ./fixtures/early_reject_memcmp/README.md
+55d4b9a777426216046d5744800e935a9cc1b3c6a18b8a95f35a24e92e49f7cd  ./fixtures/early_reject_memcmp/self_test.c
+3040ae805c8a5d4641c22edbe2bd1bd331265ac4e5f0a790b5bf537a45b0f144  ./tools/platform_m4/binsec_harness.c
+ed11c9391bedf3ad07ca94277109f47d55de8873ff9400bcc8c709be0ee38f2f  ./tools/platform_m4/checkct_1_16.cfg
+291fc6e627b97eed8f420277f5e31a77e16b204ff1b1b893e635f6831d5b8e6e  ./tools/platform_m4/checkct_fixed16.cfg
+db72bf3d6aa42b5adb2fd6ef97ef86eaf8ec1f819c6bb3901718f51caed13e18  ./tools/platform_m4/CMakeLists.txt
+ebab76381b90930b4998b4e0a896053f0f80e50d198fd4823395e4c207bab74a  ./tools/platform_m4/dudect_online.c
+5f93c11a71a828632a1c206189999368807fe9844fb04e768a53462607194525  ./tools/platform_m4/inputs.c
+aa2a0a6ee76129a41c53f60d6d0cfff3d535d60a80e7d52caff2eebee168908f  ./tools/platform_m4/inputs.h
+91ccd6cea304c81744ca8e7a104b82baa3abd104648b10475019405307adf172  ./tools/platform_m4/install_binsec.sh
+12685abde74e64f9505e707e49f6bf62da91d10058d79091acb5243432ca5bdd  ./tools/platform_m4/measure.c
+52ec7191bb2db47523799a92a8664425147ab0b9dda24e5f99ddaeaf4471c707  ./tools/platform_m4/README.md
+0a5fb45eae4f3fb2e8721669de4c86cc2190f2156c359f287615ca72ca24708e  ./tools/platform_m4/run_checkct.sh

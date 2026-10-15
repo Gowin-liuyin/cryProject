@@ -1,0 +1,23 @@
+* Help for Constant time checker (checkct)
+  
+  -checkct               Enable checkct
+  -checkct-debug-level   Set checkct debug level [0]
+  -checkct-features     
+          Set of CT check points : control-flow, memory-access, multiplication, dividend and divisor. Multiplication and division checks are experimental.
+  -checkct-help          Display options list for checkct
+  -checkct-leak-info {halt|instr}
+          Select the information that is reported about leakage.
+		- halt: halts at first leak
+		- instr: reports leaky instructions (instructions are reported only once)
+ [instr]
+  -checkct-loglevel {info|debug|warning|error|fatal|result}
+          Display checkct log messages only above or equal this level [info]
+  -checkct-no-cv        
+          Disable chosen value sampling (prove that instruction may leak) [false]
+  -checkct-no-relse     
+          Disable relational symbolic engine to answer security queries [false]
+  -checkct-no-taint     
+          Disable taint analysis (prove that instruction can not leak) [false]
+  -checkct-quiet         Quiet all channels for checkct
+  -checkct-stats-file    Set file for dumping staistics
+  

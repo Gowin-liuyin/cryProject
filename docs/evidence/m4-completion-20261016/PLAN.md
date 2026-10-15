@@ -55,21 +55,36 @@
 | 形式分析件（**禁止采集**） | `<Cry>/.../build-software-v2/platform_m4_formal_vulnerable` / `_ct` | `308190a7688f5757a1d354a8dffbb9c55cbbfaca027136befeabbae6e859180e` / `7f34c8764bffd07329db93edcb7f4564b5fbe1e686a7c0ee54468680d38c47c4` |
 | **T9 前的只读基线（不用于采集）** | `<Cry>/.../build-software-v2/platform_m4_measure_vulnerable` / `_ct` | `2d311d38158dad66bdebf324b260e5b1be25be1d5477f611b9d87fae86bf7e0b` / `96e4ab3755c1d4bb13f97213d55bcc26958619fad0c72394bd168d0651a659fc` |
 
-**T9 重建（主控已派单）**：`tools/platform_m4/measure.c` 将新增
-**`--compare-bytes N`（默认 32，取值 1..32）** 与**计时循环前固定 100 次预热（不计时、不写 CSV）**。
-因此本轮**采集用 ELF 是 T9 重建后的产物**，其 sha256 待 T9 完成后由主控填入上表两个占位符；
-上表最后一行是 T9 前的只读基线，**不得**用于本轮采集。
+**T9 重建已完成（`build-software-v3/`，v2 未被覆盖）**：`tools/platform_m4/measure.c` 已加入
+**`--compare-bytes N`（默认 32，取值 1..32）** 与**计时循环前固定 100 次预热（不计时、不写 CSV）**；
+采集源码 `source-v3/tools/platform_m4/measure.c` SHA-256 `881ef2d2cb3f6f6a675c2495c1048a93436635c0e2c38aff0dce6d3f6b13f857`。
+上表 v3 摘要由 `plans` 于 2026-10-16 远端**独立实读复核**（附录 A 有命令与原始输出）。
+**dudect 摘要必须注明取自 v2 还是 v3 目录**：两目录整文件摘要不同（v2 `f674a5a0…`/`914d1ada…`
+→ v3 `42c64118…`/`3e917866…`），但 `plans` 独立复核确认两臂 `.text` 节十六进制转储**逐字节相同**
+（vulnerable `503ed601…`、ct `7427549b…`），即**代码未变、仅调试信息内嵌构建路径不同**
+（source-v3 vs source-v2）；本合同统一**取 v3**，行为与 v2 无差别。
+CTest：普通 7/7、sanitizer 7/7、0 failed（T9 实测）。
 
-**`--compare-bytes` 的语义约束（防止实现走偏）**：
+**`--compare-bytes` 的语义（已按本合同实现，`plans` 实读 v3 源码逐条复核）**：
 
-1. `N` 必须是传给**内核** `m4_compare_bytes(..., compare_length_bytes)` 的**比较窗口**，
-   **不是** `m4_compare_checked` 的 ABI 长度参数——后者固定要求 32
-   （`compare_checked.c` 实读：`secret_length_bytes != M4_COMPARE_BYTES` 即返回 `-1`、不执行比较）。
-   若把 16 当 ABI 长度传入，得到的是"长度拒绝"而不是"截断比较"，与本合同冻结的对照条件不符。
-2. `--describe` 与 meta 必须同时写明**实际 ABI 长度（恒 32）**与**实际比较窗口 `N`**，
-   并写明预热次数；`N != 32` 的运行必须在 meta 中可区分。
-3. T9 重建后必须**重新实读同一棵树内全部采集相关 ELF**（两臂 measure + 两臂 dudect），
-   以实读值替换本表；若 dudect 产物字节也变，其上表摘要同步更新。
+1. `N` 是传给**内核** `m4_compare_bytes(secret, candidate, compare_length_bytes)` 的**比较窗口**；
+   **ABI 长度恒 32**（数组仍 32 字节），没有把 16 当 ABI 长度传入，因此拿到的是**截断比较**，
+   而不是"长度拒绝"（`compare_checked.c` 要求 ABI 长度恰为 32，否则返回 `-1`、不比较）。
+2. `--describe` 已暴露 `abi_bytes=32`、`compare_bytes_default=32`、`compare_bytes_range=1..32`、
+   `warmup_calls=100`、`truncation_rule=mismatch-last:equal_when_compare_bytes_lt_32`；
+   meta 已写 `abi_bytes=32`、`compare_bytes=<N>`、`warmup_calls=100` 与每类**预期/实测相等次数**，
+   且 `N != 32` 时 `boundary=truncated_compare_bytes`（`N=32` 仍为 `complete_checked_compare`），
+   两条路径**可区分**。
+3. 重建后采集相关 ELF（两臂 measure + 两臂 dudect）已全部重新实读，上表即为 v3 实读值。
+
+**⚠️ 边界口径（必须写进 RESULT，不得省略）**：两条路径的**计时边界不同**——
+
+- 主路径（`N=32`）：计时窗口是**完整 `m4_compare_checked`**（含入参校验）；
+- 对照路径（`N<32`）：计时窗口是**内核 `m4_compare_bytes`**（不含封装层校验）——
+  因为夹具的密码语义不允许改，截断只能在内核窗口上表达。
+
+因此**跨长度/跨臂比较时间时不得当作"同一边界的两个长度"**：两者之差同时含"少一次封装层校验"
+与"窗口变短"两个因素，只能作描述性说明（§2.3/§2.4），不得据此下泄漏结论。
 
 实读命令与原始输出见文末附录 A。
 
@@ -129,15 +144,25 @@ T9 新增 `--compare-bytes N`，因此 M4 的对照条件是**真正的截断比
 Holm 家族，会用配置变更/窗口截断主导的效应污染专门检验秘密位置依赖的家族，使全族 α=0.05 的
 FWER 解释失效。它只作**族外稳健性检查**，单独 CSV、单独目录、单独报告，不进 `holm.csv`。
 
-> **阻断项（必须由 T9 在重建时一并解决，否则对照臂无法采数）**：现有采集器对
-> `compare_status != 0 || is_equal != 0` **立即 break 并写 `collection_status=1`**（T3 实读）。
-> 在 `--compare-bytes 16` 下，`mismatch-last` 的区别字节位于窗口之外，**预期判为相等**
-> （`is_equal != 0`），因此按现有语义第一个 `mismatch-last` 样本就会中止采集。
-> 本合同要求 T9 为**对照条件**提供明确且可复核的接受语义（至少写明：对照运行中每类预期/实际
-> 观测到的相等次数、`collection_status` 的判定规则，以及为何不把预期的相等当作失败），
-> 并在 `--describe`/meta 中可读。**在 T9 给出该语义前，对照臂记 `not_implemented`，不得采数**；
-> 主路径 `--compare-bytes 32` 不受此阻断影响（两类按构造都不相等）。
-> 也不得把 `E03` 的 Binsec 分析模型边界（`0<length<17` / `=16`）当作采集对照臂。
+> **阻断项已解除（T9 已实现并经 `plans` 实读复核）**：旧采集器对 `compare_status != 0 || is_equal != 0`
+> 立即 break 并写 `collection_status=1`；在 `--compare-bytes 16` 下 `mismatch-last` 的区别字节
+> （第 31 字节）落在窗口外、**预期就是相等**，旧语义会在第一个 `mismatch-last` 样本中止。
+> T9 已把判据改为**「实际结果是否偏离本臂预期」**：`is_equal != expected_is_equal(class_label, N)`，
+> 并补齐了本合同 §2.3 要求的可复核信息：
+>
+> - meta 写每类**预期/实测相等次数**：`expected_equal_count_{mismatch_first,mismatch_last}`、
+>   `observed_equal_count_{mismatch_first,mismatch_last}`；
+> - `--describe` 写 `truncation_rule=mismatch-last:equal_when_compare_bytes_lt_32`，
+>   meta 写 `expected_result=mismatch-first:unequal,mismatch-last:equal|unequal`；
+> - `N=32` 时两类预期都是"不等"，与旧判据**等价**（主路径默认行为不变）。
+>
+> T9 实测（`--compare-bytes 16`、100 calls/class、seed 20261016）：退出 0、`completed_calls=200`、
+> **`collection_status=0`**、CSV 100+100 行、`observed_equal_count_mismatch_last=100/100`、
+> `mismatch_first=0/0`；非法规格 `--compare-bytes 33`/`0` 退出 2 且不创建文件；同 seed 类序与旧版逐行相同。
+> 因此对照臂**可以采数**，不再是 `not_implemented`。
+> 不得把 `E03` 的 Binsec 分析模型边界（`0<length<17` / `=16`）当作采集对照臂。
+> **时间对比必须带上 §1.3 的边界口径**：主路径量的是完整 `m4_compare_checked`，
+> 对照路径量的是内核 `m4_compare_bytes`，两者边界不同，**不得当作"同一边界的两个长度"**。
 
 ### 2.4 跨臂对比（**家族外**，受控对照/工程一致性检验）
 
@@ -175,7 +200,7 @@ FWER 解释失效。它只作**族外稳健性检查**，单独 CSV、单独目�
 | 每次采集产出 | **2 × 10000 = 20000** 行（相邻 pair 各含一类，成对平衡） |
 | 主类对用量 | 每臂每 run 20000 行（`--compare-bytes 32`）；全轮 **3 run × 2 臂 × 2 类 × 10000 = 120000** 次完整封装调用 |
 | 预热 | **100 次，T9 实现**：计时循环之前、窗口外执行，不计时、**不写 CSV**，meta 记预热次数（与平台协议一致） |
-| 对照条件 | `--compare-bytes 16` 截断比较，每臂每 run 另跑 2 类 × 10000（族外；见 §2.3 阻断项） |
+| 对照条件 | `--compare-bytes 16` 截断比较，每臂每 run 另跑 2 类 × 10000（族外；判定规则见 §2.3，**已由 T9 实现并实测通过**） |
 | 输出 | `NEW.csv` + `NEW.csv.meta`；两者都用 `wx` 打开，**已存在即失败**（拒绝覆盖） |
 
 - **窗口只包一次完整 `m4_compare_checked` 调用**：Linux 时钟 `CLOCK_MONOTONIC_RAW`、单位 `ns`；
@@ -184,10 +209,13 @@ FWER 解释失效。它只作**族外稳健性检查**，单独 CSV、单独目�
 - CSV 列固定 `run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit`，
   `implementation` 取 `M4_VARIANT_NAME`，实值 `m4-vulnerable` / `m4-ct`；对照运行的类名不变
   （仍 `mismatch-first`/`mismatch-last`），由 `--compare-bytes` 与 meta 区分。
-- **中止语义（主路径硬约束，实读）**：`--compare-bytes 32` 下任一次 `m4_compare_checked` 返回非 0
-  或 `is_equal != 0` 时，采集**立即 break**、meta 写 `collection_status=1`，部分完成数据**不得当成功**，
-  必须按 §5.3 归档为失败；正常构造下两类都不相等、不会触发。
-  **对照条件 `--compare-bytes 16` 的判定规则按 §2.3 阻断项由 T9 明确后才可采数**。
+- **中止语义（T9 v3 实读）**：判据是**「实际结果偏离本臂预期」**——
+  `compare_status != 0 || is_equal != expected_is_equal(class_label, N)` 时立即 break、meta 写
+  `collection_status=1`，部分完成数据**不得当成功**，必须按 §5.3 归档为失败。
+  `N=32` 时两类预期都是"不等"，与旧判据等价，正常构造不会触发；
+  `N<32` 时 `mismatch-last` 预期为"相等"，**预期的相等不是失败**（§2.3）。
+- **边界口径（写进 RESULT）**：主路径窗口是完整 `m4_compare_checked`，对照路径窗口是内核
+  `m4_compare_bytes`；两者边界不同，跨长度比较只能作描述，不得当作"同一边界的两个长度"（§1.3）。
 
 ---
 
@@ -242,8 +270,9 @@ FWER 解释失效。它只作**族外稳健性检查**，单独 CSV、单独目�
 - 把形式分析件（`platform_m4_formal_*`）当采集 ELF 使用；
 - 软件资格失败：普通/ASan 各自 CTest、`--describe`、输入生成与参数拒绝；
 - 夹具语义被破坏（跳过封装边界检查、让两类输出不等价、添加 sleep/空转/随机延迟/秘密输出）；
-- **主路径（`--compare-bytes 32`）**：`collection_status != 0`（任一次调用返回非 0 或 `is_equal != 0`）；
-- **对照条件（`--compare-bytes 16`）**：T9 未给出 §2.3 要求的明确判定规则，或实际判定与 T9 冻结规则不符；
+- **主路径**：`collection_status != 0`（实际结果偏离本臂预期）；
+- **对照条件（`--compare-bytes 16`）**：实际结果偏离 T9 冻结的预期规则（§2.3），
+  或 meta 缺 `expected_equal_count_*`/`observed_equal_count_*`/`boundary=` 字段；
 - 远端路径越出 `<Cry>` 物理边界或符号链接越界；
 - 频率/恢复合同未成立（§6 任一硬条件不满足）；
 - 数据不完整（行数、类别数、表头、`time_unit` 不符）或进程异常退出；
@@ -292,14 +321,15 @@ FWER 解释失效。它只作**族外稳健性检查**，单独 CSV、单独目�
 sudo -n /usr/bin/python3 -I -B <控制根>/controller.py run \
     --control-root <控制根> --run-name m4-r01-vulnerable --cpu 2 --timeout-seconds <T> \
     --plan <控制根>/PLAN.md --plan-sha256 <冻结PLAN的SHA256> \
-    -- <T9 新构建树>/platform_m4_measure_vulnerable \
+    -- /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_measure_vulnerable \
         --collect <新目录>/m4_r01_vulnerable.csv 10000 31337 m4_r01_vulnerable --compare-bytes 32
 ```
 
-族外对照臂（**仅在 §2.3 阻断项解除后执行**）同形，只改 `--run-name`/输出路径/`--compare-bytes 16`：
+族外对照臂（判定规则已由 T9 实现并实测通过，见 §2.3）同形，只改
+`--run-name`/输出路径/`--compare-bytes 16`：
 
 ```sh
-    -- <T9 新构建树>/platform_m4_measure_vulnerable \
+    -- /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_measure_vulnerable \
         --collect <新目录>/m4_r01_vulnerable_cmp16.csv 10000 31337 m4_r01_vulnerable_cmp16 \
         --compare-bytes 16
 ```
@@ -321,7 +351,8 @@ scripts/run_stats_battery.sh --input <对照CSV> --format measure \
   --classes mismatch-first mismatch-last --output-dir <对照新目录> \
   --stats-bin <§1.4 platform_stats> --rtlf-script <§1.4 rtlf.R>
 ```
-- 对照条件（`--compare-bytes 16`）在 §2.3 阻断项解除前**不执行**，也不得并入主族。
+- 对照条件（`--compare-bytes 16`）单独采集、单独分析，**不并入**主族与 `holm.csv`；
+  其 `--run-id`/输出路径必须与主路径不同，避免覆盖。
 - `<T>` 由主控准入时按实测设定；若 CTest/资格失败或 `collection_status != 0`，按 §5.3 归档。
 
 ---
@@ -342,11 +373,11 @@ scripts/run_stats_battery.sh --input <对照CSV> --format measure \
 
 ## 附录 A：ELF sha256 实读记录
 
-实读时间：2026-10-16 02:0x（CST），操作者 `plans`（task-7），**只读，未写入远端**。
-**本节记录的是 T9 之前的只读基线**（用于证明既有产物身份与源一致性）；T9 重建后的采集 ELF
-必须在采集前重新实读并把原始输出追加到本节（见 §1.3 第 3 条）。
+实读时间：2026-10-16 02:0x–02:2x（CST），操作者 `plans`（task-7），**只读，未写入远端**。
+本节含两段：(A) T9 之前的只读基线（v2）；(B) T9 重建后的 v3 **独立复核**（采集用 ELF 即取此段）。
+两段都保留在同一棵物理根内，v2 未被覆盖。
 
-命令（原始，逐字）：
+**(A) T9 前基线（v2，不用于采集）** —— 命令（原始，逐字）：
 
 ```sh
 ssh -o ControlPath=/Users/yin/.ssh/cm-cry-nss.sock nss-marker@10.144.144.5 \
@@ -360,18 +391,62 @@ ssh -o ControlPath=/Users/yin/.ssh/cm-cry-nss.sock nss-marker@10.144.144.5 \
 原始输出（逐字）：
 
 ```text
-2686907893706372538855fa778bc7133cbed8fa0a8115c3dc57b124119b36c5  platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_measure_vulnerable
-90740bdf99125a2c37465c239617b6dadb344401e89b1830d24da88bd70be035  platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_measure_ct
-42c64118b345fa1ffab3cbc5655aecb75b22aca9685724987d5e6a5ba619f7cf  platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_dudect_vulnerable
-3e9178668fece354beffa83431454bc64d0cf02c1ad379f72e508bc8f114a689  platform-m4-20261016-6hRHRUxH/build-software-v3/platform_m4_dudect_ct
-# T9 之前的只读基线（v2，不用于采集）：
-# 2d311d38158dad66bdebf324b260e5b1be25be1d5477f611b9d87fae86bf7e0b  build-software-v2/platform_m4_measure_vulnerable
-# 96e4ab3755c1d4bb13f97213d55bcc26958619fad0c72394bd168d0651a659fc  build-software-v2/platform_m4_measure_ct
+2d311d38158dad66bdebf324b260e5b1be25be1d5477f611b9d87fae86bf7e0b  platform-m4-20261016-6hRHRUxH/build-software-v2/platform_m4_measure_vulnerable
+96e4ab3755c1d4bb13f97213d55bcc26958619fad0c72394bd168d0651a659fc  platform-m4-20261016-6hRHRUxH/build-software-v2/platform_m4_measure_ct
+f674a5a09d60cce58ace75c76055416e13948c7850b5cf0a96cc26cd43e600e4  platform-m4-20261016-6hRHRUxH/build-software-v2/platform_m4_dudect_vulnerable
+914d1ada3ada89fc7457bf5474642718ad53d1a9ab3c2fe027baf435f521c5e4  platform-m4-20261016-6hRHRUxH/build-software-v2/platform_m4_dudect_ct
 ```
 
-上述四项由 T3（m4-binsec）在同一树上独立复核存在且逐字节匹配；形式分析件摘要
-`308190a7…`/`7f34c876…` 取自 `docs/evidence/m4-completion-20261016/ENV.md`（本 PLAN 未直接复核）。
-补充实读（源载体与工具）：
+**(B) T9 v3 复核（采集用，`plans` 独立实读）** —— 命令（原始，逐字）：
+
+```sh
+ssh -o ControlPath=/Users/yin/.ssh/cm-cry-nss.sock nss-marker@10.144.144.5 \
+  'cd /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH && sha256sum \
+     build-software-v3/platform_m4_measure_vulnerable \
+     build-software-v3/platform_m4_measure_ct \
+     build-software-v3/platform_m4_dudect_vulnerable \
+     build-software-v3/platform_m4_dudect_ct \
+     source-v3/tools/platform_m4/measure.c; \
+   echo "=== v2 dudect/original still present ==="; \
+   sha256sum build-software-v2/platform_m4_dudect_vulnerable build-software-v2/platform_m4_dudect_ct \
+             build-software-v2/platform_m4_measure_vulnerable'
+```
+
+原始输出（逐字）：
+
+```text
+2686907893706372538855fa778bc7133cbed8fa0a8115c3dc57b124119b36c5  build-software-v3/platform_m4_measure_vulnerable
+90740bdf99125a2c37465c239617b6dadb344401e89b1830d24da88bd70be035  build-software-v3/platform_m4_measure_ct
+42c64118b345fa1ffab3cbc5655aecb75b22aca9685724987d5e6a5ba619f7cf  build-software-v3/platform_m4_dudect_vulnerable
+3e9178668fece354beffa83431454bc64d0cf02c1ad379f72e508bc8f114a689  build-software-v3/platform_m4_dudect_ct
+881ef2d2cb3f6f6a675c2495c1048a93436635c0e2c38aff0dce6d3f6b13f857  source-v3/tools/platform_m4/measure.c
+=== v2 dudect/original still present ===
+f674a5a09d60cce58ace75c76055416e13948c7850b5cf0a96cc26cd43e600e4  build-software-v2/platform_m4_dudect_vulnerable
+914d1ada3ada89fc7457bf5474642718ad53d1a9ab3c2fe027baf435f521c5e4  build-software-v2/platform_m4_dudect_ct
+2d311d38158dad66bdebf324b260e5b1be25be1d5477f611b9d87fae86bf7e0b  build-software-v2/platform_m4_measure_vulnerable
+```
+
+**(C) dudect `.text` 不变性的独立复核**（用于支持"仅调试信息路径变化、代码未变"）：
+
+```sh
+ssh -o ControlPath=/Users/yin/.ssh/cm-cry-nss.sock nss-marker@10.144.144.5 \
+  'cd /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH && for a in vulnerable ct; do \
+     for v in v2 v3; do printf "%s %s .text hexdigest: " "$v" "$a"; \
+       readelf -x .text build-software-$v/platform_m4_dudect_$a | grep -v "^$" \
+         | sed "s/0x[0-9a-f]*//g" | sha256sum | cut -c1-32; done; done'
+```
+
+原始输出（逐字）：
+
+```text
+v2 vulnerable .text hexdigest: 503ed6015ada2ac313f141a197ea15a8
+v3 vulnerable .text hexdigest: 503ed6015ada2ac313f141a197ea15a8
+v2 ct .text hexdigest: 7427549b1f50cd7d65fa01c8cebd5063
+v3 ct .text hexdigest: 7427549b1f50cd7d65fa01c8cebd5063
+```
+
+形式分析件摘要 `308190a7…`/`7f34c876…` 取自 `docs/evidence/m4-completion-20261016/ENV.md`
+（本 PLAN 未直接复核）。补充实读（源载体与工具）：
 
 ```sh
 sha256sum /home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2.tar.gz
@@ -382,16 +457,17 @@ sha256sum /home/nss-marker/yhr/Cry/platform-m5-20261016-30efdf66eb26/source-v2/t
 # 50e5d4e5239e492337a131afaf2d1e3c0fdcadbb902d5433d56eac2ead1bd04e
 ```
 
-## 附录 B：占位符与待定项清单（采数准入硬阻断）
+## 附录 B：待定项清单
 
 | 项 | 状态 | 处置 |
 |---|---|---|
-| 采集两臂 ELF 摘要 | **已冻结** | `build-software-v3/platform_m4_measure_{vulnerable,ct}`，`2686907893706372538855fa778bc7133cbed8fa0a8115c3dc57b124119b36c5` / `90740bdf99125a2c37465c239617b6dadb344401e89b1830d24da88bd70be035` |
-| 对照条件 `--compare-bytes 16` 的判定规则（§2.3 阻断项） | **待 T9 明确** | 未明确前对照臂记 `not_implemented`；主路径不受影响 |
+| 采集两臂 ELF 摘要 | **已冻结（`plans` 独立复核）** | `build-software-v3/platform_m4_measure_{vulnerable,ct}`，`2686907893706372538855fa778bc7133cbed8fa0a8115c3dc57b124119b36c5` / `90740bdf99125a2c37465c239617b6dadb344401e89b1830d24da88bd70be035` |
+| 对照条件 `--compare-bytes 16` 的判定规则 | **已实现并实测通过**（§2.3） | 判据 = 实际结果偏离本臂预期；meta 有预期/实测相等次数与 `boundary=`；**不再是 `not_implemented`** |
 | `<T>` | 待定 | 单进程管理上限（秒），主控准入时按实测设定 |
 | 在线 dudect 具体批次/种子 | 待主控确认 | 本 PLAN 只冻结"每批 20000、固定 10 批、族外、原日志保留"；显式种子由主控在准入时固定 |
 
-**本模块待填 ELF 占位符共 2 个**（T9 重建后的两臂 measure）。
+**本模块待填 ELF 占位符共 0 个**：两臂采集 ELF、两臂 dudect 与采集源码摘要均已实读填实（附录 A），
+对照条件所需能力已由同一 ELF 的 `--compare-bytes` 提供（无需额外产物）。
 
 ## 附录 C：被取代的旧 PLAN 原文（逐字保留，便于追溯）
 

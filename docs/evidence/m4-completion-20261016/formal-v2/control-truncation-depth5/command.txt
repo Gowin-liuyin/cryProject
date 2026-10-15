@@ -1,0 +1,9 @@
+# 补充对照（非主合同）：故意把 -sse-depth 降到 5，检验截断是否被报成 unknown 而不是 secure。
+# 其余工具/ELF/配置与主合同完全相同；主合同由 run_checkct.sh 固定 depth=10000。
+date=2026-10-16T02:10:56+08:00
+/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec -sse -checkct -smt-solver z3 \
+  -sse-script /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_1_16.cfg \
+  -sse-depth 5 -sse-timeout 120 -smt-timeout 5 \
+  -checkct-features control-flow,memory-access \
+  -checkct-stats-file /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-v2/control-truncation-depth5/checkct.toml \
+  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct

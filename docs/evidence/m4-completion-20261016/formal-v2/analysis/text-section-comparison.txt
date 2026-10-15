@@ -1,0 +1,16 @@
+date=2026-10-16T02:11:27+08:00
+note=formal-v1 与 formal-v2 的 formal ELF：整文件 hash 不同（调试信息里嵌入的构建路径不同），逐节比较说明代码是否相同
+--- vulnerable ---
+whole_file_v1=308190a7688f5757a1d354a8dffbb9c55cbbfaca027136befeabbae6e859180e
+whole_file_v2=c06425dab680a5b57cd058f83e73cba9ba5b42bafc709272003d98eca81dde90
+text_v1=9810b1359cfdb2d4819039dbde44b47e3d6958343e54627991116b342d502a28
+text_v2=9810b1359cfdb2d4819039dbde44b47e3d6958343e54627991116b342d502a28
+text_identical=yes
+text_bytes=104
+--- ct ---
+whole_file_v1=7f34c8764bffd07329db93edcb7f4564b5fbe1e686a7c0ee54468680d38c47c4
+whole_file_v2=c2bd25b740d8c04e5bf12c9fa083466f00af4ad7d0bf906b6e6e032b6e0d9472
+text_v1=b52fb77124b818197e999c9b83fc5b6b3ffe198cd473893eed5b057bd2682714
+text_v2=b52fb77124b818197e999c9b83fc5b6b3ffe198cd473893eed5b057bd2682714
+text_identical=yes
+text_bytes=109

@@ -1,0 +1,43 @@
+date=2026-10-16T02:09:12+08:00
+host=nss-m kernel=6.17.0-35-generic arch=x86_64
+valgrind=valgrind-3.22.0
+gcc=gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+note=supplementary dynamic cross-check: native x86_64 rebuild of the SAME kernel sources,
+note=10000 calls, public input 16 zero bytes, compare length 16; secrets are the binsec counterexample pair
+note=kernel-only counts use callgrind --toggle-collect=m4_compare_bytes
+--- binaries ---
+f148abf00ef5ad0298190bf69b877b3cd3fd9d67aa2a1a7edf8e7cb88b398a93  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_vulnerable
+4f764c2ea16690420370f06def90193a786cda7cccc7806a77a4611f514c45c8  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_ct
+7a4baa40599c1d4aae28f93988adb287d2082331c881f205d573096bb8802083  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_driver.c
+--- vulnerable secret=differ ---
+lackey:
+Jccs:
+  total:         61,325
+  taken:         32,658 (53%)
+  guest instrs:  375,112
+callgrind kernel-only:
+summary: 90000
+--- vulnerable secret=equal ---
+lackey:
+Jccs:
+  total:         371,321
+  taken:         172,659 (46%)
+  guest instrs:  1,305,100
+callgrind kernel-only:
+summary: 1020000
+--- ct secret=differ ---
+lackey:
+Jccs:
+  total:         211,352
+  taken:         172,658 (82%)
+  guest instrs:  1,495,221
+callgrind kernel-only:
+summary: 1210000
+--- ct secret=equal ---
+lackey:
+Jccs:
+  total:         211,348
+  taken:         172,659 (82%)
+  guest instrs:  1,495,209
+callgrind kernel-only:
+summary: 1210000

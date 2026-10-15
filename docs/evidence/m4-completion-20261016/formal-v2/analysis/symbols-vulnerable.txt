@@ -1,0 +1,11 @@
+08049000 T m4_halt
+0804900b T m4_entry
+0804902d T m4_compare_bytes
+0804a000 r __GNU_EH_FRAME_HDR
+0804b000 D m4_public_length
+0804b004 B __bss_start
+0804b004 D _edata
+0804b004 B m4_observed_result
+0804b008 B m4_public_input
+0804b018 B m4_secret_input
+0804b028 B _end

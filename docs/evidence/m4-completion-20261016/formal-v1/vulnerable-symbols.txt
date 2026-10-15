@@ -1,0 +1,18 @@
+
+Symbol table '.symtab' contains 15 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS binsec_harness.c
+     2: 00000000     0 FILE    LOCAL  DEFAULT  ABS compare_early.c
+     3: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+     4: 0804a000     0 NOTYPE  LOCAL  DEFAULT    3 __GNU_EH_FRAME_HDR
+     5: 0804b000     4 OBJECT  GLOBAL DEFAULT    5 m4_public_length
+     6: 0804b008    16 OBJECT  GLOBAL DEFAULT    6 m4_public_input
+     7: 0804900b    34 FUNC    GLOBAL DEFAULT    2 m4_entry
+     8: 0804b004     0 NOTYPE  GLOBAL DEFAULT    6 __bss_start
+     9: 0804902d    59 FUNC    GLOBAL DEFAULT    2 m4_compare_bytes
+    10: 08049000    11 FUNC    GLOBAL DEFAULT    2 m4_halt
+    11: 0804b004     0 NOTYPE  GLOBAL DEFAULT    5 _edata
+    12: 0804b028     0 NOTYPE  GLOBAL DEFAULT    6 _end
+    13: 0804b004     4 OBJECT  GLOBAL DEFAULT    6 m4_observed_result
+    14: 0804b018    16 OBJECT  GLOBAL DEFAULT    6 m4_secret_input

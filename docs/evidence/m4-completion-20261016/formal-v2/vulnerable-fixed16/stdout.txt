@@ -1,0 +1,33 @@
+[checkct:result] Instruction 0x8049047 has control flow leak (0.028s)
+[sse:info] Empty path worklist: halting ...
+[sse:info] SMT queries
+             Preprocessing simplifications
+               total          33
+               sat            33
+               unsat          0
+               time           0.00
+             
+             Satisfiability queries
+               total          18
+               sat            18
+               unsat          0
+               unknown        0
+               time           0.08
+               average        0.00
+             
+           Exploration
+             total paths                      17
+             completed/cut paths              17
+             pending paths                    0
+             discontinued paths               0
+             failed assertions                0
+             branching points                 33
+             max path depth                   134
+             visited instructions (unrolled)  230
+             visited instructions (static)    32
+             
+           
+[checkct:result] Program status is : insecure (0.096)
+[checkct:info] 17 visited paths covering 32 instructions
+[checkct:info] 34 / 35 control flow checks pass
+[checkct:info] 175 / 175 memory access checks pass

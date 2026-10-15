@@ -1,0 +1,36 @@
+[  3%] Building C object CMakeFiles/platform_m4_vulnerable_kernel.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/fixtures/early_reject_memcmp/compare_checked.c.o
+[  7%] Building C object CMakeFiles/platform_m4_formal_vulnerable.dir/binsec_harness.c.o
+[ 11%] Building C object CMakeFiles/platform_m4_formal_vulnerable.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/fixtures/early_reject_memcmp/compare_early.c.o
+[ 15%] Building C object CMakeFiles/platform_m4_vulnerable_kernel.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/fixtures/early_reject_memcmp/compare_early.c.o
+[ 19%] Linking C executable platform_m4_formal_vulnerable
+[ 23%] Building C object CMakeFiles/platform_m4_vulnerable_kernel.dir/inputs.c.o
+[ 23%] Built target platform_m4_formal_vulnerable
+[ 26%] Building C object CMakeFiles/platform_m4_ct_kernel.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/fixtures/early_reject_memcmp/compare_checked.c.o
+[ 30%] Linking C static library libplatform_m4_vulnerable_kernel.a
+[ 34%] Building C object CMakeFiles/platform_m4_ct_kernel.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/fixtures/early_reject_memcmp/compare_ct.c.o
+[ 38%] Building C object CMakeFiles/platform_m4_ct_kernel.dir/inputs.c.o
+[ 38%] Built target platform_m4_vulnerable_kernel
+[ 42%] Building C object CMakeFiles/platform_m4_formal_ct.dir/binsec_harness.c.o
+[ 46%] Linking C static library libplatform_m4_ct_kernel.a
+[ 50%] Building C object CMakeFiles/platform_m4_formal_ct.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/fixtures/early_reject_memcmp/compare_ct.c.o
+[ 53%] Linking C executable platform_m4_formal_ct
+[ 53%] Built target platform_m4_formal_ct
+[ 53%] Built target platform_m4_ct_kernel
+[ 57%] Building C object CMakeFiles/platform_m4_measure_vulnerable.dir/measure.c.o
+[ 61%] Building C object CMakeFiles/test_platform_m4_vulnerable.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/tests/test_platform_m4.c.o
+[ 65%] Linking C executable test_platform_m4_vulnerable
+[ 69%] Linking C executable platform_m4_measure_vulnerable
+[ 69%] Built target test_platform_m4_vulnerable
+[ 73%] Building C object CMakeFiles/platform_m4_dudect_vulnerable.dir/dudect_online.c.o
+[ 73%] Built target platform_m4_measure_vulnerable
+[ 76%] Building C object CMakeFiles/platform_m4_measure_ct.dir/measure.c.o
+[ 80%] Linking C executable platform_m4_measure_ct
+[ 80%] Built target platform_m4_measure_ct
+[ 84%] Building C object CMakeFiles/test_platform_m4_ct.dir/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/source-v2/tests/test_platform_m4.c.o
+[ 88%] Linking C executable test_platform_m4_ct
+[ 88%] Built target test_platform_m4_ct
+[ 92%] Building C object CMakeFiles/platform_m4_dudect_ct.dir/dudect_online.c.o
+[ 96%] Linking C executable platform_m4_dudect_vulnerable
+[ 96%] Built target platform_m4_dudect_vulnerable
+[100%] Linking C executable platform_m4_dudect_ct
+[100%] Built target platform_m4_dudect_ct

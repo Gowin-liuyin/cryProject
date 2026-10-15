@@ -1,0 +1,11 @@
+==358768== Callgrind, a call-graph generating cache profiler
+==358768== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==358768== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==358768== Command: /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_vulnerable ff00000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000 16 10000
+==358768== 
+==358768== For interactive control, run 'callgrind_control -h'.
+==358768== 
+==358768== Events    : Ir
+==358768== Collected : 90000
+==358768== 
+==358768== I   refs:      90,000

@@ -1,0 +1,271 @@
+* Kernel - options
+    
+    --help         Display full option list
+    -color-help    Print the color documentation [false]
+    -color-profile {default|default_light|dark|light}
+            Set your profile for the actual execution [default]
+    -config        Use this configuration file
+    -dba-config    Set dba configuration file name
+    -dba-file      Set DBA file
+    -debug-level   Set kernel debug level [0]
+    -decoder       External decoder command [unisim-armsec]
+    -describe      Display a description of the binary and exits [false]
+    -entrypoint    Set entry point
+    -file          Set binary file. *Optional*
+    -help          Display full option list
+    -isa {x86|x86-32|amd64|x86-64|arm32|armv7|armv7:arm|armv7:thumb|armv7:both|aarch64|armv8|ppc64|riscv|riscv32|riscv64|sparcv8|z80|unknown}
+            Set isa [set by loader] [unknown]
+    -kernel-help   Display high-level options
+    -loglevel {info|debug|warning|error|fatal|result}
+            Display kernel log messages only above or equal this level [info]
+    -no-color      Disable colored output [false]
+    -quiet         Quiet all channels for kernel
+    -version       Print the version identifier and exit [false]
+    
+* Backward Bounded Static Symbolic Execution - options
+    
+    -bbsse                     Enable bbsse
+    -bbsse-calls-to-proceed   
+            List of call site that will not be automatically skipped by the analysis
+    -bbsse-consolidate        
+            Use previous opaque predicate knowledge to cut paths early [false]
+    -bbsse-debug-level         Set bbsse debug level [0]
+    -bbsse-directives          Path to a script file
+    -bbsse-find-jumps         
+            Automatically find conditional jumps between these two addresses
+    -bbsse-help                Display options list for bbsse
+    -bbsse-loglevel {info|debug|warning|error|fatal|result}
+            Display bbsse log messages only above or equal this level [info]
+    -bbsse-max-basic-blocks   
+            Set the maximal number of basic blocks to process backward
+    -bbsse-process-all-jumps  
+            Automatically find all conditional jumps in the executable [false]
+    -bbsse-quiet               Quiet all channels for bbsse
+    
+* Constant time checker - options
+    
+    -checkct               Enable checkct
+    -checkct-debug-level   Set checkct debug level [0]
+    -checkct-features     
+            Set of CT check points : control-flow, memory-access, multiplication, dividend and divisor. Multiplication and division checks are experimental.
+    -checkct-help          Display options list for checkct
+    -checkct-leak-info {halt|instr}
+            Select the information that is reported about leakage.
+		- halt: halts at first leak
+		- instr: reports leaky instructions (instructions are reported only once)
+ [instr]
+    -checkct-loglevel {info|debug|warning|error|fatal|result}
+            Display checkct log messages only above or equal this level [info]
+    -checkct-no-cv        
+            Disable chosen value sampling (prove that instruction may leak) [false]
+    -checkct-no-relse     
+            Disable relational symbolic engine to answer security queries [false]
+    -checkct-no-taint     
+            Disable taint analysis (prove that instruction can not leak) [false]
+    -checkct-quiet         Quiet all channels for checkct
+    -checkct-stats-file    Set file for dumping staistics
+    
+* DBA - options
+    
+    -dba-debug-level   Set dba debug level [0]
+    -dba-help          Display options list for dba
+    -dba-loglevel {info|debug|warning|error|fatal|result}
+            Display dba log messages only above or equal this level [info]
+    -dba-quiet         Quiet all channels for dba
+    
+* Disassembly - options
+    
+    -disasm                          Enable disasm
+    -disasm-at                      
+            Use this address as base for opcode decoding [0]
+    -disasm-cache-decoder           
+            Cache accesses to decoder queries. This option is useful for externally provided decoders. Warning: this may be RAM-intensive and assumes code under disassembly is not dynamically created [false]
+    -disasm-cfgraph                  Print control-flow graph [false]
+    -disasm-debug-level              Set disasm debug level [0]
+    -disasm-decode                   Decode hexadecimal opcode
+    -disasm-dump                     Set opcodes output file [stdout]
+    -disasm-functions               
+            Disassemble given comma separated list of functions
+    -disasm-help                     Display options list for disasm
+    -disasm-loglevel {info|debug|warning|error|fatal|result}
+            Display disasm log messages only above or equal this level [info]
+    -disasm-mode {rec|linear|bytelinear|extlinear}
+            Set disassembly mode [linear]
+    -disasm-no-loader               
+            Do not use loader and start at 0x0 [false]
+    -disasm-o-dba                    Set DBA instructions output file
+    -disasm-quiet                    Quiet all channels for disasm
+    -disasm-sections                
+            Disassemble given comma separated list of sections
+    -disasm-show-instruction-count  
+            Show a summary of encountered instructions [false]
+    
+* Formulas - options
+    
+    -fml                  Enable fml
+    -fml-debug-level      Set fml debug level [0]
+    -fml-help             Display options list for fml
+    -fml-loglevel {info|debug|warning|error|fatal|result}
+            Display fml log messages only above or equal this level [info]
+    -fml-no-optim-all    
+            Do not force all the optimizations (each optimization can still be set individually) [false]
+    -fml-no-stitching    
+            Do not try to stitch together continuous stores/select [false]
+    -fml-optim-cst        Enable constant propagation [false]
+    -fml-optim-itv        Enable intervals in read-over-write [false]
+    -fml-optim-lst       
+            Switch to list-like memory representation in read-over-write [0]
+    -fml-optim-prn        Enable pruning and inlining [false]
+    -fml-optim-rbs        Enable rebasing in read-over-write [false]
+    -fml-optim-row        Enable read-over-write [false]
+    -fml-optim-ssa        Enable static single assignment [false]
+    -fml-quiet            Quiet all channels for fml
+    -fml-solver {z3|cvc4|yices|boolector|bitwuzla}
+            Set solver to use [z3]
+    -fml-solver-options  
+            Use these options to launch the solver (ignore default options)
+    -fml-solver-timeout   Timeout for solver queries [5]
+    
+* Debug - options
+    
+    -g               Enable g
+    -g-debug-level   Set g debug level [0]
+    -g-help          Display options list for g
+    -g-loglevel {info|debug|warning|error|fatal|result}
+            Display g log messages only above or equal this level [info]
+    -g-quiet         Quiet all channels for g
+    
+* Ghidra CFG import - options
+    
+    -ghidra                   Enable ghidra
+    -ghidra-analyzeHeadless   Path to the analyzeHeadless script
+    -ghidra-cache             Path to the file to load or save
+    -ghidra-debug-level       Set ghidra debug level [0]
+    -ghidra-help              Display options list for ghidra
+    -ghidra-loglevel {info|debug|warning|error|fatal|result}
+            Display ghidra log messages only above or equal this level [info]
+    -ghidra-quiet             Quiet all channels for ghidra
+    
+* ISA - options
+    
+    -isa-debug-level   Set isa debug level [0]
+    -isa-help          Display options list for isa
+    -isa-loglevel {info|debug|warning|error|fatal|result}
+            Display isa log messages only above or equal this level [info]
+    -isa-quiet         Quiet all channels for isa
+    
+* Loader - options
+    
+    -loader-debug-level   Set loader debug level [0]
+    -loader-help          Display options list for loader
+    -loader-loglevel {info|debug|warning|error|fatal|result}
+            Display loader log messages only above or equal this level [info]
+    -loader-quiet         Quiet all channels for loader
+    
+* Shadow stack protection - options
+    
+    -shadow-stack               Enable shadow-stack
+    -shadow-stack-debug-level   Set shadow-stack debug level [0]
+    -shadow-stack-help          Display options list for shadow-stack
+    -shadow-stack-loglevel {info|debug|warning|error|fatal|result}
+            Display shadow-stack log messages only above or equal this level [info]
+    -shadow-stack-mode {inline|builtin}
+            Use standard DBA assertions [Inline] or new push and pop builtins [Builtin] [inline]
+    -shadow-stack-quiet         Quiet all channels for shadow-stack
+    
+* Satisfiability Modulo Theories - options
+    
+    -smt-debug-level    Set smt debug level [0]
+    -smt-dir            Set directory to cache smt scripts
+    -smt-help           Display options list for smt
+    -smt-loglevel {info|debug|warning|error|fatal|result}
+            Display smt log messages only above or equal this level [info]
+    -smt-multi-checks   Enable forward incremental solving [false]
+    -smt-quiet          Quiet all channels for smt
+    -smt-solver {auto|bitwuzla|bitwuzla:native|bitwuzla:legacy|bitwuzla:builtin|bitwuzla:smtlib|boolector|boolector:smtlib|z3|z3:builtin|z3:smtlib|cvc4|cvc4:smtlib|yices|yices:smtlib}
+            Manually set the SMT solver to use. [auto]
+    -smt-theory         Select the formula theory [QF_ABV]
+    -smt-timeout        Set the per query timeout
+    
+* Smtlib - options
+    
+    -smtlib-debug-level       Set smtlib debug level [0]
+    -smtlib-help              Display options list for smtlib
+    -smtlib-loglevel {info|debug|warning|error|fatal|result}
+            Display smtlib log messages only above or equal this level [info]
+    -smtlib-model-from-file   Parse model from given file.
+    -smtlib-quiet             Quiet all channels for smtlib
+    
+* Static Symbolic Execution - options
+    
+    -sse                           Enable sse
+    -sse-alternative-engine        Enable the experimental engine [false]
+    -sse-cse                      
+            Enable Common Subexpression Elimination optimization [false]
+    -sse-debug-level               Set sse debug level [0]
+    -sse-depth                     Set exploration maximal depth [1000]
+    -sse-engine                   
+            Use the following symbolic engine [default]
+    -sse-help                      Display options list for sse
+    -sse-heuristics {dfs|bfs|nurs}
+            Use the following search heuristics [dfs]
+    -sse-jump-enum                
+            Set maximum number of jump targets to retrieve for dynamic jumps [3]
+    -sse-legacy-engine            
+            Use the legacy engine. Some features are not or hardly supported (e.g. core dump, custom arrays, etc.). [false]
+    -sse-loglevel {info|debug|warning|error|fatal|result}
+            Display sse log messages only above or equal this level [info]
+    -sse-missing-symbol {error|warn|quiet}
+            Select how to handle function replacement when the symbol is not resolved from the binary [error]
+    -sse-no-kill-flags-at-return  
+            Conservatively always consider flags alive at function return [false]
+    -sse-no-screen                
+            Disable the monitor screen (curses) [false]
+    -sse-qmerge                    Enable quick merging [false]
+    -sse-quiet                     Quiet all channels for sse
+    -sse-randomize                 Randomize path selection [false]
+    -sse-script                   
+            Set file containing initializations, directives and stubs
+    -sse-seed                     
+            Give a specific seed for random number generators
+    -sse-self-written-enum        
+            Set maximum number of forks for symbolic instruction opcodes [0]
+    -sse-sysroot                  
+            Specifies the local directory that contains copies of target libraries in the corresponding subdirectories.
+    -sse-timeout                  
+            Sets a timeout in second for symbolic execution
+    
+* A stake to support the exploration and sanitize the unwanted non-determinism from missing initializations. - options
+    
+    -stake               Enable stake
+    -stake-debug-level   Set stake debug level [0]
+    -stake-fix          
+            Fixed elements will be enforced to have a single value along the execution (rvalue, load, address, test, jump-target).
+    -stake-help          Display options list for stake
+    -stake-interrupt    
+            Interrupt the program when non-determinism is found (rvalue, load, address, test, jump-target).
+    -stake-loglevel {info|debug|warning|error|fatal|result}
+            Display stake log messages only above or equal this level [info]
+    -stake-no-mem-init  
+            Try to initialize memory cells with either the value from the process image or zero. May fail if the address is non-deterministic (use '-stake-fix address') [false]
+    -stake-no-reg-init  
+            Initialize undefined registers (including flags) to zero. [false]
+    -stake-quiet         Quiet all channels for stake
+    
+* Follows a trace generated using pin - options
+    
+    -xtrasec                   Enable xtrasec
+    -xtrasec-concretize-mem {no|exact|<number>}
+            How to add assertions regarding the memory addresses. Use <no> for no assertion; <exact> to provide the exact address; or a number to state that the address is in some interval. [exact]
+    -xtrasec-concretize-regs  
+            List of registers to concretize; use <stack> for stack and frame pointers; and <all> for all
+    -xtrasec-debug-level       Set xtrasec debug level [0]
+    -xtrasec-help              Display options list for xtrasec
+    -xtrasec-loglevel {info|debug|warning|error|fatal|result}
+            Display xtrasec log messages only above or equal this level [info]
+    -xtrasec-output-smt        If set, output a SMT formula to this file
+    -xtrasec-quiet             Quiet all channels for xtrasec
+    -xtrasec-trace             Input trace as output by the xtrasec tool
+    
+
+

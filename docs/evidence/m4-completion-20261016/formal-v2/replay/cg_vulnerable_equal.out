@@ -1,0 +1,74 @@
+# callgrind format
+version: 1
+creator: callgrind-3.22.0
+pid: 358789
+cmd:  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_vulnerable 0000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000 16 10000
+part: 1
+
+
+desc: I1 cache: 
+desc: D1 cache: 
+desc: LL cache: 
+
+desc: Timerange: Basic block 0 - 397377
+desc: Trigger: Program termination
+
+positions: line
+events: Ir
+summary: 1020000
+
+
+ob=(1) /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+fl=(1) ???
+fn=(0) 0x000000000001f540
+cob=(5) /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_vulnerable
+cfi=(161) ???
+cfn=(522) (below main)
+calls=1 0 
+0 1020000
+
+ob=(5)
+fl=(168) /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/formal-analysis/replay/replay_driver.c
+fn=(552) main
+cfi=(180) /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/fixtures/early_reject_memcmp/compare_early.c
+cfn=(602) m4_compare_bytes
+calls=1 6 
+44 102
+cfi=(180)
+cfn=(602)
+calls=9999 6 
+44 1019898
+
+fl=(161)
+fn=(522)
+cob=(2) /usr/lib/x86_64-linux-gnu/libc.so.6
+cfi=(162) ./csu/../csu/libc-start.c
+cfn=(524) __libc_start_main@@GLIBC_2.34
+calls=1 242 
+0 1020000
+
+fl=(180)
+fn=(602)
+6 10000
++1 30000
++2 480000
+-2 480000
++6 20000
+
+ob=(2)
+fl=(164) ./csu/../sysdeps/nptl/libc_start_call_main.h
+fn=(544) (below main)
+cob=(5)
+cfi=(168)
+cfn=(552)
+calls=1 25 
+58 1020000
+
+fl=(162)
+fn=(524)
+cfi=(164)
+cfn=(544)
+calls=1 29 
+360 1020000
+
+totals: 1020000

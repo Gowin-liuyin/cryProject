@@ -1,0 +1,45 @@
+
+/home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/build-software-v2/platform_m4_formal_vulnerable:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+08049000 <m4_halt>:
+ 8049000:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 8049004:	a3 04 b0 04 08       	mov    %eax,0x804b004
+ 8049009:	0f 0b                	ud2
+
+0804900b <m4_entry>:
+ 804900b:	56                   	push   %esi
+ 804900c:	5e                   	pop    %esi
+ 804900d:	83 ec 10             	sub    $0x10,%esp
+ 8049010:	ff 35 00 b0 04 08    	push   0x804b000
+ 8049016:	68 08 b0 04 08       	push   $0x804b008
+ 804901b:	68 18 b0 04 08       	push   $0x804b018
+ 8049020:	e8 08 00 00 00       	call   804902d <m4_compare_bytes>
+ 8049025:	89 04 24             	mov    %eax,(%esp)
+ 8049028:	e8 d3 ff ff ff       	call   8049000 <m4_halt>
+
+0804902d <m4_compare_bytes>:
+ 804902d:	53                   	push   %ebx
+ 804902e:	8b 4c 24 08          	mov    0x8(%esp),%ecx
+ 8049032:	8b 5c 24 10          	mov    0x10(%esp),%ebx
+ 8049036:	85 db                	test   %ebx,%ebx
+ 8049038:	74 20                	je     804905a <m4_compare_bytes+0x2d>
+ 804903a:	89 c8                	mov    %ecx,%eax
+ 804903c:	8b 54 24 0c          	mov    0xc(%esp),%edx
+ 8049040:	01 d9                	add    %ebx,%ecx
+ 8049042:	0f b6 1a             	movzbl (%edx),%ebx
+ 8049045:	38 18                	cmp    %bl,(%eax)
+ 8049047:	75 18                	jne    8049061 <m4_compare_bytes+0x34>
+ 8049049:	83 c0 01             	add    $0x1,%eax
+ 804904c:	83 c2 01             	add    $0x1,%edx
+ 804904f:	39 c8                	cmp    %ecx,%eax
+ 8049051:	75 ef                	jne    8049042 <m4_compare_bytes+0x15>
+ 8049053:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8049058:	eb 0c                	jmp    8049066 <m4_compare_bytes+0x39>
+ 804905a:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804905f:	eb 05                	jmp    8049066 <m4_compare_bytes+0x39>
+ 8049061:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8049066:	5b                   	pop    %ebx
+ 8049067:	c3                   	ret

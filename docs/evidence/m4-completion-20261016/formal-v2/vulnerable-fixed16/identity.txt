@@ -1,0 +1,11 @@
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+solver=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg
+Binsec version 0.11.3
+Z3 version 4.15.3 - 64 bit
+8b11a6f8054b96f97e2ba4697952c88eef20094933889591cb3f18c2a73b1279  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+80ee070b8ffc2fa964b0b879250b2110c47f84c1256a1f9ab76fc7cf95e46292  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+c06425dab680a5b57cd058f83e73cba9ba5b42bafc709272003d98eca81dde90  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable
+291fc6e627b97eed8f420277f5e31a77e16b204ff1b1b893e635f6831d5b8e6e  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg
+/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_vulnerable: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, BuildID[sha1]=6db2092de15036d0b34e54caf985c95a2d46c02e, with debug_info, not stripped

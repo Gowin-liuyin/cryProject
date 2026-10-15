@@ -1,0 +1,155 @@
+opam-version: "2.0"
+compiler: [
+  "base-bigarray.base"
+  "base-threads.base"
+  "base-unix.base"
+  "ocaml.4.14.3"
+  "ocaml-base-compiler.4.14.3"
+  "ocaml-config.2"
+  "ocaml-options-vanilla.1"
+]
+roots: ["binsec.0.11.3" "ocaml-base-compiler.4.14.3"]
+installed: [
+  "base-bigarray.base"
+  "base-threads.base"
+  "base-unix.base"
+  "binsec.0.11.3"
+  "conf-gmp.5"
+  "conf-pkg-config.5"
+  "csexp.1.5.2"
+  "dune.3.24.2"
+  "dune-private-libs.3.24.2"
+  "dune-site.3.24.2"
+  "dyn.3.24.2"
+  "dypgen.0.2.1"
+  "fs-io.3.24.2"
+  "ISO8601.0.2.6"
+  "menhir.20260209"
+  "menhirCST.20260209"
+  "menhirGLR.20260209"
+  "menhirLib.20260209"
+  "menhirSdk.20260209"
+  "mula.0.1.2"
+  "ocaml.4.14.3"
+  "ocaml-base-compiler.4.14.3"
+  "ocaml-config.2"
+  "ocaml-options-vanilla.1"
+  "ocamlfind.1.9.8"
+  "ocamlgraph.2.2.0"
+  "ordering.3.24.2"
+  "pp.2.0.0"
+  "stdune.3.24.2"
+  "toml.7.1.0"
+  "top-closure.3.24.2"
+  "zarith.1.14"
+]
+pinned: "binsec.0.11.3"
+package "binsec" {
+  opam-version: "2.0"
+  version: "0.11.3"
+  synopsis: "Semantic analysis of binary executables"
+  description: """\
+BINSEC aims at developing an open-source platform filling the gap between formal
+methods over executable code and binary-level security analyses currently used
+in the security industry.
+
+The project targets the following applicative domains:
+
+    vulnerability analyses
+    malware comprehension
+    code protection
+    binary-level verification
+
+BINSEC is developed at CEA List in scientfic collaboration with Verimag and LORIA.
+
+An overview of some BINSEC features can be found in our SSPREW'17 tutorial."""
+  maintainer: "BINSEC <binsec@saxifrage.saclay.cea.fr>"
+  authors: [
+    "Adel Djoudi"
+    "Benoit Boero"
+    "Benjamin Farinier"
+    "Chakib Foulani"
+    "Dorian Lesbre"
+    "Frédéric Recoules"
+    "Guillaume Girol"
+    "Josselin Feist"
+    "Lesly-Ann Daniel"
+    "Mahmudul Faisal Al Ameen"
+    "Manh-Dung Nguyen"
+    "Mathéo Vergnolle"
+    "Matthieu Lemerre"
+    "Nicolas Bellec"
+    "Olivier Nicole"
+    "Richard Bonichon"
+    "Robin David"
+    "Sébastien Bardin"
+    "Soline Ducousso"
+    "Ta Thanh Dinh"
+    "Yaëlle Vinçont"
+    "Yanis Sellami"
+  ]
+  license: "LGPL-2.1-or-later"
+  tags: [
+    "binary code analysis"
+    "symbolic execution"
+    "deductive"
+    "program verification"
+    "formal specification"
+    "automated theorem prover"
+    "plugins"
+    "abstract interpretation"
+    "dataflow analysis"
+    "linking"
+    "disassembly"
+  ]
+  homepage: "https://binsec.github.io"
+  bug-reports: "mailto:binsec@saxifrage.saclay.cea.fr"
+  depends: [
+    "dune" {>= "3.18"}
+    "ocaml" {>= "4.14"}
+    "menhir" {build & >= "20181113"}
+    "ocamlgraph" {>= "1.8.5"}
+    "zarith" {>= "1.13"}
+    "dune-site"
+    "dypgen"
+    "toml" {>= "6"}
+    "mula"
+    "ounit2" {with-test & >= "2"}
+    "qcheck" {with-test & >= "0.90"}
+    "ppx_inline_test" {with-test}
+    "unionFind" {with-test}
+    "ocamlformat" {with-dev-setup & = "0.28.1"}
+    "odoc" {with-doc}
+  ]
+  depopts: ["curses" "llvm" "unisim_archisec" "bitwuzla" "bitwuzla-cxx" "z3"]
+  conflicts: [
+    "llvm" {< "6.0.0" | >= "16.0.0"}
+    "bitwuzla" {< "1.0.6"}
+    "bitwuzla-cxx" {< "0.4"}
+    "z3" {< "4.8.13"}
+    "unisim_archisec" {< "0.0.6"}
+  ]
+  available: os-family != "windows"
+  build: [
+    ["dune" "subst"] {dev}
+    [
+      "dune"
+      "build"
+      "-p"
+      name
+      "-j"
+      jobs
+      "--promote-install-files=false"
+      "@install"
+      "@runtest" {with-test}
+      "@doc" {with-doc}
+    ]
+    ["dune" "install" "-p" name "--create-install-files" name]
+  ]
+  dev-repo: "git+https://github.com/binsec/binsec.git"
+  url {
+    src:
+      "file:///home/nss-marker/yhr/Cry/platform-m4-20261016-6hRHRUxH/runtime/binsec-0.11.3"
+  }
+  x-maintenance-intent: ["(latest)"]
+}

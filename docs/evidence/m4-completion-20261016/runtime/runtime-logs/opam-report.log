@@ -1,0 +1,10 @@
+# opam config report
+# opam-version         2.6.1
+# self-upgrade         no
+# system               arch=x86_64 os=linux os-distribution=ubuntu os-version=24.04
+# solver               builtin-mccs+glpk
+# install-criteria     -removed,-count[avoid-version,changed],-count[version-lag,request],-count[version-lag,changed],-count[missing-depexts,changed],-changed
+# upgrade-criteria     -removed,-count[avoid-version,changed],-count[version-lag,solution],-count[missing-depexts,changed],-new
+# jobs                 1
+# repositories         1 (http) (default repo at 0bdf508366e4db08342937f8b09864342fa1ae2c)
+# current-switch       none set

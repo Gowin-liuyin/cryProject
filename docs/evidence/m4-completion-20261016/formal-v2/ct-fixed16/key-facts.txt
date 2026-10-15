@@ -1,0 +1,80 @@
+# run=ct-fixed16
+## status.txt
+exit_status=0
+depth=10000
+analysis_timeout_seconds=120
+solver_timeout_seconds=5
+wall_timeout_seconds=180
+## elapsed.txt
+exit_status=0
+start_epoch=1792087826.588
+end_epoch=1792087826.650
+elapsed_seconds=0.062
+## identity.txt
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+solver=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+elf=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct
+configuration=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg
+Binsec version 0.11.3
+Z3 version 4.15.3 - 64 bit
+8b11a6f8054b96f97e2ba4697952c88eef20094933889591cb3f18c2a73b1279  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+80ee070b8ffc2fa964b0b879250b2110c47f84c1256a1f9ab76fc7cf95e46292  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+c2bd25b740d8c04e5bf12c9fa083466f00af4ad7d0bf906b6e6e032b6e0d9472  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct
+291fc6e627b97eed8f420277f5e31a77e16b204ff1b1b893e635f6831d5b8e6e  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/source/tools/platform_m4/checkct_fixed16.cfg
+/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, BuildID[sha1]=d5e19c37c99c4d97650e0792f39653ebbeed524f, with debug_info, not stripped
+## checkct result/info/leak lines
+[checkct:result] Program status is : secure (0.024)
+[checkct:info] 1 visited path covering 36 instructions
+[checkct:info] 18 / 18 control flow checks pass
+[checkct:info] 51 / 51 memory access checks pass
+## SMT + exploration (stdout)
+[sse:info] SMT queries
+ Preprocessing simplifications
+ total 1
+ sat 1
+ unsat 0
+ time 0.00
+ 
+ Satisfiability queries
+ total 1
+ sat 1
+ unsat 0
+ unknown 0
+ time 0.00
+ average 0.00
+ 
+ Exploration
+ total paths 1
+ completed/cut paths 1
+ pending paths 0
+ discontinued paths 0
+ failed assertions 0
+ branching points 17
+ max path depth 139
+ visited instructions (unrolled) 139
+ visited instructions (static) 36
+## TOML: CT report + paths
+["CT report"."Instructions status"]
+insecure = []
+unknown = []
+[Exploration]
+instructions = 139
+max_depth = 139
+time = 0.0240550041199
+unique_insts = 36
+[Exploration.paths]
+pending = 0
+total = 1
+[Exploration.paths.completed]
+assertion_failure = 0
+cut = 0
+halt = 1
+unsatisfiable_assumption = 0
+[Exploration.paths.discontinued]
+enumeration_limit = 0
+error = 0
+max_depth = 0
+non_executable_code = 0
+unresolved_formula = 0
+[Exploration.topology]
+## stderr bytes: 0

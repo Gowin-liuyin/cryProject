@@ -1,0 +1,49 @@
+
+/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/build-formal/platform_m4_formal_ct：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08049000 <m4_halt>:
+ 8049000:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 8049004:	a3 04 b0 04 08       	mov    %eax,0x804b004
+ 8049009:	0f 0b                	ud2
+
+0804900b <m4_entry>:
+ 804900b:	56                   	push   %esi
+ 804900c:	5e                   	pop    %esi
+ 804900d:	83 ec 10             	sub    $0x10,%esp
+ 8049010:	ff 35 00 b0 04 08    	push   0x804b000
+ 8049016:	68 08 b0 04 08       	push   $0x804b008
+ 804901b:	68 18 b0 04 08       	push   $0x804b018
+ 8049020:	e8 08 00 00 00       	call   804902d <m4_compare_bytes>
+ 8049025:	89 04 24             	mov    %eax,(%esp)
+ 8049028:	e8 d3 ff ff ff       	call   8049000 <m4_halt>
+
+0804902d <m4_compare_bytes>:
+ 804902d:	57                   	push   %edi
+ 804902e:	56                   	push   %esi
+ 804902f:	53                   	push   %ebx
+ 8049030:	8b 74 24 10          	mov    0x10(%esp),%esi
+ 8049034:	8b 7c 24 14          	mov    0x14(%esp),%edi
+ 8049038:	8b 5c 24 18          	mov    0x18(%esp),%ebx
+ 804903c:	85 db                	test   %ebx,%ebx
+ 804903e:	74 29                	je     8049069 <m4_compare_bytes+0x3c>
+ 8049040:	ba 00 00 00 00       	mov    $0x0,%edx
+ 8049045:	b9 00 00 00 00       	mov    $0x0,%ecx
+ 804904a:	0f b6 04 16          	movzbl (%esi,%edx,1),%eax
+ 804904e:	32 04 17             	xor    (%edi,%edx,1),%al
+ 8049051:	0f b6 c0             	movzbl %al,%eax
+ 8049054:	09 c1                	or     %eax,%ecx
+ 8049056:	83 c2 01             	add    $0x1,%edx
+ 8049059:	39 d3                	cmp    %edx,%ebx
+ 804905b:	75 ed                	jne    804904a <m4_compare_bytes+0x1d>
+ 804905d:	85 c9                	test   %ecx,%ecx
+ 804905f:	0f 94 c0             	sete   %al
+ 8049062:	0f b6 c0             	movzbl %al,%eax
+ 8049065:	5b                   	pop    %ebx
+ 8049066:	5e                   	pop    %esi
+ 8049067:	5f                   	pop    %edi
+ 8049068:	c3                   	ret
+ 8049069:	89 d9                	mov    %ebx,%ecx
+ 804906b:	eb f0                	jmp    804905d <m4_compare_bytes+0x30>
