@@ -1,0 +1,36 @@
+[  0%] Built target build_identity
+[ 66%] Built target mlkem_reference
+[100%] Built target reference_baseline
+[100%] Built target platform_m5
+[  0%] Built target build_identity
+[ 66%] Built target mlkem_reference
+[ 66%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[100%] Linking C executable reference/measure
+[100%] Built target reference_measure
+[100%] Built target platform_m5_measure
+[  0%] Built target build_identity
+[ 50%] Built target mlkem_reference
+[ 75%] Built target reference_baseline
+[ 75%] Built target reference_test_random_failure
+[100%] Built target reference_test_mlkem
+Test project /Users/yin/code/cryProject/build/platform-s6/ordinary
+Connected to MAKE jobserver
+    Start  1: reference_kat
+1/5 Test  #1: reference_kat ....................   Passed    0.02 sec
+    Start  2: reference_random_failure
+2/5 Test  #2: reference_random_failure .........   Passed    0.00 sec
+    Start 33: reference_cli
+3/5 Test #33: reference_cli ....................   Passed    0.05 sec
+    Start 36: reference_vector_parser
+4/5 Test #36: reference_vector_parser ..........   Passed    0.03 sec
+    Start 60: vector_integrity
+5/5 Test #60: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   0.11 sec*proc (5 tests)
+
+Total Test time (real) =   0.11 sec
+[100%] Built target check-reference
+[100%] Built target platform_m5_check

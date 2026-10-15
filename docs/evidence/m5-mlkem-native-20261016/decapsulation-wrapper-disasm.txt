@@ -1,0 +1,20 @@
+
+build/platform-s6/ordinary/reference/measure:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000010001115c <_mlkem_decapsulate>:
+10001115c: f12580bf    	cmp	x5, #0x960
+100011160: 54000161    	b.ne	0x10001118c <_mlkem_decapsulate+0x30>
+100011164: f111007f    	cmp	x3, #0x440
+100011168: 54000121    	b.ne	0x10001118c <_mlkem_decapsulate+0x30>
+10001116c: f100803f    	cmp	x1, #0x20
+100011170: 540000e1    	b.ne	0x10001118c <_mlkem_decapsulate+0x30>
+100011174: b40000c0    	cbz	x0, 0x10001118c <_mlkem_decapsulate+0x30>
+100011178: b40000a2    	cbz	x2, 0x10001118c <_mlkem_decapsulate+0x30>
+10001117c: b4000084    	cbz	x4, 0x10001118c <_mlkem_decapsulate+0x30>
+100011180: aa0203e1    	mov	x1, x2
+100011184: aa0403e2    	mov	x2, x4
+100011188: 17ffe9eb    	b	0x10000b934 <_baseline_native_dec>
+10001118c: 12800c60    	mov	w0, #-0x64              ; =-100
+100011190: d65f03c0    	ret

@@ -1,0 +1,45 @@
+warning: unable to access 'vendor/kyber-kyberslash-unfixed/avx2/.gitignore': Too many levels of symbolic links
+warning: unable to access 'vendor/kyber-kyberslash-fixed/avx2/.gitignore': Too many levels of symbolic links
+[  0%] Built target build_identity
+[  0%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 50%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 50%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 50%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 50%] Linking C static library reference/libmlkem.a
+[ 50%] Built target mlkem_reference
+[ 50%] Building C object CMakeFiles/reference_test_random_failure.dir/tests/test_random_failure.c.o
+[ 50%] Building C object CMakeFiles/reference_baseline.dir/src/main.c.o
+[ 50%] Building C object CMakeFiles/reference_test_mlkem.dir/tests/test_mlkem.c.o
+[ 50%] Linking C executable reference/test_random_failure
+[ 50%] Linking C executable reference/baseline
+[100%] Linking C executable reference/test_mlkem
+[100%] Built target reference_test_random_failure
+[100%] Built target reference_baseline
+[100%] Built target reference_test_mlkem
+Test project /Users/yin/code/cryProject/build/platform-s6/ordinary
+Connected to MAKE jobserver
+    Start  1: reference_kat
+1/5 Test  #1: reference_kat ....................   Passed    0.80 sec
+    Start  2: reference_random_failure
+2/5 Test  #2: reference_random_failure .........   Passed    0.71 sec
+    Start 33: reference_cli
+3/5 Test #33: reference_cli ....................   Passed    0.73 sec
+    Start 36: reference_vector_parser
+4/5 Test #36: reference_vector_parser ..........   Passed    0.03 sec
+    Start 60: vector_integrity
+5/5 Test #60: vector_integrity .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+reference    =   2.28 sec*proc (5 tests)
+
+Total Test time (real) =   2.28 sec
+[100%] Built target check-reference
+warning: unable to access 'vendor/kyber-kyberslash-unfixed/avx2/.gitignore': Too many levels of symbolic links
+warning: unable to access 'vendor/kyber-kyberslash-fixed/avx2/.gitignore': Too many levels of symbolic links
+[  0%] Built target build_identity
+[100%] Built target mlkem_reference
+[100%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[100%] Linking C executable reference/measure
+[100%] Built target reference_measure
