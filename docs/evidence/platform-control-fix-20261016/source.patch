@@ -1,0 +1,179 @@
+diff --git a/tools/platform_control/README.md b/tools/platform_control/README.md
+index 057f6d8..4950307 100644
+--- a/tools/platform_control/README.md
++++ b/tools/platform_control/README.md
+@@ -10,6 +10,8 @@ python3 -I -B tools/platform_control/controller.py --help
+ 
+ `controller.py run` 仅接受 Linux x86_64、经 sudo 启动的非 root 原用户。固定目标 CPU2 或 CPU6；全局 boost=0，目标 singleton policy 的 governor/EPP=performance、min=max=4300000 kHz。无自动重定目标。先保存全部可见 policy 控制/身份及全局快照，再逐写保存 intent、fsync、回读；20 次 50ms 间隔的当前频率均在目标 ±2% 且跨度不超过 50000 kHz才放行 worker。这只是工程观测门，不代表逐调用物理恒频。
+ 
++空任务只允许固定运行名/精确命令：`q-normal`、`q-contention` 对应 `/usr/bin/true`，`q-failure` 对应 `/usr/bin/false`，`q-timeout`、`q-controller-loss` 对应 `/usr/bin/sleep 20`。运行名自动选择对应资格模式；显式 `--qualification` 必须相符，且不得忽略或替换用户传入的其他命令。其他运行名始终只接受 Cry 内 collector；不能用资格参数绕过路径边界。修复证据见 `docs/evidence/platform-control-fix-20261016/`，旧失败原件保留。
++
+ 所有运行共同持有既有 `/home/nss-marker/yhr/Cry/partition-admin.lock`（只打开并 flock，不更改内容、不创建替代品），并持本控制根 `collection.lock`。因此换 CPU、换控制根及 recover 都互斥。新状态根为 `/home/nss-marker/yhr/Cry/platform-control-20261016-state/`，root 0700；首写之前创建 root 可信 `active.json`，未恢复/未排空/guardian死亡会保留指针并阻止任何下一次 run，不能把残留配置当作新 baseline。成功恢复并排空后才移除该指针；永久结果在运行目录。
+ 
+ 每次控制根固定为 `Cry/platform-control-20261016-<12位十六进制nonce>`，只新建运行名，不覆盖旧文件。源码/PLAN 先上传到该根内，`run` 的输出为该根 `runs/<run-name>/`，state/日志 root 所有且 worker 不可写。baseline、身份、命令、源/ELF/PLAN摘要、boot_id、worker PID/start_ticks/PGID/SID/UID/实际亲和性均记录。worker 自身使用该运行 `worker/` 及其 `tmp/`、`cache/`，不重设 HOME；源码中的其他显式临时路径仍须由模块在执行前审查。
+diff --git a/tools/platform_control/controller.py b/tools/platform_control/controller.py
+index faf1305..17935f8 100755
+--- a/tools/platform_control/controller.py
++++ b/tools/platform_control/controller.py
+@@ -26,6 +26,13 @@ CONTROL_FIELDS = ('scaling_governor', 'scaling_min_freq', 'scaling_max_freq',
+                   'energy_performance_preference')
+ IDENTITY_FIELDS = ('affected_cpus', 'related_cpus', 'scaling_driver',
+                    'cpuinfo_min_freq', 'cpuinfo_max_freq', 'scaling_available_governors')
++QUALIFICATION_CASES = {
++    'q-normal': ('normal', ['/usr/bin/true']),
++    'q-failure': ('failure', ['/usr/bin/false']),
++    'q-timeout': ('timeout', ['/usr/bin/sleep', '20']),
++    'q-controller-loss': ('controller-loss', ['/usr/bin/sleep', '20']),
++    'q-contention': ('normal', ['/usr/bin/true']),
++}
+ 
+ 
+ def require(condition, message):
+@@ -48,6 +55,27 @@ def contained(path):
+     return absolute
+ 
+ 
++def prepare_worker_command(arguments):
++    qualification_case = QUALIFICATION_CASES.get(arguments.run_name)
++    if qualification_case is not None:
++        qualification, expected_command = qualification_case
++        require(arguments.qualification in (None, qualification), '资格模式与冻结运行名不符')
++        require(arguments.command == expected_command or
++                (not arguments.command and arguments.qualification == qualification),
++                '资格命令与冻结白名单不符')
++        arguments.qualification = qualification
++        arguments.command = list(expected_command)
++        return
++    require(arguments.qualification is None, '资格模式只允许冻结运行名')
++    require(arguments.command, '缺少 worker 命令')
++    executable = contained(arguments.command[0])
++    require(executable.is_file() and os.access(executable, os.X_OK), 'worker ELF 不可执行')
++    for argument in arguments.command[1:]:
++        require('..' not in Path(argument).parts, 'worker 参数含上级路径')
++        if argument.startswith('/'):
++            contained(argument)
++
++
+ class Store:
+     def __init__(self, path):
+         self.path = Path(path)
+@@ -440,18 +468,6 @@ def run(arguments):
+     plan = contained(arguments.plan)
+     require(sha256(plan) == arguments.plan_sha256, '冻结 PLAN 摘要不符')
+     require(re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}', arguments.run_name), '运行名不符')
+-    require(arguments.command or arguments.qualification, '缺少 worker 命令')
+-    if arguments.qualification:
+-        commands = {'normal': ['/usr/bin/true'], 'failure': ['/usr/bin/false'],
+-                    'timeout': ['/usr/bin/sleep', '20'], 'controller-loss': ['/usr/bin/sleep', '20']}
+-        arguments.command = commands[arguments.qualification]
+-    else:
+-        executable = contained(arguments.command[0])
+-        require(executable.is_file() and os.access(executable, os.X_OK), 'worker ELF 不可执行')
+-        for argument in arguments.command[1:]:
+-            require('..' not in Path(argument).parts, 'worker 参数含上级路径')
+-            if argument.startswith('/'):
+-                contained(argument)
+     lock_descriptor = os.open(control_root / 'collection.lock',
+                               os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+     lock_metadata = os.fstat(lock_descriptor)
+@@ -595,6 +611,8 @@ def main():
+     if arguments.mode == 'run' and arguments.command and arguments.command[0] == '--':
+         arguments.command = arguments.command[1:]
+     try:
++        if arguments.mode == 'run':
++            prepare_worker_command(arguments)
+         return run(arguments) if arguments.mode == 'run' else recover(arguments)
+     except Exception as error:
+         print(str(error), file=sys.stderr)
+diff --git a/tools/platform_control/test_controller.py b/tools/platform_control/test_controller.py
+index c098163..c5c61f2 100644
+--- a/tools/platform_control/test_controller.py
++++ b/tools/platform_control/test_controller.py
+@@ -8,6 +8,8 @@ import signal
+ import subprocess
+ import sys
+ import time
++from types import SimpleNamespace
++from unittest import mock
+ 
+ specification = importlib.util.spec_from_file_location('platform_controller',
+                                                        Path(__file__).with_name('controller.py'))
+@@ -59,9 +61,67 @@ def transaction(root, name):
+     return frequency, controller.Transaction(frequency, controller.Store(path))
+ 
+ 
++def qualification_commands(root):
++    for run_name, (qualification, expected_command) in controller.QUALIFICATION_CASES.items():
++        arguments = SimpleNamespace(run_name=run_name, qualification=None, command=list(expected_command))
++        controller.prepare_worker_command(arguments)
++        assert arguments.qualification == qualification
++        assert arguments.command == expected_command
++    arguments = SimpleNamespace(run_name='q-normal', qualification='normal', command=[])
++    controller.prepare_worker_command(arguments)
++    assert arguments.command == ['/usr/bin/true']
++    rejected = [
++        ('q-normal', None, ['/usr/bin/false']),
++        ('q-normal', None, ['/usr/bin/true', 'extra']),
++        ('q-normal', None, ['/bin/true']),
++        ('q-normal', 'failure', ['/usr/bin/true']),
++        ('q-controller-loss', None, ['/usr/bin/sleep', '21']),
++        ('q-timeout', None, ['/usr/bin/sleep', '20', 'extra']),
++        ('q-not-frozen', None, ['/usr/bin/true']),
++        ('m2-production', 'normal', ['/usr/bin/true']),
++        ('m2-production', None, ['/usr/bin/true']),
++    ]
++    for run_name, qualification, command in rejected:
++        arguments = SimpleNamespace(run_name=run_name, qualification=qualification, command=command)
++        try:
++            controller.prepare_worker_command(arguments)
++            raise AssertionError('接受了白名单外命令：' + repr(arguments))
++        except RuntimeError:
++            pass
++
++    controller_path = Path(__file__).with_name('controller.py')
++    cli_cases = [('q-normal', ['/usr/bin/false'], '资格命令与冻结白名单不符'),
++                 ('q-timeout', ['/usr/bin/sleep', '21'], '资格命令与冻结白名单不符'),
++                 ('m2-production', ['/usr/bin/true'], '项目路径超出 Cry'),
++                 ('q-not-frozen', ['/usr/bin/true'], '项目路径超出 Cry')]
++    for run_name, command, expected_error in cli_cases:
++        result = subprocess.run([sys.executable, '-I', '-B', str(controller_path), 'run',
++                                 '--control-root', '/unused', '--run-name', run_name, '--cpu', '2',
++                                 '--timeout-seconds', '3', '--plan', '/unused/PLAN.md',
++                                 '--plan-sha256', '0' * 64, '--'] + command,
++                                capture_output=True, text=True, check=False)
++        assert result.returncode == 1 and expected_error in result.stderr
++    with mock.patch.object(controller, 'run', return_value=0) as run_entry:
++        with mock.patch.object(sys, 'argv', ['controller.py', 'run', '--control-root', '/unused',
++                                             '--run-name', 'q-controller-loss', '--cpu', '6',
++                                             '--timeout-seconds', '5', '--plan', '/unused/PLAN.md',
++                                             '--plan-sha256', '0' * 64, '--', '/usr/bin/sleep', '20']):
++            assert controller.main() == 0
++        assert run_entry.call_args.args[0].qualification == 'controller-loss'
++    collector = root / 'collector'
++    collector.write_bytes(b'fixture-only-not-executed\n')
++    collector.chmod(0o700)
++    with mock.patch.object(controller, 'CRY_ROOT', root.resolve()):
++        arguments = SimpleNamespace(run_name='m2-production', qualification=None,
++                                    command=[str(collector), 'samples.csv'])
++        controller.prepare_worker_command(arguments)
++        assert arguments.command == [str(collector), 'samples.csv']
++
++
+ def main():
+     root = Path(sys.argv[1]) / ('mock-' + os.urandom(6).hex())
+     root.mkdir(parents=True)
++    qualification_commands(root)
+     frequency, operation = transaction(root, 'normal')
+     original = frequency.snapshot()
+     operation.apply(lambda: None)
+@@ -154,7 +214,9 @@ def main():
+             child.wait()
+         signal.signal(signal.SIGCHLD, original_handler)
+ 
+-    print('mock_checks=9; host_frequency_writes=0; native_guardian_qualification=not_run')
++    print('mock_checks=9; qualification_allowed=6; qualification_rejected=9; cli_rejected=4; '
++          'production_allowed=1; '
++          'host_frequency_writes=0; native_guardian_qualification=not_run')
+     return 0
+ 
+ 

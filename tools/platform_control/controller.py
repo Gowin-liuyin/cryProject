@@ -26,6 +26,13 @@ CONTROL_FIELDS = ('scaling_governor', 'scaling_min_freq', 'scaling_max_freq',
                   'energy_performance_preference')
 IDENTITY_FIELDS = ('affected_cpus', 'related_cpus', 'scaling_driver',
                    'cpuinfo_min_freq', 'cpuinfo_max_freq', 'scaling_available_governors')
+QUALIFICATION_CASES = {
+    'q-normal': ('normal', ['/usr/bin/true']),
+    'q-failure': ('failure', ['/usr/bin/false']),
+    'q-timeout': ('timeout', ['/usr/bin/sleep', '20']),
+    'q-controller-loss': ('controller-loss', ['/usr/bin/sleep', '20']),
+    'q-contention': ('normal', ['/usr/bin/true']),
+}
 
 
 def require(condition, message):
@@ -46,6 +53,27 @@ def contained(path):
     require(absolute == absolute.resolve(), '路径含符号链接或非规范分量')
     require(absolute.is_relative_to(CRY_ROOT), '项目路径超出 Cry')
     return absolute
+
+
+def prepare_worker_command(arguments):
+    qualification_case = QUALIFICATION_CASES.get(arguments.run_name)
+    if qualification_case is not None:
+        qualification, expected_command = qualification_case
+        require(arguments.qualification in (None, qualification), '资格模式与冻结运行名不符')
+        require(arguments.command == expected_command or
+                (not arguments.command and arguments.qualification == qualification),
+                '资格命令与冻结白名单不符')
+        arguments.qualification = qualification
+        arguments.command = list(expected_command)
+        return
+    require(arguments.qualification is None, '资格模式只允许冻结运行名')
+    require(arguments.command, '缺少 worker 命令')
+    executable = contained(arguments.command[0])
+    require(executable.is_file() and os.access(executable, os.X_OK), 'worker ELF 不可执行')
+    for argument in arguments.command[1:]:
+        require('..' not in Path(argument).parts, 'worker 参数含上级路径')
+        if argument.startswith('/'):
+            contained(argument)
 
 
 class Store:
@@ -440,18 +468,6 @@ def run(arguments):
     plan = contained(arguments.plan)
     require(sha256(plan) == arguments.plan_sha256, '冻结 PLAN 摘要不符')
     require(re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}', arguments.run_name), '运行名不符')
-    require(arguments.command or arguments.qualification, '缺少 worker 命令')
-    if arguments.qualification:
-        commands = {'normal': ['/usr/bin/true'], 'failure': ['/usr/bin/false'],
-                    'timeout': ['/usr/bin/sleep', '20'], 'controller-loss': ['/usr/bin/sleep', '20']}
-        arguments.command = commands[arguments.qualification]
-    else:
-        executable = contained(arguments.command[0])
-        require(executable.is_file() and os.access(executable, os.X_OK), 'worker ELF 不可执行')
-        for argument in arguments.command[1:]:
-            require('..' not in Path(argument).parts, 'worker 参数含上级路径')
-            if argument.startswith('/'):
-                contained(argument)
     lock_descriptor = os.open(control_root / 'collection.lock',
                               os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
     lock_metadata = os.fstat(lock_descriptor)
@@ -595,6 +611,8 @@ def main():
     if arguments.mode == 'run' and arguments.command and arguments.command[0] == '--':
         arguments.command = arguments.command[1:]
     try:
+        if arguments.mode == 'run':
+            prepare_worker_command(arguments)
         return run(arguments) if arguments.mode == 'run' else recover(arguments)
     except Exception as error:
         print(str(error), file=sys.stderr)

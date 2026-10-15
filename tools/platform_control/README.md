@@ -10,6 +10,8 @@ python3 -I -B tools/platform_control/controller.py --help
 
 `controller.py run` 仅接受 Linux x86_64、经 sudo 启动的非 root 原用户。固定目标 CPU2 或 CPU6；全局 boost=0，目标 singleton policy 的 governor/EPP=performance、min=max=4300000 kHz。无自动重定目标。先保存全部可见 policy 控制/身份及全局快照，再逐写保存 intent、fsync、回读；20 次 50ms 间隔的当前频率均在目标 ±2% 且跨度不超过 50000 kHz才放行 worker。这只是工程观测门，不代表逐调用物理恒频。
 
+空任务只允许固定运行名/精确命令：`q-normal`、`q-contention` 对应 `/usr/bin/true`，`q-failure` 对应 `/usr/bin/false`，`q-timeout`、`q-controller-loss` 对应 `/usr/bin/sleep 20`。运行名自动选择对应资格模式；显式 `--qualification` 必须相符，且不得忽略或替换用户传入的其他命令。其他运行名始终只接受 Cry 内 collector；不能用资格参数绕过路径边界。修复证据见 `docs/evidence/platform-control-fix-20261016/`，旧失败原件保留。
+
 所有运行共同持有既有 `/home/nss-marker/yhr/Cry/partition-admin.lock`（只打开并 flock，不更改内容、不创建替代品），并持本控制根 `collection.lock`。因此换 CPU、换控制根及 recover 都互斥。新状态根为 `/home/nss-marker/yhr/Cry/platform-control-20261016-state/`，root 0700；首写之前创建 root 可信 `active.json`，未恢复/未排空/guardian死亡会保留指针并阻止任何下一次 run，不能把残留配置当作新 baseline。成功恢复并排空后才移除该指针；永久结果在运行目录。
 
 每次控制根固定为 `Cry/platform-control-20261016-<12位十六进制nonce>`，只新建运行名，不覆盖旧文件。源码/PLAN 先上传到该根内，`run` 的输出为该根 `runs/<run-name>/`，state/日志 root 所有且 worker 不可写。baseline、身份、命令、源/ELF/PLAN摘要、boot_id、worker PID/start_ticks/PGID/SID/UID/实际亲和性均记录。worker 自身使用该运行 `worker/` 及其 `tmp/`、`cache/`，不重设 HOME；源码中的其他显式临时路径仍须由模块在执行前审查。

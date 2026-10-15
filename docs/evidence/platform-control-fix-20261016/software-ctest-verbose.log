@@ -1,0 +1,25 @@
+UpdateCTestConfiguration  from :/Users/yin/code/cryProject/build/platform-control-fix-s3/DartConfiguration.tcl
+Parse Config file:/Users/yin/code/cryProject/build/platform-control-fix-s3/DartConfiguration.tcl
+Test project /Users/yin/code/cryProject/build/platform-control-fix-s3
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: platform_control_mock
+
+1: Test command: /Users/yin/miniconda3/bin/python3.13 "-I" "-B" "/Users/yin/code/cryProject/tools/platform_control/test_controller.py" "/Users/yin/code/cryProject/build/platform-control-fix-s3/mock-root"
+1: Working Directory: /Users/yin/code/cryProject/build/platform-control-fix-s3
+1: Environment variables: 
+1:  TMPDIR=/Users/yin/code/cryProject/build/platform-control-fix-s3/mock-root
+1:  TMP=/Users/yin/code/cryProject/build/platform-control-fix-s3/mock-root
+1:  TEMP=/Users/yin/code/cryProject/build/platform-control-fix-s3/mock-root
+1: Test timeout computed to be: 1500
+1: mock_checks=9; qualification_allowed=6; qualification_rejected=9; cli_rejected=4; production_allowed=1; host_frequency_writes=0; native_guardian_qualification=not_run
+1/1 Test #1: platform_control_mock ............   Passed    0.22 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.22 sec

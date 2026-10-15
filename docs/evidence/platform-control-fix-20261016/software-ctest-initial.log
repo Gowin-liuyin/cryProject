@@ -1,0 +1,23 @@
+Test project /Users/yin/code/cryProject/build/platform-control-fix-s3
+    Start 1: platform_control_mock
+1/1 Test #1: platform_control_mock ............***Failed    0.16 sec
+Traceback (most recent call last):
+  File "/Users/yin/code/cryProject/tools/platform_control/test_controller.py", line 215, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/yin/code/cryProject/tools/platform_control/test_controller.py", line 116, in main
+    qualification_commands()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/yin/code/cryProject/tools/platform_control/test_controller.py", line 103, in qualification_commands
+    assert result.returncode == 1 and expected_error in result.stderr
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.16 sec
+
+The following tests FAILED:
+	  1 - platform_control_mock (Failed)
+Errors while running CTest

@@ -8,6 +8,8 @@ import signal
 import subprocess
 import sys
 import time
+from types import SimpleNamespace
+from unittest import mock
 
 specification = importlib.util.spec_from_file_location('platform_controller',
                                                        Path(__file__).with_name('controller.py'))
@@ -59,9 +61,67 @@ def transaction(root, name):
     return frequency, controller.Transaction(frequency, controller.Store(path))
 
 
+def qualification_commands(root):
+    for run_name, (qualification, expected_command) in controller.QUALIFICATION_CASES.items():
+        arguments = SimpleNamespace(run_name=run_name, qualification=None, command=list(expected_command))
+        controller.prepare_worker_command(arguments)
+        assert arguments.qualification == qualification
+        assert arguments.command == expected_command
+    arguments = SimpleNamespace(run_name='q-normal', qualification='normal', command=[])
+    controller.prepare_worker_command(arguments)
+    assert arguments.command == ['/usr/bin/true']
+    rejected = [
+        ('q-normal', None, ['/usr/bin/false']),
+        ('q-normal', None, ['/usr/bin/true', 'extra']),
+        ('q-normal', None, ['/bin/true']),
+        ('q-normal', 'failure', ['/usr/bin/true']),
+        ('q-controller-loss', None, ['/usr/bin/sleep', '21']),
+        ('q-timeout', None, ['/usr/bin/sleep', '20', 'extra']),
+        ('q-not-frozen', None, ['/usr/bin/true']),
+        ('m2-production', 'normal', ['/usr/bin/true']),
+        ('m2-production', None, ['/usr/bin/true']),
+    ]
+    for run_name, qualification, command in rejected:
+        arguments = SimpleNamespace(run_name=run_name, qualification=qualification, command=command)
+        try:
+            controller.prepare_worker_command(arguments)
+            raise AssertionError('接受了白名单外命令：' + repr(arguments))
+        except RuntimeError:
+            pass
+
+    controller_path = Path(__file__).with_name('controller.py')
+    cli_cases = [('q-normal', ['/usr/bin/false'], '资格命令与冻结白名单不符'),
+                 ('q-timeout', ['/usr/bin/sleep', '21'], '资格命令与冻结白名单不符'),
+                 ('m2-production', ['/usr/bin/true'], '项目路径超出 Cry'),
+                 ('q-not-frozen', ['/usr/bin/true'], '项目路径超出 Cry')]
+    for run_name, command, expected_error in cli_cases:
+        result = subprocess.run([sys.executable, '-I', '-B', str(controller_path), 'run',
+                                 '--control-root', '/unused', '--run-name', run_name, '--cpu', '2',
+                                 '--timeout-seconds', '3', '--plan', '/unused/PLAN.md',
+                                 '--plan-sha256', '0' * 64, '--'] + command,
+                                capture_output=True, text=True, check=False)
+        assert result.returncode == 1 and expected_error in result.stderr
+    with mock.patch.object(controller, 'run', return_value=0) as run_entry:
+        with mock.patch.object(sys, 'argv', ['controller.py', 'run', '--control-root', '/unused',
+                                             '--run-name', 'q-controller-loss', '--cpu', '6',
+                                             '--timeout-seconds', '5', '--plan', '/unused/PLAN.md',
+                                             '--plan-sha256', '0' * 64, '--', '/usr/bin/sleep', '20']):
+            assert controller.main() == 0
+        assert run_entry.call_args.args[0].qualification == 'controller-loss'
+    collector = root / 'collector'
+    collector.write_bytes(b'fixture-only-not-executed\n')
+    collector.chmod(0o700)
+    with mock.patch.object(controller, 'CRY_ROOT', root.resolve()):
+        arguments = SimpleNamespace(run_name='m2-production', qualification=None,
+                                    command=[str(collector), 'samples.csv'])
+        controller.prepare_worker_command(arguments)
+        assert arguments.command == [str(collector), 'samples.csv']
+
+
 def main():
     root = Path(sys.argv[1]) / ('mock-' + os.urandom(6).hex())
     root.mkdir(parents=True)
+    qualification_commands(root)
     frequency, operation = transaction(root, 'normal')
     original = frequency.snapshot()
     operation.apply(lambda: None)
@@ -154,7 +214,9 @@ def main():
             child.wait()
         signal.signal(signal.SIGCHLD, original_handler)
 
-    print('mock_checks=9; host_frequency_writes=0; native_guardian_qualification=not_run')
+    print('mock_checks=9; qualification_allowed=6; qualification_rejected=9; cli_rejected=4; '
+          'production_allowed=1; '
+          'host_frequency_writes=0; native_guardian_qualification=not_run')
     return 0
 
 
