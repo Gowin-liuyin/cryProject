@@ -1,0 +1,35 @@
+Linux nss-m 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+uid=1000(nss-marker) gid=1000(nss-marker) groups=1000(nss-marker),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),114(lpadmin),125(docker)
+/home/nss-marker/yhr/Cry
+sudo_n_exit=1
+common_lock=regular empty file uid=0 gid=0 mode=600
+cpu=2 policy=/sys/devices/system/cpu/cpufreq/policy2 siblings=2,18
+related_cpus=2
+affected_cpus=2
+scaling_driver=amd-pstate-epp
+scaling_available_governors=performance powersave
+scaling_governor=powersave
+energy_performance_preference=balance_performance
+energy_performance_available_preferences=default performance balance_performance balance_power power 
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=5358428
+cpu=6 policy=/sys/devices/system/cpu/cpufreq/policy6 siblings=6,22
+related_cpus=6
+affected_cpus=6
+scaling_driver=amd-pstate-epp
+scaling_available_governors=performance powersave
+scaling_governor=powersave
+energy_performance_preference=balance_performance
+energy_performance_available_preferences=default performance balance_performance balance_power power 
+cpuinfo_min_freq=624194
+cpuinfo_max_freq=5756452
+scaling_min_freq=2982259
+scaling_max_freq=5756452
+scaling_cur_freq=2982259
+boost=1
+0::/user.slice/user-1000.slice/session-40989.scope
+State=active
+Linger=no
