@@ -1,0 +1,37 @@
+{
+  "verdict": "APPROVED",
+  "findings": [
+    {
+      "id": 1,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "2.4 未列 attempt-failure.log",
+      "detail": "登记发现 6 要求 apt 失败时把逐字输出存到 docs/evidence/linux-amd64/attempt-failure.log，2.2 写了该路径，2.4 的文件清单未列入；0.5 第 1 条的通用缺口规则已兜住。模块二写 README 时补进 2.4 清单即可。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 2,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "发现 4 的第二处硬失败只写在散文里",
+      "detail": "「进入反汇编与摘要之前四个 measure 产物不存在则硬失败」写在 2.2 的失败处置段，脚本骨架对应位置仍是 `…` 占位（第一处硬失败 cmake 配置已写进骨架代码）。规则无歧义，模块二落地时按散文补成实际代码。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 3,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "第 7、8 节台账保留已被取代的旧措辞",
+      "detail": "7.1 发现 2 的「时间凭证」、8.1 发现 2 与 8.2 发现 6 的「归档八个产物副本」、8.3 第 3/12 行都已被第四轮取代，处置方式是紧随加注「第四轮已修正」+「冲突时以第 9 节与正文为准」，而非改写历史记录。属有意选择，引用这些行时须连带读加注。",
+      "confidence": "confirmed"
+    }
+  ],
+  "registeredFindingsResolved": {
+    "total": 17,
+    "blocking": 10,
+    "resolved": 17,
+    "unresolvedBlocking": 0,
+    "note": "逐条核对结果见 reviewDoc。HIGH 发现 1 的四项修订（排序归属事实句、六步固定顺序、两个无状态排序入口、M3-1 乱序捕获场景）全部落地；发现 2 的 SHA3-256 vs shasum 拆句与 M3-8 算法名、发现 7/8 的凭证诚实口径与措辞禁令（全文已无「可信时间凭证」类用法，仅剩禁令本身）、发现 4 的容器容错（set -u + step-exits.txt + 反汇编不依赖 ctest 退出码 + 五份日志归档）均已写死。发现 12 的处置故意偏离评审建议措辞并在 9.3 声明，已按磁盘实测复核为正确改正，不记为阻断。提交 adf9db9 的 diff 只含 docs/tasks/four-module-design.md，无只读边界违规。本次评审未重跑任何构建或测试。"
+  },
+  "reviewDoc": "/Users/yin/code/cryProject/.agents/tasks/four-module-review//review-m0.md"
+}

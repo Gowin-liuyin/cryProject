@@ -1,0 +1,83 @@
+{
+  "verdict": "APPROVED",
+  "findings": [
+    {
+      "id": 1,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "README 章节交叉引用错位（见第 5 节应为第 6 节）",
+      "detail": "本次在第 4 节之后插入新的第 5 节「第二轮预注册的分组检验」，原第 5-8 节整体后移一位，但文首 README.md:12 的「（上游该函数本来就无分支，见第 5 节）」没有跟着改。实测 README 的 ## 标题行为 1/2/3/4/5=第二轮预注册的分组检验/6=四个变体的关系/7/8/9，而「上游 mlk_poly_frommsg 本来就是无分支实现」这句在第 6 节。grep 确认没有其他文档按节号引用 README，影响面仅此一行。处置：改为「见第 6 节」。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 2,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "build.log 比实际构建短一行且无 exit 标记（缺证据）",
+      "detail": "docs/evidence/review-four-module/build.log 实测 76 行，末行为 [72/73] Linking C executable analyze_groups，缺最后一个构建步骤 [73/73]；文件也没有同目录其他日志都有的 exit= 行。证据 README 的覆盖表却断言「配置 exit=0、构建 exit=0」。构建确实成功（binaries.sha256 的十个产物存在且 CTest 全过），所以这是归档完整度缺口而不是结论错误。处置：补齐末行与 exit 标记，或在文内写明该日志为截断。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 3,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "configure.log 无 exit 标记（缺证据）",
+      "detail": "configure.log 只有 CMake 的十行输出，没有 exit= 行，而证据 README 同一表格断言「配置 exit=0」。同目录的 ctest.log / format-check.log / cmake-format.log / shell-syntax.log / record-checks.txt 都带 exit 标记，口径不一致。处置：补一行 exit=0。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 4,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "final-recheck.log 的 ctest 段为未标注的节选，0.93s 与 ctest.log 的 10.68s 表面矛盾",
+      "detail": "final-recheck.log 在 `$ ctest --test-dir build/review-four-module --output-on-failure` 标题下只保留 17/18、18/18 两行与汇总行，并写 Total Test time (real) = 0.93 sec；而 ctest.log 的首跑是 10.68 sec，其中单项最慢的 measurement 为 2.05 sec，串行下 0.93s 装不下 18 项，读者第一眼会怀疑没跑全。这是本轮唯一一处窄 spot-check：我读了 build/review-four-module/Testing/Temporary/LastTest.log（Start/End testing 均为 Oct 01 13:01，与提交时间 13:02 吻合），其中 1/18 到 18/18 全部出现、Test Passed 出现 18 次、逐项 Test time 合计 0.91 sec，首跑之所以慢是 macOS 对全新构建二进制的首次执行开销（reference_kat 首跑 0.78s、复跑 0.02s）。结论为真，不是造假。处置：加一行省略标记，并用一句说明两次总时长的差异来源。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 5,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "静态分析「无诊断」只有空捕获为证（缺证据）",
+      "detail": "static-analysis.txt 的四段（默认 / -DBASELINE_VULNERABLE=1 / -DBASELINE_HARDENED=1 / -DBASELINE_DEPLOYABLE=1）只有 === macro=... === 与 exit=0，没有显式的诊断计数，也没有声明 stdout/stderr 捕获为空。clang --analyze -analyzer-output=text 的诊断走 stderr，空捕获确实等价于无诊断，但同目录 shell-syntax.log / cmake-format.log 都是「命令 + 输出 + exit」三段完整，这里自证强度低一档。处置：补一句捕获口径（例如「四次调用 stdout 与 stderr 均为空」）。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 6,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "最终报告 §3 产物机制未给出具体地址",
+      "detail": "设计第 5 节第 3 条要求产物机制写出「哪个二进制、哪个地址、什么指令」。acceptance 的最终报告 §3 给了二进制（四变体）、证据粒度（独立符号 vs 调用者内联段）、调用者层级（indcpa_enc）与指令（ARM64 Clang tbz、ARM64 GCC cmp+b.eq、x86_64 GCC and $0x1+test+je），但地址只以「地址与反汇编结论不跨构建复用」加 evidence/deployable、evidence/final、evidence/linux-amd64 目录指针代替。这是预注册格式的一项未逐字满足，不影响结论正确性（地址本来绑定具体构建）。处置：补指针到具体地址行，或在该小节明写为何不复述地址。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 7,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "docs/mitigation.md 仍留「残差随运行波动」旧措辞，与本次 README 新口径不一致",
+      "detail": "本次 README 把防护版残差的表述从「残差随运行波动，不宣称防护版已证明恒时」改为基于五种子的「残差方向一致、量级 −30 至 −13ns，其中一个种子越过第二轮阈值；仍不宣称防护版或可部署版已证明恒时」。但 README 同段直链的 docs/mitigation.md 未被本次提交触及，第 57 行仍写「防护版残差随运行波动：本次最大 |z|=2.15 且方向不一致」、第 174 行仍写「说明残差随运行波动」，且全文 grep 不到 multiseed / 多种子 的更正指针（docs/statistics.md:87 有这样的指针）。方向上是旧文更保守、新文更有据，所以不构成夸大；但读者顺着 README 的链接会撞到已被取代的表述。模块四的注册编辑范围只含 README / acceptance / review，因此属合理延后而非越界。处置：下一轮按 statistics.md 的做法在 mitigation.md 补一条指向多种子章节的更正指针。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 8,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "「预期未成立」标签未带入模块四文档",
+      "detail": "设计 3.2 要求第二轮任何偏离都「写成『预期未成立』」。README 第 5 节与 acceptance 最终报告 §6 都如实给出 hardened 4/5 不显著、1/5 显著、残差 −30 至 −13ns、方向一致、一个种子越阈，并在「新确立的结论」第 5 条再写一次，没有丢种子、没有改阈值、没有换种子重来；缺的只是「预期未成立」这个字样。该标签在 docs/evidence/statistics-multiseed/README.md:316 以「hardened：预先写下的期待未成立（偏离，照实记录，不丢种子、不改阈值、不换种子重来）」在位，所以模块四是在转述一个已被正式标注为偏离的结果。按非阻断措辞一致性记录。",
+      "confidence": "confirmed"
+    }
+  ],
+  "blockingCheck": {
+    "functionalCorrectness": "PASS - 本提交无代码改动（HEAD 仅 README.md、docs/acceptance.md、docs/review.md 与新证据目录，15 个新文件 0 删）。可机械核对的文档断言全部对上：README 的 analyze_groups 用法串与 src/analyze_groups.c:197 一致；「十类畸形 CSV 拒绝」与 tests/test_analysis.sh 的 corruption 列表恰好 10 条一致；「四版真实数据全流程」与同文件 for implementation in reference vulnerable hardened deployable 一致；「18 项 CTest」与 ctest.log 的 ctest -N 及 100% tests passed out of 18 一致；两次容器的 13 项 / 16 项与 evidence/linux-gcc/README.md:18、evidence/linux-amd64/README.md:195 一致（16+2=18 的差额即 analysis_groups 与 analysis_round1_replay）；「三个 BASELINE_* 宏只在 src/mlkem.c 被读取」经全 src/ grep 只命中 src/mlkem.c:8-13。未发现功能或正确性错误。",
+    "honesty": "PASS - 「仍未执行真实 x86_64 Linux 主机时序实测」这一条在 README 第 7 节（并加写「模块二的 QEMU 模拟不改变这一条」）、docs/acceptance.md 未闭合项第 1 条、docs/review.md 追加节、docs/evidence/review-four-module/README.md 的「不支持」清单四处均在位，且较旧 README 的「尚未执行真实 x86_64 Linux 主机验证」更强。没有因模块二就宣称 x86_64 已验证：README 把它写成「模拟 linux/amd64 的产物形态与功能验证」，保留解释器 /usr/bin/qemu-x86_64 实测与两容器 1ms 时钟分辨率、「不产出时序证据」。结论未超出证据：静态分析被限定为范围内检查、不是正确性或恒时证明、不是 vendor 重新审计；「全部检查通过只等于检查通过」在三处写明；六类结论分开陈述；评审产物未进仓库、远端无凭证、第一二轮设计评审原文件不可恢复三项都主动记为缺口。",
+    "readOnlyBoundary": "PASS - git show HEAD --numstat 实测 docs/acceptance.md 201 增 0 删、docs/review.md 35 增 0 删，均为纯追加；HEAD 触及的既有文件只有 README.md、docs/acceptance.md、docs/review.md，docs/evidence/ 下 11 个已封存目录、vendor/、sources/、tests/vectors/ 一字未动；git log adf9db9..HEAD -- docs/tasks/ 为空，预注册文件自模块零起未被触及。",
+    "preRegistrationIntegrity": "PASS - 定型文字在四处实例（设计模板 41-47 行、statistics-multiseed/README.md 13-19 行、acceptance 78-84 行与 199-205 行）除哈希占位替换外逐字相同；禁用措辞「可信时间凭证」「时间戳证明」「可验证的预注册」在本次全部改动文件中零命中。第二轮登记值全部对上：alpha_per_comparison=0.001、单比较、五个种子（31337 90210 20261111 8675309 141421356）、每类 5000 / 每版 25000 / 20 次采集。数值可追：−663 至 −776ns 对应 −663.2 至 −775.5、效应量 0.1557-0.2481 对应 0.155744-0.248095、hardened −30 至 −13 对应 −30.067 至 −12.967、deployable −13.8 至 +52.3 对应 −13.833 至 +52.300、第一轮主比较失败 4/5 与 −11.4 至 −81.4ns 对应证据 435-436 行。唯一偏离（hardened 非 5/5 不显著）在三处如实写出，仅缺「预期未成立」字样（发现 8）。最终报告六分节与五单列项逐一在位。",
+    "hardConstraints": "PASS - HEAD a07bbc197d7bcee75be6d21942db88b6844b9ea4 在 main，作者与提交者均 Gowin-liuyin <yinhaoran0808@outlook.com>；本轮七个提交（adf9db9~1..HEAD 实测 7 个，落在设计 7-9 区间）前六个的身份已逐字归档于 git-log.txt 并与当前 git log 吻合，第七个由我独立核对。未 push：origin/main 无跟踪引用（branch -vv 为 [origin/main: gone]、rev-parse --verify exit=128），与设计 M4-7 写死的预期输出逐字相符，未执行 fetch / push，未改写历史。git status --porcelain 仅 ?? .agents/。无代码改动，故不存在 sleep / 随机延迟 / 空转 / 未定义行为的新引入；sanitize preset 18/18 通过且 ASan/UBSan/Leak/runtime error 关键词实测 0 命中。"
+  },
+  "verificationScope": {
+    "method": "只读核对，未重跑套件。读取 git show HEAD（stat/numstat/逐文件 diff）、git log、git status、git branch -vv、README.md、docs/acceptance.md、docs/review.md、docs/tasks/four-module-design.md（篇首、3.2、4.x、5）、docs/evidence/review-four-module/ 全部 15 个文件，并对 docs/evidence/statistics-multiseed、linux-amd64、linux-gcc、deployable、docs/mitigation.md、docs/statistics.md、src/mlkem.c、src/analyze_groups.c、tests/test_analysis.sh 做定点 grep。",
+    "spotCheck": "一处（按指示上限）：针对 final-recheck.log 的 0.93s 疑点，读取 build/review-four-module/Testing/Temporary/LastTest.log 与 CTestCostData.txt，证实 13:01 的复跑确实跑满 18 项、全部 Test Passed、逐项时间合计 0.91s。",
+    "cheapIntegrityChecks": "shasum -a 256 -c docs/evidence/review-four-module/SHA256SUMS 实测 14/14 OK，diff 确认唯一未列项为 SHA256SUMS 自身。",
+    "notVerified": "未重跑 configure / build / ctest / sanitize / 静态分析 / format-check / cmake-format / sh -n / measure，也未重新采集或重算统计；这些结论按归档日志采信。真实 x86_64 Linux 主机时序实测在本仓库依然不存在，本次核对不改变这一点。前几轮（m0-m3）评审落在未跟踪的 .agents/，本轮同样如此，故「四份判定均为 APPROVED」无法从仓库逐字复核。"
+  },
+  "reviewDoc": "/Users/yin/code/cryProject/.agents/tasks/four-module-review/review-m4.md"
+}

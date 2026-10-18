@@ -1,0 +1,80 @@
+{
+  "verdict": "APPROVED",
+  "findings": [
+    {
+      "id": 1,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "format-check 结果未归档（缺证据）",
+      "detail": "M3-3 把「format-check 通过」列为验收项，但 docs/evidence/statistics-multiseed/ 只有 configure.log / build.log / ctest.log / sanitize-ctest.log 四类日志，全目录 grep 不到任何 format-check 命令或输出（唯一命中是 README 里提到 .cmake-format.json 归一化了 CMake 写法）。3.5 的文件契约本身没要求这份日志，coder 也报告已跑过，因此只是落盘缺口而不是契约违规。按指示我没有重跑 format-check。处置：模块四按 M4-1/M4-3 收尾时把实际命令与输出落盘。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 2,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "「全部 7 份归档 CSV」漏数 4 对归档",
+      "detail": "README 的重放小节写「对全部 7 份归档 CSV 的重放报告与归档报告在屏蔽前就已逐字节相同」并列出 statistics/{reference,reference-replication,vulnerable,vulnerable-replication} 与 mitigation/{reference,vulnerable,hardened}；但仓库里实际有 11 对归档 CSV+report，多出 docs/evidence/deployable/{reference,vulnerable,hardened,deployable}（模块一归档）。我用 build/multiseed/analyze 把 11 对全部重放，不屏蔽 welch_p=/rank_p= 即全部逐字节相同，所以结论成立且比声称的更强，只有「全部」这个量词不实。处置：后续引用改写成「statistics/ 与 mitigation/ 的 7 份」或直接写 11 份。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 3,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "类别乱序场景的捕获点比设计预期早",
+      "detail": "设计 3.4 预计漏掉第 2 步整份排序时该场景会表现为 rank_u1 不为 0、效应量不为 0.000000；实现中 count_sorted_categories（第 3 步，五类连续且等量）在任何统计量被算出之前就先拒绝（退出 1、不创建报告），因此该场景的统计量断言在这条路径上不起判别作用。捕获结论不变——我按代码推演确认乱序输入下第 0 类连续段在第二条记录即断掉、计数为 0，测试在 set -e 下必然失败；证据 README 已把这个差别如实写出（含探针实测的 stderr 文本）。记录在案供模块四引用。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 4,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "analysis_round1_replay 的机器化覆盖是 11 对归档中的 2 对",
+      "detail": "设计 3.3 故意把用例写死为两份（statistics/vulnerable、mitigation/hardened）并把「数量本身就是判据」，脚本确实两份都跑、两次 cmp 都要过、replay_count 必须等于 2。其余 9 对归档只靠一次性手工核对；本次评审我已用 build/multiseed/analyze 把 11 对全部复现为逐字节相同。若要长期防回归，模块四可考虑把用例表扩成全部归档对。属设计已披露的取舍，非违规。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 5,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "「约十分之一量级」比实测宽松",
+      "detail": "docs/statistics.md 新章节写「五个种子的均值差为 −11.4 至 −81.4ns，仍只有第二轮主效应（−663 至 −776ns）的约十分之一」。逐种子实测比值为 31337 4.2%、90210 1.7%、20261111 5.1%、8675309 2.7%、141421356 10.9%，只有一个种子接近十分之一。该措辞让第一轮主比较显得相对更大（即不是把失败说轻的方向），但精度不足。建议后续写成「百分之几到十分之一」。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 6,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "「statistics/ 那一轮」的主效应上端未含复采采集",
+      "detail": "新章节写「statistics/ 那一轮是均值差 711–800ns、效应量 0.819–0.844、|z| 62–67」。我从归档报告复算：statistics/vulnerable 的六条跨组比较为 |均值差| 710.6–800.2、效应量 0.819–0.844、|z| 62.3–66.9（与该句逐项吻合），而同目录的 vulnerable-replication 为 714.8–794.6、0.825–0.847、63.7–67.9，上端 0.847 与 67.9 落在该句区间之外。措辞原样来自已冻结的设计 3.1 与既有 docs/statistics.md:70-72，不是本模块新引入，且基线既有问题按评审范围不计；但「那一轮」可能被读成包含复采。处置：引用时写明是哪一份采集。",
+      "confidence": "confirmed"
+    },
+    {
+      "id": 7,
+      "severity": "NIT",
+      "blocking": false,
+      "label": "degenerate 情况下 stdout 印 rank p=1",
+      "detail": "src/analyze_groups.c 结尾 printf 用 result.has_rank_test ? result.rank_p_value : 1.0，组内无变化时控制台会显示报告里按字段存在性规则故意不写的 p 值。与 src/analyze.c:193 的既有写法完全一致（第一轮同一构造），报告本身正确地只写 median/mean 差值与 result=degenerate_no_variation，stdout 也不进归档证据，优先级低。",
+      "confidence": "confirmed"
+    }
+  ],
+  "blockingCheck": {
+    "functionalCorrectness": "pass",
+    "detail": "第二轮分组不变式成立，三条独立路径确认：①源码：analyze_groups 的 main 六步齐全且顺序正确，第 2 步对整份 set.records 调用 sort_records_by_category_then_duration（timing_statistics.c 里即原 compare_measurement_record，先类别索引后耗时），第 5 步才对两个组区间调 sort_range_by_duration；_Static_assert 钉住 INPUT_VALID==0 … INPUT_MESSAGE_ONES==4 与 INPUT_CATEGORY_COUNT==5。②CTest：tests/test_analysis_groups.sh 有类别乱序合成 CSV 一例（行序 valid/message-zero/bit-flipped/message-ones/random 交替，先断言前五行类别顺序），断言与分段写出那一份完全相同（count=20/count=30/rank_u1=0.0/effect=0.000000/rank_z 为负/significant）；漏掉第 2 步时 count_sorted_categories 在第 0 类即计数 0 → 退出 1 → set -e 下测试失败（捕获点比设计预期早，见发现 3）。两组互换也会被 count 断言抓到。③独立复算：我用仓库外的 Python 实现按类别标签分组（不用程序的下标切法），自实现并列修正+连续性校正的 Mann-Whitney U，对全部 24 份归档逐一比对 rank_u1 / rank_z / rank_p / effect_size_first_greater / mean_difference_ns / median_difference_ns 与两条 group= 行的 count/min/p25/median/p75/p99/max/mean/stddev/distinct_values，24 份零不一致（含偏离案例 hardened-seed141421356 与动机复采）。另：multiseed-summary.tsv 全 13 列 26 行用我自己的解析器从归档报告重新生成后逐字节相同；24 份 CSV 实测 25000（动机 10000）条、每类 5000（2000）、sample_index 连续、单一 run_id/implementation、单位全 ns。抽取无损：analyze.c 被删 419 行中仅 9 行无原样副本（全为 static 去除后的签名与一句改写注释），11 对归档第一轮 CSV/报告用抽取后的 analyze 重放、不屏蔽 welch_p/rank_p 即全部逐字节相同。归档 ctest.log 为 ctest -N 18 项、18/18 通过，sanitize-ctest.log 同样 18/18；按指示未重跑 CTest/format-check/sanitize。compile_commands.json 中 src/analyze.c、src/timing_statistics.c、src/analyze_groups.c 逐条带 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -std=c11，build.log 的 warning 扫描为空。",
+    "honesty": "pass",
+    "honestyDetail": "第一轮三个归档 p 值如实写出且与报告原文逐字一致：statistics/vulnerable −83.200 / −4.0408 / 5.32762e-05 / significant / 7-of-10；vulnerable-replication −55.800 / −4.8309 / 1.35919e-06 / significant / 7-of-10；mitigation/vulnerable −84.200 / −3.8338 / 0.000126165 / not_significant / 6-of-10（我逐份复核）。第二轮在 README 与 docs/statistics.md 两处都以粗体标注「这是第二轮预注册，是在看过第一轮数据之后提出的，不这样标注就是 p-hacking」，并有机器可读字段 prespecified_after_round1_data=yes。种子 777 的三个 p 值 0.923/0.844/0.516 标注为未归档、无法从本仓库复现的口头复核，只作动机、不进汇总表证据列；动机复采四行 prespecified=no 排在表尾、不参与计数，重采值与原值并列成表且明写不得替换（我复核重采四行第一轮主比较为 −10.000/0.397325、−30.000/0.000845961、+25.500/0.765653、−19.000/0.367708，与文档一致）。阈值严格度差异三处并列（README 对照表、statistics.md 新章节、每份报告的常量字段 round1_alpha_per_comparison_for_reference=0.00010000），并明写第二轮宽 10 倍、假设不同、不得读成对第一轮同一假设的更强证实。预注册凭证边界的定型文字与设计篇首替换哈希后逐字相同；全仓库 grep「可信时间凭证」「时间戳证明」「可验证的预注册」只命中设计文件里的禁令本身，模块三新内容零命中。vulnerable 的 rank_p=0 两处都注明是 erfc 下溢、应以 rank_z 为准。对作者不利的内容被保留并主动写出：hardened 预注册期待未成立（种子 141421356 significant、rank_p=1.42602e-05、第一轮同种子 1/10 bit-flipped:message-zero rank_p=6.55699e-05，均经我复核）、种子 20261111 的 rank_p=0.00100445 仅略高于阈值、deployable/90210 的 mean_difference_ns=321.000 长尾读数陷阱、「不支持恒时证明/不支持机制归因/真实 x86_64 Linux 仍未执行」等边界。不实陈述只有发现 2 的「全部 7 份」量词与发现 5/6 的区间措辞，均不支撑任何结论且方向上不利于作者或无影响。期望值未自产：M3-1 合成场景的期望值按秩和检验定义手算，完全分离一例按设计只断言 rank_u1/效应量/符号/判定。",
+    "preRegistrationIntegrity": "pass",
+    "preRegistrationIntegrityDetail": "docs/tasks/four-module-design.md 的提交历史只有 68ba0c3（草稿）与 adf9db9（模块零），模块三两个提交都未触及它——0.1 的冻结约束成立。五个预注册种子 31337/90210/20261111/8675309/141421356 出现在 adf9db9 的 3.2 节文本（第 1094 行），且在 268bab8 这棵树上除设计文件以外零命中，即全新且公开。第一轮比较族定义零改动（prespecified_comparisons、ANALYSIS_FAMILY_ALPHA、ANALYSIS_COMPARISON_COUNT 在 diff 中无 +/- 行），analyze.c 只有两行新增；docs/statistics.md 为 172 行新增、0 行删除，第 84 行原句未动、交叉引用句插在段落之后、新章节追加在文件末尾，插入后 grep -n 我实测仍为 84（与 README 记录的 84/84 一致），交叉引用的「第 8 节」与文件第 8 个 ## 标题吻合；docs/evidence/mitigation/README.md 按 0.3 原样保留、更正只在新章节给出。样本量未缩减：预注册 20 份全部 samples_per_category=5000（25000 条/份，经逐份实测），无 aborted-* 文件，README 明写「20 次预注册采集一次跑完，样本量未缩减」，与数据一致。偏离按规程处理：hardened 的预期未成立被写成「预期未成立」，没有丢种子、改阈值或换种子重做，第一轮结论也未被改写以迎合数据。",
+    "readOnlyBoundary": "pass",
+    "readOnlyBoundaryDetail": "268bab8 只触及 CMakeLists.txt、include/timing_statistics.h、src/analyze.c、src/analyze_groups.c、src/timing_statistics.c、tests/test_analysis_groups.sh、tests/test_analysis_round1_replay.sh；4ce2133 只触及新建 docs/evidence/statistics-multiseed/（106 个文件）、.gitattributes（纯追加两条本目录 whitespace 豁免）、docs/statistics.md（纯追加）。vendor/、tests/vectors/、既有八个证据目录、CMakePresets.json、根 Makefile 零命中。采集构建写在 build/multiseed（git 忽略），当前 git status --porcelain 仅 ?? .agents/。本次评审我只做只读复核与写入 /tmp 的重放，未改动任何受跟踪文件。",
+    "hardConstraints": "pass",
+    "hardConstraintsDetail": "两个提交都在 main，作者与提交者均为 Gowin-liuyin <yinhaoran0808@outlook.com>，未推送（origin/main 为 gone）。新代码为 C11（-std=c11 实测）、CMake/CTest 仍是唯一构建与测试配置来源（根 Makefile 与 CMakePresets.json 未改），analyze_groups 照 analyze 的写法接入、INTERPROCEDURAL_OPTIMIZATION FALSE、未新建库目标。命名为明确 snake_case、宏 UPPER_SNAKE_CASE，分支与循环全部带大括号、单变量声明，注释为必要的简短中文。无 sleep、随机延迟、空转、秘密输出；analyze_groups 只读 CSV，不涉及密码语义或隐式拒绝。错误路径不泄露内部校验细节（统一 stderr 文本 + 退出码 0/1/2），报告路径用 fopen \"wx\" 要求新文件。内存：各失败路径均 free(set.records)，rank 检验工作集分配失败走退出码 1。",
+    "digestChain": "pass",
+    "digestChainDetail": "SHA256SUMS 105 行在仓库根目录 shasum -a 256 -c 全部 OK（目录 106 个文件，清单不含自身）；24 份 CSV 的 openssl dgst -sha3-256 与 .report / .groups.report 两处 csv_digest 三方逐一相同；四个 measure 产物的 openssl dgst -sha3-256 与对应 .meta 的 executable_digest 相同（算法同为 SHA3-256，未拿 SHA-256 冒充同算法对照）；binaries.sha256 的 10 行 shasum -a 256 -c 全部 OK。record-checks.txt 第 6 节逐字保留了两次 git diff --cached --check（第一次 exit=2 的 24 份 .meta link_flags= 行尾空格与 record-checks.txt:26，第二次补 .gitattributes 后 exit=0），第 7 节给出 SHA256SUMS 的生成与核对命令。"
+  },
+  "verificationScope": {
+    "reran": "no-ctest-no-format-check-no-sanitize",
+    "note": "按指示未重跑 CTest、format-check 或 sanitize 构建。只读复核内容：读 268bab8 与 4ce2133 的完整 diff 与新增源码/测试/CMake；用 Python 把 analyze.c 被删 419 行逐行对照新文件；用仓库外独立实现从 24 份原始 CSV 重算全部第二轮统计量与两条 group= 行字段；用自写解析器重新生成 multiseed-summary.tsv 全部 26 行；逐份校验 24 份 CSV 的记录数/每类样本数/sample_index/run_id/implementation/单位；复算 SHA256SUMS、24 份 csv_digest、4 个 executable_digest、binaries.sha256；用已存在的 build/multiseed/analyze 把 11 对归档第一轮 CSV 重放到 /tmp 并 cmp（全部逐字节相同，临时目录已清理）；复核 README 与 statistics.md 的派生区间（各变体最大 |z|、均值差区间、效应量区间、hardened 偏离、deployable/90210 长尾）；grep 措辞禁令；核对设计文件提交历史、种子新鲜度、docs/statistics.md 行号与章节号、.gitattributes 与提交身份。build/multiseed 当前仍在，故产物摘要复算可重复；一旦清理则只剩归档件。"
+  },
+  "reviewDoc": "/Users/yin/code/cryProject/.agents/tasks/four-module-review/review-m3.md"
+}
