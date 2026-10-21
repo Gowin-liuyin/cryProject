@@ -1,5 +1,7 @@
 # 完整作品进度
 
+2026-10-21按官方 Word 模板（附件二）在 [report](../report/README.md) 建立作品设计报告 LaTeX 模板。A4、四边 2 cm；页眉“全国密码技术竞赛作品设计报告”9 pt 居中并带 0.75 pt 下框线，封面不显示页眉和页码，从基本信息表页起显示且页码重新从 1 开始；一级标题华文楷体小三、二级标题黑体四号，最多二级标题，误用 `\subsubsection` 直接报错。本机 MiKTeX 26.2 + XeLaTeX 编译三页样例通过，嵌入字体为 KaiTi、STKaiti、SimHei、SimSun、STZhongsong、Times New Roman。仅新增排版文件，软件实现、实验执行、假设与竞赛验收均无变更，R02、R04 仍部分。
+
 2026-10-15把 RTLF、dudect 和 Valgrind 接到 liboqs 0.10.0 的锁频类对上。RTLF α=0.01 未修两次检出、已修两次不检出。dudect 在同一 boost 0、CPU2 4300000 kHz 请求下，未修 max t +26.41，已修跑满预算后 max t 约 +1.15。只标记 indcpa 私钥时，未修的秘密条件跳转在 `poly_frommsg`，已修没有这一上下文。ctgrind 补丁对不上 Valgrind 3.22，Microwalk 因没有 Pin 跳过。没有密钥恢复。记录见 [tooling-strengthen-20261015](evidence/tooling-strengthen-20261015/RESULT.md)。R02、R04 不因此关闭。
 
 2026-10-15在 `nss-m` 把 liboqs 0.10.0 的锁频复测补上。全局 boost 写成 0，CPU2 为 performance，min=max=4300000 kHz；接受探针跨度 35324 kHz，采集中当前频率约 4.30–4.34 GHz，退出后回到进入时的 boost、powersave 和 min/max。种子 `31337`、每类 10000、`taskset -c 2`。未修复的 `message-zero` 减 `message-ones` 为 39.337 ns，事先写明的 95% 区间 21.658 到 57.017。`982c762` 整包重链后的同一差是 −13.209 ns，区间 −33.238 到 6.820。未修复区间不含 0，因此没有另跑 `poly_frommsg` 微基准。只关 `OQS_DIST_BUILD` 仍会走 AVX2，这次两边都额外关掉了 AVX2 分发。记录见 [liboqs010-locked-20261015](evidence/liboqs010-locked-20261015/README.md)。这不是 Holm 或密钥恢复。R02、R04 不因此关闭。
