@@ -8,7 +8,7 @@
 latexmk -xelatex main.tex
 ```
 
-只需要 XeLaTeX；编译产物在 `build/`（已忽略，不提交）。
+只需要 XeLaTeX；最终成品是根目录的 `main.pdf`，中间产物已忽略，不提交。
 
 ## 字体
 
@@ -41,7 +41,7 @@ latexmk -xelatex main.tex
 
 ## 填写
 
-在 `main.tex` 顶部填写编号、题目、日期、摘要和关键词，然后按 `\section`、`\subsection` 组织正文。封面“注意”段和文末的标题说明段在正式提交前删除。
+在 `main.tex` 顶部填写编号、题目与日期；摘要和关键词在 `chapters/abstract.tex`；正文按章放在 `chapters/ch1.tex`–`ch5.tex`，附录在 `chapters/appendix.tex`。封面“注意”段和文末的标题说明段在正式提交前删除。
 
 - 封面徽标在 `assets/cacr_logo.jpg`，取自官方模板；如需换路径用 `\reportlogo{...}`。
-- 修改版式时改 `a113_report.cls`，正文内容只放在 `main.tex`。
+- 修改版式时改 `a113_report.cls`；正文内容放在 `chapters/`，`main.tex` 只负责合稿、封面信息与文献表。

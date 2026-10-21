@@ -4,46 +4,60 @@
 % \reportbodyfont{assets/KaiTi_GB2312.ttf}
 \documentclass{a113_report}
 
-% 封面和基本信息表信息
-\reportid{（必须填写系统自动分配的编号）}
-\reporttitle{（在此填写作品题目）}
-\reportdate{年\quad 月\quad 日}
+% 为中文 PDF 生成 ActualText，改善复制与检索；不改变版面
+\XeTeXgenerateactualtext=1
 
-\reportabstract{（在此填写作品内容摘要）}
-\reportkeywords{关键词一；关键词二；关键词三；关键词四；关键词五}
+% PDF 元数据：只留题目与主题，不写作者，避免匿名评审时带入身份
+\hypersetup{
+  pdftitle={ML-KEM 解封装实现的时间侧信道检测与常数时间防护},
+  pdfauthor={},
+  pdfsubject={2026年第十一届全国密码技术竞赛作品设计报告},
+}
+
+% 正文需要的宏包；class 已提供 graphicx、tabularx、amsmath、array、hyperref
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+
+% 封面和基本信息表信息
+\reportid{CACR2026EA16XZ}
+\reporttitle{ML-KEM 解封装实现的时间侧信道检测与常数时间防护}
+\reportcovertitle{ML-KEM 解封装实现的时间侧信道检测\\与常数时间防护}
+\reportdate{2026 年 10 月 21 日}
+
+% 摘要与关键词在导言区定义，供封面后的基本信息表使用
+\input{chapters/abstract}
 
 \begin{document}
 
 \makecover
 \makeinfotable
 
-\section{作品功能与性能说明}
+\input{chapters/ch1}
+\input{chapters/ch2}
+\input{chapters/ch3}
+\input{chapters/ch4}
+\input{chapters/ch5}
 
-\section{设计与实现方案}
+\input{chapters/appendix}
 
-\subsection{实现原理}
-（硬件框图、软件流程、相关描述等）
-
-\subsection{运行结果}
-
-\subsection{技术指标}
-
-\section{系统测试与结果}
-
-\subsection{测试方案}
-
-\subsection{功能测试}
-
-\subsection{性能测试}
-
-\subsection{测试数据与结果}
-
-\section{应用前景}
-
-\section{结论}
-
-% 正式提交前删除下面这条说明
-{\fontsize{12pt}{24pt}\selectfont
-注意：这里列出的一级标题和二级标题供参考，参赛团队可以根据作品实际情况适当增删一级标题和二级标题。\par}
+\begin{thebibliography}{99}
+\bibitem{fips203} NIST. Module-Lattice-Based Key-Encapsulation Mechanism Standard. FIPS 203, 2024. DOI: 10.6028/NIST.FIPS.203.
+\bibitem{kyber2018} R. Avanzi, J. Bos, L. Ducas, et al. CRYSTALS-Kyber algorithm specifications and supporting documentation. NIST PQC submission, 2021 (initial version 2018).
+\bibitem{guo2020} Q. Guo, T. Johansson, A. Nilsson. A Key-Recovery Timing Attack on Post-Quantum Primitives Using the Fujisaki-Okamoto Transformation and Its Application on FrodoKEM. CRYPTO 2020, LNCS 12171, 359--386. DOI: 10.1007/978-3-030-56880-1\_13.
+\bibitem{kyberslash} D. J. Bernstein, et al. KyberSlash: Exploiting secret-dependent division timings in Kyber implementations. IACR TCHES 2025(2): 209--234. DOI: 10.46586/tches.v2025.i2.209-234.
+\bibitem{clangover} A. Purnal. clangover. GitHub, 2024. https://github.com/antoonpurnal/clangover.
+\bibitem{ghsa-f2v9} GitHub Security Advisory GHSA-f2v9-5498-2vpp (CVE-2024-36405): liboqs Kyber control-flow timing leak when compiled with Clang. 2024.
+\bibitem{dudect} O. Reparaz, J. Balasch, I. Verbauwhede. Dude, is my code constant time? DATE 2017, 1697--1702. DOI: 10.23919/DATE.2017.7927267.
+\bibitem{rtlf} M. Dunsche, M. Maehren, N. Erinola, R. Merget, N. Bissantz, J. Somorovsky, J. Schwenk. With Great Power Come Great Side Channels: Statistical Timing Side-Channel Analyses with Bounded Type-I Errors. USENIX Security 2024, 6687--6704. https://www.usenix.org/conference/usenixsecurity24/presentation/dunsche
+\bibitem{ctgrind} A. Langley. Checking that functions are constant time with Valgrind. 2010. https://github.com/agl/ctgrind.
+\bibitem{microwalk} J. Wichelmann, A. Moghimi, T. Eisenbarth, B. Sunar. MicroWalk: A Framework for Finding Side Channels in Binaries. ACSAC 2018, 161--173. DOI: 10.1145/3274694.3274741.
+\bibitem{binsec} L. Daniel, S. Bardin, T. Rezk. Binsec/Rel: Efficient Relational Symbolic Execution for Constant-Time at Binary-Level. IEEE S\&P 2020, 1021--1038. DOI: 10.1109/SP40000.2020.00074.
+\bibitem{tvla} G. Goodwill, B. Jun, J. Jaffe, P. Rohatgi. A testing methodology for side-channel resistance validation. NIST Non-Invasive Attack Testing Workshop, 2011.
+\bibitem{ctverif} J. B. Almeida, M. Barbosa, G. Barthe, F. Dupressoir, M. Emmi. Verifying Constant-Time Implementations. USENIX Security 2016, 53--70.
+\bibitem{azouaoui2021} M. Azouaoui, O. Bronchain, C. Hoffmann, Y. Kuzovkova, T. Schneider, F.-X. Standaert. Systematic Study of Decryption and Re-encryption Leakage: The Case of Kyber. SAC 2021, LNCS 13203, 236--256, 2022. DOI: 10.1007/978-3-030-99766-3\_11.
+\bibitem{jancar2022} J. Jancar, M. Fourné, D. De Almeida Braga, M. Sabt, P. Schwabe, G. Barthe, P.-A. Fouque, E. Acar. ``They're not that hard to mitigate'': What Cryptographic Library Developers Think About Timing Attacks. IEEE S\&P 2022, 632--649. DOI: 10.1109/SP46214.2022.9833713.
+\end{thebibliography}
 
 \end{document}

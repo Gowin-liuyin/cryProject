@@ -110,6 +110,7 @@
 % 封面与基本信息表元数据。
 \def\aiv@reportid{（必须填写系统自动分配的编号）}
 \def\aiv@reporttitle{（在此填写作品题目）}
+\def\aiv@reportcovertitle{\aiv@reporttitle}
 \def\aiv@reportdate{年\quad 月\quad 日}
 \def\aiv@abstract{}
 \def\aiv@keywords{}
@@ -117,6 +118,7 @@
 
 \newcommand{\reportid}[1]{\def\aiv@reportid{#1}}
 \newcommand{\reporttitle}[1]{\def\aiv@reporttitle{#1}}
+\newcommand{\reportcovertitle}[1]{\def\aiv@reportcovertitle{#1}}
 \newcommand{\reportdate}[1]{\def\aiv@reportdate{#1}}
 \newcommand{\reportabstract}[1]{\def\aiv@abstract{#1}}
 \newcommand{\reportkeywords}[1]{\def\aiv@keywords{#1}}
@@ -148,7 +150,7 @@
     \noindent\hspace*{1.5cm}\rule{13.6cm}{3pt}\par
     \vspace{1.9cm}
     {\reportfontzhongsong\fontsize{14pt}{35pt}\selectfont
-     \hspace*{6em}作品题目：\aiv@reporttitle\par}
+     \hspace*{6em}作品题目：\parbox[t]{10.4cm}{\raggedright\aiv@reportcovertitle}\par}
     \vspace{1.5cm}
     {\centering
      \fontsize{14pt}{30pt}\selectfont
