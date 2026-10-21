@@ -138,7 +138,7 @@
     \end{minipage}\par
     \vspace{0.5cm}
     {\reportfontsong\fontsize{14pt}{24pt}\selectfont
-     作品类别：□软件设计\quad □硬件制作\quad □工程实践\par
+     作品类别：□软件设计\quad □硬件制作\quad ■工程实践\par
      \hspace*{7em}□密码应用技术\quad □其它\par}
     \vspace{2.8cm}
     {\centering
@@ -149,9 +149,6 @@
     \vspace{1.9cm}
     {\reportfontzhongsong\fontsize{14pt}{35pt}\selectfont
      \hspace*{6em}作品题目：\aiv@reporttitle\par}
-    \vspace{1.3cm}
-    {\bfseries\fontsize{14pt}{24pt}\selectfont
-     \hspace*{2em}注意：作品为匿名评审，作品设计报告封面和内容中严禁出现单位名称、指导老师姓名或团队成员姓名，违者将被取消参赛资格。提交作品时请将此段落文字删除。\par}
     \vspace{1.5cm}
     {\centering
      \fontsize{14pt}{30pt}\selectfont
@@ -174,11 +171,12 @@
       \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont 作品题目：\aiv@reporttitle}\\
       \hline
       \rule{0pt}{0.9cm}{\reportfontsong\fontsize{12pt}{18pt}\selectfont
-        作品类别：□软件设计\quad □硬件制作\quad □工程实践\quad □密码技术应用\quad □其它}\\
+        作品类别：□软件设计\quad □硬件制作\quad ■工程实践\quad □密码技术应用\quad □其它}\\
       \hline
       {\reportfontsong\fontsize{15pt}{22pt}\selectfont 作品内容摘要：}
       \par\vspace{0.1cm}
-      \parbox[t][10.6cm][t]{\linewidth}{%
+      % 摘要框按 700--800 字放宽到 14.6cm；官方模板的 10.6cm 放不下。
+      \parbox[t][14.6cm][t]{\linewidth}{%
         \reportfontsong\fontsize{12pt}{15pt}\selectfont
         \setlength{\parindent}{2em}%
         \aiv@abstract}\\
