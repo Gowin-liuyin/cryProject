@@ -42,3 +42,11 @@ deliverables/research/multi-leakage-platform-20261016/*.toc
 !/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final12-20261021.zip
 !/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final4-20261016.zip
 /docs/evidence/platform-report-20261016/render-*/
+
+# 更早轮次的**上传包/候选包**（deliverables/support 下除当前支撑包目录外）、
+# 旧报告的页图 zip、以及 refresh 阶段的旧渲染快照：都是被取代的过程留档，
+# 写作与复核要用的是结论文件、摘要与审计表；它们合计约 83 MB，审计行一条都没引用。
+/deliverables/support/*
+!/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/
+/docs/evidence/aris-report-*/page-images.zip
+/docs/evidence/platform-report-20261016/refresh-20261016/render-*/

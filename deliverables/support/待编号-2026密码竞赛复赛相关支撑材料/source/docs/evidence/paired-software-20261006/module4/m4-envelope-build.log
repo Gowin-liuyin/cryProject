@@ -1,8 +1,0 @@
-[0/2] Re-checking globbed directories...
-[1/8] cd role-author-root/code/cryProject && /bin/sh role-author-root/code/cryProject/tools/build_identity.sh role-author-root/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/build_identity.h /usr/bin/cc role-author-root/code/cryProject/build/paired-release.NzGetC/generated/RelWithDebInfo/configuration.txt
-[2/8] Building C object CMakeFiles/reference_benchmark.dir/src/measure.c.o
-[3/8] Building C object CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o
-[4/8] Building C object CMakeFiles/paired_runner.dir/src/paired_runner.c.o
-[5/8] Linking C executable reference/benchmark
-[6/8] Linking C executable reference/batch_benchmark
-[7/8] Linking C executable paired_runner

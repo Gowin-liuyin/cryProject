@@ -1,7 +1,0 @@
-data_class=synthetic_software_fixture
-real_measurements=no
-formal_development=no
-formal_confirmation=no
-generator=tests/test_paired_data.c --write-fixture
-source_commit_at_export=74f4a14b15ed6cc08b3a1b603f0ce6b398a9a8a3
-expected_report=repeatability_target_not_independent_correctness_or_improvement_evidence
