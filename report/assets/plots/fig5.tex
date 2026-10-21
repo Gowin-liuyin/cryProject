@@ -1,0 +1,86 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  name=main,
+  width=14.2cm, height=7.8cm,
+  xmin=-30, xmax=56,
+  ymin=0.4, ymax=7.6,
+  y dir=reverse,
+  ytick={1,...,7},
+  yticklabels={{M1 未修复版},{M1 已修复版},{M2（秘密除法）},{M3（秘密查表）},{M5（阴性对照）},{M4 脆弱实现},{M4 常数时间实现}},
+  y tick label style={font=\footnotesize},
+  xlabel={主类对均值差 $\Delta$（ns）},
+  xlabel style={font=\footnotesize},
+  tick label style={font=\footnotesize},
+  grid=major, grid style={gray!18},
+  axis lines=left,
+  legend style={at={(0.98,0.04)},anchor=south east,font=\scriptsize,draw=gray!40,fill=white,fill opacity=0.95,text opacity=1},
+  legend cell align=left,
+]
+\draw[gray,dashed,thick] (axis cs:0,0.4) -- (axis cs:0,7.6);
+\draw[gray!75!black,dashed,thick] (axis cs:-30,5.5) -- (axis cs:56,5.5);
+\node[anchor=east,font=\scriptsize,color=gray!80!black,fill=white,inner sep=1.5pt] at (axis cs:55,5.15) {上方：完整解封装（基线 29--57 $\mu$s）};
+\node[anchor=east,font=\scriptsize,color=gray!80!black,fill=white,inner sep=1.5pt] at (axis cs:55,5.85) {下方：32 B 比较夹具（基线 23--29 ns）};
+
+\addplot[only marks, mark=*, mark size=2.3pt, color=red!75!black,
+  error bars/.cd, x dir=both, x explicit, error bar style={thick}]
+  coordinates {
+  (32.311,1) += (12.028,0) -= (12.029,0)
+  (-4.089,6) += (0.126,0) -= (0.126,0)
+  };
+\addlegendentry{95\% 区间不含 0（检出可区分差异）}
+
+\addplot[only marks, mark=o, mark size=2.3pt, color=blue!65!black,
+  error bars/.cd, x dir=both, x explicit, error bar style={thick}]
+  coordinates {
+  (-8.150,2) += (13.766,0) -= (13.766,0)
+  (4.580,3) += (7.670,0) -= (7.660,0)
+  (-0.730,4) += (4.830,0) -= (4.830,0)
+  (-5.300,5) += (6.470,0) -= (6.460,0)
+  (0.055,7) += (0.418,0) -= (0.418,0)
+  };
+\addlegendentry{95\% 区间含 0（未检出）}
+
+\node[above=2pt,font=\scriptsize,color=red!75!black] at (axis cs:32.311,1) {$+32.31$ ns};
+\node[above=2pt,font=\scriptsize,color=blue!65!black] at (axis cs:-8.150,2) {$-8.15$ ns};
+\node[above=2pt,font=\scriptsize,color=blue!65!black] at (axis cs:4.580,3) {$+4.58$ ns};
+\node[above=2pt,font=\scriptsize,color=blue!65!black] at (axis cs:-0.730,4) {$-0.73$ ns};
+\node[above=2pt,font=\scriptsize,color=blue!65!black] at (axis cs:-5.300,5) {$-5.30$ ns};
+\node[above=2pt,font=\scriptsize,color=red!75!black] at (axis cs:-4.089,6) {$-4.09$ ns};
+\node[below=2pt,font=\scriptsize,color=blue!65!black] at (axis cs:0.055,7) {$+0.06$ ns};
+\end{axis}
+
+\begin{axis}[
+  at={(main.north east)}, anchor=north east,
+  xshift=-4mm, yshift=-13mm,
+  width=5.6cm, height=2.45cm,
+  xmin=-4.6, xmax=0.9,
+  ymin=0.45, ymax=2.55,
+  y dir=reverse,
+  ytick={1,2},
+  yticklabels={{M4 脆弱版},{M4 常数时间版}},
+  y tick label style={font=\tiny},
+  xtick={-4,-2,0},
+  title={M4 比较夹具区间局部放大（ns）},
+  title style={font=\tiny,yshift=-2pt},
+  tick label style={font=\tiny},
+  grid=major, grid style={gray!18},
+  axis lines=box,
+  axis background/.style={fill=white},
+]
+\draw[gray,dashed,thick] (axis cs:0,0.45) -- (axis cs:0,2.55);
+\addplot[only marks, mark=*, mark size=1.6pt, color=red!75!black,
+  error bars/.cd, x dir=both, x explicit, error bar style={thick}]
+  coordinates {(-4.089,1) += (0.126,0) -= (0.126,0)};
+\addplot[only marks, mark=o, mark size=1.6pt, color=blue!65!black,
+  error bars/.cd, x dir=both, x explicit, error bar style={thick}]
+  coordinates {(0.055,2) += (0.418,0) -= (0.418,0)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

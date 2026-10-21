@@ -1,0 +1,95 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{tikz}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\newcommand{\symP}{\tikz[baseline=-0.6ex]{\fill[red!75!black] (0,0) circle (2.3pt);}}
+\newcommand{\symN}{\tikz[baseline=-0.6ex]{\draw[blue!65!black,thick] (0,0) circle (2.0pt);}}
+\newcommand{\symT}{\tikz[baseline=-0.6ex]{\draw[orange!85!black,thick] (0,0.15) -- (-0.18,-0.11) -- (0.18,-0.11) -- cycle;}}
+\newcommand{\symD}{\tikz[baseline=-0.6ex]{\draw[gray!65,thick] (-0.16,0) -- (0.16,0);}}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize]
+\tikzset{
+  cell/.style={draw,minimum height=0.62cm,minimum width=1.85cm,text width=1.80cm,align=center,inner sep=0pt,outer sep=0pt},
+  hcell/.style={cell,fill=blue!12,font=\small\bfseries,minimum height=0.72cm},
+  lcell/.style={draw,fill=gray!8,minimum height=0.62cm,minimum width=4.80cm,text width=4.60cm,align=left,inner sep=0pt,outer sep=0pt,font=\footnotesize}
+}
+\node[hcell,minimum width=4.80cm,text width=4.60cm] at (2.400,-0.360) {检测 / 定位工具（分层归类）};
+\node[hcell] at (5.725,-0.360) {M1};
+\node[hcell] at (7.575,-0.360) {M2};
+\node[hcell] at (9.425,-0.360) {M3};
+\node[hcell] at (11.275,-0.360) {M4};
+\node[hcell] at (13.125,-0.360) {M5};
+
+% Statistical tools (4 rows)
+\node[lcell] at (2.400,-1.030) {[统计] Welch + Holm（主检验）};
+\node[cell] at (5.725,-1.030) {\symP};
+\node[cell] at (7.575,-1.030) {\symN};
+\node[cell] at (9.425,-1.030) {\symN};
+\node[cell] at (11.275,-1.030) {\symP};
+\node[cell] at (13.125,-1.030) {\symN};
+
+\node[lcell] at (2.400,-1.650) {[统计] dudect（在线 $t$ 检验）};
+\node[cell] at (5.725,-1.650) {\symP};
+\node[cell] at (7.575,-1.650) {\symT};
+\node[cell] at (9.425,-1.650) {\symN};
+\node[cell] at (11.275,-1.650) {\symP};
+\node[cell] at (13.125,-1.650) {\symN};
+
+\node[lcell] at (2.400,-2.270) {[统计] RTLF（分位数重采样）};
+\node[cell] at (5.725,-2.270) {\symP};
+\node[cell] at (7.575,-2.270) {\symT};
+\node[cell] at (9.425,-2.270) {\symN};
+\node[cell] at (11.275,-2.270) {\symP};
+\node[cell] at (13.125,-2.270) {\symN};
+
+\node[lcell] at (2.400,-2.890) {[统计] Mona（箱体分离）};
+\node[cell] at (5.725,-2.890) {\symT};
+\node[cell] at (7.575,-2.890) {\symT};
+\node[cell] at (9.425,-2.890) {\symD};
+\node[cell] at (11.275,-2.890) {\symD};
+\node[cell] at (13.125,-2.890) {\symD};
+
+% Localization tools (5 rows)
+\node[lcell] at (2.400,-3.510) {[定位] 反汇编（机器码指令形态）};
+\node[cell] at (5.725,-3.510) {\symP};
+\node[cell] at (7.575,-3.510) {\symP};
+\node[cell] at (9.425,-3.510) {\symP};
+\node[cell] at (11.275,-3.510) {\symP};
+\node[cell] at (13.125,-3.510) {\symN};
+
+\node[lcell] at (2.400,-4.130) {[定位] Memcheck（秘密分支/访存）};
+\node[cell] at (5.725,-4.130) {\symP};
+\node[cell] at (7.575,-4.130) {\symD};
+\node[cell] at (9.425,-4.130) {\symP};
+\node[cell] at (11.275,-4.130) {\symP};
+\node[cell] at (13.125,-4.130) {\symN};
+
+\node[lcell] at (2.400,-4.750) {[定位] KyberSlash varlat（除法）};
+\node[cell] at (5.725,-4.750) {\symD};
+\node[cell] at (7.575,-4.750) {\symP};
+\node[cell] at (9.425,-4.750) {\symD};
+\node[cell] at (11.275,-4.750) {\symD};
+\node[cell] at (13.125,-4.750) {\symN};
+
+\node[lcell] at (2.400,-5.370) {[定位] Microwalk（轨迹互信息）};
+\node[cell] at (5.725,-5.370) {\symD};
+\node[cell] at (7.575,-5.370) {\symD};
+\node[cell] at (9.425,-5.370) {\symP};
+\node[cell] at (11.275,-5.370) {\symD};
+\node[cell] at (13.125,-5.370) {\symD};
+
+\node[lcell] at (2.400,-5.990) {[定位] Binsec（有界符号执行）};
+\node[cell] at (5.725,-5.990) {\symD};
+\node[cell] at (7.575,-5.990) {\symD};
+\node[cell] at (9.425,-5.990) {\symD};
+\node[cell] at (11.275,-5.990) {\symP};
+\node[cell] at (13.125,-5.990) {\symN};
+
+\draw[very thick,blue!55!black] (0.0,-3.200) -- (14.05,-3.200);
+
+\node[anchor=north west,font=\scriptsize,align=left] at (0,-6.480) {\symP\ 阳性（定位命中或计时可区分）\hspace{3em}\symN\ 阴性（未命中或未检出）};
+\node[anchor=north west,font=\scriptsize,align=left] at (0,-6.830) {\symT\ 已运行但与主检验或修复方向不一致\hspace{2.2em}\symD\ 未运行（不作阴性计）};
+\node[anchor=north west,font=\scriptsize,align=left] at (0,-7.180) {合计 45 格：31 格有真实运行产物，14 格未运行。M5 阴性对照上已运行的 7 种工具误报为 0。};
+\end{tikzpicture}
+\end{document}

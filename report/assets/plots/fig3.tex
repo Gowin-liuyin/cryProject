@@ -1,0 +1,29 @@
+\documentclass[border=3pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,decorations.pathreplacing}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+  layer/.style={draw,thick,rounded corners=2pt,align=left,minimum height=1.15cm,text width=12.6cm,fill=blue!5},
+  ar/.style={-{Stealth[length=2mm]},thick}]
+  \node[layer] (l1) {\textbf{① 冻结计划}：主类对、样本量、停止条件、Holm 家族在采集前写定。生成计划摘要};
+  \node[layer,below=0.34cm of l1] (l2) {\textbf{② 被测模块}：M1--M5 五个对象。源摘要、产物摘要、编译器、选项与反汇编随运行登记};
+  \node[layer,below=0.34cm of l2] (l3) {\textbf{③ 测量层}：单次解封装计时循环、锁频控制与恢复核对、三次独立运行、逐次原始值落盘};
+  \node[layer,below=0.34cm of l3,minimum height=1.7cm] (l4) {};
+  \node[anchor=north west,font=\small\bfseries] at ([xshift=0.1cm,yshift=-0.08cm]l4.north west) {④ 分析层：三路独立登记};
+  \node[draw,fill=white,rounded corners=2pt,text width=3.6cm,align=center,font=\footnotesize] at ([xshift=-4.15cm,yshift=-0.2cm]l4.center) {统计判定\\ Welch / Holm / 合并 / MDE};
+  \node[draw,fill=white,rounded corners=2pt,text width=3.6cm,align=center,font=\footnotesize] at ([yshift=-0.2cm]l4.center) {定位工具\\ 指令、分支与访存};
+  \node[draw,fill=white,rounded corners=2pt,text width=3.6cm,align=center,font=\footnotesize] at ([xshift=4.15cm,yshift=-0.2cm]l4.center) {族外交叉检验\\ RTLF / dudect / Mona};
+  \node[layer,below=0.34cm of l4,fill=green!8] (l5) {\textbf{⑤ 结果登记层}：检出 / 未检出（附 MDE）/ 未执行 / 不适用。每条结论带运行编号与证据编号};
+
+  \foreach \a/\b in {l1/l2,l2/l3,l3/l4,l4/l5} \draw[ar] (\a) -- (\b);
+  \begin{scope}[on background layer]
+    \draw[decorate,decoration={brace,amplitude=6pt},thick] ([xshift=-0.9cm]l5.south west) -- ([xshift=-0.9cm]l1.north west)
+      node[midway,left=10pt,align=center,font=\footnotesize]{同\\一\\套\\规\\程};
+  \end{scope}
+  \node[draw,dashed,rounded corners=2pt,font=\footnotesize,align=center,text width=12.6cm,below=0.42cm of l5,fill=yellow!8]
+    {四层证据：机制层（定位）→ 热点层（函数级计时）→ 端到端层（完整解封装）→ 防护复测层（同规程重测）};
+\end{tikzpicture}
+\end{document}

@@ -19,6 +19,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{listings}
+\usepackage{tikz}
 
 % 封面和基本信息表信息
 \reportid{CACR2026EA16XZ}
@@ -34,14 +35,25 @@
 \makecover
 \makeinfotable
 
+\tableofcontents
+\clearpage
+
 \input{chapters/ch1}
+\clearpage
 \input{chapters/ch2}
+\clearpage
 \input{chapters/ch3}
+\clearpage
 \input{chapters/ch4}
+\clearpage
 \input{chapters/ch5}
+\clearpage
+\input{chapters/ch6}
+\clearpage
 
 \input{chapters/appendix}
 
+\addcontentsline{toc}{section}{参考文献}
 \begin{thebibliography}{99}
 \bibitem{fips203} NIST. Module-Lattice-Based Key-Encapsulation Mechanism Standard. FIPS 203, 2024. DOI: 10.6028/NIST.FIPS.203.
 \bibitem{kyber2018} R. Avanzi, J. Bos, L. Ducas, et al. CRYSTALS-Kyber algorithm specifications and supporting documentation. NIST PQC submission, 2021 (initial version 2018).

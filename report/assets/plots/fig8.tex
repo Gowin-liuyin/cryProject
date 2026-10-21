@@ -1,0 +1,67 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=13.8cm, height=8.2cm,
+  xmin=-60, xmax=64,
+  ymin=0.35, ymax=12.65,
+  y dir=reverse,
+  ytick={1,...,12},
+  yticklabels={
+    {M1 未修复版 -O0（定位 0 分支）},
+    {M1 未修复版 -O2（定位 8 分支）},
+    {M1 未修复版 -O3（定位 15 分支）},
+    {M1 未修复版 -Os（定位 1 分支）},
+    {M1 已修复版 -O0（定位 0 分支）},
+    {M1 已修复版 -O2（定位 0 分支）},
+    {M1 已修复版 -O3（定位 0 分支）},
+    {M1 已修复版 -Os（定位 0 分支）},
+    {M5 阴性对照 -O0（定位 0 分支）},
+    {M5 阴性对照 -O2（定位 0 分支）},
+    {M5 阴性对照 -O3（定位 0 分支）},
+    {M5 阴性对照 -Os（定位 0 分支）}
+  },
+  y tick label style={font=\scriptsize},
+  xlabel={合并均值差 $\Delta$（ns）},
+  xlabel style={font=\footnotesize},
+  tick label style={font=\scriptsize},
+  grid=major, grid style={gray!15},
+  axis lines=left,
+  clip=false,
+  legend style={at={(0.98,0.03)},anchor=south east,font=\scriptsize,draw=gray!40,fill=white,fill opacity=0.9,text opacity=1},
+]
+\draw[gray,dashed,thick] (axis cs:0,0.35) -- (axis cs:0,12.65);
+\draw[gray!60,dotted,thick] (axis cs:-60,4.5) -- (axis cs:64,4.5);
+\draw[gray!60,dotted,thick] (axis cs:-60,8.5) -- (axis cs:64,8.5);
+\addplot[only marks, mark=*, mark size=2.3pt, color=red!75!black,
+  error bars/.cd, x dir=both, x explicit, error bar style={thick}]
+  coordinates {
+  (-26.16,4) += (11.35,0) -= (11.35,0)
+  };
+\addlegendentry{95\% 区间不含 0（唯一检出）}
+\addplot[only marks, mark=o, mark size=2.1pt, color=blue!60!black,
+  error bars/.cd, x dir=both, x explicit, error bar style={thick}]
+  coordinates {
+  (26.25,1) += (27.67,0) -= (27.67,0)
+  (-10.86,2) += (11.88,0) -= (11.89,0)
+  (-7.55,3) += (9.81,0) -= (9.80,0)
+  (-25.75,5) += (25.84,0) -= (25.84,0)
+  (-0.69,6) += (10.32,0) -= (10.33,0)
+  (-10.38,7) += (11.38,0) -= (11.39,0)
+  (-4.64,8) += (9.66,0) -= (9.65,0)
+  (-1.27,9) += (18.74,0) -= (18.74,0)
+  (-0.53,10) += (6.96,0) -= (6.96,0)
+  (-2.58,11) += (6.30,0) -= (6.30,0)
+  (-4.17,12) += (6.40,0) -= (6.40,0)
+  };
+\addlegendentry{95\% 区间含 0（未检出）}
+\node[right=3pt,font=\scriptsize,color=blue!60!black,fill=white,inner sep=1pt] at (axis cs:26.25,1) {$+26.25$ ns};
+\node[above=2pt,font=\scriptsize,color=red!75!black] at (axis cs:-26.16,4) {$-26.16$ ns};
+\end{axis}
+\end{tikzpicture}
+\end{document}

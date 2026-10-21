@@ -52,7 +52,7 @@
   \PackageError{a113_report}{未找到黑体（SimHei），二级标题要求严格使用该字体}{请安装黑体后重新编译}%
 }
 \IfFontExistsTF{SimSun}{%
-  \setCJKfamilyfont{zhsong}{SimSun}%
+  \setCJKfamilyfont{zhsong}[AutoFakeBold=2]{SimSun}%
 }{%
   \PackageError{a113_report}{未找到宋体（SimSun），页眉和基本信息表要求严格使用该字体}{请安装宋体后重新编译}%
 }
@@ -72,10 +72,10 @@
 
 \ctexset{
   section = {
-    format = {\reportfontkai\headingonefont\bfseries\fontsize{15pt}{22.5pt}\selectfont},
+    format = {\centering\reportfontkai\headingonefont\bfseries\fontsize{15pt}{22.5pt}\selectfont},
     name = {,},
-    number = \arabic{section},
-    aftername = {.},
+    number = 第\chinese{section}章,
+    aftername = {\quad},
     beforeskip = 12pt,
     afterskip = 12pt,
   },
@@ -90,12 +90,31 @@
 }
 \setcounter{secnumdepth}{2}
 
+% 图表按章编号：图 1.1、表 1.1，每章重新计数。
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+% 图表编号仍用阿拉伯数字的章号，不随“第一章”的中文标题变化。
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+
 % 模板规定最多到二级标题，误用三级标题时直接报错。
 \AtBeginDocument{%
   \renewcommand{\subsubsection}[2][]{%
     \PackageError{a113_report}{本模板最多使用到二级标题}{请改用 \string\section 或 \string\subsection}%
   }%
 }
+
+% 图表题注使用全角空格分隔，避免“图 2.1: 标题：副标题”双冒号
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1\quad #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1\quad #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
 
 % 页眉与页脚：页眉宋体 9pt 居中带下框线，页脚居中页码。
 \fancypagestyle{a113report}{%
@@ -149,7 +168,7 @@
     \vspace{0.55cm}
     \noindent\hspace*{1.5cm}\rule{13.6cm}{3pt}\par
     \vspace{1.9cm}
-    {\reportfontzhongsong\fontsize{14pt}{35pt}\selectfont
+    {\reportfontzhongsong\fontsize{14pt}{24pt}\selectfont
      \hspace*{6em}作品题目：\parbox[t]{10.4cm}{\raggedright\aiv@reportcovertitle}\par}
     \vspace{1.5cm}
     {\centering
@@ -170,15 +189,16 @@
       \hline
       \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont 编号：\aiv@reportid}\\
       \hline
-      \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont 作品题目：\aiv@reporttitle}\\
+      \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont
+        作品题目：\parbox[t]{11.7cm}{\aiv@reportcovertitle}}\\
       \hline
       \rule{0pt}{0.9cm}{\reportfontsong\fontsize{12pt}{18pt}\selectfont
-        作品类别：□软件设计\quad □硬件制作\quad ■工程实践\quad □密码技术应用\quad □其它}\\
+        作品类别：□软件设计\quad □硬件制作\quad ■工程实践\quad □密码应用技术\quad □其它}\\
       \hline
       {\reportfontsong\fontsize{15pt}{22pt}\selectfont 作品内容摘要：}
       \par\vspace{0.1cm}
-      % 摘要框按 700--800 字放宽到 14.6cm；官方模板的 10.6cm 放不下。
-      \parbox[t][14.6cm][t]{\linewidth}{%
+      % 定稿摘要约 23 行，留一行余量后固定高度取 13.2cm。
+      \parbox[t][13.2cm][t]{\linewidth}{%
         \reportfontsong\fontsize{12pt}{15pt}\selectfont
         \setlength{\parindent}{2em}%
         \aiv@abstract}\\

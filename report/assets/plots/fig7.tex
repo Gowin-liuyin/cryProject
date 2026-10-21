@@ -1,0 +1,57 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{tikz}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize]
+\foreach \x/\val in {5.6/-4, 6.4/0, 7.2/4, 8.0/8, 8.8/12, 9.6/16, 10.4/20, 11.2/24, 12.0/28} {
+  \draw[gray!22] (\x,0.55) -- (\x,5.75);
+  \node[below,font=\scriptsize] at (\x,0.55) {\val};
+}
+\draw[gray!70,dashed,thick] (2.1,2.55) -- (13.6,2.55);
+\node[anchor=east,font=\scriptsize,color=gray!75!black] at (13.55,2.78) {上方：完整解封装（基线 29--57 $\mu$s）};
+\node[anchor=east,font=\scriptsize,color=gray!75!black] at (13.55,2.32) {下方：32 B 比较夹具（基线 23--29 ns）};
+
+\draw[thick] (6.400,0.55) -- (6.400,5.75);
+\node[font=\footnotesize] at (8.800,-0.10) {防护前后成对相对开销（\%）};
+
+% M1
+\node[anchor=east,font=\footnotesize] at (5.35,5.200) {M1 官方修复（分支消除）};
+\fill[blue!55] (6.400,4.930) rectangle (6.702,5.470);
+\draw[thick] (6.672,5.080) -- (6.672,5.320);
+\draw[thick] (6.730,5.080) -- (6.730,5.320);
+\draw[thick] (6.672,5.200) -- (6.730,5.200);
+\node[anchor=west,font=\scriptsize] at (6.82,5.200) {$+1.51\%$ $[1.36, 1.65]$（约 $+862.6$ ns）};
+
+% M2
+\node[anchor=east,font=\footnotesize] at (5.35,4.200) {M2 官方修复（除法消除）};
+\fill[blue!55] (5.816,3.930) rectangle (6.400,4.470);
+\draw[thick] (5.788,4.080) -- (5.788,4.320);
+\draw[thick] (5.848,4.080) -- (5.848,4.320);
+\draw[thick] (5.788,4.200) -- (5.848,4.200);
+\node[anchor=west,font=\scriptsize] at (6.52,4.200) {$-2.92\%$ $[-3.06, -2.76]$（约 $-1,690.5$ ns）};
+
+% M3
+\node[anchor=east,font=\footnotesize] at (5.35,3.200) {M3 查表消除对照（off / on）};
+\fill[blue!55] (6.400,2.930) rectangle (7.120,3.470);
+\draw[thick] (6.472,3.080) -- (6.472,3.320);
+\draw[thick] (8.396,3.080) -- (8.396,3.320);
+\draw[thick] (6.472,3.200) -- (8.396,3.200);
+\node[anchor=west,font=\scriptsize] at (8.50,3.200) {$+3.60\%$ $[0.36, 9.98]$};
+
+% M4 first byte
+\node[anchor=east,font=\footnotesize] at (5.35,1.900) {M4 常数时间版（首字节失配）};
+\fill[orange!65] (6.400,1.630) rectangle (11.642,2.170);
+\node[anchor=west,font=\scriptsize] at (11.75,1.900) {$+26.21\%$（绝对差 $+6.0$ ns）};
+
+% M4 last byte
+\node[anchor=east,font=\footnotesize] at (5.35,1.000) {M4 常数时间版（末字节失配）};
+\fill[orange!65] (6.400,0.730) rectangle (7.770,1.270);
+\node[anchor=west,font=\scriptsize] at (7.88,1.000) {$+6.85\%$（绝对差 $+1.9$ ns）};
+\fill[blue!55] (5.5,-0.72) rectangle (5.78,-0.52);
+\node[anchor=west,font=\scriptsize] at (5.9,-0.62) {完整解封装};
+\fill[orange!65] (8.0,-0.72) rectangle (8.28,-0.52);
+\node[anchor=west,font=\scriptsize] at (8.4,-0.62) {32 B 比较夹具};
+\end{tikzpicture}
+\end{document}

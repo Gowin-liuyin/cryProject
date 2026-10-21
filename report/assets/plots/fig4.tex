@@ -1,0 +1,78 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{tikz}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize]
+\tikzset{cell/.style={draw,minimum height=0.62cm,text width=2.32cm,align=center,inner sep=2pt},
+hcell/.style={cell,fill=blue!12,font=\small\bfseries,minimum height=0.78cm},
+lcell/.style={cell,fill=gray!8,text width=4.0cm,align=center,font=\small\bfseries}}
+\node[hcell] at (5.160,-0.390) {M1};
+\node[hcell] at (7.480,-0.390) {M2};
+\node[hcell] at (9.800,-0.390) {M3};
+\node[hcell] at (12.120,-0.390) {M4};
+\node[hcell] at (14.440,-0.390) {M5};
+\node[lcell] at (2.000,-1.090) {对象类别};
+\node[cell] at (5.160,-1.090) {真实历史};
+\node[cell] at (7.480,-1.090) {真实历史};
+\node[cell] at (9.800,-1.090) {人工校准};
+\node[cell] at (12.120,-1.090) {人工校准};
+\node[cell] at (14.440,-1.090) {阴性对照};
+\node[lcell] at (2.000,-1.710) {主类对家族};
+\node[cell] at (5.160,-1.710) {3 次 $\times$ $10^4$/类};
+\node[cell] at (7.480,-1.710) {3 次 $\times$ $10^4$/类};
+\node[cell] at (9.800,-1.710) {3 次 $\times$ $10^4$/类};
+\node[cell] at (12.120,-1.710) {3 次 $\times$ $10^4$/类};
+\node[cell] at (14.440,-1.710) {3 次 $\times$ $10^4$/类};
+\node[lcell] at (2.000,-2.330) {定位层};
+\node[cell] at (5.160,-2.330) {反汇编、Memcheck};
+\node[cell] at (7.480,-2.330) {varlat、反汇编};
+\node[cell] at (9.800,-2.330) {Memcheck、Microwalk};
+\node[cell] at (12.120,-2.330) {Memcheck、Binsec};
+\node[cell] at (14.440,-2.330) {Memcheck、varlat、Binsec};
+\node[lcell] at (2.000,-2.950) {90 格排查};
+\node[cell] at (5.160,-2.950) {30 格};
+\node[cell] at (7.480,-2.950) {30 格};
+\node[cell] at (9.800,-2.950) {—};
+\node[cell] at (12.120,-2.950) {—};
+\node[cell] at (14.440,-2.950) {30 格};
+\node[lcell] at (2.000,-3.570) {优化级别};
+\node[cell] at (5.160,-3.570) {4 级 $\times$ 2 版};
+\node[cell] at (7.480,-3.570) {—};
+\node[cell] at (9.800,-3.570) {—};
+\node[cell] at (12.120,-3.570) {—};
+\node[cell] at (14.440,-3.570) {4 级};
+\node[lcell] at (2.000,-4.190) {aarch64};
+\node[cell] at (5.160,-4.190) {4 级 $\times$ 2 版};
+\node[cell] at (7.480,-4.190) {—};
+\node[cell] at (9.800,-4.190) {—};
+\node[cell] at (12.120,-4.190) {—};
+\node[cell] at (14.440,-4.190) {4 级};
+\node[lcell] at (2.000,-4.810) {WSL2 虚拟化};
+\node[cell] at (5.160,-4.810) {4 级 $\times$ 2 版};
+\node[cell] at (7.480,-4.810) {—};
+\node[cell] at (9.800,-4.810) {—};
+\node[cell] at (12.120,-4.810) {—};
+\node[cell] at (14.440,-4.810) {4 级};
+\node[lcell] at (2.000,-5.430) {同机网络};
+\node[cell] at (5.160,-5.430) {2 版 $\times$ 2 次};
+\node[cell] at (7.480,-5.430) {—};
+\node[cell] at (9.800,-5.430) {—};
+\node[cell] at (12.120,-5.430) {—};
+\node[cell] at (14.440,-5.430) {2 次};
+\node[lcell] at (2.000,-6.050) {性能开销};
+\node[cell] at (5.160,-6.050) {解封装};
+\node[cell] at (7.480,-6.050) {解封装};
+\node[cell] at (9.800,-6.050) {小内核};
+\node[cell] at (12.120,-6.050) {小内核};
+\node[cell] at (14.440,-6.050) {解封装};
+\node[lcell] at (2.000,-6.670) {工具矩阵};
+\node[cell] at (5.160,-6.670) {6/9 种};
+\node[cell] at (7.480,-6.670) {6/9 种};
+\node[cell] at (9.800,-6.670) {6/9 种};
+\node[cell] at (12.120,-6.670) {6/9 种};
+\node[cell] at (14.440,-6.670) {7/9 种};
+\node[draw,dashed,rounded corners=2pt,fill=yellow!8,text width=15.55cm,align=center] at (7.800,-7.530) {运行批次：主实验 54 次 + M2 微基准 6 次 + 扩展对照 117 次 = 177 次控制器运行。每格登记产物摘要、种子、CPU 与判定层。};
+\end{tikzpicture}
+\end{document}
