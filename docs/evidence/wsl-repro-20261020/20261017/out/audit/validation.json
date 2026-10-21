@@ -1,0 +1,281 @@
+{
+  "status": "PASS",
+  "mode": "full",
+  "samples_per_class": 20000,
+  "seeds": [
+    31337,
+    424242,
+    7
+  ],
+  "repeats": 3,
+  "ordinary_files": 153,
+  "ordinary_rows": 14220000,
+  "performance_files": 12,
+  "performance_rows": 420000,
+  "dudect_log_count": 5,
+  "dudect": [
+    {
+      "log": "dudect-m1-fixed-Os.log",
+      "terminal_records": [
+        "stopped_after_batches=21 state=1"
+      ]
+    },
+    {
+      "log": "dudect-m1-unfixed-Os.log",
+      "terminal_records": [
+        "stopped_after_batches=21 state=1"
+      ]
+    },
+    {
+      "log": "dudect-m4-ct.log",
+      "terminal_records": [
+        "battery_dudect_status=online_no_evidence_yet",
+        "completed_batches=10 total_calls=200000 warmup_calls=20000 intervals_per_batch=19999 endpoint_discarded_per_update=11"
+      ],
+      "raw_rows": 199990,
+      "raw_sha256": "0eaa8f2b7719f58ecb5a3698c80890c3c98960850c675a27882a60685024ca6f"
+    },
+    {
+      "log": "dudect-m4-vulnerable.log",
+      "terminal_records": [
+        "battery_dudect_status=online_leakage_found",
+        "completed_batches=10 total_calls=200000 warmup_calls=20000 intervals_per_batch=19999 endpoint_discarded_per_update=11"
+      ],
+      "raw_rows": 199990,
+      "raw_sha256": "03a1c226e88ce9bfd602062de413c204282c8a129283a310a53a6aea8967992a"
+    },
+    {
+      "log": "dudect-m5.log",
+      "terminal_records": [
+        "stopped_after_batches=21 state=1 prepared_class0=104931 prepared_class1=105069 holm_member=0 timer=upstream_rdtsc output_consumption=after_batch"
+      ],
+      "raw_rows": 210000,
+      "raw_sha256": "3e0f324ec318892f792c99d48b3f9faa8ef75c9d6b51056c97186cfb567ddfd3"
+    }
+  ],
+  "M2_public_KAT_passes": [
+    "70/90 Test #70: platform_m2_unfixed_public_kat ...........   Passed    0.03 sec",
+    "71/90 Test #71: platform_m2_fixed_public_kat .............   Passed    0.04 sec"
+  ],
+  "max_delta_difference_ns": 0.0,
+  "max_se_difference_ns": 4.320099833421409e-12,
+  "git_head": "04baad45ebb5ea4dba8d143d64c5031c906503d2",
+  "git_status": "?? vendor/liboqs-0.10.0-982c762/\n",
+  "ctest": [
+    "100% tests passed, 0 tests failed out of 61",
+    "100% tests passed, 0 tests failed out of 61",
+    "100% tests passed, 0 tests failed out of 90"
+  ],
+  "recorded_errors": "",
+  "issues": [],
+  "pooled": {
+    "m1-fixed-O0": {
+      "runs": 9,
+      "delta_ns": 104.85661850226147,
+      "se_ns": 394.87304580218427,
+      "ci95": [
+        -669.0945512700197,
+        878.8077882745425
+      ],
+      "positive_runs": 5,
+      "negative_runs": 4,
+      "zero_runs": 0
+    },
+    "m1-fixed-O2": {
+      "runs": 9,
+      "delta_ns": 236.7920233896104,
+      "se_ns": 128.8371890717233,
+      "ci95": [
+        -15.728867190967236,
+        489.312913970188
+      ],
+      "positive_runs": 6,
+      "negative_runs": 3,
+      "zero_runs": 0
+    },
+    "m1-fixed-O3": {
+      "runs": 9,
+      "delta_ns": 69.79280381692556,
+      "se_ns": 142.99649818691586,
+      "ci95": [
+        -210.4803326294295,
+        350.0659402632806
+      ],
+      "positive_runs": 5,
+      "negative_runs": 4,
+      "zero_runs": 0
+    },
+    "m1-fixed-Os": {
+      "runs": 9,
+      "delta_ns": 232.75545689395346,
+      "se_ns": 130.01839188920272,
+      "ci95": [
+        -22.080591208883845,
+        487.5915049967908
+      ],
+      "positive_runs": 7,
+      "negative_runs": 2,
+      "zero_runs": 0
+    },
+    "m1-unfixed-O0": {
+      "runs": 9,
+      "delta_ns": 331.29922997410625,
+      "se_ns": 402.3948045907593,
+      "ci95": [
+        -457.394587023782,
+        1119.9930469719945
+      ],
+      "positive_runs": 6,
+      "negative_runs": 3,
+      "zero_runs": 0
+    },
+    "m1-unfixed-O2": {
+      "runs": 9,
+      "delta_ns": 205.77524939540524,
+      "se_ns": 127.82956787474112,
+      "ci95": [
+        -44.770703639087344,
+        456.3212024298978
+      ],
+      "positive_runs": 7,
+      "negative_runs": 2,
+      "zero_runs": 0
+    },
+    "m1-unfixed-O3": {
+      "runs": 9,
+      "delta_ns": 4.580385949234807,
+      "se_ns": 136.05597595614103,
+      "ci95": [
+        -262.0893269248016,
+        271.25009882327123
+      ],
+      "positive_runs": 4,
+      "negative_runs": 5,
+      "zero_runs": 0
+    },
+    "m1-unfixed-Os": {
+      "runs": 9,
+      "delta_ns": -59.14892487341959,
+      "se_ns": 139.9648882448321,
+      "ci95": [
+        -333.4801058332905,
+        215.18225608645136
+      ],
+      "positive_runs": 4,
+      "negative_runs": 5,
+      "zero_runs": 0
+    },
+    "m2-fixed": {
+      "runs": 9,
+      "delta_ns": 223.48425933382936,
+      "se_ns": 131.30550548038627,
+      "ci95": [
+        -33.874531407727716,
+        480.84305007538643
+      ],
+      "positive_runs": 4,
+      "negative_runs": 5,
+      "zero_runs": 0
+    },
+    "m2-unfixed": {
+      "runs": 9,
+      "delta_ns": -223.8562159998782,
+      "se_ns": 147.53463582650457,
+      "ci95": [
+        -513.0241022198272,
+        65.31167022007077
+      ],
+      "positive_runs": 3,
+      "negative_runs": 6,
+      "zero_runs": 0
+    },
+    "m4-ct": {
+      "runs": 9,
+      "delta_ns": 0.06024476740280173,
+      "se_ns": 0.0567862438851079,
+      "ci95": [
+        -0.05105627061200975,
+        0.17154580541761322
+      ],
+      "positive_runs": 5,
+      "negative_runs": 4,
+      "zero_runs": 0
+    },
+    "m4-vulnerable": {
+      "runs": 9,
+      "delta_ns": -11.974373697293162,
+      "se_ns": 0.10143123559934346,
+      "ci95": [
+        -12.173178919067874,
+        -11.77556847551845
+      ],
+      "positive_runs": 0,
+      "negative_runs": 9,
+      "zero_runs": 0
+    },
+    "m5-O0": {
+      "runs": 9,
+      "delta_ns": -123.37344804453271,
+      "se_ns": 366.97758735547944,
+      "ci95": [
+        -842.6495192612724,
+        595.9026231722071
+      ],
+      "positive_runs": 4,
+      "negative_runs": 5,
+      "zero_runs": 0
+    },
+    "m5-O2": {
+      "runs": 9,
+      "delta_ns": -129.00564181666212,
+      "se_ns": 92.56328665116763,
+      "ci95": [
+        -310.42968365295064,
+        52.41840001962643
+      ],
+      "positive_runs": 3,
+      "negative_runs": 6,
+      "zero_runs": 0
+    },
+    "m5-O2default": {
+      "runs": 9,
+      "delta_ns": 93.35066306022334,
+      "se_ns": 83.35956870122473,
+      "ci95": [
+        -70.03409159417713,
+        256.7354177146238
+      ],
+      "positive_runs": 6,
+      "negative_runs": 3,
+      "zero_runs": 0
+    },
+    "m5-O3": {
+      "runs": 9,
+      "delta_ns": -59.98645357520212,
+      "se_ns": 78.41266397629896,
+      "ci95": [
+        -213.67527496874808,
+        93.70236781834384
+      ],
+      "positive_runs": 4,
+      "negative_runs": 5,
+      "zero_runs": 0
+    },
+    "m5-Os": {
+      "runs": 9,
+      "delta_ns": 93.22818415499661,
+      "se_ns": 90.95762867080884,
+      "ci95": [
+        -85.04876803978873,
+        271.50513634978194
+      ],
+      "positive_runs": 6,
+      "negative_runs": 3,
+      "zero_runs": 0
+    }
+  },
+  "historical_binary_matches": [],
+  "rtlf_status_counts": {
+    "unavailable": 153
+  }
+}

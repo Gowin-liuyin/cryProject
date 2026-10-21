@@ -1,0 +1,37 @@
+tool=perf_measure
+schema=perf_measure_v1
+run_id=perf-m5ref-b4
+arm=m5ref
+implementation=reference
+build_flags=clang-18 -O2
+test_seed=31337
+warmup_calls_per_operation=100
+operation=decaps samples=25000 window=one_complete_mlkem_decapsulate_on_fixed_valid_ciphertext
+operation=keygen samples=5000 window=one_complete_mlkem_generate_key_pair
+operation=encaps samples=5000 window=one_complete_mlkem_encapsulate_with_fixed_encapsulation_key
+block_index=3
+block_count=4
+order_seed=2026
+operation_order=keygen,encaps,decaps
+decaps_input=fixed_valid_ciphertext_seed_31337_index_0_accept_path
+encapsulation_key_source=fixed_test_key_pair_seed_31337
+encapsulation_key_sha256=d8c03b2e3575bf97a82331cd09ba51a69c477502c09dc1f817494a848c6d97db
+ciphertext_sha256=818669cf53c2664f4904a053bf534e5e2e738392d388c24116ec1b30cfaa8c3c
+time_unit=ns
+timer_source=clock_gettime(CLOCK_MONOTONIC)
+timer_resolution_ns=1
+clock_overhead_subtracted=no
+long_tail_trimmed=no
+preparation_start_ns=4971345894859
+timed_window_start_ns=4971366698259
+timed_window_end_ns=4973879095122
+zero_elapsed_count=0
+run_status=complete
+cpu_model=Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+uname_sysname=Linux
+uname_release=5.15.167.4-microsoft-standard-WSL2
+uname_machine=x86_64
+cpu_affinity=not_pinned
+frequency_control=not_configured
+csv_header=run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit
+executable_sha256=123f7f17eeecfbbe0997743432c82ecce99e331c6c5b6aed71316a393ca60ec4

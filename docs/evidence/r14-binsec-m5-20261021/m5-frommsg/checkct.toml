@@ -1,0 +1,26 @@
+["CT report"."Instructions status"]
+insecure = []
+unknown = []
+[Exploration]
+instructions = 3061
+max_depth = 3061
+time = 0.0167729854584
+unique_insts = 39
+[Exploration.paths]
+pending = 0
+total = 1
+[Exploration.paths.completed]
+assertion_failure = 0
+cut = 0
+halt = 1
+unsatisfiable_assumption = 0
+[Exploration.paths.discontinued]
+enumeration_limit = 0
+error = 0
+max_depth = 0
+non_executable_code = 0
+unresolved_formula = 0
+[Exploration.topology]
+assertions = 0
+branches = 288
+jumps = 1

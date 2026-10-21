@@ -1,0 +1,8 @@
+input_format=measure
+class0_name=message-zero
+class1_name=message-ones
+stats_binary=/home/cryrepro/cry-wsl/build/platform/platform_stats
+rtlf_script=/home/cryrepro/cry-wsl/repo/third_party/RTLF/rtlf.R
+dudect_replay_binary=
+dudect_online_log=
+Linux localhost 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux

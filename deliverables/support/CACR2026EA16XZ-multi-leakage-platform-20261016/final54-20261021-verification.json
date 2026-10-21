@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "members": 1279,
+  "hashed_members": 1278,
+  "local_html_links": 206,
+  "dangling_links_in_mirrored_html": [],
+  "direct_identity_markers": 0,
+  "identity_scan": {
+    "passed": true,
+    "scanned_suffixes": [
+      ".asm",
+      ".c",
+      ".cfg",
+      ".cmake",
+      ".csv",
+      ".docx",
+      ".gz",
+      ".h",
+      ".html",
+      ".inc",
+      ".json",
+      ".log",
+      ".md",
+      ".patch",
+      ".pdf",
+      ".py",
+      ".s",
+      ".sh",
+      ".sha256",
+      ".sha3-256",
+      ".svg",
+      ".tex",
+      ".toml",
+      ".tsv",
+      ".txt"
+    ],
+    "unscanned_suffixes": [
+      ".png"
+    ],
+    "unscanned_suffixless_members": [
+      "evidence/screenshots/SHA256SUMS",
+      "source/vendor/mlkem-native/LICENSE"
+    ],
+    "unreadable_compressed_members": [],
+    "method": "text members: byte-level regex; PDF members: extracted text layer"
+  },
+  "zip_sha256": "c8c3e92ae2287d9101b87fc1353ce444bc5945be9f63a4fec2c348c75db35dcb",
+  "scope": "direct byte/text patterns plus PDF text layers; image pixels are not OCR-scanned; suffix-less members (LICENSE/SHA256SUMS) are listed in identity_scan.unscanned_suffixless_members; the verifier script is not shipped in the package; public-content linkage not excluded"
+}

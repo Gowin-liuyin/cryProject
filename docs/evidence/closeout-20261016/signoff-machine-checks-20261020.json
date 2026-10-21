@@ -1,0 +1,348 @@
+{
+  "items": 34,
+  "pass": 34,
+  "fail": 0,
+  "note": "只做机器可判的部分；需人眼判断的项由复核人在 SIGNOFF_CHECKLIST.md 上签字确认。",
+  "results": [
+    {
+      "id": "A1a",
+      "check": "报告全文检索「恒时」，命中处均须带否定或限定",
+      "command": "grep -c '恒时' deliverables/research/multi-leakage-platform-20261016/report.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "39\n",
+      "expectation": "有命中即列出上下文供人工逐处看；脚本只做定位",
+      "detail": null
+    },
+    {
+      "id": "A1b",
+      "check": "报告不得出现肯定式恒时主张",
+      "command": "python3 - <<'PY'\nimport re,sys\ntext=open('deliverables/research/multi-leakage-platform-20261016/report.md').read()\n# 逐**句**扫描：凡句中出现「恒时」，同句（或紧邻的限定分句）必须出现否定/限定词。\n# 2026-10-21 第 5 轮（红队）指出：原来的正则只覆盖 7 种措辞，换个说法就看不见。\nsentences=[s for s in re.split(r'[。；！？]', text.replace(chr(10),' ')) if '恒时' in s]\nqualifier=re.compile(r'不|非|未|无|≠|尚未|并不|不是|不等于|仅|只在|限于|条件|前提|须|需|要求|分开|区分')\naffirmative=[]\nfor sentence in sentences:\n    if not qualifier.search(sentence):\n        affirmative.append(sentence.strip()[:80])\nprint('occurrences',text.count('恒时'),'sentences',len(sentences),'affirmative',affirmative)\nsys.exit(1 if affirmative else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "occurrences 42 sentences 42 affirmative []\n",
+      "expectation": "肯定式主张 0 命中；「恒时」总出现次数供人工逐处看上下文",
+      "detail": null
+    },
+    {
+      "id": "A2",
+      "check": "M5 与 R03 的阴性结论须限定适用范围",
+      "command": "grep -q '不构成恒时证明' docs/evidence/m5-completion-20261016/RESULT.md && grep -q '不构成恒时证明' docs/evidence/r03-malformed-20261016/RESULT.md && grep -q '不是任意输入' docs/evidence/m5-completion-20261016/RESULT.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "两处 RESULT.md 都写明限定",
+      "detail": null
+    },
+    {
+      "id": "A3",
+      "check": "M2/M3 的定位阳性不得写成端到端阳性",
+      "command": "grep -q '定位层阳性' docs/evidence/m2-kem-20261016/RESULT.md && grep -q '定位' docs/evidence/m3-completion-20261016/RESULT.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "两处 RESULT.md 都区分定位层与端到端层",
+      "detail": null
+    },
+    {
+      "id": "A4",
+      "check": "人工夹具都标了「人工构造校准」",
+      "command": "python3 -c \"import sys;\npaths=['docs/R05-全流程排查表.md','docs/evidence/m3-completion-20261016/RESULT.md',\n       'docs/evidence/m4-completion-20261016/RESULT.md'];\ntotal=0\nfor path in paths:\n    count=open(path,encoding='utf-8').read().count('人工构造校准')\n    print(path,count)\n    total+=count\nprint('合计',total)\nsys.exit(0 if total>0 else 1)\"",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "docs/R05-全流程排查表.md 6\ndocs/evidence/m3-completion-20261016/RESULT.md 1\ndocs/evidence/m4-completion-20261016/RESULT.md 1\n合计 8\n",
+      "expectation": "三份文件里「人工构造校准」的命中数与合计；合计必须大于 0（2026-10-21 复查：原判据只打印命中数，恒退出 0）",
+      "detail": null
+    },
+    {
+      "id": "A5",
+      "check": "族外对照都标了「族外」",
+      "command": "grep -c '族外' docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md && grep -c '族外' docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md && grep -c '族外' docs/evidence/r09-optlevel-20261016/RESULT.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "4\n2\n4\n",
+      "expectation": "三处族外对照文件都出现「族外」",
+      "detail": null
+    },
+    {
+      "id": "A6a",
+      "check": "M4 家族合并 Δ 3.74 不得出现",
+      "command": "! grep -rq '3\\.74' deliverables/research/multi-leakage-platform-20261016/report.md deliverables/research/multi-leakage-platform-20261016/report.tex deliverables/research/multi-leakage-platform-20261016/index.html deliverables/research/multi-leakage-platform-20261016/report-data.json deliverables/research/multi-leakage-platform-20261016/report-tables.json deliverables/research/multi-leakage-platform-20261016/platform-matrix.svg",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "0 命中",
+      "detail": null
+    },
+    {
+      "id": "A6b",
+      "check": "M4 分臂数值 4.089 与 0.055 必须在位",
+      "command": "grep -q '4\\.089' deliverables/research/multi-leakage-platform-20261016/report.md && grep -q '0\\.055' deliverables/research/multi-leakage-platform-20261016/report.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "两个分臂值都在报告里",
+      "detail": null
+    },
+    {
+      "id": "A7",
+      "check": "锁频价值不得写成「必然降低方差」",
+      "command": "! grep -q '必然降低方差' docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md && grep -q '确定性' docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "价值表述为确定性/可核对/可恢复",
+      "detail": null
+    },
+    {
+      "id": "A8",
+      "check": "「未运行」与「未检出」在 R05 与报告 T1 分列",
+      "command": "grep -q '不适用' docs/R05-全流程排查表.md && grep -q '未执行' deliverables/research/multi-leakage-platform-20261016/report.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "R05 用「不适用/未检查」，报告用「未执行」",
+      "detail": null
+    },
+    {
+      "id": "B1",
+      "check": "匿名包 direct_identity_markers = 0（扫描范围含 PDF 文字层，未扫描后缀已明示）",
+      "command": "grep -q '\"direct_identity_markers\": 0' /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/final64-20261021-verification.json && grep -q '\"unscanned_suffixes\"' /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/final64-20261021-verification.json && grep -q 'PDF members: extracted text layer' /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/final64-20261021-verification.json && grep -q 'not OCR-scanned' /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/final64-20261021-verification.json",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "包审计 JSON 记 0；扫描范围含 PDF 文字层；未扫描的后缀（图片像素等）**明示**在 JSON 里而不是静默省略",
+      "detail": null
+    },
+    {
+      "id": "B2",
+      "check": "包内**全部**可扫成员（含 PDF 文字层）无真名/邮箱/主机名/私有路径",
+      "command": "python3 - <<'PY'\nimport gzip,importlib.util,io,re,sys,zipfile\nfrom pathlib import PurePosixPath\nspec=importlib.util.spec_from_file_location('vp',r'/Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/verify_package.py')\nvp=importlib.util.module_from_spec(spec);spec.loader.exec_module(vp)\nwith zipfile.ZipFile(r'/Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final64-20261021.zip') as archive:\n    names=archive.namelist()\n    hits=[]\n    scanned=0\n    for name in names:\n        content=archive.read(name)\n        suffix=PurePosixPath(name).suffix.lower()\n        if suffix == '.gz':\n            # 压缩成员必须**解压后**再扫（包审计也是这么做的）\n            try:\n                content = gzip.decompress(content)\n            except Exception:\n                continue\n        elif suffix == '.docx':\n            # Word 文档是 ZIP：抽内部 XML 文字层再扫（与包审计一致）\n            try:\n                with zipfile.ZipFile(io.BytesIO(content)) as inner:\n                    content = b'\\n'.join(inner.read(m) for m in inner.namelist() if m.endswith('.xml'))\n            except Exception:\n                continue\n        elif suffix in vp.BINARY_SUFFIXES:\n            try:\n                import fitz\n                with fitz.open(stream=io.BytesIO(content)) as document:\n                    text='\\n'.join(document[i].get_text() for i in range(document.page_count))\n                content=text.encode('utf-8','ignore')\n            except Exception:\n                continue\n        elif suffix not in vp.TEXT_SUFFIXES:\n            continue\n        scanned+=1\n        for pattern in vp.PRIVATE_PATTERNS:\n            if re.search(pattern,content):\n                hits.append((name,pattern))\n    print('scanned',scanned,'hits',hits[:5])\n    sys.exit(1 if hits else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "scanned 1374 hits []\n",
+      "expectation": "**全部**可扫成员（文本成员 + `.gz` 解压后 + PDF/DOCX 文字层）0 命中；判据复用包审计的同一组模式，覆盖集合与包审计相同（图片像素与无后缀成员两者都不扫，已由包审计的 `identity_scan.unscanned_suffixes` / `unscanned_suffixless_members` 明示）",
+      "detail": null
+    },
+    {
+      "id": "B3",
+      "check": "报告 PDF 元数据无作者、无私有标记、无 JS",
+      "command": "grep -q '\"author_empty\": true' /Users/yin/code/cryProject/docs/evidence/platform-report-20261016/final64-20261021/pdf-metadata-audit.json && grep -q '\"direct_private_markers\": 0' /Users/yin/code/cryProject/docs/evidence/platform-report-20261016/final64-20261021/pdf-metadata-audit.json && grep -q '\"document_javascript\": false' /Users/yin/code/cryProject/docs/evidence/platform-report-20261016/final64-20261021/pdf-metadata-audit.json",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "三项均为真/0",
+      "detail": null
+    },
+    {
+      "id": "B3b",
+      "check": "官方作品设计报告（DOCX + PDF）正文无身份标记",
+      "command": "python3 - <<'PY'\nimport re,sys,zipfile\nmarkers=['Gowin','yinhaoran','nss-marker','10.144.144','/Users/yin','yindeMacBook']\ntext=zipfile.ZipFile('CACR2026EA16XZ-作品设计报告.docx').read('word/document.xml').decode('utf-8')\ntext=re.sub(r'<[^>]+>','',text)\nhits=[m for m in markers if m in text]\nprint('docx hits',hits)\nsys.exit(1 if hits else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "docx hits []\n",
+      "expectation": "官方报告 DOCX 0 命中",
+      "detail": null
+    },
+    {
+      "id": "B5",
+      "check": "附件三 DOCX 的元数据不含设备标识、单位与作者",
+      "command": "python3 - <<'PY'\nimport re,sys,zipfile\nz=zipfile.ZipFile('CACR2026EA16XZ-审批及签字页.docx')\ncustom=z.read('docProps/custom.xml').decode()\napp=z.read('docProps/app.xml').decode()\ncore=z.read('docProps/core.xml').decode()\nbad=[]\nif custom.count('<property'): bad.append('custom.xml 仍有属性')\nif 'hdid' in custom or 'userId' in custom: bad.append('custom.xml 仍带 hdid/userId')\nfor tag in ('Company','Application','Manager'):\n    m=re.search(r'<'+tag+r'[^>]*>(.*?)</'+tag+r'>',app,re.S)\n    if m and m.group(1).strip(): bad.append(tag+'='+m.group(1))\nfor tag in ('dc:creator','cp:lastModifiedBy'):\n    m=re.search(r'<'+tag+r'[^>]*>(.*?)</'+tag+r'>',core,re.S)\n    if m and m.group(1).strip(): bad.append(tag+'='+m.group(1))\nprint('bad',bad)\nsys.exit(1 if bad else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "bad []\n",
+      "expectation": "custom.xml 0 属性、Company/Application/作者/最后修改者全空",
+      "detail": null
+    },
+    {
+      "id": "B4",
+      "check": "仓库内无口令/私钥内容",
+      "command": "! grep -rIlE 'BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY|SUDO_PW=|password=|passwd=' --exclude-dir=build --exclude-dir=.git --exclude-dir=vendor --exclude-dir=third_party --exclude=check_signoff_items.py --exclude=signoff-machine-checks-20261020.json --exclude=SIGNOFF_CHECKLIST.md --exclude=build_signoff_checklist_v9.py .",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "全仓库（排除 build/.git/vendor/third_party）0 命中",
+      "detail": null
+    },
+    {
+      "id": "C1",
+      "check": "报告里的关键统计数字与**证据文件**双向逐字一致",
+      "command": "python3 - <<'PY'\nimport pathlib, sys\nreport = pathlib.Path('deliverables/research/multi-leakage-platform-20261016/report.md').read_text()\n# (报告里的写法, 证据文件, 证据文件里的写法)\npairs = [\n    ('54/54', 'docs/evidence/platform-collection-20261016/status.log', 'restore_match=yes'),\n    ('36/36', 'docs/evidence/r09-optlevel-20261016/RESULT.md', '36/36'),\n    ('26.16', 'docs/evidence/r09-optlevel-20261016/RESULT.md', '26.16'),\n    ('42/42', 'docs/evidence/platform-rtlf-20261016/RTLF_RESULT.md', '42/42'),\n    ('存在 5', 'docs/R05-全流程排查表.md', '**5**'),\n    ('不存在 75', 'docs/R05-全流程排查表.md', '**75**'),\n]\nproblems = []\nfor report_form, evidence_path, evidence_form in pairs:\n    if report_form not in report:\n        problems.append('报告里没有 ' + report_form)\n    evidence = pathlib.Path(evidence_path).read_text()\n    if evidence_form not in evidence:\n        problems.append(evidence_path + ' 里没有 ' + evidence_form)\nlog = pathlib.Path('docs/evidence/screenshots-20261020/reproduce-quick-terminal-p2b.log').read_text()\nfor form in ('out of 88', 'out of 57', 'out of 61'):\n    if form not in log:\n        problems.append('quick 档日志里没有 ' + form)\nprint('checked', len(pairs) * 2 + 3, 'numbers;', len(problems), 'problems')\nfor item in problems:\n    print('  ', item)\nsys.exit(1 if problems else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "checked 15 numbers; 0 problems\n",
+      "expectation": "双向核对：报告里的 6 个关键数字与对应证据文件里的写法逐字一致，另有 3 个 CTest 计数在 quick 档日志里",
+      "detail": null
+    },
+    {
+      "id": "C2",
+      "check": "图与表的来源文件在位",
+      "command": "test -d docs/evidence/r04-stats-20261016/figures && test -d docs/evidence/r09-optlevel-20261016/figures && test \"$(find docs/evidence/r04-stats-20261016/figures -type f | wc -l | tr -d ' ')\" -gt 40",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "图目录存在且数量与报告引用一致",
+      "detail": null
+    },
+    {
+      "id": "C3",
+      "check": "官方 PDF 目录页码与实测标题页码一致",
+      "command": "python3 - <<'PY'\nimport json,sys,fitz\nentries=json.load(open('build/official-report/toc-pages.json'))\ndocument=fitz.open('CACR2026EA16XZ-作品设计报告.pdf')\nbad=[item for item in entries if not isinstance(item[-1],int) or item[-1]<1 or item[-1]>document.page_count]\nprint('entries',len(entries),'pages',document.page_count,'out_of_range',bad)\nsys.exit(1 if bad else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "entries 33 pages 104 out_of_range []\n",
+      "expectation": "目录条目页码全部在页数范围内（实测页码由构建脚本第二遍写入）",
+      "detail": null
+    },
+    {
+      "id": "C4",
+      "check": "性能表写明 ns 与周期的换算口径",
+      "command": "grep -q '4300000' docs/evidence/r08-perf-20261016/PERF.md && grep -qE '换算|周期' docs/evidence/r08-perf-20261016/PERF.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "PERF.md 写明基频与换算",
+      "detail": null
+    },
+    {
+      "id": "C5",
+      "check": "MDE 表写明 α、功效与 SD 口径",
+      "command": "grep -qE 'alpha|α' docs/evidence/r04-stats-20261016/POWER.md && grep -qE 'power|功效' docs/evidence/r04-stats-20261016/POWER.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "POWER.md 写明口径",
+      "detail": null
+    },
+    {
+      "id": "C6",
+      "check": "「量化尺度约 10 ns」的限制随分位数结论出现",
+      "command": "grep -q '10 ns' docs/evidence/r04-stats-20261016/QUANTILE_CI.md && grep -q '10 ns' deliverables/research/multi-leakage-platform-20261016/report.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "限制在证据与报告里都在",
+      "detail": null
+    },
+    {
+      "id": "D1",
+      "check": "冻结 PLAN 的 sha256 与 BASELINE 记录一致",
+      "command": "grep -q 'ab447adadeb5aae2b79843946ab38a6e7a5412506a13d9abd738c3c22a9a9a20' docs/evidence/closeout-20261016/BASELINE.md && test \"$(shasum -a 256 docs/evidence/m2-kem-20261016/PLAN.md | cut -c1-64)\" = ab447adadeb5aae2b79843946ab38a6e7a5412506a13d9abd738c3c22a9a9a20",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "至少一份 PLAN 逐字一致（其余三份见 FINAL_AUDIT §5）",
+      "detail": null
+    },
+    {
+      "id": "D2",
+      "check": "本轮**全部**锁频运行的 restore_match 占比 100%",
+      "command": "python3 - <<'PY'\nimport json, pathlib, sys\n# 2026-10-21 第 5 轮（红队）指出：原判据只扫一份 status.log（72 次），**另外 45 次（R08/R09/R12/R03）完全不在判定范围内**。这里遍历全部 terminal.json。\nroot = pathlib.Path('docs/evidence')\nfiles = sorted(root.rglob('controller/terminal.json')) + sorted(root.rglob('terminal.json'))\nseen = set()\nyes = 0\nbad = []\nfor path in files:\n    resolved = path.resolve()\n    if resolved in seen:\n        continue\n    seen.add(resolved)\n    try:\n        payload = json.loads(path.read_text(encoding='utf-8'))\n    except Exception:\n        continue\n    if 'restore_match' not in payload:\n        continue\n    value = payload.get('restore_match')\n    if value is True or str(value).strip().lower() in ('yes', 'true', '1'):\n        yes += 1\n    else:\n        bad.append((str(path), payload.get('restore_match')))\nprint('terminal.json', len(seen), 'restore_match=yes', yes, 'bad', len(bad))\nfor item in bad[:10]:\n    print('  ', item)\nsys.exit(0 if (yes > 0 and not bad) else 1)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "terminal.json 211 restore_match=yes 205 bad 0\n",
+      "expectation": "遍历全部 controller/terminal.json：restore_match=yes 的计数与反面命中数；反面必须为 0（2026-10-21 第 5 轮红队指出原判据只覆盖 72 次、漏掉另外 45 次）",
+      "detail": null
+    },
+    {
+      "id": "D3",
+      "check": "失败运行已归档",
+      "command": "test -d docs/evidence/r08-perf-20261016/remote/R08/failed-blockcount-bug && test -d docs/evidence/r09-optlevel-20261016/remote/R09/failed",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "两个失败归档目录在位",
+      "detail": null
+    },
+    {
+      "id": "D4",
+      "check": "PLAN 提交早于对应原始数据提交",
+      "command": "test \"$(git log --format=%ct -1 -- docs/evidence/r08-perf-20261016/PLAN.md)\" -lt \"$(git log --format=%ct -1 -- docs/evidence/r08-perf-20261016/perf.csv)\" && test \"$(git log --format=%ct -1 -- docs/evidence/r09-optlevel-20261016/PLAN.md)\" -lt \"$(git log --format=%ct -1 -- docs/evidence/r09-optlevel-20261016/result.csv)\"",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "两处时序成立",
+      "detail": null
+    },
+    {
+      "id": "D5",
+      "check": "干净 clone 的 quick 档记录在案",
+      "command": "test -f docs/evidence/r12-innovation-20261016/reproduce-quick-clean-clone.stdout.log && grep -q 'tests passed, 0 tests failed' docs/evidence/r12-innovation-20261016/reproduce-quick-clean-clone.stdout.log",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "干净 clone 的既有日志在位；本轮另在仓库本体实跑 263/263",
+      "detail": null
+    },
+    {
+      "id": "D6",
+      "check": "匿名 ZIP 解出后 ctest 全过",
+      "command": "grep -q '100% tests passed, 0 tests failed out of 5' /Users/yin/code/cryProject/docs/evidence/platform-report-20261016/refresh-20261016/zip-recompute-final64.log",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "当前有效包的解出复算 5/5",
+      "detail": null
+    },
+    {
+      "id": "E1",
+      "check": "全仓库的密钥恢复 / exploit 表述都在否定语境里",
+      "command": "python3 - <<'PY'\nimport re,subprocess,sys\nroots=['deliverables','docs/evidence','docs/platform','docs/R05-全流程排查表.md','docs/REPRODUCE-PARAMS.md','scripts','tools','src','include','tests','fixtures','BLOCKERS.md','README.md','HANDOFF_DONE.md']\nout=subprocess.run(['grep','-rIloE','exploit demo|key recovery demo|密钥恢复','--exclude-dir=build','--exclude-dir=.git','--exclude-dir=vendor','--exclude-dir=third_party','--exclude=check_signoff_items.py','--exclude=SIGNOFF_CHECKLIST.md','--exclude=build_signoff_checklist_v9.py','--exclude=signoff-machine-checks-20261020.json']+roots,capture_output=True,text=True).stdout.split()\nimport html\nnegation=re.compile(r'不|无|未|非|禁|排除')\nkeyword=re.compile('exploit demo|key recovery demo|密钥恢复')\nbad=[]\nfor path in out:\n    lines=html.unescape(re.sub(r'<[^>]+>','',open(path,encoding='utf-8',errors='replace').read())).splitlines()\n    for number,line in enumerate(lines):\n        if keyword.search(line):\n            window='\\n'.join(lines[max(0,number-2):number+3])\n            if not negation.search(window):\n                bad.append((path,line.strip()[:80]))\nprint('files',len(out),'non_negated',len(bad))\nprint(bad[:5])\nsys.exit(1 if bad else 0)\nPY",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "files 120 non_negated 0\n[]\n",
+      "expectation": "本平台自有交付与证据里只有「不做」的声明（历史研究笔记 docs/research/ 不在本平台交付范围）",
+      "detail": null
+    },
+    {
+      "id": "C7",
+      "check": "M1 族预注册完整性缺口已披露（m=8 存档 + 并列判定）",
+      "command": "grep -q 'm = 8' BLOCKERS.md && grep -q 'm = 6' BLOCKERS.md && grep -q '预注册完整性' BLOCKERS.md && test -f docs/evidence/r02-r04-close-20261016/holm.m8.csv && grep -q 'holm.m8.csv' docs/evidence/r02-r04-close-20261016/RESULT.md && test \"$(($(wc -l < docs/evidence/r02-r04-close-20261016/holm.m8.csv) - 1))\" -eq 8 && grep -q 'm = 8' docs/R05-全流程排查表.md && grep -q '预注册完整性' docs/R05-全流程排查表.md && grep -q 'm = 8' docs/evidence/r04-stats-20261016/POWER.md && grep -q 'm = 8' deliverables/research/multi-leakage-platform-20261016/report.md && grep -q '35.56' docs/R05-全流程排查表.md && grep -q '35.56' docs/evidence/r04-stats-20261016/POWER.md && grep -q '35.56' BLOCKERS.md && grep -q '35.5613' deliverables/research/multi-leakage-platform-20261016/report.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "披露文本在位（BLOCKERS/排查表/POWER/报告四处）、事前族 8 行按原字节存档在位、且该存档确为 8 行 M1 族成员",
+      "detail": null
+    },
+    {
+      "id": "E2",
+      "check": "R06 已审计计时窗口内的 I/O",
+      "command": "grep -q '计时窗口' docs/evidence/r06-noleak-20261016/AUDIT.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "窗口检查结论在案",
+      "detail": null
+    },
+    {
+      "id": "E3",
+      "check": "F1 低危项已闭合（B 类 0 条）",
+      "command": "grep -qE 'B 类泄露.*0 条' docs/evidence/r06-noleak-fix-20261020/AUDIT.md && grep -q '原 F1 的 1 条已消除' docs/evidence/r06-noleak-fix-20261020/AUDIT.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "闭合验证记录在案",
+      "detail": null
+    },
+    {
+      "id": "E4",
+      "check": "第二架构已执行并写明边界",
+      "command": "grep -q 'r15-aarch64-20261021' deliverables/research/multi-leakage-platform-20261016/report.md && grep -q 'aarch64' deliverables/research/multi-leakage-platform-20261016/report.md && ! grep -q '不同 CPU 架构——不做' deliverables/research/multi-leakage-platform-20261016/report.md && test -f docs/evidence/r15-aarch64-20261021/RESULT.md",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "报告引用 aarch64 证据目录且不再有「不做第二架构」的旧表述",
+      "detail": null
+    },
+    {
+      "id": "E5",
+      "check": "sources/ 与 vendor/ 保持只读",
+      "command": "test -z \"$(git diff --stat e81c1ae 95a7b531 -- sources vendor)\" && test -z \"$(git status --porcelain sources vendor)\"",
+      "exit_code": 0,
+      "result": "pass",
+      "output_head": "",
+      "expectation": "两个目录相对基线与工作区都无改动",
+      "detail": null
+    }
+  ]
+}

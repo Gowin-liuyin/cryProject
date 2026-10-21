@@ -1,0 +1,94 @@
+quick 档：仓库 /Users/yin/code/cryProject
+工作目录 build/reproduce-quick-p2-20261020
+每类样本 200，重复运行 1，配置 platform,ordinary,sanitize,historical-fixed
+并行度 8；cmake cmake；ctest ctest
+SHA3-256 可用的 openssl：/opt/homebrew/opt/openssl@3/bin/openssl
+本档不写任何 sysfs、不调用 sudo、不绑定 CPU 亲和性。
+
+=== vendor 树预检（M1 历史阳性对照 / M2 KyberSlash 两臂）===
+  [就位] liboqs-base
+  [就位] liboqs-fixed
+  [就位] kyber-unfixed
+  [就位] kyber-fixed
+四棵 vendor 树齐备，M1/M2 两组历史案例都进本轮构建。
+
+=== [platform] 配置 build/reproduce-quick-p2-20261020/build-platform ===
++ cmake -S /Users/yin/code/cryProject -B build/reproduce-quick-p2-20261020/build-platform -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF -DBASELINE_ENABLE_LIBOQS010=ON
+=== [platform] 构建 ===
++ cmake --build build/reproduce-quick-p2-20261020/build-platform --parallel 8
+=== [platform] CTest ===
++ ctest --test-dir build/reproduce-quick-p2-20261020/build-platform --output-on-failure
+
+=== [ordinary] 配置 build/reproduce-quick-p2-20261020/build-ordinary ===
++ cmake -S /Users/yin/code/cryProject -B build/reproduce-quick-p2-20261020/build-ordinary -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl
+=== [ordinary] 构建 ===
++ cmake --build build/reproduce-quick-p2-20261020/build-ordinary --parallel 8
+=== [ordinary] CTest ===
++ ctest --test-dir build/reproduce-quick-p2-20261020/build-ordinary --output-on-failure
+
+=== [sanitize] 配置 build/reproduce-quick-p2-20261020/build-sanitize ===
++ cmake -S /Users/yin/code/cryProject -B build/reproduce-quick-p2-20261020/build-sanitize -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug
+=== [sanitize] 构建 ===
++ cmake --build build/reproduce-quick-p2-20261020/build-sanitize --parallel 8
+=== [sanitize] CTest ===
++ ctest --test-dir build/reproduce-quick-p2-20261020/build-sanitize --output-on-failure
+
+=== [historical-fixed] 配置 build/reproduce-quick-p2-20261020/build-historical-fixed ===
++ cmake -S /Users/yin/code/cryProject -B build/reproduce-quick-p2-20261020/build-historical-fixed -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_ENABLE_LIBOQS010=ON -DA113_ARCHIVED_CASE_ONLY=OFF -DLIBOQS010_SOURCE_DIR=/Users/yin/code/cryProject/vendor/liboqs-0.10.0-982c762
+=== [historical-fixed] 构建 ===
++ cmake --build build/reproduce-quick-p2-20261020/build-historical-fixed --parallel 8
+=== [historical-fixed] CTest ===
++ ctest --test-dir build/reproduce-quick-p2-20261020/build-historical-fixed --output-on-failure
+
+=== 小样本统计演练（每类 200 次 × 1 次运行）===
+平台二进制根 build/reproduce-quick-p2-20261020/build-platform
++ build/reproduce-quick-p2-20261020/build-platform/historical/measure quick-M1-unfixed-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M1/unfixed/r1/quick-M1-unfixed-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M1/unfixed/r1/quick-M1-unfixed-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M1/unfixed/r1/quick-M1-unfixed-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M1/unfixed/r1/stats
++ build/reproduce-quick-p2-20261020/build-historical-fixed/historical/measure quick-M1-fixed-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M1/fixed/r1/quick-M1-fixed-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M1/fixed/r1/quick-M1-fixed-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M1/fixed/r1/quick-M1-fixed-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M1/fixed/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/platform-m2/unfixed/measure quick-M2-unfixed-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M2/unfixed/r1/quick-M2-unfixed-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M2/unfixed/r1/quick-M2-unfixed-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M2/unfixed/r1/quick-M2-unfixed-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M2/unfixed/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/platform-m2/fixed/measure quick-M2-fixed-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M2/fixed/r1/quick-M2-fixed-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M2/fixed/r1/quick-M2-fixed-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M2/fixed/r1/quick-M2-fixed-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M2/fixed/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/platform-m3/on/measure quick-M3-on-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M3/on/r1/quick-M3-on-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M3/on/r1/quick-M3-on-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M3/on/r1/quick-M3-on-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M3/on/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/platform-m3/off/measure quick-M3-off-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M3/off/r1/quick-M3-off-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M3/off/r1/quick-M3-off-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M3/off/r1/quick-M3-off-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M3/off/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/platform_m4_measure_vulnerable --collect build/reproduce-quick-p2-20261020/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv 200 31337 quick-M4-vulnerable-r1 --compare-bytes 32
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv measure mismatch-first mismatch-last build/reproduce-quick-p2-20261020/rehearsal/M4/vulnerable/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/platform_m4_measure_ct --collect build/reproduce-quick-p2-20261020/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv 200 31337 quick-M4-ct-r1 --compare-bytes 32
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv measure mismatch-first mismatch-last build/reproduce-quick-p2-20261020/rehearsal/M4/ct/r1/stats
++ build/reproduce-quick-p2-20261020/build-platform/reference/measure quick-M5-reference-r1 31337 200 build/reproduce-quick-p2-20261020/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv build/reproduce-quick-p2-20261020/rehearsal/M5/reference/r1/quick-M5-reference-r1.meta
++ build/reproduce-quick-p2-20261020/build-platform/platform_stats build/reproduce-quick-p2-20261020/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv measure message-zero message-ones build/reproduce-quick-p2-20261020/rehearsal/M5/reference/r1/stats
+
+--- M1 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd build/reproduce-quick-p2-20261020/rehearsal/M1 && build/reproduce-quick-p2-20261020/build-platform/platform_holm --input build/reproduce-quick-p2-20261020/rehearsal/M1-members.csv --output-dir M1-holm --alpha 0.05)
+M1 的 platform_holm 运行失败（见日志）
+
+--- M2 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd build/reproduce-quick-p2-20261020/rehearsal/M2 && build/reproduce-quick-p2-20261020/build-platform/platform_holm --input build/reproduce-quick-p2-20261020/rehearsal/M2-members.csv --output-dir M2-holm --alpha 0.05)
+M2 的 platform_holm 运行失败（见日志）
+
+--- M3 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd build/reproduce-quick-p2-20261020/rehearsal/M3 && build/reproduce-quick-p2-20261020/build-platform/platform_holm --input build/reproduce-quick-p2-20261020/rehearsal/M3-members.csv --output-dir M3-holm --alpha 0.05)
+M3 的 platform_holm 运行失败（见日志）
+
+--- M4 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd build/reproduce-quick-p2-20261020/rehearsal/M4 && build/reproduce-quick-p2-20261020/build-platform/platform_holm --input build/reproduce-quick-p2-20261020/rehearsal/M4-members.csv --output-dir M4-holm --alpha 0.05)
+M4 的 platform_holm 运行失败（见日志）
+
+--- M5 Holm 演练：1 个成员，alpha=0.05 ---
++ (cd build/reproduce-quick-p2-20261020/rehearsal/M5 && build/reproduce-quick-p2-20261020/build-platform/platform_holm --input build/reproduce-quick-p2-20261020/rehearsal/M5-members.csv --output-dir M5-holm --alpha 0.05)
+M5 的 platform_holm 运行失败（见日志）
+
+演练产物根：build/reproduce-quick-p2-20261020/rehearsal
+注意：演练不锁频、不绑核、每臂只 1 次运行，不是任何模块的正式统计结论。
+
+=== quick 汇总（配置 / 结果 / CTest）===
+  platform | ok | 100% tests passed, 0 tests failed out of 88
+  ordinary | ok | 100% tests passed, 0 tests failed out of 57
+  sanitize | ok | 100% tests passed, 0 tests failed out of 57
+  historical-fixed | ok | 100% tests passed, 0 tests failed out of 61
+  日志：build/reproduce-quick-p2-20261020/logs/quick-20261020T140718Z.log
+quick 档完成。
+EXIT=0

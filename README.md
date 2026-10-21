@@ -1,51 +1,37 @@
-# A1-13 · ML-KEM-768 本地审计与复算作品
+# A1-13 · ML-KEM-768 多泄漏检测平台与常数时间加固作品
 
-2026-10-14 当前审阅报告为[根目录 Word](CACR2026EA16XZ-作品设计报告.docx)，
-文字副本与版本说明见 [Methods 修订目录](deliverables/submission/CACR2026EA16XZ/methods-revision-20261014/README.md)。
-本轮已按[审稿复核](docs/methods-review-20261014.md)同步摘要、方法、表 4 和结论：
-v1–v3 是开发历史；v4 确认在首会话覆盖率 0 后停止，主令牌 `not_run`，交替构建未开始。
-文稿修正没有补齐单密文推广、方向反转归因或防护因果，R02/R04 仍部分签收。
-下文各日期的封存软件、报告和支撑包保持原身份，不能视为已包含本次修订。
+> **⚠ 本仓库不得公开**：仓库是**作者的工作环境与证据档案**，`docs/evidence/` 与
+> `tools/` 里按「证据原字节保留」的约定保留着**本机绝对路径**（`/Users/…`）、
+> **远端主机名与用户名**、**云端 IP** 与项目根目录名——这些是复现与复核所必需的，
+> 但它们**能识别作者**。赛题交付的是**匿名支撑包**
+> （`deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/`，见该目录
+> README 头部「当前有效包」），包内所有直接身份标记已替换并由包审计逐成员核对；
+> **上传只上传包，不要上传本仓库**。若需要公开仓库，先把证据目录里的绝对路径与
+> 主机标识按匿名规则替换一遍，并重跑 `scripts/check_signoff_items.py` 的 B4/B2 两项。
 
-本轮提交候选版新增[公开来源审查](docs/upstream-security-review.md)、
-[固定版本适用性](docs/current-version-defense-review.md)与[真实Linux工程核验](docs/evidence/candidate-round-20261007/README.md)。
-[离线证据展示](deliverables/demo/index.html)和[结论索引](deliverables/demo/evidence-index.md)按稳定编号直达材料。
-`build/cmake/audit help`给出普通使用与复算命令。封存 v3 的新目录执行已由所有者授权代理完成并计入 R11，
-见 [执行记录](docs/evidence/author-proxy-v3-20261008/README.md)。同一 Linux 上的人工机制防护前后见 [R07记录](docs/evidence/r07-linux-20261008/README.md)。实际截图及审批签署仍缺，
-当前材料供项目组审阅修改，不称全部要求验收完成。
 
-当前研究交付为2026-10-10的[49页G2补充报告](deliverables/research/aris-report-g2-20261010/README.md)
-与[925项匿名研究补充件](deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md)。
-新版保留条件均值推断、[M02重建复核](docs/research/aris-replication-20261009/RESULTS.md)、官方潜在修正核对及原数据，纳入G2的实际窗口与恢复证据。
-一次干净重建后的三个同机新进程支持固定六非零输入的较低中位成本观察，原M01不合并。
-49页报告经内容、结构及全页视觉核验；925项实际ZIP的原字节、匿名、链接与独立实包审查通过。
-仅从实包提取G2-A，在macOS/ARM普通C11配置中通过唯一CTest，正常复算退出0、中断退出1，四份CSV/JSON逐字一致、原输入保持；这不是新Linux硬件采集。
-[报告作者侧核验](docs/evidence/aris-report-g2-20261010/README.md)与[实包核验及离线复算](docs/evidence/aris-g2-package-20261010/README.md)分别留证。
-同日较早的[47页报告](deliverables/research/aris-report-weak-mean-20261010/README.md)和[887项均值推断补充件](deliverables/support/CACR2026EA16XZ-mean-inference-20261010/README.md)保持原身份；旧887项及其中870项历史子根在新版中保持原字节。
-[当前状态与下一协议](docs/research/aris-replication-20261009/CURRENT_STATUS.md)提供复算、单核管理恢复原件及未闭合门槛入口。
+2026-10-20 当前审阅报告为[根目录 Word](CACR2026EA16XZ-作品设计报告.docx)（官方模板封面 + 104 页 PDF 正文，
+目录页码与实际页码逐条一致、中文字形已复核）。
+本轮 P0 级紧急补救已完成：仓库污染清理、F1 泄露缺口闭合、R09 统计口径修正、
+R08/R09 控制器日志与 cur_khz 核对、三机 WSL 跨环境复现归档、主报告与入口统一刷新；
+同日再补 P1 级两项：一键取件脚本（干净 clone 两条命令跑通含 M1/M2 的全套测试）与 M2 叙事实锤。
 
-2026-10-10新增[G2普通参考窗口验证](docs/research/aris-frequency-window-20261010/RESULTS.md)：
-单次正常采集126528调用，200个主反馈窗口满足事前工程规则，纯主平均窗口几何覆盖99.4948%；
-200窗来自一个完成进程，不能当作200次独立重复；另一次运行中注册取消、原件保全和可见资源恢复独立核对通过。
-新证据与图已纳入49页报告和925项补充件，不证明整段或逐调用恒频、物理精度或统计总体保证，R02/R04仍部分签收。
-适用测量与统计前提、旧KVM可信主机身份核查、真实运行画面及本人审批签名盖章仍待实际材料。
+**当前状态**：赛题 12 条要求逐条对照为 **10 条满足 + 2 条部分**（第 6、7 条为「部分」：本轮自研防护闭环未落在真实 ML-KEM 上、泄露渠道审计不含实际发生防护的 vendor 树；缺口、原因与影响写在报告附录 A 对应行与 §24，不按「12/12 全满足」计）。M1–M5 多泄漏检测平台、
+六类工具矩阵、117 次锁频采集、R01–R12 完整闭环证据全部就绪。
 
-随后完成[G2逐调用耗时描述](docs/research/aris-g2-timing-description-20261010/RESULTS.md)：
-主阶段P50为39274ns、P99为41498ns、最大82996ns，全部长尾保留；54行及主墙钟整数账经全量独立核对。
-[弱均值有限样本补充](docs/research/aris-weak-mean-finite-20261010/README.md)把原渐近路线推进为显式覆盖下界，
-保持原学生化区间和未观测前提，不认证现有4—20单位。两项以独立研究笔记和证据交付，49页及925项封存件保持原范围。
+**当前研究交付**：
+- [官方作品设计报告](CACR2026EA16XZ-作品设计报告.docx)：以官方模板为基底，正文以 M1–M5 平台为主体
+  （早期 v1–v4 登记为第 0 节「前期自研探索与频率门诊断基线」），同名 PDF 104 页
+- [M1–M5 多泄漏检测平台 97 页补充报告](deliverables/research/multi-leakage-platform-20261016/README.md)（支撑材料卷）
+- [G2 频率窗口 49 页补充报告](deliverables/research/aris-report-g2-20261010/README.md)
+- [925 项匿名研究补充件](deliverables/support/CACR2026EA16XZ-g2-windows-20261010/README.md)
 
-随后取得[RAW空窗口真实Linux结果](docs/research/aris-raw-clock-20261010/RESULTS.md)：
-三个普通进程共303000pair，主空窗P50均20ns、P99均21ns，最大2004/1603/501ns全部保留；
-原值、18行C统计、元数据与结束状态独立核验一致。声明1ns、观察最小正增量10ns与空窗分布分别报告，
-不能充当绝对精度、旧G2开销扣除或完整调用重复性证明。新证据全部保存于云端Cry及本机证据新目录，
-R02/R04仍部分签收；该第三项研究补充同样未改写49页/925项封存件。
-
-最新完成[普通参考完整调用的六进程实测](docs/research/aris-ordinary-repeatability-20261010/RESULTS.md)：
-两近邻连接批次共300000计时调用，同一公开NIST输入与普通ELF；主P50为30678—30718ns，全部长尾保留。
-300000行/5400000字段、36行C统计及六时间账独立一致；52原PID/44组结束、两SSH关闭。
-这补足限定的完整调用运行间描述，不把40ns范围当误差界、SSH批次当独立环境或较旧G2时长当算法改进。
-该第四项补充独立交付，49页/925项原件保持，下一步为新报告整合和剩余声明审计。
+**最新证据**：
+- [R06 日志泄露专项审计 · F1 修复验证](docs/evidence/r06-noleak-fix-20261020/AUDIT.md)：B 类泄露由 1 条降为 0
+- [R09 优化级别统计](docs/evidence/r09-optlevel-20261016/RESULT.md)：逆方差合并 CI 修正，假阳性消除
+- [R08 性能采集](docs/evidence/r08-perf-20261016/PERF.md)：54/54 控制器目录完整归档，实测周期换算核对表
+- [WSL 跨环境复现核对](docs/evidence/wsl-repro-20261020/CROSSCHECK.md)：三台机器的确定性证据与主平台逐项一致
+- [一键取件与干净 clone 复现验证](docs/evidence/fetch-vendors-20261020/RESULT.md)：四棵 vendor 树两层 SHA-256 校验，两条命令跑通含 M1/M2 的全套测试
 
 当前作品入口为C11 `audit`：功能验收、参考普通采集、数据检查、历史重分析、
 成对统计、普通性能及离线HTML导出。构建后从这里开始：
@@ -411,6 +397,8 @@ cmake --build build/ninja --target deployable
 | `tests/` | 功能与边界检查、命令编排、NIST 原件 |
 | `CMakeLists.txt`、`CMakePresets.json`、`cmake/` | 唯一构建配置、测试注册、补丁副本及格式检查 |
 | `tools/build_identity.sh` | 生成并嵌入构建追溯信息 |
+| `tools/fetch_all_vendors.sh` | 一键取齐 M1/M2 需要的四棵 vendor 树并逐项校验 SHA-256 |
+| `scripts/reproduce_all.sh` | 一键复现入口：`quick` 档（配置 + 构建 + CTest + 小样本演练）与 `full` 档（按冻结 PLAN 出采集命令） |
 | `vendor/` | 未修改的第三方源码与许可证 |
 | `docs/` | 来源、机制、计时、统计、防护、验收、审查和原始证据 |
 | `docs/tasks/` | 设计与验收契约、设计评审产物；模块零提交后不再修改 |
@@ -426,6 +414,9 @@ cmake --build build/ninja --target deployable
   （1e-4 对 1e-3），不能互相当作同一假设的复核。
 - **均值差很大但判不显著**：判定统计量是秩检验；普通长尾按硬要求全部保留，均值对长尾不稳健。
 - **更改编译器后配置报错**：使用新的构建目录，不在已有 CMake 缓存中切换工具链。
+- **干净 clone 里 M1/M2 的臂被跳过**：`vendor/liboqs-0.10.0*` 与 `vendor/kyber-kyberslash-*` 在
+  `.gitignore` 内。先跑 `sh tools/fetch_all_vendors.sh`（取件并校验 SHA-256），再跑
+  `sh scripts/reproduce_all.sh quick`；或直接 `sh scripts/reproduce_all.sh quick --fetch` 一步完成。
 
 CLI 退出码：0 为成功，2 为公开命令参数错误，1 为运行或文件操作失败。
 C API 的精确长度和返回值定义见 [mlkem.h](include/mlkem.h)；调用方需提供互不重叠的有效缓冲区。

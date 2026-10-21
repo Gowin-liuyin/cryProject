@@ -1,0 +1,8 @@
+input_format=measure
+class0_name=mismatch-first
+class1_name=mismatch-last
+stats_binary=/home/firefly/cry-wsl/build/platform/platform_stats
+rtlf_script=/home/firefly/cry-wsl/repo/third_party/RTLF/rtlf.R
+dudect_replay_binary=
+dudect_online_log=
+Linux firefly 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 GNU/Linux

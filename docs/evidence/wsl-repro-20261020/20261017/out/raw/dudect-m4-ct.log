@@ -1,0 +1,12 @@
+module=M4 case=artificial_compare variant=ct mode=upstream_dudect_online unit=tsc_ticks holm_member=0 seed=31337 batch_calls=20000 requested_batches=10
+meas:    0.02 M, max t:   +1.43, max tau: 1.01e-02, (5/tau)^2: 2.43e+05. For the moment, maybe constant time.
+meas:    0.04 M, max t:   +1.10, max tau: 5.48e-03, (5/tau)^2: 8.33e+05. For the moment, maybe constant time.
+meas:    0.06 M, max t:   +1.14, max tau: 4.64e-03, (5/tau)^2: 1.16e+06. For the moment, maybe constant time.
+meas:    0.06 M, max t:   +1.39, max tau: 5.66e-03, (5/tau)^2: 7.81e+05. For the moment, maybe constant time.
+meas:    0.08 M, max t:   +1.56, max tau: 5.50e-03, (5/tau)^2: 8.26e+05. For the moment, maybe constant time.
+meas:    0.10 M, max t:   +1.53, max tau: 4.84e-03, (5/tau)^2: 1.07e+06. For the moment, maybe constant time.
+meas:    0.14 M, max t:   +1.36, max tau: 3.65e-03, (5/tau)^2: 1.88e+06. For the moment, maybe constant time.
+meas:    0.14 M, max t:   +1.34, max tau: 3.59e-03, (5/tau)^2: 1.93e+06. For the moment, maybe constant time.
+meas:    0.16 M, max t:   +1.34, max tau: 3.34e-03, (5/tau)^2: 2.24e+06. For the moment, maybe constant time.
+battery_dudect_status=online_no_evidence_yet
+completed_batches=10 total_calls=200000 warmup_calls=20000 intervals_per_batch=19999 endpoint_discarded_per_update=11

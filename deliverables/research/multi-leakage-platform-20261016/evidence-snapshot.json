@@ -1,24 +1,24 @@
 {
-  "date": "2026-10-16",
-  "document_state": "final5_20261016_full_clause_matrix_and_report_consolidation",
+  "date": "2026-10-21",
+  "document_state": "p2_closeout_20261020_all_clauses_satisfied_package_audited_and_recomputed",
   "baseline_commit": "ac46e62",
-  "worktree_head": "008c51641b2ab458ec488495f2243fdb7668aedb",
+  "worktree_head": "97de4db79d3e10b4b849404f569cd6872dd3459e",
   "sources": [
     {
       "id": "E01",
       "label": "完整完成条件",
       "path": "docs/platform/COMPLETION_REQUIREMENTS.md",
       "state": "requirements_only",
-      "sha256": "31cac9c7b848585c679aece93b78c2d666210e660df1df59b44011e3c6d1bd91",
-      "bytes": 18403
+      "sha256": "f1f46b3cc71b60268872cdf8a8745b301afbbc8e4f049d4dd71c4544cc18a78d",
+      "bytes": 21781
     },
     {
       "id": "E02",
       "label": "M1 既有封存结论",
       "path": "docs/evidence/r02-r04-close-20261016/RESULT.md",
       "state": "frozen_reference",
-      "sha256": "2056fbf434dfb1dff64fed6c3ba7e42426a34ba4dfcb2728bb9353c7597c1376",
-      "bytes": 11940
+      "sha256": "405585f4fe71e48e6b5bfc508a77d9657e48ed4239940205516a5f60e5c1bea1",
+      "bytes": 13873
     },
     {
       "id": "E03",
@@ -153,8 +153,8 @@
       "label": "平台锁频采数原件（M2/M3/M4/M5）",
       "path": "docs/evidence/platform-collection-20261016/README.md",
       "state": "locked_collection",
-      "sha256": "3c230f63f209aa747ce52220c75acd674444dada0ae3b6bf2437d8e620dd44d6",
-      "bytes": 8864
+      "sha256": "9565faa89aa3828fc3d0cb784347fe388e564b1c6a38c040cdbea97e3644a661",
+      "bytes": 9767
     },
     {
       "id": "E20",
@@ -241,8 +241,8 @@
       "label": "R05 全流程六类来源排查表（90 格）",
       "path": "docs/R05-全流程排查表.md",
       "state": "flow_matrix_review",
-      "sha256": "51f90bfe6c5f6da8eca517a707bb300e6b96627777d456b8ca650e948554eb05",
-      "bytes": 74008
+      "sha256": "f02fc6ff80a867b48618b12f3449fbff2ccb19c838b5bbd441754fe7f11bcda0",
+      "bytes": 76244
     },
     {
       "id": "E31",
@@ -305,8 +305,8 @@
       "label": "R04 功效 / MDE（T26）",
       "state": "power_analysis",
       "path": "docs/evidence/r04-stats-20261016/POWER.md",
-      "sha256": "a0f60efa6e411c8f9f1a5e936d1e6e8f0edddd73ec9c3efa9cde81d7b0e7d3ab",
-      "bytes": 33662
+      "sha256": "e9e4fc03b9d84ba848edd5893c5dac1629b322a9123b707d11e0e616f6bd32e8",
+      "bytes": 34740
     },
     {
       "id": "E39",
@@ -345,16 +345,16 @@
       "label": "R06 修复手段 → 题面第 6 条方法分类映射",
       "state": "remediation_mapping",
       "path": "docs/evidence/r06-noleak-20261016/MAPPING.md",
-      "sha256": "8510c2e799052497c34fafd40680bb13b805578f8b8d8f181d5a48196d5a04c6",
-      "bytes": 15522
+      "sha256": "4be8b91dbba05336db6ae4a1bdb47ca10f64e1fbf0419cbbe55702c18c0d4fe0",
+      "bytes": 16800
     },
     {
       "id": "E44",
       "label": "R08 性能开销表（T21）",
       "state": "performance_descriptive",
       "path": "docs/evidence/r08-perf-20261016/PERF.md",
-      "sha256": "951419ff12627224d661512673bb1fe2bffe0dc89cba2e9ef4d8cfcad5940050",
-      "bytes": 35676
+      "sha256": "d6d4d6c5f303bca0837901a3db78998d383f5c8e3643302f2181daff9cb829d4",
+      "bytes": 40587
     },
     {
       "id": "E45",
@@ -377,8 +377,8 @@
       "label": "R09 优化级别对照结论（T24）",
       "state": "optlevel_descriptive",
       "path": "docs/evidence/r09-optlevel-20261016/RESULT.md",
-      "sha256": "d172c0b4b14ab0eed8e57ee87acf74ddd696b78bcf01c921ca36e90b5f09b6b7",
-      "bytes": 24644
+      "sha256": "97683f515352a4effea893fdced6fc36e1c741def932e200e407178fbf9cf028",
+      "bytes": 27089
     },
     {
       "id": "E48",
@@ -401,16 +401,16 @@
       "label": "R11 威胁模型（独立稿）",
       "state": "threat_model",
       "path": "docs/evidence/r11-threat-20261016/THREAT_MODEL.md",
-      "sha256": "4dac0b9fe1f201affb68b186cbc827a88e6522cdabb5d5f0a1df2ff8c00c6bea",
-      "bytes": 31926
+      "sha256": "d2893cd27be102909beb16a8b708f792276f55645868213194c13330ebfa1fba",
+      "bytes": 34446
     },
     {
       "id": "E51",
       "label": "R11 威胁模型 LaTeX 片段（本报告直接 input）",
       "state": "threat_model",
       "path": "docs/evidence/r11-threat-20261016/threat-model.tex",
-      "sha256": "1b9686959730804ff69a4d8b66a6062fa1f928b4e59bb9e28a48094391ee5590",
-      "bytes": 29561
+      "sha256": "769b37a0f5a5c7d336edab9d557e4bfa351669bf5b913c45923e952478b66894",
+      "bytes": 31709
     },
     {
       "id": "E52",
@@ -425,8 +425,8 @@
       "label": "R12 创新对照 (b)：多工具矩阵与一键复现（T29b / T30）",
       "state": "innovation_descriptive",
       "path": "docs/evidence/r12-innovation-20261016/RESULT.md",
-      "sha256": "a236a0007e5bfbf6c864ab64819412a1f0d8981caf2dfdd3899fc8fa8c2d8aad",
-      "bytes": 16612
+      "sha256": "beb8aee50d610f9cb76f733a0f17103a57103803f64c910b021db9c22e70caea",
+      "bytes": 17509
     },
     {
       "id": "E54",
@@ -441,32 +441,32 @@
       "label": "复现参数总表（T30）",
       "state": "reproduce_entry",
       "path": "docs/REPRODUCE-PARAMS.md",
-      "sha256": "80ea1a69c7394ef5561cd7f6fabdd69855c6e30bd8f53c6f32d563d4df5d1fd7",
-      "bytes": 25032
+      "sha256": "61e8eed58a65ecd553c8a60d1fbf7d18f8aeaef86f1b1a356a239b0418e1166b",
+      "bytes": 29198
     },
     {
       "id": "E56",
       "label": "一键复现入口脚本",
       "state": "reproduce_entry",
       "path": "scripts/reproduce_all.sh",
-      "sha256": "16562851a309ed40ee37b4b5deb3d1b54a4f44f70af01140cd235619c0117b97",
-      "bytes": 27957
+      "sha256": "002ab0be60373375f1ea871764bba1645bbe5946330561476cd94797abbabe75",
+      "bytes": 34364
     },
     {
       "id": "E57",
       "label": "干净 clone quick 档实测记录",
       "state": "reproduce_entry",
       "path": "docs/evidence/r12-innovation-20261016/REPRODUCE-QUICK-LOG.md",
-      "sha256": "62f293ce6851c80fa09bb4f420d11a76362f1c1e360dc727fb7e7d0abcf9763b",
-      "bytes": 5624
+      "sha256": "63547fa2a3c2586847916f1eb8e2002e21a7a8744b659b23453d31cc219f21de",
+      "bytes": 6521
     },
     {
       "id": "E58",
       "label": "本轮阻塞与降级登记",
       "state": "blockers",
       "path": "BLOCKERS.md",
-      "sha256": "6c17d75c76a34c316e8bd3a4ba762d31005101425a615adbba972d94ac135342",
-      "bytes": 3775
+      "sha256": "e6d607fbf14b6da5f193a95bc118da1e660297e8f3f386b19a64dbcffb87a6fa",
+      "bytes": 6410
     },
     {
       "id": "E59",
@@ -483,6 +483,86 @@
       "path": "docs/evidence/r09-optlevel-20261016/remote/R09/r09-o0-m1unfixed-s2/controller/terminal.json",
       "sha256": "c985f5cddb955664e396d7ac85ac20674b64286c1fc4e9b544a8d56ce3e12055",
       "bytes": 139
+    },
+    {
+      "id": "E61",
+      "label": "WSL 跨环境复现与主平台一致性核对（三台机器）",
+      "state": "cross_environment_reproduction",
+      "path": "docs/evidence/wsl-repro-20261020/CROSSCHECK.md",
+      "sha256": "f24a77f0c2c62448444becd49c233fbd8dacd16953ff8850343e8e09b77ed02c",
+      "bytes": 6513
+    },
+    {
+      "id": "E62",
+      "label": "WSL 跨环境复现包归档清单与逐文件摘要",
+      "state": "cross_environment_reproduction",
+      "path": "docs/evidence/wsl-repro-20261020/MANIFEST.sha256",
+      "sha256": "2ba30f8aabba44305571ffb477fc6c07c93095f9cca404af17595f073487ffae",
+      "bytes": 1284
+    },
+    {
+      "id": "E63",
+      "label": "R06 泄露渠道审计的 F1 修复验证补充（B 类由 1 降为 0）",
+      "state": "leak_channel_audit",
+      "path": "docs/evidence/r06-noleak-fix-20261020/AUDIT.md",
+      "sha256": "b4986b76b801342e43f3efe271fde044c00522f8b5cc84da6ed12af0026f979a",
+      "bytes": 33825
+    },
+    {
+      "id": "E64",
+      "label": "一键取件与干净 clone 复现验证（2026-10-20）",
+      "state": "reproduce_entry",
+      "path": "docs/evidence/fetch-vendors-20261020/RESULT.md",
+      "sha256": "a859fac5bbe221b3c184e6ec5d04184751093a9451961bd0ccedc7c75ddfe8eb",
+      "bytes": 9094
+    },
+    {
+      "id": "E65",
+      "label": "M2 叙事补强：机制实锤与候选解释的边界核对（2026-10-20）",
+      "state": "localization_completion",
+      "path": "docs/evidence/m2-narrative-20261020/RESULT.md",
+      "sha256": "56ef3024aafcb87ba2f25c14239c406223292f9c9e2cb1053a7a70eb87471a21",
+      "bytes": 6646
+    },
+    {
+      "id": "E66",
+      "label": "真实运行截图与人工签收佐证说明（2026-10-20）",
+      "state": "signoff_screenshots",
+      "path": "deliverables/research/multi-leakage-platform-20261016/screenshots/SCREENSHOTS.md",
+      "sha256": "a7ca8e1393847e01c7b717c5c7757548f5f6f5189d7e9561fd03a4475c413145",
+      "bytes": 6839
+    },
+    {
+      "id": "E67",
+      "label": "T25 同机网络场景三档真实采集结果（2026-10-21）",
+      "state": "network_scenario_executed",
+      "path": "docs/evidence/r13-network-20261020/RESULT.md",
+      "sha256": "3bb9c4789aecf722906906b753cc67e546e3c0cf612134f896bc91fa9783d65d",
+      "bytes": 20624
+    },
+    {
+      "id": "E68",
+      "label": "M5 重加密路径 Binsec checkct 结果（i386 裸机 + 显式 secret global，2026-10-21）",
+      "state": "formal_checkct_executed",
+      "path": "docs/evidence/r14-binsec-m5-20261021/RESULT.md",
+      "sha256": "9643081d1428b0886bd5c55a877b8bf38fbc3afaaba4990c95cd3e2f54ac3beb",
+      "bytes": 15626
+    },
+    {
+      "id": "E69",
+      "label": "第二架构（aarch64）12 格复现结果（2026-10-21）",
+      "state": "second_architecture_executed",
+      "path": "docs/evidence/r15-aarch64-20261021/RESULT.md",
+      "sha256": "5c018707f31ee90a1cc48b000ed6f8ffc6ff97ef4ff3f94bc26f3be7eabd42b8",
+      "bytes": 9696
+    },
+    {
+      "id": "E70",
+      "label": "计时基准与频率自校准结果（TSC 速率 / rdtsc 分辨率 / 短区间隐含频率，2026-10-21）",
+      "state": "timing_baseline_calibration",
+      "path": "docs/evidence/r16-precision-20261021/RESULT.md",
+      "sha256": "c9d202f4ef0b5cb42930e2657871b5b576efa01e591d13a06bc92b156b2ffb73",
+      "bytes": 11725
     }
   ],
   "modules": [
@@ -683,277 +763,7 @@
       "id": "T22",
       "title": "题面第 9 条之优化级别对照：12 格产物判定 + 锁频实测",
       "rows": 12,
-      "columns": 9
-    },
-    {
-      "id": "T23",
-      "title": "题面第 12 条之创新对照 (a)：锁频 vs 不锁频（族外）",
-      "rows": 3,
-      "columns": 7
-    },
-    {
-      "id": "T24",
-      "title": "题面第 12 条之创新对照 (b)：多工具矩阵 9 工具 × 5 模块 = 45 格",
-      "rows": 9,
-      "columns": 8
-    },
-    {
-      "id": "T25",
-      "title": "题面第 11 条之一键复现入口、quick 档实测与 full 档边界",
-      "rows": 7,
-      "columns": 4
-    },
-    {
-      "id": "T26",
-      "title": "附录 A：题面 12 条对照矩阵",
-      "rows": 12,
-      "columns": 6
-    },
-    {
-      "id": "T12",
-      "title": "题面第 1 条之向量来源总表（模块 × 版本 × 来源 × 例数 × 通过数）",
-      "rows": 10,
-      "columns": 6
-    },
-    {
-      "id": "T13",
-      "title": "题面第 1 条之修复语义等价（三对 diff + 1000 例额外输入 + 隐式拒绝）",
-      "rows": 4,
-      "columns": 5
-    },
-    {
-      "id": "T14",
-      "title": "题面第 2 条之环境总表（28 项覆盖与关键读数）",
-      "rows": 13,
-      "columns": 4
-    },
-    {
-      "id": "T15",
-      "title": "题面第 2 条之异常样本规则与稳健性敏感性分析（64 类对 × 4 方法）",
-      "rows": 9,
-      "columns": 4
-    },
-    {
-      "id": "T16",
-      "title": "题面第 4 条之补充：功效 / MDE 与「未检出」的确切含义",
-      "rows": 7,
-      "columns": 7
-    },
-    {
-      "id": "T17",
-      "title": "题面第 4 条之补充：分位数差 bootstrap CI、ECDF 与箱线图",
-      "rows": 8,
-      "columns": 4
-    },
-    {
-      "id": "T18",
-      "title": "题面第 6 条之修复手段映射表（覆盖 5 个模块）",
-      "rows": 16,
-      "columns": 5
-    },
-    {
-      "id": "T19",
-      "title": "题面第 6 条之日志 / 异常 / 返回码泄露专项审计",
-      "rows": 9,
-      "columns": 4
-    },
-    {
-      "id": "T20",
-      "title": "题面第 8 条之性能开销：逐（模块, 臂, 操作）汇总（25 行）",
-      "rows": 25,
-      "columns": 9
-    },
-    {
-      "id": "T21",
-      "title": "题面第 8 条之性能开销：成对开销 %（11 行）",
-      "rows": 11,
-      "columns": 7
-    },
-    {
-      "id": "T22",
-      "title": "题面第 9 条之优化级别对照：12 格产物判定 + 锁频实测",
-      "rows": 12,
-      "columns": 9
-    },
-    {
-      "id": "T23",
-      "title": "题面第 12 条之创新对照 (a)：锁频 vs 不锁频（族外）",
-      "rows": 3,
-      "columns": 7
-    },
-    {
-      "id": "T24",
-      "title": "题面第 12 条之创新对照 (b)：多工具矩阵 9 工具 × 5 模块 = 45 格",
-      "rows": 9,
-      "columns": 8
-    },
-    {
-      "id": "T25",
-      "title": "题面第 11 条之一键复现入口、quick 档实测与 full 档边界",
-      "rows": 7,
-      "columns": 4
-    },
-    {
-      "id": "T26",
-      "title": "附录 A：题面 12 条对照矩阵",
-      "rows": 12,
-      "columns": 6
-    },
-    {
-      "id": "T12",
-      "title": "题面第 1 条之向量来源总表（模块 × 版本 × 来源 × 例数 × 通过数）",
-      "rows": 10,
-      "columns": 6
-    },
-    {
-      "id": "T13",
-      "title": "题面第 1 条之修复语义等价（三对 diff + 1000 例额外输入 + 隐式拒绝）",
-      "rows": 4,
-      "columns": 5
-    },
-    {
-      "id": "T14",
-      "title": "题面第 2 条之环境总表（28 项覆盖与关键读数）",
-      "rows": 13,
-      "columns": 4
-    },
-    {
-      "id": "T15",
-      "title": "题面第 2 条之异常样本规则与稳健性敏感性分析（64 类对 × 4 方法）",
-      "rows": 9,
-      "columns": 4
-    },
-    {
-      "id": "T16",
-      "title": "题面第 4 条之补充：功效 / MDE 与「未检出」的确切含义",
-      "rows": 7,
-      "columns": 7
-    },
-    {
-      "id": "T17",
-      "title": "题面第 4 条之补充：分位数差 bootstrap CI、ECDF 与箱线图",
-      "rows": 8,
-      "columns": 4
-    },
-    {
-      "id": "T18",
-      "title": "题面第 6 条之修复手段映射表（覆盖 5 个模块）",
-      "rows": 16,
-      "columns": 5
-    },
-    {
-      "id": "T19",
-      "title": "题面第 6 条之日志 / 异常 / 返回码泄露专项审计",
-      "rows": 9,
-      "columns": 4
-    },
-    {
-      "id": "T20",
-      "title": "题面第 8 条之性能开销：逐（模块, 臂, 操作）汇总（25 行）",
-      "rows": 25,
-      "columns": 9
-    },
-    {
-      "id": "T21",
-      "title": "题面第 8 条之性能开销：成对开销 %（11 行）",
-      "rows": 11,
-      "columns": 7
-    },
-    {
-      "id": "T22",
-      "title": "题面第 9 条之优化级别对照：12 格产物判定 + 锁频实测",
-      "rows": 12,
-      "columns": 9
-    },
-    {
-      "id": "T23",
-      "title": "题面第 12 条之创新对照 (a)：锁频 vs 不锁频（族外）",
-      "rows": 3,
-      "columns": 7
-    },
-    {
-      "id": "T24",
-      "title": "题面第 12 条之创新对照 (b)：多工具矩阵 9 工具 × 5 模块 = 45 格",
-      "rows": 9,
-      "columns": 8
-    },
-    {
-      "id": "T25",
-      "title": "题面第 11 条之一键复现入口、quick 档实测与 full 档边界",
-      "rows": 7,
-      "columns": 4
-    },
-    {
-      "id": "T26",
-      "title": "附录 A：题面 12 条对照矩阵",
-      "rows": 12,
-      "columns": 6
-    },
-    {
-      "id": "T12",
-      "title": "题面第 1 条之向量来源总表（模块 × 版本 × 来源 × 例数 × 通过数）",
-      "rows": 10,
-      "columns": 6
-    },
-    {
-      "id": "T13",
-      "title": "题面第 1 条之修复语义等价（三对 diff + 1000 例额外输入 + 隐式拒绝）",
-      "rows": 4,
-      "columns": 5
-    },
-    {
-      "id": "T14",
-      "title": "题面第 2 条之环境总表（28 项覆盖与关键读数）",
-      "rows": 13,
-      "columns": 4
-    },
-    {
-      "id": "T15",
-      "title": "题面第 2 条之异常样本规则与稳健性敏感性分析（64 类对 × 4 方法）",
-      "rows": 9,
-      "columns": 4
-    },
-    {
-      "id": "T16",
-      "title": "题面第 4 条之补充：功效 / MDE 与「未检出」的确切含义",
-      "rows": 7,
-      "columns": 7
-    },
-    {
-      "id": "T17",
-      "title": "题面第 4 条之补充：分位数差 bootstrap CI、ECDF 与箱线图",
-      "rows": 8,
-      "columns": 4
-    },
-    {
-      "id": "T18",
-      "title": "题面第 6 条之修复手段映射表（覆盖 5 个模块）",
-      "rows": 16,
-      "columns": 5
-    },
-    {
-      "id": "T19",
-      "title": "题面第 6 条之日志 / 异常 / 返回码泄露专项审计",
-      "rows": 9,
-      "columns": 4
-    },
-    {
-      "id": "T20",
-      "title": "题面第 8 条之性能开销：逐（模块, 臂, 操作）汇总（25 行）",
-      "rows": 25,
-      "columns": 9
-    },
-    {
-      "id": "T21",
-      "title": "题面第 8 条之性能开销：成对开销 %（11 行）",
-      "rows": 11,
-      "columns": 7
-    },
-    {
-      "id": "T22",
-      "title": "题面第 9 条之优化级别对照：12 格产物判定 + 锁频实测",
-      "rows": 12,
-      "columns": 9
+      "columns": 10
     },
     {
       "id": "T23",

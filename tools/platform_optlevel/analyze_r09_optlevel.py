@@ -256,6 +256,24 @@ def main() -> int:
             delta_array = np.asarray(deltas, dtype=float)
             draws = rng.integers(0, delta_array.size, size=(BOOTSTRAP_RESAMPLES, delta_array.size))
             bootstrap_means = delta_array[draws].mean(axis=1)
+            # 逆方差固定效应合并（与 M1–M5 主家族方法统一）：
+            # 从每次运行的 95% CI 推导 SE_i = (high - low) / (2 * z)，
+            # 权重 w_i = 1 / SE_i^2，合并 Δ = Σ(w_i·Δ_i) / Σ(w_i)，
+            # 合并 SE = sqrt(1 / Σ(w_i))，95% CI = Δ ± 1.96·SE。
+            per_run_ci_ranges = np.asarray(
+                [row["delta_ci_high_ns"] - row["delta_ci_low_ns"] for row in per_run_rows
+                 if row["cell"] == cell], dtype=float)
+            per_run_ses = per_run_ci_ranges / (2.0 * 1.959963984540054)
+            if np.any(per_run_ses == 0):
+                pooled_delta = float(delta_array.mean())
+                pooled_ci_low = float(np.percentile(bootstrap_means, 2.5))
+                pooled_ci_high = float(np.percentile(bootstrap_means, 97.5))
+            else:
+                weights = 1.0 / (per_run_ses ** 2)
+                pooled_delta = float(np.sum(weights * delta_array) / np.sum(weights))
+                pooled_se = float(np.sqrt(1.0 / np.sum(weights)))
+                pooled_ci_low = pooled_delta - 1.959963984540054 * pooled_se
+                pooled_ci_high = pooled_delta + 1.959963984540054 * pooled_se
             judgment = cells.get(cell, {})
             mem = memcheck.get(cell, {})
             per_cell_rows.append(
@@ -270,6 +288,9 @@ def main() -> int:
                     "delta_ns_run_min": float(delta_array.min()),
                     "delta_ns_run_max": float(delta_array.max()),
                     "delta_ns_per_seed": "|".join(f"{value:.3f}" for value in deltas),
+                    "delta_ns_pooled": pooled_delta,
+                    "delta_ns_pooled_ci_low": pooled_ci_low,
+                    "delta_ns_pooled_ci_high": pooled_ci_high,
                     "disasm_symbol": judgment.get("symbol", ""),
                     "disasm_instructions": judgment.get("instructions", ""),
                     "disasm_bt": judgment.get("bt", ""),

@@ -8,6 +8,8 @@
 /vendor/liboqs-0.10.0/
 /vendor/liboqs-0.10.0.tar.gz
 /vendor/liboqs-fetch.*/
+# Patched copy of the same tree (official fix 982c762); fetch with tools/fetch_all_vendors.sh
+/vendor/liboqs-0.10.0-982c762/
 
 # M2 historical upstream trees are reproduced from the adjacent PIN files.
 /vendor/kyber-kyberslash-unfixed/
@@ -15,3 +17,28 @@
 
 # Upstream tool checkouts recorded by commit in evidence REPOS.md.
 /third_party/
+
+# Local agent state, task caches, and literature downloads (not project deliverables).
+/.workbuddy/
+/.agents/
+/workspace/
+
+# Python 字节码缓存（本地运行产物）。
+__pycache__/
+*.pyc
+
+# LaTeX 中间产物不入版本控制
+deliverables/research/multi-leakage-platform-20261016/*.aux
+deliverables/research/multi-leakage-platform-20261016/*.log
+deliverables/research/multi-leakage-platform-20261016/*.out
+deliverables/research/multi-leakage-platform-20261016/*.toc
+
+# 匿名支撑包目录里**被取代版本**的 ZIP 本体（约 0.7 GB）与逐版渲染快照
+# （约 1.0 GB）只本地留档，不随仓库分发：它们的**摘要与包审计 JSON**仍在
+# 「历次成包」表和 `*-verification.json` 里，写作与复核用得到的是这些；
+# 43 份旧 ZIP 的本体既占体积又不影响任何审计行的核对。
+/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final*.zip
+!/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final64-20261021.zip
+!/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final12-20261021.zip
+!/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final4-20261016.zip
+/docs/evidence/platform-report-20261016/render-*/

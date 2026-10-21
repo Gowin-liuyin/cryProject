@@ -1,0 +1,52 @@
+
+/home/nss-marker/yhr/Cry/r13-network-20261020/runs/build-platform-7c36f850/platform_m5_formal_frommsg:     ???? elf32-i386
+
+
+Disassembly of section .text:
+
+08049000 <m5_halt>:
+ 8049000:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 8049004:	a3 00 b0 04 08       	mov    %eax,0x804b000
+ 8049009:	0f 0b                	ud2
+
+0804900b <m5_entry>:
+ 804900b:	56                   	push   %esi
+ 804900c:	5e                   	pop    %esi
+ 804900d:	83 ec 14             	sub    $0x14,%esp
+ 8049010:	68 20 b2 04 08       	push   $0x804b220
+ 8049015:	68 20 b0 04 08       	push   $0x804b020
+ 804901a:	e8 0c 00 00 00       	call   804902b <baseline_native_poly_frommsg>
+ 804901f:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+ 8049026:	e8 d5 ff ff ff       	call   8049000 <m5_halt>
+
+0804902b <baseline_native_poly_frommsg>:
+ 804902b:	57                   	push   %edi
+ 804902c:	56                   	push   %esi
+ 804902d:	53                   	push   %ebx
+ 804902e:	8b 5c 24 14          	mov    0x14(%esp),%ebx
+ 8049032:	8b 54 24 10          	mov    0x10(%esp),%edx
+ 8049036:	bf 00 00 00 00       	mov    $0x0,%edi
+ 804903b:	be 01 00 00 00       	mov    $0x1,%esi
+ 8049040:	eb 11                	jmp    8049053 <baseline_native_poly_frommsg+0x28>
+ 8049042:	83 c3 01             	add    $0x1,%ebx
+ 8049045:	83 c7 08             	add    $0x8,%edi
+ 8049048:	83 c2 10             	add    $0x10,%edx
+ 804904b:	81 ff 00 01 00 00    	cmp    $0x100,%edi
+ 8049051:	74 25                	je     8049078 <baseline_native_poly_frommsg+0x4d>
+ 8049053:	b9 00 00 00 00       	mov    $0x0,%ecx
+ 8049058:	89 f0                	mov    %esi,%eax
+ 804905a:	d3 e0                	shl    %cl,%eax
+ 804905c:	22 03                	and    (%ebx),%al
+ 804905e:	0f b6 c0             	movzbl %al,%eax
+ 8049061:	f7 d8                	neg    %eax
+ 8049063:	c1 f8 10             	sar    $0x10,%eax
+ 8049066:	66 25 81 06          	and    $0x681,%ax
+ 804906a:	66 89 04 4a          	mov    %ax,(%edx,%ecx,2)
+ 804906e:	83 c1 01             	add    $0x1,%ecx
+ 8049071:	83 f9 08             	cmp    $0x8,%ecx
+ 8049074:	75 e2                	jne    8049058 <baseline_native_poly_frommsg+0x2d>
+ 8049076:	eb ca                	jmp    8049042 <baseline_native_poly_frommsg+0x17>
+ 8049078:	5b                   	pop    %ebx
+ 8049079:	5e                   	pop    %esi
+ 804907a:	5f                   	pop    %edi
+ 804907b:	c3                   	ret

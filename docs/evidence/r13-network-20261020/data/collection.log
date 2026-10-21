@@ -1,0 +1,26 @@
+=== m1unfixed r1 (port 18400) ===
+NETWORK_SCENARIOS_DONE
+=== m1unfixed r1 已完成，跳过 ===
+=== m1unfixed r2 已完成，跳过 ===
+=== m1fixed r1 (port 18602) 开始 1792512455 ===
+Server did not start listening on port 18602.
+NETWORK_SCENARIOS_DONE
+=== m1fixed r2 (port 18603) 开始 1792512939 ===
+NETWORK_SCENARIOS_DONE
+=== m5ref r1 (port 18604) 开始 1792513270 ===
+Missing program: /home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m5ref/network_client
+=== m5ref r2 (port 18605) 开始 1792513270 ===
+Missing program: /home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m5ref/network_client
+COLLECTION_DONE 1792513270
+COLLECTOR_EXIT status=0 time=1792513270
+=== m1unfixed r1 已完成，跳过 ===
+=== m1unfixed r2 已完成，跳过 ===
+=== m1fixed r1 已完成，跳过 ===
+=== m1fixed r2 已完成，跳过 ===
+=== m5ref r1 (port 18604) 开始 1792514319 ===
+Server did not start listening on port 18604.
+NETWORK_SCENARIOS_DONE
+=== m5ref r2 (port 18605) 开始 1792514794 ===
+NETWORK_SCENARIOS_DONE
+COLLECTION_DONE 1792515116
+COLLECTOR_EXIT status=0 time=1792515116

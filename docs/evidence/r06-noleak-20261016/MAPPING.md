@@ -23,7 +23,7 @@
 |---|---|---|---|---|---|
 | M1-a | M1 liboqs 0.10.0 ipd | 官方 `982c762c242ef549c914891b47bf6e0ed6321f91`（改 `…ml-kem-768-ipd_ref/poly.c`） | **消除数据相关分支** | 修复前 `16e: bt %ecx,%r8d` → `172: jae 179`：[locked-poly-frommsg-vulnerable.s](../liboqs010-locked-20261015/logs/locked-poly-frommsg-vulnerable.s)；修复后 `189: bt %r13d,%eax` → `18d: setb %dl` → `198: call …cmov_int16`，函数内无 `jae`：[poly-frommsg-fixed-reloc.s](../tooling-strengthen-20261015/logs/poly-frommsg-fixed-reloc.s)；补丁覆盖范围 [patch-apply.txt](../liboqs010-locked-20261015/logs/patch-apply.txt) | 否（上游/历史实现） |
 | M1-b | M1 同上（同一补丁的另一半） | 同上 `982c762`（新增 `cmov_int16`） | **掩码选择（cmov）** | `cmov_int16` 机器码：`neg %edx` / `movzwl (%rdi),%eax` / `xor %eax,%esi` / `and %edx,%esi` / `xor %eax,%esi` / `mov %si,(%rdi)`，地址 `0x2c79`：[fixed-full.asm](../r05-locate-20261016/remote-tree/m1-disasm/fixed-full.asm)（本轮新增）；调用点 `3f04: call 3ecb/cmov_int16` 在 `poly_frommsg` 内 | 否（上游/历史实现） |
-| M1-c | M1 隐式拒绝 / cmov 掩码生成 | 官方 `982c762` 同时给 `verify.c` 的 `cmov` 加 `__asm__("" : "+r"(b))` 值屏障 | **掩码选择（cmov）** | 掩码生成无分支：`2b26: test %ebx,%ebx` → `2b28: sete %cl` → `2b37: call …cmov`，`dec` 内 0 条跳转：[fixed-full.asm](../r05-locate-20261016/remote-tree/m1-disasm/fixed-full.asm)；`cmov` 体 `neg/and/xor` 无条件传送：[fixed-…cmov.bytes](../r05-locate-20261016/remote-tree/m1-disasm/fixed-pqcrystals_ml_kem_768_ipd_ref_cmov.bytes) | 否（上游/历史实现） |
+| M1-c | M1 隐式拒绝 / cmov 掩码生成 | 官方 `982c762` **只新增 `cmov_int16`**（掩码选择），**并未**给原 `cmov` 加 `__asm__` 值屏障；原 `cmov` 缺值屏障按**可移植性隐患**登记（见 R05 M1E2 与 §4 的更正说明） | **掩码选择（cmov）** | 掩码生成无分支：`2b26: test %ebx,%ebx` → `2b28: sete %cl` → `2b37: call …cmov`，`dec` 内 0 条跳转：[fixed-full.asm](../r05-locate-20261016/remote-tree/m1-disasm/fixed-full.asm)；`cmov` 体 `neg/and/xor` 无条件传送：[fixed-…cmov.bytes](../r05-locate-20261016/remote-tree/m1-disasm/fixed-pqcrystals_ml_kem_768_ipd_ref_cmov.bytes) | 否（上游/历史实现） |
 | M2-a | M2 pq-crystals kyber768 | 官方 `dda29cc63af721981ee2c831cf00822e69be3220`（KyberSlash1，只改 `ref/poly.c` 的 `poly_tomsg`） | **消除数据相关除法** | 修复前 `3689: mov $0xd01,%r9d` + `36a5: movswl (%rsi,%rcx,2),%eax` + `36bf: div %r9d`：[unfixed-…poly_tomsg.asm](../m2-kem-20261016/native-qualification/)；修复后 `div` 计数 0、改成 `imul $0x275f6`+`add`+`shr $0x1c`：[fixed-…poly_tomsg.asm](../m2-kem-20261016/native-qualification/) 与 [ordinary-fixed-qualification.division-counts.txt](../m2-kem-20261016/microbench-0551254c9579/disasm/) | 否（上游/历史实现） |
 | M2-b | M2 pq-crystals kyber768 | 官方 `272125f6acc8e8b6850fd68ceb901a660ff48196`（KyberSlash2；上游提交信息：Removed "/KYBER_Q" in poly_compress and polyvec_compress） | **消除数据相关除法** | 修复前 `3523: div %r8d`（`poly_compress`）、`38c7: div %r8d`（`polyvec_compress`）：[unfixed-…poly_compress.asm](../m2-kem-20261016/native-qualification/)、[unfixed-…polyvec_compress.asm](../m2-kem-20261016/native-qualification/)；修复后两侧 `div` 全 0：[ordinary-fixed-qualification.division-counts.txt](../m2-kem-20261016/microbench-0551254c9579/disasm/)；源码差异 [upstream-remediation.diff](../m2-kyberslash-20261016/version-audit/upstream-remediation.diff) | 否（上游/历史实现） |
 | M2-c | M2 上游两个被测版本都保留的同一处老写法（Kyber round3 起即有） | 无对应修复：该处**两个被测版本都仍是分支**（`272125f` 不碰 `poly_frommsg`） | **消除数据相关分支（未修复，登记为缺口）** | 本轮新增反汇编：未修 `3668: bt` → `366c: jae 3673`；已修 `366e: bt` → `3672: jae 3679`，指令字节两侧完全相同（SHA-256 `6a6ee641a5e8a7de23052fbc7f5855dc01f3c08b6bb593fee43a2b41de26ed35`）：[unfixed-poly_frommsg.asm](../r05-locate-20261016/remote-tree/m2-disasm/unfixed-poly_frommsg.asm)、[fixed-poly_frommsg.asm](../r05-locate-20261016/remote-tree/m2-disasm/fixed-poly_frommsg.asm)；动态命中 [unfixed-z08of08.log](../r05-locate-20261016/remote-tree/m2-ctgrind/logs/unfixed-z08of08.log) | 否（上游/历史实现；本行是“未修复”状态，不是修复手段） |
@@ -37,6 +37,23 @@
 | M5-b | M5 参考路径 | **不是修复**：上游既有做法 | **常量时间比较 + 统一错误处理（隐式拒绝）** | `mlk_ct_memcmp`（[verify.h:338](../vendor/mlkem-native/mlkem/src/verify.h)）内联：`movdqu/pxor/por` 累积 + `movzbl/neg/shr/xor` 无分支出 0/1（`poison.disasm` 第 9160–9211 行）；`mlk_ct_cmov_zero`（[verify.h:388](../vendor/mlkem-native/mlkem/src/verify.h)）内联：掩码选择、回边常数（第 9589–9600 行）；`kem.c:449-458` 的 `fail = mlk_ct_memcmp(...)` → `mlk_hash_j(ss, z‖ct)` → `mlk_ct_cmov_zero(ss, kr, 32, fail)` | 否（上游既有做法，非针对某次 CVE 的修复） |
 | M5-c | M5 参考路径 | **不是修复**：上游既有做法（对照 M2 的除法问题） | **消除数据相关除法** | 该实现从上游起就用乘加/移位而非 `div`：varlat=yes（KyberSlash 补丁 Valgrind，检测可变时延指令的秘密操作数）在三模式 10 次完整解封装上 **0 errors / 0 contexts**：[varlat-yes.valgrind.log](../m5-completion-20261016/software-dynamic-evidence.tar.gz)（归档内 `logs-v2/`） | 否（上游既有做法，非针对某次 CVE 的修复） |
 | M5-d | M5 参考路径 | **不是修复**：上游既有做法（`mlk_kem_check_sk` 的 FIPS 203 §7.3 哈希检查） | **消除数据相关分支的“例外登记”**：该早退分支的判据是**公开** `sk` 部分的哈希，不属秘密相关分支 | `poison.disasm`：`a404: call 8a80 <baseline_native_check_sk>` → `a40c: test %eax,%eax` → `a40e: jne ad87`（第 9033–9036 行）；公开性声明 [vendor/mlkem-native/mlkem/src/kem.c:92-99](../vendor/mlkem-native/mlkem/src/kem.c) | 否（上游既有做法，非针对某次 CVE 的修复） |
+
+---
+
+## 1.1 更正说明（2026-10-21，主控复核）
+
+**M1-c 行的「修复点」原文有误，按仓库内原件更正**：原文写「官方 `982c762` 同时给 `verify.c` 的
+`cmov` 加 `__asm__("" : "+r"(b))` 值屏障」。按仓库内两份原件核对，**该补丁只新增 `cmov_int16`**，
+**没有**给原 `cmov` 加值屏障：
+
+- 补丁副本 `docs/patches/liboqs-982c762.patch`：`grep -c '__asm__'` = **0**（diff 只含 `cmov_int16` 新增）；
+- 打好该补丁的固定树 `vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c`：
+  `grep -c '__asm__'` = **0**；
+- 本仓库 `docs/R05-全流程排查表.md` 的 M1E2 节点本来就写「`cmov`: 无 `__asm__` 值屏障（可移植性隐患）」。
+
+因此 **M1-c 行的「修复点」按上表更正**（原行保留在本节说明里），**其余列（方法分类、证据路径、
+是否人工夹具）与判定不变**：M1-c 仍是「掩码选择（cmov）」的落点，**不因此改变任何泄漏判定或统计结论**；
+受影响的只是「值屏障由 982c762 引入」这一句**对上游补丁内容的描述**。
 
 ---
 

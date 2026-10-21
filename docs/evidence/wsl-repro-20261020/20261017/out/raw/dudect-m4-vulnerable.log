@@ -1,0 +1,12 @@
+module=M4 case=artificial_compare variant=vulnerable mode=upstream_dudect_online unit=tsc_ticks holm_member=0 seed=31337 batch_calls=20000 requested_batches=10
+meas:    0.02 M, max t:   +5.79, max tau: 4.10e-02, (5/tau)^2: 1.49e+04. For the moment, maybe constant time.
+meas:    0.04 M, max t: +144.57, max tau: 7.56e-01, (5/tau)^2: 4.37e+01. Probably not constant time.
+meas:    0.06 M, max t: +177.52, max tau: 7.49e-01, (5/tau)^2: 4.45e+01. Probably not constant time.
+meas:    0.08 M, max t: +205.86, max tau: 7.50e-01, (5/tau)^2: 4.45e+01. Probably not constant time.
+meas:    0.09 M, max t: +231.32, max tau: 7.51e-01, (5/tau)^2: 4.43e+01. Probably not constant time.
+meas:    0.11 M, max t: +252.60, max tau: 7.52e-01, (5/tau)^2: 4.43e+01. Probably not constant time.
+meas:    0.13 M, max t: +274.21, max tau: 7.54e-01, (5/tau)^2: 4.39e+01. Probably not constant time.
+meas:    0.15 M, max t: +291.12, max tau: 7.54e-01, (5/tau)^2: 4.39e+01. Probably not constant time.
+meas:    0.17 M, max t: +309.46, max tau: 7.54e-01, (5/tau)^2: 4.40e+01. Probably not constant time.
+battery_dudect_status=online_leakage_found
+completed_batches=10 total_calls=200000 warmup_calls=20000 intervals_per_batch=19999 endpoint_discarded_per_update=11

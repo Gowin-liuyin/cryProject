@@ -1,0 +1,194 @@
+[
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -o CMakeFiles/oqs.dir/kem/kem.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/kem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/kem.c",
+  "output": "src/CMakeFiles/oqs.dir/kem/kem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -o CMakeFiles/oqs.dir/sig/sig.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/sig/sig.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/sig/sig.c",
+  "output": "src/CMakeFiles/oqs.dir/sig/sig.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/aes/aes.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes.c",
+  "output": "src/common/CMakeFiles/common.dir/aes/aes.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/aes/aes_c.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes_c.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes_c.c",
+  "output": "src/common/CMakeFiles/common.dir/aes/aes_c.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/sha2/sha2.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2.c",
+  "output": "src/common/CMakeFiles/common.dir/sha2/sha2.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/sha2/sha2_c.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2_c.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2_c.c",
+  "output": "src/common/CMakeFiles/common.dir/sha2/sha2_c.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/sha3/xkcp_sha3.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3.c",
+  "output": "src/common/CMakeFiles/common.dir/sha3/xkcp_sha3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/sha3/xkcp_sha3x4.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3x4.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3x4.c",
+  "output": "src/common/CMakeFiles/common.dir/sha3/xkcp_sha3x4.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/common.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/common.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/common.c",
+  "output": "src/common/CMakeFiles/common.dir/common.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/pqclean_shims/fips202.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims/fips202.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims/fips202.c",
+  "output": "src/common/CMakeFiles/common.dir/pqclean_shims/fips202.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/pqclean_shims/fips202x4.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims/fips202x4.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims/fips202x4.c",
+  "output": "src/common/CMakeFiles/common.dir/pqclean_shims/fips202x4.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/common.dir/rand/rand.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/rand/rand.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/rand/rand.c",
+  "output": "src/common/CMakeFiles/common.dir/rand/rand.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/aes/aes.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes.c",
+  "output": "src/common/CMakeFiles/internal.dir/aes/aes.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/aes/aes_c.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes_c.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/aes/aes_c.c",
+  "output": "src/common/CMakeFiles/internal.dir/aes/aes_c.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/sha2/sha2.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2.c",
+  "output": "src/common/CMakeFiles/internal.dir/sha2/sha2.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/sha2/sha2_c.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2_c.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha2/sha2_c.c",
+  "output": "src/common/CMakeFiles/internal.dir/sha2/sha2_c.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/sha3/xkcp_sha3.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3.c",
+  "output": "src/common/CMakeFiles/internal.dir/sha3/xkcp_sha3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/sha3/xkcp_sha3x4.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3x4.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_sha3x4.c",
+  "output": "src/common/CMakeFiles/internal.dir/sha3/xkcp_sha3x4.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/common.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/common.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/common.c",
+  "output": "src/common/CMakeFiles/internal.dir/common.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common",
+  "command": "/usr/bin/clang-18 -DOQS_HAVE_ALIGNED_ALLOC -DOQS_HAVE_EXPLICIT_BZERO -DOQS_HAVE_GETENTROPY -DOQS_HAVE_MEMALIGN -DOQS_HAVE_POSIX_MEMALIGN -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=default -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/internal.dir/rand/rand_nist.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/rand/rand_nist.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/rand/rand_nist.c",
+  "output": "src/common/CMakeFiles/internal.dir/rand/rand_nist.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common/sha3/xkcp_low",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/xkcp_low_keccakp_1600_plain64.dir/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c",
+  "output": "src/common/sha3/xkcp_low/CMakeFiles/xkcp_low_keccakp_1600_plain64.dir/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/common/sha3/xkcp_low",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_low/KeccakP-1600/plain-64bits -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -Wbad-function-cast -Wcast-qual -Wnarrowing -Wconversion -o CMakeFiles/xkcp_low_keccakp_1600times4_serial.dir/KeccakP-1600times4/serial/KeccakP-1600-times4-on1.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_low/KeccakP-1600times4/serial/KeccakP-1600-times4-on1.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/sha3/xkcp_low/KeccakP-1600times4/serial/KeccakP-1600-times4-on1.c",
+  "output": "src/common/sha3/xkcp_low/CMakeFiles/xkcp_low_keccakp_1600times4_serial.dir/KeccakP-1600times4/serial/KeccakP-1600-times4-on1.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/kem_ml_kem_768_ipd.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/kem_ml_kem_768_ipd.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/kem_ml_kem_768_ipd.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/cbd.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/ntt.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/polyvec.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/reduce.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/symmetric-shake.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/src/kem/ml_kem",
+  "command": "/usr/bin/clang-18  -I/home/cryrepro/cry-wsl/build/m1-fixed-O0/liboqs010-build/include -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref -I/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/common/pqclean_shims -O0 -fno-vectorize -O0 -fno-vectorize -g -DNDEBUG -std=gnu11 -fPIC -fvisibility=hidden -Wa,--noexecstack -g3 -fno-omit-frame-pointer -DKYBER_K=3 -o CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o -c /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c",
+  "file": "/home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0-982c762/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c",
+  "output": "src/kem/ml_kem/CMakeFiles/ml_kem_768_ipd_ref.dir/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c.o"
+}
+]

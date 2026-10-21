@@ -1,0 +1,110 @@
+--- inputs/wsl_repro.original.sh
++++ wsl_repro.sh
+@@ -50,10 +50,17 @@
+ phase_deps() {
+   done_p deps && { say "deps 已完成，跳过"; return; }
+   PHASE=deps; say "== 安装依赖（需要 sudo）=="
++  local packages=(clang-18 llvm-18 cmake make git curl ca-certificates patch valgrind binutils util-linux python3 openssl libssl-dev perl procps)
++  if dpkg-query -W -f='${binary:Package} ${db:Status-Status}\n' "${packages[@]}" > "$OUT/logs/dependency-status.txt" 2>&1 &&
++     ! grep -qv ' installed$' "$OUT/logs/dependency-status.txt" && command -v "$CC_BIN" >/dev/null; then
++    say "依赖已由本机环境准备步骤安装；核验全部所需包为 installed"
++    mark deps
++    return
++  fi
+   sudo apt-get update -y || say "警告：apt update 有错误（镜像临时故障时常见），继续尝试安装；若安装失败请稍后重跑 deps"
+   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+     clang-18 llvm-18 cmake make git curl ca-certificates patch valgrind binutils util-linux \
+-    python3 openssl perl procps || { err "apt install 失败"; return 1; }
++    python3 openssl libssl-dev perl procps || { err "apt install 失败"; return 1; }
+   command -v "$CC_BIN" >/dev/null || { err "找不到 $CC_BIN"; return 1; }
+   mark deps
+ }
+@@ -67,7 +74,9 @@
+   say "仓库 HEAD：$(git -C "$REPO" rev-parse HEAD)"
+   ( cd "$REPO" && sh tools/fetch_liboqs_0.10.0.sh ) || { err "liboqs 0.10.0 取件失败"; return 1; }
+   if [ ! -f "$REPO/vendor/liboqs-0.10.0-982c762/.patched" ]; then
+-    rm -rf "$REPO/vendor/liboqs-0.10.0-982c762"
++    if [ -e "$REPO/vendor/liboqs-0.10.0-982c762" ]; then
++      mv "$REPO/vendor/liboqs-0.10.0-982c762" "$REPO/vendor/liboqs-0.10.0-982c762.previous-$(date +%Y%m%dT%H%M%S)-$$" || return 1
++    fi
+     cp -a "$REPO/vendor/liboqs-0.10.0" "$REPO/vendor/liboqs-0.10.0-982c762"
+     curl -fsSL -o "$OUT/env/liboqs-982c762.patch" "https://github.com/open-quantum-safe/liboqs/commit/${LIBOQS_FIX_COMMIT}.patch" || { err "下载 982c762 补丁失败"; return 1; }
+     sha256sum "$OUT/env/liboqs-982c762.patch" | tee "$OUT/env/liboqs-982c762.patch.sha256"
+@@ -122,7 +131,7 @@
+   done
+   grep -hE 'tests passed' "$OUT"/logs/ctest-*.log > "$OUT/stats/ctest_summary.txt"
+   if [ "$(wc -l < "$OUT/stats/ctest_summary.txt")" -lt 3 ] || grep -qv ' 0 tests failed' "$OUT/stats/ctest_summary.txt"; then
+-    err "CTest 有失败或缺结果，见 logs/ctest-*.log（继续执行，但须在 RESULT.md 写明）"; fi
++    err "CTest 有失败或缺结果，见 logs/ctest-*.log；停止后续采集"; return 1; fi
+   mark verify
+ }
+ 
+@@ -145,7 +154,7 @@
+     name="$tag-s$s-r$r"; [ -f "$OUT/raw/$name.csv" ] && continue
+     freq_snap "before $name"
+     pin "$bin" "$name" "$s" "$SAMPLES" "$OUT/raw/$name.csv.part" "$OUT/raw/$name.meta" > "$OUT/logs/run-$name.log" 2>&1 \
+-      && mv "$OUT/raw/$name.csv.part" "$OUT/raw/$name.csv" || { err "采集 $name 失败"; rm -f "$OUT/raw/$name.csv.part" "$OUT/raw/$name.meta"; }
++      && mv "$OUT/raw/$name.csv.part" "$OUT/raw/$name.csv" || { err "采集 $name 失败；保留 .csv.part、.meta 与日志"; return 1; }
+     freq_snap "after $name"
+   done; done
+ }
+@@ -281,7 +290,7 @@
+   PHASE=pack; phase_env
+   [ -f "$OUT/RESULT.md" ] || cp "$OUT/RESULT_TEMPLATE.md" "$OUT/RESULT.md" 2>/dev/null || true
+   local name="wsl-repro-$(hostname)-$(date +%Y%m%d).tar.gz"
+-  ( cd "$WORK" && tar --exclude='out/raw/*.csv.part' --exclude='out/stats/runs/*/normalized.csv' --exclude='out/stats/runs/*/input.csv' -czf "$name" out ) && say "完整回传包（含原始 CSV）：$WORK/$name（$(du -h "$WORK/$name" | cut -f1)）"
++  ( cd "$WORK" && tar --exclude='out/stats/runs/*/normalized.csv' --exclude='out/stats/runs/*/input.csv' -czf "$name" out ) && say "完整回传包（含原始 CSV 及失败采集片段）：$WORK/$name（$(du -h "$WORK/$name" | cut -f1)）"
+   local lite="wsl-repro-lite-$(hostname)-$(date +%Y%m%d).tar.gz"
+   ( cd "$WORK" && tar --exclude='out/raw/*.csv' --exclude='out/raw/*.csv.part' --exclude='out/perf/*.csv' --exclude='out/stats/runs/*/normalized.csv' --exclude='out/stats/runs/*/input.csv' -czf "$lite" out ) && say "精简回传包（无原始 CSV，便于聊天发送）：$WORK/$lite（$(du -h "$WORK/$lite" | cut -f1)）"
+ }
+@@ -307,9 +316,9 @@
+     m = sum(x) / len(x); return m, sum((v - m) ** 2 for v in x) / (len(x) - 1)
+ lines = ["# WSL 复现统计汇总（自动生成）", "",
+          "Δ = 类0 均值 − 类1 均值（M1/M2/M5：message-zero − message-ones；M4：mismatch-first − mismatch-last）。",
+-         "Welch 95% CI 为正态近似（z=1.96），与仓库 platform_stats 一致；每行同时给出仓库电池 ci_welch.json 的 Δ 以便核对。",
++         "均值差 95% CI 与双侧 p 均为正态近似，不是精确 Student t 分布结果；每行同时给出仓库电池 ci_welch.json 的 Δ 以便核对。",
+          "不锁频虚拟化环境：仅作跨环境描述，不进任何 Holm 家族。", "",
+-         "## 逐次运行", "", "| run | n/类 | Δ ns | 95% CI | Welch p | 电池 Δ | 中位数差 | p90 差 | p99 差 |", "|---|---|---|---|---|---|---|---|---|"]
++         "## 逐次运行", "", "| run | n/类 | Δ ns | 95% CI | 正态近似双侧 p | 电池 Δ | 中位数差 | p90 差 | p99 差 |", "|---|---|---|---|---|---|---|---|---|"]
+ groups = defaultdict(list)
+ for path in sorted(glob.glob(os.path.join(OUT, 'raw', '*.csv'))):
+     run = os.path.basename(path)[:-4]
+@@ -329,9 +338,12 @@
+     groups[re.sub(r'-s\d+-r\d+$', '', run)].append((d, se))
+ lines += ["", "## 按臂固定效应合并（逆方差加权；同臂所有种子与重复）", "", "| 臂 | 运行数 | 合并 Δ ns | 95% CI | z | 同号运行数 |", "|---|---|---|---|---|---|"]
+ for g, rs in sorted(groups.items()):
+-    w = [1 / se ** 2 for _, se in rs if se > 0]
++    estimable = [(d, se) for d, se in rs if se > 0]
++    w = [1 / se ** 2 for _, se in estimable]
+     if not w: continue
+-    m = sum(wi * d for wi, (d, _) in zip(w, rs)) / sum(w); s = 1 / math.sqrt(sum(w))
++    m = sum(wi * d for wi, (d, _) in zip(w, estimable)) / sum(w); s = 1 / math.sqrt(sum(w))
++    if len(estimable) != len(rs):
++        lines.append('零标准误运行保留在逐次表中，不参与逆方差合并：%s，%d 次。' % (g, len(rs) - len(estimable)))
+     pos = sum(1 for d, _ in rs if d > 0)
+     lines.append('| %s | %d | %.2f | [%.2f, %.2f] | %.2f | +%d / −%d |' % (g, len(rs), m, m - 1.96 * s, m + 1.96 * s, m / s, pos, len(rs) - pos))
+ # 性能
+@@ -411,7 +423,21 @@
+   check) phase_check;; deps) phase_deps;; fetch) phase_fetch;; build) phase_build;; verify) phase_verify;;
+   p0m1) phase_p0m1;; p0m5) phase_p0m5;; p1opt) phase_p1opt;; p1perf) phase_p1perf;; p2m4) phase_p2m4;; p2m2) phase_p2m2;;
+   stats) phase_stats;; env) phase_env;; pack) phase_pack;; status) phase_status;;
+-  all) phase_check && phase_deps && phase_fetch && phase_build && phase_env && phase_verify && phase_p0m1 && phase_p0m5 && \
+-       phase_p1opt && phase_p1perf && phase_p2m4 && phase_p2m2; phase_stats; phase_pack;;
++  all)
++    for stage in check deps fetch build env verify p0m1 p0m5 p1opt p1perf p2m4 p2m2 stats pack; do
++      errors_before=0
++      [ ! -f "$OUT/ERRORS.tsv" ] || errors_before=$(wc -l < "$OUT/ERRORS.tsv")
++      "phase_$stage"
++      stage_status=$?
++      errors_after=0
++      [ ! -f "$OUT/ERRORS.tsv" ] || errors_after=$(wc -l < "$OUT/ERRORS.tsv")
++      if [ "$stage_status" -ne 0 ] || [ "$errors_after" -gt "$errors_before" ]; then
++        if [ -f "$OUT/.stamps/$stage.done" ]; then
++          mv "$OUT/.stamps/$stage.done" "$OUT/.stamps/$stage.failed-$(date +%Y%m%dT%H%M%S)-$$"
++        fi
++        say "阶段 $stage 未通过，保留已有数据，停止后续阶段。"
++        exit 1
++      fi
++    done;;
+   *) sed -n 2,7p "$0"; exit 2;;
+ esac

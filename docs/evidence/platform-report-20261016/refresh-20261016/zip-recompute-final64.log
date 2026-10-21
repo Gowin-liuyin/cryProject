@@ -1,0 +1,114 @@
++ repository=/Users/yin/code/cryProject
++ archive=/Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final64-20261021.zip
++ extract_root=/Users/yin/code/cryProject/build/zip-recompute-final64
++ date -u +started_utc=%Y-%m-%dT%H:%M:%SZ
+started_utc=2026-10-21T02:34:35Z
++ hostname
+yindeMacBook-Air.local
++ uname -a
+Darwin yindeMacBook-Air.local 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:16:20 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T8142 arm64
++ sysctl -n machdep.cpu.brand_string
+Apple M5
++ cmake --version
++ head -1
+cmake version 4.3.2
++ cc --version
++ head -1
+Apple clang version 21.0.0 (clang-2100.3.34.2)
++ shasum -a 256 /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final64-20261021.zip
+5d1af0e790727156e84ae60258ba8e607ebb3847a0260c95fa0437f2956b30bb  /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final64-20261021.zip
++ rm -rf /Users/yin/code/cryProject/build/zip-recompute-final64
++ mkdir -p /Users/yin/code/cryProject/build/zip-recompute-final64
++ unzip -q /Users/yin/code/cryProject/deliverables/support/CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final64-20261021.zip -d /Users/yin/code/cryProject/build/zip-recompute-final64
++ ls /Users/yin/code/cryProject/build/zip-recompute-final64
++ head -20
+CMakeLists.txt
+MANIFEST.json
+PROVENANCE.json
+README.md
+REPRODUCE.md
+data
+evidence
+expected
+index.html
+report
+reproduce.sh
+source
++ shasum -a 256 /Users/yin/code/cryProject/build/zip-recompute-final64/CMakeLists.txt
+0036708b66f0f10f1c1c197daca57475360ba20cd57ee12860049b165f27b76a  /Users/yin/code/cryProject/build/zip-recompute-final64/CMakeLists.txt
++ cmake -S /Users/yin/code/cryProject/build/zip-recompute-final64 -B /Users/yin/code/cryProject/build/zip-recompute-final64/build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/zip-recompute-final64/build
++ cmake --build /Users/yin/code/cryProject/build/zip-recompute-final64/build --parallel 4
+[ 15%] Building C object CMakeFiles/support_reference.dir/source/src/kernel.c.o
+[ 15%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/driver.c.o
+[ 15%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_vulnerable.dir/binsec_harness.c.o
+[ 15%] Building C object CMakeFiles/platform_holm.dir/evidence/files/tools/platform_stats/holm.c.o
+[ 19%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/self_test.c.o
+[ 23%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_vulnerable.dir/compare_early.c.o
+[ 26%] Linking C executable m4_binsec_vulnerable
+[ 30%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/compare_checked.c.o
+[ 34%] Linking C executable platform_holm
+[ 38%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/compare_early.c.o
+[ 38%] Built target m4_binsec_vulnerable
+[ 42%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/driver.c.o
+[ 46%] Linking C executable m4_compare_vulnerable
+[ 46%] Built target platform_holm
+[ 50%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_ct.dir/binsec_harness.c.o
+[ 53%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/self_test.c.o
+[ 53%] Built target m4_compare_vulnerable
+[ 57%] Building C object CMakeFiles/support_reference.dir/source/src/mlkem.c.o
+[ 61%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_ct.dir/compare_ct.c.o
+[ 65%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/compare_checked.c.o
+[ 69%] Building C object CMakeFiles/support_reference.dir/source/src/random.c.o
+[ 73%] Linking C executable m4_binsec_ct
+[ 76%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/compare_ct.c.o
+[ 80%] Building C object CMakeFiles/support_reference.dir/source/src/inputs.c.o
+[ 80%] Built target m4_binsec_ct
+[ 84%] Linking C executable m4_compare_ct
+[ 84%] Built target m4_compare_ct
+[ 88%] Linking C static library libsupport_reference.a
+[ 88%] Built target support_reference
+[ 96%] Building C object CMakeFiles/platform_stats.dir/source/scripts/platform_stats/stats_csv.c.o
+[ 96%] Building C object CMakeFiles/platform_stats.dir/source/src/timing_statistics.c.o
+[100%] Linking C executable platform_stats
+[100%] Built target platform_stats
++ ctest --test-dir /Users/yin/code/cryProject/build/zip-recompute-final64/build -N
+Test project /Users/yin/code/cryProject/build/zip-recompute-final64/build
+  Test #1: support_stats_qualification
+  Test #2: m4_vulnerable_self_test
+  Test #3: m4_vulnerable_probe_smoke
+  Test #4: m4_ct_self_test
+  Test #5: m4_ct_probe_smoke
+
+Total Tests: 5
++ ctest --test-dir /Users/yin/code/cryProject/build/zip-recompute-final64/build --output-on-failure
+Test project /Users/yin/code/cryProject/build/zip-recompute-final64/build
+    Start 1: support_stats_qualification
+1/5 Test #1: support_stats_qualification ......   Passed    1.17 sec
+    Start 2: m4_vulnerable_self_test
+2/5 Test #2: m4_vulnerable_self_test ..........   Passed    0.37 sec
+    Start 3: m4_vulnerable_probe_smoke
+3/5 Test #3: m4_vulnerable_probe_smoke ........   Passed    0.00 sec
+    Start 4: m4_ct_self_test
+4/5 Test #4: m4_ct_self_test ..................   Passed    0.36 sec
+    Start 5: m4_ct_probe_smoke
+5/5 Test #5: m4_ct_probe_smoke ................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   1.91 sec
++ shasum -a 256 /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-cpu-6-fixed.csv /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-cpu-6-vulnerable.csv /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-primary-fixed.csv /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-primary-vulnerable.csv /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-seed-424242-fixed.csv /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-seed-424242-vulnerable.csv
++ head -3
+7e97be0952c631500ab6901a7595da6d9c7fe489eb37c9da00c56b2007540e4b  /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-cpu-6-fixed.csv
+5bc83463e372404fb51136a419669166a41afd0c30309b7880e28535b8109f38  /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-cpu-6-vulnerable.csv
+887a90ea9da97c5b42175410bc58a67baf26aed9ff99240fe3e39527fa5d3bc8  /Users/yin/code/cryProject/build/zip-recompute-final64/data/m1-primary-fixed.csv
++ date -u +finished_utc=%Y-%m-%dT%H:%M:%SZ
+finished_utc=2026-10-21T02:34:39Z

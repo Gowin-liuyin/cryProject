@@ -1,0 +1,11 @@
+binsec=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+solver=/home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+elf=/home/nss-marker/yhr/Cry/r13-network-20261020/runs/build-platform-7c36f850/platform_m5_formal_frommsg
+configuration=/home/nss-marker/yhr/Cry/r13-network-20261020/source-7c36f850/tools/platform_m5/binsec/checkct_m5_frommsg.cfg
+Binsec version 0.11.3
+Z3 version 4.15.3 - 64 bit
+8b11a6f8054b96f97e2ba4697952c88eef20094933889591cb3f18c2a73b1279  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/binsec-0.11.3/_opam/bin/binsec
+80ee070b8ffc2fa964b0b879250b2110c47f84c1256a1f9ab76fc7cf95e46292  /home/nss-marker/yhr/Cry/platform-m4-binsec-20261016-73f14add5392/runtime/z3-4.15.3-x64-glibc-2.39/bin/z3
+faadfc5ed0c3eb7bcc1e71ae971cf6de23a66d2fb8410334f7feb59a2d15aaab  /home/nss-marker/yhr/Cry/r13-network-20261020/runs/build-platform-7c36f850/platform_m5_formal_frommsg
+05095a92520b218df960538e9cdb0e25ab687245df2a37caad07c0053c45dd8f  /home/nss-marker/yhr/Cry/r13-network-20261020/source-7c36f850/tools/platform_m5/binsec/checkct_m5_frommsg.cfg
+/home/nss-marker/yhr/Cry/r13-network-20261020/runs/build-platform-7c36f850/platform_m5_formal_frommsg: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, BuildID[sha1]=2a3b5b3e1a6a29eee4ab875e0c9a0ce85b3e5a13, with debug_info, not stripped

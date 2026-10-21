@@ -58,7 +58,9 @@ FLOW = {
                 {"id": "M1C3", "class": "fix", "text": "poly_frommsg（982c762）: setb + cmov_int16", "addr": "189 bt → 18d setb → 198 call cmov_int16"},
                 {"id": "M1D", "class": "pub", "text": "密文比较: verify", "addr": "verify.c:16-25, len=1088 定长"},
                 {"id": "M1E1", "class": "pub", "text": "隐式拒绝: rkprf(ss, z, ct)", "addr": "kem.c:163"},
-                {"id": "M1E2", "class": "leak", "text": "cmov: 无 __asm__ 值屏障", "addr": "钉版 verify.c, 屏障计数 0", "fix_to": "M1E3"},
+                # 2026-10-16 补测后改回 :::pub（产物上未观测到分支，屏障缺失只作可移植性
+                # 隐患登记）——此前这里仍画成「leak」，图与 R05 §5 的 mermaid 源**说反了**。
+                {"id": "M1E2", "class": "pub", "text": "cmov: 无 __asm__ 值屏障（可移植性隐患）", "addr": "产物上掩码走 sete + neg/and/xor，未编成分支（2026-10-16 补测）", "fix_to": "M1E3"},
                 {"id": "M1E3", "class": "pub", "text": "cmov(ss, kr, 32, !fail) → return 0", "addr": "kem.c:166-168"},
             ],
         },
@@ -73,7 +75,10 @@ FLOW = {
                 {"id": "M2C1", "class": "pub", "text": "重加密: indcpa_enc", "addr": "kem.c:114"},
                 {"id": "M2C2", "class": "leak", "text": "poly_compress / polyvec_compress: 秘密被除数 ÷ 3329", "addr": "3523 div %r8d / 38c7 div %r8d", "fix_to": "M2C3"},
                 {"id": "M2C3", "class": "fix", "text": "272125f: 乘加移位替代除法", "addr": "division-counts 三热点 0"},
-                {"id": "M2C4", "class": "art", "text": "poly_frommsg: 源码与 M1 未修相同", "addr": "但本轮未出该函数反汇编（未检查）"},
+                # 2026-10-16 补测后由反汇编判定为「存在」，R05 §5 改用 :::leak；
+                # 「:::art」（未检查）这一类在 2026-10-16 起已不再使用——此前这里仍画成
+                # 「未检查」，图与源**说反了**。
+                {"id": "M2C4", "class": "leak", "text": "poly_frommsg: bt / jae 数据相关分支", "addr": "未修 3668 bt → 366c jae / 已修 366e bt → 3672 jae；两侧指令字节相同，272125f 未修此处（2026-10-16 补测）"},
                 {"id": "M2D", "class": "pub", "text": "密文比较: verify", "addr": "2ee0 mov 0x440,edx → 2eeb call verify"},
                 {"id": "M2E1", "class": "pub", "text": "隐式拒绝: hash_h(kr+32, ct, 1088)", "addr": "kem.c:119"},
                 {"id": "M2E2", "class": "pub", "text": "cmov(kr, z, 32, fail) 带值屏障", "addr": "verify.c:44-52 → kdf shake256"},

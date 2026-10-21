@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "unit": "ns",
+  "class0_count": 20000,
+  "class1_count": 20000,
+  "excluded_other_category_count": 60000,
+  "dropped_tail_count": 0,
+  "mean_difference_class0_minus_class1_ns": -108.12480000000505,
+  "standard_error_ns": 199.08285125475368,
+  "ci95_normal_lower_ns": -498.32001839886698,
+  "ci95_normal_upper_ns": 282.07041839885687,
+  "welch_t": -0.54311458429759285,
+  "welch_degrees_of_freedom": 39895.12739565142,
+  "p_two_sided_normal_approximation": 0.58705091169688295,
+  "holm": "not_applied_requires_preregistered_family",
+  "interpretation": "descriptive_normal_approximation_not_exact_student_t"
+}

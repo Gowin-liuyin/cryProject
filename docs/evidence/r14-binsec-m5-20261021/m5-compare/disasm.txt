@@ -1,0 +1,39 @@
+
+/home/nss-marker/yhr/Cry/r13-network-20261020/runs/build-platform-7c36f850/platform_m5_formal_compare:     ???? elf32-i386
+
+
+Disassembly of section .text:
+
+08049000 <m5_halt>:
+ 8049000:	8b 44 24 04          	mov    0x4(%esp),%eax
+ 8049004:	a3 20 b0 04 08       	mov    %eax,0x804b020
+ 8049009:	0f 0b                	ud2
+
+0804900b <m5_entry>:
+ 804900b:	56                   	push   %esi
+ 804900c:	53                   	push   %ebx
+ 804900d:	8b 35 00 b0 04 08    	mov    0x804b000,%esi
+ 8049013:	85 f6                	test   %esi,%esi
+ 8049015:	74 3e                	je     8049055 <m5_entry+0x4a>
+ 8049017:	bb 00 00 00 00       	mov    $0x0,%ebx
+ 804901c:	b9 00 00 00 00       	mov    $0x0,%ecx
+ 8049021:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8049026:	0f b6 90 40 b0 04 08 	movzbl 0x804b040(%eax),%edx
+ 804902d:	32 90 80 b4 04 08    	xor    0x804b480(%eax),%dl
+ 8049033:	09 d1                	or     %edx,%ecx
+ 8049035:	31 d3                	xor    %edx,%ebx
+ 8049037:	83 c0 01             	add    $0x1,%eax
+ 804903a:	39 c6                	cmp    %eax,%esi
+ 804903c:	75 e8                	jne    8049026 <m5_entry+0x1b>
+ 804903e:	0f b6 c9             	movzbl %cl,%ecx
+ 8049041:	f7 d9                	neg    %ecx
+ 8049043:	89 c8                	mov    %ecx,%eax
+ 8049045:	c1 f8 10             	sar    $0x10,%eax
+ 8049048:	31 d8                	xor    %ebx,%eax
+ 804904a:	31 d8                	xor    %ebx,%eax
+ 804904c:	0f b6 c0             	movzbl %al,%eax
+ 804904f:	50                   	push   %eax
+ 8049050:	e8 ab ff ff ff       	call   8049000 <m5_halt>
+ 8049055:	bb 00 00 00 00       	mov    $0x0,%ebx
+ 804905a:	b9 00 00 00 00       	mov    $0x0,%ecx
+ 804905f:	eb dd                	jmp    804903e <m5_entry+0x33>

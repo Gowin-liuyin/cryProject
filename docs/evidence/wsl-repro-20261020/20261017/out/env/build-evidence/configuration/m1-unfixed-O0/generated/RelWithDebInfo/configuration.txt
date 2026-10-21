@@ -1,0 +1,21 @@
+build_system=CMake 3.28.3
+generator=Unix Makefiles
+configuration=RelWithDebInfo
+compiler_flags= -O2 -g -DNDEBUG -std=c11
+compile_options=-Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror
+compile_definitions=MLK_CONFIG_FILE="baseline_config.h"
+include_directories=/home/cryrepro/cry-wsl/repo/include /home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem
+measure_include=/home/cryrepro/cry-wsl/build/m1-unfixed-O0/generated/RelWithDebInfo
+reference_kernel_include=/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem
+vulnerable_kernel_include=/home/cryrepro/cry-wsl/build/m1-unfixed-O0/vulnerable-source/mlkem
+hardened_kernel_include=/home/cryrepro/cry-wsl/build/m1-unfixed-O0/hardened-source/mlkem
+deployable_kernel_include=/home/cryrepro/cry-wsl/build/m1-unfixed-O0/deployable-source/mlkem
+baseline_config_parameter_set=MLK_CONFIG_PARAMETER_SET=768
+baseline_config_randomized_api=MLK_CONFIG_NO_RANDOMIZED_API
+baseline_config_backend=portable C arithmetic and builtin portable FIPS202 (no native or custom backend definitions)
+target_interprocedural_optimization=FALSE (additional compiler flags must be checked separately)
+vulnerable_definition=BASELINE_VULNERABLE=1
+vulnerable_encoder=optnone+noinline (Clang); O0+noinline (GCC)
+sanitizers=OFF
+link_flags=  
+compile_commands=/home/cryrepro/cry-wsl/build/m1-unfixed-O0/compile_commands.json

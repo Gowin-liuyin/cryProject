@@ -1,0 +1,137 @@
+==28406== Memcheck, a memory error detector
+==28406== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==28406== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==28406== Command: /home/cryrepro/cry-wsl/build/poison-m1-unfixed-O3
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BB8D: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BBA0: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BBB3: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BBC6: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BBD9: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BBEC: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BBFF: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BC12: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x10924A: main (historical_poison.c:51)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BC32: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BC4A: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BC62: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BC7A: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BC92: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BCAA: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+==28406== Conditional jump or move depends on uninitialised value(s)
+==28406==    at 0x10BCC2: pqcrystals_ml_kem_768_ipd_ref_poly_frommsg (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c:179)
+==28406==    by 0x10B705: pqcrystals_ml_kem_768_ipd_ref_indcpa_enc (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/indcpa.c:271)
+==28406==    by 0x10A078: pqcrystals_ml_kem_768_ipd_ref_dec (repo/vendor/liboqs-0.10.0/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/kem.c:158)
+==28406==    by 0x109517: mlkem_decapsulate (repo/src/mlkem_liboqs010.c:68)
+==28406==    by 0x109337: decapsulate_poisoned (historical_poison.c:33)
+==28406==    by 0x488A1C9: (below main) (libc_start_call_main.h:58)
+==28406== 
+class=message-zero status=0
+class=message-ones status=0
+==28406== 
+==28406== HEAP SUMMARY:
+==28406==     in use at exit: 0 bytes in 0 blocks
+==28406==   total heap usage: 63 allocs, 63 frees, 17,984 bytes allocated
+==28406== 
+==28406== All heap blocks were freed -- no leaks are possible
+==28406== 
+==28406== Use --track-origins=yes to see where uninitialised values come from
+==28406== For lists of detected and suppressed errors, rerun with: -s
+==28406== ERROR SUMMARY: 512 errors from 15 contexts (suppressed: 0 from 0)

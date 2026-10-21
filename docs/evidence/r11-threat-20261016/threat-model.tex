@@ -58,7 +58,7 @@ stdout/stderr/返回码/errno；\texttt{mlkem\_*} 返回码只表示参数、长
 证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 0、1.3、2、3 节与第 6 节第 5、6 条。
 
 \noindent\textbf{A.3 测量条件：本地同机、单核绑核、锁频控制器}\par
-被测机器是裸金属 \texttt{nss-m}（AMD Ryzen 9 9950X，16 核 $\times$ 2 SMT = 32 线程，单 socket 单 NUMA），
+被测机器是裸金属（AMD Ryzen 9 9950X，16 核 $\times$ 2 SMT = 32 线程，单 socket 单 NUMA），
 Linux 6.17.0-35-generic / Ubuntu 24.04.4 / x86\_64；采集时以 \texttt{taskset -c 2} 或 \texttt{-c 6} 绑定\textbf{单核}，
 由唯一控制器写 \texttt{boost=0}、governor 与 EPP 为 \texttt{performance}、\texttt{min=max=4300000} kHz，
 沉降 1.0 s 后取 20 次 $\times$ 50 ms 的 \texttt{scaling\_cur\_freq}，全部落在 $\pm$2\% 且跨度不超过 50000 kHz；
@@ -92,12 +92,12 @@ Linux 6.17.0-35-generic / Ubuntu 24.04.4 / x86\_64；采集时以 \texttt{taskse
 \endhead
 B1 密钥恢复与 exploit demo & 本平台不做，也不作为交付：全部结论停留在「类间耗时是否可区分」与「差异对应哪段源码或产物」，没有恢复私钥、内部消息或共享秘密的步骤，也不给可利用性结论。证据：\texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 6 节；R05 排查表第 7 节第 6 条。\\\hline
 B2 物理侧信道（功耗 / 电磁 / 缓存抢占的交叉核攻击） & 本平台只有软件计时一条通道，没有功耗或电磁采集设备；SMT 兄弟线程未隔离，但本轮\textbf{没有}把跨核缓存抢占建模为攻击通道，也没有做抢占实验。证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 5.1、9 节。\\\hline
-B3 远程网络时序 & 本轮只有同机场景，可选的同机网络对照（计划 T25）\textbf{未执行}，没有任何网络采集产物；同机锁频结果不能外推网络。证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条（网络路径端到端差分未执行）；计划条目见 \texttt{docs/全量收尾计划与提示词-20261016.md} 的 T25 行。详见第 C.6 节。\\\hline
+B3 远程网络时序 & 同机网络对照（T25）已于 2026-10-21 \textbf{执行}：裸金属上真实两端（匿名 \texttt{netns} 加自有 \texttt{veth} 加内核 \texttt{netem}）加锁频控制器口径，五档乘三臂乘两次独立运行的客户端 RTT 原始值已归档；\textbf{网络各档在本预算下未检出}，并给出分辨该量级所需的样本数（回环差约 1.3 个数量级、low 约 4.5 个、mid 约 5.7 个、high 约 7.7 个）。同机锁频结果\textbf{仍不能外推}真实远程。证据：\path{docs/evidence/r13-network-20261020/RESULT.md} 与 \path{docs/evidence/r13-network-20261020/data/}；\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条（该条由本项闭合）。详见第 C.6 节。\\\hline
 B4 编译器与操作系统之外的微架构特性建模（如 SMT 抢占的定量模型） & 本平台没有 SMT 抢占的定量模型：SMT 只作为\textbf{环境事实}登记（\texttt{SMT active=1}、兄弟线程未排除），抢占率、抢占代价与占用模型都没有进入统计。证据：\path{docs/evidence/r02-env-20261016/ENV_TABLE.md} 第 5.1 节；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 6 节末条。\\\hline
 B5 对上游库未固定版本的结论外推 & 所有结论都绑定到固定提交、固定编译器与选项、固定产物；换版本、换优化级别或换 ISA 分发后结论不适用。证据：\path{docs/evidence/m2-kem-20261016/RESULT.md}（历史 Kyber768 不冒称 FIPS 203）；R05 排查表第 7 节第 4 条；\texttt{\seqsplit{docs/evidence/platform-collection-20261016/README.md}} 第 6 节。\\\hline
 \end{longtable}
 
-\noindent 注：B1--B5 是\textbf{范围声明}，不是「已排除的风险」；其中 B3 的状态是「未执行」，不得读作「未检出」。
+\noindent 注：B1--B5 是\textbf{范围声明}，不是「已排除的风险」；B3 已于 2026-10-21 执行，状态是「\textbf{已执行且本预算下未检出}」，不得读作「未检出即安全」，也不得读作「未执行」。
 
 \subsection{本地高精度与远程网络的边界}
 
@@ -174,13 +174,21 @@ unlocked 臂「未改动配置」只证明采集进程没有写 sysfs，\textbf{
 结论限定本机、本体、本负载，不能外推到其它 CPU、其它 governor 或远程场景。
 证据：\path{docs/evidence/r12-innovation-20261016/RESULT_LOCKED_VS_UNLOCKED.md} 第 1、4、5、7、8 节。
 
-\noindent\textbf{C.6 远程网络时序：未执行}\par
-本轮\textbf{没有}做任何网络采集：没有回环 TCP、没有 \texttt{netns} 加 \texttt{veth} 加 \texttt{netem}、也没有任何网络产物目录。
-计划中的同机网络场景（T25）登记为可选，本轮\textbf{未执行}，因此这里写「\textbf{未执行}」而不是「未检出」。
-已有证据也明确登记「网络路径未做端到端差分」。\textbf{不能外推}：本章 C.1 至 C.5 的全部数值都是本地同机、单核绑核、锁频控制器下的观测；
+\noindent\textbf{C.6 远程网络时序：已执行（本预算下未检出）}\par
+2026-10-21 已在裸金属上\textbf{执行}：用匿名进程网络命名空间加自有 \texttt{veth} 加内核 \texttt{netem} 建立\textbf{真实两端}的 TCP 场景，
+锁频口径与 R02/R08/R09 相同，采了本地直调、回环、三档抖动共五档、三臂乘两次独立运行的\textbf{客户端 RTT 原始值}。
+恢复合同 8/8 通过，控制器终态逐档 \texttt{restore\_match=yes}。
+\textbf{结果}：\textbf{网络各档一律未检出}；本地直调档 M1 未修臂的 message-zero 与 message-ones 差异一次可分辨（$+37.1$ ns，CI $[20.4, 53.8]$）、
+一次未检出（$-7.9$ ns，CI $[-25.0, 9.2]$），即该量级效应的\textbf{跨运行可分辨性不稳定}，如实登记。
+\textbf{检测预算}：分辨该量级每类所需样本数为本地 1.3 万、回环 3.8 万、low $6.5\times10^{7}$、mid $1.0\times10^{9}$、high $9.8\times10^{10}$；
+本轮网络各档每类 2000 个样本，回环差约 1.3 个数量级、low 约 4.5 个、mid 约 5.7 个、high 约 7.7 个。
+因此「未检出」是\textbf{预算结论}，不是「没有差异」；\textbf{禁止}改写成「没有远程泄露」或「远程攻击不可行」。
+\textbf{仍然不能外推}：本章 C.1 至 C.5 的全部数值都是本地同机、单核绑核、锁频控制器下的观测；本节的网络场景同样是\textbf{同机}（\texttt{veth} 两端在同一台机器上），
 远程网络会引入排队、协议栈、链路抖动与对端调度等本机不存在的量，同机结果\textbf{不能}用来推断远程可检测性。
-若后续执行 T25，引用时必须标注「\textbf{同机模拟、非真实远程}」并保留该标注。
-证据：\texttt{docs/全量收尾计划与提示词-20261016.md} 的 T25 行与风险表；\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条。
+引用本节时必须标注「\textbf{同机模拟、非真实远程}」并保留该标注。
+覆盖边界：只测了客户端 RTT 一个观测量；进程级与系统级可观察面不在本节范围。
+证据：\path{docs/evidence/r13-network-20261020/PLAN.md}、\path{docs/evidence/r13-network-20261020/RESULT.md}、\path{docs/evidence/r13-network-20261020/data/}；
+\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条（该条由本节闭合）。
 
 \subsection{结论等级表}
 
@@ -228,8 +236,8 @@ M4 的 \texttt{insecure} 只针对人工提前退出夹具，\textbf{不是}新�
 \endfirsthead
 \rowcolor{headergray}\textbf{实例} & \textbf{状态} & \textbf{证据}\\\hline
 \endhead
-R05 排查表中标注 \texttt{unknown} 的格：M5 重加密步骤的 Binsec \texttt{checkct} & \textbf{unknown（带参数）}，不写「不存在」。三条已实测阻塞：Binsec 0.11.3 无法解码 x86-64；\texttt{checkct} 缺显式 \texttt{secret global} 时在 0 路径上仍打印 \texttt{secure}，把输入声明成 \texttt{public} 时甚至对 M4 的已知脆弱内核给出假阴性；M5 重加密消息为 32 字节自由值，路径数达 $2^{256}$ 量级，有界模型内必然 \texttt{unknown} & \path{docs/evidence/r05-locate-20261016/RESULT.md} 第 5 节；\texttt{docs/R05-全流程排查表.md} 第 4.4 节与第 7 节第 8 条；命令与产物 \path{docs/evidence/r05-locate-20261016/remote-tree/binsec-m5/}\\\hline
-可选网络场景（计划 T25） & \textbf{未执行}：本轮没有任何网络采集产物；网络路径的端到端差分亦登记为未执行。详见第 C.6 节 & \texttt{docs/全量收尾计划与提示词-20261016.md} 的 T25 行；\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 6 节第 2 条\\\hline
+R05 排查表中标注 \texttt{unknown} 的格：M5 重加密步骤的 Binsec \texttt{checkct} & \textbf{已闭合（2026-10-21）}：i386 裸机驱动加显式 \texttt{secret global} 建模下，FO 重加密比较步骤 1088/1088 路径完成、消息编码步骤 1/1 路径完成，\textbf{均无秘密相关控制流}；同一套配置下 M4 已知脆弱内核报出控制流泄露（\texttt{insecure}，32/32 路径），\textbf{证明不假阴性}。R05 当年登记的 $2^{256}$ 状态空间阻塞\textbf{实测不成立}（完整 32 字节消息为秘密时路径数为 1），故模型覆盖\textbf{完整步骤}。R05 原文件不就地改写。\textbf{边界}：只回答「控制流是否依赖秘密」，不是恒时证明；被分析的是 i386 产物（与 x86-64 正式产物逐函数结构对照），不覆盖整个解封装 & \path{docs/evidence/r14-binsec-m5-20261021/RESULT.md}（含四次运行的原件）；\path{docs/evidence/r05-locate-20261016/RESULT.md} 第 5 节（原始登记）\\\hline
+可选网络场景（计划 T25） & \textbf{已执行（2026-10-21）}：裸金属上真实两端加 \texttt{netem} 三档，锁频口径，五档乘三臂乘两次独立运行的客户端 RTT 原始值已归档；\textbf{网络各档在本预算下未检出}，并给出分辨该量级所需的样本数。结论上限只写「本预算下未检出」，\textbf{不写「没有远程泄露」}；引用须标注「同机模拟、非真实远程」 & \path{docs/evidence/r13-network-20261020/PLAN.md}、\path{docs/evidence/r13-network-20261020/RESULT.md}、\path{docs/evidence/r13-network-20261020/data/detection-budget.csv}；详见第 C.6 节\\\hline
 相关登记：R05 的 90 格中「未检查」= \textbf{0} 格（存在 5、不存在 75、不适用 10），另有 1 项按 \texttt{unknown} 登记 & 已执行且已更新 & \texttt{docs/R05-全流程排查表.md} 第 4.1 至 4.3 节\\\hline
 \end{longtable}
 
@@ -245,7 +253,7 @@ R05 排查表中标注 \texttt{unknown} 的格：M5 重加密步骤的 Binsec \t
   \item \textbf{观测量边界}：本章把攻击者的可观测量限定为单次调用耗时；R06 的 F1（M2 采集件把批级接受/拒绝汇总写进退出码、stderr 与 meta）与 R06 未检查的进程可观察面
   （\texttt{cmdline}、文件描述符、\texttt{maps}、core dump、\texttt{wait4}、信号、\texttt{/proc/<pid>/stat}、文件名与 mtime）都\textbf{不在}本章的观测面内，本轮也\textbf{未执行}对这些面的检查。
   证据：\path{docs/evidence/r06-noleak-20261016/AUDIT.md} 第 1.3 节 F1 与第 6 节第 5 条。
-  \item \textbf{网络与 M1 家族口径两处待整合}：(1) 若后续执行 T25，第 C.6 节与 D3 表第二行需改为引用网络结果并标注「同机模拟、非真实远程」；
+  \item \textbf{网络与 M1 家族口径两处待整合}：(1) 第 C.6 节与 D3 表第二行已于 2026-10-21 改为引用网络结果并标注「同机模拟、非真实远程」；
   (2) \texttt{\seqsplit{docs/evidence/r04-stats-20261016/POWER.md}} 第 5.1 节写「M1 主类对没有预注册 Holm 家族」，而 \texttt{\seqsplit{docs/evidence/r02-r04-close-20261016/RESULT.md}} 第 3 节写参数检验族为 $m=6$，
   本节只引用 M1 的检出事实与数值，\textbf{不断言} M1 的 Holm 确认状态，口径需由主控在两份证据之间确定后再写入报告。
   \item 本章是只读复述与登记，不是新的采集、不是新的统计、不是验收结论；数字如有冲突，以被引用文件为准。

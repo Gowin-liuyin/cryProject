@@ -1,0 +1,8 @@
+check pass: veth removed after cleanup
+check pass: no project handle under /run/netns
+check pass: no orphan namespace process
+check pass: link count restored
+check pass: qdisc count restored
+check pass: cpufreq policy unchanged (governor/min/max/EPP/boost)
+check pass: temporary files stayed under Cry
+check pass: no /tmp write by this task

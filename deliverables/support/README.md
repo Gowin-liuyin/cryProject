@@ -1,6 +1,14 @@
 # 支撑材料入口
 
-当前研究交付为2026-10-10的[49页G2补充报告](../research/aris-report-g2-20261010/README.md)和
+> **当前有效支撑包**：`CACR2026EA16XZ-multi-leakage-platform-20261016/CACR2026EA16XZ-platform-final24-20261021.zip`
+> （868→824 成员、直接身份标记 0、解出复算 CTest 5/5；详见该目录的 README）。
+> **上传时按官方角色名取只改名的副本**：`CACR2026EA16XZ-2026密码竞赛复赛相关支撑材料.zip`
+> （由 `python3 scripts/make_upload_package.py` 生成）。
+> 同目录下的 `待编号-2026密码竞赛复赛相关支撑材料-作废-20261007.zip` 是 2026-10-07 的
+> **占位号旧包**（其自述 `system_number=placeholder`、截图未取得），**不要上传**。
+> 提交件三件套与人工动作见 `deliverables/submission/CACR2026EA16XZ/UPLOAD-MANIFEST.md`。
+
+历史研究交付为2026-10-10的[49页G2补充报告](../research/aris-report-g2-20261010/README.md)和
 [925项匿名研究补充件](CACR2026EA16XZ-g2-windows-20261010/README.md)。实际ZIP的原字节、匿名、链接与独立实包审查通过；仅从ZIP提取G2-A，在macOS/ARM普通C11配置中通过唯一CTest，正常复算退出0、中断退出1，四份CSV/JSON逐字一致、原输入保持。没有新增密码调用、硬件采集或Linux实测。
 [报告作者侧核验](../../docs/evidence/aris-report-g2-20261010/README.md)及[实际组装与离线复算](../../docs/evidence/aris-g2-package-20261010/README.md)分别保存。
 

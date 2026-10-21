@@ -4,11 +4,24 @@
 
 | 编号 | 任务 | 现象 | 已尝试 | 影响的题面条款 | 建议 |
 |---|---|---|---|---|---|
-| B01 | T25 | 同机网络场景（本地直调 / 回环 TCP / veth+netem 三档）**未执行** | 未开始（时间预算优先给 DoD 必做路径：T20/T23/T29a 采集、T21/T24 统计、T31 报告整合、T32 打包、T33 审计） | 第 9 条**可选**部分；第 10 条威胁模型的"远程边界"改为定性说明 | 需 netns/veth/netem 与 sudo，且要在 CPU2/CPU6 之外组织拓扑；建议下一轮单独排期。威胁模型章 C.6 与 D3 已按"未执行"写，并在稿末留了改法 |
-| B02 | T15 | M5 重加密步骤的 Binsec `checkct` **仍为 unknown** | 三重阻塞实测：Binsec 0.11.3 无法解码 x86-64（`-isa amd64` 与默认 loader 都报 `Can not resolve decoder for x86-64`）；远端 clang 缺 32 位运行库；缺显式 `secret global` 时 checkct 在 0 路径也打印 secure（对 M4 已知脆弱内核假阴性）；32 字节消息路径数 2^256 | 第 5 条（M5 该格） | 需要新工程：i386 裸机驱动（`-ffreestanding -nostdlib`）+ 受约束域的显式 `secret global` 声明，并把"受约束模型 ≠ 完整步骤"写进结论。本轮按 unknown + 参数登记，未填"不存在" |
+| B01 | T25 | 同机网络场景（本地直调 / 回环 TCP / veth+netem 三档）**已执行**（2026-10-21） | 裸金属上真实两端（匿名 netns + 自有 veth + 内核 netem），锁频口径与 R02/R08/R09 相同；五档 × 3 臂 × 2 次独立运行的客户端 RTT 原始值已归档，恢复合同 8/8 通过，控制器终态逐档 restore_match=yes | 第 9 条**可选**部分；第 10 条威胁模型的"远程边界" | **结论上限**：网络各档在本预算下未检出，并给出分辨该量级每类所需样本数（本地 13 098 / 回环 38 417 / low 64 636 555 / mid 1 003 153 317 / high 97 586 175 893，口径 n = 2·(1.96·SD/|效应|)²），本轮每类 2000 个样本：回环差约 1.3 个数量级、low 约 4.5 个、mid 约 5.7 个（≈6）、high 约 7.7 个。**禁止**写成"没有远程泄露"；引用须标注"同机模拟、非真实远程"。证据：`docs/evidence/r13-network-20261020/`（PLAN.md 采集前冻结、RESULT.md、data/） |
+| B02 | T15 | M5 重加密步骤的 Binsec `checkct` **已闭合**（2026-10-21） | i386 裸机驱动（`-ffreestanding -nostdlib -Wl,-e,m5_entry`）+ 显式 `secret global` 建模：FO 重加密比较步骤 1088/1088 路径完成、消息编码步骤 1/1 路径完成，**均无秘密相关控制流**；同一配置下 M4 已知脆弱内核报控制流泄露（insecure，32/32 路径），**证明不假阴性** | 第 5 条（M5 该格） | **R05 登记的"2^256 状态空间"阻塞实测不成立**（完整 32 字节消息为秘密时路径数为 1），模型覆盖完整步骤而非受约束取值域。**边界**：只回答"控制流是否依赖秘密"，不是恒时证明；被分析的是 i386 产物（与 x86-64 正式产物逐函数结构对照），不覆盖整个解封装。R05 原文件不就地改写。证据：`docs/evidence/r14-binsec-m5-20261021/` |
 | B03 | T29b | Microwalk 官方镜像 `ghcr.io/microwalk-project/microwalk:pin` 未拉取/未运行 | 已实测 Docker 双重阻塞（`DockerRootDir` 越 Cry 边界 + 无 root 启 Cry 内 dockerd），ghcr 可达但层未下载 | 第 5 条的 Microwalk 行 | 已有替代：M3 用**源码自建** Microwalk 3.x + 自建 Pin 3.28 真跑通（互信息原件在案）。官方镜像可用性仍是阻塞 |
 | B04 | T29b | ctgrind 上游补丁 `ca93f4f` 对 Valgrind 3.22 打不上 | 已改用发行版 memcheck 的 `VALGRIND_MAKE_MEM_UNDEFINED` 路线 | 第 5 条的 ctgrind 行 | 如要在原生环境复现上游补丁，需固定 Valgrind 3.25.1（既有 M1/M2 证据版本） |
-| B05 | T05/T30 | 干净 clone 缺 `vendor/liboqs-0.10.0`、`vendor/kyber-kyberslash-*`、`third_party/`（均在 `.gitignore`） | quick 档已按"缺件即跳过并打印原因"处理，ctest 仍 194/194 通过 | 第 11 条的"一键复现" | 历史阳性对照与 M2 臂的复现需要先跑 `tools/fetch_liboqs_0.10.0.sh` 等取件脚本；已在 `REPRODUCE-PARAMS.md` 写明 |
+| B05 | T05/T30 | 干净 clone 缺 `vendor/liboqs-0.10.0`、`vendor/liboqs-0.10.0-982c762`、`vendor/kyber-kyberslash-*`、`third_party/`（均在 `.gitignore`） | **2026-10-20 已闭合**：新增 `tools/fetch_all_vendors.sh` 一键取齐四棵 vendor 树并逐项校验 SHA-256（上游归档摘要 + 树内逐文件摘要），`scripts/reproduce_all.sh quick --fetch` 可在复现时一并取件；缺件时脚本打印取件命令并按「缺件即跳过并打印原因」处理 | 第 11 条的"一键复现" | `third_party/`（RTLF/Mona）仍需按各自上游取件，且只作族外工具；主平台正式统计不依赖它们 |
+
+
+## 已登记的口径缺口（不阻塞，但必须随结论一起读）
+
+5. **M1 族的预注册完整性缺口（2026-10-21 独立复核发现，已披露）**。冻结计划
+   `r02-r04-close-20261016/PLAN.md` §1.2 事前写的是 **m = 8**（含两项 dudect 成员），并写明
+   「检验族构成…在采集后绝不修改」；但**采集完成后**该族被收敛为 **m = 6**（dudect 的多批最大 t
+   不是有效 p 值），原 `holm.csv` 的 8 行被**原地覆盖**为 6 行。
+   **两种 m 下家族级判定相同**（m=8：未修主检验 p=1.30117e-05、阈值 α/7=0.00714 仍拒绝；已修 p=0.19615、
+   阈值 0.010 仍不拒绝；m=6：阈值 0.00833 / 0.01667，判定相同），MDE 随 m 变（m=8：32.26 / 36.54 ns；
+   m=6：31.39 / 35.56 ns）但「未修可检出、已修不可检出」不变。**不是结论造假，是预注册完整性被破坏**；
+   事前族 8 行已按原字节另存为 `r02-r04-close-20261016/holm.m8.csv`，报告 §3 / §19 / 表 T16 与
+   `POWER.md` §1、`platform-collection` README 均已如实披露，**不再把 m=6 说成事前族**。
 
 ## 未构成阻塞但需随结论一起读的事项
 
@@ -18,8 +31,13 @@
    varlat/KyberSlash 这类**专查除法**的工具对 M5 不适用（三模式 10 次完整解封装 0 errors/0 contexts），
    即"这条工具路径没能在 M5 上给出独立证据"，**不是**与 R05 判定冲突，也不是"未检出泄漏"。
    报告表 T12/T24 按 R05 本体的结论与计数引用，工具侧边界在 R05 §7 与本文件同时登记。
-2. **R06 发现项 F1（低危）**：`tools/platform_m2/collector.c` 在功能门失败时把
-   `accept_mismatch_count` 汇总写进 stderr 与非 0 退出码；正常路径不触发（实测 rc 恒 0、stderr 恒空）。
-   建议按 R06 §6 的修法处理，改后需重跑 R06 §2/§3。
+2. **R06 发现项 F1（低危）——已于 2026-10-20 闭合**：原问题是 `tools/platform_m2/collector.c`
+   在功能门失败时把 `accept_mismatch_count` 汇总写进 stderr 与非 0 退出码（正常路径不触发）。
+   修法按 R06 §6 执行：新增 `--self-test` 显式功能门模式，功能门检查仅在显式传入时生效，
+   **计时模式下 stderr 恒空、退出码只反映参数/IO/内存错误**；重跑 R06 §2/§3 后
+   dynamic-diff 7 模式 × 120 次全部 rc=0、stdout/stderr 逐字节一致，
+   **static-scan 的 B 类（内部验证结果泄露）由 1 条降为 0 条**。
+   验证记录见 [r06-noleak-fix-20261020/AUDIT.md](docs/evidence/r06-noleak-fix-20261020/AUDIT.md) §7；
+   本条自此不再是待办，保留在原位置以免读者误以为仍有未修的低危项。
 3. **M3 的 1280 errors/2 contexts** 是人工夹具故意引入的秘密下标访存，不流向 syscall 参数。
 4. **报告里仍标"未执行"的格**（如数据相关循环）是结构性未做项，不是占位符也不是阴性。

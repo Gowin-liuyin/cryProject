@@ -1,0 +1,15 @@
+-- The C compiler identification is Clang 18.1.8
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang-18 - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.53.0")
+-- openssl SHA3-256 probe: OK (/usr/bin/openssl: OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026))
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Historical liboqs 0.10.0 (36be57445d8ca53f7095160fde548efe82ace09d) from /home/firefly/cry-wsl/repo/vendor/liboqs-0.10.0; AVX2 dispatch forced OFF. OQS_DIST_BUILD=OFF alone still selects AVX2 on capable x86_64. Clangover timing still requires x86_64 Clang 15-18 with -Os/-O1 (see docs/historical-liboqs-0.10.0.md)
+-- Configuring done (10.5s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/firefly/cry-wsl/build/m1-unfixed-Os

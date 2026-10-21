@@ -1,0 +1,23 @@
+Preset CMake variables:
+
+  A113_ARCHIVED_CASE_ONLY="OFF"
+  BASELINE_ENABLE_LIBOQS010="ON"
+  BASELINE_SANITIZERS="OFF"
+  BUILD_TESTING="ON"
+  CMAKE_BUILD_TYPE="RelWithDebInfo"
+
+-- The C compiler identification is Clang 18.1.3
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang-18 - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Git: /usr/bin/git (found version "2.43.0") 
+-- openssl SHA3-256 probe: OK (/usr/bin/openssl: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024))
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Historical liboqs 0.10.0 (36be57445d8ca53f7095160fde548efe82ace09d) from /home/cryrepro/cry-wsl/repo/vendor/liboqs-0.10.0; AVX2 dispatch forced OFF. OQS_DIST_BUILD=OFF alone still selects AVX2 on capable x86_64. Clangover timing still requires x86_64 Clang 15-18 with -Os/-O1 (see docs/historical-liboqs-0.10.0.md)
+-- Configuring done (6.3s)
+-- Generating done (0.3s)
+-- Build files have been written to: /home/cryrepro/cry-wsl/build/m1-unfixed-Os

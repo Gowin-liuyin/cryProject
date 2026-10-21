@@ -1,0 +1,48 @@
+{
+  "source_root": "/home/nss-marker/yhr/Cry/r13-network-20261020/source-3f94f228",
+  "output_root": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms",
+  "arms": {
+    "m5ref": {
+      "network_client": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m5ref/cmake/network_client",
+        "sha256": "dc9e06a7bf89b9505ecf8ea24d28de14c2b9f3674e582ac9ce9299516eb95eaf"
+      },
+      "network_server": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m5ref/cmake/network_server",
+        "sha256": "f9ced18cc0d405686a0793a1b61ea881d117a9f896b5dda5e73949c049d02c06"
+      },
+      "measure": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m5ref/measure",
+        "sha256": "6a10bcf6a9e8298d06adc9e0c63d122484642348413b4e00c2a5cd424106ae22"
+      }
+    },
+    "m1unfixed": {
+      "network_client": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m1unfixed/network_client",
+        "sha256": "b5b9c87efaf3f21eaf4ff33e50a5502bae91e41797d21c3d2112eae5c4468acc"
+      },
+      "network_server": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m1unfixed/network_server",
+        "sha256": "9e866d9898690cfd61ca9f492aba8f45e9b61768f90f7fbabb9dbfbfa2673b0a"
+      },
+      "measure": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m1unfixed/measure",
+        "sha256": "d96c315d1913e30002504fa596f92b39b17acce452901bbf7baba744574fe247"
+      }
+    },
+    "m1fixed": {
+      "network_client": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m1fixed/network_client",
+        "sha256": "4d6153affdb85d7ee4c53e44fb78d688bd6c065379ddf7e67344ce2b8d0e728d"
+      },
+      "network_server": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m1fixed/network_server",
+        "sha256": "a14c137ece0bbd3f4ec1ae1d5e634321229f9797a8566cdc33470cdd5e0a7363"
+      },
+      "measure": {
+        "path": "/home/nss-marker/yhr/Cry/r13-network-20261020/runs/arms/build-m1fixed/measure",
+        "sha256": "da5bb11a56af0c967b5216353595e9c80a135ca2d85bd676f2e2b523889f8319"
+      }
+    }
+  }
+}

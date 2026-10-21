@@ -1,0 +1,9 @@
+test,raw_p,rank,threshold,rejected
+unfixed_dudect_zero_vs_ones,1.05000e-153,1,0.00625,YES
+unfixed_ci_zero_vs_ones,1.30117e-05,2,0.00714,YES
+unfixed_ci_valid_vs_bitflip,0.02048,3,0.00833,NO
+fixed_ci_zero_vs_ones,0.19615,4,0.01000,NO
+fixed_dudect_zero_vs_ones,0.25014,5,0.01250,NO
+unfixed_ci_valid_vs_random,0.25064,6,0.01667,NO
+fixed_ci_valid_vs_random,0.25996,7,0.02500,NO
+fixed_ci_valid_vs_bitflip,0.91419,8,0.05000,NO

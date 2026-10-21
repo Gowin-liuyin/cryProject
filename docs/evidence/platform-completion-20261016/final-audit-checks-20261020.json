@@ -1,0 +1,889 @@
+{
+  "csv": "docs/evidence/platform-completion-20261016/FINAL_AUDIT.csv",
+  "csv_sha256": "63922724033ff2008f7f8b9ddb0f318298f0d813bf60de33e5caa80c86b28f07",
+  "rows": 93,
+  "executable_commands": 90,
+  "placeholder_commands": 3,
+  "exit_zero": 90,
+  "non_zero": 0,
+  "timeouts": 0,
+  "evidence_paths_total": 331,
+  "evidence_paths_checked": 324,
+  "evidence_paths_missing": [],
+  "evidence_paths_skipped": [
+    {
+      "id": "G02",
+      "path": "(git) ac46e62..a30d7c7 的 sources/ 与 vendor/ diff 为空",
+      "reason": "不是路径，是说明文字"
+    },
+    {
+      "id": "G02",
+      "path": "工作区 sources/ 干净",
+      "reason": "含空格且无法确定路径"
+    },
+    {
+      "id": "G09",
+      "path": "(git) main@7a71d5c",
+      "reason": "不是路径，是说明文字"
+    },
+    {
+      "id": "G09",
+      "path": "44c209a..HEAD 的提交（条数由 git 现算），作者与提交者均为 Gowin-liuyin",
+      "reason": "含空格且无法确定路径"
+    },
+    {
+      "id": "C05",
+      "path": "（无）",
+      "reason": "占位：只有说明文字，没有路径"
+    },
+    {
+      "id": "D06",
+      "path": "（无）",
+      "reason": "占位：只有说明文字，没有路径"
+    },
+    {
+      "id": "E06",
+      "path": "（无）",
+      "reason": "占位：只有说明文字，没有路径"
+    }
+  ],
+  "results": [
+    {
+      "index": 1,
+      "id": "G01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 2,
+      "id": "G02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.05,
+      "output_head": ""
+    },
+    {
+      "index": 3,
+      "id": "G03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.06,
+      "output_head": ""
+    },
+    {
+      "index": 4,
+      "id": "G04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 5,
+      "id": "G05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": "54\n"
+    },
+    {
+      "index": 6,
+      "id": "G06",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.03,
+      "output_head": ""
+    },
+    {
+      "index": 7,
+      "id": "G07",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 8,
+      "id": "G08",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 9,
+      "id": "G09",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.08,
+      "output_head": ""
+    },
+    {
+      "index": 10,
+      "id": "A01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 11,
+      "id": "A02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.06,
+      "output_head": ""
+    },
+    {
+      "index": 12,
+      "id": "A03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 13,
+      "id": "A04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "4\n"
+    },
+    {
+      "index": 14,
+      "id": "B01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 15,
+      "id": "B02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "docs/evidence/m2-kyberslash-20261016/version-audit/varlat-unfixed.log:==196103== ERROR SUMMARY: 1280 errors from 3 contexts (suppressed: 0 from 0)\ndocs/evidence/m2-kyberslash-20261016/version-audit/varlat-fixed.log:==196104== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+    },
+    {
+      "index": 16,
+      "id": "B03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "7\n"
+    },
+    {
+      "index": 17,
+      "id": "B04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.76,
+      "output_head": ""
+    },
+    {
+      "index": 18,
+      "id": "B05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "76:0.261 / 0.247 / 0.064（已修臂），**Holm 拒绝数 0**；合并 Δ = +4.58 ns，CI [−3.08, +12.25]（含 0），I² = 58.3%。\n"
+    },
+    {
+      "index": 19,
+      "id": "B06",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "22:| run-name | CPU | seed | 臂 | 控制器退出 | reason | worker_exit_code | restore_match | 放行探针 |\n"
+    },
+    {
+      "index": 20,
+      "id": "B07",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 21,
+      "id": "C01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 22,
+      "id": "C02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": "==317869== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+    },
+    {
+      "index": 23,
+      "id": "C03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "65:三次的原始 p = 0.249、0.410、0.427，**Holm 拒绝数 0**；固定效应合并\n"
+    },
+    {
+      "index": 24,
+      "id": "C04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 25,
+      "id": "C05",
+      "exit_code": null,
+      "placeholder": true,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "占位命令（可选未做），不执行"
+    },
+    {
+      "index": 26,
+      "id": "D01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "74:    Start 67: platform_m3_full_output_equivalence\n75:5/6 Test #67: platform_m3_full_output_equivalence ...   Passed    0.06 sec\n"
+    },
+    {
+      "index": 27,
+      "id": "D02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "docs/evidence/m3-completion-20261016/native-8b6f2d91/on-secret.memcheck.log:==254710== ERROR SUMMARY: 1280 errors from 2 contexts (suppressed: 0 from 0)\ndocs/evidence/m3-completion-20261016/native-8b6f2d91/off-secret.memcheck.log:==254747== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+    },
+    {
+      "index": 28,
+      "id": "D03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 29,
+      "id": "D04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "66:0.375/0.458/0.480（关臂），**Holm 拒绝数 0**；合并 Δ = −0.73 ns，95% CI [−5.56, +4.10]（含 0），I² = 12.5%。\n"
+    },
+    {
+      "index": 30,
+      "id": "D05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 31,
+      "id": "D06",
+      "exit_code": null,
+      "placeholder": true,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "占位命令（可选未做），不执行"
+    },
+    {
+      "index": 32,
+      "id": "E01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "2:    Start 1: m4_vulnerable_self_test\n3:1/4 Test #1: m4_vulnerable_self_test ..........   Passed    0.34 sec\n6:    Start 3: m4_ct_self_test\n7:3/4 Test #3: m4_ct_self_test ..................   Passed    0.64 sec\n"
+    },
+    {
+      "index": 33,
+      "id": "E02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "docs/evidence/m4-compare-20261016/linux-run-250f424b/valgrind-vulnerable.log:==187120== ERROR SUMMARY: 32 errors from 1 contexts (suppressed: 0 from 0)\ndocs/evidence/m4-compare-20261016/linux-run-250f424b/valgrind-ct.log:==187130== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+    },
+    {
+      "index": 34,
+      "id": "E03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "docs/evidence/m4-completion-20261016/formal-v1/vulnerable-1-16/stdout.txt:[checkct:result] Program status is : insecure (0.213)\ndocs/evidence/m4-completion-20261016/formal-v1/ct-1-16/stdout.txt:[checkct:result] Program status is : secure (0.084)\n"
+    },
+    {
+      "index": 35,
+      "id": "E04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "52:**Holm 拒绝 3 项，全部来自 vulnerable 臂**。家族合并 Δ = −3.74 ns，CI [−3.87, −3.62]，I² = 98.6%\n"
+    },
+    {
+      "index": 36,
+      "id": "E05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 37,
+      "id": "E06",
+      "exit_code": null,
+      "placeholder": true,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "占位命令（可选未做），不执行"
+    },
+    {
+      "index": 38,
+      "id": "F01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 39,
+      "id": "F02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 40,
+      "id": "F03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": "7:- [figures/platform-evidence-matrix.svg](figures/platform-evidence-matrix.svg)：可直接编辑的原生矢量结果图源（1492×975，纯 text 元素）。\n15:**本图是结果图，不是计划图**：只写已有证据的实际状态。分「真实历史案例（M1/M2）/\n"
+    },
+    {
+      "index": 41,
+      "id": "F04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": "146:## 2026-10-16 收尾轮交接（主控）\n189:## 2026-10-16 全量收尾轮交接（主控）\n3\n"
+    },
+    {
+      "index": 42,
+      "id": "S01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": "18\n79edb27f8339691f2f9e49c4ca9fdfffd47d03945297a358517caa2414ff284a  docs/evidence/r03-malformed-20261016/PLAN.md\n1\n"
+    },
+    {
+      "index": 43,
+      "id": "S02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 44,
+      "id": "T00",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 45,
+      "id": "T05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": "2\n2\n1\n"
+    },
+    {
+      "index": 46,
+      "id": "T06",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 47,
+      "id": "T07",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 48,
+      "id": "T08",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 49,
+      "id": "T09",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 50,
+      "id": "T15",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 51,
+      "id": "T17",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 52,
+      "id": "T18",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 53,
+      "id": "T19",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.04,
+      "output_head": ""
+    },
+    {
+      "index": 54,
+      "id": "T20",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 55,
+      "id": "T21",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.03,
+      "output_head": ""
+    },
+    {
+      "index": 56,
+      "id": "T22",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.05,
+      "output_head": ""
+    },
+    {
+      "index": 57,
+      "id": "T23",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 58,
+      "id": "T24",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 59,
+      "id": "T26",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 60,
+      "id": "T27",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.0,
+      "output_head": ""
+    },
+    {
+      "index": 61,
+      "id": "T28",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 62,
+      "id": "T29",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.04,
+      "output_head": ""
+    },
+    {
+      "index": 63,
+      "id": "T30",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 64,
+      "id": "T31",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.05,
+      "output_head": ""
+    },
+    {
+      "index": 65,
+      "id": "T32",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 1.53,
+      "output_head": ""
+    },
+    {
+      "index": 66,
+      "id": "T34",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 67,
+      "id": "BLOCKERS",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 68,
+      "id": "X-CONT",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 69,
+      "id": "D-01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 70,
+      "id": "D-02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 71,
+      "id": "D-03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 72,
+      "id": "D-04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.03,
+      "output_head": ""
+    },
+    {
+      "index": 73,
+      "id": "D-05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 74,
+      "id": "R-02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.03,
+      "output_head": ""
+    },
+    {
+      "index": 75,
+      "id": "R-03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.11,
+      "output_head": "official pdf pages 104 declared in README True\n"
+    },
+    {
+      "index": 76,
+      "id": "R-04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 77,
+      "id": "P2-01",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 78,
+      "id": "P2-02",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 79,
+      "id": "P2-03",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": "01-reproduce-quick-terminal.png: OK\n02-valgrind-memcheck-hit.png: OK\n03-frequency-controller-log.png: OK\n04-offline-html.png: OK\nSCREENSHOTS.md: OK\n"
+    },
+    {
+      "index": 80,
+      "id": "P2-04",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 1.79,
+      "output_head": ""
+    },
+    {
+      "index": 81,
+      "id": "P2-05",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.03,
+      "output_head": ""
+    },
+    {
+      "index": 82,
+      "id": "P2-06",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 83,
+      "id": "P2-07",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 84,
+      "id": "P2-08",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 85,
+      "id": "P2-09",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 1.48,
+      "output_head": ""
+    },
+    {
+      "index": 86,
+      "id": "P2-10",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 87,
+      "id": "P2-11",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 1.39,
+      "output_head": ""
+    },
+    {
+      "index": 88,
+      "id": "P2-12",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.31,
+      "output_head": ""
+    },
+    {
+      "index": 89,
+      "id": "P2-13",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.01,
+      "output_head": ""
+    },
+    {
+      "index": 90,
+      "id": "P2-14",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.03,
+      "output_head": ""
+    },
+    {
+      "index": 91,
+      "id": "P2-15",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.09,
+      "output_head": ""
+    },
+    {
+      "index": 92,
+      "id": "P2-16",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.02,
+      "output_head": ""
+    },
+    {
+      "index": 93,
+      "id": "P2-17",
+      "exit_code": 0,
+      "placeholder": false,
+      "timed_out": false,
+      "seconds": 0.56,
+      "output_head": ""
+    }
+  ]
+}

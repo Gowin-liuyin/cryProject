@@ -19,13 +19,34 @@ if [ -f "${vendor_dir}/CMakeLists.txt" ]; then
     exit 1
 fi
 
+# 精简 Linux 可能没有 perl 的 shasum，用 coreutils 的 sha256sum 兜底。
+sha256_of_file() {
+    if command -v sha256sum >/dev/null 2>&1; then
+        sha256sum "$1" | awk '{print $1}'
+    else
+        shasum -a 256 "$1" | awk '{print $1}'
+    fi
+}
+
 mkdir -p "${repository_root}/vendor"
 printf 'downloading %s\n' "${archive_url}"
-curl -fL --retry 3 -o "${archive_path}" "${archive_url}"
-actual_sha256=$(shasum -a 256 "${archive_path}" | awk '{print $1}')
+
+# 网络抖动时 GitHub 的 HTTP/2 下载会出现 framing 层错误或半截文件。
+# 强制 HTTP/1.1，并对任何传输错误重试；老版本 curl 没有 --retry-all-errors 时退回原参数。
+curl_retry_options="--retry 3"
+if curl --help all 2>/dev/null | grep -q -- '--retry-all-errors'; then
+    curl_retry_options="${curl_retry_options} --retry-all-errors"
+fi
+if ! curl -fL ${curl_retry_options} --http1.1 -o "${archive_path}" "${archive_url}"; then
+    rm -f "${archive_path}"
+    printf 'download failed; no partial archive kept\n' >&2
+    exit 1
+fi
+actual_sha256=$(sha256_of_file "${archive_path}")
 if [ "${actual_sha256}" != "${expected_sha256}" ]; then
     printf 'SHA-256 mismatch for liboqs archive\nexpected %s\nactual   %s\n' \
         "${expected_sha256}" "${actual_sha256}" >&2
+    rm -f "${archive_path}"
     exit 1
 fi
 

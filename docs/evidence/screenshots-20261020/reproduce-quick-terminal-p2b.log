@@ -1,0 +1,113 @@
+quick 档：仓库 /Users/yin/code/cryProject
+工作目录 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020
+每类样本 200，重复运行 1，配置 platform,ordinary,sanitize,historical-fixed
+并行度 8；cmake cmake；ctest ctest
+SHA3-256 可用的 openssl：/opt/homebrew/opt/openssl@3/bin/openssl
+本档不写任何 sysfs、不调用 sudo、不绑定 CPU 亲和性。
+
+=== vendor 树预检（M1 历史阳性对照 / M2 KyberSlash 两臂）===
+  [就位] liboqs-base
+  [就位] liboqs-fixed
+  [就位] kyber-unfixed
+  [就位] kyber-fixed
+四棵 vendor 树齐备，M1/M2 两组历史案例都进本轮构建。
+
+=== [platform] 配置 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform ===
++ cmake -S /Users/yin/code/cryProject -B /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF -DBASELINE_ENABLE_LIBOQS010=ON
+=== [platform] 构建 ===
++ cmake --build /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform --parallel 8
+=== [platform] CTest ===
++ ctest --test-dir /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform --output-on-failure
+
+=== [ordinary] 配置 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-ordinary ===
++ cmake -S /Users/yin/code/cryProject -B /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-ordinary -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl
+=== [ordinary] 构建 ===
++ cmake --build /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-ordinary --parallel 8
+=== [ordinary] CTest ===
++ ctest --test-dir /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-ordinary --output-on-failure
+
+=== [sanitize] 配置 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-sanitize ===
++ cmake -S /Users/yin/code/cryProject -B /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-sanitize -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug
+=== [sanitize] 构建 ===
++ cmake --build /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-sanitize --parallel 8
+=== [sanitize] CTest ===
++ ctest --test-dir /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-sanitize --output-on-failure
+
+=== [historical-fixed] 配置 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-historical-fixed ===
++ cmake -S /Users/yin/code/cryProject -B /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-historical-fixed -DOPENSSL_EXECUTABLE=/opt/homebrew/opt/openssl@3/bin/openssl -DBASELINE_ENABLE_LIBOQS010=ON -DA113_ARCHIVED_CASE_ONLY=OFF -DLIBOQS010_SOURCE_DIR=/Users/yin/code/cryProject/vendor/liboqs-0.10.0-982c762
+=== [historical-fixed] 构建 ===
++ cmake --build /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-historical-fixed --parallel 8
+=== [historical-fixed] CTest ===
++ ctest --test-dir /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-historical-fixed --output-on-failure
+
+=== 小样本统计演练（每类 200 次 × 1 次运行）===
+平台二进制根 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/historical/measure quick-M1-unfixed-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/unfixed/r1/quick-M1-unfixed-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/unfixed/r1/quick-M1-unfixed-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/unfixed/r1/quick-M1-unfixed-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/unfixed/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-historical-fixed/historical/measure quick-M1-fixed-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/fixed/r1/quick-M1-fixed-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/fixed/r1/quick-M1-fixed-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/fixed/r1/quick-M1-fixed-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1/fixed/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform-m2/unfixed/measure quick-M2-unfixed-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/unfixed/r1/quick-M2-unfixed-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/unfixed/r1/quick-M2-unfixed-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/unfixed/r1/quick-M2-unfixed-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/unfixed/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform-m2/fixed/measure quick-M2-fixed-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/fixed/r1/quick-M2-fixed-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/fixed/r1/quick-M2-fixed-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/fixed/r1/quick-M2-fixed-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2/fixed/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform-m3/on/measure quick-M3-on-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/on/r1/quick-M3-on-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/on/r1/quick-M3-on-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/on/r1/quick-M3-on-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/on/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform-m3/off/measure quick-M3-off-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/off/r1/quick-M3-off-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/off/r1/quick-M3-off-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/off/r1/quick-M3-off-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3/off/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_m4_measure_vulnerable --collect /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv 200 31337 quick-M4-vulnerable-r1 --compare-bytes 32
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4/vulnerable/r1/quick-M4-vulnerable-r1.csv measure mismatch-first mismatch-last /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4/vulnerable/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_m4_measure_ct --collect /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv 200 31337 quick-M4-ct-r1 --compare-bytes 32
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4/ct/r1/quick-M4-ct-r1.csv measure mismatch-first mismatch-last /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4/ct/r1/stats
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/reference/measure quick-M5-reference-r1 31337 200 /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M5/reference/r1/quick-M5-reference-r1.meta
++ /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_stats /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M5/reference/r1/quick-M5-reference-r1.csv measure message-zero message-ones /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M5/reference/r1/stats
+
+--- M1 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1 && /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_holm --input /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M1-members.csv --output-dir M1-holm --alpha 0.05)
+  family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
+  M1_quick_rehearsal,M1-fixed-r1,0.740180292817286,1,0.025,1,0
+  M1_quick_rehearsal,M1-unfixed-r1,0.964702336730486,2,0.05,1,0
+  family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
+  M1_quick_rehearsal,2,-42.4719188157409,159.854518566298,-355.786775205685,270.842937574203,0.0413348688482464,1,0
+
+--- M2 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2 && /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_holm --input /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M2-members.csv --output-dir M2-holm --alpha 0.05)
+  family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
+  M2_quick_rehearsal,M2-fixed-r1,0.808108494407629,1,0.025,1,0
+  M2_quick_rehearsal,M2-unfixed-r1,0.981568713313605,2,0.05,1,0
+  family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
+  M2_quick_rehearsal,2,28.8679863636158,156.465004609267,-277.803422670548,335.53939539778,0.0254773482027532,1,0
+
+--- M3 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3 && /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_holm --input /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M3-members.csv --output-dir M3-holm --alpha 0.05)
+  family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
+  M3_quick_rehearsal,M3-on-r1,0.378632170928495,1,0.025,0.757264341856989,0
+  M3_quick_rehearsal,M3-off-r1,0.781015736680066,2,0.05,0.781015736680066,0
+  family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
+  M3_quick_rehearsal,2,25.1719697687417,67.520333694402,-107.167884272286,157.51182380977,0.713435667987653,1,0
+
+--- M4 Holm 演练：2 个成员，alpha=0.05 ---
++ (cd /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4 && /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_holm --input /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M4-members.csv --output-dir M4-holm --alpha 0.05)
+  family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
+  M4_quick_rehearsal,M4-vulnerable-r1,0.126172543892053,1,0.025,0.252345087784105,0
+  M4_quick_rehearsal,M4-ct-r1,0.312397397567289,2,0.05,0.312397397567289,0
+  family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
+  M4_quick_rehearsal,2,-3.08346213196138,10.9910201990222,-24.6258617220449,18.4589374581221,3.28078310076824,1,69.5194723550656
+
+--- M5 Holm 演练：1 个成员，alpha=0.05 ---
++ (cd /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M5 && /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/build-platform/platform_holm --input /Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal/M5-members.csv --output-dir M5-holm --alpha 0.05)
+  family_id,member_id,raw_p,rank,threshold,adjusted_p,reject
+  M5_quick_rehearsal,M5-reference-r1,0.698739046503023,1,0.05,0.698739046503023,0
+  family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,i2_percent
+  M5_quick_rehearsal,1,-55,142.110350660105,-333.536287293805,223.536287293805,2.49993654590844e-33,0,100
+
+演练产物根：/Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/rehearsal
+注意：演练不锁频、不绑核、每臂只 1 次运行，不是任何模块的正式统计结论。
+
+=== quick 汇总（配置 / 结果 / CTest）===
+  platform | ok | 100% tests passed, 0 tests failed out of 88
+  ordinary | ok | 100% tests passed, 0 tests failed out of 57
+  sanitize | ok | 100% tests passed, 0 tests failed out of 57
+  historical-fixed | ok | 100% tests passed, 0 tests failed out of 61
+  日志：/Users/yin/code/cryProject/build/reproduce-quick-p2b-20261020/logs/quick-20261020T141227Z.log
+quick 档完成。
+EXIT=0

@@ -1,0 +1,55 @@
+-- The C compiler identification is AppleClang 21.0.0.21000334
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/yin/code/cryProject/build/platform-report-s8/offline-final33-20261020/build
+[  4%] Building C object CMakeFiles/support_reference.dir/source/src/kernel.c.o
+[  8%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/driver.c.o
+[ 12%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/self_test.c.o
+[ 16%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/compare_checked.c.o
+[ 20%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_vulnerable.dir/compare_early.c.o
+[ 25%] Linking C executable m4_compare_vulnerable
+[ 25%] Built target m4_compare_vulnerable
+[ 29%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_vulnerable.dir/binsec_harness.c.o
+[ 33%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_vulnerable.dir/compare_early.c.o
+[ 37%] Linking C executable m4_binsec_vulnerable
+[ 37%] Built target m4_binsec_vulnerable
+[ 41%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/driver.c.o
+[ 45%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/self_test.c.o
+[ 50%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/compare_checked.c.o
+[ 54%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_compare_ct.dir/compare_ct.c.o
+[ 58%] Linking C executable m4_compare_ct
+[ 58%] Built target m4_compare_ct
+[ 62%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_ct.dir/binsec_harness.c.o
+[ 66%] Building C object source/fixtures/early_reject_memcmp/CMakeFiles/m4_binsec_ct.dir/compare_ct.c.o
+[ 70%] Linking C executable m4_binsec_ct
+[ 70%] Built target m4_binsec_ct
+[ 75%] Building C object CMakeFiles/support_reference.dir/source/src/mlkem.c.o
+[ 79%] Building C object CMakeFiles/support_reference.dir/source/src/random.c.o
+[ 83%] Building C object CMakeFiles/support_reference.dir/source/src/inputs.c.o
+[ 87%] Linking C static library libsupport_reference.a
+[ 87%] Built target support_reference
+[ 95%] Building C object CMakeFiles/platform_stats.dir/source/scripts/platform_stats/stats_csv.c.o
+[ 95%] Building C object CMakeFiles/platform_stats.dir/source/src/timing_statistics.c.o
+[100%] Linking C executable platform_stats
+[100%] Built target platform_stats
+Test project /Users/yin/code/cryProject/build/platform-report-s8/offline-final33-20261020/build
+    Start 1: support_stats_qualification
+1/5 Test #1: support_stats_qualification ......   Passed    1.06 sec
+    Start 2: m4_vulnerable_self_test
+2/5 Test #2: m4_vulnerable_self_test ..........   Passed    0.34 sec
+    Start 3: m4_vulnerable_probe_smoke
+3/5 Test #3: m4_vulnerable_probe_smoke ........   Passed    0.00 sec
+    Start 4: m4_ct_self_test
+4/5 Test #4: m4_ct_self_test ..................   Passed    0.35 sec
+    Start 5: m4_ct_probe_smoke
+5/5 Test #5: m4_ct_probe_smoke ................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   1.76 sec
+offline_replay=pass; hardware_collection=not_run; external_tools=not_reexecuted

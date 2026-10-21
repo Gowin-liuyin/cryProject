@@ -1,0 +1,15 @@
+==420222== Memcheck, a memory error detector
+==420222== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==420222== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==420222== Command: /home/nss-marker/yhr/Cry/r06-noleak-20261016-dc1567bbf852/src/platform_m5_poison_valgrind --poison
+==420222== Parent PID: 420208
+==420222== 
+==420222== 
+==420222== HEAP SUMMARY:
+==420222==     in use at exit: 0 bytes in 0 blocks
+==420222==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated
+==420222== 
+==420222== All heap blocks were freed -- no leaks are possible
+==420222== 
+==420222== For lists of detected and suppressed errors, rerun with: -s
+==420222== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

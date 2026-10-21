@@ -1,0 +1,4602 @@
+{
+  "ordinary": [
+    {
+      "run": "m1-fixed-O0-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 460219.7796,
+      "mean_class1_ns": 459717.22095,
+      "delta_ns": 502.55865000002086,
+      "se_ns": 985.4109859613578,
+      "min_ns": {
+        "message-zero": 416472,
+        "bit-flipped": 417525,
+        "message-ones": 401244,
+        "random": 413194,
+        "valid": 417265
+      },
+      "max_ns": {
+        "message-zero": 6370476,
+        "bit-flipped": 11856444,
+        "message-ones": 4589520,
+        "random": 2873666,
+        "valid": 2898785
+      },
+      "sha256": "9013d9b9febbb09d5963f02ae175335ef3abd631e34f20362b2eacf48e096635"
+    },
+    {
+      "run": "m1-fixed-O0-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 461318.04905,
+      "mean_class1_ns": 462193.9029,
+      "delta_ns": -875.8538500000141,
+      "se_ns": 1229.9867298877255,
+      "min_ns": {
+        "message-zero": 417340,
+        "bit-flipped": 417243,
+        "message-ones": 417416,
+        "random": 411023,
+        "valid": 417395
+      },
+      "max_ns": {
+        "message-zero": 6025675,
+        "bit-flipped": 11048718,
+        "message-ones": 10540332,
+        "random": 6233417,
+        "valid": 6455541
+      },
+      "sha256": "8b5821db73654e0526393535647d33ee55ded1722287c980220389abef1b5dcf"
+    },
+    {
+      "run": "m1-fixed-O0-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 467155.88345,
+      "mean_class1_ns": 465475.0587,
+      "delta_ns": 1680.8247500000289,
+      "se_ns": 1367.4773791177172,
+      "min_ns": {
+        "message-zero": 416885,
+        "bit-flipped": 417438,
+        "message-ones": 416982,
+        "random": 416559,
+        "valid": 417156
+      },
+      "max_ns": {
+        "message-zero": 12511603,
+        "bit-flipped": 5419956,
+        "message-ones": 11193124,
+        "random": 10578518,
+        "valid": 11328327
+      },
+      "sha256": "113a7bdd3af200202f04e76b7b62e836521699b9cee7e2e8fcbfc7ec7d1b8f73"
+    },
+    {
+      "run": "m1-fixed-O0-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 464779.4288,
+      "mean_class1_ns": 464541.2231,
+      "delta_ns": 238.20569999999134,
+      "se_ns": 1137.0104542281874,
+      "min_ns": {
+        "bit-flipped": 417340,
+        "message-zero": 417797,
+        "random": 417579,
+        "message-ones": 402980,
+        "valid": 417416
+      },
+      "max_ns": {
+        "bit-flipped": 9553646,
+        "message-zero": 4477121,
+        "random": 3953637,
+        "message-ones": 9338728,
+        "valid": 2381366
+      },
+      "sha256": "bec4b6ba86c11785a63ade8aa7a12fa2795b3efd515eb70cb05aa2f883149ca1"
+    },
+    {
+      "run": "m1-fixed-O0-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 463916.75245,
+      "mean_class1_ns": 463943.15775,
+      "delta_ns": -26.40529999998398,
+      "se_ns": 1118.4945580158437,
+      "min_ns": {
+        "bit-flipped": 401667,
+        "message-zero": 401081,
+        "random": 400549,
+        "message-ones": 402654,
+        "valid": 400885
+      },
+      "max_ns": {
+        "bit-flipped": 9181329,
+        "message-zero": 7337379,
+        "random": 4864928,
+        "message-ones": 4305101,
+        "valid": 4850611
+      },
+      "sha256": "bd990dd03fc7ede68b09061c4023684c74587c6595fa63aaf2dbd72430b7c47b"
+    },
+    {
+      "run": "m1-fixed-O0-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 465823.61105,
+      "mean_class1_ns": 467349.994,
+      "delta_ns": -1526.3829499999993,
+      "se_ns": 1159.4410572170432,
+      "min_ns": {
+        "bit-flipped": 417145,
+        "message-zero": 417557,
+        "random": 417036,
+        "message-ones": 417394,
+        "valid": 417590
+      },
+      "max_ns": {
+        "bit-flipped": 10979152,
+        "message-zero": 8372492,
+        "random": 3331950,
+        "message-ones": 4601894,
+        "valid": 9549161
+      },
+      "sha256": "96b9e22b19d98eda2f8eb37d14616b863c2ab5d262b4873059e56988a233e951"
+    },
+    {
+      "run": "m1-fixed-O0-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 469702.5423,
+      "mean_class1_ns": 468609.37585,
+      "delta_ns": 1093.1664499999606,
+      "se_ns": 1496.055735033047,
+      "min_ns": {
+        "message-ones": 412640,
+        "message-zero": 412184,
+        "valid": 412673,
+        "random": 411946,
+        "bit-flipped": 412510
+      },
+      "max_ns": {
+        "message-ones": 7058970,
+        "message-zero": 10900231,
+        "valid": 9951416,
+        "random": 8624420,
+        "bit-flipped": 10645267
+      },
+      "sha256": "ef3f560219fe2e9a84a8296b7b3d134a8d26d3518f96217c1f65b9739b2cb0b2"
+    },
+    {
+      "run": "m1-fixed-O0-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 467352.15485,
+      "mean_class1_ns": 468104.81205,
+      "delta_ns": -752.657200000016,
+      "se_ns": 1309.4377645027369,
+      "min_ns": {
+        "message-ones": 413303,
+        "message-zero": 417145,
+        "valid": 417059,
+        "random": 400765,
+        "bit-flipped": 417145
+      },
+      "max_ns": {
+        "message-ones": 9907213,
+        "message-zero": 10948424,
+        "valid": 9976153,
+        "random": 11889148,
+        "bit-flipped": 9228382
+      },
+      "sha256": "bc35c1af742dfa21ea155acb63c1c0e627829db94f67e18fc5fd2bacee510f45"
+    },
+    {
+      "run": "m1-fixed-O0-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 469667.7045,
+      "mean_class1_ns": 468766.56795,
+      "delta_ns": 901.1365499999956,
+      "se_ns": 1090.4300186644318,
+      "min_ns": {
+        "message-ones": 417731,
+        "message-zero": 417785,
+        "valid": 417145,
+        "random": 417775,
+        "bit-flipped": 417482
+      },
+      "max_ns": {
+        "message-ones": 4322207,
+        "message-zero": 8151399,
+        "valid": 5327945,
+        "random": 7184892,
+        "bit-flipped": 6617855
+      },
+      "sha256": "9a27b31e112acf56e304b91ed9ae5a8ddf1698824c3b0052c972f711ae48d32a"
+    },
+    {
+      "run": "m1-fixed-O2-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 88744.59785,
+      "mean_class1_ns": 88979.32745,
+      "delta_ns": -234.72959999999148,
+      "se_ns": 615.375497591783,
+      "min_ns": {
+        "message-zero": 69852,
+        "bit-flipped": 69679,
+        "message-ones": 69852,
+        "random": 69852,
+        "valid": 69804
+      },
+      "max_ns": {
+        "message-zero": 2379553,
+        "bit-flipped": 2490193,
+        "message-ones": 10466022,
+        "random": 1716340,
+        "valid": 1173425
+      },
+      "sha256": "e99f69c4115f10253003f39e3f12483bfa88c7f03197dc09ca308c3d6a2c7b85"
+    },
+    {
+      "run": "m1-fixed-O2-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 82128.9184,
+      "mean_class1_ns": 81328.6885,
+      "delta_ns": 800.2298999999912,
+      "se_ns": 351.0531726173981,
+      "min_ns": {
+        "message-zero": 72471,
+        "bit-flipped": 72400,
+        "message-ones": 72421,
+        "random": 72430,
+        "valid": 72441
+      },
+      "max_ns": {
+        "message-zero": 3276085,
+        "bit-flipped": 891019,
+        "message-ones": 2443309,
+        "random": 3156805,
+        "valid": 1479030
+      },
+      "sha256": "e8140f064c191ce1dc3ef7ef84fc3a83295fd017250482d32bb0364df3281f06"
+    },
+    {
+      "run": "m1-fixed-O2-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 82856.06635,
+      "mean_class1_ns": 82220.24525,
+      "delta_ns": 635.8210999999865,
+      "se_ns": 278.5949743718913,
+      "min_ns": {
+        "message-zero": 72480,
+        "bit-flipped": 72401,
+        "message-ones": 72421,
+        "random": 72450,
+        "valid": 72431
+      },
+      "max_ns": {
+        "message-zero": 877352,
+        "bit-flipped": 1505501,
+        "message-ones": 832114,
+        "random": 662826,
+        "valid": 990892
+      },
+      "sha256": "ca6b2aaf22ea3c8f4c1302f657d332f81622128f9a9f3b17e2ca326abe7a84a3"
+    },
+    {
+      "run": "m1-fixed-O2-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 83097.8815,
+      "mean_class1_ns": 82726.1619,
+      "delta_ns": 371.7195999999967,
+      "se_ns": 582.9791605841422,
+      "min_ns": {
+        "bit-flipped": 72341,
+        "message-zero": 72351,
+        "random": 72381,
+        "message-ones": 72380,
+        "valid": 72350
+      },
+      "max_ns": {
+        "bit-flipped": 1366009,
+        "message-zero": 7233622,
+        "random": 2036581,
+        "message-ones": 4225058,
+        "valid": 8141544
+      },
+      "sha256": "dc698597a5b7ff4be2276b09041b250e9585a61d6a5d40d8709f24f4e780b96b"
+    },
+    {
+      "run": "m1-fixed-O2-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 83079.2203,
+      "mean_class1_ns": 83024.68655,
+      "delta_ns": 54.53375000000233,
+      "se_ns": 329.41819438919595,
+      "min_ns": {
+        "bit-flipped": 72653,
+        "message-zero": 72651,
+        "random": 72691,
+        "message-ones": 72641,
+        "valid": 72641
+      },
+      "max_ns": {
+        "bit-flipped": 1957699,
+        "message-zero": 1503602,
+        "random": 2168333,
+        "message-ones": 976485,
+        "valid": 1848937
+      },
+      "sha256": "6fd303ceba8dd334807097b55d53d7c27fa46b82adef385f7170a761b6dffe53"
+    },
+    {
+      "run": "m1-fixed-O2-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 85068.6066,
+      "mean_class1_ns": 85450.59135,
+      "delta_ns": -381.98475000000326,
+      "se_ns": 364.09943326005686,
+      "min_ns": {
+        "bit-flipped": 72446,
+        "message-zero": 72406,
+        "random": 72402,
+        "message-ones": 72445,
+        "valid": 72430
+      },
+      "max_ns": {
+        "bit-flipped": 1591578,
+        "message-zero": 1314330,
+        "random": 1616630,
+        "message-ones": 3103559,
+        "valid": 1288006
+      },
+      "sha256": "c4717a35a0fc189844d1f0e86a7a006c15ffe43500a25ee289fd2b8e10127b4d"
+    },
+    {
+      "run": "m1-fixed-O2-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 89968.4281,
+      "mean_class1_ns": 89816.6955,
+      "delta_ns": 151.732600000003,
+      "se_ns": 357.02991381031825,
+      "min_ns": {
+        "message-ones": 78442,
+        "message-zero": 78452,
+        "valid": 78431,
+        "random": 78444,
+        "bit-flipped": 78442
+      },
+      "max_ns": {
+        "message-ones": 2319636,
+        "message-zero": 1381434,
+        "valid": 3442457,
+        "random": 1187210,
+        "bit-flipped": 1906428
+      },
+      "sha256": "50da583468c99e8f856a379c5e636bb70dd4812a772a3291f6e00273db06667d"
+    },
+    {
+      "run": "m1-fixed-O2-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 89069.27715,
+      "mean_class1_ns": 89004.79525,
+      "delta_ns": 64.48189999999886,
+      "se_ns": 335.7541605290825,
+      "min_ns": {
+        "message-ones": 78460,
+        "message-zero": 78492,
+        "valid": 78491,
+        "random": 78492,
+        "bit-flipped": 78492
+      },
+      "max_ns": {
+        "message-ones": 1349755,
+        "message-zero": 1074860,
+        "valid": 1423762,
+        "random": 984226,
+        "bit-flipped": 2949259
+      },
+      "sha256": "43bc00a2d812131f79a4914b6e8fadd3d5a2ee2129d7857b846076889b49b4be"
+    },
+    {
+      "run": "m1-fixed-O2-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 95904.079,
+      "mean_class1_ns": 97371.70705,
+      "delta_ns": -1467.6280499999993,
+      "se_ns": 2300.818079991185,
+      "min_ns": {
+        "message-ones": 78468,
+        "message-zero": 78446,
+        "valid": 78422,
+        "random": 78392,
+        "bit-flipped": 78443
+      },
+      "max_ns": {
+        "message-ones": 12339206,
+        "message-zero": 11624843,
+        "valid": 11662279,
+        "random": 11861642,
+        "bit-flipped": 12001437
+      },
+      "sha256": "b3c5122606f670cf8f3b1954602337cdfb345b2742522e54cfa7cfd6ff85aa59"
+    },
+    {
+      "run": "m1-fixed-O3-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 89433.139,
+      "mean_class1_ns": 89367.06345,
+      "delta_ns": 66.07554999999411,
+      "se_ns": 347.1158148158478,
+      "min_ns": {
+        "message-zero": 79421,
+        "bit-flipped": 79421,
+        "message-ones": 79399,
+        "random": 79410,
+        "valid": 79486
+      },
+      "max_ns": {
+        "message-zero": 954504,
+        "bit-flipped": 4180790,
+        "message-ones": 3154234,
+        "random": 3466034,
+        "valid": 1078297
+      },
+      "sha256": "10e0d0e893f557cba42a6c7892179966c62a913a62c5960894ab2e1e2a6c613e"
+    },
+    {
+      "run": "m1-fixed-O3-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 91799.96165,
+      "mean_class1_ns": 91609.63305,
+      "delta_ns": 190.32859999999346,
+      "se_ns": 379.268662652001,
+      "min_ns": {
+        "message-zero": 79410,
+        "bit-flipped": 79410,
+        "message-ones": 79464,
+        "random": 79464,
+        "valid": 79410
+      },
+      "max_ns": {
+        "message-zero": 1427806,
+        "bit-flipped": 3212065,
+        "message-ones": 1934125,
+        "random": 3724680,
+        "valid": 1981288
+      },
+      "sha256": "7b490e345a439417b436a1d6cf53c1100afdad63a7113e6692515becb69560a7"
+    },
+    {
+      "run": "m1-fixed-O3-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92250.9228,
+      "mean_class1_ns": 91627.88215,
+      "delta_ns": 623.0406499999954,
+      "se_ns": 459.2526369250548,
+      "min_ns": {
+        "message-zero": 79475,
+        "bit-flipped": 79551,
+        "message-ones": 79464,
+        "random": 79562,
+        "valid": 79606
+      },
+      "max_ns": {
+        "message-zero": 3348188,
+        "bit-flipped": 9064848,
+        "message-ones": 3268399,
+        "random": 10411125,
+        "valid": 10605580
+      },
+      "sha256": "3c1aeddfc8a035d3b4ca5f08f0e2d83cd428cb2a106ad69a75e7fcc826392fb4"
+    },
+    {
+      "run": "m1-fixed-O3-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92927.76545,
+      "mean_class1_ns": 91842.0503,
+      "delta_ns": 1085.7151500000036,
+      "se_ns": 860.2496175378889,
+      "min_ns": {
+        "bit-flipped": 79530,
+        "message-zero": 79616,
+        "random": 79443,
+        "message-ones": 79540,
+        "valid": 79486
+      },
+      "max_ns": {
+        "bit-flipped": 1176615,
+        "message-zero": 9975145,
+        "random": 9372276,
+        "message-ones": 2179541,
+        "valid": 1130464
+      },
+      "sha256": "f2b9bb822402ec2776ce23c6c124ca869364aa9d130ad186e22b5967985ef418"
+    },
+    {
+      "run": "m1-fixed-O3-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 90989.4103,
+      "mean_class1_ns": 91000.2628,
+      "delta_ns": -10.852499999993597,
+      "se_ns": 408.1791996631215,
+      "min_ns": {
+        "bit-flipped": 79530,
+        "message-zero": 79464,
+        "random": 79345,
+        "message-ones": 79443,
+        "valid": 79443
+      },
+      "max_ns": {
+        "bit-flipped": 2695087,
+        "message-zero": 4165060,
+        "random": 2983463,
+        "message-ones": 1028075,
+        "valid": 2830721
+      },
+      "sha256": "1e17d6899528d4bdc11aebb9fd8a0dbb36b1feb0ccd74790b44f005ff15ec696"
+    },
+    {
+      "run": "m1-fixed-O3-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 91077.73475,
+      "mean_class1_ns": 91032.331,
+      "delta_ns": 45.40374999999767,
+      "se_ns": 480.5776322998553,
+      "min_ns": {
+        "bit-flipped": 79388,
+        "message-zero": 79399,
+        "random": 79377,
+        "message-ones": 79367,
+        "valid": 79377
+      },
+      "max_ns": {
+        "bit-flipped": 3012085,
+        "message-zero": 6401305,
+        "random": 3517547,
+        "message-ones": 1922272,
+        "valid": 1216494
+      },
+      "sha256": "e54d76327ff64307f5b4f17308e84cea6e83b64df3448ce97d7fab7a2b8d932f"
+    },
+    {
+      "run": "m1-fixed-O3-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 90952.34605,
+      "mean_class1_ns": 91087.87665,
+      "delta_ns": -135.53060000001278,
+      "se_ns": 504.4640609326004,
+      "min_ns": {
+        "message-ones": 79507,
+        "message-zero": 79497,
+        "valid": 79519,
+        "random": 79464,
+        "bit-flipped": 79540
+      },
+      "max_ns": {
+        "message-ones": 6559582,
+        "message-zero": 1558458,
+        "valid": 2238046,
+        "random": 2475765,
+        "bit-flipped": 2762698
+      },
+      "sha256": "ed5d6871f7c912eb153a48da857140322222e3bbc9c6f52b622ce281eca51d0e"
+    },
+    {
+      "run": "m1-fixed-O3-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 92022.08795,
+      "mean_class1_ns": 92054.17495,
+      "delta_ns": -32.086999999999534,
+      "se_ns": 376.8028151841151,
+      "min_ns": {
+        "message-ones": 79465,
+        "message-zero": 79453,
+        "valid": 79486,
+        "random": 79410,
+        "bit-flipped": 79497
+      },
+      "max_ns": {
+        "message-ones": 2035265,
+        "message-zero": 2046869,
+        "valid": 1373501,
+        "random": 1237747,
+        "bit-flipped": 2263422
+      },
+      "sha256": "43d28e438e789854eae6f23eaa801a9f0a16432673446a1fa28a557efca8c869"
+    },
+    {
+      "run": "m1-fixed-O3-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 91237.89145,
+      "mean_class1_ns": 91597.9344,
+      "delta_ns": -360.04295000000275,
+      "se_ns": 399.8114686113567,
+      "min_ns": {
+        "message-ones": 79551,
+        "message-zero": 79552,
+        "valid": 79595,
+        "random": 79573,
+        "bit-flipped": 79572
+      },
+      "max_ns": {
+        "message-ones": 4248814,
+        "message-zero": 1863582,
+        "valid": 1887377,
+        "random": 1479135,
+        "bit-flipped": 1031157
+      },
+      "sha256": "d95eeb41b3d708974c7676644b4dff9985cf25e75cedb93296903f95071a049b"
+    },
+    {
+      "run": "m1-fixed-Os-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 96438.85635,
+      "mean_class1_ns": 96933.58315,
+      "delta_ns": -494.726800000004,
+      "se_ns": 479.7813058136857,
+      "min_ns": {
+        "message-zero": 81441,
+        "bit-flipped": 81473,
+        "message-ones": 81451,
+        "random": 81473,
+        "valid": 81452
+      },
+      "max_ns": {
+        "message-zero": 2148248,
+        "bit-flipped": 3931275,
+        "message-ones": 5106275,
+        "random": 5169241,
+        "valid": 8375976
+      },
+      "sha256": "5de50cb1b6addd11fedc5f448bfef47cd3bbad73c61bb3d6c591e3a481469244"
+    },
+    {
+      "run": "m1-fixed-Os-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92921.25215,
+      "mean_class1_ns": 93168.18285,
+      "delta_ns": -246.93069999999716,
+      "se_ns": 383.39166025132425,
+      "min_ns": {
+        "message-zero": 81386,
+        "bit-flipped": 81332,
+        "message-ones": 81332,
+        "random": 81354,
+        "valid": 81267
+      },
+      "max_ns": {
+        "message-zero": 1751062,
+        "bit-flipped": 8949317,
+        "message-ones": 1521460,
+        "random": 7354630,
+        "valid": 7658914
+      },
+      "sha256": "90dc3fa6de2d861bd47c3b6c81b26046bd49fd4424f04620c08c22aa8fd6adef"
+    },
+    {
+      "run": "m1-fixed-Os-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92709.1036,
+      "mean_class1_ns": 92378.04905,
+      "delta_ns": 331.05455000000075,
+      "se_ns": 340.2694760522051,
+      "min_ns": {
+        "message-zero": 81430,
+        "bit-flipped": 81429,
+        "message-ones": 81452,
+        "random": 81440,
+        "valid": 81419
+      },
+      "max_ns": {
+        "message-zero": 1517900,
+        "bit-flipped": 1216158,
+        "message-ones": 1513655,
+        "random": 1193527,
+        "valid": 1359296
+      },
+      "sha256": "d3650649fa056230b3f7ed6020e5458779e91258d940cd77c9d365df2dec55fc"
+    },
+    {
+      "run": "m1-fixed-Os-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92826.35775,
+      "mean_class1_ns": 92526.09195,
+      "delta_ns": 300.26579999999376,
+      "se_ns": 339.90421101520104,
+      "min_ns": {
+        "bit-flipped": 81365,
+        "message-zero": 81310,
+        "random": 81387,
+        "message-ones": 81321,
+        "valid": 81332
+      },
+      "max_ns": {
+        "bit-flipped": 2435378,
+        "message-zero": 1487779,
+        "random": 3654825,
+        "message-ones": 1712531,
+        "valid": 1253292
+      },
+      "sha256": "2b6186662b63db4ea3dfda9ab3c7e348eba761b2d0f8f8f28cfba349868fc807"
+    },
+    {
+      "run": "m1-fixed-Os-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 95740.6595,
+      "mean_class1_ns": 95658.4886,
+      "delta_ns": 82.17089999999735,
+      "se_ns": 489.93328163575416,
+      "min_ns": {
+        "bit-flipped": 80887,
+        "message-zero": 80605,
+        "random": 80909,
+        "message-ones": 81039,
+        "valid": 80811
+      },
+      "max_ns": {
+        "bit-flipped": 3151084,
+        "message-zero": 2095310,
+        "random": 9014215,
+        "message-ones": 6227837,
+        "valid": 3198996
+      },
+      "sha256": "2971b02c03e4c889c66ebe0707effd7c00a88df8f8e8ac76a9b21a3d3a96db3e"
+    },
+    {
+      "run": "m1-fixed-Os-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 94107.17175,
+      "mean_class1_ns": 93627.62085,
+      "delta_ns": 479.55089999998745,
+      "se_ns": 390.4487612672258,
+      "min_ns": {
+        "bit-flipped": 80844,
+        "message-zero": 81201,
+        "random": 81180,
+        "message-ones": 81126,
+        "valid": 81180
+      },
+      "max_ns": {
+        "bit-flipped": 1975760,
+        "message-zero": 3927683,
+        "random": 947621,
+        "message-ones": 1023362,
+        "valid": 5455709
+      },
+      "sha256": "00a119cf2b7562577f3703073fc03ffc508f7c8d4177cc9ef35bd1a0c6753c92"
+    },
+    {
+      "run": "m1-fixed-Os-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 94078.4596,
+      "mean_class1_ns": 93229.5568,
+      "delta_ns": 848.9027999999962,
+      "se_ns": 583.8309213241765,
+      "min_ns": {
+        "message-ones": 81418,
+        "message-zero": 81386,
+        "valid": 81365,
+        "random": 81387,
+        "bit-flipped": 81408
+      },
+      "max_ns": {
+        "message-ones": 2734037,
+        "message-zero": 9090412,
+        "valid": 3222117,
+        "random": 1963103,
+        "bit-flipped": 1909667
+      },
+      "sha256": "4862434e79ecd506553cfb56f2b5444e4d5d12ca2c3b9ed9815af49e01a488e3"
+    },
+    {
+      "run": "m1-fixed-Os-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 92120.0247,
+      "mean_class1_ns": 91933.36455,
+      "delta_ns": 186.66014999999607,
+      "se_ns": 328.9044942291962,
+      "min_ns": {
+        "message-ones": 81343,
+        "message-zero": 81310,
+        "valid": 81343,
+        "random": 81376,
+        "bit-flipped": 81364
+      },
+      "max_ns": {
+        "message-ones": 1646437,
+        "message-zero": 1158523,
+        "valid": 1160193,
+        "random": 1151348,
+        "bit-flipped": 1149752
+      },
+      "sha256": "23f0a272d9581a6a6ecc20ead86254545972c83146c46ad07a832ce2ed71cbca"
+    },
+    {
+      "run": "m1-fixed-Os-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 93777.28535,
+      "mean_class1_ns": 93209.47315,
+      "delta_ns": 567.8122000000003,
+      "se_ns": 357.78642345943035,
+      "min_ns": {
+        "message-ones": 81332,
+        "message-zero": 81299,
+        "valid": 81299,
+        "random": 81310,
+        "bit-flipped": 81321
+      },
+      "max_ns": {
+        "message-ones": 1357862,
+        "message-zero": 1960085,
+        "valid": 1955148,
+        "random": 1218535,
+        "bit-flipped": 3473981
+      },
+      "sha256": "1ecb45e2d9c90125df45ac7201c41170eb9a37dbacd50942c137d233a61e2daf"
+    },
+    {
+      "run": "m1-unfixed-O0-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 465059.6423,
+      "mean_class1_ns": 464268.9223,
+      "delta_ns": 790.7200000000303,
+      "se_ns": 1178.0506563157983,
+      "min_ns": {
+        "message-zero": 417774,
+        "bit-flipped": 414301,
+        "message-ones": 417504,
+        "random": 417428,
+        "valid": 417688
+      },
+      "max_ns": {
+        "message-zero": 11590180,
+        "bit-flipped": 2794268,
+        "message-ones": 5225890,
+        "random": 7070657,
+        "valid": 5533288
+      },
+      "sha256": "838a11762e586a6921fff8cc6cf85372e0616cdd5221f076f7748e1788612695"
+    },
+    {
+      "run": "m1-unfixed-O0-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 464902.2076,
+      "mean_class1_ns": 464738.913,
+      "delta_ns": 163.2946000000229,
+      "se_ns": 1296.1078998023886,
+      "min_ns": {
+        "message-zero": 416982,
+        "bit-flipped": 417036,
+        "message-ones": 416244,
+        "random": 416776,
+        "valid": 416635
+      },
+      "max_ns": {
+        "message-zero": 11386453,
+        "bit-flipped": 9203721,
+        "message-ones": 9311192,
+        "random": 3498468,
+        "valid": 4398785
+      },
+      "sha256": "b03f143bc50ac04c6179ea9e8b9284f2327fcd476f55bc1e9f8b703916826378"
+    },
+    {
+      "run": "m1-unfixed-O0-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 463431.3142,
+      "mean_class1_ns": 462443.944,
+      "delta_ns": 987.3702000000048,
+      "se_ns": 982.1110744544302,
+      "min_ns": {
+        "message-zero": 412618,
+        "bit-flipped": 413053,
+        "message-ones": 413074,
+        "random": 411924,
+        "valid": 403414
+      },
+      "max_ns": {
+        "message-zero": 5171922,
+        "bit-flipped": 11778351,
+        "message-ones": 2852522,
+        "random": 7218529,
+        "valid": 3086206
+      },
+      "sha256": "080405d566e312dde5b494d70cb6129bbdf5a8b863b55aaae8af52c74c9e4a38"
+    },
+    {
+      "run": "m1-unfixed-O0-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 462466.3698,
+      "mean_class1_ns": 463577.1729,
+      "delta_ns": -1110.8031000000192,
+      "se_ns": 1376.4195264064047,
+      "min_ns": {
+        "bit-flipped": 412868,
+        "message-zero": 412532,
+        "random": 412630,
+        "message-ones": 413151,
+        "valid": 412814
+      },
+      "max_ns": {
+        "bit-flipped": 9818579,
+        "message-zero": 11533960,
+        "random": 9565961,
+        "message-ones": 10493278,
+        "valid": 7363858
+      },
+      "sha256": "5c57c481fbef91c203de1bca9d3630bf61c399ccb6444447b0b1ea97d3b65df2"
+    },
+    {
+      "run": "m1-unfixed-O0-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 469076.1438,
+      "mean_class1_ns": 469692.2759,
+      "delta_ns": -616.132099999988,
+      "se_ns": 2561.3160743515728,
+      "min_ns": {
+        "bit-flipped": 396706,
+        "message-zero": 396337,
+        "random": 395111,
+        "message-ones": 395295,
+        "valid": 396327
+      },
+      "max_ns": {
+        "bit-flipped": 11445751,
+        "message-zero": 13611674,
+        "random": 13333264,
+        "message-ones": 13331842,
+        "valid": 13421934
+      },
+      "sha256": "167736c4fef57c872fe4afd9a69054ccdba007354199c5785a558cb5ffb61c63"
+    },
+    {
+      "run": "m1-unfixed-O0-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 463338.28495,
+      "mean_class1_ns": 462470.4813,
+      "delta_ns": 867.8036500000162,
+      "se_ns": 1150.788979857108,
+      "min_ns": {
+        "bit-flipped": 414182,
+        "message-zero": 415528,
+        "random": 401450,
+        "message-ones": 414648,
+        "valid": 416754
+      },
+      "max_ns": {
+        "bit-flipped": 7188755,
+        "message-zero": 8833918,
+        "random": 9430242,
+        "message-ones": 7768022,
+        "valid": 12272085
+      },
+      "sha256": "a50189cd7e6e402c6cc9a38714864469ec4f7cfa200e2bc30965d49f4080b848"
+    },
+    {
+      "run": "m1-unfixed-O0-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 460668.43165,
+      "mean_class1_ns": 462135.66095,
+      "delta_ns": -1467.2293000000063,
+      "se_ns": 1113.7628179250175,
+      "min_ns": {
+        "message-ones": 415831,
+        "message-zero": 400907,
+        "valid": 417069,
+        "random": 417069,
+        "bit-flipped": 417210
+      },
+      "max_ns": {
+        "message-ones": 11545470,
+        "message-zero": 2761184,
+        "valid": 11582678,
+        "random": 5641907,
+        "bit-flipped": 12360157
+      },
+      "sha256": "4371e64adb2e296dedfefadab40caa57cd5b1ce38459b3783b596fc479f82754"
+    },
+    {
+      "run": "m1-unfixed-O0-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 465463.0069,
+      "mean_class1_ns": 465430.8496,
+      "delta_ns": 32.15729999996256,
+      "se_ns": 990.5776043106339,
+      "min_ns": {
+        "message-ones": 417211,
+        "message-zero": 417102,
+        "valid": 417069,
+        "random": 416049,
+        "bit-flipped": 416819
+      },
+      "max_ns": {
+        "message-ones": 4309867,
+        "message-zero": 4526369,
+        "valid": 4492372,
+        "random": 11283282,
+        "bit-flipped": 6494649
+      },
+      "sha256": "4032297199d3d0c6adf2b5c97b22a00a1389394e1cf19c15f5344686bba835e3"
+    },
+    {
+      "run": "m1-unfixed-O0-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 468335.04685,
+      "mean_class1_ns": 465614.7959,
+      "delta_ns": 2720.250949999958,
+      "se_ns": 1333.2220541952772,
+      "min_ns": {
+        "message-ones": 416798,
+        "message-zero": 416917,
+        "valid": 403924,
+        "random": 417112,
+        "bit-flipped": 417253
+      },
+      "max_ns": {
+        "message-ones": 11265676,
+        "message-zero": 10039347,
+        "valid": 11202493,
+        "random": 4715929,
+        "bit-flipped": 10361559
+      },
+      "sha256": "f3b46d4ce4ff44fd8f05b5d5ec38eac7464cc0d29b7aa0c9c804c1e103b8d3f7"
+    },
+    {
+      "run": "m1-unfixed-O2-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 90666.97955,
+      "mean_class1_ns": 90321.78305,
+      "delta_ns": 345.19650000000547,
+      "se_ns": 417.4883770116813,
+      "min_ns": {
+        "message-zero": 80713,
+        "bit-flipped": 81505,
+        "message-ones": 80659,
+        "random": 81560,
+        "valid": 81473
+      },
+      "max_ns": {
+        "message-zero": 6370094,
+        "bit-flipped": 1154821,
+        "message-ones": 998431,
+        "random": 1133036,
+        "valid": 1163113
+      },
+      "sha256": "ad2b0d22afc58c18d5cc00dd8555135ebaa26c346a04a84ee4012aef3d600866"
+    },
+    {
+      "run": "m1-unfixed-O2-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 90624.29695,
+      "mean_class1_ns": 90156.20255,
+      "delta_ns": 468.09440000000177,
+      "se_ns": 322.8834442223886,
+      "min_ns": {
+        "message-zero": 80724,
+        "bit-flipped": 81517,
+        "message-ones": 80735,
+        "random": 81451,
+        "valid": 81473
+      },
+      "max_ns": {
+        "message-zero": 1695585,
+        "bit-flipped": 902455,
+        "message-ones": 2096375,
+        "random": 1213977,
+        "valid": 9248745
+      },
+      "sha256": "03f93af87f6446f0fe9b62147e9ec25f1ee02a1a1fb2fd581e616efbc96b3b5a"
+    },
+    {
+      "run": "m1-unfixed-O2-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92064.061,
+      "mean_class1_ns": 91675.9825,
+      "delta_ns": 388.07850000000326,
+      "se_ns": 404.1658495982283,
+      "min_ns": {
+        "message-zero": 80593,
+        "bit-flipped": 81343,
+        "message-ones": 80735,
+        "random": 81473,
+        "valid": 81516
+      },
+      "max_ns": {
+        "message-zero": 4590659,
+        "bit-flipped": 1046874,
+        "message-ones": 1300204,
+        "random": 2375733,
+        "valid": 916426
+      },
+      "sha256": "30e2d8a7883b6fa98223bfb49c1529595a50296b35165a049546054cd35a7f96"
+    },
+    {
+      "run": "m1-unfixed-O2-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 94117.8278,
+      "mean_class1_ns": 94441.29615,
+      "delta_ns": -323.46834999999555,
+      "se_ns": 575.1611228304861,
+      "min_ns": {
+        "bit-flipped": 81581,
+        "message-zero": 80876,
+        "random": 81680,
+        "message-ones": 80757,
+        "valid": 81636
+      },
+      "max_ns": {
+        "bit-flipped": 2151373,
+        "message-zero": 3043159,
+        "random": 9099233,
+        "message-ones": 8035224,
+        "valid": 10775351
+      },
+      "sha256": "ba8ca9662f7650e920f979f5a29b3a21fac68538f03dc109e9af34ec8fb7cd54"
+    },
+    {
+      "run": "m1-unfixed-O2-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 93387.3238,
+      "mean_class1_ns": 93056.6717,
+      "delta_ns": 330.65209999999206,
+      "se_ns": 372.4856852468754,
+      "min_ns": {
+        "bit-flipped": 81744,
+        "message-zero": 81017,
+        "random": 81831,
+        "message-ones": 80995,
+        "valid": 81777
+      },
+      "max_ns": {
+        "bit-flipped": 942574,
+        "message-zero": 1650074,
+        "random": 11182770,
+        "message-ones": 1217200,
+        "valid": 3184635
+      },
+      "sha256": "a6d63e5db6cf280ea5f6b8844200768246ff11ea39c60370110361f3cf83e637"
+    },
+    {
+      "run": "m1-unfixed-O2-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 92210.09095,
+      "mean_class1_ns": 92059.41445,
+      "delta_ns": 150.6765000000014,
+      "se_ns": 342.53790612104444,
+      "min_ns": {
+        "bit-flipped": 81549,
+        "message-zero": 80670,
+        "random": 81593,
+        "message-ones": 80757,
+        "valid": 81549
+      },
+      "max_ns": {
+        "bit-flipped": 2607235,
+        "message-zero": 1148721,
+        "random": 2208087,
+        "message-ones": 2055051,
+        "valid": 1046929
+      },
+      "sha256": "a18831950662d95e95ebd320d255794398a7466615965e84c8b056d7b9c882c6"
+    },
+    {
+      "run": "m1-unfixed-O2-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 93274.17745,
+      "mean_class1_ns": 92648.87245,
+      "delta_ns": 625.3050000000076,
+      "se_ns": 480.24808645895666,
+      "min_ns": {
+        "message-ones": 80778,
+        "message-zero": 80757,
+        "valid": 81505,
+        "random": 81604,
+        "bit-flipped": 81538
+      },
+      "max_ns": {
+        "message-ones": 4168542,
+        "message-zero": 2723953,
+        "valid": 1439097,
+        "random": 2060294,
+        "bit-flipped": 1698550
+      },
+      "sha256": "1c065b9360fb10a1c47152fa1954740d8a5ca20530e558c5f6dd20ef5211419c"
+    },
+    {
+      "run": "m1-unfixed-O2-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 91999.52075,
+      "mean_class1_ns": 92527.70245,
+      "delta_ns": -528.181700000001,
+      "se_ns": 370.59078343179607,
+      "min_ns": {
+        "message-ones": 80822,
+        "message-zero": 80637,
+        "valid": 81593,
+        "random": 81527,
+        "bit-flipped": 81549
+      },
+      "max_ns": {
+        "message-ones": 2456967,
+        "message-zero": 2681143,
+        "valid": 1622743,
+        "random": 955806,
+        "bit-flipped": 1048577
+      },
+      "sha256": "063837e391ba78a742f914704e5dd9aaa273cad08772593a81447bdcfdcd5564"
+    },
+    {
+      "run": "m1-unfixed-O2-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 91654.7321,
+      "mean_class1_ns": 91420.96325,
+      "delta_ns": 233.7688499999931,
+      "se_ns": 326.5705589104119,
+      "min_ns": {
+        "message-ones": 80865,
+        "message-zero": 80843,
+        "valid": 81658,
+        "random": 81581,
+        "bit-flipped": 81603
+      },
+      "max_ns": {
+        "message-ones": 1135684,
+        "message-zero": 1421936,
+        "valid": 1856600,
+        "random": 988932,
+        "bit-flipped": 1619843
+      },
+      "sha256": "42ef1916e8275c82c2c0aa8ec469c909b2fa88002798ee0e40c1a196f4a1b98a"
+    },
+    {
+      "run": "m1-unfixed-O3-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 85821.20185,
+      "mean_class1_ns": 85485.9843,
+      "delta_ns": 335.2175500000012,
+      "se_ns": 401.39171893691275,
+      "min_ns": {
+        "message-zero": 75339,
+        "bit-flipped": 75980,
+        "message-ones": 75372,
+        "random": 76078,
+        "valid": 76034
+      },
+      "max_ns": {
+        "message-zero": 4484252,
+        "bit-flipped": 10793512,
+        "message-ones": 1272698,
+        "random": 2778761,
+        "valid": 7713100
+      },
+      "sha256": "625a9bbb96c0c7247908c33bd06db307ffe5bebd1e68abd62b1bac4fe3f5a602"
+    },
+    {
+      "run": "m1-unfixed-O3-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 88138.79645,
+      "mean_class1_ns": 87121.2257,
+      "delta_ns": 1017.570749999999,
+      "se_ns": 393.21901154310405,
+      "min_ns": {
+        "message-zero": 75405,
+        "bit-flipped": 76197,
+        "message-ones": 75470,
+        "random": 76186,
+        "valid": 76132
+      },
+      "max_ns": {
+        "message-zero": 1631422,
+        "bit-flipped": 1366945,
+        "message-ones": 2333193,
+        "random": 5287524,
+        "valid": 2695683
+      },
+      "sha256": "bb49abfdefe2b7abbbd163dca52e70c21aa65291401f72aff4767960034a867e"
+    },
+    {
+      "run": "m1-unfixed-O3-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 87129.00005,
+      "mean_class1_ns": 87155.90795,
+      "delta_ns": -26.90789999999106,
+      "se_ns": 339.1453195119515,
+      "min_ns": {
+        "message-zero": 75448,
+        "bit-flipped": 76230,
+        "message-ones": 75502,
+        "random": 76251,
+        "valid": 76045
+      },
+      "max_ns": {
+        "message-zero": 997802,
+        "bit-flipped": 1447734,
+        "message-ones": 1073977,
+        "random": 2085565,
+        "valid": 1272210
+      },
+      "sha256": "0bbb7370f2f8e4e51bebad5f458b5ec5145ed6d329f32846c3aa2ca7388374b6"
+    },
+    {
+      "run": "m1-unfixed-O3-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 87651.74965,
+      "mean_class1_ns": 87222.69285,
+      "delta_ns": 429.0567999999912,
+      "se_ns": 652.0101166562106,
+      "min_ns": {
+        "bit-flipped": 76142,
+        "message-zero": 75437,
+        "random": 76230,
+        "message-ones": 75427,
+        "valid": 76219
+      },
+      "max_ns": {
+        "bit-flipped": 9170774,
+        "message-zero": 8744330,
+        "random": 9508331,
+        "message-ones": 5984716,
+        "valid": 11013314
+      },
+      "sha256": "49821e8170fab83c0b28f82f2b6bb041d405268c5617d2018dd450966227c57e"
+    },
+    {
+      "run": "m1-unfixed-O3-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 88193.59625,
+      "mean_class1_ns": 89047.0419,
+      "delta_ns": -853.4456499999942,
+      "se_ns": 675.6637380979299,
+      "min_ns": {
+        "bit-flipped": 76262,
+        "message-zero": 75481,
+        "random": 76175,
+        "message-ones": 75491,
+        "valid": 76273
+      },
+      "max_ns": {
+        "bit-flipped": 3694050,
+        "message-zero": 2463890,
+        "random": 11086114,
+        "message-ones": 8159100,
+        "valid": 9271415
+      },
+      "sha256": "5c8acd105970398f57c60f4b2035caeec456217d7c78466fd3dd19ce7b1d333b"
+    },
+    {
+      "run": "m1-unfixed-O3-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 87385.4679,
+      "mean_class1_ns": 87618.7611,
+      "delta_ns": -233.29320000000007,
+      "se_ns": 406.3925712307281,
+      "min_ns": {
+        "bit-flipped": 76534,
+        "message-zero": 75730,
+        "random": 76512,
+        "message-ones": 75795,
+        "valid": 76566
+      },
+      "max_ns": {
+        "bit-flipped": 4609976,
+        "message-zero": 3111827,
+        "random": 4002018,
+        "message-ones": 2662741,
+        "valid": 2079551
+      },
+      "sha256": "92cbc0e07da5c7e2588311056d3c0a3a876b5b5ed0e4dac277ebe9fbe81263ce"
+    },
+    {
+      "run": "m1-unfixed-O3-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 85128.2143,
+      "mean_class1_ns": 85665.604,
+      "delta_ns": -537.3896999999997,
+      "se_ns": 385.9742675991243,
+      "min_ns": {
+        "message-ones": 75448,
+        "message-zero": 75491,
+        "valid": 76197,
+        "random": 76197,
+        "bit-flipped": 76197
+      },
+      "max_ns": {
+        "message-ones": 4892493,
+        "message-zero": 1103469,
+        "valid": 1015125,
+        "random": 1103013,
+        "bit-flipped": 1167150
+      },
+      "sha256": "47ed85ba2cf0e06832ee433b964e941bf14c07e9fccdf0456c4f8ecb65ec6ca3"
+    },
+    {
+      "run": "m1-unfixed-O3-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 85532.84045,
+      "mean_class1_ns": 85288.42875,
+      "delta_ns": 244.41169999999693,
+      "se_ns": 338.3296910650522,
+      "min_ns": {
+        "message-ones": 75448,
+        "message-zero": 75394,
+        "valid": 76175,
+        "random": 76251,
+        "bit-flipped": 76175
+      },
+      "max_ns": {
+        "message-ones": 1632809,
+        "message-zero": 1961488,
+        "valid": 1902137,
+        "random": 4138305,
+        "bit-flipped": 1409375
+      },
+      "sha256": "14ed7254e3a14a99458f0e89534ccc3b41866db621d7ad294fceb68e42315ddb"
+    },
+    {
+      "run": "m1-unfixed-O3-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 87614.60645,
+      "mean_class1_ns": 88285.98165,
+      "delta_ns": -671.375199999995,
+      "se_ns": 389.0544431209849,
+      "min_ns": {
+        "message-ones": 75491,
+        "message-zero": 75502,
+        "valid": 76273,
+        "random": 76252,
+        "bit-flipped": 76273
+      },
+      "max_ns": {
+        "message-ones": 2804932,
+        "message-zero": 1748723,
+        "valid": 946765,
+        "random": 1737358,
+        "bit-flipped": 1858839
+      },
+      "sha256": "1c159255abcbc8f5f788c01be86a9698c3be08cdf945e6277347d287f0e33220"
+    },
+    {
+      "run": "m1-unfixed-Os-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 98988.1632,
+      "mean_class1_ns": 99175.00545,
+      "delta_ns": -186.8422500000015,
+      "se_ns": 632.4512253804506,
+      "min_ns": {
+        "message-zero": 87139,
+        "bit-flipped": 87877,
+        "message-ones": 86922,
+        "random": 88095,
+        "valid": 87769
+      },
+      "max_ns": {
+        "message-zero": 1768072,
+        "bit-flipped": 7876783,
+        "message-ones": 10359505,
+        "random": 10810019,
+        "valid": 1725881
+      },
+      "sha256": "7336c5bd7712cd3f744e157f2cac223f5bbc0c48913479f983163071d20d92fb"
+    },
+    {
+      "run": "m1-unfixed-Os-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 102524.00035,
+      "mean_class1_ns": 102364.84775,
+      "delta_ns": 159.15260000000126,
+      "se_ns": 588.1688274340917,
+      "min_ns": {
+        "message-zero": 87161,
+        "bit-flipped": 87943,
+        "message-ones": 87020,
+        "random": 87856,
+        "valid": 87953
+      },
+      "max_ns": {
+        "message-zero": 4951817,
+        "bit-flipped": 9200356,
+        "message-ones": 5336975,
+        "random": 4791160,
+        "valid": 1601252
+      },
+      "sha256": "ec2d91a4d105410a18dc0503fb2cc3a7ef412ee89e7e8d5e8d46889de6b8cd07"
+    },
+    {
+      "run": "m1-unfixed-Os-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 99643.62245,
+      "mean_class1_ns": 99319.58605,
+      "delta_ns": 324.03639999999723,
+      "se_ns": 352.27653574819175,
+      "min_ns": {
+        "message-zero": 87095,
+        "bit-flipped": 87682,
+        "message-ones": 87020,
+        "random": 87877,
+        "valid": 87747
+      },
+      "max_ns": {
+        "message-zero": 1417746,
+        "bit-flipped": 977970,
+        "message-ones": 1099930,
+        "random": 937461,
+        "valid": 1693394
+      },
+      "sha256": "ea67c43e6bddb97379ac606b6d878aaad00a3a2a9fb1efdd5a20a05bf870a365"
+    },
+    {
+      "run": "m1-unfixed-Os-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 100097.4436,
+      "mean_class1_ns": 99856.66295,
+      "delta_ns": 240.7806500000006,
+      "se_ns": 394.6368114455375,
+      "min_ns": {
+        "bit-flipped": 87790,
+        "message-zero": 86738,
+        "random": 87812,
+        "message-ones": 86770,
+        "valid": 87855
+      },
+      "max_ns": {
+        "bit-flipped": 10369093,
+        "message-zero": 1886167,
+        "random": 11104184,
+        "message-ones": 2424611,
+        "valid": 10555494
+      },
+      "sha256": "5247cb823c879e95940d419d0c7ed3ad72e05caf48fbf3a60c5eba613e0a5ed7"
+    },
+    {
+      "run": "m1-unfixed-Os-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 99343.2326,
+      "mean_class1_ns": 99686.97705,
+      "delta_ns": -343.7444499999983,
+      "se_ns": 334.7709860716827,
+      "min_ns": {
+        "bit-flipped": 87877,
+        "message-zero": 86922,
+        "random": 87671,
+        "message-ones": 86900,
+        "valid": 87812
+      },
+      "max_ns": {
+        "bit-flipped": 8294501,
+        "message-zero": 1407076,
+        "random": 2155107,
+        "message-ones": 1558679,
+        "valid": 959995
+      },
+      "sha256": "cec2b9ddc579710a1885b78810651e38959d2a0bb4384ec6f9f3f66974d8a80c"
+    },
+    {
+      "run": "m1-unfixed-Os-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 99766.87925,
+      "mean_class1_ns": 100610.50255,
+      "delta_ns": -843.6233000000066,
+      "se_ns": 372.4651428584497,
+      "min_ns": {
+        "bit-flipped": 87844,
+        "message-zero": 87030,
+        "random": 88072,
+        "message-ones": 86998,
+        "valid": 87996
+      },
+      "max_ns": {
+        "bit-flipped": 1112955,
+        "message-zero": 2119395,
+        "random": 2325076,
+        "message-ones": 1819935,
+        "valid": 968808
+      },
+      "sha256": "308ca889c81ef2c2cdea4cbdffe51b4f22976c8eae75c02de56d80c077b4553e"
+    },
+    {
+      "run": "m1-unfixed-Os-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 103629.6584,
+      "mean_class1_ns": 104099.6184,
+      "delta_ns": -469.9600000000064,
+      "se_ns": 368.3139549352625,
+      "min_ns": {
+        "message-ones": 86977,
+        "message-zero": 87019,
+        "valid": 87964,
+        "random": 87866,
+        "bit-flipped": 87866
+      },
+      "max_ns": {
+        "message-ones": 1725273,
+        "message-zero": 1480431,
+        "valid": 6679174,
+        "random": 4409347,
+        "bit-flipped": 2696589
+      },
+      "sha256": "0c2914c205741181a907c61e6532b112b0cc10b607ae524fe3231741398929cd"
+    },
+    {
+      "run": "m1-unfixed-Os-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 98938.64065,
+      "mean_class1_ns": 99863.31375,
+      "delta_ns": -924.6731,
+      "se_ns": 826.9153611068657,
+      "min_ns": {
+        "message-ones": 87074,
+        "message-zero": 87258,
+        "valid": 88181,
+        "random": 88116,
+        "bit-flipped": 88159
+      },
+      "max_ns": {
+        "message-ones": 9085513,
+        "message-zero": 6282250,
+        "valid": 9547763,
+        "random": 5224317,
+        "bit-flipped": 2808759
+      },
+      "sha256": "9871c754805a6857e7798649048990c17a3ea0cbad3b6b01cccb1419d0487c94"
+    },
+    {
+      "run": "m1-unfixed-Os-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 99785.3044,
+      "mean_class1_ns": 98691.21225,
+      "delta_ns": 1094.0921499999968,
+      "se_ns": 401.2531300855324,
+      "min_ns": {
+        "message-ones": 87150,
+        "message-zero": 87226,
+        "valid": 87920,
+        "random": 88203,
+        "bit-flipped": 88224
+      },
+      "max_ns": {
+        "message-ones": 1990825,
+        "message-zero": 2548339,
+        "valid": 2405983,
+        "random": 1577154,
+        "bit-flipped": 3119834
+      },
+      "sha256": "6d8d150dd5f54b2a1472c1429e018edbb7bdfdc5885eb8798e0fe366abfe1eec"
+    },
+    {
+      "run": "m2-fixed-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 102603.37095,
+      "mean_class1_ns": 101033.9552,
+      "delta_ns": 1569.4157500000001,
+      "se_ns": 388.4392245908966,
+      "min_ns": {
+        "message-zero": 88256,
+        "bit-flipped": 88767,
+        "message-ones": 88147,
+        "random": 88853,
+        "valid": 88875
+      },
+      "max_ns": {
+        "message-zero": 1465187,
+        "bit-flipped": 2918207,
+        "message-ones": 1505055,
+        "random": 2171378,
+        "valid": 1021453
+      },
+      "sha256": "3f0ac81018309b73460c24896c3c45d3b4b8f4f30f7b94e8bad7046319045f06"
+    },
+    {
+      "run": "m2-fixed-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 101522.7671,
+      "mean_class1_ns": 100784.25875,
+      "delta_ns": 738.5083500000037,
+      "se_ns": 399.1175029747967,
+      "min_ns": {
+        "message-zero": 88256,
+        "bit-flipped": 88767,
+        "message-ones": 88158,
+        "random": 89070,
+        "valid": 88593
+      },
+      "max_ns": {
+        "message-zero": 2735031,
+        "bit-flipped": 2242951,
+        "message-ones": 1406878,
+        "random": 6320224,
+        "valid": 1570886
+      },
+      "sha256": "6ff71f03452f2ebbaf8798e9b4346acc1842cb6f8a38b7f73c2596a6b34b8256"
+    },
+    {
+      "run": "m2-fixed-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 101260.31175,
+      "mean_class1_ns": 101616.79255,
+      "delta_ns": -356.4808000000048,
+      "se_ns": 417.59940122412047,
+      "min_ns": {
+        "message-zero": 88267,
+        "bit-flipped": 88701,
+        "message-ones": 88158,
+        "random": 88940,
+        "valid": 88506
+      },
+      "max_ns": {
+        "message-zero": 1263364,
+        "bit-flipped": 1010859,
+        "message-ones": 3815185,
+        "random": 2390972,
+        "valid": 4148138
+      },
+      "sha256": "92e5d582aef80f7c191a57eacab98adfaa2ebb86f6a8c467a5800dc256f8241a"
+    },
+    {
+      "run": "m2-fixed-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 99764.80205,
+      "mean_class1_ns": 100088.2019,
+      "delta_ns": -323.3998500000016,
+      "se_ns": 344.82554224486375,
+      "min_ns": {
+        "bit-flipped": 88582,
+        "message-zero": 88234,
+        "random": 88886,
+        "message-ones": 88126,
+        "valid": 88733
+      },
+      "max_ns": {
+        "bit-flipped": 1760380,
+        "message-zero": 1317742,
+        "random": 1149578,
+        "message-ones": 1821882,
+        "valid": 1109960
+      },
+      "sha256": "70f2cac0b6f7ef1b3006c4fe4ed0612a286622201d2b61bd702682e29de520fa"
+    },
+    {
+      "run": "m2-fixed-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 100934.83105,
+      "mean_class1_ns": 100666.4412,
+      "delta_ns": 268.3898499999923,
+      "se_ns": 356.6387642982496,
+      "min_ns": {
+        "bit-flipped": 88864,
+        "message-zero": 88224,
+        "random": 89016,
+        "message-ones": 88104,
+        "valid": 89060
+      },
+      "max_ns": {
+        "bit-flipped": 1362321,
+        "message-zero": 1406693,
+        "random": 7781438,
+        "message-ones": 940806,
+        "valid": 2259569
+      },
+      "sha256": "bd4123500f218e9ffab23d0ca7ef226e9733c6a71a09063dc72d9968ac7a6102"
+    },
+    {
+      "run": "m2-fixed-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 103328.04275,
+      "mean_class1_ns": 103556.29555,
+      "delta_ns": -228.25280000000203,
+      "se_ns": 501.3965934599554,
+      "min_ns": {
+        "bit-flipped": 88907,
+        "message-zero": 88235,
+        "random": 89038,
+        "message-ones": 88148,
+        "valid": 88984
+      },
+      "max_ns": {
+        "bit-flipped": 5396728,
+        "message-zero": 1339235,
+        "random": 3258369,
+        "message-ones": 4443734,
+        "valid": 924557
+      },
+      "sha256": "9f9640806def4360253122d1e87f0b6f9a77f4515658c044211f86bda1ee5087"
+    },
+    {
+      "run": "m2-fixed-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 100713.0943,
+      "mean_class1_ns": 100782.07165,
+      "delta_ns": -68.97735000000102,
+      "se_ns": 364.60901598879616,
+      "min_ns": {
+        "message-ones": 88181,
+        "message-zero": 88256,
+        "valid": 88973,
+        "random": 89005,
+        "bit-flipped": 88919
+      },
+      "max_ns": {
+        "message-ones": 1506489,
+        "message-zero": 1412131,
+        "valid": 1469877,
+        "random": 1366435,
+        "bit-flipped": 1316115
+      },
+      "sha256": "6da2698612303cfb0274ccaf6d32c3a0c758a1362695562cf31c730516ed3194"
+    },
+    {
+      "run": "m2-fixed-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 102440.92,
+      "mean_class1_ns": 101432.7948,
+      "delta_ns": 1008.125199999995,
+      "se_ns": 491.45155290126723,
+      "min_ns": {
+        "message-ones": 88169,
+        "message-zero": 88245,
+        "valid": 89005,
+        "random": 88994,
+        "bit-flipped": 89038
+      },
+      "max_ns": {
+        "message-ones": 1901378,
+        "message-zero": 3239755,
+        "valid": 1982654,
+        "random": 2432053,
+        "bit-flipped": 11141966
+      },
+      "sha256": "c78c624e8e781bcb6e95ad4a3fc94c6bb784ba79ea8b42be8223624a7a08d28a"
+    },
+    {
+      "run": "m2-fixed-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 100538.4873,
+      "mean_class1_ns": 100829.62445,
+      "delta_ns": -291.13715000000957,
+      "se_ns": 366.4037980031895,
+      "min_ns": {
+        "message-ones": 88202,
+        "message-zero": 88288,
+        "valid": 88983,
+        "random": 88951,
+        "bit-flipped": 89016
+      },
+      "max_ns": {
+        "message-ones": 1190595,
+        "message-zero": 1635653,
+        "valid": 1812383,
+        "random": 1645575,
+        "bit-flipped": 1499541
+      },
+      "sha256": "7206a286d4e5088007e36ee6755cd927ae567ae372c3357a675ad1ed863b53c4"
+    },
+    {
+      "run": "m2-unfixed-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 95563.67835,
+      "mean_class1_ns": 96090.9059,
+      "delta_ns": -527.227549999996,
+      "se_ns": 341.20003506296445,
+      "min_ns": {
+        "message-zero": 84381,
+        "bit-flipped": 84848,
+        "message-ones": 84359,
+        "random": 85130,
+        "valid": 85174
+      },
+      "max_ns": {
+        "message-zero": 1101612,
+        "bit-flipped": 8217368,
+        "message-ones": 1634993,
+        "random": 11736970,
+        "valid": 6482971
+      },
+      "sha256": "7c6d0ca5ccbbfacc4738fdfab90e6255e9a6fbb9245bfe4d4be37dd1a5f69a71"
+    },
+    {
+      "run": "m2-unfixed-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 96259.2026,
+      "mean_class1_ns": 96915.5784,
+      "delta_ns": -656.3757999999943,
+      "se_ns": 577.2859341230368,
+      "min_ns": {
+        "message-zero": 84360,
+        "bit-flipped": 85076,
+        "message-ones": 84359,
+        "random": 85228,
+        "valid": 84816
+      },
+      "max_ns": {
+        "message-zero": 1390760,
+        "bit-flipped": 1438323,
+        "message-ones": 9476832,
+        "random": 2160513,
+        "valid": 13561423
+      },
+      "sha256": "68fccd8817d50d77701c6775c65f223efcba48b2555b7a8bc6aec37da5ce98aa"
+    },
+    {
+      "run": "m2-unfixed-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 97725.84705,
+      "mean_class1_ns": 97256.9041,
+      "delta_ns": 468.9429499999969,
+      "se_ns": 524.544272009268,
+      "min_ns": {
+        "message-zero": 84359,
+        "bit-flipped": 84848,
+        "message-ones": 84381,
+        "random": 85141,
+        "valid": 84870
+      },
+      "max_ns": {
+        "message-zero": 3751795,
+        "bit-flipped": 11533051,
+        "message-ones": 5438517,
+        "random": 2470826,
+        "valid": 11960606
+      },
+      "sha256": "e0b477bb14c70014b64194415b6fb611e4d688bb976678c052b97e453f647fd4"
+    },
+    {
+      "run": "m2-unfixed-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 98802.42635,
+      "mean_class1_ns": 99024.17175,
+      "delta_ns": -221.7453999999998,
+      "se_ns": 538.7621045963875,
+      "min_ns": {
+        "bit-flipped": 85174,
+        "message-zero": 84316,
+        "random": 85272,
+        "message-ones": 84359,
+        "valid": 85238
+      },
+      "max_ns": {
+        "bit-flipped": 7781382,
+        "message-zero": 3217656,
+        "random": 1932388,
+        "message-ones": 6931528,
+        "valid": 2344825
+      },
+      "sha256": "d94dbe620be1267ca4413415ff881335466a9fd5d97325c2c370c0c2d91c564b"
+    },
+    {
+      "run": "m2-unfixed-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 95804.0947,
+      "mean_class1_ns": 95253.89725,
+      "delta_ns": 550.1974500000069,
+      "se_ns": 486.0234958197964,
+      "min_ns": {
+        "bit-flipped": 85141,
+        "message-zero": 84370,
+        "random": 85174,
+        "message-ones": 84370,
+        "valid": 85097
+      },
+      "max_ns": {
+        "bit-flipped": 902469,
+        "message-zero": 6913280,
+        "random": 941414,
+        "message-ones": 1763496,
+        "valid": 4127862
+      },
+      "sha256": "9a36131ab879cefba523595dc35f35c0cf89fe7a3e34468fec358d86087c885e"
+    },
+    {
+      "run": "m2-unfixed-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 97686.0922,
+      "mean_class1_ns": 97185.03965,
+      "delta_ns": 501.05254999999306,
+      "se_ns": 364.94189473468987,
+      "min_ns": {
+        "bit-flipped": 84717,
+        "message-zero": 84359,
+        "random": 85282,
+        "message-ones": 84360,
+        "valid": 85076
+      },
+      "max_ns": {
+        "bit-flipped": 6993167,
+        "message-zero": 1292366,
+        "random": 3596751,
+        "message-ones": 2042363,
+        "valid": 2010756
+      },
+      "sha256": "5095a7a1959b37303c5b1d85c9abe1d46f8a88a7f867cdd373dcab07f649fbd9"
+    },
+    {
+      "run": "m2-unfixed-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 96867.75385,
+      "mean_class1_ns": 97174.52465,
+      "delta_ns": -306.77080000001297,
+      "se_ns": 409.9702169295303,
+      "min_ns": {
+        "message-ones": 84381,
+        "message-zero": 84403,
+        "valid": 85314,
+        "random": 85271,
+        "bit-flipped": 85206
+      },
+      "max_ns": {
+        "message-ones": 3526426,
+        "message-zero": 1916476,
+        "valid": 4275461,
+        "random": 1970683,
+        "bit-flipped": 7421552
+      },
+      "sha256": "005521c026f719f788fd1d4c00fb142043571846ad682e22f205ad2236f4c903"
+    },
+    {
+      "run": "m2-unfixed-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 100831.1846,
+      "mean_class1_ns": 102298.369,
+      "delta_ns": -1467.1844000000128,
+      "se_ns": 623.9754042235975,
+      "min_ns": {
+        "message-ones": 84392,
+        "message-zero": 84403,
+        "valid": 84924,
+        "random": 85336,
+        "bit-flipped": 85293
+      },
+      "max_ns": {
+        "message-ones": 8159028,
+        "message-zero": 3807911,
+        "valid": 2240987,
+        "random": 5125102,
+        "bit-flipped": 1320630
+      },
+      "sha256": "ad8d9edd53c66c7f328859c09c6759934051fd95b00f1f6241cd7261679af5c3"
+    },
+    {
+      "run": "m2-unfixed-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 96755.00165,
+      "mean_class1_ns": 97500.0284,
+      "delta_ns": -745.02674999999,
+      "se_ns": 377.6341353999503,
+      "min_ns": {
+        "message-ones": 84392,
+        "message-zero": 84414,
+        "valid": 85217,
+        "random": 85326,
+        "bit-flipped": 85304
+      },
+      "max_ns": {
+        "message-ones": 2337927,
+        "message-zero": 1115941,
+        "valid": 1038853,
+        "random": 3111022,
+        "bit-flipped": 1944523
+      },
+      "sha256": "ac87b4ab362b6d69b810532f8bb371b4420563074c3706e70890eadc7583839d"
+    },
+    {
+      "run": "m4-ct-s31337-r1",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 33.8802,
+      "mean_class1_ns": 37.78405,
+      "delta_ns": -3.9038499999999985,
+      "se_ns": 3.8368762755861154,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 76749,
+        "mismatch-first": 241
+      },
+      "sha256": "361737df5a632bede4c97ddae56cd58eacc81ec741ea7aed6c923930c74f67e5"
+    },
+    {
+      "run": "m4-ct-s31337-r2",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 29.7765,
+      "mean_class1_ns": 30.74995,
+      "delta_ns": -0.9734499999999997,
+      "se_ns": 0.9823330558161028,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 19669,
+        "mismatch-first": 151
+      },
+      "sha256": "a1b858ec9415b7d0f288c09ab649c135edd7991a235c867f58fd4ec84a9251d2"
+    },
+    {
+      "run": "m4-ct-s31337-r3",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 31.647,
+      "mean_class1_ns": 30.7392,
+      "delta_ns": 0.9077999999999982,
+      "se_ns": 0.9114525335990077,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 390,
+        "mismatch-first": 18236
+      },
+      "sha256": "68970318d08b566ad28d456ff00d3a20e95f847e2aca3a52d83e327ab95f35c2"
+    },
+    {
+      "run": "m4-ct-s424242-r1",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 29.76,
+      "mean_class1_ns": 30.71565,
+      "delta_ns": -0.9556499999999986,
+      "se_ns": 0.9269827180707605,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 18566,
+        "mismatch-first": 41
+      },
+      "sha256": "95963a0806c8c45418c8c6c7c4b885095dd498b3e95a957bdefda82670716de8"
+    },
+    {
+      "run": "m4-ct-s424242-r2",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 36.44715,
+      "mean_class1_ns": 30.4832,
+      "delta_ns": 5.9639500000000005,
+      "se_ns": 6.647231946521756,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 12504,
+        "mismatch-first": 132387
+      },
+      "sha256": "e6ef8b3796dbf62508ff33a2b8d6dedd63cd9c4f3b2ed47ea5aada772543b7ef"
+    },
+    {
+      "run": "m4-ct-s424242-r3",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 33.18925,
+      "mean_class1_ns": 33.12615,
+      "delta_ns": 0.0630999999999986,
+      "se_ns": 0.057247946662914086,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 100,
+        "mismatch-first": 411
+      },
+      "sha256": "4b2d256cd0b257a54182a55a80204875cdc0d9e298f7cce5b74be1e0391f30f6"
+    },
+    {
+      "run": "m4-ct-s7-r1",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 35.3788,
+      "mean_class1_ns": 39.1939,
+      "delta_ns": -3.815100000000001,
+      "se_ns": 3.311030621552199,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 59225,
+        "mismatch-first": 9769
+      },
+      "sha256": "b17229bfc446cca60eccd2edd1aba03924f00b34d19e150f5312f273969b4fa7"
+    },
+    {
+      "run": "m4-ct-s7-r2",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 30.7187,
+      "mean_class1_ns": 30.5224,
+      "delta_ns": 0.19629999999999725,
+      "se_ns": 1.1408558261359327,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 14087,
+        "mismatch-first": 17995
+      },
+      "sha256": "5b7c615eb62ad91ef79bd7c5612791c0770b9295ab2737782017f3e20c04709e"
+    },
+    {
+      "run": "m4-ct-s7-r3",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 31.03525,
+      "mean_class1_ns": 29.7861,
+      "delta_ns": 1.2491500000000002,
+      "se_ns": 1.2618886305285295,
+      "min_ns": {
+        "mismatch-last": 20,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 501,
+        "mismatch-first": 25259
+      },
+      "sha256": "1b5572be8372b0378f396cae9191cb9b4b4834a7a5673c63a005539249290185"
+    },
+    {
+      "run": "m4-vulnerable-s31337-r1",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 31.76095,
+      "mean_class1_ns": 48.68025,
+      "delta_ns": -16.9193,
+      "se_ns": 5.105451376464144,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 91527,
+        "mismatch-first": 17464
+      },
+      "sha256": "90c1183f3d8a0c2037e172b652ffacc4c6617c3ac80e124cb5860bd2a1b3d890"
+    },
+    {
+      "run": "m4-vulnerable-s31337-r2",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 36.6914,
+      "mean_class1_ns": 41.3068,
+      "delta_ns": -4.615400000000001,
+      "se_ns": 6.96388361410065,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 43084,
+        "mismatch-first": 112188
+      },
+      "sha256": "183652f581055f9fa697240bf7723556254cb4a84a0fdc671a95d39d4d2342fd"
+    },
+    {
+      "run": "m4-vulnerable-s31337-r3",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 28.2371,
+      "mean_class1_ns": 41.67445,
+      "delta_ns": -13.437349999999999,
+      "se_ns": 2.8657506920335587,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 54556,
+        "mismatch-first": 17624
+      },
+      "sha256": "02a2f6889962ff9eb08e8830267878a08faa9f16f9af5ca1374048ed42121d3a"
+    },
+    {
+      "run": "m4-vulnerable-s424242-r1",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 26.874,
+      "mean_class1_ns": 36.995,
+      "delta_ns": -10.120999999999999,
+      "se_ns": 0.9423966550889153,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 14759,
+        "mismatch-first": 31
+      },
+      "sha256": "5ef505d0d1e95233d9c011a5c81f0b08d347c3ccfb0b3924c59ac89d310374b7"
+    },
+    {
+      "run": "m4-vulnerable-s424242-r2",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 31.4041,
+      "mean_class1_ns": 50.13315,
+      "delta_ns": -18.72905,
+      "se_ns": 0.9635112733705146,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 19087,
+        "mismatch-first": 611
+      },
+      "sha256": "adb97022d098e34ed1cd632ee053a54d09f9c9b3247c8f7bdbf16433bd9e3c78"
+    },
+    {
+      "run": "m4-vulnerable-s424242-r3",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 27.6625,
+      "mean_class1_ns": 39.6789,
+      "delta_ns": -12.016399999999997,
+      "se_ns": 0.10437798697622147,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 420,
+        "mismatch-first": 391
+      },
+      "sha256": "314b2697ea525218927709b1c932509ac2dad7b675c86207f2bc68f81de866c5"
+    },
+    {
+      "run": "m4-vulnerable-s7-r1",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 26.88155,
+      "mean_class1_ns": 37.0539,
+      "delta_ns": -10.172349999999998,
+      "se_ns": 1.4271944348676253,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 28555,
+        "mismatch-first": 50
+      },
+      "sha256": "c370a49f3aca0919b527cdfbd9936bc158f6691c69f3df4c5d7bf20ec73e37a3"
+    },
+    {
+      "run": "m4-vulnerable-s7-r2",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 26.9523,
+      "mean_class1_ns": 36.73155,
+      "delta_ns": -9.779249999999998,
+      "se_ns": 1.1374208309912008,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 22754,
+        "mismatch-first": 31
+      },
+      "sha256": "a6d7a90bc3d2f94df81b021c54c2d60f387688594b3fb62e08fb4c2c501f8ce3"
+    },
+    {
+      "run": "m4-vulnerable-s7-r3",
+      "rows": 40000,
+      "class_counts": {
+        "mismatch-last": 20000,
+        "mismatch-first": 20000
+      },
+      "mean_class0_ns": 27.70375,
+      "mean_class1_ns": 35.888,
+      "delta_ns": -8.184249999999999,
+      "se_ns": 0.7531788738524706,
+      "min_ns": {
+        "mismatch-last": 30,
+        "mismatch-first": 20
+      },
+      "max_ns": {
+        "mismatch-last": 451,
+        "mismatch-first": 15029
+      },
+      "sha256": "343fd8c3d60c1222802afaba99f664534d9615166c08ca38503e9088f150b2c0"
+    },
+    {
+      "run": "m5-O0-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 381282.37355,
+      "mean_class1_ns": 380856.0625,
+      "delta_ns": 426.31105000001844,
+      "se_ns": 1183.8789323643275,
+      "min_ns": {
+        "message-zero": 335064,
+        "bit-flipped": 335065,
+        "message-ones": 334673,
+        "random": 334977,
+        "valid": 334565
+      },
+      "max_ns": {
+        "message-zero": 9423541,
+        "bit-flipped": 10061913,
+        "message-ones": 10432993,
+        "random": 2788906,
+        "valid": 10207211
+      },
+      "sha256": "515d48aecdccec618954353e9a2df25086edf60eb90e65009f33a24567e5be2e"
+    },
+    {
+      "run": "m5-O0-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 369815.841,
+      "mean_class1_ns": 369618.10475,
+      "delta_ns": 197.7362500000163,
+      "se_ns": 975.8325234857693,
+      "min_ns": {
+        "message-zero": 327499,
+        "bit-flipped": 327781,
+        "message-ones": 327944,
+        "random": 327955,
+        "valid": 327705
+      },
+      "max_ns": {
+        "message-zero": 3733492,
+        "bit-flipped": 11435873,
+        "message-ones": 4451430,
+        "random": 25468030,
+        "valid": 3645566
+      },
+      "sha256": "fc272e053ce8d306dbd8fe0e2e95eb2f7cf0daccee73effc8f205e743b1e9f8d"
+    },
+    {
+      "run": "m5-O0-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 376251.70875,
+      "mean_class1_ns": 376484.9623,
+      "delta_ns": -233.2535500000231,
+      "se_ns": 927.7863301115118,
+      "min_ns": {
+        "message-zero": 331960,
+        "bit-flipped": 331949,
+        "message-ones": 332036,
+        "random": 332134,
+        "valid": 332025
+      },
+      "max_ns": {
+        "message-zero": 4299132,
+        "bit-flipped": 7705402,
+        "message-ones": 2932779,
+        "random": 9326622,
+        "valid": 2832290
+      },
+      "sha256": "a360fd7d99819d0fbacfc0190a443c13e560bcce478feeaef22f02a98b6668e3"
+    },
+    {
+      "run": "m5-O0-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 376589.6961,
+      "mean_class1_ns": 377861.4847,
+      "delta_ns": -1271.7885999999708,
+      "se_ns": 1244.9895423003109,
+      "min_ns": {
+        "bit-flipped": 335097,
+        "message-zero": 335336,
+        "random": 335574,
+        "message-ones": 335434,
+        "valid": 335520
+      },
+      "max_ns": {
+        "bit-flipped": 3147003,
+        "message-zero": 11945517,
+        "random": 9440542,
+        "message-ones": 10172996,
+        "valid": 5331090
+      },
+      "sha256": "d757fdffb8954c0c8745f137f8958fcea980a1f71219f60c44cd386fa335508a"
+    },
+    {
+      "run": "m5-O0-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 377956.82745,
+      "mean_class1_ns": 378281.5917,
+      "delta_ns": -324.76425000000745,
+      "se_ns": 1101.4855753620063,
+      "min_ns": {
+        "bit-flipped": 334858,
+        "message-zero": 334728,
+        "random": 334793,
+        "message-ones": 334424,
+        "valid": 334728
+      },
+      "max_ns": {
+        "bit-flipped": 11803848,
+        "message-zero": 6510876,
+        "random": 4439219,
+        "message-ones": 9197098,
+        "valid": 6973643
+      },
+      "sha256": "7a2cb6ee0c71a37d07e70063d4da00cdabddd47b5ee49b549bcf2cc72cf4c842"
+    },
+    {
+      "run": "m5-O0-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 379189.0473,
+      "mean_class1_ns": 378732.81325,
+      "delta_ns": 456.23404999997,
+      "se_ns": 999.1423087365043,
+      "min_ns": {
+        "bit-flipped": 336269,
+        "message-zero": 336443,
+        "random": 336062,
+        "message-ones": 336410,
+        "valid": 336008
+      },
+      "max_ns": {
+        "bit-flipped": 8828551,
+        "message-zero": 10992130,
+        "random": 4477164,
+        "message-ones": 1860204,
+        "valid": 7037141
+      },
+      "sha256": "3b7ce399f4cab5b2d431c291b06cac8e0a62c0e5e5923715a37d0c3602ee61c3"
+    },
+    {
+      "run": "m5-O0-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 377032.80635,
+      "mean_class1_ns": 376148.3181,
+      "delta_ns": 884.4882500000531,
+      "se_ns": 997.9273013806718,
+      "min_ns": {
+        "message-ones": 334771,
+        "message-zero": 334706,
+        "valid": 334934,
+        "random": 334934,
+        "bit-flipped": 334814
+      },
+      "max_ns": {
+        "message-ones": 4661701,
+        "message-zero": 8094998,
+        "valid": 10026148,
+        "random": 5435044,
+        "bit-flipped": 11580862
+      },
+      "sha256": "50fd9b71438b99edc44d0e21a3f58d4deca4dcc29f0ae8fc91a3196498ed17f1"
+    },
+    {
+      "run": "m5-O0-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 379093.77895,
+      "mean_class1_ns": 380727.57835,
+      "delta_ns": -1633.799400000018,
+      "se_ns": 1757.6767648051332,
+      "min_ns": {
+        "message-ones": 334913,
+        "message-zero": 334772,
+        "valid": 334891,
+        "random": 334891,
+        "bit-flipped": 334586
+      },
+      "max_ns": {
+        "message-ones": 11252337,
+        "message-zero": 10314550,
+        "valid": 9392946,
+        "random": 5352668,
+        "bit-flipped": 11130604
+      },
+      "sha256": "1267e94314c6e827eb8bd8479ce69384e173c28976723ece8b2fba71d36bb396"
+    },
+    {
+      "run": "m5-O0-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 379705.4804,
+      "mean_class1_ns": 380967.8955,
+      "delta_ns": -1262.4150999999838,
+      "se_ns": 1194.2742293730666,
+      "min_ns": {
+        "message-ones": 336236,
+        "message-zero": 336486,
+        "valid": 336573,
+        "random": 336193,
+        "bit-flipped": 336562
+      },
+      "max_ns": {
+        "message-ones": 9748932,
+        "message-zero": 4630223,
+        "valid": 2920396,
+        "random": 11142990,
+        "bit-flipped": 4266536
+      },
+      "sha256": "aa118b74b3165af3ce5629d45162451169ff1db631618b83ce67b1294c9685c3"
+    },
+    {
+      "run": "m5-O2-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 45560.2293,
+      "mean_class1_ns": 44403.7968,
+      "delta_ns": 1156.4325000000026,
+      "se_ns": 608.0558271946013,
+      "min_ns": {
+        "message-zero": 39506,
+        "bit-flipped": 39507,
+        "message-ones": 39507,
+        "random": 39496,
+        "valid": 39516
+      },
+      "max_ns": {
+        "message-zero": 10094160,
+        "bit-flipped": 1010300,
+        "message-ones": 1630908,
+        "random": 1187582,
+        "valid": 8869537
+      },
+      "sha256": "41f125a90d7515476c830a1d9fb81dd95f6478aa67641981536001cce1824f91"
+    },
+    {
+      "run": "m5-O2-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 49280.0828,
+      "mean_class1_ns": 49597.5196,
+      "delta_ns": -317.43680000000313,
+      "se_ns": 738.3227982888865,
+      "min_ns": {
+        "message-zero": 42787,
+        "bit-flipped": 42809,
+        "message-ones": 42798,
+        "random": 42788,
+        "valid": 42798
+      },
+      "max_ns": {
+        "message-zero": 7880420,
+        "bit-flipped": 2633424,
+        "message-ones": 11358774,
+        "random": 9409311,
+        "valid": 8233552
+      },
+      "sha256": "1eaac33dd10c66950f427d400ae3419a902a5d464e4c338dcfa5acee2daf1645"
+    },
+    {
+      "run": "m5-O2-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48296.6552,
+      "mean_class1_ns": 48166.63125,
+      "delta_ns": 130.02395000000251,
+      "se_ns": 212.27801414920216,
+      "min_ns": {
+        "message-zero": 42787,
+        "bit-flipped": 42776,
+        "message-ones": 42798,
+        "random": 42777,
+        "valid": 42788
+      },
+      "max_ns": {
+        "message-zero": 1088858,
+        "bit-flipped": 1856690,
+        "message-ones": 1302961,
+        "random": 1281337,
+        "valid": 743726
+      },
+      "sha256": "b49cca5f65a1ce98a4cbd3caa85bcc9d19c686a8071c7c5208b1aeb80791b575"
+    },
+    {
+      "run": "m5-O2-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48106.6812,
+      "mean_class1_ns": 48813.0611,
+      "delta_ns": -706.3798999999999,
+      "se_ns": 234.748078498035,
+      "min_ns": {
+        "bit-flipped": 42766,
+        "message-zero": 42765,
+        "random": 42755,
+        "message-ones": 42766,
+        "valid": 42755
+      },
+      "max_ns": {
+        "bit-flipped": 1631345,
+        "message-zero": 856414,
+        "random": 1179383,
+        "message-ones": 2033019,
+        "valid": 1049067
+      },
+      "sha256": "650199b6616dbc5c3aab35ecb7403ddf583437ee07d4db5ea2fdb3bf35c3ebe3"
+    },
+    {
+      "run": "m5-O2-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 49358.53895,
+      "mean_class1_ns": 49684.06865,
+      "delta_ns": -325.52969999999914,
+      "se_ns": 314.2679948364929,
+      "min_ns": {
+        "bit-flipped": 42723,
+        "message-zero": 42734,
+        "random": 42744,
+        "message-ones": 42734,
+        "valid": 42733
+      },
+      "max_ns": {
+        "bit-flipped": 1393359,
+        "message-zero": 1386971,
+        "random": 1027620,
+        "message-ones": 2942488,
+        "valid": 1150023
+      },
+      "sha256": "2f12bdbdc7879d798dbeb24e96d807ee6f312191bcdbf345687616f64e57a8df"
+    },
+    {
+      "run": "m5-O2-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 47992.023,
+      "mean_class1_ns": 47740.26005,
+      "delta_ns": 251.7629500000039,
+      "se_ns": 221.80300415489722,
+      "min_ns": {
+        "bit-flipped": 42744,
+        "message-zero": 42745,
+        "random": 42744,
+        "message-ones": 42722,
+        "valid": 42744
+      },
+      "max_ns": {
+        "bit-flipped": 2010941,
+        "message-zero": 1613914,
+        "random": 795479,
+        "message-ones": 955286,
+        "valid": 8106034
+      },
+      "sha256": "e072b42ac291516999fecd0fcb7c0a91d90c9a761ab5d97685d3db65e2698151"
+    },
+    {
+      "run": "m5-O2-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 48524.75145,
+      "mean_class1_ns": 48542.78355,
+      "delta_ns": -18.032099999996717,
+      "se_ns": 202.15239941505288,
+      "min_ns": {
+        "message-ones": 42777,
+        "message-zero": 42777,
+        "valid": 42777,
+        "random": 42776,
+        "bit-flipped": 42776
+      },
+      "max_ns": {
+        "message-ones": 1087177,
+        "message-zero": 761472,
+        "valid": 823862,
+        "random": 1423149,
+        "bit-flipped": 1027011
+      },
+      "sha256": "b71c6b7e142af9fb221319246fe2a7bc907f123b1ef652794cea87b63b2b8dca"
+    },
+    {
+      "run": "m5-O2-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 49077.55875,
+      "mean_class1_ns": 49612.1899,
+      "delta_ns": -534.6311500000011,
+      "se_ns": 251.8635816592638,
+      "min_ns": {
+        "message-ones": 42788,
+        "message-zero": 42787,
+        "valid": 42766,
+        "random": 42787,
+        "bit-flipped": 42776
+      },
+      "max_ns": {
+        "message-ones": 1714521,
+        "message-zero": 1166152,
+        "valid": 1709148,
+        "random": 1285994,
+        "bit-flipped": 871708
+      },
+      "sha256": "3c27825b547bc36d8845bbc5bc9ff21a0706ab0e15b78bddbabbd1fb6ae4e2fb"
+    },
+    {
+      "run": "m5-O2-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 50293.05885,
+      "mean_class1_ns": 50833.37605,
+      "delta_ns": -540.3171999999977,
+      "se_ns": 932.4399236787909,
+      "min_ns": {
+        "message-ones": 42755,
+        "message-zero": 42766,
+        "valid": 42755,
+        "random": 42766,
+        "bit-flipped": 42765
+      },
+      "max_ns": {
+        "message-ones": 10709694,
+        "message-zero": 10136121,
+        "valid": 10095222,
+        "random": 2459657,
+        "bit-flipped": 9420502
+      },
+      "sha256": "e2b3b3a67fe623959a05cffd4ff4bf72d255f15b05120f05deb0c1d78c85a8a3"
+    },
+    {
+      "run": "m5-O2default-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48336.64045,
+      "mean_class1_ns": 48028.2542,
+      "delta_ns": 308.3862499999959,
+      "se_ns": 354.90565281382567,
+      "min_ns": {
+        "message-zero": 42788,
+        "bit-flipped": 42788,
+        "message-ones": 42788,
+        "random": 42788,
+        "valid": 42788
+      },
+      "max_ns": {
+        "message-zero": 4159837,
+        "bit-flipped": 1096836,
+        "message-ones": 4104589,
+        "random": 870012,
+        "valid": 2851676
+      },
+      "sha256": "70983c0061c88c700a49d051d7ffdf80140c772d841b8b850385f8be7c01d739"
+    },
+    {
+      "run": "m5-O2default-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48622.94025,
+      "mean_class1_ns": 49018.5261,
+      "delta_ns": -395.5858500000031,
+      "se_ns": 553.435856560285,
+      "min_ns": {
+        "message-zero": 42766,
+        "bit-flipped": 42766,
+        "message-ones": 42756,
+        "random": 42756,
+        "valid": 42766
+      },
+      "max_ns": {
+        "message-zero": 2749971,
+        "bit-flipped": 10314995,
+        "message-ones": 9660470,
+        "random": 10434664,
+        "valid": 8730676
+      },
+      "sha256": "bd8ddc16e846fc8e5df7ff5c7f0e16357c6f6c917733a009b2f9649d53a31a5f"
+    },
+    {
+      "run": "m5-O2default-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48259.1033,
+      "mean_class1_ns": 48075.9097,
+      "delta_ns": 183.19360000000597,
+      "se_ns": 237.1145062928004,
+      "min_ns": {
+        "message-zero": 42777,
+        "bit-flipped": 42788,
+        "message-ones": 42798,
+        "random": 42798,
+        "valid": 42777
+      },
+      "max_ns": {
+        "message-zero": 1208419,
+        "bit-flipped": 1574376,
+        "message-ones": 1681194,
+        "random": 842420,
+        "valid": 859418
+      },
+      "sha256": "c58bf998ba07e3f18e0d2d2982b8d18c78ed6217703d80bbe74380875ff8e485"
+    },
+    {
+      "run": "m5-O2default-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48086.425,
+      "mean_class1_ns": 47708.4708,
+      "delta_ns": 377.9542000000001,
+      "se_ns": 200.4540519696189,
+      "min_ns": {
+        "bit-flipped": 42756,
+        "message-zero": 42744,
+        "random": 42755,
+        "message-ones": 42744,
+        "valid": 42755
+      },
+      "max_ns": {
+        "bit-flipped": 770943,
+        "message-zero": 1170668,
+        "random": 1069146,
+        "message-ones": 537043,
+        "valid": 1114713
+      },
+      "sha256": "4981db00ea775f7a697d438c9005e6852faeb134d15d3bca477edd4fd3cec2ca"
+    },
+    {
+      "run": "m5-O2default-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48640.5021,
+      "mean_class1_ns": 48535.43795,
+      "delta_ns": 105.06414999999834,
+      "se_ns": 291.7987820099347,
+      "min_ns": {
+        "bit-flipped": 42723,
+        "message-zero": 42712,
+        "random": 42734,
+        "message-ones": 42734,
+        "valid": 42733
+      },
+      "max_ns": {
+        "bit-flipped": 1043737,
+        "message-zero": 3622685,
+        "random": 11144680,
+        "message-ones": 1200681,
+        "valid": 1318070
+      },
+      "sha256": "a2f3f612f9288a66c286d4d8c918c086c7cad5487828a476c53a5bd384281745"
+    },
+    {
+      "run": "m5-O2default-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 48514.51425,
+      "mean_class1_ns": 48282.86145,
+      "delta_ns": 231.65280000000348,
+      "se_ns": 223.366583883215,
+      "min_ns": {
+        "bit-flipped": 42756,
+        "message-zero": 42766,
+        "random": 42766,
+        "message-ones": 42755,
+        "valid": 42766
+      },
+      "max_ns": {
+        "bit-flipped": 4830302,
+        "message-zero": 1417182,
+        "random": 868210,
+        "message-ones": 1192951,
+        "valid": 1567331
+      },
+      "sha256": "34859ac2089395c07db2d3a4e97f5bfc8c179a0f459725162a20aa35d5d0e03c"
+    },
+    {
+      "run": "m5-O2default-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 50589.90365,
+      "mean_class1_ns": 51256.5784,
+      "delta_ns": -666.6747499999983,
+      "se_ns": 356.90582056258006,
+      "min_ns": {
+        "message-ones": 42788,
+        "message-zero": 42756,
+        "valid": 42788,
+        "random": 42777,
+        "bit-flipped": 42788
+      },
+      "max_ns": {
+        "message-ones": 4601805,
+        "message-zero": 1930312,
+        "valid": 1868572,
+        "random": 4773523,
+        "bit-flipped": 2033049
+      },
+      "sha256": "102634382017880e551423ad830345cf153c315f5dce8ac3f3bfaf6acac5aae3"
+    },
+    {
+      "run": "m5-O2default-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 48262.2747,
+      "mean_class1_ns": 48174.6934,
+      "delta_ns": 87.58130000000529,
+      "se_ns": 205.6852109275884,
+      "min_ns": {
+        "message-ones": 42777,
+        "message-zero": 42767,
+        "valid": 42756,
+        "random": 42755,
+        "bit-flipped": 42766
+      },
+      "max_ns": {
+        "message-ones": 968386,
+        "message-zero": 801195,
+        "valid": 854957,
+        "random": 2193922,
+        "bit-flipped": 1131766
+      },
+      "sha256": "88df2fea61c798d43418bce0a2113f9b76f7a4f99f6be82e73f820db67e400eb"
+    },
+    {
+      "run": "m5-O2default-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 48082.3946,
+      "mean_class1_ns": 48198.274,
+      "delta_ns": -115.87939999999799,
+      "se_ns": 193.3210716471639,
+      "min_ns": {
+        "message-ones": 42745,
+        "message-zero": 42766,
+        "valid": 42766,
+        "random": 42756,
+        "bit-flipped": 42755
+      },
+      "max_ns": {
+        "message-ones": 974637,
+        "message-zero": 824912,
+        "valid": 954253,
+        "random": 1161192,
+        "bit-flipped": 837753
+      },
+      "sha256": "3fafd12aaa75ebe6de622a713e47836691d840c9a77d05324519ebd6d47600bc"
+    },
+    {
+      "run": "m5-O3-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 42744.58665,
+      "mean_class1_ns": 42902.08255,
+      "delta_ns": -157.4959000000017,
+      "se_ns": 186.2635159459039,
+      "min_ns": {
+        "message-zero": 38023,
+        "bit-flipped": 38022,
+        "message-ones": 38023,
+        "random": 38022,
+        "valid": 38022
+      },
+      "max_ns": {
+        "message-zero": 707689,
+        "bit-flipped": 1179774,
+        "message-ones": 1310850,
+        "random": 1970345,
+        "valid": 2078845
+      },
+      "sha256": "30fbf8f824a6b8f00b0af2f9d43a8e27c83fcae9020d77f3828151e9d99b108b"
+    },
+    {
+      "run": "m5-O3-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 43122.556,
+      "mean_class1_ns": 43085.9227,
+      "delta_ns": 36.63329999999405,
+      "se_ns": 199.08774714247872,
+      "min_ns": {
+        "message-zero": 38011,
+        "bit-flipped": 38012,
+        "message-ones": 38011,
+        "random": 37990,
+        "valid": 37990
+      },
+      "max_ns": {
+        "message-zero": 1071209,
+        "bit-flipped": 765565,
+        "message-ones": 1036052,
+        "random": 703097,
+        "valid": 1616149
+      },
+      "sha256": "8e4f117a960e5c998e6a02daac41819330aad2f438f2dbabedefa9804953fc9b"
+    },
+    {
+      "run": "m5-O3-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 43970.91045,
+      "mean_class1_ns": 43830.42255,
+      "delta_ns": 140.48790000000008,
+      "se_ns": 313.38092745892556,
+      "min_ns": {
+        "message-zero": 38033,
+        "bit-flipped": 38033,
+        "message-ones": 38022,
+        "random": 38044,
+        "valid": 38023
+      },
+      "max_ns": {
+        "message-zero": 4500707,
+        "bit-flipped": 6167437,
+        "message-ones": 1007472,
+        "random": 4328309,
+        "valid": 1076235
+      },
+      "sha256": "28f8cb09b83004bb2044aeee10ee0024fec328b05db0e2fdd5e3d001250c79fd"
+    },
+    {
+      "run": "m5-O3-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 43799.6058,
+      "mean_class1_ns": 44018.7727,
+      "delta_ns": -219.1669000000038,
+      "se_ns": 183.33042295244138,
+      "min_ns": {
+        "bit-flipped": 38033,
+        "message-zero": 38023,
+        "random": 38022,
+        "message-ones": 38023,
+        "valid": 38023
+      },
+      "max_ns": {
+        "bit-flipped": 714407,
+        "message-zero": 1067237,
+        "random": 880576,
+        "message-ones": 800786,
+        "valid": 1299236
+      },
+      "sha256": "10a3f303feb28f2f7b94572feeda4f68f7387f09ebd4a358c12e485029bf1a30"
+    },
+    {
+      "run": "m5-O3-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 43263.1445,
+      "mean_class1_ns": 43338.5955,
+      "delta_ns": -75.45100000000093,
+      "se_ns": 240.25379954718682,
+      "min_ns": {
+        "bit-flipped": 38022,
+        "message-zero": 38012,
+        "random": 38022,
+        "message-ones": 38033,
+        "valid": 38022
+      },
+      "max_ns": {
+        "bit-flipped": 814462,
+        "message-zero": 1424896,
+        "random": 1082747,
+        "message-ones": 1521553,
+        "valid": 1667630
+      },
+      "sha256": "1d076a761c50d361b87366f9dc7ac8ed96f68a614319b23e88e3592a21c378bf"
+    },
+    {
+      "run": "m5-O3-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 43653.45255,
+      "mean_class1_ns": 44278.5658,
+      "delta_ns": -625.1132499999949,
+      "se_ns": 951.8311430762693,
+      "min_ns": {
+        "bit-flipped": 38033,
+        "message-zero": 38022,
+        "random": 38022,
+        "message-ones": 38023,
+        "valid": 38023
+      },
+      "max_ns": {
+        "bit-flipped": 9625449,
+        "message-zero": 10731391,
+        "random": 10500243,
+        "message-ones": 12001549,
+        "valid": 836073
+      },
+      "sha256": "22c5857d56e7bb76a7be16d5818d5148fbffb54a4ecbf584d0ac7a353870946d"
+    },
+    {
+      "run": "m5-O3-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 44123.97305,
+      "mean_class1_ns": 43998.084,
+      "delta_ns": 125.88904999999795,
+      "se_ns": 226.25295436792953,
+      "min_ns": {
+        "message-ones": 38001,
+        "message-zero": 38000,
+        "valid": 38001,
+        "random": 38011,
+        "bit-flipped": 37990
+      },
+      "max_ns": {
+        "message-ones": 849119,
+        "message-zero": 2019016,
+        "valid": 8662478,
+        "random": 2135135,
+        "bit-flipped": 1562887
+      },
+      "sha256": "bdeb6cbe4fe2932f82fea41c4a2fe4ec17fa60b2ddfe24ff37471d58e03920e5"
+    },
+    {
+      "run": "m5-O3-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 43215.93495,
+      "mean_class1_ns": 43127.9428,
+      "delta_ns": 87.9921500000055,
+      "se_ns": 406.5407439463746,
+      "min_ns": {
+        "message-ones": 38055,
+        "message-zero": 38034,
+        "valid": 38066,
+        "random": 38056,
+        "bit-flipped": 38066
+      },
+      "max_ns": {
+        "message-ones": 1698403,
+        "message-zero": 7008169,
+        "valid": 647295,
+        "random": 825100,
+        "bit-flipped": 2013242
+      },
+      "sha256": "14b1aa6479d1c5bbc70ed4504d4a5e838396461b1350fc87a383dcbf6eed0fd4"
+    },
+    {
+      "run": "m5-O3-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 43249.88995,
+      "mean_class1_ns": 43332.89325,
+      "delta_ns": -83.00330000000395,
+      "se_ns": 201.46418713629876,
+      "min_ns": {
+        "message-ones": 38034,
+        "message-zero": 38022,
+        "valid": 38023,
+        "random": 38023,
+        "bit-flipped": 38023
+      },
+      "max_ns": {
+        "message-ones": 1036161,
+        "message-zero": 900655,
+        "valid": 938840,
+        "random": 1452314,
+        "bit-flipped": 1098366
+      },
+      "sha256": "acc3ac39d9133164b417ad259e8949cc93e90962bf284b4c7599e592ff187c56"
+    },
+    {
+      "run": "m5-Os-s31337-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 62133.7835,
+      "mean_class1_ns": 61882.5285,
+      "delta_ns": 251.25499999999738,
+      "se_ns": 210.2409448710355,
+      "min_ns": {
+        "message-zero": 55509,
+        "bit-flipped": 55520,
+        "message-ones": 55519,
+        "random": 55498,
+        "valid": 55509
+      },
+      "max_ns": {
+        "message-zero": 972664,
+        "bit-flipped": 1352965,
+        "message-ones": 844681,
+        "random": 1192410,
+        "valid": 719878
+      },
+      "sha256": "835d83fb24afa68492c4942bb309d741b140dc56bac060757d75db30610b4b0b"
+    },
+    {
+      "run": "m5-Os-s31337-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 63777.18895,
+      "mean_class1_ns": 63733.93305,
+      "delta_ns": 43.25590000000375,
+      "se_ns": 246.5603264108173,
+      "min_ns": {
+        "message-zero": 55519,
+        "bit-flipped": 55541,
+        "message-ones": 55520,
+        "random": 55541,
+        "valid": 55552
+      },
+      "max_ns": {
+        "message-zero": 1601474,
+        "bit-flipped": 1535188,
+        "message-ones": 1041730,
+        "random": 1007723,
+        "valid": 1349220
+      },
+      "sha256": "963bdd2ca5a6a106b0f2011b72c33fcba10f5c4ddc363b28033b3ece5a017e3e"
+    },
+    {
+      "run": "m5-Os-s31337-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-zero": 20000,
+        "bit-flipped": 20000,
+        "message-ones": 20000,
+        "random": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 64628.0648,
+      "mean_class1_ns": 64326.8186,
+      "delta_ns": 301.2462000000014,
+      "se_ns": 834.1165786657252,
+      "min_ns": {
+        "message-zero": 55520,
+        "bit-flipped": 55509,
+        "message-ones": 55541,
+        "random": 55530,
+        "valid": 55509
+      },
+      "max_ns": {
+        "message-zero": 9379979,
+        "bit-flipped": 10747174,
+        "message-ones": 9225244,
+        "random": 9524671,
+        "valid": 4303740
+      },
+      "sha256": "a31ce96e85a46480e95462aed243593819e10415a02ccca28ce6a10a8d47acd7"
+    },
+    {
+      "run": "m5-Os-s424242-r1",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 62373.31025,
+      "mean_class1_ns": 62058.7947,
+      "delta_ns": 314.5155500000037,
+      "se_ns": 228.36758253383942,
+      "min_ns": {
+        "bit-flipped": 55487,
+        "message-zero": 55487,
+        "random": 55498,
+        "message-ones": 55498,
+        "valid": 55497
+      },
+      "max_ns": {
+        "bit-flipped": 870905,
+        "message-zero": 1055199,
+        "random": 1031386,
+        "message-ones": 870840,
+        "valid": 3665711
+      },
+      "sha256": "910c2c710927a5b52a2ecf8e934067394fd0bb7c54d12bedcbf5ba66672c7356"
+    },
+    {
+      "run": "m5-Os-s424242-r2",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 62347.4386,
+      "mean_class1_ns": 62009.2956,
+      "delta_ns": 338.14300000000367,
+      "se_ns": 640.558782815851,
+      "min_ns": {
+        "bit-flipped": 55476,
+        "message-zero": 55498,
+        "random": 55498,
+        "message-ones": 55477,
+        "valid": 55498
+      },
+      "max_ns": {
+        "bit-flipped": 751431,
+        "message-zero": 12115355,
+        "random": 1412469,
+        "message-ones": 1055970,
+        "valid": 1334686
+      },
+      "sha256": "d24679f97faef6fb45940ceef551af95e1985f92341f7a058cb39f183e66f595"
+    },
+    {
+      "run": "m5-Os-s424242-r3",
+      "rows": 100000,
+      "class_counts": {
+        "bit-flipped": 20000,
+        "message-zero": 20000,
+        "random": 20000,
+        "message-ones": 20000,
+        "valid": 20000
+      },
+      "mean_class0_ns": 63459.9038,
+      "mean_class1_ns": 63475.93585,
+      "delta_ns": -16.032050000001618,
+      "se_ns": 308.9533432591798,
+      "min_ns": {
+        "bit-flipped": 55487,
+        "message-zero": 55498,
+        "random": 55508,
+        "message-ones": 55487,
+        "valid": 55498
+      },
+      "max_ns": {
+        "bit-flipped": 1268030,
+        "message-zero": 1466219,
+        "random": 2818531,
+        "message-ones": 1412858,
+        "valid": 1564026
+      },
+      "sha256": "7a76d8262cdbf3272f841202b5316d28405803571518a7590c1815d5768a1e64"
+    },
+    {
+      "run": "m5-Os-s7-r1",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 62595.16155,
+      "mean_class1_ns": 62872.41155,
+      "delta_ns": -277.25,
+      "se_ns": 257.0413756247242,
+      "min_ns": {
+        "message-ones": 55476,
+        "message-zero": 55476,
+        "valid": 55477,
+        "random": 55487,
+        "bit-flipped": 55487
+      },
+      "max_ns": {
+        "message-ones": 1255971,
+        "message-zero": 1203437,
+        "valid": 1655746,
+        "random": 774562,
+        "bit-flipped": 2575406
+      },
+      "sha256": "4e2948929b225e1301a05f6eb96f7099cb1c5163da02c4c7fcb16dd5a6596f2e"
+    },
+    {
+      "run": "m5-Os-s7-r2",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 62842.56615,
+      "mean_class1_ns": 63175.9992,
+      "delta_ns": -333.43304999999964,
+      "se_ns": 259.4460030919964,
+      "min_ns": {
+        "message-ones": 55476,
+        "message-zero": 55487,
+        "valid": 55487,
+        "random": 55487,
+        "bit-flipped": 55454
+      },
+      "max_ns": {
+        "message-ones": 1256970,
+        "message-zero": 1108711,
+        "valid": 2696129,
+        "random": 1389837,
+        "bit-flipped": 2478933
+      },
+      "sha256": "66af016b95b48cbbd52172e9bd0a90a6e2899253b345cbc1eb540d33f4cbb6d3"
+    },
+    {
+      "run": "m5-Os-s7-r3",
+      "rows": 100000,
+      "class_counts": {
+        "message-ones": 20000,
+        "message-zero": 20000,
+        "valid": 20000,
+        "random": 20000,
+        "bit-flipped": 20000
+      },
+      "mean_class0_ns": 62458.35225,
+      "mean_class1_ns": 62080.75435,
+      "delta_ns": 377.59790000000066,
+      "se_ns": 233.8880930100363,
+      "min_ns": {
+        "message-ones": 55487,
+        "message-zero": 55476,
+        "valid": 55498,
+        "random": 55476,
+        "bit-flipped": 55476
+      },
+      "max_ns": {
+        "message-ones": 1027065,
+        "message-zero": 909492,
+        "valid": 738569,
+        "random": 1324245,
+        "bit-flipped": 960680
+      },
+      "sha256": "b5f507cca31712e17c0273b7e170938131018565cf9b804263257ca5a7fe2546"
+    }
+  ],
+  "performance": [
+    {
+      "run": "perf-m1fixed-b1",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 92338.771,
+        "keygen": 63102.9416,
+        "encaps": 71400.4788
+      },
+      "sha256": "21c2df650f75d61d648dd6df21898500ea9ec8ddd7c318683f47591df4195d72"
+    },
+    {
+      "run": "perf-m1fixed-b2",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 91793.45784,
+        "keygen": 61588.4352,
+        "encaps": 73309.8292
+      },
+      "sha256": "79020e70228d7716edadef1cde0ba516a10e97d7d689c3b115a8ce1e3ddb3d60"
+    },
+    {
+      "run": "perf-m1fixed-b3",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 93666.29936,
+        "keygen": 62724.5786,
+        "encaps": 74840.1954
+      },
+      "sha256": "1eb9192236bd8c7572c4b0ab7dd0c3881a879f2dd2d726fe63ed081e72fddf30"
+    },
+    {
+      "run": "perf-m1fixed-b4",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 100061.56744,
+        "keygen": 65035.9118,
+        "encaps": 74217.2378
+      },
+      "sha256": "0a94592de23ee9206aff167173ed89c8297e231c3154359618d00d242664a62b"
+    },
+    {
+      "run": "perf-m1unfixed-b1",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 97094.51404,
+        "keygen": 69325.404,
+        "encaps": 79539.2478
+      },
+      "sha256": "f72ee6d3b0e6fbcd6a0b7e6399937eef2c8f4eaabc677c21e9a562a0df69137a"
+    },
+    {
+      "run": "perf-m1unfixed-b2",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 97110.35524,
+        "keygen": 65878.8704,
+        "encaps": 76643.9604
+      },
+      "sha256": "e91a4552b39a2d13f738bda97567355c445547025178061b39369170b7ee5f5b"
+    },
+    {
+      "run": "perf-m1unfixed-b3",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 99015.91316,
+        "keygen": 65936.3812,
+        "encaps": 78464.2572
+      },
+      "sha256": "245d0584ba5585ef0f16350a681ff50bd48b8c62afa7f88aa01b205d858201b6"
+    },
+    {
+      "run": "perf-m1unfixed-b4",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 96913.38644,
+        "keygen": 66520.8946,
+        "encaps": 77575.315
+      },
+      "sha256": "1a91aaac30b65b0fd09938182aaf171f253714f61908abbab5bd73f6ea0ad910"
+    },
+    {
+      "run": "perf-m5ref-b1",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 47176.49884,
+        "keygen": 45141.9882,
+        "encaps": 44035.2436
+      },
+      "sha256": "58fa82b04628d0e754623244550bcff9375c9dada3bcd79190283b39f83599f0"
+    },
+    {
+      "run": "perf-m5ref-b2",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 49045.92576,
+        "keygen": 43671.0812,
+        "encaps": 44280.7622
+      },
+      "sha256": "f4f4b25bdc97f6c88dfb431c8cd0a0639c298dd3f16291cfbd6675482d7eeb84"
+    },
+    {
+      "run": "perf-m5ref-b3",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 47416.53496,
+        "keygen": 46153.1938,
+        "encaps": 45834.8324
+      },
+      "sha256": "2930a848c0fe8380847127bc6d1eafd5e94d52d0c675f9a333de7a8972bff9bd"
+    },
+    {
+      "run": "perf-m5ref-b4",
+      "counts": {
+        "decaps": 25000,
+        "keygen": 5000,
+        "encaps": 5000
+      },
+      "means_ns": {
+        "decaps": 48649.81332,
+        "keygen": 45128.0008,
+        "encaps": 43920.9018
+      },
+      "sha256": "ab52f0d2efcfbdb7ece17da34b104698f327c09a6be16458ffcd776e0c012f7c"
+    }
+  ]
+}

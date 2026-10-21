@@ -1,0 +1,662 @@
+[
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/kernel.c.o -c /home/cryrepro/cry-wsl/repo/src/kernel.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/kernel.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_reference.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_reference.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_baseline.dir/src/main.c.o -c /home/cryrepro/cry-wsl/repo/src/main.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/main.c",
+  "output": "CMakeFiles/reference_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_measure.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/reference_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_session_collect.dir/src/session_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "output": "CMakeFiles/reference_session_collect.dir/src/session_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_v4_collect.dir/src/v4_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "output": "CMakeFiles/reference_v4_collect.dir/src/v4_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_v4_collect.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/reference_v4_collect.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_v4_collect.dir/src/attribution_v3.c.o -c /home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "output": "CMakeFiles/reference_v4_collect.dir/src/attribution_v3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_v4_collect.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/reference_v4_collect.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/vulnerable_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/vulnerable_kernel.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/vulnerable_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_vulnerable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_baseline.dir/src/main.c.o -c /home/cryrepro/cry-wsl/repo/src/main.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/main.c",
+  "output": "CMakeFiles/vulnerable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_measure.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/vulnerable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_session_collect.dir/src/session_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "output": "CMakeFiles/vulnerable_session_collect.dir/src/session_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_v4_collect.dir/src/v4_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "output": "CMakeFiles/vulnerable_v4_collect.dir/src/v4_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_v4_collect.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/vulnerable_v4_collect.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_v4_collect.dir/src/attribution_v3.c.o -c /home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "output": "CMakeFiles/vulnerable_v4_collect.dir/src/attribution_v3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_v4_collect.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/vulnerable_v4_collect.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/hardened_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/hardened_kernel.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/hardened_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_hardened.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_hardened.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_baseline.dir/src/main.c.o -c /home/cryrepro/cry-wsl/repo/src/main.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/main.c",
+  "output": "CMakeFiles/hardened_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_measure.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/hardened_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_session_collect.dir/src/session_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "output": "CMakeFiles/hardened_session_collect.dir/src/session_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_v4_collect.dir/src/v4_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "output": "CMakeFiles/hardened_v4_collect.dir/src/v4_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_v4_collect.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/hardened_v4_collect.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_v4_collect.dir/src/attribution_v3.c.o -c /home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "output": "CMakeFiles/hardened_v4_collect.dir/src/attribution_v3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_v4_collect.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/hardened_v4_collect.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/deployable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/deployable_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/deployable_kernel.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/deployable_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/deployable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/deployable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_DEPLOYABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/deployable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_deployable.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_deployable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_baseline.dir/src/main.c.o -c /home/cryrepro/cry-wsl/repo/src/main.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/main.c",
+  "output": "CMakeFiles/deployable_baseline.dir/src/main.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_measure.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/deployable_measure.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_session_collect.dir/src/session_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/session_collect.c",
+  "output": "CMakeFiles/deployable_session_collect.dir/src/session_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_v4_collect.dir/src/v4_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "output": "CMakeFiles/deployable_v4_collect.dir/src/v4_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_v4_collect.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/deployable_v4_collect.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_v4_collect.dir/src/attribution_v3.c.o -c /home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "output": "CMakeFiles/deployable_v4_collect.dir/src/attribution_v3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_v4_collect.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/deployable_v4_collect.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_branch-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_branch.dir/encoder_branch_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/encoder_branch_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/encoder_branch_kernel.c",
+  "output": "CMakeFiles/mlkem_encoder_branch.dir/encoder_branch_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_branch-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_branch.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_encoder_branch.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_branch-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_branch.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_encoder_branch.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_branch-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_branch.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_encoder_branch.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_branch_v4_collect.dir/src/v4_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "output": "CMakeFiles/encoder_branch_v4_collect.dir/src/v4_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_branch_v4_collect.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/encoder_branch_v4_collect.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_branch_v4_collect.dir/src/attribution_v3.c.o -c /home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "output": "CMakeFiles/encoder_branch_v4_collect.dir/src/attribution_v3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_branch_v4_collect.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/encoder_branch_v4_collect.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_mask-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_mask.dir/encoder_mask_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/encoder_mask_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/encoder_mask_kernel.c",
+  "output": "CMakeFiles/mlkem_encoder_mask.dir/encoder_mask_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_mask-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_mask.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_encoder_mask.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_mask-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_mask.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_encoder_mask.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMESSAGE_ENCODER_BRANCH=0 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/encoder_mask-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_encoder_mask.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_encoder_mask.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_mask_v4_collect.dir/src/v4_collect.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_collect.c",
+  "output": "CMakeFiles/encoder_mask_v4_collect.dir/src/v4_collect.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_mask_v4_collect.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/encoder_mask_v4_collect.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_mask_v4_collect.dir/src/attribution_v3.c.o -c /home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/attribution_v3.c",
+  "output": "CMakeFiles/encoder_mask_v4_collect.dir/src/attribution_v3.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -falign-functions=32 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/encoder_mask_v4_collect.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/encoder_mask_v4_collect.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-reference-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_reference.dir/diagnostic_reference_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/diagnostic_reference_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/diagnostic_reference_kernel.c",
+  "output": "CMakeFiles/mlkem_diagnostic_reference.dir/diagnostic_reference_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-reference-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_reference.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_diagnostic_reference.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-reference-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_reference.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_diagnostic_reference.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-reference-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_reference.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_diagnostic_reference.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-reference-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/diagnostic_stages_reference.dir/src/diagnostic_stages.c.o -c /home/cryrepro/cry-wsl/repo/src/diagnostic_stages.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/diagnostic_stages.c",
+  "output": "CMakeFiles/diagnostic_stages_reference.dir/src/diagnostic_stages.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_diagnostic_trace.dir/src/diagnostic_trace.c.o -c /home/cryrepro/cry-wsl/repo/src/diagnostic_trace.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/diagnostic_trace.c",
+  "output": "CMakeFiles/reference_diagnostic_trace.dir/src/diagnostic_trace.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_diagnostic_trace.dir/src/trace_account.c.o -c /home/cryrepro/cry-wsl/repo/src/trace_account.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/trace_account.c",
+  "output": "CMakeFiles/reference_diagnostic_trace.dir/src/trace_account.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_diagnostic_trace.dir/src/trace_hooks.c.o -c /home/cryrepro/cry-wsl/repo/src/trace_hooks.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/trace_hooks.c",
+  "output": "CMakeFiles/reference_diagnostic_trace.dir/src/trace_hooks.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_vulnerable.dir/diagnostic_vulnerable_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/diagnostic_vulnerable_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/diagnostic_vulnerable_kernel.c",
+  "output": "CMakeFiles/mlkem_diagnostic_vulnerable.dir/diagnostic_vulnerable_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_vulnerable.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_diagnostic_vulnerable.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_vulnerable.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_diagnostic_vulnerable.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_VULNERABLE=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_vulnerable.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_diagnostic_vulnerable.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-vulnerable-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/diagnostic_stages_vulnerable.dir/src/diagnostic_stages.c.o -c /home/cryrepro/cry-wsl/repo/src/diagnostic_stages.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/diagnostic_stages.c",
+  "output": "CMakeFiles/diagnostic_stages_vulnerable.dir/src/diagnostic_stages.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_diagnostic_trace.dir/src/diagnostic_trace.c.o -c /home/cryrepro/cry-wsl/repo/src/diagnostic_trace.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/diagnostic_trace.c",
+  "output": "CMakeFiles/vulnerable_diagnostic_trace.dir/src/diagnostic_trace.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_diagnostic_trace.dir/src/trace_account.c.o -c /home/cryrepro/cry-wsl/repo/src/trace_account.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/trace_account.c",
+  "output": "CMakeFiles/vulnerable_diagnostic_trace.dir/src/trace_account.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/vulnerable_diagnostic_trace.dir/src/trace_hooks.c.o -c /home/cryrepro/cry-wsl/repo/src/trace_hooks.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/trace_hooks.c",
+  "output": "CMakeFiles/vulnerable_diagnostic_trace.dir/src/trace_hooks.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_hardened.dir/diagnostic_hardened_kernel.c.o -c /home/cryrepro/cry-wsl/build/m5-Os/diagnostic_hardened_kernel.c",
+  "file": "/home/cryrepro/cry-wsl/build/m5-Os/diagnostic_hardened_kernel.c",
+  "output": "CMakeFiles/mlkem_diagnostic_hardened.dir/diagnostic_hardened_kernel.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_hardened.dir/src/mlkem.c.o -c /home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mlkem.c",
+  "output": "CMakeFiles/mlkem_diagnostic_hardened.dir/src/mlkem.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_hardened.dir/src/random.c.o -c /home/cryrepro/cry-wsl/repo/src/random.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/random.c",
+  "output": "CMakeFiles/mlkem_diagnostic_hardened.dir/src/random.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_HARDENED=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mlkem_diagnostic_hardened.dir/src/inputs.c.o -c /home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inputs.c",
+  "output": "CMakeFiles/mlkem_diagnostic_hardened.dir/src/inputs.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/diagnostic-hardened-source/mlkem -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -finstrument-functions -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/diagnostic_stages_hardened.dir/src/diagnostic_stages.c.o -c /home/cryrepro/cry-wsl/repo/src/diagnostic_stages.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/diagnostic_stages.c",
+  "output": "CMakeFiles/diagnostic_stages_hardened.dir/src/diagnostic_stages.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_diagnostic_trace.dir/src/diagnostic_trace.c.o -c /home/cryrepro/cry-wsl/repo/src/diagnostic_trace.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/diagnostic_trace.c",
+  "output": "CMakeFiles/hardened_diagnostic_trace.dir/src/diagnostic_trace.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_diagnostic_trace.dir/src/trace_account.c.o -c /home/cryrepro/cry-wsl/repo/src/trace_account.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/trace_account.c",
+  "output": "CMakeFiles/hardened_diagnostic_trace.dir/src/trace_account.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_diagnostic_trace.dir/src/trace_hooks.c.o -c /home/cryrepro/cry-wsl/repo/src/trace_hooks.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/trace_hooks.c",
+  "output": "CMakeFiles/hardened_diagnostic_trace.dir/src/trace_hooks.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_benchmark.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/reference_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/hardened_benchmark.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/hardened_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/deployable_benchmark.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/deployable_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o -c /home/cryrepro/cry-wsl/repo/src/measure.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/measure.c",
+  "output": "CMakeFiles/reference_batch_benchmark.dir/src/measure.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DBASELINE_BATCH_WORKLOAD=1 -DBASELINE_ORDINARY_WORKLOAD=1 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o -c /home/cryrepro/cry-wsl/repo/src/batch_measurement.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/batch_measurement.c",
+  "output": "CMakeFiles/reference_batch_benchmark.dir/src/batch_measurement.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/analyze.c.o -c /home/cryrepro/cry-wsl/repo/src/analyze.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/analyze.c",
+  "output": "CMakeFiles/analyze.dir/src/analyze.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze.dir/src/timing_statistics.c.o -c /home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "output": "CMakeFiles/analyze.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o -c /home/cryrepro/cry-wsl/repo/src/analyze_groups.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/analyze_groups.c",
+  "output": "CMakeFiles/analyze_groups.dir/src/analyze_groups.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o -c /home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "output": "CMakeFiles/analyze_groups.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o -c /home/cryrepro/cry-wsl/repo/src/inspect_timing.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/inspect_timing.c",
+  "output": "CMakeFiles/inspect_timing.dir/src/inspect_timing.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o -c /home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "output": "CMakeFiles/inspect_timing.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/paired_data.c.o -c /home/cryrepro/cry-wsl/repo/src/paired_data.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/paired_data.c",
+  "output": "CMakeFiles/paired_support.dir/src/paired_data.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/paired_statistics.c.o -c /home/cryrepro/cry-wsl/repo/src/paired_statistics.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/paired_statistics.c",
+  "output": "CMakeFiles/paired_support.dir/src/paired_statistics.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_support.dir/src/timing_statistics.c.o -c /home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/timing_statistics.c",
+  "output": "CMakeFiles/paired_support.dir/src/timing_statistics.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o -c /home/cryrepro/cry-wsl/repo/src/analyze_paired.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/analyze_paired.c",
+  "output": "CMakeFiles/analyze_paired.dir/src/analyze_paired.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_runner.dir/src/paired_runner.c.o -c /home/cryrepro/cry-wsl/repo/src/paired_runner.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/paired_runner.c",
+  "output": "CMakeFiles/paired_runner.dir/src/paired_runner.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o -c /home/cryrepro/cry-wsl/repo/src/paired_prepare.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/paired_prepare.c",
+  "output": "CMakeFiles/paired_prepare.dir/src/paired_prepare.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/native_digest.dir/src/native_digest.c.o -c /home/cryrepro/cry-wsl/repo/src/native_digest.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/native_digest.c",
+  "output": "CMakeFiles/native_digest.dir/src/native_digest.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/controlled_statistics.dir/src/controlled_statistics.c.o -c /home/cryrepro/cry-wsl/repo/src/controlled_statistics.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/controlled_statistics.c",
+  "output": "CMakeFiles/controlled_statistics.dir/src/controlled_statistics.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/controlled_stats.dir/src/controlled_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/controlled_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/controlled_stats.c",
+  "output": "CMakeFiles/controlled_stats.dir/src/controlled_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o -c /home/cryrepro/cry-wsl/repo/src/calibrate_controlled.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/calibrate_controlled.c",
+  "output": "CMakeFiles/calibrate_controlled.dir/src/calibrate_controlled.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/calibrate_controlled.dir/src/v4_stats.c.o -c /home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/v4_stats.c",
+  "output": "CMakeFiles/calibrate_controlled.dir/src/v4_stats.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/calibrate_controlled.dir/src/protocol_decision.c.o -c /home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/protocol_decision.c",
+  "output": "CMakeFiles/calibrate_controlled.dir/src/protocol_decision.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/compare_replay.dir/src/compare_replay.c.o -c /home/cryrepro/cry-wsl/repo/src/compare_replay.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/compare_replay.c",
+  "output": "CMakeFiles/compare_replay.dir/src/compare_replay.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/audit.dir/src/audit.c.o -c /home/cryrepro/cry-wsl/repo/src/audit.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/audit.c",
+  "output": "CMakeFiles/audit.dir/src/audit.c.o"
+},
+{
+  "directory": "/home/cryrepro/cry-wsl/build/m5-Os",
+  "command": "/usr/bin/clang-18 -DMECHANISM_OBJDUMP=\\\"/usr/bin/objdump\\\" -DMLK_CONFIG_FILE=\\\"baseline_config.h\\\" -I/home/cryrepro/cry-wsl/build/m5-Os/generated/RelWithDebInfo -I/home/cryrepro/cry-wsl/repo/include -I/home/cryrepro/cry-wsl/repo/vendor/mlkem-native/mlkem -Os -g -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wstrict-prototypes -Werror -o CMakeFiles/mechanism_audit.dir/src/mechanism_audit.c.o -c /home/cryrepro/cry-wsl/repo/src/mechanism_audit.c",
+  "file": "/home/cryrepro/cry-wsl/repo/src/mechanism_audit.c",
+  "output": "CMakeFiles/mechanism_audit.dir/src/mechanism_audit.c.o"
+}
+]

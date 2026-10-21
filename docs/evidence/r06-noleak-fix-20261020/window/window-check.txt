@@ -1,0 +1,74 @@
+=== M2 collector 计时窗口 (/Users/yin/code/cryProject/tools/platform_m2/collector.c) ===
+  --- 窗口 #1：行 674..681 ---
+    674|         atomic_signal_fence(memory_order_seq_cst);
+    675|         decapsulation_status = (unsigned)mlkem_decapsulate(shared_secret,
+    676|             sizeof(shared_secret),
+    677|             ordered_ciphertexts + row_index * (size_t)MLKEM_CIPHERTEXT_BYTES,
+    678|             MLKEM_CIPHERTEXT_BYTES,
+    679|             secret_key,
+    680|             MLKEM_DECAPSULATION_KEY_BYTES);
+    681|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M5 reference measure 计时窗口 (/Users/yin/code/cryProject/src/measure.c) ===
+  --- 窗口 #1：行 173..174 ---
+    173|         atomic_signal_fence(memory_order_seq_cst);
+    174|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+  --- 窗口 #2：行 712..718 ---
+    712|         atomic_signal_fence(memory_order_seq_cst);
+    713|         int batch_status = run_batch_decapsulations(window->call_count,
+    714|             ciphertexts,
+    715|             decapsulation_key,
+    716|             batch_shared_secrets,
+    717|             call_statuses);
+    718|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+  --- 窗口 #3：行 753..760 ---
+    753|         atomic_signal_fence(memory_order_seq_cst);
+    754|         decapsulation_status = mlkem_decapsulate(shared_secret,
+    755|             sizeof(shared_secret),
+    756|             samples[sample_index].ciphertext,
+    757|             MLKEM_CIPHERTEXT_BYTES,
+    758|             decapsulation_key,
+    759|             sizeof(decapsulation_key));
+    760|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M2 micro 热点窗口 (/Users/yin/code/cryProject/tools/platform_m2_micro/m2_hotspot_microbench.c) ===
+  --- 窗口 #1：行 771..773 ---
+    771|         atomic_signal_fence(memory_order_seq_cst);
+    772|         poly_tomsg(window_message, &row_hotspot_inputs[row_index]);
+    773|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== M4 measure 窗口 (/Users/yin/code/cryProject/tools/platform_m4/measure.c) ===
+  --- 窗口 #1：行 177..184 ---
+    177|         atomic_signal_fence(memory_order_seq_cst);
+    178|         if (read_nanoseconds(&start_nanoseconds) != 0) {
+    179|             collection_status = 1;
+    180|             break;
+    181|         }
+    182|         int compare_status = compare_once(working_secret, candidate_inputs[0],
+    183|             compare_length_bytes, &is_equal);
+    184|         atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+=== perf_measure 计时窗口 (/Users/yin/code/cryProject/tools/platform_perf/perf_measure.c) ===
+  --- 窗口 #1：行 628..639 ---
+    628|             atomic_signal_fence(memory_order_seq_cst);
+    629|             if (operation_index == PERF_DECAPS_OPERATION) {
+    630|                 perf_decapsulate_once(
+    631|                     ciphertext, decapsulation_key, shared_secret, &call_status);
+    632|             } else if (operation_index == PERF_KEYGEN_OPERATION) {
+    633|                 perf_generate_key_pair_once(
+    634|                     encapsulation_key, decapsulation_key, &call_status);
+    635|             } else {
+    636|                 perf_encapsulate_once(
+    637|                     encapsulation_key, ciphertext, shared_secret, &call_status);
+    638|             }
+    639|             atomic_signal_fence(memory_order_seq_cst);
+  窗口内无非白名单调用（无 I/O/日志/分配/内存操作）
+
+R06_WINDOW_TOTAL=7
+R06_WINDOW_PROBLEM_WINDOWS=0

@@ -13,7 +13,7 @@ repository_root=$(CDPATH= cd -- "${script_directory}/.." && pwd)
 default_samples_quick=1000
 default_run_count=3
 default_alpha=0.05
-default_configs=platform,ordinary,sanitize
+default_configs=platform,ordinary,sanitize,historical-fixed
 default_modules=M2,M3,M4,M5
 default_full_samples=10000
 default_full_timeout=1800
@@ -34,6 +34,7 @@ skip_statistics=0
 control_root=
 timeout_seconds=${default_full_timeout}
 plan_override=
+fetch_vendors=0
 
 usage() {
     cat <<'USAGE'
@@ -41,13 +42,14 @@ usage: reproduce_all.sh quick [options]
        reproduce_all.sh full  [--execute] [options]
 
 quick（无 sudo；默认在 build/reproduce-quick 下工作）
-  --configs LIST       逗号分隔，取值 platform,ordinary,sanitize（默认三个全跑）
+  --configs LIST       逗号分隔，取值 platform,ordinary,sanitize,historical-fixed（默认四个全跑）
   --samples N          每类样本数，1..20000（默认 1000）
   --runs N             统计演练的重复运行数，1..3（默认 3）
   --jobs N             构建并行度（默认按 CPU 数，最多 8）
   --work-dir DIR       工作目录（默认 <仓库>/build/reproduce-quick）
   --skip-stats         只做配置/构建/CTest，不做小样本统计演练
   --keep-going         某个配置失败后继续跑其余配置（退出码仍非 0）
+  --fetch              开工前先跑 tools/fetch_all_vendors.sh，把 M1/M2 需要的 vendor 树取齐并校验 SHA-256
 
 full（默认 dry-run，只打印命令）
   --execute            真正执行；需要 sudo、需要串行，且必须给出 --control-root
@@ -58,6 +60,11 @@ full（默认 dry-run，只打印命令）
   --plan PATH          用指定的 PLAN 副本覆盖默认路径（真跑必须与执行版逐字节一致）
   --work-dir DIR       工作目录（默认 <仓库>/build/reproduce-full）
   --jobs N             构建并行度，同 quick
+  --fetch              同 quick；真跑前把 vendor 树取齐
+
+干净 clone 的两条命令：
+  sh tools/fetch_all_vendors.sh          # 取齐 M1/M2 的 vendor 树并校验 SHA-256
+  sh scripts/reproduce_all.sh quick      # 配置 + 构建 + CTest + 小样本统计演练
 
 不带参数或 --help 时打印本说明。
 USAGE
@@ -170,6 +177,63 @@ configure_and_build() {
     return 0
 }
 
+# vendor 树是 M1（liboqs 0.10.0 历史阳性对照）与 M2（KyberSlash 两臂）的前提。
+# 这些目录都在 .gitignore 内，干净 clone 默认没有；本函数报出缺件并给出取件命令。
+vendor_state_line() {
+    case "$1" in
+        liboqs-base) vendor_path="${repository_root}/vendor/liboqs-0.10.0/CMakeLists.txt" ;;
+        liboqs-fixed) vendor_path="${repository_root}/vendor/liboqs-0.10.0-982c762/CMakeLists.txt" ;;
+        kyber-unfixed) vendor_path="${repository_root}/vendor/kyber-kyberslash-unfixed/ref/kem.c" ;;
+        kyber-fixed) vendor_path="${repository_root}/vendor/kyber-kyberslash-fixed/ref/kem.c" ;;
+        *) return 1 ;;
+    esac
+    if [ -f "${vendor_path}" ]; then
+        log_line "  [就位] $1"
+        return 0
+    fi
+    log_line "  [缺件] $1 -> ${vendor_path}"
+    return 1
+}
+
+# 取件：先看缺不缺，缺则按需调用 tools/fetch_all_vendors.sh，再复核一次。
+vendor_preflight() {
+    missing_count=0
+    log_line ""
+    log_line "=== vendor 树预检（M1 历史阳性对照 / M2 KyberSlash 两臂）==="
+    for vendor_entry in liboqs-base liboqs-fixed kyber-unfixed kyber-fixed; do
+        vendor_state_line "$vendor_entry" || missing_count=$((missing_count + 1))
+    done
+    if [ "${missing_count}" -eq 0 ]; then
+        log_line "四棵 vendor 树齐备，M1/M2 两组历史案例都进本轮构建。"
+        return 0
+    fi
+    if [ "${fetch_vendors}" -eq 1 ]; then
+        log_line ""
+        log_line "=== 取件：tools/fetch_all_vendors.sh ==="
+        if ! run_logged sh "${repository_root}/tools/fetch_all_vendors.sh"; then
+            fail "取件失败；请检查网络后重跑 sh tools/fetch_all_vendors.sh"
+        fi
+        missing_count=0
+        for vendor_entry in liboqs-base liboqs-fixed kyber-unfixed kyber-fixed; do
+            vendor_state_line "$vendor_entry" || missing_count=$((missing_count + 1))
+        done
+        if [ "${missing_count}" -eq 0 ]; then
+            log_line "取件后四棵 vendor 树齐备。"
+            return 0
+        fi
+        log_line "取件后仍有 ${missing_count} 处缺件；相关臂按缺件跳过。"
+        return 0
+    fi
+    log_line ""
+    log_line "缺 ${missing_count} 处 vendor 树（.gitignore 内，干净 clone 默认没有）。"
+    log_line "取件命令（一键，含 SHA-256 校验）："
+    log_line "    sh tools/fetch_all_vendors.sh"
+    log_line "或直接在本脚本上加 --fetch："
+    log_line "    sh scripts/reproduce_all.sh quick --fetch"
+    log_line "缺件的臂按『缺件即跳过并打印原因』处理，不伪造结果。"
+    return 0
+}
+
 print_quick_summary() {
     log_line ""
     log_line "=== quick 汇总（配置 / 结果 / CTest）==="
@@ -205,6 +269,9 @@ quick_main() {
         fail "找不到 ctest"
     fi
     mkdir -p "${work_directory}/logs"
+    # 工作目录统一取绝对路径：演练里有一处要在子目录中执行（platform_holm 的
+    # --output-dir 只接受相对名字），相对路径在 cd 之后会失效。
+    work_directory=$(CDPATH= cd -- "${work_directory}" && pwd -P)
     log_file="${work_directory}/logs/quick-$(date -u +%Y%m%dT%H%M%SZ).log"
     : >"${log_file}"
     openssl3=$(detect_openssl3 || true)
@@ -220,15 +287,25 @@ quick_main() {
     fi
     log_line "本档不写任何 sysfs、不调用 sudo、不绑定 CPU 亲和性。"
 
+    vendor_preflight
+
     failed_configs=
     : >"${work_directory}/quick-summary.tsv"
     for config_name in $(split_list "${configs}"); do
         status=ok
         build_directory="${work_directory}/build-${config_name}"
+        log_start_line=$(wc -l <"${log_file}" | tr -d ' ')
         case "${config_name}" in
             platform)
-                configure_and_build "${config_name}" "${build_directory}" \
-                    -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF || status=failed
+                if [ -f "${repository_root}/vendor/liboqs-0.10.0/CMakeLists.txt" ]; then
+                    # vendor 齐备时把 M1 的 liboqs 0.10.0 历史阳性对照一并编进来。
+                    configure_and_build "${config_name}" "${build_directory}" \
+                        -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF \
+                        -DBASELINE_ENABLE_LIBOQS010=ON || status=failed
+                else
+                    configure_and_build "${config_name}" "${build_directory}" \
+                        -DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF || status=failed
+                fi
                 ;;
             ordinary)
                 configure_and_build "${config_name}" "${build_directory}" || status=failed
@@ -237,12 +314,31 @@ quick_main() {
                 configure_and_build "${config_name}" "${build_directory}" \
                     -DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug || status=failed
                 ;;
+            historical-fixed)
+                if [ -f "${repository_root}/vendor/liboqs-0.10.0-982c762/CMakeLists.txt" ]; then
+                    # 已修臂要单独一个构建目录：LIBOQS010_SOURCE_DIR 是缓存变量，
+                    # 换源树必须换构建目录，否则 ExternalProject 不会重建。
+                    configure_and_build "${config_name}" "${build_directory}" \
+                        -DBASELINE_ENABLE_LIBOQS010=ON -DA113_ARCHIVED_CASE_ONLY=OFF \
+                        "-DLIBOQS010_SOURCE_DIR=${repository_root}/vendor/liboqs-0.10.0-982c762" ||
+                        status=failed
+                else
+                    log_line ""
+                    log_line "=== [${config_name}] 跳过：缺 vendor/liboqs-0.10.0-982c762（官方补丁 982c762 已修臂）==="
+                    log_line "  取件命令：sh tools/fetch_all_vendors.sh"
+                    status=skipped
+                fi
+                ;;
             *)
-                fail "--configs 只接受 platform,ordinary,sanitize，收到 ${config_name}"
+                fail "--configs 只接受 platform,ordinary,sanitize,historical-fixed，收到 ${config_name}"
                 ;;
         esac
-        printf '%s | %s | %s\n' "${config_name}" "${status}" \
-            "$(grep -E 'tests passed, .* tests failed out of' "${log_file}" | tail -1 || true)" \
+        ctest_summary=$(tail -n "+$((log_start_line + 1))" "${log_file}" |
+            grep -E 'tests passed, .* tests failed out of' | tail -1 || true)
+        if [ "${status}" = skipped ]; then
+            ctest_summary="（本配置未构建）"
+        fi
+        printf '%s | %s | %s\n' "${config_name}" "${status}" "${ctest_summary}" \
             >>"${work_directory}/quick-summary.tsv"
         if [ "${status}" = failed ]; then
             failed_configs="${failed_configs} ${config_name}"
@@ -254,9 +350,12 @@ quick_main() {
         fi
     done
 
+    rehearsal_failed=0
     if [ "${skip_statistics}" -eq 0 ]; then
         if [ -d "${work_directory}/build-platform" ]; then
-            rehearsal_main "${work_directory}/build-platform"
+            if ! rehearsal_main "${work_directory}/build-platform" "${work_directory}/build-historical-fixed"; then
+                rehearsal_failed=1
+            fi
         else
             log_line ""
             log_line "统计演练跳过：platform 配置未构建（--configs 未包含 platform，或该配置失败）。"
@@ -271,6 +370,10 @@ quick_main() {
         log_line "失败配置：${failed_configs}"
         exit 1
     fi
+    if [ "${rehearsal_failed}" -ne 0 ]; then
+        log_line "统计演练失败；一键复现不算跑通。"
+        exit 1
+    fi
     log_line "quick 档完成。"
     return 0
 }
@@ -279,6 +382,7 @@ quick_main() {
 # platform_holm 做族内 Holm。它是流程演练，不是任何模块的正式统计证据。
 rehearsal_main() {
     platform_build=$1
+    historical_fixed_build=$2
     rehearsal_root="${work_directory}/rehearsal"
     mkdir -p "${rehearsal_root}"
     log_line ""
@@ -286,6 +390,7 @@ rehearsal_main() {
 
     stats_program="${platform_build}/platform_stats"
     holm_program="${platform_build}/platform_holm"
+    rehearsal_failure=0
     if [ ! -x "${stats_program}" ]; then
         log_line "演练跳过：缺少 ${stats_program}"
         return 0
@@ -306,13 +411,26 @@ rehearsal_main() {
             log_line "臂未构建，跳过：$1/$2 -> $3"
         fi
     }
+    # M1：liboqs 0.10.0 历史阳性对照（未修在 platform 配置里，已修在单独构建目录里）。
+    if [ -x "${platform_build}/historical/measure" ]; then
+        add_arm M1 unfixed "${platform_build}/historical/measure" measure-ns \
+            message-zero,message-ones
+    else
+        log_line "M1 未修臂未构建，跳过：缺 vendor/liboqs-0.10.0（sh tools/fetch_all_vendors.sh）"
+    fi
+    if [ -x "${historical_fixed_build}/historical/measure" ]; then
+        add_arm M1 fixed "${historical_fixed_build}/historical/measure" measure-ns \
+            message-zero,message-ones
+    else
+        log_line "M1 已修臂未构建，跳过：缺 vendor/liboqs-0.10.0-982c762（sh tools/fetch_all_vendors.sh）"
+    fi
     if [ -x "${platform_build}/platform-m2/unfixed/measure" ]; then
         add_arm M2 unfixed "${platform_build}/platform-m2/unfixed/measure" measure-ns \
             message-zero,message-ones
         add_arm M2 fixed "${platform_build}/platform-m2/fixed/measure" measure-ns \
             message-zero,message-ones
     else
-        log_line "M2 未配置，跳过：vendor/kyber-kyberslash-{unfixed,fixed} 在 .gitignore 内，干净 clone 没有"
+        log_line "M2 未构建，跳过：缺 vendor/kyber-kyberslash-{unfixed,fixed}（.gitignore 内，sh tools/fetch_all_vendors.sh）"
     fi
     add_arm M3 on "${platform_build}/platform-m3/on/measure" measure-ns message-zero,message-ones
     add_arm M3 off "${platform_build}/platform-m3/off/measure" measure-ns message-zero,message-ones
@@ -381,7 +499,7 @@ rehearsal_main() {
         return 0
     fi
 
-    for module_name in M2 M3 M4 M5; do
+    for module_name in M1 M2 M3 M4 M5; do
         module_family="${module_name}_quick_rehearsal"
         members_csv="${rehearsal_root}/${module_name}-members.csv"
         printf '%s\n' \
@@ -447,13 +565,18 @@ rehearsal_main() {
                 fi
             done
         else
-            log_line "${module_name} 的 platform_holm 运行失败（见日志）"
+            log_line "错误：${module_name} 的 platform_holm 运行失败（见日志）"
+            rehearsal_failure=1
         fi
     done
 
     log_line ""
     log_line "演练产物根：${rehearsal_root}"
     log_line "注意：演练不锁频、不绑核、每臂只 ${run_count} 次运行，不是任何模块的正式统计结论。"
+    if [ "${rehearsal_failure}" -ne 0 ]; then
+        log_line "错误：统计演练未全部完成（一键复现不能算跑通），按失败返回。"
+        return 1
+    fi
     return 0
 }
 
@@ -521,6 +644,8 @@ full_main() {
     log_line "Cry/partition-admin.lock；CPU2 与 CPU6 不得与其他模块采数重叠。"
     log_line "控制器资格与合同见 tools/platform_control/README.md 与"
     log_line "docs/evidence/platform-control-qualification-20261016/QUALIFICATION.md。"
+
+    vendor_preflight
 
     if [ "${execute}" -eq 1 ]; then
         if [ -z "${control_root}" ]; then
@@ -626,6 +751,7 @@ while [ "$#" -gt 0 ]; do
         --execute) execute=1; shift ;;
         --keep-going) keep_going=1; shift ;;
         --skip-stats) skip_statistics=1; shift ;;
+        --fetch) fetch_vendors=1; shift ;;
         --help|-h) usage; exit 0 ;;
         *) usage >&2; exit 2 ;;
     esac

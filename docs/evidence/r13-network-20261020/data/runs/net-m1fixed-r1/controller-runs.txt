@@ -1,0 +1,6 @@
+scenario=direct attempt=1 controller_run=r13-direct-211226-a1 controller_exit=0
+scenario=loopback attempt=1 controller_run=r13-loopback-415362-a1 controller_exit=0 client_exit=0
+scenario=low attempt=1 controller_run=r13-low-476507-a1 controller_exit=0 client_exit=0
+scenario=mid attempt=1 controller_run=r13-mid-277362-a1 controller_exit=1 client_exit=1
+scenario=mid attempt=2 controller_run=r13-mid-273556-a2 controller_exit=0 client_exit=0
+scenario=high attempt=1 controller_run=r13-high-303727-a1 controller_exit=0 client_exit=0

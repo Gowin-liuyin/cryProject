@@ -47,6 +47,7 @@ struct collector_options {
     const char *public_key_path;
     const char *secret_key_path;
     const char *run_id;
+    int self_test;
     char meta_path_buffer[M2_COLLECTOR_MAXIMUM_PATH_BYTES];
     char run_id_buffer[M2_COLLECTOR_MAXIMUM_RUN_ID_BYTES];
 };
@@ -55,10 +56,11 @@ static void print_usage(FILE *stream)
 {
     fputs("usage: m2_decaps_collector --class <name>[,<name>...] --samples <n> --seed <n>\n"
           "                           --raw <csv> --public-key <file> --secret-key <file>\n"
-          "                           [--run-id <id>] [--meta <file>] [--warmup <n>]\n"
+          "                           [--run-id <id>] [--meta <file>] [--warmup <n>] [--self-test]\n"
           "  classes: message-zero,message-ones,malformed-zero-tail,malformed-ff-tail,all\n"
           "  samples is per class; rows = classes * samples, class order is seed-replayable\n"
-          "  raw/meta are created exclusively (wx) and never overwritten\n",
+          "  raw/meta are created exclusively (wx) and never overwritten\n"
+          "  --self-test: functional gate mode; default timing mode keeps stderr empty\n",
         stream);
 }
 
@@ -153,6 +155,10 @@ static int parse_options(int argument_count, char **argument_values, struct coll
     options->warmup_count = M2_COLLECTOR_DEFAULT_WARMUP;
     for (int argument_index = 1; argument_index < argument_count; ++argument_index) {
         const char *option_name = argument_values[argument_index];
+        if (strcmp(option_name, "--self-test") == 0) {
+            options->self_test = 1;
+            continue;
+        }
         const char *option_value =
             argument_index + 1 < argument_count ? argument_values[argument_index + 1] : NULL;
         if (option_value == NULL) {
@@ -732,7 +738,7 @@ int main(int argument_count, char **argument_values)
         fputs("result write failed; use new output paths\n", stderr);
         goto cleanup;
     }
-    if (failed_decapsulation_count != 0 || accept_mismatch_count != 0) {
+    if (options.self_test && (failed_decapsulation_count != 0 || accept_mismatch_count != 0)) {
         fprintf(stderr,
             "functional gate failed: failed_decapsulations=%" PRIu64 ", accept_mismatches=%" PRIu64
             "\n",

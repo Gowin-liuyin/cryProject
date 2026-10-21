@@ -1,0 +1,1640 @@
+src/localize.c:16:        fputs("usage: localize_rank CANDIDATES_CSV DETECTION_PATH\n", stderr);
+src/paired_data.c:69:    int path_bytes = snprintf(path, capacity, "%s/%s", directory, filename);
+src/paired_data.c:154:        (void)snprintf(digest + 2u * byte_index, 3, "%02x", digest_bytes[byte_index]);
+src/paired_data.c:262:    int path_bytes = snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path);
+src/paired_prepare.c:86:        fprintf(output,
+src/paired_prepare.c:166:            _exit(127);
+src/paired_prepare.c:194:        if (fprintf(status_file, "preparation_exit_status=%d\n", operation_status != 0) < 0 ||
+src/paired_prepare.c:206:        if (fprintf(steps_file, "finish-cost-and-budget\t%d\n", operation_status != 0) < 0 ||
+src/paired_prepare.c:219:            if (fprintf(receipt,
+src/paired_prepare.c:275:            (void)fputs("preparation_exit_status=1\n", status_file);
+src/paired_prepare.c:280:            (void)fputs("finish-publication\t1\n", steps_file);
+src/paired_prepare.c:310:        (void)snprintf(filename, sizeof(filename), "development-k%u.plan.csv", batch_size);
+src/paired_prepare.c:319:            fputs("block_id,seed,samples_per_category,batch_size,first_method\n", plan) == EOF;
+src/paired_prepare.c:322:            if (fprintf(plan,
+src/paired_prepare.c:346:        fputs("plan_state=proposed_not_executed\nconfirmation_candidate=not_selected\n"
+src/paired_prepare.c:439:        printf("%" PRIu64 "\n", timestamp_nanoseconds);
+src/paired_prepare.c:463:    fputs("Usage: paired_prepare clock\n"
+src/network_server.c:77:        fputs("usage: network_server --bind ADDRESS --port PORT --seed SEED "
+src/network_server.c:100:    if (printf("bound_port=%d\n", bound_port) < 0 || fflush(stdout) != 0) {
+src/network_server.c:134:    if (printf("completed_decapsulations=%llu\n", (unsigned long long)request_count) < 0) {
+src/controlled_stats.c:114:        fprintf(report,
+src/controlled_stats.c:135:        fprintf(report,
+src/controlled_stats.c:142:    if (!operation_status && fputs("report_status=complete\n", report) == EOF) {
+src/controlled_stats.c:175:        (void)snprintf(metadata_path,
+src/controlled_stats.c:201:    int operation_status = fputs(paired_header, csv_file) == EOF;
+src/controlled_stats.c:233:        if (fprintf(csv_file, "%zu,%" PRIu64 ",%" PRIu64 ",1\n", pair_index, first_ns, second_ns) <
+src/controlled_stats.c:251:        fprintf(plan_file,
+src/controlled_stats.c:280:            fputs("controlled analysis failed; retain partial output\n", stderr);
+src/controlled_stats.c:298:    fputs(
+src/inspect_timing.c:36:    return fprintf(report,
+src/inspect_timing.c:59:    if (fprintf(report,
+src/inspect_timing.c:70:        if (fprintf(report, "%02x", csv_digest[byte_index]) < 0) {
+src/inspect_timing.c:74:    if (fputc('\n', report) == EOF) {
+src/inspect_timing.c:86:    if (fprintf(report,
+src/inspect_timing.c:101:            fprintf(report,
+src/inspect_timing.c:133:    return fputs("report_status=complete\n", report) == EOF;
+src/inspect_timing.c:144:        fputs("Usage: inspect_timing CSV_FILE REPORT_FILE\n", stderr);
+src/inspect_timing.c:168:        fputs("timing diagnostics failed; discard any partial report\n", stderr);
+src/attribution_v3_run.c:124:        (void)snprintf(failure->path, sizeof(failure->path), "%s", path);
+src/attribution_v3_run.c:127:        (void)snprintf(failure->detail, sizeof(failure->detail), "%s", detail);
+src/attribution_v3_run.c:138:    written = vfprintf(primary, format, primary_args);
+src/attribution_v3_run.c:140:        written = vfprintf(secondary, format, secondary_args);
+src/attribution_v3_run.c:414:        (void)snprintf(entries[*entry_count].hash_hex,
+src/attribution_v3_run.c:418:        (void)snprintf(entries[*entry_count].role, sizeof(entries[*entry_count].role), "%s", role);
+src/attribution_v3_run.c:419:        (void)snprintf(entries[*entry_count].path,
+src/attribution_v3_run.c:461:            (void)snprintf(failure->expected_hash,
+src/attribution_v3_run.c:465:            (void)snprintf(failure->actual_hash, sizeof(failure->actual_hash), "%s", actual);
+src/attribution_v3_run.c:931:        if (snprintf(row->category, sizeof(row->category), "%s", fields[7]) >=
+src/attribution_v3_run.c:1606:    if (snprintf(path, sizeof(path), "%s/sessions-%s.csv", directory, run->name) >=
+src/attribution_v3_run.c:1614:    if (fputs("session_number,difference_counts,fitted_counts,segment_drift_counts,"
+src/attribution_v3_run.c:1624:        if (fprintf(file, "%d,%.17g,", session->session_number, difference) < 0) {
+src/attribution_v3_run.c:1630:            if (fprintf(file,
+src/attribution_v3_run.c:1636:        } else if (fputs("na,", file) < 0) {
+src/attribution_v3_run.c:1641:            if (fprintf(file, "%.17g,", session->segment_drift_counts) < 0) {
+src/attribution_v3_run.c:1645:        } else if (fputs("na,", file) < 0) {
+src/attribution_v3_run.c:1650:            if (fprintf(file, "%.17g,", session->empty_median_counts) < 0) {
+src/attribution_v3_run.c:1654:        } else if (fputs("na,", file) < 0) {
+src/attribution_v3_run.c:1659:            if (fprintf(file,
+src/attribution_v3_run.c:1666:        } else if (fputs("na,na,", file) < 0) {
+src/attribution_v3_run.c:1673:                if (fprintf(file, "%.17g%s", session->quartile_difference_counts[bin], separator) <
+src/attribution_v3_run.c:1678:            } else if (fprintf(file, "na%s", separator) < 0) {
+src/attribution_v3_run.c:1713:    if (snprintf(path, sizeof(path), "%s/trend-%s.svg", directory, run->name) >=
+src/attribution_v3_run.c:1732:    if (fputs("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"640\" height=\"360\">\n"
+src/attribution_v3_run.c:1739:        if (fputs("<polyline fill=\"none\" stroke=\"#1d4e89\" stroke-width=\"2\" points=\"", file) <
+src/attribution_v3_run.c:1749:            if (fprintf(file, "%d,%d ", x, y) < 0) {
+src/attribution_v3_run.c:1754:        if (fputs("\"/>\n", file) < 0) {
+src/attribution_v3_run.c:1765:        if (fprintf(file, "<circle cx=\"%d\" cy=\"%d\" r=\"4\" fill=\"#c44900\"/>\n", x, y) < 0) {
+src/attribution_v3_run.c:1770:    if (fputs("</svg>\n", file) < 0) {
+src/attribution_v3_run.c:1786:    if (snprintf(path, sizeof(path), "%s/report.md", directory) >= (int)sizeof(path)) {
+src/attribution_v3_run.c:1793:    if (fprintf(file,
+src/attribution_v3_run.c:1803:        if (fprintf(file,
+src/attribution_v3_run.c:1817:        if (fputs("v3 的会话均值差是稳定水平。前半与后半会话在预先声明的 Holm 族"
+src/attribution_v3_run.c:1825:        if (fputs("v3 的前后半会话没有形成同号稳定拒绝，同时线性斜率在 Holm 族中被拒绝。"
+src/attribution_v3_run.c:1832:        if (fputs("v3 的前后半会话没有形成同号稳定拒绝，线性斜率未被拒绝。"
+src/attribution_v3_run.c:1839:        if (fputs("v3 的全样本均值与零兼容，线性斜率被拒绝。"
+src/attribution_v3_run.c:1846:        if (fputs("v3 的均值检验与斜率检验在 Holm 族中都未拒绝。"
+src/attribution_v3_run.c:1852:    } else if (fputs("v3 主判定没有形成密封运行上的科学令牌。\n\n", file) < 0) {
+src/attribution_v3_run.c:1882:        if (fprintf(file,
+src/attribution_v3_run.c:1900:            if (fprintf(file,
+src/attribution_v3_run.c:1912:            if (fprintf(file,
+src/attribution_v3_run.c:1929:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/attribution_v3_run.c:1986:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/attribution_v3_run.c:1999:        if (snprintf(rounded, sizeof(rounded), "%.3f", v3_mean) < 0) {
+src/attribution_v3_run.c:2206:        fputs("usage: attribution_v3 --self-check\n"
+src/attribution_v3_run.c:2212:        fputs("output directory is missing\n", stderr);
+src/protocol_decision.c:890:    if (fprintf(output,
+src/protocol_decision.c:898:        if (fprintf(output, "primary_p_value=%.17g\n", decision->primary_p_value) < 0) {
+src/protocol_decision.c:901:    } else if (fprintf(output, "primary_p_value=undefined\n") < 0) {
+src/protocol_decision.c:904:    if (fprintf(output,
+src/protocol_decision.c:923:        if (fprintf(output,
+src/protocol_decision.c:931:        if (fprintf(output,
+src/session_collect.c:225:    if (fprintf(csv_file,
+src/session_collect.c:235:        if (fprintf(csv_file,
+src/session_collect.c:251:    if (fprintf(empty_file, "window_index,elapsed_clock_counts,clock_path\n") < 0) {
+src/session_collect.c:258:        if (fprintf(empty_file,
+src/session_collect.c:266:    if (fprintf(metadata_file,
+src/session_collect.c:321:        if (fprintf(metadata_file,
+src/session_collect.c:367:        fputs("usage: session_collect RUN_ID SESSION_ID KEY_ID SEED "
+src/session_collect.c:388:        fputs("session collection needs at least eight prepared inputs\n", stderr);
+src/session_collect.c:459:        fputs("session collection failed\n", stderr);
+src/analyze_paired.c:178:        fputs("Usage: analyze_paired COHORT_DIRECTORY NEW_REPORT_FILE\n", stderr);
+src/analyze_paired.c:211:                snprintf(cost_path, sizeof(cost_path), "%s.cost", data_paths[2u * method_index]);
+src/analyze_paired.c:344:    if (fprintf(report_file,
+src/analyze_paired.c:394:        fprintf(report_file, "s_ratio=%.17Lg\n", statistics.dispersion_ratio) < 0) {
+src/analyze_paired.c:398:        fprintf(report_file,
+src/analyze_paired.c:404:    if (fprintf(report_file,
+src/analyze_paired.c:429:        if (fprintf(report_file,
+src/analyze_paired.c:445:    if (fputs("report_status=complete\n", report_file) == EOF) {
+src/analyze_paired.c:459:        fputs("software_check_failed: paired data/report validation failed; preserve partial "
+src/protocol_analyze.c:19:        fputs("usage: protocol_analyze --phase PHASE --protocol PATH --csv PATH --seed SEED\n",
+src/attribution_v3.c:146:        (void)snprintf(hex_out + (size_t)byte_index * 2u, 3u, "%02x", digest[byte_index]);
+src/calibrate_controlled.c:193:    if (fprintf(records,
+src/calibrate_controlled.c:202:        if (fprintf(records, ",%" PRId64, differences_ns[pair_index]) < 0) {
+src/calibrate_controlled.c:206:    return fprintf(records,
+src/calibrate_controlled.c:223:    int csv_bytes = snprintf(csv_path,
+src/calibrate_controlled.c:229:    int plan_bytes = snprintf(plan_path,
+src/calibrate_controlled.c:244:        fputs("pair_index,first_total_ns,second_total_ns,call_count\n", csv_file) == EOF;
+src/calibrate_controlled.c:246:        operation_status = fprintf(csv_file,
+src/calibrate_controlled.c:263:        fprintf(plan_file,
+src/calibrate_controlled.c:328:    return fprintf(summary,
+src/calibrate_controlled.c:352:    (void)snprintf(run_id, sizeof(run_id), "ordinary-reference-block%zu", block_index);
+src/calibrate_controlled.c:354:        (void)snprintf(name, sizeof(name), "%s.%s", run_id, suffixes[file_index]);
+src/calibrate_controlled.c:375:            fprintf(selected_records, "%s,%zu,%" PRIu64 ",ns\n", run_id, sample_index, elapsed_ns) <
+src/calibrate_controlled.c:431:        fprintf(summary,
+src/calibrate_controlled.c:450:    int file_status = vfprintf(conclusion, format, first_args);
+src/calibrate_controlled.c:451:    int stdout_status = vfprintf(stdout, format, second_args);
+src/calibrate_controlled.c:471:    (void)snprintf(run_id, sizeof(run_id), "ordinary-reference-block%u", block_number);
+src/calibrate_controlled.c:473:        (void)snprintf(name, sizeof(name), "%s.%s", run_id, suffixes[file_index]);
+src/calibrate_controlled.c:502:            fprintf(selected_records,
+src/calibrate_controlled.c:564:        int written = snprintf(index_text + used_bytes,
+src/calibrate_controlled.c:611:    if (fputs("model,effect_ns,model_assignment_count,assignment_index", records) == EOF) {
+src/calibrate_controlled.c:615:        if (fprintf(records, ",difference_%zu_ns", pair_index) < 0) {
+src/calibrate_controlled.c:619:    if (fputs(",tail_count,oracle_tail_count,permutation_count,all_zero,raw_reject\n", records) ==
+src/calibrate_controlled.c:621:        fputs("source_run,draw_order,sample_index,elapsed_nanoseconds,time_unit\n",
+src/calibrate_controlled.c:692:        fputs("Usage: calibrate_controlled NEW_DIRECTORY\n"
+src/calibrate_controlled.c:721:        if (fputs(build_identity_lines[line_index], summary) == EOF) {
+src/calibrate_controlled.c:725:    if (fprintf(summary,
+src/calibrate_controlled.c:733:        fputs("model,effect_ns,model_assignment_count,assignment_index", records) == EOF) {
+src/calibrate_controlled.c:737:        if (fprintf(records, ",difference_%zu_ns", pair_index) < 0) {
+src/calibrate_controlled.c:741:    if (fputs(",tail_count,oracle_tail_count,permutation_count,all_zero,raw_reject\n", records) ==
+src/calibrate_controlled.c:746:        if (fputs("label_law=independent_equiprobable_posthoc_swaps\n"
+src/calibrate_controlled.c:761:            fputs("source_run,sample_index,elapsed_nanoseconds,time_unit\n", selected_records) ==
+src/calibrate_controlled.c:806:        fprintf(summary,
+src/v4_collect.c:235:            if (fprintf(file, "%s\n", calls[index].ciphertext_sha256_hex) < 0) {
+src/v4_collect.c:302:        fputs("usage: v4_collect RUN_ID SESSION_ID SEED REPEATS CSV META EMPTY\n", stderr);
+src/v4_collect.c:420:        if (fputs("schema,run_id,session_id,key_index,repeat_index,slot_index,category,"
+src/v4_collect.c:426:            if (fprintf(csv_file,
+src/v4_collect.c:439:        if (fputs("window_index,elapsed_clock_counts,clock_path\n", empty_file) < 0) {
+src/v4_collect.c:443:            if (fprintf(empty_file,
+src/v4_collect.c:450:        if (fprintf(meta_file,
+src/paired_runner.c:143:    int path_bytes = snprintf(audit_path, sizeof(audit_path), "%s.audit", path);
+src/paired_runner.c:150:        ssize_t written_bytes = write(audit_descriptor, audit_state, sizeof(audit_state) - 1u);
+src/paired_runner.c:152:            fputs("budget audit marker content incomplete\n", stderr);
+src/paired_runner.c:165:        snprintf(temporary_path, sizeof(temporary_path), "%s.new.%jd", path, (intmax_t)getpid());
+src/paired_runner.c:178:        fprintf(ledger_file,
+src/paired_runner.c:196:        if (fprintf(ledger_file,
+src/paired_runner.c:223:            path_bytes = snprintf(previous_path,
+src/paired_runner.c:509:    (void)snprintf(seed_text, sizeof(seed_text), "%" PRIu64, pair->seed);
+src/paired_runner.c:510:    (void)snprintf(count_text, sizeof(count_text), "%" PRIu64, pair->samples_per_category);
+src/paired_runner.c:511:    (void)snprintf(batch_text, sizeof(batch_text), "%" PRIu64, pair->batch_size);
+src/paired_runner.c:524:            _exit(127);
+src/paired_runner.c:547:        _exit(127);
+src/paired_runner.c:616:        fprintf(context_file,
+src/paired_runner.c:675:    int path_bytes = snprintf(lock_path, sizeof(lock_path), "%s.lock", budget_path);
+src/paired_runner.c:686:        fputs("native target preflight is required; this is not a target experiment\n", stderr);
+src/paired_runner.c:705:        snprintf(program_paths[0],
+src/paired_runner.c:709:        snprintf(program_paths[1],
+src/paired_runner.c:713:        snprintf(kernel_path, sizeof(kernel_path), "%s/reference/libmlkem.a", build_directory) <
+src/paired_runner.c:732:    if (manifest == NULL || attempt_log == NULL || fputs(PAIRED_COHORT_HEADER, manifest) == EOF ||
+src/paired_runner.c:733:        fputs("block_id\tphase\tmethod\texit_status\twall_ns\tcharged_calls_upper\tstate\n",
+src/paired_runner.c:771:                fputs("budget exhausted before attempt\n", stderr);
+src/paired_runner.c:776:            (void)snprintf(filenames[2u * method_index],
+src/paired_runner.c:781:            (void)snprintf(filenames[2u * method_index + 1u],
+src/paired_runner.c:816:            (void)snprintf(child_log_name,
+src/paired_runner.c:845:                int cost_path_bytes = snprintf(cost_path,
+src/paired_runner.c:876:            if (fprintf(attempt_log,
+src/paired_runner.c:897:            fprintf(manifest,
+src/paired_runner.c:958:        fputs("paired execution failed; retain partial files and budget reservations\n", stderr);
+src/paired_runner.c:1064:    (void)snprintf(values[4], sizeof(values[4]), "%" PRIu64, context_lower + runtime_overhead);
+src/paired_runner.c:1065:    (void)snprintf(values[5],
+src/paired_runner.c:1074:    int path_bytes = snprintf(temporary_path, sizeof(temporary_path), "%s.observed", context_path);
+src/paired_runner.c:1083:        if (fprintf(context, "%s=%s\n", names[field_index], values[field_index]) < 0) {
+src/paired_runner.c:1095:    if (fprintf(envelope,
+src/paired_runner.c:1131:    int audit_path_bytes = snprintf(audit_path, sizeof(audit_path), "%s.audit", budget_path);
+src/paired_runner.c:1136:    int path_bytes = snprintf(lock_path, sizeof(lock_path), "%s.observer.lock", budget_path);
+src/paired_runner.c:1176:        path_bytes = snprintf(receipt_path, sizeof(receipt_path), "%s.preparation", budget_path);
+src/paired_runner.c:1181:            fputs("completed preparation receipt is required before target execution\n", stderr);
+src/paired_runner.c:1199:        _exit(run_cohort(phase,
+src/paired_runner.c:1325:    fputs("Usage: paired_runner init LEDGER SHARED_COST_FILE\n"
+src/v4_window.c:38:    if (fprintf(file, "%s\n", text) < 0 || fclose(file) != 0) {
+src/v4_window.c:46:    return snprintf(path, capacity, "/sys/devices/system/cpu/cpu%u/cpufreq/%s", cpu_index, field) >=
+src/v4_window.c:209:        snprintf(prefix, sizeof(prefix), "cpu%u ", cpu_index) >= (int)sizeof(prefix)) {
+src/v4_window.c:217:            if (fprintf(output, "phase=%s %s", phase, line) < 0) {
+src/v4_window.c:328:    fputs("v4_window run requires linux\n", stderr);
+src/v4_window.c:349:        fputs("usage: v4_window run|run-held OUTDIR -- collector args\n", stderr);
+src/v4_window.c:354:        fputs("status=not_root\n", stdout);
+src/v4_window.c:362:        fputs("status=stopped_sibling_list\n", stdout);
+src/v4_window.c:377:            fputs("status=stopped_boost_file\n", stdout);
+src/v4_window.c:389:                fputs("status=stopped_policy_baseline\n", stdout);
+src/v4_window.c:397:        if (snprintf(path, sizeof(path), "%s/frequency-baseline.txt", argv[2]) >=
+src/v4_window.c:406:            fprintf(baseline, "hold_rule_id=%s\nboost=%s\n", V4_HOLD_RULE_ID, baseline_boost) < 0) {
+src/v4_window.c:411:            if (fprintf(baseline,
+src/v4_window.c:420:                fprintf(baseline,
+src/v4_window.c:458:        if (snprintf(readback_path, sizeof(readback_path), "%s/policy-readback.txt", argv[2]) <
+src/v4_window.c:466:            (void)fprintf(readback,
+src/v4_window.c:487:                (void)fprintf(readback,
+src/v4_window.c:498:            fputs("status=stopped_policy_readback\n", stdout);
+src/v4_window.c:507:            if (snprintf(precondition_path,
+src/v4_window.c:511:                fputs("status=stopped_precondition\n", stdout);
+src/v4_window.c:517:                fputs("time_ns,frequency_khz\n", precondition_file) < 0) {
+src/v4_window.c:521:                fputs("status=stopped_precondition\n", stdout);
+src/v4_window.c:539:                if (fprintf(precondition_file,
+src/v4_window.c:556:                fputs("status=stopped_precondition\n", stdout);
+src/v4_window.c:561:                fputs("status=stopped_precondition\n", stdout);
+src/v4_window.c:569:        if (snprintf(smt_path, sizeof(smt_path), "%s/smt-sibling-stat.txt", argv[2]) >=
+src/v4_window.c:604:            _exit(1);
+src/v4_window.c:607:        _exit(127);
+src/v4_window.c:621:        if (snprintf(sample_path, sizeof(sample_path), "%s/frequency-samples.csv", argv[2]) >=
+src/v4_window.c:626:        if (sample_file == NULL || fputs("time_ns,frequency_khz\n", sample_file) < 0) {
+src/v4_window.c:648:            if (fprintf(sample_file,
+src/v4_window.c:673:                if (fprintf(sample_file,
+src/v4_window.c:688:        if (snprintf(smt_path, sizeof(smt_path), "%s/smt-sibling-stat.txt", argv[2]) <
+src/v4_window.c:699:        if (snprintf(coverage_path, sizeof(coverage_path), "%s/coverage.txt", argv[2]) <
+src/v4_window.c:704:                    (void)fprintf(coverage, "coverage_fraction=%.17g\n", fraction);
+src/v4_window.c:706:                    (void)fputs("coverage_fraction=na\n", coverage);
+src/v4_window.c:708:                (void)fprintf(coverage,
+src/v4_window.c:717:                    (void)fprintf(coverage,
+src/v4_window.c:779:            fputs("status=RESTORE_FAILED\n", stdout);
+src/analyze_groups.c:72:    if (fprintf(report_file,
+src/analyze_groups.c:81:        if (fprintf(report_file, "%02x", csv_digest[byte_index]) < 0) {
+src/analyze_groups.c:85:    if (fprintf(report_file,
+src/analyze_groups.c:101:    return fprintf(report_file,
+src/analyze_groups.c:123:    return fprintf(report_file,
+src/analyze_groups.c:145:    if (fprintf(report_file,
+src/analyze_groups.c:154:        if (fprintf(report_file,
+src/analyze_groups.c:161:            fprintf(report_file,
+src/analyze_groups.c:169:            fprintf(report_file,
+src/analyze_groups.c:178:    return fprintf(report_file, " result=%s\n", result_label) < 0 ? 1 : 0;
+src/analyze_groups.c:197:        fputs("Usage: analyze_groups CSV_FILE REPORT_FILE\n"
+src/analyze_groups.c:205:        fputs("cannot read timing CSV for digest\n", stderr);
+src/analyze_groups.c:211:        fputs("invalid timing CSV: check header, fields, sample order and units\n", stderr);
+src/analyze_groups.c:219:        fputs("invalid timing CSV: all five categories must appear with equal sample counts\n",
+src/analyze_groups.c:236:        fputs("invalid timing CSV: each group needs at least two samples\n", stderr);
+src/analyze_groups.c:249:        fputs("cannot allocate the rank test working set\n", stderr);
+src/analyze_groups.c:256:        fputs("cannot create report file (destination must be new)\n", stderr);
+src/analyze_groups.c:274:    if (fprintf(report_file,
+src/analyze_groups.c:287:        fputs("group analysis failed; use a new report path and a complete CSV\n", stderr);
+src/analyze_groups.c:290:    printf("%s: analyzed %zu records; round-two group comparison %s:%s rank p=%.3g (%s); "
+src/compare_replay.c:61:            _exit(125);
+src/compare_replay.c:65:        _exit(127);
+src/compare_replay.c:139:        fputs("Usage: compare_replay C_ANALYZER PYTHON SCIPY_SCRIPT EIGHT_TASK_DIRECTORY "
+src/compare_replay.c:176:        fputs(is_preimported
+src/compare_replay.c:187:        (void)snprintf(task_name, sizeof(task_name), "task-%zu.csv", task_index + 1u);
+src/compare_replay.c:191:        (void)snprintf(task_name, sizeof(task_name), "task-%zu.plan", task_index + 1u);
+src/compare_replay.c:217:                (void)snprintf(report_name,
+src/compare_replay.c:223:                (void)snprintf(log_name,
+src/compare_replay.c:255:                if (fprintf(ledger,
+src/compare_replay.c:264:                    (is_preimported && fprintf(ledger, "\t%" PRIu64, ready_ns[method_index]) < 0) ||
+src/compare_replay.c:265:                    fputc('\n', ledger) == EOF || fflush(ledger) != 0 || result_failed) {
+src/compare_replay.c:307:        fprintf(summary,
+src/compare_replay.c:333:        fprintf(summary,
+src/compare_replay.c:341:    if (!operation_status && fputs("report_status=complete\n", summary) == EOF) {
+src/compare_replay.c:353:        fputs("comparison failed or insufficient; retain every attempt\n", stderr);
+src/diagnostic_trace.c:95:    snprintf(accumulator->function_name,
+src/diagnostic_trace.c:99:    snprintf(accumulator->stage_id, sizeof(accumulator->stage_id), "unknown");
+src/diagnostic_trace.c:100:    snprintf(accumulator->source_path, sizeof(accumulator->source_path), "unknown");
+src/diagnostic_trace.c:101:    snprintf(accumulator->source_line, sizeof(accumulator->source_line), "0");
+src/diagnostic_trace.c:102:    snprintf(accumulator->inline_extent, sizeof(accumulator->inline_extent), "unknown");
+src/diagnostic_trace.c:105:        snprintf(accumulator->function_name, sizeof(accumulator->function_name), "%s", symbol_name);
+src/diagnostic_trace.c:109:            snprintf(accumulator->stage_id,
+src/diagnostic_trace.c:113:            snprintf(accumulator->source_path,
+src/diagnostic_trace.c:117:            snprintf(accumulator->source_line,
+src/diagnostic_trace.c:121:            snprintf(accumulator->inline_extent,
+src/diagnostic_trace.c:151:    if (fprintf(candidate_file,
+src/diagnostic_trace.c:179:        if (fprintf(candidate_file,
+src/diagnostic_trace.c:198:        if (fprintf(candidate_file,
+src/diagnostic_trace.c:240:        fputs("usage: diagnostic_trace --account|--timing SEED SAMPLES_PER_CATEGORY "
+src/diagnostic_trace.c:268:    if (fprintf(event_file, "%s\n", trace_event_header()) < 0) {
+src/diagnostic_trace.c:344:    if (fprintf(summary_file,
+src/diagnostic_trace.c:360:        if (fprintf(summary_file,
+src/diagnostic_trace.c:389:        fputs("diagnostic trace failed\n", stderr);
+src/audit.c:36:    int path_length = snprintf(path, capacity, "%s/%s", directory, filename);
+src/audit.c:61:                _exit(125);
+src/audit.c:66:        _exit(127);
+src/audit.c:110:        if ((replacement != NULL && fputs(replacement, output) == EOF) ||
+src/audit.c:111:            (replacement == NULL && fputc((unsigned char)*character, output) == EOF)) {
+src/audit.c:122:    return fputs("<a href=\"./", output) == EOF || write_escaped(output, filename) != 0 ||
+src/audit.c:123:        fputs("\">", output) == EOF || write_escaped(output, label) != 0 ||
+src/audit.c:124:        fputs("</a>", output) == EOF;
+src/audit.c:142:    int temporary_path_length = snprintf(temporary_html_path,
+src/audit.c:147:    int cost_path_length = snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path);
+src/audit.c:161:    if (fputs("<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\">"
+src/audit.c:172:        write_escaped(output, origin) != 0 || fputs("。运行编号：<code>", output) == EOF ||
+src/audit.c:174:        fprintf(output,
+src/audit.c:179:        fputs("。计时覆盖完整解封装；没有删长尾，也没有扣计时开销。</p>"
+src/audit.c:192:        if (fprintf(output,
+src/audit.c:204:    if (fputs("</table><p>分位数：floor(p × (n−1) + 0.5) "
+src/audit.c:210:        write_link(output, csv_path, "逐次原始数据") != 0 || fputs(" · ", output) == EOF ||
+src/audit.c:211:        write_link(output, metadata_path, "环境及方法记录") != 0 || fputs(" · ", output) == EOF ||
+src/audit.c:213:        fputs("</p><p>原始数据 SHA3-256：<code>", output) == EOF ||
+src/audit.c:215:        fputs("</code></p><p>被测源码身份：<code>", output) == EOF ||
+src/audit.c:217:        fputs("</code>。公开输入流摘要：<code>", output) == EOF ||
+src/audit.c:219:        fputs("</code></p><p>复算：<code>audit inspect 数据.csv "
+src/audit.c:289:        fputs("封存清单校验失败；停止复算并保留日志。\n", stderr);
+src/audit.c:298:            (void)snprintf(csv_path,
+src/audit.c:308:                (void)snprintf(report_name,
+src/audit.c:329:                    fputs("复算存在错误或跨平台数值差异；保留新输出供核查。\n", stderr);
+src/audit.c:336:    printf("历史重分析完成：%zu 份报告逐字一致；未重新采集，名义模型与旧限制保留。\n",
+src/audit.c:368:    puts("正在采集参考实现的普通三类负载；保留每次原始值。");
+src/audit.c:378:    printf("采集及记录核验完成。描述页面：%s\n", html_path);
+src/audit.c:399:            fprintf(report,
+src/audit.c:434:        fputs("block\timplementation\texit_status\tparent_process_wall_ns\n", ledger) == EOF ||
+src/audit.c:435:        fputs("format=safe_ordinary_performance_v1\nblocks=6\nformal_calls_per_run=3000\n"
+src/audit.c:459:            (void)snprintf(run_name,
+src/audit.c:464:            (void)snprintf(seed_text,
+src/audit.c:468:            (void)snprintf(filename, sizeof(filename), "%s/benchmark", variant);
+src/audit.c:474:            (void)snprintf(filename, sizeof(filename), "%s.csv", run_name);
+src/audit.c:478:            (void)snprintf(filename, sizeof(filename), "%s.meta", run_name);
+src/audit.c:482:            (void)snprintf(filename, sizeof(filename), "%s.log", run_name);
+src/audit.c:489:            if (fprintf(ledger,
+src/audit.c:509:                (void)snprintf(input_digest, sizeof(input_digest), "%.64s", dataset.metadata[6]);
+src/audit.c:519:                fprintf(report,
+src/audit.c:539:        fprintf(report,
+src/audit.c:565:        fputs("format=safe_ordinary_performance_v1\nblocks=6\nformal_calls_per_run=3000\n"
+src/audit.c:582:            (void)snprintf(run_name,
+src/audit.c:587:            (void)snprintf(filename, sizeof(filename), "%s.csv", run_name);
+src/audit.c:591:            (void)snprintf(filename, sizeof(filename), "%s.meta", run_name);
+src/audit.c:595:            (void)snprintf(seed_text,
+src/audit.c:611:            (void)snprintf(input_digest, sizeof(input_digest), "%.64s", dataset.metadata[6]);
+src/audit.c:612:            (void)snprintf(executable_digests[variant_index],
+src/audit.c:621:                fprintf(report,
+src/audit.c:638:        fprintf(report,
+src/audit.c:654:    return fputs(
+src/audit.c:696:        printf("对象：ML-KEM-768，C11 本地审计与复算。环境：%s %s。\n",
+src/audit.c:709:                fputs(line, stdout);
+src/audit.c:715:        puts("正在执行功能、接口、统计软件和失败路径验收；结果不等于恒时认证。");
+src/audit.c:730:        puts("正在执行6个固定普通运行块，三种无分支实现；失败会保留部分数据。");
+src/audit.c:770:        puts("案例：公开人工消息编码回归。源码依赖、产物、历史观察和防护对照分别留证。\n"
+src/audit.c:802:    fputs("命令或参数不正确；运行audit help查看格式。\n", stderr);
+src/main.c:8:    fputs("Usage: baseline selftest | demo | version\n"
+src/main.c:25:        fwrite(ciphertext, 1, MLKEM_CIPHERTEXT_BYTES, ciphertext_file) == MLKEM_CIPHERTEXT_BYTES
+src/main.c:67:        printf("%s Kyber768 round3 (historical, non-FIPS203)\n", mlkem_implementation_name());
+src/main.c:69:        printf("%s ML-KEM-768-ipd liboqs-0.10.0\n", mlkem_implementation_name());
+src/main.c:71:        printf("%s ML-KEM-768 FIPS203\n", mlkem_implementation_name());
+src/main.c:79:            fputs("system-random roundtrip failed\n", stderr);
+src/main.c:82:        printf("%s: system-random keygen/encaps/decaps roundtrip passed\n",
+src/main.c:101:            fputs("test ciphertext generation/write failed (destination must be new)\n", stderr);
+src/main.c:104:        printf("%s: generated %s test ciphertext, 1088 bytes; label comes from generator\n",
+src/main.c:114:            fputs("cannot read ciphertext: require exactly 1088 bytes\n", stderr);
+src/main.c:129:            fputs("decapsulation operation failed\n", stderr);
+src/main.c:132:        printf("%s: decapsulation completed\n", mlkem_implementation_name());
+src/v4_analyze.c:22:    written = vfprintf(primary, format, primary_args);
+src/v4_analyze.c:24:        written = vfprintf(secondary, format, secondary_args);
+src/v4_analyze.c:110:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:165:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:208:    if (snprintf(path, sizeof(path), "%s/session-effects.csv", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:213:        fputs("session_index,effect_counts,empty_median_counts,window_coverage\n", table) < 0) {
+src/v4_analyze.c:220:        if (fprintf(table,
+src/v4_analyze.c:269:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:303:        if (printf("round=%u\norder=%s\nseed=%llu\n",
+src/v4_analyze.c:365:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:385:    if (snprintf(path, sizeof(path), "%s/qq.svg", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:404:        if (fputs("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"640\" height=\"480\">\n",
+src/v4_analyze.c:419:            if (fprintf(svg, "<circle cx=\"%d\" cy=\"%d\" r=\"3\" fill=\"#1d4e89\"/>\n", x, y) <
+src/v4_analyze.c:425:        if (fputs("</svg>\n", svg) < 0 || fclose(svg) != 0) {
+src/v4_analyze.c:436:    if (snprintf(path, sizeof(path), "%s/conclusion.txt", directory) >= (int)sizeof(path)) {
+src/v4_analyze.c:469:    if (table == NULL || fputs("effect_counts,empty_median_counts,window_coverage\n", table) < 0) {
+src/v4_analyze.c:477:            if (fprintf(table,
+src/v4_analyze.c:485:        } else if (fprintf(table,
+src/v4_analyze.c:519:    if (snprintf(reduced_path, sizeof(reduced_path), "%s/reduced-effects.csv", directory) >=
+src/v4_analyze.c:548:        if (printf("status=%s\nsession_count=%zu\n", stop_status, count) < 0) {
+src/v4_analyze.c:561:    return printf("status=ok\nsession_count=%zu\n", count) < 0 ? 1 : 0;
+src/v4_analyze.c:571:        if (printf("%u\n", indices[index]) < 0) {
+src/v4_analyze.c:581:        fputs("usage: v4_analyze power|confirm|confirm-sessions|reduce-effects|paired|order|"
+src/v4_analyze.c:636:    fputs("usage: v4_analyze power|confirm|confirm-sessions|reduce-effects|paired|order|"
+src/v4_hold_spin.c:21:        fputs("usage: v4_hold_spin DURATION_MS\n", stderr);
+src/v4_hold_spin.c:30:    fputs("v4_hold_spin requires linux\n", stderr);
+src/trace_account.c:43:    if (fprintf(output,
+src/v4_reduce.c:32:    return snprintf(destination, capacity, "%s/%s", directory, name) >= (int)capacity;
+src/mechanism_audit.c:226:        (void)sprintf(hex_out + byte_index * 8u, "%08x", state[byte_index]);
+src/mechanism_audit.c:248:        (void)sprintf(hex_out + byte_index * 8u, "%08x", state[byte_index]);
+src/mechanism_audit.c:320:    (void)snprintf(name, capacity, "%s", cursor);
+src/mechanism_audit.c:759:            (void)snprintf(tokens, sizeof(tokens), "%s", mechanism_skip_space(after_address + 1));
+src/mechanism_audit.c:884:            _exit(127);
+src/mechanism_audit.c:888:        _exit(127);
+src/mechanism_audit.c:917:                _exit(127);
+src/mechanism_audit.c:921:            _exit(127);
+src/mechanism_audit.c:958:    int path_length = snprintf(path, sizeof(path), "%s/%s", source_root, relative_path);
+src/mechanism_audit.c:969:            (void)snprintf(location, location_capacity, "%s:%u", relative_path, line_number);
+src/mechanism_audit.c:1017:    return fprintf(output,
+src/mechanism_audit.c:1089:            (void)snprintf(clangover_symbol, sizeof(clangover_symbol), "%s", function->name);
+src/mechanism_audit.c:1104:            (void)snprintf(clangover_symbol, sizeof(clangover_symbol), "%s", function->name);
+src/mechanism_audit.c:1117:        (void)snprintf(kyber_symbols, sizeof(kyber_symbols), "inlined-callers");
+src/mechanism_audit.c:1135:                (void)snprintf(clangover_symbol, sizeof(clangover_symbol), "%s", encaps->name);
+src/mechanism_audit.c:1161:    if (fprintf(output, "artifact_sha256=%s\n", artifact_sha256) < 0 ||
+src/mechanism_audit.c:1162:        fputs(compiler_command, output) == EOF || fputs(compiler_flags, output) == EOF ||
+src/mechanism_audit.c:1163:        fputs(compile_options, output) == EOF || fputs(configuration, output) == EOF ||
+src/mechanism_audit.c:1164:        fputs(mechanism_compiler_version_line(), output) == EOF) {
+src/mechanism_audit.c:1168:        if (fprintf(output, "mechanism kyber_slash_division status=unresolved\n") < 0 ||
+src/mechanism_audit.c:1169:            fprintf(output, "mechanism clangover_message_branch status=unresolved\n") < 0 ||
+src/mechanism_audit.c:1170:            fprintf(output, "mechanism fo_compare_rejection status=unresolved\n") < 0) {
+src/mechanism_audit.c:1209:        fprintf(stderr, "self-test failed to parse %s\n", mechanism_name);
+src/mechanism_audit.c:1250:            fprintf(stderr,
+src/mechanism_audit.c:1365:    puts("mechanism_audit self-test passed");
+src/mechanism_audit.c:1371:    fputs("Usage: mechanism_audit --self-test\n"
+src/mechanism_audit.c:1392:        fputs("cannot hash kernel object\n", stderr);
+src/mechanism_audit.c:1396:        fputs("cannot disassemble kernel object\n", stderr);
+src/mechanism_audit.c:1401:        fputs("cannot parse kernel disassembly\n", stderr);
+src/localize_rank.c:178:    return fprintf(output,
+src/localize_rank.c:202:        if (fprintf(output, "single_root_cause=not_asserted\n") < 0) {
+src/localize_rank.c:205:    } else if (fprintf(output, "single_root_cause=not_forced\n") < 0) {
+src/localize_rank.c:211:    if (fprintf(output,
+src/localize_rank.c:217:        if (fprintf(output,
+src/localize_rank.c:226:    if (fprintf(output,
+src/measure.c:96:    (void)snprintf(cpu_model, cpu_model_capacity_bytes, "unavailable");
+src/measure.c:100:        (void)snprintf(cpu_model, cpu_model_capacity_bytes, "unavailable");
+src/measure.c:112:                (void)snprintf(cpu_model, cpu_model_capacity_bytes, "%s", model_value + 1);
+src/measure.c:224:    if (fprintf(cost_file,
+src/measure.c:253:    if (fprintf(metadata_file,
+src/measure.c:275:        if (fprintf(metadata_file, "%02x", accounting.ordered_input_digest[byte_index]) < 0) {
+src/measure.c:279:    return fputc('\n', metadata_file) == EOF;
+src/measure.c:303:        if (fprintf(metadata_file,
+src/measure.c:322:        if (fprintf(metadata_file,
+src/measure.c:329:    return fprintf(metadata_file,
+src/measure.c:444:    if (fputs("run_id,block_id,method,window_index,input_start,input_end,call_count,valid_count,"
+src/measure.c:451:        if (fprintf(csv_file,
+src/measure.c:467:    if (fprintf(csv_file,
+src/measure.c:473:        if (fprintf(csv_file,
+src/measure.c:484:    if (fprintf(metadata_file,
+src/measure.c:504:        if (fprintf(metadata_file, "%02x", executable_digest[byte_index]) < 0) {
+src/measure.c:508:    if (fputc('\n', metadata_file) == EOF) {
+src/measure.c:514:        if (fputs(build_identity_lines[line_index], metadata_file) == EOF) {
+src/measure.c:519:    if (fputs("measurement_format=" MEASUREMENT_FORMAT "\n"
+src/measure.c:536:    if (fprintf(metadata_file, "run_status=%s\n", operation_status == 0 ? "complete" : "failed") <
+src/measure.c:572:        fputs("Usage: batch_benchmark RUN_ID SEED SAMPLES_PER_CATEGORY K CSV_FILE META_FILE\n",
+src/measure.c:575:        fputs(
+src/measure.c:585:        fputs("batch size must be 1, 4 or 16\n", stderr);
+src/measure.c:591:        fputs("invalid RUN_ID: length must be 1..64 characters\n", stderr);
+src/measure.c:599:            fputs("invalid RUN_ID: use only ASCII letters, digits, underscore or hyphen\n", stderr);
+src/measure.c:605:        snprintf(cost_path, sizeof(cost_path), "%s.cost", argument_values[CSV_ARGUMENT_INDEX]);
+src/measure.c:614:    if (fprintf(cost_file,
+src/measure.c:623:        fputs("timer/executable identity check failed\n", stderr);
+src/measure.c:804:        fputs("measurement failed; check resources and use new output paths\n", stderr);
+src/measure.c:807:        printf("reference: saved raw window totals for %zu decapsulations; no statistical "
+src/measure.c:811:        printf("%s: saved %zu raw decapsulation times in ns; no statistical conclusion\n",
+src/analyze.c:57:    if (fprintf(report_file,
+src/analyze.c:64:        if (fprintf(report_file, "%02x", csv_digest[byte_index]) < 0) {
+src/analyze.c:68:    if (fprintf(report_file,
+src/analyze.c:96:            if (fprintf(report_file, "category=%s count=0\n", category_name) < 0) {
+src/analyze.c:102:        if (fprintf(report_file,
+src/analyze.c:129:    if (fprintf(report_file,
+src/analyze.c:139:        if (fprintf(report_file,
+src/analyze.c:146:            fprintf(report_file,
+src/analyze.c:154:            fprintf(report_file,
+src/analyze.c:163:    return fprintf(report_file, " result=%s\n", result_label) < 0 ? 1 : 0;
+src/analyze.c:211:        fputs("Usage: analyze CSV_FILE REPORT_FILE\n"
+src/analyze.c:220:        fputs("cannot read timing CSV for digest\n", stderr);
+src/analyze.c:225:        fputs("invalid timing CSV: check header, fields, sample order and units\n", stderr);
+src/analyze.c:233:        fputs("cannot create report file (destination must be new)\n", stderr);
+src/analyze.c:252:    if (fprintf(report_file,
+src/analyze.c:263:        fputs("analysis failed; use a new report path and a complete CSV\n", stderr);
+src/analyze.c:266:    printf("%s: analyzed %zu records; %zu of %zu pre-specified comparisons significant; "
+src/network_client.c:104:        fputs("usage: network_client --connect ADDRESS --port PORT --seed SEED "
+src/network_client.c:109:    if (snprintf(ack_path, sizeof(ack_path), "%s.acks", rtt_path) >= (int)sizeof(ack_path)) {
+src/network_client.c:115:        fprintf(rtt_file, "request_index,elapsed_clock_counts,clock_path\n") < 0 ||
+src/network_client.c:150:        if (fprintf(rtt_file,
+src/network_client.c:154:            fwrite(acknowledgement, 1, sizeof(acknowledgement), ack_file) !=
+src/network_client.c:159:    if (printf("rtt_recorded=yes\nack_bytes=%llu\n",
+src/native_digest.c:57:        fputs("Usage: native_digest OPENSSL_LOG_FILE\n", stderr);
+src/native_digest.c:62:        fputs("OpenSSL log must contain exactly one complete SHA3-256 digest.\n", stderr);
+src/native_digest.c:65:    return printf("%s\n", digest) < 0 || fflush(stdout) != 0 ? 1 : 0;
+tools/historical_dudect.c:60:            fputs("historical dudect key generation failed\n", stderr);
+tools/historical_dudect.c:61:            exit(1);
+tools/historical_dudect.c:82:            fputs("historical dudect ciphertext generation failed\n", stderr);
+tools/historical_dudect.c:83:            exit(1);
+tools/historical_dudect.c:107:    printf("stopped_after_batches=%u state=%d\n", batch_index, (int)state);
+tools/platform_stats/holm.c:82:    fputs("usage: platform_holm --input <members.csv> --output-dir <NEW_DIR> --alpha <0..1>\n",
+tools/platform_stats/holm.c:178:        int written = snprintf(destination + used_bytes,
+tools/platform_stats/holm.c:183:        assert(written > 0 && (size_t)written < capacity - used_bytes);
+tools/platform_stats/holm.c:230:        fprintf(stderr, "error: cannot open input %s\n", input_path);
+tools/platform_stats/holm.c:236:        fprintf(stderr, "error: cannot allocate member records\n");
+tools/platform_stats/holm.c:254:            fprintf(stderr,
+tools/platform_stats/holm.c:262:            fprintf(stderr, "error: line %zu uses CR or CRLF line endings\n", line_number);
+tools/platform_stats/holm.c:267:            fprintf(stderr, "error: line %zu is blank\n", line_number);
+tools/platform_stats/holm.c:273:                fprintf(stderr, "error: line %zu is not the expected header\n", line_number);
+tools/platform_stats/holm.c:282:            fprintf(stderr, "error: line %zu repeats the input header\n", line_number);
+tools/platform_stats/holm.c:288:            fprintf(stderr,
+tools/platform_stats/holm.c:297:            fprintf(stderr,
+tools/platform_stats/holm.c:304:            fprintf(stderr, "error: line %zu has an invalid field value\n", line_number);
+tools/platform_stats/holm.c:313:            fprintf(stderr, "error: input %s is empty\n", input_path);
+tools/platform_stats/holm.c:316:            fprintf(stderr, "error: input %s has no member rows\n", input_path);
+tools/platform_stats/holm.c:345:                fprintf(stderr,
+tools/platform_stats/holm.c:376:        fprintf(stderr, "error: cannot allocate family members\n");
+tools/platform_stats/holm.c:455:    (void)snprintf(path, sizeof(path), "%s/holm.csv", output_directory);
+tools/platform_stats/holm.c:458:        fprintf(stderr, "error: cannot create %s\n", path);
+tools/platform_stats/holm.c:461:    fputs("family_id,member_id,raw_p,rank,threshold,adjusted_p,reject\n", output_file);
+tools/platform_stats/holm.c:469:            if (fprintf(output_file,
+tools/platform_stats/holm.c:490:        fprintf(stderr, "error: cannot write %s\n", path);
+tools/platform_stats/holm.c:501:    (void)snprintf(path, sizeof(path), "%s/pooled.csv", output_directory);
+tools/platform_stats/holm.c:504:        fprintf(stderr, "error: cannot create %s\n", path);
+tools/platform_stats/holm.c:507:    fputs("family_id,m,pooled_effect_ns,pooled_se_ns,ci95_low_ns,ci95_high_ns,q_statistic,df,"
+tools/platform_stats/holm.c:513:        if (fprintf(output_file,
+tools/platform_stats/holm.c:532:        fprintf(stderr, "error: cannot write %s\n", path);
+tools/platform_stats/holm.c:546:    (void)snprintf(path, sizeof(path), "%s/holm_summary.json", output_directory);
+tools/platform_stats/holm.c:549:        fprintf(stderr, "error: cannot create %s\n", path);
+tools/platform_stats/holm.c:553:    if (fprintf(output_file, "{\n  \"alpha\": %.15g,\n  \"families\": [\n", alpha) < 0) {
+tools/platform_stats/holm.c:564:        if (fprintf(output_file,
+tools/platform_stats/holm.c:578:            if (fprintf(output_file,
+tools/platform_stats/holm.c:593:            fprintf(output_file,
+tools/platform_stats/holm.c:599:    if (status == 0 && fputs("  ]\n}\n", output_file) < 0) {
+tools/platform_stats/holm.c:606:        fprintf(stderr, "error: cannot write %s\n", path);
+tools/platform_stats/holm.c:621:    (void)snprintf(path, sizeof(path), "%s/RESULT.md", output_directory);
+tools/platform_stats/holm.c:624:        fprintf(stderr, "error: cannot create %s\n", path);
+tools/platform_stats/holm.c:628:    if (fprintf(output_file,
+tools/platform_stats/holm.c:637:        fputs("| family_id | member_id | raw_p | rank | threshold | adjusted_p | reject |\n"
+tools/platform_stats/holm.c:645:            if (fprintf(output_file,
+tools/platform_stats/holm.c:660:        fputs("\n## 固定效应合并\n\n"
+tools/platform_stats/holm.c:672:        if (fprintf(output_file,
+tools/platform_stats/holm.c:688:        fputs("\n数值护栏：se == 0、n0 == 0 或 n1 == 0 一律报错退出码 2，不跳过也不除零。\n"
+tools/platform_stats/holm.c:696:        fprintf(stderr, "error: cannot write %s\n", path);
+tools/platform_stats/holm.c:705:        fprintf(stderr, "error: output directory %s already exists\n", output_directory);
+tools/platform_stats/holm.c:709:        fprintf(stderr, "error: cannot check output directory %s\n", output_directory);
+tools/platform_stats/holm.c:718:        fprintf(stderr, "error: cannot create output directory %s\n", output_directory);
+tools/platform_stats/holm.c:735:        (void)snprintf(path, sizeof(path), "%s/%s", output_directory, file_names[file_index]);
+tools/platform_stats/holm.c:823:        fprintf(stderr, "error: alpha must be a decimal in (0,1)\n");
+tools/platform_stats/holm.c:829:        fprintf(stderr, "error: output directory must be a non-empty relative name\n");
+tools/platform_stats/holm.c:834:        fprintf(stderr, "error: output directory name is too long\n");
+tools/platform_stats/holm.c:847:        fprintf(stderr, "error: cannot allocate family table\n");
+tools/platform_stats/holm.c:868:            fprintf(stderr,
+tools/platform_stats/holm.c:883:            fprintf(stderr, "error: cannot allocate result tables\n");
+tools/platform_stats/holm.c:890:            fprintf(stderr, "error: cannot allocate family summary\n");
+tools/platform_stats/holm.c:982:        printf("families=%zu members=%zu rejected=%zu alpha=%.15g\n",
+tools/platform_perf/perf_measure.c:344:    fputs("usage: perf_measure --run-id ID --seed N --raw NEW.csv [--meta NEW.meta]\n"
+tools/platform_perf/perf_measure.c:454:    printf("tool=%s\nschema=%s\n", PERF_TOOL_NAME, PERF_TOOL_SCHEMA);
+tools/platform_perf/perf_measure.c:455:    printf("operations=");
+tools/platform_perf/perf_measure.c:458:        printf("%s%s", operation_index == 0u ? "" : ",",
+tools/platform_perf/perf_measure.c:461:    printf("\noperation_scopes=");
+tools/platform_perf/perf_measure.c:464:        printf("%s%s", operation_index == 0u ? "" : ",",
+tools/platform_perf/perf_measure.c:467:    printf("\nimplementation=%s\nbuild_flags=%s\n", mlkem_implementation_name(),
+tools/platform_perf/perf_measure.c:469:    printf("timer_source=clock_gettime(CLOCK_MONOTONIC)\ntime_unit=ns\n");
+tools/platform_perf/perf_measure.c:470:    printf("maximum_samples_per_operation=%u\nmaximum_warmup_calls=%u\n",
+tools/platform_perf/perf_measure.c:472:    printf("csv_header=run_id,implementation,input_category,sample_index,"
+tools/platform_perf/perf_measure.c:549:        fputs("timer check failed\n", stderr);
+tools/platform_perf/perf_measure.c:571:        fputs("input preparation failed\n", stderr);
+tools/platform_perf/perf_measure.c:582:            fputs("decapsulation warmup failed\n", stderr);
+tools/platform_perf/perf_measure.c:589:            fputs("key generation warmup failed\n", stderr);
+tools/platform_perf/perf_measure.c:596:            fputs("encapsulation warmup failed\n", stderr);
+tools/platform_perf/perf_measure.c:610:            fputs("sample allocation failed\n", stderr);
+tools/platform_perf/perf_measure.c:644:                fputs("measured call failed\n", stderr);
+tools/platform_perf/perf_measure.c:662:        fputs("cannot create CSV (must not exist)\n", stderr);
+tools/platform_perf/perf_measure.c:665:    if (fprintf(csv_file,
+tools/platform_perf/perf_measure.c:674:            if (fprintf(csv_file,
+tools/platform_perf/perf_measure.c:694:            fputs("cannot create meta (must not exist)\n", stderr);
+tools/platform_perf/perf_measure.c:704:        fprintf(meta_file, "tool=%s\nschema=%s\n", PERF_TOOL_NAME, PERF_TOOL_SCHEMA);
+tools/platform_perf/perf_measure.c:705:        fprintf(meta_file, "run_id=%s\n", options.run_id);
+tools/platform_perf/perf_measure.c:706:        fprintf(meta_file, "arm=%s\n", options.arm_name);
+tools/platform_perf/perf_measure.c:707:        fprintf(meta_file, "implementation=%s\n", mlkem_implementation_name());
+tools/platform_perf/perf_measure.c:708:        fprintf(meta_file, "build_flags=%s\n", PERF_BUILD_FLAGS);
+tools/platform_perf/perf_measure.c:709:        fprintf(meta_file, "test_seed=%" PRIu64 "\n", options.test_seed);
+tools/platform_perf/perf_measure.c:710:        fprintf(meta_file, "warmup_calls_per_operation=%" PRIu64 "\n", options.warmup_calls);
+tools/platform_perf/perf_measure.c:713:            fprintf(meta_file,
+tools/platform_perf/perf_measure.c:719:        fprintf(meta_file, "block_index=%" PRIu64 "\nblock_count=%" PRIu64 "\n",
+tools/platform_perf/perf_measure.c:721:        fprintf(meta_file, "order_seed=%" PRIu64 "\noperation_order=", options.order_seed);
+tools/platform_perf/perf_measure.c:723:            fprintf(meta_file, "%s%s", order_index == 0u ? "" : ",",
+tools/platform_perf/perf_measure.c:726:        fprintf(meta_file, "\n");
+tools/platform_perf/perf_measure.c:727:        fprintf(meta_file, "decaps_input=fixed_valid_ciphertext_seed_%" PRIu64
+tools/platform_perf/perf_measure.c:730:        fprintf(meta_file, "encapsulation_key_source=fixed_test_key_pair_seed_%" PRIu64 "\n",
+tools/platform_perf/perf_measure.c:732:        fprintf(meta_file, "encapsulation_key_sha256=");
+tools/platform_perf/perf_measure.c:734:            fprintf(meta_file, "%02x", encapsulation_key_digest[byte_index]);
+tools/platform_perf/perf_measure.c:736:        fprintf(meta_file, "\nciphertext_sha256=");
+tools/platform_perf/perf_measure.c:738:            fprintf(meta_file, "%02x", ciphertext_digest[byte_index]);
+tools/platform_perf/perf_measure.c:740:        fprintf(meta_file, "\n");
+tools/platform_perf/perf_measure.c:741:        fprintf(meta_file, "time_unit=ns\ntimer_source=clock_gettime(CLOCK_MONOTONIC)\n");
+tools/platform_perf/perf_measure.c:742:        fprintf(meta_file, "timer_resolution_ns=%" PRIu64 "\n", timer_resolution_nanoseconds);
+tools/platform_perf/perf_measure.c:743:        fprintf(meta_file, "clock_overhead_subtracted=no\nlong_tail_trimmed=no\n");
+tools/platform_perf/perf_measure.c:744:        fprintf(meta_file, "preparation_start_ns=%" PRIu64 "\n", preparation_nanoseconds);
+tools/platform_perf/perf_measure.c:745:        fprintf(meta_file, "timed_window_start_ns=%" PRIu64 "\n", run_start_nanoseconds);
+tools/platform_perf/perf_measure.c:746:        fprintf(meta_file, "timed_window_end_ns=%" PRIu64 "\n", run_end_nanoseconds);
+tools/platform_perf/perf_measure.c:747:        fprintf(meta_file, "zero_elapsed_count=%" PRIu64 "\n", zero_elapsed_count);
+tools/platform_perf/perf_measure.c:748:        fprintf(meta_file, "run_status=complete\n");
+tools/platform_perf/perf_measure.c:749:        fprintf(meta_file, "cpu_model=%s\n", cpu_model);
+tools/platform_perf/perf_measure.c:750:        fprintf(meta_file, "uname_sysname=%s\nuname_release=%s\nuname_machine=%s\n",
+tools/platform_perf/perf_measure.c:754:        fprintf(meta_file, "cpu_affinity=not_pinned\nfrequency_control=not_configured\n");
+tools/platform_perf/perf_measure.c:755:        fprintf(meta_file, "csv_header=run_id,implementation,input_category,sample_index,"
+tools/platform_perf/perf_measure.c:758:            fprintf(meta_file, "executable_sha256=");
+tools/platform_perf/perf_measure.c:760:                fprintf(meta_file, "%02x", executable_digest[byte_index]);
+tools/platform_perf/perf_measure.c:762:            fprintf(meta_file, "\n");
+tools/platform_perf/perf_measure.c:764:            fprintf(meta_file, "executable_sha256=unavailable\n");
+tools/platform_perf/perf_measure.c:772:    printf("%s: arm=%s implementation=%s decaps=%" PRIu64 " keygen=%" PRIu64
+tools/historical_poison.c:43:    printf("class=%s status=%d\n", input_category_name(category), operation_status);
+tools/platform_m2/keypair_tool.c:23:    if (fwrite(bytes, 1, byte_count, output_file) != byte_count) {
+tools/platform_m2/keypair_tool.c:36:    printf("%s_sha3_256=", label);
+tools/platform_m2/keypair_tool.c:38:        printf("%02x", digest[byte_index]);
+tools/platform_m2/keypair_tool.c:40:    putchar('\n');
+tools/platform_m2/keypair_tool.c:68:        fputs("usage: m2_make_keypair --key-seed <text> --public-key <file> --secret-key <file>\n",
+tools/platform_m2/keypair_tool.c:77:        fputs("key pair generation failed\n", stderr);
+tools/platform_m2/keypair_tool.c:81:        fputs("public key write failed; use a new path\n", stderr);
+tools/platform_m2/keypair_tool.c:85:        fputs("secret key write failed; use a new path\n", stderr);
+tools/platform_m2/collector_selftest.c:19:            fprintf(stderr, "M2 collector selftest failed at line %d: %s\n", __LINE__, #condition); \
+tools/platform_m2/collector_selftest.c:222:    fprintf(stream, "%s=", label);
+tools/platform_m2/collector_selftest.c:224:        fprintf(stream, "%02x", bytes[byte_index]);
+tools/platform_m2/collector_selftest.c:226:    fputc('\n', stream);
+tools/platform_m2/collector_selftest.c:238:    puts("selftest_format=m2_collector_selftest_v1");
+tools/platform_m2/collector_selftest.c:239:    fprintf(stdout, "key_seed=%u\n", (unsigned)SELFTEST_KEY_SEED);
+tools/platform_m2/collector_selftest.c:247:        fprintf(stdout, "class=%s\n", m2_collector_class_name((enum m2_collector_class)class_index));
+tools/platform_m2/collector_selftest.c:266:    fprintf(stdout, "schedule seed=31337 classes=all samples=%u\n", (unsigned)SELFTEST_TRANSCRIPT_ROWS);
+tools/platform_m2/collector_selftest.c:269:    fprintf(stdout,
+tools/platform_m2/collector_selftest.c:281:        fputs("usage: m2_collector_selftest [--transcript]\n", stderr);
+tools/platform_m2/collector_selftest.c:291:        puts("M2 collector selftest: chosen-message accept, malformed implicit rejection, "
+tools/platform_m2/collector.c:56:    fputs("usage: m2_decaps_collector --class <name>[,<name>...] --samples <n> --seed <n>\n"
+tools/platform_m2/collector.c:202:        int written_bytes = snprintf(options->run_id_buffer,
+tools/platform_m2/collector.c:216:        int written_bytes = snprintf(options->meta_path_buffer,
+tools/platform_m2/collector.c:351:    if (vfprintf(meta_file, format, arguments) < 0) {
+tools/platform_m2/collector.c:360:        if (fprintf(meta_file, "%02x", digest[byte_index]) < 0) {
+tools/platform_m2/collector.c:396:        (void)snprintf(cpu_model, sizeof(cpu_model), "unknown");
+tools/platform_m2/collector.c:414:    if (fputs(M2_COLLECTOR_CSV_HEADER, csv_file) == EOF) {
+tools/platform_m2/collector.c:418:        if (fprintf(csv_file,
+tools/platform_m2/collector.c:575:        fputs("invalid arguments\n", stderr);
+tools/platform_m2/collector.c:583:            fputs("clock resolution check failed\n", stderr);
+tools/platform_m2/collector.c:589:            fputs("clock resolution is zero\n", stderr);
+tools/platform_m2/collector.c:604:        fputs("allocation failed\n", stderr);
+tools/platform_m2/collector.c:608:        fputs("public key file must hold exactly MLKEM_ENCAPSULATION_KEY_BYTES bytes\n", stderr);
+tools/platform_m2/collector.c:612:        fputs("secret key file must hold exactly MLKEM_DECAPSULATION_KEY_BYTES bytes\n", stderr);
+tools/platform_m2/collector.c:629:            fputs("ciphertext construction failed\n", stderr);
+tools/platform_m2/collector.c:638:        fputs("schedule construction failed\n", stderr);
+tools/platform_m2/collector.c:648:        fputs("input/executable digest failed\n", stderr);
+tools/platform_m2/collector.c:660:            fputs("warmup decapsulation failed\n", stderr);
+tools/platform_m2/collector.c:671:            fputs("clock read failed\n", stderr);
+tools/platform_m2/collector.c:684:            fputs("clock read failed or moved backwards\n", stderr);
+tools/platform_m2/collector.c:732:        fputs("result write failed; use new output paths\n", stderr);
+tools/platform_m2/collector.c:736:        fprintf(stderr,
+tools/platform_m2/collector.c:744:        fprintf(stderr,
+tools/platform_m2/collector.c:748:    printf("%s: saved %zu raw decapsulation times in ns; no statistical conclusion\n",
+tools/platform_m2/dudect_online.c:42:        abort();
+tools/platform_m2/dudect_online.c:74:        abort();
+tools/platform_m2/dudect_online.c:96:    fputs("usage: m2_dudect --describe\n"
+tools/platform_m2/dudect_online.c:142:        printf("module=M2 variant=%s mode=upstream_dudect_online unit=tsc_ticks holm_member=0 "
+tools/platform_m2/dudect_online.c:164:        fputs("public/secret key files must hold exactly the MLKEM key sizes\n", stderr);
+tools/platform_m2/dudect_online.c:175:        fputs("dudect ciphertext construction failed\n", stderr);
+tools/platform_m2/dudect_online.c:181:        fputs("raw output exists or is not writable; use a new path\n", stderr);
+tools/platform_m2/dudect_online.c:184:    if (fputs("batch_index,batch_role,sample_index,class_label,start_tsc,finish_tsc,"
+tools/platform_m2/dudect_online.c:196:    printf("module=M2 variant=%s case=chosen_message_prefix mode=upstream_dudect_online "
+tools/platform_m2/dudect_online.c:222:            if (fprintf(raw_file,
+tools/platform_m2/dudect_online.c:239:    printf("battery_dudect_status=%s\n"
+tools/platform_m5/poison.c:74:        fputs("M5 decapsulation qualification failed\n", stderr);
+tools/platform_m5/poison.c:77:    printf("seed=%" PRIu64 " class=%s complete_decapsulation=ok\n",
+tools/platform_m5/poison.c:87:        fputs("usage: platform_m5_poison --self-test|--poison\n", stderr);
+tools/platform_m5/poison.c:94:            fputs("secret marking requires an actual Valgrind process\n", stderr);
+tools/platform_m5/poison.c:98:        fputs("Valgrind client headers were unavailable at build time\n", stderr);
+tools/platform_m5/poison.c:103:        fputs("M5 requires the unpatched reference backend\n", stderr);
+tools/platform_m5/poison.c:118:    printf("mode=%s pke_secret_bytes=%u rejection_secret_bytes=%u ciphertext=public\n",
+tools/platform_m5/dudect.c:54:        abort();
+tools/platform_m5/dudect.c:71:        abort();
+tools/platform_m5/dudect.c:114:        fprintf(raw_file,
+tools/platform_m5/dudect.c:122:            fprintf(raw_file, "%" PRIi64 ",", end_ticks);
+tools/platform_m5/dudect.c:126:                fprintf(raw_file,
+tools/platform_m5/dudect.c:132:                fprintf(raw_file, ",%s,0,cycles\n", phase);
+tools/platform_m5/dudect.c:135:            fprintf(raw_file, ",,%s,0,cycles\n", phase);
+tools/platform_m5/dudect.c:154:    fputs("# SYNTHETIC SOFTWARE SELFTEST; NO HARDWARE CLOCKS\n", raw_file);
+tools/platform_m5/dudect.c:155:    fputs(M5_DUDECT_RAW_HEADER, raw_file);
+tools/platform_m5/dudect.c:189:    puts("M5 dudect callback self-test passed; no clocks or collection invoked");
+tools/platform_m5/dudect.c:206:        fputs("usage: platform_m5_dudect --self-test | --collect --seed N --raw NEW.csv\n", stderr);
+tools/platform_m5/dudect.c:211:        perror("dudect raw output");
+tools/platform_m5/dudect.c:214:    fputs(M5_DUDECT_RAW_HEADER, raw_file);
+tools/platform_m5/dudect.c:238:    printf("module=M5 backend=reference seed=%" PRIu64
+tools/platform_m5/dudect.c:256:    printf("stopped_after_batches=%zu state=%d prepared_class0=%zu prepared_class1=%zu "
+tools/platform_m4/dudect_online.c:27:        abort();
+tools/platform_m4/dudect_online.c:37:        abort();
+tools/platform_m4/dudect_online.c:44:            abort();
+tools/platform_m4/dudect_online.c:52:        puts("module=M4 mode=upstream_dudect_online unit=tsc_ticks holm_member=0 "
+tools/platform_m4/dudect_online.c:61:        fputs("usage: m4_dudect --describe | --collect NEW_CYCLES.csv BATCHES SEED\n", stderr);
+tools/platform_m4/dudect_online.c:68:    int output_status = fputs("batch_index,sample_index,class_label,start_tsc,finish_tsc,"
+tools/platform_m4/dudect_online.c:79:    printf("module=M4 case=artificial_compare variant=%s mode=upstream_dudect_online "
+tools/platform_m4/dudect_online.c:98:            if (fprintf(raw_file,
+tools/platform_m4/dudect_online.c:111:    printf("battery_dudect_status=%s\n"
+tools/platform_m4/measure.c:58:    fputs("usage: m4_measure --describe | --collect NEW.csv CALLS_PER_CLASS SEED RUN_ID "
+tools/platform_m4/measure.c:95:        puts("module=M4 case=artificial_compare boundary=complete_checked_compare bytes=32 "
+tools/platform_m4/measure.c:133:    int path_bytes = snprintf(metadata_path, sizeof(metadata_path), "%s.meta", argument_values[2]);
+tools/platform_m4/measure.c:200:    int output_status = fputs("run_id,implementation,input_category,sample_index,"
+tools/platform_m4/measure.c:204:        if (fprintf(raw_file,
+tools/platform_m4/measure.c:220:    if (fprintf(metadata_file,
+tools/platform_m3/ctgrind_probe.c:15:        fputs("usage: platform_m3_{on,off}_probe --secret|--defined\n", stderr);
+tools/platform_m3/ctgrind_probe.c:19:        fputs("M3 localization probe requires Valgrind\n", stderr);
+tools/platform_m3/ctgrind_probe.c:55:    printf("module=artificial_m3_full_decapsulation implementation=%s marking=%s completed=5\n",
+tools/platform_m2_micro/m2_hotspot_microbench.c:64:    fputs("usage: m2_hotspot_microbench --class <name>[,<name>] --samples <n> --seed <n>\n"
+tools/platform_m2_micro/m2_hotspot_microbench.c:211:        int written_bytes = snprintf(options->run_id_buffer,
+tools/platform_m2_micro/m2_hotspot_microbench.c:225:        int written_bytes = snprintf(options->meta_path_buffer,
+tools/platform_m2_micro/m2_hotspot_microbench.c:428:    if (vfprintf(meta_file, format, arguments) < 0) {
+tools/platform_m2_micro/m2_hotspot_microbench.c:437:        if (fprintf(meta_file, "%02x", digest[byte_index]) < 0) {
+tools/platform_m2_micro/m2_hotspot_microbench.c:474:        (void)snprintf(cpu_model, sizeof(cpu_model), "unknown");
+tools/platform_m2_micro/m2_hotspot_microbench.c:492:    if (fputs(M2_MICRO_CSV_HEADER, csv_file) == EOF) {
+tools/platform_m2_micro/m2_hotspot_microbench.c:496:        if (fprintf(csv_file,
+tools/platform_m2_micro/m2_hotspot_microbench.c:663:        fputs("invalid arguments\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:671:            fputs("clock resolution check failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:677:            fputs("clock resolution is zero\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:694:        fputs("allocation failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:698:        fputs("public key file must hold exactly MLKEM_ENCAPSULATION_KEY_BYTES bytes\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:702:        fputs("secret key file must hold exactly MLKEM_DECAPSULATION_KEY_BYTES bytes\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:715:            fputs("ciphertext construction failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:736:        fputs("schedule construction failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:754:        fputs("input/executable digest failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:768:            fputs("clock read failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:776:            fputs("clock read failed or moved backwards\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:822:        fputs("result write failed; use new output paths\n", stderr);
+tools/platform_m2_micro/m2_hotspot_microbench.c:826:        fprintf(stderr,
+tools/platform_m2_micro/m2_hotspot_microbench.c:832:        fprintf(stderr,
+tools/platform_m2_micro/m2_hotspot_microbench.c:836:    printf("%s: saved %zu raw %s times in ns; no statistical conclusion\n",
+tools/platform_m2_micro/m2_hotspot_qualification.c:80:    printf("check=%s status=%s ", check_name, passed ? "PASS" : "FAIL");
+tools/platform_m2_micro/m2_hotspot_qualification.c:84:    fputc('\n', stdout);
+tools/platform_m2_micro/m2_hotspot_qualification.c:91:    printf("check=%s status=SKIPPED reason=%s\n", check_name, reason);
+tools/platform_m2_micro/m2_hotspot_qualification.c:101:    if (fprintf(state->transcript, "%s=", name) < 0) {
+tools/platform_m2_micro/m2_hotspot_qualification.c:106:        if (fprintf(state->transcript, "%02x", bytes[byte_index]) < 0) {
+tools/platform_m2_micro/m2_hotspot_qualification.c:111:    if (fputc('\n', state->transcript) == EOF) {
+tools/platform_m2_micro/m2_hotspot_qualification.c:493:        fputs("usage: m2_hotspot_qualification --public-key <file> --secret-key <file>\n"
+tools/platform_m2_micro/m2_hotspot_qualification.c:500:        fputs("invalid arguments\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:506:            fputs("transcript path must not exist\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:514:        fputs("allocation failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:519:        fputs("key files must hold exactly the ML-KEM-768 fixture lengths\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:536:            fputs("ciphertext construction failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:550:            fputs("decapsulation failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:587:            fprintf(state.transcript, "class=%s\n", m2_collector_class_name(class_index));
+tools/platform_m2_micro/m2_hotspot_qualification.c:613:            fputs("allocation failed\n", stderr);
+tools/platform_m2_micro/m2_hotspot_qualification.c:694:    printf("qualification_pass_count=%u qualification_fail_count=%u qualification_skip_count=%u\n",
+tests/test_historical_selftest.c:9:        fputs("unexpected implementation label\n", stderr);
+tests/test_historical_selftest.c:13:        fputs("historical liboqs roundtrip failed\n", stderr);
+tests/test_historical_selftest.c:16:    puts("historical: system-random keygen/encaps/decaps roundtrip passed");
+tests/test_platform_m2.c:13:            fprintf(stderr, "M2 check failed at line %d: %s\n", __LINE__, #condition);             \
+tests/test_platform_m2.c:181:            printf("%02x", transcript_digest[byte_index]);
+tests/test_platform_m2.c:183:        putchar('\n');
+tests/test_platform_m2.c:185:        puts("M2: random roundtrip, boundary guards, chosen messages and 64 implicit rejections "
+tests/test_session_window.c:73:    if (snprintf(source_path, sizeof(source_path), "%s", argv[2]) >= (int)sizeof(source_path) ||
+tests/test_session_window.c:74:        snprintf(csv_path, sizeof(csv_path), "%s/session-window.csv", temp_root) >=
+tests/test_session_window.c:76:        snprintf(meta_path, sizeof(meta_path), "%s/session-window.meta", temp_root) >=
+tests/test_session_window.c:78:        snprintf(empty_path, sizeof(empty_path), "%s/session-window.empty", temp_root) >=
+tests/test_session_window.c:107:    if (snprintf(command,
+tests/test_network_frame.c:28:    assert(network_build_request(first_request,
+tests/test_network_frame.c:33:    assert(network_build_request(second_request,
+tests/test_network_frame.c:38:    assert(network_parse_request(first_request,
+tests/test_network_frame.c:43:    assert(request_index == 1u);
+tests/test_network_frame.c:44:    assert(memcmp(parsed, first_ciphertext, sizeof(parsed)) == 0);
+tests/test_network_frame.c:46:    assert(network_parse_request(first_request,
+tests/test_network_frame.c:51:    assert(network_build_acknowledgement(first_ack, sizeof(first_ack)) == 0);
+tests/test_network_frame.c:52:    assert(network_build_acknowledgement(second_ack, sizeof(second_ack)) == 0);
+tests/test_network_frame.c:53:    assert(memcmp(first_ack, second_ack, sizeof(first_ack)) == 0);
+tests/test_network_frame.c:54:    assert(memcmp(first_ack, secret_pattern, sizeof(first_ack)) != 0);
+tests/test_network_frame.c:55:    assert(network_acknowledgement_is_fixed(first_ack, sizeof(first_ack)));
+tests/test_network_frame.c:57:    assert(!network_acknowledgement_is_fixed(first_ack, sizeof(first_ack)));
+tests/test_network_frame.c:77:    assert(temp_root != NULL);
+tests/test_network_frame.c:78:    assert(snprintf(rtt_path, sizeof(rtt_path), "%s/loopback-rtt.csv", temp_root) <
+tests/test_network_frame.c:80:    assert(snprintf(ack_path, sizeof(ack_path), "%s.acks", rtt_path) < (int)sizeof(ack_path));
+tests/test_network_frame.c:83:    assert(pipe(server_pipe) == 0);
+tests/test_network_frame.c:85:    assert(server_pid >= 0);
+tests/test_network_frame.c:102:        _exit(1);
+tests/test_network_frame.c:106:    assert(server_output != NULL);
+tests/test_network_frame.c:107:    assert(fgets(bound_line, sizeof(bound_line), server_output) != NULL);
+tests/test_network_frame.c:108:    assert(strncmp(bound_line, "bound_port=", 11) == 0);
+tests/test_network_frame.c:112:        assert(client_pid >= 0);
+tests/test_network_frame.c:127:            _exit(1);
+tests/test_network_frame.c:129:        assert(waitpid(client_pid, &client_status, 0) == client_pid);
+tests/test_network_frame.c:131:    assert(WIFEXITED(client_status) && WEXITSTATUS(client_status) == 0);
+tests/test_network_frame.c:132:    assert(waitpid(server_pid, &server_status, 0) == server_pid);
+tests/test_network_frame.c:133:    assert(WIFEXITED(server_status) && WEXITSTATUS(server_status) == 0);
+tests/test_network_frame.c:134:    assert(fgets(bound_line, sizeof(bound_line), server_output) != NULL);
+tests/test_network_frame.c:135:    assert(strcmp(bound_line, "completed_decapsulations=2\n") == 0);
+tests/test_network_frame.c:138:    assert(ack_file != NULL);
+tests/test_network_frame.c:139:    assert(
+tests/test_network_frame.c:141:    assert(fclose(ack_file) == 0);
+tests/test_network_frame.c:142:    assert(memcmp(acknowledgements, acknowledgements + 32, 32) == 0);
+tests/test_network_frame.c:143:    assert(network_acknowledgement_is_fixed(acknowledgements, 32u));
+tests/test_network_frame.c:144:    assert(generate_test_key_pair(31337u, encapsulation_key, decapsulation_key) == 0);
+tests/test_network_frame.c:145:    assert(generate_test_ciphertext(INPUT_VALID, 31337u, 0u, encapsulation_key, ciphertext) == 0);
+tests/test_network_frame.c:146:    assert(mlkem_decapsulate(shared_secret,
+tests/test_network_frame.c:152:    assert(memcmp(shared_secret, acknowledgements, 32) != 0);
+tests/test_native_digest.c:20:    assert(pipe(descriptors) == 0);
+tests/test_native_digest.c:22:    assert(child_process >= 0);
+tests/test_native_digest.c:24:        assert(close(descriptors[0]) == 0);
+tests/test_native_digest.c:25:        assert(dup2(descriptors[1], STDOUT_FILENO) >= 0);
+tests/test_native_digest.c:26:        assert(close(descriptors[1]) == 0);
+tests/test_native_digest.c:28:        _exit(127);
+tests/test_native_digest.c:30:    assert(close(descriptors[1]) == 0);
+tests/test_native_digest.c:35:        assert(output_bytes < 127u);
+tests/test_native_digest.c:37:    assert(read_bytes == 0 && close(descriptors[0]) == 0);
+tests/test_native_digest.c:40:    assert(waitpid(child_process, &wait_status, 0) == child_process && WIFEXITED(wait_status));
+tests/test_native_digest.c:47:    assert(log_file != NULL && fputs(text, log_file) >= 0 && fclose(log_file) == 0);
+tests/test_native_digest.c:52:    assert(argument_count == 3);
+tests/test_native_digest.c:54:    assert(create_test_temp_directory(directory, sizeof(directory), "cry-native-digest") != NULL);
+tests/test_native_digest.c:57:    assert(snprintf(input_path, sizeof(input_path), "%s/input.bin", directory) > 0);
+tests/test_native_digest.c:58:    assert(snprintf(log_path, sizeof(log_path), "%s/openssl.log", directory) > 0);
+tests/test_native_digest.c:62:    assert(child_process >= 0);
+tests/test_native_digest.c:65:        assert(log_descriptor >= 0 && dup2(log_descriptor, STDOUT_FILENO) >= 0);
+tests/test_native_digest.c:66:        assert(close(log_descriptor) == 0);
+tests/test_native_digest.c:73:        _exit(127);
+tests/test_native_digest.c:76:    assert(waitpid(child_process, &wait_status, 0) == child_process && WIFEXITED(wait_status));
+tests/test_native_digest.c:77:    assert(WEXITSTATUS(wait_status) == 0);
+tests/test_native_digest.c:79:    assert(log_file != NULL && fputs("Tue Oct 6 11:14:22 UTC 2026\n", log_file) >= 0 &&
+tests/test_native_digest.c:82:    assert(invoke_parser(argument_values[1], log_path, output) == 0);
+tests/test_native_digest.c:83:    assert(
+tests/test_native_digest.c:86:    assert(invoke_parser(argument_values[1], log_path, output) == 1 && output[0] == '\0');
+tests/test_native_digest.c:88:    assert(log_file != NULL);
+tests/test_native_digest.c:89:    assert(fprintf(log_file,
+tests/test_native_digest.c:94:    assert(invoke_parser(argument_values[1], log_path, output) == 1 && output[0] == '\0');
+tests/test_native_digest.c:96:    assert(invoke_parser(argument_values[1], log_path, output) == 1 && output[0] == '\0');
+tests/test_native_digest.c:97:    assert(unlink(input_path) == 0 && unlink(log_path) == 0 && rmdir(directory) == 0);
+tests/test_diagnostic_trace.c:42:    if (snprintf(events_path, sizeof(events_path), "%s/diagnostic-events.csv", temp_root) >=
+tests/test_diagnostic_trace.c:44:        snprintf(summary_path, sizeof(summary_path), "%s/diagnostic-summary.txt", temp_root) >=
+tests/test_diagnostic_trace.c:46:        snprintf(candidate_path,
+tests/test_diagnostic_trace.c:55:    if (snprintf(command,
+tests/test_diagnostic_trace.c:90:        if (snprintf(uncovered_row, sizeof(uncovered_row), "uncovered,%s,", stages[stage_index]) <
+tests/test_platform_m3_equivalence.c:47:            if (fwrite(encapsulation_key, 1, sizeof(encapsulation_key), stdout) !=
+tests/test_platform_m3_equivalence.c:49:                fwrite(decapsulation_key, 1, sizeof(decapsulation_key), stdout) !=
+tests/test_platform_m3_equivalence.c:51:                fwrite(ciphertext, 1, sizeof(ciphertext), stdout) != sizeof(ciphertext) ||
+tests/test_platform_m3_equivalence.c:52:                fwrite(shared_secret, 1, sizeof(shared_secret), stdout) != sizeof(shared_secret)) {
+tests/test_paired_prepare.c:18:    assert(pipe(descriptors) == 0);
+tests/test_paired_prepare.c:20:    assert(child_process >= 0);
+tests/test_paired_prepare.c:22:        assert(close(descriptors[0]) == 0);
+tests/test_paired_prepare.c:23:        assert(dup2(descriptors[1], STDOUT_FILENO) >= 0);
+tests/test_paired_prepare.c:25:        _exit(127);
+tests/test_paired_prepare.c:27:    assert(close(descriptors[1]) == 0);
+tests/test_paired_prepare.c:29:    assert(output_bytes >= 0);
+tests/test_paired_prepare.c:31:    assert(close(descriptors[0]) == 0);
+tests/test_paired_prepare.c:33:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_paired_prepare.c:34:    assert(WIFEXITED(wait_status));
+tests/test_paired_prepare.c:49:    assert(argument_count == 4);
+tests/test_paired_prepare.c:52:    assert(invoke(clock_arguments, output, sizeof(output)) == 0);
+tests/test_paired_prepare.c:53:    assert(strchr(output, '\n') != NULL);
+tests/test_paired_prepare.c:56:    assert(parse_unsigned_integer(output, &first_timestamp) == 0 && first_timestamp > 0);
+tests/test_paired_prepare.c:58:    assert(create_test_temp_directory(directory, sizeof(directory), "cry-paired-prepare") != NULL);
+tests/test_paired_prepare.c:61:    assert(paired_data_path(plans_path, sizeof(plans_path), directory, "plans") == 0);
+tests/test_paired_prepare.c:62:    assert(paired_data_path(registry_path, sizeof(registry_path), directory, "registry.txt") == 0);
+tests/test_paired_prepare.c:64:    assert(invoke(plan_arguments, output, sizeof(output)) == 0);
+tests/test_paired_prepare.c:65:    assert(invoke(plan_arguments, output, sizeof(output)) == 1);
+tests/test_paired_prepare.c:70:        (void)snprintf(filename,
+tests/test_paired_prepare.c:74:        assert(paired_data_path(plan_path, sizeof(plan_path), plans_path, filename) == 0);
+tests/test_paired_prepare.c:76:        assert(plan != NULL && fgets(output, sizeof(output), plan) != NULL);
+tests/test_paired_prepare.c:80:            assert(split_paired_csv(output, fields, 5) == 0);
+tests/test_paired_prepare.c:82:            assert(parse_unsigned_integer(fields[1], &seed) == 0);
+tests/test_paired_prepare.c:83:            assert(seed == UINT64_C(2026120101) + 100u * plan_index + row_count);
+tests/test_paired_prepare.c:84:            assert(strcmp(fields[2], "1000") == 0);
+tests/test_paired_prepare.c:88:        assert(row_count == 5u && fclose(plan) == 0);
+tests/test_paired_prepare.c:90:    assert(baseline_first == 5u);
+tests/test_paired_prepare.c:92:    assert(registry != NULL && fputs("42\n20261029\n", registry) >= 0 && fclose(registry) == 0);
+tests/test_paired_prepare.c:94:    assert(
+tests/test_paired_prepare.c:101:    assert(invoke(validate_arguments, output, sizeof(output)) == 0);
+tests/test_paired_prepare.c:103:    assert(registry != NULL && fputs("2026120101\n", registry) >= 0 && fclose(registry) == 0);
+tests/test_paired_prepare.c:104:    assert(invoke(validate_arguments, output, sizeof(output)) == 1);
+tests/test_paired_prepare.c:107:    assert(paired_data_path(shared_path, sizeof(shared_path), directory, "shared.cost") == 0);
+tests/test_paired_prepare.c:108:    (void)snprintf(timestamp_text,
+tests/test_paired_prepare.c:121:    assert(invoke(shared_arguments, output, sizeof(output)) == 0);
+tests/test_paired_prepare.c:122:    assert(invoke(shared_arguments, output, sizeof(output)) == 1);
+tests/test_paired_prepare.c:127:        assert(snprintf(filename, sizeof(filename), "finish-%u", finish_index) > 0);
+tests/test_paired_prepare.c:128:        assert(
+tests/test_paired_prepare.c:130:        assert(mkdir(finish_directory, 0700) == 0);
+tests/test_paired_prepare.c:131:        assert(paired_data_path(receipt_path,
+tests/test_paired_prepare.c:136:        assert(receipt != NULL && fputs("preparation_status=pending\n", receipt) >= 0 &&
+tests/test_paired_prepare.c:150:            assert(paired_data_path(blocked_receipt,
+tests/test_paired_prepare.c:154:            assert(mkdir(blocked_receipt, 0700) == 0);
+tests/test_paired_prepare.c:157:            assert(setenv("CRY_PREPARE_FIXTURE_MODE", "timeout", 1) == 0);
+tests/test_paired_prepare.c:159:        assert(invoke(finish_arguments, output, sizeof(output)) == (finish_index == 0 ? 0 : 1));
+tests/test_paired_prepare.c:160:        assert(unsetenv("CRY_PREPARE_FIXTURE_MODE") == 0);
+tests/test_paired_prepare.c:163:        assert(read_paired_fields(receipt_path, &receipt_field, 1) == 0);
+tests/test_paired_prepare.c:164:        assert(strcmp(receipt_status, finish_index == 0 ? "complete" : "pending") == 0);
+tests/test_paired_prepare.c:166:        assert(paired_data_path(status_path,
+tests/test_paired_prepare.c:172:        assert(read_paired_fields(status_path, &exit_field, 1) == 0);
+tests/test_paired_prepare.c:173:        assert(strcmp(exit_status, finish_index == 0 ? "0" : "1") == 0);
+tests/test_paired_prepare.c:175:        assert(
+tests/test_paired_prepare.c:187:        assert(read_paired_fields(cost_path, cost_fields, 3) == 0);
+tests/test_paired_prepare.c:189:            assert(parse_unsigned_integer(cost_values[cost_index], &cost_numbers[cost_index]) == 0);
+tests/test_paired_prepare.c:191:        assert(cost_numbers[0] == 40000u &&
+tests/test_paired_prepare.c:193:        assert(invoke(finish_arguments, output, sizeof(output)) == 1);
+tests/test_paired_prepare.c:194:        assert(read_paired_fields(status_path, &exit_field, 1) == 0);
+tests/test_paired_prepare.c:195:        assert(strcmp(exit_status, finish_index == 0 ? "0" : "1") == 0);
+tests/test_paired_prepare.c:197:    printf("software_prepare_fixture_directory=%s\n", directory);
+tests/test_equivalence.c:77:                if (printf("%02x", transcript_digest[byte_index]) < 0) {
+tests/test_equivalence.c:81:            if (putchar('\n') == EOF) {
+tests/test_controlled_statistics.c:17:    assert(compute_controlled_result(separated, 4, 1, &result) == 0);
+tests/test_controlled_statistics.c:18:    assert(result.assignment_count == 16 && result.tail_count == 2);
+tests/test_controlled_statistics.c:19:    assert(result.exact_p_value == 0.125L && result.mean_difference_ns == 1.0L);
+tests/test_controlled_statistics.c:20:    assert(result.interval_lower_ns == 1.0L && result.interval_upper_ns == 1.0L);
+tests/test_controlled_statistics.c:21:    assert(compute_controlled_result(balanced, 4, 0, &result) == 0);
+tests/test_controlled_statistics.c:22:    assert(result.tail_count == 16 && result.exact_p_value == 1.0L);
+tests/test_controlled_statistics.c:23:    assert(compute_controlled_result(equal, 4, 1, &result) == 0);
+tests/test_controlled_statistics.c:24:    assert(!result.has_variation && result.exact_p_value == 1.0L);
+tests/test_controlled_statistics.c:25:    assert(compute_controlled_result(boundary, 4, 0, &result) == 0 && result.tail_count == 2);
+tests/test_controlled_statistics.c:26:    assert(compute_controlled_result(excessive, 4, 0, &result) != 0);
+tests/test_controlled_statistics.c:27:    assert(compute_controlled_result(NULL, 4, 0, &result) != 0);
+tests/test_controlled_statistics.c:28:    assert(compute_controlled_result(separated, 3, 0, &result) != 0);
+tests/test_controlled_statistics.c:29:    assert(compute_controlled_result(separated, 21, 0, &result) != 0);
+tests/test_performance_replay.c:20:    assert(child_process >= 0);
+tests/test_performance_replay.c:23:        _exit(127);
+tests/test_performance_replay.c:26:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_performance_replay.c:36:    assert(cost_file != NULL);
+tests/test_performance_replay.c:37:    assert(fprintf(cost_file,
+tests/test_performance_replay.c:48:    assert(fclose(cost_file) == 0);
+tests/test_performance_replay.c:53:    assert(invoke(program, directory, report_path) != 0);
+tests/test_performance_replay.c:55:    assert(report_file != NULL);
+tests/test_performance_replay.c:59:    assert(fclose(report_file) == 0 && strstr(report, "report_status=complete") == NULL);
+tests/test_performance_replay.c:64:    assert(argument_count == 2);
+tests/test_performance_replay.c:66:    assert(create_test_temp_directory(test_directory,
+tests/test_performance_replay.c:78:            (void)snprintf(run_name,
+tests/test_performance_replay.c:83:            (void)snprintf(csv_path, sizeof(csv_path), "%s/%s.csv", test_directory, run_name);
+tests/test_performance_replay.c:84:            (void)snprintf(metadata_path,
+tests/test_performance_replay.c:90:                snprintf(cost_path, sizeof(cost_path), "%s/%s.csv.cost", test_directory, run_name);
+tests/test_performance_replay.c:98:            assert(csv_file != NULL);
+tests/test_performance_replay.c:99:            assert(fputs("run_id,implementation,input_category,sample_index,elapsed_nanoseconds,"
+tests/test_performance_replay.c:103:                assert(fprintf(csv_file,
+tests/test_performance_replay.c:111:            assert(fclose(csv_file) == 0);
+tests/test_performance_replay.c:113:            assert(metadata_file != NULL);
+tests/test_performance_replay.c:114:            assert(
+tests/test_performance_replay.c:115:                fprintf(metadata_file,
+tests/test_performance_replay.c:129:            assert(fclose(metadata_file) == 0);
+tests/test_performance_replay.c:133:    (void)snprintf(report_path, sizeof(report_path), "%s/result.report", test_directory);
+tests/test_performance_replay.c:134:    assert(invoke(argument_values[1], test_directory, report_path) == 0);
+tests/test_performance_replay.c:136:    assert(report_file != NULL);
+tests/test_performance_replay.c:140:    assert(fclose(report_file) == 0);
+tests/test_performance_replay.c:141:    assert(strstr(report, "mean_difference_ns=100.000000000") != NULL);
+tests/test_performance_replay.c:142:    assert(strstr(report, "mean_difference_ns=-100.000000000") != NULL);
+tests/test_performance_replay.c:143:    assert(
+tests/test_performance_replay.c:145:    assert(strstr(report, "report_status=complete") != NULL);
+tests/test_performance_replay.c:146:    assert(invoke(argument_values[1], test_directory, report_path) != 0);
+tests/test_performance_replay.c:147:    assert(unlink(cost_path) == 0);
+tests/test_performance_replay.c:148:    (void)snprintf(report_path, sizeof(report_path), "%s/missing-cost.report", test_directory);
+tests/test_performance_replay.c:151:    (void)snprintf(report_path, sizeof(report_path), "%s/partial-cost.report", test_directory);
+tests/test_performance_replay.c:154:    (void)snprintf(report_path, sizeof(report_path), "%s/wrong-cost-run.report", test_directory);
+tests/test_performance_replay.c:157:    (void)snprintf(report_path, sizeof(report_path), "%s/short-cost-window.report", test_directory);
+tests/test_performance_replay.c:160:    assert(unlink(csv_path) == 0);
+tests/test_performance_replay.c:161:    (void)snprintf(report_path, sizeof(report_path), "%s/partial.report", test_directory);
+tests/test_random_failure.c:61:    puts("system RNG open failure propagates; normal operation recovers");
+tests/test_paired_rejections.c:19:    assert(child_process >= 0);
+tests/test_paired_rejections.c:22:        _exit(127);
+tests/test_paired_rejections.c:24:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_paired_rejections.c:25:    assert(WIFEXITED(wait_status));
+tests/test_paired_rejections.c:32:    assert(snprintf(temporary_path, sizeof(temporary_path), "%s.rewrite", path) > 0);
+tests/test_paired_rejections.c:37:    assert(input != NULL && output != NULL);
+tests/test_paired_rejections.c:40:            assert(fprintf(output, "%s=%s\n", key, value) > 0);
+tests/test_paired_rejections.c:43:            assert(fputs(line, output) >= 0);
+tests/test_paired_rejections.c:46:    assert(found && !ferror(input));
+tests/test_paired_rejections.c:47:    assert(fclose(input) == 0 && fclose(output) == 0);
+tests/test_paired_rejections.c:48:    assert(rename(temporary_path, path) == 0);
+tests/test_paired_rejections.c:54:    assert(paired_digest_file(manifest_path, digest) == 0);
+tests/test_paired_rejections.c:67:    assert(digest_field_index >= 6u && digest_field_index <= 11u);
+tests/test_paired_rejections.c:68:    assert(paired_data_path(manifest_path, sizeof(manifest_path), directory, "cohort.csv") == 0);
+tests/test_paired_rejections.c:69:    assert(paired_data_path(context_path, sizeof(context_path), directory, "cohort.meta") == 0);
+tests/test_paired_rejections.c:70:    assert(snprintf(temporary_path, sizeof(temporary_path), "%s.rewrite", manifest_path) > 0);
+tests/test_paired_rejections.c:71:    assert(paired_digest_file(data_path, digest) == 0);
+tests/test_paired_rejections.c:76:    assert(input != NULL && output != NULL);
+tests/test_paired_rejections.c:77:    assert(fgets(line, sizeof(line), input) != NULL && fputs(line, output) >= 0);
+tests/test_paired_rejections.c:80:        assert(split_paired_csv(line, fields, 14) == 0);
+tests/test_paired_rejections.c:86:            assert(
+tests/test_paired_rejections.c:87:                fprintf(output, "%s%c", fields[field_index], field_index == 13u ? '\n' : ',') > 0);
+tests/test_paired_rejections.c:90:    assert(found && !ferror(input));
+tests/test_paired_rejections.c:91:    assert(fclose(input) == 0 && fclose(output) == 0);
+tests/test_paired_rejections.c:92:    assert(rename(temporary_path, manifest_path) == 0);
+tests/test_paired_rejections.c:109:    assert(read_paired_fields(path, fields, 5) == 0);
+tests/test_paired_rejections.c:112:        assert(parse_unsigned_integer(values[field_index], &timestamp_nanoseconds) == 0);
+tests/test_paired_rejections.c:114:            assert(timestamp_nanoseconds >= offset_nanoseconds);
+tests/test_paired_rejections.c:117:            assert(timestamp_nanoseconds <= UINT64_MAX - offset_nanoseconds);
+tests/test_paired_rejections.c:120:        assert(snprintf(values[field_index],
+tests/test_paired_rejections.c:132:    assert(read_paired_fields(path, &field, 1) == 0);
+tests/test_paired_rejections.c:133:    assert(strcmp(value, expected_result) == 0);
+tests/test_paired_rejections.c:144:        assert(snprintf(filename,
+tests/test_paired_rejections.c:148:        assert(paired_data_path(directory, sizeof(directory), parent, filename) == 0);
+tests/test_paired_rejections.c:154:        assert(invoke(create_arguments) == 0);
+tests/test_paired_rejections.c:155:        assert(paired_data_path(report_path, sizeof(report_path), directory, "shape.report") == 0);
+tests/test_paired_rejections.c:157:        assert(invoke(analysis_arguments) == 0);
+tests/test_paired_rejections.c:180:        assert(paired_data_path(metadata_paths[0],
+tests/test_paired_rejections.c:184:        assert(paired_data_path(metadata_paths[1],
+tests/test_paired_rejections.c:202:            assert(snprintf(filename, sizeof(filename), "development-seed-%zu.report", seed_index) >
+tests/test_paired_rejections.c:204:            assert(paired_data_path(report_path, sizeof(report_path), directory, filename) == 0);
+tests/test_paired_rejections.c:205:            assert(invoke(analysis_arguments) == 0);
+tests/test_paired_rejections.c:225:            assert(snprintf(filename, sizeof(filename), "condition-%zu.report", field_index) > 0);
+tests/test_paired_rejections.c:226:            assert(paired_data_path(report_path, sizeof(report_path), directory, filename) == 0);
+tests/test_paired_rejections.c:227:            assert(invoke(analysis_arguments) == 1 && access(report_path, F_OK) != 0);
+tests/test_paired_rejections.c:239:        assert(paired_data_path(cost_paths[0],
+tests/test_paired_rejections.c:243:        assert(paired_data_path(cost_paths[1],
+tests/test_paired_rejections.c:254:        assert(
+tests/test_paired_rejections.c:256:        assert(invoke(analysis_arguments) == 1 && access(report_path, F_OK) != 0);
+tests/test_paired_rejections.c:264:        assert(
+tests/test_paired_rejections.c:266:        assert(invoke(analysis_arguments) == 0);
+tests/test_paired_rejections.c:273:    assert(argument_count == 3);
+tests/test_paired_rejections.c:275:    assert(create_test_temp_directory(parent, sizeof(parent), "cry-paired-rejections") != NULL);
+tests/test_paired_rejections.c:277:    assert(paired_data_path(directory, sizeof(directory), parent, "fixture") == 0);
+tests/test_paired_rejections.c:279:    assert(invoke(create_arguments) == 0);
+tests/test_paired_rejections.c:286:        assert(paired_data_path(paths[path_index],
+tests/test_paired_rejections.c:292:    assert(load_paired_run(paths[0], paths[1], &runs[0]) == 0);
+tests/test_paired_rejections.c:293:    assert(load_paired_run(paths[2], paths[3], &runs[1]) == 0);
+tests/test_paired_rejections.c:294:    assert(validate_paired_runs(&runs[0], &runs[1]) == 0);
+tests/test_paired_rejections.c:296:    assert(validate_paired_runs(&runs[0], &runs[1]) == 1);
+tests/test_paired_rejections.c:299:    assert(validate_paired_runs(&runs[0], &runs[1]) == 1);
+tests/test_paired_rejections.c:302:    assert(validate_paired_runs(&runs[0], &runs[1]) == 1);
+tests/test_paired_rejections.c:306:    assert(load_paired_run(paths[2], paths[3], &runs[1]) == 1);
+tests/test_paired_rejections.c:310:    assert(snprintf(cost_path, sizeof(cost_path), "%s.cost", paths[0]) > 0);
+tests/test_paired_rejections.c:312:    assert(load_paired_run(paths[0], paths[1], &runs[0]) == 1);
+tests/test_paired_rejections.c:315:    assert(load_paired_run(paths[0], paths[1], &runs[0]) == 1);
+tests/test_paired_rejections.c:318:    assert(load_paired_run(paths[0], paths[1], &runs[0]) == 0);
+tests/test_paired_rejections.c:322:    assert(paired_data_path(manifest_path, sizeof(manifest_path), directory, "cohort.csv") == 0);
+tests/test_paired_rejections.c:323:    assert(paired_data_path(context_path, sizeof(context_path), directory, "cohort.meta") == 0);
+tests/test_paired_rejections.c:326:    assert(manifest != NULL);
+tests/test_paired_rejections.c:328:        assert(fgets(lines[line_index], sizeof(lines[line_index]), manifest) != NULL);
+tests/test_paired_rejections.c:330:    assert(fclose(manifest) == 0);
+tests/test_paired_rejections.c:332:    assert(manifest != NULL);
+tests/test_paired_rejections.c:334:        assert(fputs(lines[line_index == 2u ? 1u : line_index], manifest) >= 0);
+tests/test_paired_rejections.c:336:    assert(fclose(manifest) == 0);
+tests/test_paired_rejections.c:339:    assert(paired_data_path(report_path, sizeof(report_path), directory, "duplicate.report") == 0);
+tests/test_paired_rejections.c:341:    assert(invoke(analysis_arguments) == 1 && access(report_path, F_OK) != 0);
+tests/test_paired_rejections.c:343:    assert(manifest != NULL);
+tests/test_paired_rejections.c:346:        assert(fputs(lines[selected_line], manifest) >= 0);
+tests/test_paired_rejections.c:348:    assert(fclose(manifest) == 0);
+tests/test_paired_rejections.c:350:    assert(paired_data_path(report_path, sizeof(report_path), directory, "reordered.report") == 0);
+tests/test_paired_rejections.c:351:    assert(invoke(analysis_arguments) == 1 && access(report_path, F_OK) != 0);
+tests/test_paired_rejections.c:353:    assert(manifest != NULL);
+tests/test_paired_rejections.c:355:        assert(fputs(lines[line_index], manifest) >= 0);
+tests/test_paired_rejections.c:357:    assert(fclose(manifest) == 0);
+tests/test_paired_rejections.c:359:    assert(
+tests/test_paired_rejections.c:361:    assert(invoke(analysis_arguments) == 0);
+tests/test_paired_rejections.c:364:    assert(read_paired_fields(report_path, &count_field, 1) == 0 && strcmp(value, "19") == 0);
+tests/test_paired_rejections.c:366:    assert(read_paired_fields(report_path, &result_field, 1) == 0 &&
+tests/test_paired_rejections.c:369:    assert(paired_data_path(report_path, sizeof(report_path), directory, "partial.report") == 0);
+tests/test_paired_rejections.c:370:    assert(invoke(analysis_arguments) == 1 && access(report_path, F_OK) != 0);
+tests/test_paired_rejections.c:372:    printf("software_rejection_fixture_directory=%s\n", directory);
+tests/test_temp_directory.h:24:    int path_length_bytes = snprintf(directory_path,
+tests/test_localize_rank.c:16:    assert(pipe != NULL);
+tests/test_localize_rank.c:20:        assert(grown != NULL);
+tests/test_localize_rank.c:26:    assert(pclose(pipe) == 0);
+tests/test_localize_rank.c:33:    assert(snprintf(needle, sizeof(needle), "top1_stage=%s\n", stage) < (int)sizeof(needle));
+tests/test_localize_rank.c:34:    assert(strstr(first, needle) != NULL);
+tests/test_localize_rank.c:35:    assert(strstr(second, needle) != NULL);
+tests/test_localize_rank.c:36:    assert(strcmp(first, second) == 0);
+tests/test_localize_rank.c:37:    assert(strstr(first, "top3_1_stage=") != NULL);
+tests/test_localize_rank.c:38:    assert(strstr(first, "\nroot_cause=") == NULL);
+tests/test_localize_rank.c:39:    assert(strncmp(first, "root_cause=", 11) != 0);
+tests/test_localize_rank.c:57:    assert(snprintf(detection_yes, sizeof(detection_yes), "%s/detected-yes.txt", temp_root) <
+tests/test_localize_rank.c:59:    assert(snprintf(detection_no, sizeof(detection_no), "%s/detected-no.txt", temp_root) <
+tests/test_localize_rank.c:61:    assert(snprintf(forbidden_path, sizeof(forbidden_path), "%s/forbidden-rank.csv", temp_root) <
+tests/test_localize_rank.c:64:    assert(file != NULL);
+tests/test_localize_rank.c:65:    assert(fputs("end_to_end_detected=yes\n", file) >= 0);
+tests/test_localize_rank.c:66:    assert(fclose(file) == 0);
+tests/test_localize_rank.c:68:    assert(file != NULL);
+tests/test_localize_rank.c:69:    assert(fputs("end_to_end_detected=no\n", file) >= 0);
+tests/test_localize_rank.c:70:    assert(fclose(file) == 0);
+tests/test_localize_rank.c:71:    assert(snprintf(command, sizeof(command), "'%s' '%s' '%s'", argv[1], argv[2], detection_yes) <
+tests/test_localize_rank.c:76:    assert(snprintf(command, sizeof(command), "'%s' '%s' '%s'", argv[1], argv[3], detection_yes) <
+tests/test_localize_rank.c:81:    assert(strstr(first, "top1_stage=reencryption") != NULL);
+tests/test_localize_rank.c:82:    assert(strstr(compare_first, "top1_stage=compare") != NULL);
+tests/test_localize_rank.c:83:    assert(strcmp(first, compare_first) != 0);
+tests/test_localize_rank.c:85:    assert(file != NULL);
+tests/test_localize_rank.c:86:    assert(fputs("ground_truth,stage_id,function_id\n", file) >= 0);
+tests/test_localize_rank.c:87:    assert(fclose(file) == 0);
+tests/test_localize_rank.c:88:    assert(snprintf(command,
+tests/test_localize_rank.c:95:    assert(WIFEXITED(status) && WEXITSTATUS(status) == 2);
+tests/test_localize_rank.c:96:    assert(snprintf(command, sizeof(command), "'%s' '%s' '%s'", argv[1], argv[2], detection_no) <
+tests/test_localize_rank.c:100:    assert(strstr(first, "single_root_cause=not_forced\n") != NULL);
+tests/test_localize_rank.c:101:    assert(strstr(first, "\nroot_cause=") == NULL);
+tests/test_localize_rank.c:102:    assert(strncmp(first, "root_cause=", 11) != 0);
+tests/test_mechanism_audit.c:16:            fprintf(stderr, "check failed at line %d: %s\n", __LINE__, #condition);                \
+tests/test_mechanism_audit.c:54:            _exit(127);
+tests/test_mechanism_audit.c:58:        _exit(127);
+tests/test_mechanism_audit.c:309:    puts("mechanism audit test passed");
+tests/test_trace_account.c:21:    assert(trace_store_init(&store, backing, 8u) == 0);
+tests/test_trace_account.c:22:    assert(trace_store_push(&store, &enter_outer) == 0);
+tests/test_trace_account.c:23:    assert(trace_store_push(&store, &enter_inner) == 0);
+tests/test_trace_account.c:24:    assert(trace_store_push(&store, &exit_inner) == 0);
+tests/test_trace_account.c:25:    assert(trace_store_push(&store, &exit_outer) == 0);
+tests/test_trace_account.c:26:    assert(trace_account_sample(&store, 1u, totals, 4u, &total_count, &outermost) == 0);
+tests/test_trace_account.c:27:    assert(total_count == 2u);
+tests/test_trace_account.c:28:    assert(outermost == 100u);
+tests/test_trace_account.c:29:    assert(totals[0].function_id == 20u);
+tests/test_trace_account.c:30:    assert(totals[0].exclusive_counts == 30u);
+tests/test_trace_account.c:31:    assert(totals[1].function_id == 10u);
+tests/test_trace_account.c:32:    assert(totals[1].inclusive_counts == 100u);
+tests/test_trace_account.c:33:    assert(totals[1].exclusive_counts == 70u);
+tests/test_trace_account.c:34:    assert(totals[0].exclusive_counts + totals[1].exclusive_counts == outermost);
+tests/test_trace_account.c:42:    assert(trace_store_init(&store, backing, 2u) == 0);
+tests/test_trace_account.c:43:    assert(trace_store_push(&store, &event) == 0);
+tests/test_trace_account.c:44:    assert(trace_store_push(&store, &event) == 0);
+tests/test_trace_account.c:45:    assert(trace_store_push(&store, &event) != 0);
+tests/test_trace_account.c:46:    assert(store.overflow_failed == 1);
+tests/test_trace_account.c:47:    assert(store.event_count == 2u);
+tests/test_trace_account.c:58:    assert(trace_store_init(&store, backing, 2u) == 0);
+tests/test_trace_account.c:59:    assert(trace_store_push(&store, &enter_event) == 0);
+tests/test_trace_account.c:60:    assert(trace_account_sample(&store, 3u, totals, 2u, &total_count, &outermost) != 0);
+tests/test_trace_account.c:61:    assert(store.unpaired_failed == 1);
+tests/test_trace_account.c:71:    assert(memory != NULL);
+tests/test_trace_account.c:72:    assert(strcmp(header,
+tests/test_trace_account.c:74:    assert(strstr(header, "shared_secret") == NULL);
+tests/test_trace_account.c:75:    assert(strstr(header, "verify") == NULL);
+tests/test_trace_account.c:76:    assert(strstr(header, "ground_truth") == NULL);
+tests/test_trace_account.c:77:    assert(trace_event_write(memory, &event) == 0);
+tests/test_trace_account.c:78:    assert(fflush(memory) == 0);
+tests/test_trace_account.c:79:    assert(strstr(line, "shared_secret") == NULL);
+tests/test_trace_account.c:80:    assert(strstr(line, "decapsulation_key") == NULL);
+tests/test_trace_account.c:81:    assert(strstr(line, "verify") == NULL);
+tests/test_trace_account.c:82:    assert(strcmp(line, "9,8,2,7,0\n") == 0);
+tests/test_platform_m4.c:62:    puts("m4_inputs=pass timing_collection=not_run");
+tests/test_timing_diagnostics.c:18:    assert(child_process >= 0);
+tests/test_timing_diagnostics.c:21:        _exit(127);
+tests/test_timing_diagnostics.c:23:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_timing_diagnostics.c:24:    assert(WIFEXITED(wait_status));
+tests/test_timing_diagnostics.c:38:    assert(argument_count == 2);
+tests/test_timing_diagnostics.c:40:    assert(series_quantile(&quantile_series, 0.0) == 1);
+tests/test_timing_diagnostics.c:41:    assert(series_quantile(&quantile_series, 0.5) == 3);
+tests/test_timing_diagnostics.c:42:    assert(series_quantile(&quantile_series, 0.9) == 4);
+tests/test_timing_diagnostics.c:43:    assert(series_quantile(&quantile_series, 1.0) == 4);
+tests/test_timing_diagnostics.c:44:    assert(create_test_temp_directory(test_directory,
+tests/test_timing_diagnostics.c:47:    assert(snprintf(csv_path, sizeof(csv_path), "%s/input.csv", test_directory) > 0);
+tests/test_timing_diagnostics.c:48:    assert(snprintf(report_path, sizeof(report_path), "%s/report.txt", test_directory) > 0);
+tests/test_timing_diagnostics.c:50:    assert(csv_file != NULL);
+tests/test_timing_diagnostics.c:51:    assert(fputs("run_id,implementation,input_category,sample_index,elapsed_nanoseconds,time_unit\n"
+tests/test_timing_diagnostics.c:55:    assert(fclose(csv_file) == 0);
+tests/test_timing_diagnostics.c:56:    assert(hash_csv_file(csv_path, original_digest) == 0);
+tests/test_timing_diagnostics.c:57:    assert(run_inspector(argument_values[1], csv_path, report_path) == 0);
+tests/test_timing_diagnostics.c:59:    assert(report_file != NULL);
+tests/test_timing_diagnostics.c:61:    assert(!ferror(report_file));
+tests/test_timing_diagnostics.c:63:    assert(fclose(report_file) == 0);
+tests/test_timing_diagnostics.c:64:    assert(strstr(report_text, "quantile_index=floor(p*(n-1)+0.5)\n") != NULL);
+tests/test_timing_diagnostics.c:65:    assert(strstr(report_text, "series=all count=4 mean_ns=2.250000 p50_ns=2 p90_ns=4") != NULL);
+tests/test_timing_diagnostics.c:66:    assert(strstr(report_text, "distinct_durations=3 tied_pair_fraction=0.166666667") != NULL);
+tests/test_timing_diagnostics.c:67:    assert(strstr(report_text, "order_block=0 first_index=0 count=1 mean_ns=4.000000") != NULL);
+tests/test_timing_diagnostics.c:68:    assert(strstr(report_text, "adjacent_equal_fraction=0.333333333\n") != NULL);
+tests/test_timing_diagnostics.c:69:    assert(strstr(report_text, "report_status=complete\n") != NULL);
+tests/test_timing_diagnostics.c:70:    assert(run_inspector(argument_values[1], csv_path, report_path) == 1);
+tests/test_timing_diagnostics.c:71:    assert(hash_csv_file(csv_path, final_digest) == 0);
+tests/test_timing_diagnostics.c:72:    assert(memcmp(original_digest, final_digest, sizeof(original_digest)) == 0);
+tests/test_timing_diagnostics.c:73:    assert(unlink(report_path) == 0);
+tests/test_timing_diagnostics.c:75:    assert(csv_file != NULL);
+tests/test_timing_diagnostics.c:76:    assert(fputs("fixture,reference,valid,9,2,ns\n", csv_file) >= 0);
+tests/test_timing_diagnostics.c:77:    assert(fclose(csv_file) == 0);
+tests/test_timing_diagnostics.c:78:    assert(run_inspector(argument_values[1], csv_path, report_path) == 1);
+tests/test_timing_diagnostics.c:79:    assert(access(report_path, F_OK) != 0);
+tests/test_timing_diagnostics.c:80:    assert(unlink(csv_path) == 0);
+tests/test_timing_diagnostics.c:81:    assert(rmdir(test_directory) == 0);
+tests/test_paired_runner.c:24:    assert(child_process >= 0);
+tests/test_paired_runner.c:27:        _exit(127);
+tests/test_paired_runner.c:29:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_paired_runner.c:30:    assert(WIFEXITED(wait_status));
+tests/test_paired_runner.c:39:    assert(paired_digest_file(kernel_path, digest) == 0);
+tests/test_paired_runner.c:51:    assert(is_paired_hex(source_commit, 40));
+tests/test_paired_runner.c:53:    assert(shared_file != NULL);
+tests/test_paired_runner.c:54:    assert(
+tests/test_paired_runner.c:55:        fprintf(shared_file,
+tests/test_paired_runner.c:63:    assert(fclose(shared_file) == 0);
+tests/test_paired_runner.c:69:    assert(plan_file != NULL);
+tests/test_paired_runner.c:70:    assert(fprintf(plan_file,
+tests/test_paired_runner.c:75:    assert(fclose(plan_file) == 0);
+tests/test_paired_runner.c:108:    assert(paired_data_path(path, sizeof(path), directory, "cohort.meta") == 0);
+tests/test_paired_runner.c:110:    assert(read_paired_fields(path, &field, 1) == 0);
+tests/test_paired_runner.c:111:    assert(strcmp(state, expected) == 0);
+tests/test_paired_runner.c:134:    assert(read_paired_fields(path, fields, 8) == 0);
+tests/test_paired_runner.c:145:        assert(parse_unsigned_integer(values[field_index], &actual) == 0);
+tests/test_paired_runner.c:146:        assert(actual == expected[field_index]);
+tests/test_paired_runner.c:155:    assert(plan_file != NULL);
+tests/test_paired_runner.c:156:    assert(fputs("block_id,seed,samples_per_category,batch_size,first_method\n", plan_file) != EOF);
+tests/test_paired_runner.c:162:        assert(fprintf(plan_file,
+tests/test_paired_runner.c:168:    assert(fclose(plan_file) == 0);
+tests/test_paired_runner.c:176:    assert(plan_file != NULL);
+tests/test_paired_runner.c:177:    assert(fputs("block_id,seed,samples_per_category,batch_size,first_method\n", plan_file) != EOF);
+tests/test_paired_runner.c:186:        assert(fprintf(plan_file,
+tests/test_paired_runner.c:193:    assert(fclose(plan_file) == 0);
+tests/test_paired_runner.c:203:    assert(runner_process >= 0);
+tests/test_paired_runner.c:214:        _exit(127);
+tests/test_paired_runner.c:226:    assert(output_created);
+tests/test_paired_runner.c:227:    assert(kill(runner_process, SIGSTOP) == 0);
+tests/test_paired_runner.c:229:    assert(waitpid(runner_process, &wait_status, WUNTRACED) == runner_process);
+tests/test_paired_runner.c:230:    assert(WIFSTOPPED(wait_status));
+tests/test_paired_runner.c:232:    assert(paired_data_path(envelope_path,
+tests/test_paired_runner.c:236:    assert(mkdir(envelope_path, 0700) == 0);
+tests/test_paired_runner.c:237:    assert(kill(runner_process, SIGCONT) == 0);
+tests/test_paired_runner.c:238:    assert(waitpid(runner_process, &wait_status, 0) == runner_process);
+tests/test_paired_runner.c:239:    assert(WIFEXITED(wait_status) && WEXITSTATUS(wait_status) != 0);
+tests/test_paired_runner.c:241:    assert(
+tests/test_paired_runner.c:243:    assert(access(context_path, F_OK) != 0);
+tests/test_paired_runner.c:253:    assert(runner_process >= 0);
+tests/test_paired_runner.c:264:        _exit(127);
+tests/test_paired_runner.c:277:    assert(has_reservation);
+tests/test_paired_runner.c:278:    assert(kill(runner_process, SIGTERM) == 0);
+tests/test_paired_runner.c:280:    assert(waitpid(runner_process, &wait_status, 0) == runner_process);
+tests/test_paired_runner.c:281:    assert(WIFEXITED(wait_status) && WEXITSTATUS(wait_status) != 0);
+tests/test_paired_runner.c:286:    assert(argument_count == 5);
+tests/test_paired_runner.c:288:    assert(create_test_temp_directory(directory, sizeof(directory), "cry-paired-runner") != NULL);
+tests/test_paired_runner.c:294:    assert(
+tests/test_paired_runner.c:295:        snprintf(kernel_path, sizeof(kernel_path), "%s/reference/libmlkem.a", argument_values[2]) >
+tests/test_paired_runner.c:297:    assert(paired_data_path(plan_path, sizeof(plan_path), directory, "plan.csv") == 0);
+tests/test_paired_runner.c:298:    assert(paired_data_path(shared_path, sizeof(shared_path), directory, "shared.cost") == 0);
+tests/test_paired_runner.c:299:    assert(paired_data_path(ledger_path, sizeof(ledger_path), directory, "budget.meta") == 0);
+tests/test_paired_runner.c:300:    assert(paired_data_path(output_path, sizeof(output_path), directory, "successful") == 0);
+tests/test_paired_runner.c:303:    assert(initialize(argument_values[1], ledger_path, shared_path) == 0);
+tests/test_paired_runner.c:304:    assert(initialize(argument_values[1], ledger_path, shared_path) == 1);
+tests/test_paired_runner.c:305:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:315:    assert(
+tests/test_paired_runner.c:319:    assert(run_arguments(analysis_arguments) == 0);
+tests/test_paired_runner.c:320:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:330:    assert(
+tests/test_paired_runner.c:333:    assert(paired_data_path(exhausted_ledger,
+tests/test_paired_runner.c:337:    assert(
+tests/test_paired_runner.c:340:    assert(initialize(argument_values[1], exhausted_ledger, exhausted_shared) == 0);
+tests/test_paired_runner.c:341:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:353:    assert(paired_data_path(bad_shared, sizeof(bad_shared), directory, "mismatch.cost") == 0);
+tests/test_paired_runner.c:354:    assert(
+tests/test_paired_runner.c:356:    assert(paired_data_path(bad_output, sizeof(bad_output), directory, "mismatch") == 0);
+tests/test_paired_runner.c:358:    assert(initialize(argument_values[1], bad_ledger, bad_shared) == 0);
+tests/test_paired_runner.c:359:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:366:    assert(access(bad_output, F_OK) != 0);
+tests/test_paired_runner.c:370:    assert(paired_data_path(stub_build, sizeof(stub_build), directory, "stub-build") == 0 &&
+tests/test_paired_runner.c:372:    assert(paired_data_path(stub_reference, sizeof(stub_reference), stub_build, "reference") == 0 &&
+tests/test_paired_runner.c:374:    assert(paired_data_path(stub_program, sizeof(stub_program), stub_reference, "benchmark") == 0 &&
+tests/test_paired_runner.c:376:    assert(
+tests/test_paired_runner.c:380:    assert(
+tests/test_paired_runner.c:389:        assert(snprintf(filename, sizeof(filename), "failure-%zu.cost", failure_index) > 0);
+tests/test_paired_runner.c:390:        assert(paired_data_path(failure_shared, sizeof(failure_shared), directory, filename) == 0);
+tests/test_paired_runner.c:391:        assert(snprintf(filename, sizeof(filename), "failure-%zu-budget.meta", failure_index) > 0);
+tests/test_paired_runner.c:392:        assert(paired_data_path(failure_ledger, sizeof(failure_ledger), directory, filename) == 0);
+tests/test_paired_runner.c:393:        assert(snprintf(filename, sizeof(filename), "failure-%zu", failure_index) > 0);
+tests/test_paired_runner.c:394:        assert(paired_data_path(failure_output, sizeof(failure_output), directory, filename) == 0);
+tests/test_paired_runner.c:396:        assert(initialize(argument_values[1], failure_ledger, failure_shared) == 0);
+tests/test_paired_runner.c:397:        assert(setenv("PAIRED_FAILURE_MODE", failure_modes[failure_index], 1) == 0);
+tests/test_paired_runner.c:398:        assert(execute(argument_values[1],
+tests/test_paired_runner.c:408:    assert(unsetenv("PAIRED_FAILURE_MODE") == 0);
+tests/test_paired_runner.c:412:    assert(paired_data_path(interrupted_shared,
+tests/test_paired_runner.c:416:    assert(paired_data_path(interrupted_ledger,
+tests/test_paired_runner.c:420:    assert(paired_data_path(interrupted_output,
+tests/test_paired_runner.c:425:    assert(initialize(argument_values[1], interrupted_ledger, interrupted_shared) == 0);
+tests/test_paired_runner.c:426:    assert(setenv("PAIRED_FAILURE_MODE", "timeout", 1) == 0);
+tests/test_paired_runner.c:434:    assert(unsetenv("PAIRED_FAILURE_MODE") == 0);
+tests/test_paired_runner.c:438:    assert(paired_data_path(tiny_shared, sizeof(tiny_shared), directory, "tiny.cost") == 0);
+tests/test_paired_runner.c:439:    assert(paired_data_path(tiny_ledger, sizeof(tiny_ledger), directory, "tiny-budget.meta") == 0);
+tests/test_paired_runner.c:440:    assert(paired_data_path(tiny_output, sizeof(tiny_output), directory, "tiny") == 0);
+tests/test_paired_runner.c:442:    assert(initialize(argument_values[1], tiny_ledger, tiny_shared) == 0);
+tests/test_paired_runner.c:443:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:457:    assert(paired_data_path(publication_shared,
+tests/test_paired_runner.c:461:    assert(paired_data_path(publication_ledger,
+tests/test_paired_runner.c:465:    assert(paired_data_path(publication_output,
+tests/test_paired_runner.c:469:    assert(paired_data_path(publication_following,
+tests/test_paired_runner.c:474:    assert(initialize(argument_values[1], publication_ledger, publication_shared) == 0);
+tests/test_paired_runner.c:481:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:488:    assert(access(publication_following, F_OK) != 0);
+tests/test_paired_runner.c:494:    assert(paired_data_path(validation_shared,
+tests/test_paired_runner.c:498:    assert(paired_data_path(validation_ledger,
+tests/test_paired_runner.c:502:    assert(paired_data_path(validation_output,
+tests/test_paired_runner.c:507:    assert(initialize(argument_values[1], validation_ledger, validation_shared) == 0);
+tests/test_paired_runner.c:532:        assert(snprintf(filename, sizeof(filename), "confirmation-seed-%zu.csv", seed_index) > 0);
+tests/test_paired_runner.c:533:        assert(
+tests/test_paired_runner.c:536:        assert(execute(argument_values[1],
+tests/test_paired_runner.c:544:        assert(access(validation_output, F_OK) != 0);
+tests/test_paired_runner.c:547:    assert(
+tests/test_paired_runner.c:550:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:562:            assert(snprintf(filename,
+tests/test_paired_runner.c:567:            assert(
+tests/test_paired_runner.c:573:            assert(execute(argument_values[1],
+tests/test_paired_runner.c:581:            assert(access(validation_output, F_OK) != 0);
+tests/test_paired_runner.c:590:    assert(read_paired_fields(validation_ledger, &source_field, 1) == 0);
+tests/test_paired_runner.c:591:    assert(snprintf(receipt_path, sizeof(receipt_path), "%s.preparation", validation_ledger) > 0);
+tests/test_paired_runner.c:594:        assert(receipt != NULL);
+tests/test_paired_runner.c:595:        assert(fprintf(receipt,
+tests/test_paired_runner.c:600:        assert(fclose(receipt) == 0);
+tests/test_paired_runner.c:602:        assert(paired_data_path(valid_plan,
+tests/test_paired_runner.c:606:        assert(execute(argument_values[1],
+tests/test_paired_runner.c:614:        assert(access(validation_output, F_OK) != 0);
+tests/test_paired_runner.c:617:    assert(pipe(start_pipe) == 0);
+tests/test_paired_runner.c:619:    assert(blocked_runner >= 0);
+tests/test_paired_runner.c:621:        assert(close(start_pipe[1]) == 0);
+tests/test_paired_runner.c:623:        assert(read(start_pipe[0], &start_signal, 1) == 1);
+tests/test_paired_runner.c:624:        assert(close(start_pipe[0]) == 0);
+tests/test_paired_runner.c:634:        _exit(127);
+tests/test_paired_runner.c:636:    assert(close(start_pipe[0]) == 0);
+tests/test_paired_runner.c:638:    assert(snprintf(blocked_update,
+tests/test_paired_runner.c:644:    assert(blocked_descriptor >= 0 && close(blocked_descriptor) == 0);
+tests/test_paired_runner.c:645:    assert(write(start_pipe[1], "x", 1) == 1);
+tests/test_paired_runner.c:646:    assert(close(start_pipe[1]) == 0);
+tests/test_paired_runner.c:648:    assert(waitpid(blocked_runner, &blocked_status, 0) == blocked_runner);
+tests/test_paired_runner.c:649:    assert(WIFEXITED(blocked_status) && WEXITSTATUS(blocked_status) != 0);
+tests/test_paired_runner.c:650:    assert(unlink(blocked_update) == 0);
+tests/test_paired_runner.c:652:    assert(snprintf(audit_path, sizeof(audit_path), "%s.audit", validation_ledger) > 0);
+tests/test_paired_runner.c:653:    assert(access(audit_path, F_OK) == 0);
+tests/test_paired_runner.c:655:    assert(execute(argument_values[1],
+tests/test_paired_runner.c:662:    assert(access(validation_output, F_OK) != 0);
+tests/test_paired_runner.c:664:    printf("software_runner_fixture_directory=%s\n", directory);
+tests/test_platform_m2_kat.c:12:            fprintf(stderr, "M2 KAT check failed at line %d: %s\n", __LINE__, #condition);         \
+tests/test_platform_m2_kat.c:127:    printf("%s: 100 independent official round3 KAT keygen/encap/decap cases passed\n",
+tests/test_batch_measurement.c:27:    assert(child_process >= 0);
+tests/test_batch_measurement.c:31:            assert(signal(SIGXFSZ, SIG_IGN) != SIG_ERR);
+tests/test_batch_measurement.c:32:            assert(setrlimit(RLIMIT_FSIZE, &file_limit) == 0);
+tests/test_batch_measurement.c:54:        _exit(127);
+tests/test_batch_measurement.c:56:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_batch_measurement.c:57:    assert(WIFEXITED(wait_status));
+tests/test_batch_measurement.c:66:    assert(metadata_file != NULL);
+tests/test_batch_measurement.c:69:            assert(strlen(line) == 86u);
+tests/test_batch_measurement.c:84:    assert(!ferror(metadata_file));
+tests/test_batch_measurement.c:85:    assert(fclose(metadata_file) == 0);
+tests/test_batch_measurement.c:86:    assert(found_flags == 15u);
+tests/test_batch_measurement.c:96:    assert(csv_file != NULL);
+tests/test_batch_measurement.c:97:    assert(fgets(line, sizeof(line), csv_file) != NULL);
+tests/test_batch_measurement.c:108:        assert(sscanf(line,
+tests/test_batch_measurement.c:119:        assert((size_t)parsed_bytes == strlen(line));
+tests/test_batch_measurement.c:120:        assert(window_index == window_count && first_input_index == input_count);
+tests/test_batch_measurement.c:121:        assert(last_input_index == input_count + call_count);
+tests/test_batch_measurement.c:122:        assert(call_count == (30u - input_count < batch_size ? 30u - input_count : batch_size));
+tests/test_batch_measurement.c:123:        assert(valid_count + flipped_count + random_count == call_count);
+tests/test_batch_measurement.c:124:        assert(duration_nanoseconds > 0);
+tests/test_batch_measurement.c:131:    assert(!ferror(csv_file));
+tests/test_batch_measurement.c:132:    assert(fclose(csv_file) == 0);
+tests/test_batch_measurement.c:133:    assert(input_count == 30u && window_count == (30u + batch_size - 1u) / batch_size);
+tests/test_batch_measurement.c:134:    assert(category_counts[0] == 10u && category_counts[1] == 10u && category_counts[2] == 10u);
+tests/test_batch_measurement.c:147:    assert(argument_count == 3);
+tests/test_batch_measurement.c:148:    assert(generate_test_key_pair(42, encapsulation_key, decapsulation_key) == 0);
+tests/test_batch_measurement.c:150:        assert(generate_test_ciphertext((enum input_category)(call_index % 3u),
+tests/test_batch_measurement.c:156:        assert(mlkem_decapsulate(expected_secrets[call_index],
+tests/test_batch_measurement.c:165:        assert(run_batch_decapsulations(checked_counts[count_index],
+tests/test_batch_measurement.c:171:            assert(call_statuses[call_index] == 0);
+tests/test_batch_measurement.c:172:            assert(memcmp(expected_secrets[call_index],
+tests/test_batch_measurement.c:177:    assert(run_batch_decapsulations(0,
+tests/test_batch_measurement.c:182:    assert(run_batch_decapsulations(17,
+tests/test_batch_measurement.c:188:    assert(create_test_temp_directory(test_directory, sizeof(test_directory), "cry-batch-test") !=
+tests/test_batch_measurement.c:196:        assert(
+tests/test_batch_measurement.c:197:            snprintf(csv_path, sizeof(csv_path), "%s/run%zu.csv", test_directory, run_index) > 0);
+tests/test_batch_measurement.c:198:        assert(snprintf(metadata_path,
+tests/test_batch_measurement.c:203:        assert(snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path) > 0);
+tests/test_batch_measurement.c:204:        assert(run_program(argument_values[run_index == 0 ? 1 : 2],
+tests/test_batch_measurement.c:215:            assert(strcmp(baseline_digest, run_digest) == 0);
+tests/test_batch_measurement.c:218:        assert(run_program(argument_values[2], "4", "10", csv_path, metadata_path, 0) == 1);
+tests/test_batch_measurement.c:219:        assert(unlink(csv_path) == 0 && unlink(metadata_path) == 0 && unlink(cost_path) == 0);
+tests/test_batch_measurement.c:223:        assert(run_program(argument_values[2],
+tests/test_batch_measurement.c:230:    assert(run_program(argument_values[2], "4", "0", csv_path, metadata_path, 0) == 2);
+tests/test_batch_measurement.c:231:    assert(
+tests/test_batch_measurement.c:234:    assert(run_program(argument_values[2], "16", "100", csv_path, metadata_path, 1) == 1);
+tests/test_batch_measurement.c:235:    assert(unlink(csv_path) == 0 && unlink(metadata_path) == 0 && unlink(cost_path) == 0);
+tests/test_batch_measurement.c:236:    assert(rmdir(test_directory) == 0);
+tests/test_v4_stats.c:11:    fprintf(stderr, "v4 stats test failed: %s\n", message);
+tests/test_paired_statistics.c:11:    assert(compute_run_stability(four_values, 4, &summary) == 0);
+tests/test_paired_statistics.c:12:    assert(summary.median_nanoseconds == 2.5L);
+tests/test_paired_statistics.c:13:    assert(summary.mad_nanoseconds == 1.0L);
+tests/test_paired_statistics.c:14:    assert(summary.relative_dispersion == 0.4L);
+tests/test_paired_statistics.c:16:    assert(compute_run_stability(three_values, 3, &summary) == 0);
+tests/test_paired_statistics.c:17:    assert(summary.median_nanoseconds == 4.0L && summary.mad_nanoseconds == 3.0L);
+tests/test_paired_statistics.c:25:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:27:    assert(result.has_interval && result.dispersion_ratio == 1.0L);
+tests/test_paired_statistics.c:28:    assert(result.interval_lower == 1.0L && result.interval_upper == 1.0L);
+tests/test_paired_statistics.c:30:    assert(compute_paired_statistics(baseline, candidate, 20, &repeated_result) == 0);
+tests/test_paired_statistics.c:31:    assert(result.interval_lower == repeated_result.interval_lower);
+tests/test_paired_statistics.c:32:    assert(result.interval_upper == repeated_result.interval_upper);
+tests/test_paired_statistics.c:33:    assert(result.degenerate_replicates == 0);
+tests/test_paired_statistics.c:37:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:38:    assert(result.has_interval && result.interval_upper < 0.8L);
+tests/test_paired_statistics.c:39:    assert(strcmp(paired_result_label(&result, 1.0L, 1),
+tests/test_paired_statistics.c:41:    assert(strcmp(paired_result_label(&result, 1.06L, 1), "improvement_conditions_not_met") == 0);
+tests/test_paired_statistics.c:42:    assert(strcmp(paired_result_label(&result, 1.0L, 0), "comparison_evidence_insufficient") == 0);
+tests/test_paired_statistics.c:48:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:49:    assert(result.baseline.median_nanoseconds == 1000.0L);
+tests/test_paired_statistics.c:50:    assert(result.candidate.median_nanoseconds == 1050.0L);
+tests/test_paired_statistics.c:51:    assert(strcmp(paired_result_label(&result, 1.0L, 1),
+tests/test_paired_statistics.c:56:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:57:    assert(strcmp(paired_result_label(&result, 1.0L, 1), "improvement_conditions_not_met") == 0);
+tests/test_paired_statistics.c:61:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:62:    assert(strcmp(paired_result_label(&result, 1.0L, 1),
+tests/test_paired_statistics.c:67:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:68:    assert(strcmp(paired_result_label(&result, 1.0L, 1), "improvement_conditions_not_met") == 0);
+tests/test_paired_statistics.c:72:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:73:    assert(result.has_interval && result.interval_upper > 0.8L);
+tests/test_paired_statistics.c:74:    assert(strcmp(paired_result_label(&result, 1.0L, 1), "improvement_conditions_not_met") == 0);
+tests/test_paired_statistics.c:78:    assert(compute_paired_statistics(baseline, candidate, 20, &result) == 0);
+tests/test_paired_statistics.c:79:    assert(!result.has_point_ratio && !result.has_interval);
+tests/test_paired_statistics.c:80:    assert(strcmp(paired_result_label(&result, NAN, 1), "software_check_failed") == 0);
+tests/test_paired_statistics.c:83:    assert(compute_paired_statistics(two_values, two_values, 2, &result) == 0);
+tests/test_paired_statistics.c:84:    assert(result.has_point_ratio && !result.has_interval && result.degenerate_replicates > 0);
+tests/test_paired_statistics.c:86:    assert(compute_run_stability(invalid_values, 2, &summary) == 1);
+tests/test_paired_statistics.c:88:    assert(compute_run_stability(invalid_values, 2, &summary) == 1);
+tests/test_paired_statistics.c:90:    assert(compute_run_stability(invalid_values, 2, &summary) == 1);
+tests/test_paired_statistics.c:93:    assert(draw_paired_index(&random_state, 0, &selected_index) == 1);
+tests/test_paired_statistics.c:95:        assert(draw_paired_index(&random_state, 20, &selected_index) == 0);
+tests/test_paired_statistics.c:96:        assert(selected_index < 20u);
+tests/test_platform_m2_random_failure.c:67:    puts("M2: failing random provider returns an error and clears full output buffers");
+tests/test_temp_directory.c:15:    assert(configured_root != NULL);
+tests/test_temp_directory.c:17:    assert(saved_root != NULL);
+tests/test_temp_directory.c:20:    assert(unsetenv("A113_TEST_TMPDIR") == 0);
+tests/test_temp_directory.c:22:    assert(create_test_temp_directory(first_directory, sizeof(first_directory), "missing") == NULL);
+tests/test_temp_directory.c:23:    assert(errno == EINVAL);
+tests/test_temp_directory.c:24:    assert(setenv("A113_TEST_TMPDIR", "relative", 1) == 0);
+tests/test_temp_directory.c:25:    assert(
+tests/test_temp_directory.c:27:    assert(setenv("A113_TEST_TMPDIR", saved_root, 1) == 0);
+tests/test_temp_directory.c:28:    assert(
+tests/test_temp_directory.c:30:    assert(create_test_temp_directory(first_directory, 1u, "too-long") == NULL);
+tests/test_temp_directory.c:31:    assert(errno == ENAMETOOLONG);
+tests/test_temp_directory.c:32:    assert(
+tests/test_temp_directory.c:34:    assert(create_test_temp_directory(second_directory, sizeof(second_directory), "temp-root") !=
+tests/test_temp_directory.c:36:    assert(strcmp(first_directory, second_directory) != 0);
+tests/test_temp_directory.c:38:    assert(strncmp(first_directory, saved_root, root_length_bytes) == 0);
+tests/test_temp_directory.c:39:    assert(first_directory[root_length_bytes] == '/');
+tests/test_temp_directory.c:41:    assert(stat(first_directory, &directory_status) == 0);
+tests/test_temp_directory.c:42:    assert(S_ISDIR(directory_status.st_mode));
+tests/test_temp_directory.c:43:    assert((directory_status.st_mode & 0777u) == 0700u);
+tests/test_temp_directory.c:44:    assert(rmdir(first_directory) == 0);
+tests/test_temp_directory.c:45:    assert(rmdir(second_directory) == 0);
+tests/test_mlkem.c:12:            fprintf(stderr, "check failed at line %d: %s\n", __LINE__, #condition);                \
+tests/test_mlkem.c:143:    printf("NIST decaps vectors: %u implicit rejections, %u accepted ciphertexts\n",
+tests/test_mlkem.c:146:    printf("%s: NIST FIPS203 KAT 25 keygen + 25 encaps + 10 decaps passed\n",
+tests/test_mlkem.c:148:    puts("NIST 10 encapsulation-key + 10 decapsulation-key validation cases passed");
+tests/test_mlkem.c:270:    puts("public argument boundaries and system-random roundtrip passed");
+tests/test_paired_data.c:37:    assert(snprintf(filename, sizeof(filename), "%s-%s.csv", block_id, method) > 0);
+tests/test_paired_data.c:38:    assert(paired_data_path(csv_path, sizeof(csv_path), directory, filename) == 0);
+tests/test_paired_data.c:39:    assert(snprintf(filename, sizeof(filename), "%s-%s.meta", block_id, method) > 0);
+tests/test_paired_data.c:40:    assert(paired_data_path(metadata_path, sizeof(metadata_path), directory, filename) == 0);
+tests/test_paired_data.c:41:    assert(snprintf(cost_path, sizeof(cost_path), "%s.cost", csv_path) > 0);
+tests/test_paired_data.c:43:    assert(csv_file != NULL);
+tests/test_paired_data.c:45:        assert(
+tests/test_paired_data.c:46:            fputs(
+tests/test_paired_data.c:50:            assert(fprintf(csv_file,
+tests/test_paired_data.c:58:        assert(fputs("run_id,block_id,method,window_index,input_start,input_end,call_count,valid_"
+tests/test_paired_data.c:72:            assert(fprintf(csv_file,
+tests/test_paired_data.c:87:    assert(fclose(csv_file) == 0);
+tests/test_paired_data.c:89:    assert(metadata_file != NULL);
+tests/test_paired_data.c:90:    assert(
+tests/test_paired_data.c:91:        fprintf(metadata_file,
+tests/test_paired_data.c:123:    assert(fclose(metadata_file) == 0);
+tests/test_paired_data.c:125:    assert(cost_file != NULL);
+tests/test_paired_data.c:127:    assert(
+tests/test_paired_data.c:128:        fprintf(cost_file,
+tests/test_paired_data.c:143:    assert(fclose(cost_file) == 0);
+tests/test_paired_data.c:155:    assert(paired_data_path(manifest_path, sizeof(manifest_path), directory, "cohort.csv") == 0);
+tests/test_paired_data.c:156:    assert(paired_data_path(context_path, sizeof(context_path), directory, "cohort.meta") == 0);
+tests/test_paired_data.c:158:    assert(manifest != NULL);
+tests/test_paired_data.c:159:    assert(fputs(PAIRED_COHORT_HEADER, manifest) >= 0);
+tests/test_paired_data.c:162:        assert(snprintf(block_id, sizeof(block_id), "fixture-%02zu", pair_index) > 0);
+tests/test_paired_data.c:193:        assert(snprintf(names[0], sizeof(names[0]), "%s-baseline.csv", block_id) > 0);
+tests/test_paired_data.c:194:        assert(snprintf(names[1], sizeof(names[1]), "%s-baseline.meta", block_id) > 0);
+tests/test_paired_data.c:195:        assert(snprintf(names[2], sizeof(names[2]), "%s-candidate.csv", block_id) > 0);
+tests/test_paired_data.c:196:        assert(snprintf(names[3], sizeof(names[3]), "%s-candidate.meta", block_id) > 0);
+tests/test_paired_data.c:200:            assert(paired_data_path(path, sizeof(path), directory, names[2u * method_index]) == 0);
+tests/test_paired_data.c:201:            assert(paired_digest_file(path, digests[3u * method_index]) == 0);
+tests/test_paired_data.c:202:            assert(snprintf(cost_path, sizeof(cost_path), "%s.cost", path) > 0);
+tests/test_paired_data.c:203:            assert(paired_digest_file(cost_path, digests[3u * method_index + 2u]) == 0);
+tests/test_paired_data.c:204:            assert(paired_data_path(path, sizeof(path), directory, names[2u * method_index + 1u]) ==
+tests/test_paired_data.c:206:            assert(paired_digest_file(path, digests[3u * method_index + 1u]) == 0);
+tests/test_paired_data.c:208:        assert(fprintf(manifest,
+tests/test_paired_data.c:225:    assert(fclose(manifest) == 0);
+tests/test_paired_data.c:227:    assert(paired_digest_file(manifest_path, manifest_digest) == 0);
+tests/test_paired_data.c:229:    assert(context_file != NULL);
+tests/test_paired_data.c:230:    assert(
+tests/test_paired_data.c:231:        fprintf(context_file,
+tests/test_paired_data.c:252:    assert(fclose(context_file) == 0);
+tests/test_paired_data.c:259:    assert(child_process >= 0);
+tests/test_paired_data.c:262:        _exit(127);
+tests/test_paired_data.c:264:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_paired_data.c:265:    assert(WIFEXITED(wait_status));
+tests/test_paired_data.c:272:        assert(mkdir(argument_values[2], 0700) == 0);
+tests/test_paired_data.c:278:        assert(parse_unsigned_integer(argument_values[3], &batch_size) == 0);
+tests/test_paired_data.c:279:        assert(batch_size == 1u || batch_size == 4u || batch_size == 16u);
+tests/test_paired_data.c:280:        assert(mkdir(argument_values[2], 0700) == 0);
+tests/test_paired_data.c:285:    assert(argument_count == 2);
+tests/test_paired_data.c:287:    assert(create_test_temp_directory(directory, sizeof(directory), "cry-paired-data") != NULL);
+tests/test_paired_data.c:290:    assert(paired_data_path(report_path, sizeof(report_path), directory, "report.txt") == 0);
+tests/test_paired_data.c:291:    assert(run_analyzer(argument_values[1], directory, report_path) == 0);
+tests/test_paired_data.c:294:    assert(report_file != NULL);
+tests/test_paired_data.c:296:    assert(!ferror(report_file) && fclose(report_file) == 0);
+tests/test_paired_data.c:298:    assert(strstr(report_text, "result=comparison_evidence_insufficient\n") != NULL);
+tests/test_paired_data.c:299:    assert(strstr(report_text, "phase=software_fixture\n") != NULL);
+tests/test_paired_data.c:300:    assert(strstr(report_text, "pair_count=20\n") != NULL);
+tests/test_paired_data.c:301:    assert(run_analyzer(argument_values[1], directory, report_path) == 1);
+tests/test_paired_data.c:304:    assert(
+tests/test_paired_data.c:306:    assert(paired_data_path(metadata_path,
+tests/test_paired_data.c:311:    assert(load_paired_run(csv_path, metadata_path, &run) == 0);
+tests/test_paired_data.c:312:    assert(run.total_nanoseconds == 5880u && run.call_count == 6u && run.window_count == 2u);
+tests/test_paired_data.c:315:    assert(csv_file != NULL);
+tests/test_paired_data.c:316:    assert(fputs("run_id,block_id,method,window_index,input_start,input_end,call_count,valid_count,"
+tests/test_paired_data.c:321:    assert(fclose(csv_file) == 0);
+tests/test_paired_data.c:322:    assert(load_paired_run(csv_path, metadata_path, &run) == 0);
+tests/test_paired_data.c:323:    assert(run.total_nanoseconds == 1000u && run.call_count == 6u);
+tests/test_paired_data.c:324:    assert(fabsl((long double)run.total_nanoseconds / (long double)run.call_count -
+tests/test_paired_data.c:328:    assert(paired_data_path(rejected_path, sizeof(rejected_path), directory, "rejected.txt") == 0);
+tests/test_paired_data.c:329:    assert(run_analyzer(argument_values[1], directory, rejected_path) == 1);
+tests/test_paired_data.c:330:    assert(access(rejected_path, F_OK) != 0);
+tests/test_paired_data.c:332:    assert(csv_file != NULL && fputs("truncated", csv_file) >= 0 && fclose(csv_file) == 0);
+tests/test_paired_data.c:333:    assert(load_paired_run(csv_path, metadata_path, &run) == 1);
+tests/test_paired_data.c:336:    printf("software_fixture_directory=%s\n", directory);
+tests/test_measurement.c:116:        fputs("invalid measurement CSV or mismatched run records\n", stderr);
+tests/test_measurement.c:118:        printf(
+tests/test_protocol_decision.c:19:    assert(fprintf(file,
+tests/test_protocol_decision.c:43:    assert(temp_root != NULL && temp_root[0] == '/');
+tests/test_protocol_decision.c:44:    assert(snprintf(csv_path, sizeof(csv_path), "%s/protocol-numeric.csv", temp_root) <
+tests/test_protocol_decision.c:48:    assert(csv_file != NULL);
+tests/test_protocol_decision.c:49:    assert(fputs("schema,run_id,session_id,block_id,key_id,sample_index,predecessor_category,"
+tests/test_protocol_decision.c:152:    assert(fclose(csv_file) == 0);
+tests/test_protocol_decision.c:153:    assert(protocol_load(protocol_path, &protocol) == 0);
+tests/test_protocol_decision.c:154:    assert(protocol_decide(&protocol,
+tests/test_protocol_decision.c:162:    assert(fabs(decision.primary_mean_difference_counts - 15.0) < 1e-9);
+tests/test_protocol_decision.c:163:    assert(fabs(decision.primary_t_statistic - 3.0) < 1e-9);
+tests/test_protocol_decision.c:164:    assert(fabs(decision.primary_p_value - expected_p) < 1e-6);
+tests/test_protocol_decision.c:165:    assert(decision.holm_rejected_primary == 0);
+tests/test_protocol_decision.c:166:    assert(strcmp(decision.iid_upgrade, "refused") == 0);
+tests/test_protocol_decision.c:167:    assert(strcmp(decision.constant_time_upgrade, "refused") == 0);
+tests/test_protocol_decision.c:168:    assert(strcmp(decision.thresholds_chosen_after_data, "no") == 0);
+tests/test_protocol_decision.c:169:    assert(fabs(protocol_student_t_two_sided(3.0, 1u) - expected_p) < 1e-9);
+tests/test_protocol_decision.c:171:    assert(rejected[0] == 1);
+tests/test_protocol_decision.c:172:    assert(rejected[1] == 0);
+tests/test_protocol_decision.c:173:    assert(rejected[2] == 0);
+tests/test_protocol_decision.c:174:    assert(snprintf(command,
+tests/test_protocol_decision.c:181:    assert(status == 0);
+tests/test_platform_holm.c:51:    int written = snprintf(destination, capacity, "%s/%s", base, name);
+tests/test_platform_holm.c:52:    assert(written > 0 && (size_t)written < capacity);
+tests/test_platform_holm.c:58:    assert(file != NULL);
+tests/test_platform_holm.c:60:    assert(fwrite(text, 1u, text_bytes, file) == text_bytes);
+tests/test_platform_holm.c:61:    assert(fclose(file) == 0);
+tests/test_platform_holm.c:67:    assert(file != NULL);
+tests/test_platform_holm.c:70:    assert(fclose(file) == 0);
+tests/test_platform_holm.c:78:        fprintf(stderr, "missing %s in %s\n", needle, path);
+tests/test_platform_holm.c:79:        assert(0);
+tests/test_platform_holm.c:88:    assert(last_separator != NULL);
+tests/test_platform_holm.c:90:    assert(directory_bytes > 0u && directory_bytes < capacity);
+tests/test_platform_holm.c:105:    assert(last_separator != NULL && last_input_separator != NULL);
+tests/test_platform_holm.c:107:    (void)snprintf(output_name, sizeof(output_name), "%s", last_separator + 1);
+tests/test_platform_holm.c:110:    assert(child_process >= 0);
+tests/test_platform_holm.c:112:        assert(chdir(working_directory) == 0);
+tests/test_platform_holm.c:132:        _exit(127);
+tests/test_platform_holm.c:134:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_platform_holm.c:135:    assert(WIFEXITED(wait_status));
+tests/test_platform_holm.c:146:            assert(field_count < capacity);
+tests/test_platform_holm.c:164:    assert(file != NULL);
+tests/test_platform_holm.c:167:    assert(row_capacity * TEST_LINE_CAPACITY_BYTES <= sizeof(row_arena));
+tests/test_platform_holm.c:174:            assert(row_count < row_capacity);
+tests/test_platform_holm.c:178:            assert(split_line(row_text, row_fields, field_capacity) == expected_field_count);
+tests/test_platform_holm.c:183:    assert(fclose(file) == 0);
+tests/test_platform_holm.c:184:    assert(line_index > 0u);
+tests/test_platform_holm.c:191:    (void)snprintf(row.family_id, sizeof(row.family_id), "%s", fields[0]);
+tests/test_platform_holm.c:192:    (void)snprintf(row.member_id, sizeof(row.member_id), "%s", fields[1]);
+tests/test_platform_holm.c:204:    (void)snprintf(row.family_id, sizeof(row.family_id), "%s", fields[0]);
+tests/test_platform_holm.c:219:        fprintf(stderr, "%s: actual %.17g expected %.17g\n", label, actual, expected);
+tests/test_platform_holm.c:220:        assert(0);
+tests/test_platform_holm.c:250:    (void)snprintf(input_name, sizeof(input_name), "%s-members.csv", case_name);
+tests/test_platform_holm.c:251:    (void)snprintf(output_name, sizeof(output_name), "%s-out", case_name);
+tests/test_platform_holm.c:290:    assert(run_holm(program, input_path, output_directory, "0.05") == 0);
+tests/test_platform_holm.c:295:    assert(read_csv_rows(holm_path, fields, TEST_COLUMN_COUNT, 7u, 3u) == 3u);
+tests/test_platform_holm.c:298:        assert(strcmp(row.family_id, "F1") == 0);
+tests/test_platform_holm.c:299:        assert(row.rank == row_index + 1u);
+tests/test_platform_holm.c:303:        assert(row.reject == 1);
+tests/test_platform_holm.c:308:    assert(read_csv_rows(pooled_path, fields, TEST_COLUMN_COUNT, 9u, 1u) == 1u);
+tests/test_platform_holm.c:310:    assert(strcmp(pooled.family_id, "F1") == 0);
+tests/test_platform_holm.c:311:    assert(pooled.member_count == 3u);
+tests/test_platform_holm.c:312:    assert(pooled.degrees_of_freedom == 2u);
+tests/test_platform_holm.c:363:    assert(run_holm(program, input_path, output_directory, "0.05") == 0);
+tests/test_platform_holm.c:366:    assert(read_csv_rows(holm_path, fields, TEST_COLUMN_COUNT, 7u, 7u) == 7u);
+tests/test_platform_holm.c:371:    assert(strcmp(rows[0].family_id, "F2") == 0 && strcmp(rows[0].member_id, "z") == 0);
+tests/test_platform_holm.c:372:    assert(rows[0].rank == 1u && rows[0].reject == 1);
+tests/test_platform_holm.c:376:    assert(strcmp(rows[1].member_id, "mid") == 0 && rows[1].rank == 2u && rows[1].reject == 0);
+tests/test_platform_holm.c:378:    assert(strcmp(rows[2].member_id, "one") == 0 && rows[2].rank == 3u && rows[2].reject == 0);
+tests/test_platform_holm.c:382:    assert(strcmp(rows[3].family_id, "F4") == 0 && strcmp(rows[3].member_id, "t1") == 0);
+tests/test_platform_holm.c:383:    assert(rows[3].rank == 1u && rows[3].reject == 1);
+tests/test_platform_holm.c:385:    assert(strcmp(rows[4].member_id, "t2") == 0 && rows[4].rank == 2u);
+tests/test_platform_holm.c:386:    assert(strcmp(rows[5].member_id, "t3") == 0 && rows[5].rank == 3u);
+tests/test_platform_holm.c:389:    assert(rows[4].reject == 0 && rows[5].reject == 0);
+tests/test_platform_holm.c:390:    assert(strcmp(rows[6].family_id, "F3") == 0 && strcmp(rows[6].member_id, "solo") == 0);
+tests/test_platform_holm.c:391:    assert(rows[6].rank == 1u && rows[6].reject == 0);
+tests/test_platform_holm.c:395:    assert(read_csv_rows(pooled_path, fields, TEST_COLUMN_COUNT, 9u, 3u) == 3u);
+tests/test_platform_holm.c:397:    assert(strcmp(solo.family_id, "F3") == 0);
+tests/test_platform_holm.c:398:    assert(solo.member_count == 1u && solo.degrees_of_freedom == 0u);
+tests/test_platform_holm.c:441:    assert(run_holm(program, input_path, output_directory, "0.05") == 0);
+tests/test_platform_holm.c:443:    assert(read_csv_rows(pooled_path, fields, TEST_COLUMN_COUNT, 9u, 2u) == 2u);
+tests/test_platform_holm.c:445:    assert(strcmp(equal.family_id, "EQ") == 0);
+tests/test_platform_holm.c:446:    assert(equal.member_count == 2u && equal.degrees_of_freedom == 1u);
+tests/test_platform_holm.c:454:    assert(strcmp(unequal.family_id, "UN") == 0);
+tests/test_platform_holm.c:455:    assert(unequal.member_count == 2u && unequal.degrees_of_freedom == 1u);
+tests/test_platform_holm.c:535:            fprintf(stderr, "case d %s: exit %d, expected 2\n", cases[case_index][0], exit_code);
+tests/test_platform_holm.c:536:            assert(0);
+tests/test_platform_holm.c:539:        assert(stat(output_directory, &directory_status) != 0);
+tests/test_platform_holm.c:541:        assert(stat(holm_path, &directory_status) != 0);
+tests/test_platform_holm.c:559:    assert(mkdir(output_directory, 0700) == 0);
+tests/test_platform_holm.c:562:    assert(run_holm(program, input_path, output_directory, "0.05") != 0);
+tests/test_platform_holm.c:567:    assert(stat(pooled_path, &file_status) != 0);
+tests/test_platform_holm.c:581:    assert(run_holm(program, input_path, output_directory, NULL) != 0);
+tests/test_platform_holm.c:582:    assert(run_holm(program, input_path, output_directory, "1.5") != 0);
+tests/test_platform_holm.c:585:    assert(run_holm(program, missing_input, output_directory, "0.05") != 0);
+tests/test_platform_holm.c:586:    assert(stat(output_directory, &file_status) != 0);
+tests/test_platform_holm.c:596:        (void)snprintf(resolved, sizeof(resolved), "%s", program);
+tests/test_platform_holm.c:600:    assert(getcwd(working_directory, sizeof(working_directory)) != NULL);
+tests/test_platform_holm.c:601:    int written = snprintf(resolved, sizeof(resolved), "%s/%s", working_directory, program);
+tests/test_platform_holm.c:602:    assert(written > 0 && (size_t)written < sizeof(resolved));
+tests/test_platform_holm.c:623:        int written = snprintf(scratch_path,
+tests/test_platform_holm.c:628:        assert(written > 0 && (size_t)written < sizeof(scratch_path));
+tests/test_platform_holm.c:630:            (void)snprintf(selected_scratch, sizeof(selected_scratch), "%s", scratch_path);
+tests/test_platform_holm.c:634:    fputs("error: no writable scratch root for platform_holm tests\n", stderr);
+tests/test_platform_holm.c:640:    assert(argument_count == 2);
+tests/test_platform_holm.c:651:    puts("platform_holm: cases a/b/c/d pass");
+tests/test_reference_benchmark.c:24:    assert(child_process >= 0);
+tests/test_reference_benchmark.c:29:                _exit(127);
+tests/test_reference_benchmark.c:40:        _exit(127);
+tests/test_reference_benchmark.c:42:    assert(waitpid(child_process, &wait_status, 0) == child_process);
+tests/test_reference_benchmark.c:43:    assert(WIFEXITED(wait_status));
+tests/test_reference_benchmark.c:57:    assert(metadata_file != NULL);
+tests/test_reference_benchmark.c:66:    assert(!ferror(metadata_file));
+tests/test_reference_benchmark.c:67:    assert(fclose(metadata_file) == 0);
+tests/test_reference_benchmark.c:68:    assert(clock_step_count == 10000u);
+tests/test_reference_benchmark.c:69:    assert(empty_window_count == 1000u);
+tests/test_reference_benchmark.c:70:    assert(has_complete_status && has_workload && has_call_count && has_input_digest);
+tests/test_reference_benchmark.c:80:    assert(argument_count == 2);
+tests/test_reference_benchmark.c:81:    assert(create_test_temp_directory(test_directory,
+tests/test_reference_benchmark.c:85:        assert(snprintf(csv_path[run_index],
+tests/test_reference_benchmark.c:90:        assert(snprintf(metadata_path[run_index],
+tests/test_reference_benchmark.c:95:        assert(snprintf(cost_path[run_index],
+tests/test_reference_benchmark.c:99:        assert(run_benchmark(argument_values[1],
+tests/test_reference_benchmark.c:104:        assert(load_measurement_set(csv_path[run_index], &sets[run_index]) == 0);
+tests/test_reference_benchmark.c:105:        assert(sets[run_index].record_count == 30u);
+tests/test_reference_benchmark.c:106:        assert(strcmp(sets[run_index].implementation, "reference") == 0);
+tests/test_reference_benchmark.c:110:            assert(category_index < 3u);
+tests/test_reference_benchmark.c:113:        assert(category_counts[0] == 10u && category_counts[1] == 10u && category_counts[2] == 10u);
+tests/test_reference_benchmark.c:117:        assert(sets[0].records[record_index].category_index ==
+tests/test_reference_benchmark.c:120:    assert(run_benchmark(argument_values[1], "10", csv_path[0], metadata_path[0], 0) == 1);
+tests/test_reference_benchmark.c:123:        assert(unlink(csv_path[run_index]) == 0);
+tests/test_reference_benchmark.c:124:        assert(unlink(metadata_path[run_index]) == 0);
+tests/test_reference_benchmark.c:125:        assert(unlink(cost_path[run_index]) == 0);
+tests/test_reference_benchmark.c:127:    assert(run_benchmark(argument_values[1], "0", csv_path[0], metadata_path[0], 0) == 2);
+tests/test_reference_benchmark.c:128:    assert(access(csv_path[0], F_OK) != 0 && access(metadata_path[0], F_OK) != 0);
+tests/test_reference_benchmark.c:129:    assert(run_benchmark(argument_values[1], "10", csv_path[0], test_directory, 0) == 1);
+tests/test_reference_benchmark.c:130:    assert(access(csv_path[0], F_OK) != 0);
+tests/test_reference_benchmark.c:131:    assert(unlink(cost_path[0]) == 0);
+tests/test_reference_benchmark.c:133:    assert(run_benchmark(argument_values[1], "100", csv_path[0], metadata_path[0], 1) == 1);
+tests/test_reference_benchmark.c:134:    assert(unlink(csv_path[0]) == 0);
+tests/test_reference_benchmark.c:135:    assert(unlink(metadata_path[0]) == 0);
+tests/test_reference_benchmark.c:136:    assert(unlink(cost_path[0]) == 0);
+tests/test_reference_benchmark.c:137:    assert(rmdir(test_directory) == 0);
+fixtures/mem_lut_leak/main.c:71:    printf("fixture=artificial_mem_lut mode=%s selftest=pass mappings=8192 boundary=pass "
+fixtures/mem_lut_leak/main.c:81:        fputs("ctgrind probe requires execution under Valgrind\n", stderr);
+fixtures/mem_lut_leak/main.c:97:    puts("fixture=artificial_mem_lut ctgrind_probe=completed");
+fixtures/mem_lut_leak/main.c:100:    fputs("ctgrind hook unavailable; configure with -DMEM_LUT_ENABLE_CTGRIND=ON\n", stderr);
+fixtures/mem_lut_leak/main.c:113:    fputs("usage: mem_lut_leak_{on,off} --selftest|--ctgrind-probe\n", stderr);
+fixtures/early_reject_memcmp/binsec_harness.c:15:    exit(is_equal);
+fixtures/early_reject_memcmp/driver.c:34:    puts("artificial_fixture=yes probe=completed timing_samples=not_collected");
+fixtures/early_reject_memcmp/driver.c:47:    fputs("usage: m4_compare_{vulnerable,ct} [--self-test|--probe]\n", stderr);
+fixtures/early_reject_memcmp/self_test.c:83:    puts("artificial_fixture=yes oracle=libc_memcmp equality_and_length_checks=pass");
+scripts/platform_stats/dudect_replay.c:17:    abort();
+scripts/platform_stats/dudect_replay.c:25:    abort();
+scripts/platform_stats/dudect_replay.c:91:    printf("mode=upstream_dudect_offline_csv_replay unit=ns no_rdtsc=1 holm_member=0\n");
+scripts/platform_stats/dudect_replay.c:92:    printf("complete_batches=%zu total_records=%zu warmup_records=%u "
+scripts/platform_stats/dudect_replay.c:101:        printf("battery_dudect_status=%s\n",
+scripts/platform_stats/dudect_replay.c:104:        printf("battery_dudect_status=insufficient_measurements\n");
+scripts/platform_stats/stats_csv.c:146:    int path_length = snprintf(path, sizeof(path), "%s/%s", directory, name);
+scripts/platform_stats/stats_csv.c:159:    fputs("V1,V2\n", normalized);
+scripts/platform_stats/stats_csv.c:162:        fprintf(normalized,
+scripts/platform_stats/stats_csv.c:193:    fprintf(summary,
+scripts/platform_stats/stats_csv.c:210:        fprintf(summary,
+scripts/platform_stats/stats_csv.c:217:        fputs("null,\n  \"welch_degrees_of_freedom\": null,\n"
+scripts/platform_stats/stats_csv.c:221:    fputs("  \"holm\": \"not_applied_requires_preregistered_family\",\n"
+scripts/platform_stats/stats_csv.c:233:        fputs("usage: platform_stats INPUT wide|measure CLASS0 CLASS1 OUTPUT_DIRECTORY\n", stderr);
+scripts/platform_stats/stats_csv.c:238:        perror("input");
+scripts/platform_stats/stats_csv.c:257:        fputs("invalid CSV, mixed run/implementation, unsupported unit, or output failure\n",

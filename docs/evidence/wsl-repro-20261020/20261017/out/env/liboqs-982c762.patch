@@ -1,0 +1,598 @@
+From 982c762c242ef549c914891b47bf6e0ed6321f91 Mon Sep 17 00:00:00 2001
+From: Basil Hess <bhe@zurich.ibm.com>
+Date: Mon, 3 Jun 2024 15:26:57 +0200
+Subject: [PATCH] Pull Kyber/ML-KEM CT-Fix from upstream
+
+Signed-off-by: Basil Hess <bhe@zurich.ibm.com>
+---
+ docs/algorithms/kem/kyber.md                   |  4 ++--
+ docs/algorithms/kem/kyber.yml                  |  2 +-
+ docs/algorithms/kem/ml_kem.md                  |  2 +-
+ docs/algorithms/kem/ml_kem.yml                 |  2 +-
+ .../copy_from_upstream/copy_from_upstream.yml  |  4 ++--
+ .../pqcrystals-kyber_kyber1024_avx2/verify.h   |  3 +++
+ .../pqcrystals-kyber_kyber1024_ref/poly.c      |  6 +++---
+ .../pqcrystals-kyber_kyber1024_ref/verify.c    | 17 +++++++++++++++++
+ .../pqcrystals-kyber_kyber1024_ref/verify.h    |  3 +++
+ .../pqcrystals-kyber_kyber512_avx2/verify.h    |  3 +++
+ .../kyber/pqcrystals-kyber_kyber512_ref/poly.c |  6 +++---
+ .../pqcrystals-kyber_kyber512_ref/verify.c     | 17 +++++++++++++++++
+ .../pqcrystals-kyber_kyber512_ref/verify.h     |  3 +++
+ .../pqcrystals-kyber_kyber768_avx2/verify.h    |  3 +++
+ .../kyber/pqcrystals-kyber_kyber768_ref/poly.c |  6 +++---
+ .../pqcrystals-kyber_kyber768_ref/verify.c     | 17 +++++++++++++++++
+ .../pqcrystals-kyber_kyber768_ref/verify.h     |  3 +++
+ .../verify.h                                   |  3 +++
+ .../poly.c                                     |  6 +++---
+ .../verify.c                                   | 18 ++++++++++++++++++
+ .../verify.h                                   |  3 +++
+ .../verify.h                                   |  3 +++
+ .../poly.c                                     |  6 +++---
+ .../verify.c                                   | 18 ++++++++++++++++++
+ .../verify.h                                   |  3 +++
+ .../verify.h                                   |  3 +++
+ .../poly.c                                     |  6 +++---
+ .../verify.c                                   | 18 ++++++++++++++++++
+ .../verify.h                                   |  3 +++
+ 29 files changed, 166 insertions(+), 25 deletions(-)
+
+diff --git a/docs/algorithms/kem/kyber.md b/docs/algorithms/kem/kyber.md
+index a75c144a2d..0ae1cf3109 100644
+--- a/docs/algorithms/kem/kyber.md
++++ b/docs/algorithms/kem/kyber.md
+@@ -7,9 +7,9 @@
+ - **Authors' website**: https://pq-crystals.org/
+ - **Specification version**: NIST Round 3 submission.
+ - **Primary Source**<a name="primary-source"></a>:
+-  - **Source**: https://github.com/pq-crystals/kyber/commit/b628ba78711bc28327dc7d2d5c074a00f061884e with copy_from_upstream patches
++  - **Source**: https://github.com/pq-crystals/kyber/commit/441c0519a07e8b86c8d079954a6b10bd31d29efc with copy_from_upstream patches
+   - **Implementation license (SPDX-Identifier)**: CC0-1.0 or Apache-2.0
+-- **Optimized Implementation sources**: https://github.com/pq-crystals/kyber/commit/b628ba78711bc28327dc7d2d5c074a00f061884e with copy_from_upstream patches
++- **Optimized Implementation sources**: https://github.com/pq-crystals/kyber/commit/441c0519a07e8b86c8d079954a6b10bd31d29efc with copy_from_upstream patches
+   - **oldpqclean-aarch64**:<a name="oldpqclean-aarch64"></a>
+       - **Source**: https://github.com/PQClean/PQClean/commit/8e220a87308154d48fdfac40abbb191ac7fce06a with copy_from_upstream patches
+       - **Implementation license (SPDX-Identifier)**: CC0-1.0 and (CC0-1.0 or Apache-2.0) and (CC0-1.0 or MIT) and MIT
+diff --git a/docs/algorithms/kem/kyber.yml b/docs/algorithms/kem/kyber.yml
+index cde870c10b..c3561273a0 100644
+--- a/docs/algorithms/kem/kyber.yml
++++ b/docs/algorithms/kem/kyber.yml
+@@ -17,7 +17,7 @@ website: https://pq-crystals.org/
+ nist-round: 3
+ spec-version: NIST Round 3 submission
+ primary-upstream:
+-  source: https://github.com/pq-crystals/kyber/commit/b628ba78711bc28327dc7d2d5c074a00f061884e
++  source: https://github.com/pq-crystals/kyber/commit/441c0519a07e8b86c8d079954a6b10bd31d29efc
+     with copy_from_upstream patches
+   spdx-license-identifier: CC0-1.0 or Apache-2.0
+ optimized-upstreams:
+diff --git a/docs/algorithms/kem/ml_kem.md b/docs/algorithms/kem/ml_kem.md
+index 92d1a5b4bd..7d5e0561ab 100644
+--- a/docs/algorithms/kem/ml_kem.md
++++ b/docs/algorithms/kem/ml_kem.md
+@@ -7,7 +7,7 @@
+ - **Authors' website**: https://pq-crystals.org/kyber/ and https://csrc.nist.gov/pubs/fips/203/ipd
+ - **Specification version**: ML-KEM-ipd.
+ - **Primary Source**<a name="primary-source"></a>:
+-  - **Source**: https://github.com/pq-crystals/kyber/commit/11d00ff1f20cfca1f72d819e5a45165c1e0a2816 with copy_from_upstream patches
++  - **Source**: https://github.com/pq-crystals/kyber/commit/d1321ce5ac0b53f583eb47a040dc3625ee8e7e37 with copy_from_upstream patches
+   - **Implementation license (SPDX-Identifier)**: CC0-1.0 or Apache-2.0
+ 
+ 
+diff --git a/docs/algorithms/kem/ml_kem.yml b/docs/algorithms/kem/ml_kem.yml
+index 38b0a3ef24..58d2ce19b1 100644
+--- a/docs/algorithms/kem/ml_kem.yml
++++ b/docs/algorithms/kem/ml_kem.yml
+@@ -17,7 +17,7 @@ website: https://pq-crystals.org/kyber/ and https://csrc.nist.gov/pubs/fips/203/
+ nist-round: ipd
+ spec-version: ML-KEM-ipd
+ primary-upstream:
+-  source: https://github.com/pq-crystals/kyber/commit/11d00ff1f20cfca1f72d819e5a45165c1e0a2816
++  source: https://github.com/pq-crystals/kyber/commit/d1321ce5ac0b53f583eb47a040dc3625ee8e7e37
+     with copy_from_upstream patches
+   spdx-license-identifier: CC0-1.0 or Apache-2.0
+ parameter-sets:
+diff --git a/scripts/copy_from_upstream/copy_from_upstream.yml b/scripts/copy_from_upstream/copy_from_upstream.yml
+index d8a9a4d121..3417180c7c 100644
+--- a/scripts/copy_from_upstream/copy_from_upstream.yml
++++ b/scripts/copy_from_upstream/copy_from_upstream.yml
+@@ -25,7 +25,7 @@ upstreams:
+     name: pqcrystals-kyber
+     git_url: https://github.com/pq-crystals/kyber.git
+     git_branch: master
+-    git_commit: b628ba78711bc28327dc7d2d5c074a00f061884e
++    git_commit: 441c0519a07e8b86c8d079954a6b10bd31d29efc
+     kem_meta_path: '{pretty_name_full}_META.yml'
+     kem_scheme_path: '.'
+     patches: [pqcrystals-kyber-yml.patch, pqcrystals-kyber-ref-shake-aes.patch, pqcrystals-kyber-avx2-shake-aes.patch]
+@@ -33,7 +33,7 @@ upstreams:
+     name: pqcrystals-kyber-standard
+     git_url: https://github.com/pq-crystals/kyber.git
+     git_branch: standard
+-    git_commit: 11d00ff1f20cfca1f72d819e5a45165c1e0a2816
++    git_commit: d1321ce5ac0b53f583eb47a040dc3625ee8e7e37
+     kem_meta_path: '{pretty_name_full}_META.yml'
+     kem_scheme_path: '.'
+     patches: [pqcrystals-ml_kem_ipd.patch]
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber1024_avx2/verify.h b/src/kem/kyber/pqcrystals-kyber_kyber1024_avx2/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber1024_avx2/verify.h
++++ b/src/kem/kyber/pqcrystals-kyber_kyber1024_avx2/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/poly.c b/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/poly.c
+index 3e73579e68..9d3b1358fe 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/poly.c
++++ b/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/poly.c
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -166,7 +167,6 @@ void poly_frombytes(poly *r, const uint8_t a[KYBER_POLYBYTES])
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -174,8 +174,8 @@ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.c b/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.c
+index 1c43071ca0..4bcb1e5f11 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.c
++++ b/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.c
+@@ -55,3 +55,20 @@ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b)
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
++{
++  b = -b;
++  *r ^= b & ((*r) ^ v);
++}
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.h b/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.h
++++ b/src/kem/kyber/pqcrystals-kyber_kyber1024_ref/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber512_avx2/verify.h b/src/kem/kyber/pqcrystals-kyber_kyber512_avx2/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber512_avx2/verify.h
++++ b/src/kem/kyber/pqcrystals-kyber_kyber512_avx2/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber512_ref/poly.c b/src/kem/kyber/pqcrystals-kyber_kyber512_ref/poly.c
+index 3e73579e68..9d3b1358fe 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber512_ref/poly.c
++++ b/src/kem/kyber/pqcrystals-kyber_kyber512_ref/poly.c
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -166,7 +167,6 @@ void poly_frombytes(poly *r, const uint8_t a[KYBER_POLYBYTES])
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -174,8 +174,8 @@ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.c b/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.c
+index 1c43071ca0..4bcb1e5f11 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.c
++++ b/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.c
+@@ -55,3 +55,20 @@ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b)
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
++{
++  b = -b;
++  *r ^= b & ((*r) ^ v);
++}
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.h b/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.h
++++ b/src/kem/kyber/pqcrystals-kyber_kyber512_ref/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber768_avx2/verify.h b/src/kem/kyber/pqcrystals-kyber_kyber768_avx2/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber768_avx2/verify.h
++++ b/src/kem/kyber/pqcrystals-kyber_kyber768_avx2/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber768_ref/poly.c b/src/kem/kyber/pqcrystals-kyber_kyber768_ref/poly.c
+index 3e73579e68..9d3b1358fe 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber768_ref/poly.c
++++ b/src/kem/kyber/pqcrystals-kyber_kyber768_ref/poly.c
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -166,7 +167,6 @@ void poly_frombytes(poly *r, const uint8_t a[KYBER_POLYBYTES])
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -174,8 +174,8 @@ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.c b/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.c
+index 1c43071ca0..4bcb1e5f11 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.c
++++ b/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.c
+@@ -55,3 +55,20 @@ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b)
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
++{
++  b = -b;
++  *r ^= b & ((*r) ^ v);
++}
+diff --git a/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.h b/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.h
++++ b/src/kem/kyber/pqcrystals-kyber_kyber768_ref/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_avx2/verify.h b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_avx2/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_avx2/verify.h
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_avx2/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/poly.c b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/poly.c
+index 0fe5a20f63..7bf7ad536f 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/poly.c
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/poly.c
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -167,7 +168,6 @@ void poly_frombytes(poly *r, const uint8_t a[KYBER_POLYBYTES])
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -175,8 +175,8 @@ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.c b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.c
+index ed4a6541f8..aad03b0297 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.c
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.c
+@@ -45,3 +45,21 @@ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b)
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
++{
++  b = -b;
++  *r ^= b & ((*r) ^ v);
++}
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.h b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.h
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-1024-ipd_ref/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_avx2/verify.h b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_avx2/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_avx2/verify.h
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_avx2/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/poly.c b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/poly.c
+index 0fe5a20f63..7bf7ad536f 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/poly.c
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/poly.c
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -167,7 +168,6 @@ void poly_frombytes(poly *r, const uint8_t a[KYBER_POLYBYTES])
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -175,8 +175,8 @@ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.c b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.c
+index ed4a6541f8..aad03b0297 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.c
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.c
+@@ -45,3 +45,21 @@ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b)
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
++{
++  b = -b;
++  *r ^= b & ((*r) ^ v);
++}
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.h b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.h
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-512-ipd_ref/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_avx2/verify.h b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_avx2/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_avx2/verify.h
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_avx2/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+index 0fe5a20f63..7bf7ad536f 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/poly.c
+@@ -5,6 +5,7 @@
+ #include "reduce.h"
+ #include "cbd.h"
+ #include "symmetric.h"
++#include "verify.h"
+ 
+ /*************************************************
+ * Name:        poly_compress
+@@ -167,7 +168,6 @@ void poly_frombytes(poly *r, const uint8_t a[KYBER_POLYBYTES])
+ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ {
+   unsigned int i,j;
+-  int16_t mask;
+ 
+ #if (KYBER_INDCPA_MSGBYTES != KYBER_N/8)
+ #error "KYBER_INDCPA_MSGBYTES must be equal to KYBER_N/8 bytes!"
+@@ -175,8 +175,8 @@ void poly_frommsg(poly *r, const uint8_t msg[KYBER_INDCPA_MSGBYTES])
+ 
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+-      mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = 0;
++      cmov_int16(r->coeffs+8*i+j, ((KYBER_Q+1)/2), (msg[i] >> j)&1);
+     }
+   }
+ }
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+index ed4a6541f8..aad03b0297 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.c
+@@ -45,3 +45,21 @@ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b)
+   for(i=0;i<len;i++)
+     r[i] ^= b & (r[i] ^ x[i]);
+ }
++
++
++/*************************************************
++* Name:        cmov_int16
++*
++* Description: Copy input v to *r if b is 1, don't modify *r if b is 0. 
++*              Requires b to be in {0,1};
++*              Runs in constant time.
++*
++* Arguments:   int16_t *r:       pointer to output int16_t
++*              int16_t v:        input int16_t 
++*              uint8_t b:        Condition bit; has to be in {0,1}
++**************************************************/
++void cmov_int16(int16_t *r, int16_t v, uint16_t b)
++{
++  b = -b;
++  *r ^= b & ((*r) ^ v);
++}
+diff --git a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.h b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.h
+index f95ac1b84e..09f0ad5046 100644
+--- a/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.h
++++ b/src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref/verify.h
+@@ -11,4 +11,7 @@ int verify(const uint8_t *a, const uint8_t *b, size_t len);
+ #define cmov KYBER_NAMESPACE(cmov)
+ void cmov(uint8_t *r, const uint8_t *x, size_t len, uint8_t b);
+ 
++#define cmov_int16 KYBER_NAMESPACE(cmov_int16)
++void cmov_int16(int16_t *r, int16_t v, uint16_t b);
++
+ #endif

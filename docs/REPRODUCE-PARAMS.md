@@ -33,6 +33,7 @@
 | Microwalk（定位层） | 源码自建的 Microwalk 3.x master + 自建 Pin 3.28；官方镜像未拉取 | [m3-completion-20261016/LOCATE_RESULT.md](evidence/m3-completion-20261016/LOCATE_RESULT.md)（§2.6、§2.7） |
 | Mona（族外统计对照） | `mona-timing-report@4c74fb7e629b4d057b2d5d4accdb120d920774b7`，离线回放，`holm_member=false` | [mona-wire-20261016/RESULT.md](evidence/mona-wire-20261016/RESULT.md) |
 | 一键复现入口 | `scripts/reproduce_all.sh quick` / `full` | [scripts/reproduce_all.sh](../scripts/reproduce_all.sh) |
+| 一键取件入口 | `sh tools/fetch_all_vendors.sh`（取齐 M1/M2 的四棵 vendor 树并逐项校验 SHA-256） | [tools/fetch_all_vendors.sh](../tools/fetch_all_vendors.sh)、[docs/patches/liboqs-982c762.patch](../docs/patches/liboqs-982c762.patch) |
 
 ## 1. M1：liboqs 0.10.0 历史 CVE（真实历史阳性）
 
@@ -98,7 +99,8 @@
 
 | 档 | 参数 | 默认 | 说明 |
 |---|---|---|---|
-| quick | `--configs` | `platform,ordinary,sanitize` | 三个配置全跑；也可只跑其中一个。platform 用 `-DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF`，sanitize 用 `-DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug` |
+| quick | `--configs` | `platform,ordinary,sanitize,historical-fixed` | 四个配置全跑；也可只跑其中一个。platform 用 `-DBASELINE_ENABLE_PLATFORM=ON -DA113_ARCHIVED_CASE_ONLY=OFF`（vendor 齐备时再加 `-DBASELINE_ENABLE_LIBOQS010=ON`，把 M1 历史阳性对照编进来），historical-fixed 用 `-DBASELINE_ENABLE_LIBOQS010=ON -DLIBOQS010_SOURCE_DIR=vendor/liboqs-0.10.0-982c762`（单独构建目录，换源树必须换目录），sanitize 用 `-DBASELINE_SANITIZERS=ON -DCMAKE_BUILD_TYPE=Debug` |
+| quick | `--fetch` | 关 | 开工前调用 `tools/fetch_all_vendors.sh` 取齐 M1/M2 的 vendor 树并校验 SHA-256 |
 | quick | `--samples` | `1000` | 每类样本数，范围 1..20000（与 `measure` 的 CLI 上限一致） |
 | quick | `--runs` | `3` | 统计演练的重复运行数；种子沿用冻结 PLAN 的 `31337 / 424242 / 31337` |
 | quick | `--jobs` | CPU 数，最多 8 | 只影响 `cmake --build --parallel` |
@@ -116,6 +118,53 @@ quick 档不写任何 sysfs 节点、不调用 sudo、不绑核；核与频率�
 
 ## 7. 干净 clone 复现记录
 
+### 7.1 取件（2026-10-20 新增）
+
+干净 clone 缺 `vendor/liboqs-0.10.0/`、`vendor/liboqs-0.10.0-982c762/`、
+`vendor/kyber-kyberslash-*/`（都在 `.gitignore` 内）。取件入口是一条命令：
+
+```sh
+sh tools/fetch_all_vendors.sh
+```
+
+它依次做四件事，并把结果钉死在脚本里：
+
+| 步骤 | 产物 | 上游标识 | 校验 |
+|---|---|---|---|
+| 1 | `vendor/liboqs-0.10.0/` | liboqs tag `0.10.0`，commit `36be5744` | tar SHA-256 `2b7b4436…e40a9`（[tools/fetch_liboqs_0.10.0.sh](../tools/fetch_liboqs_0.10.0.sh) 内校验）+ 树摘要 `d3322945…c776cdd` |
+| 2 | `vendor/liboqs-0.10.0-982c762/` | 同一棵树 + 官方补丁 `982c762` | 补丁 SHA-256 `d1879ac6…e6376`（[docs/patches/liboqs-982c762.patch](../docs/patches/liboqs-982c762.patch)，与上游 `.patch` 逐字节相同）+ 树摘要 `e27e55e5…093f14` + 三处补丁效果标记（`poly.c` 掩码选择、`verify.c` 常量时间实现、`verify.h` 声明） |
+| 3 | `vendor/kyber-kyberslash-unfixed/` | pq-crystals/kyber `a621b8d` | `git archive` tar SHA-256 `509548a1…cac08`（封存的 [version-audit/fetch_vendor.sh](evidence/m2-kyberslash-20261016/version-audit/fetch_vendor.sh) 内校验）+ 树摘要 `1898b727…397f` |
+| 4 | `vendor/kyber-kyberslash-fixed/` | pq-crystals/kyber `272125f` | `git archive` tar SHA-256 `e3d020a7…0803` + 树摘要 `8503134f…9976` |
+
+「树摘要」的口径：树内每个普通文件与符号链接各算一次 SHA-256，按相对路径（`./` 开头、
+`LC_ALL=C` 排序）列出后再整体算一次 SHA-256。它既能验证已存在的树，也能在取件后立刻
+复核落地结果；摘要不符时脚本**拒绝覆盖**既有树并报错退出。
+
+### 7.2 两条命令跑通含 M1/M2 的全套测试
+
+```sh
+sh tools/fetch_all_vendors.sh          # 第 1 条：取件并校验
+sh scripts/reproduce_all.sh quick      # 第 2 条：配置 + 构建 + CTest + 小样本统计演练
+```
+
+`quick` 档在开工前做 vendor 树预检：四棵树齐备就把 M1 的 liboqs 0.10.0 历史阳性对照
+（未修臂）与 M2 的 KyberSlash 两臂一并编进来并纳入统计演练；缺件则打印取件命令并按
+「缺件即跳过并打印原因」处理，不伪造结果。`--fetch` 可把两条命令合成一条
+（`sh scripts/reproduce_all.sh quick --fetch`）。
+
+**本机实测（2026-10-20，macOS/ARM，Apple clang，非 x86_64 Linux）**：
+`sh scripts/reproduce_all.sh quick --samples 200 --runs 1`，退出码 0，
+CTest 为 platform 88/88、ordinary 57/57、sanitize 57/57、historical-fixed 61/61，
+合计 263 项通过、0 失败；统计演练的 M1/M2/M3/M4/M5 五个家族各跑通一次。
+**另做一次真干净 clone 验证**：`git clone` 后 `vendor/` 只有 PIN 文件与 mlkem-native，
+先跑 `sh tools/fetch_all_vendors.sh`（退出码 0），再跑 `sh scripts/reproduce_all.sh quick`
+（退出码 0，CTest 同为 88/88、57/57、57/57、61/61），带演练的一轮里
+**M1 未修/已修与 M2 未修/已修四个臂都被采集并进入 Holm 演练**。
+**这组数字是流程演练**（不锁频、不绑核、每类 200 样本、每臂 1 次运行、跑在 macOS/ARM），
+不是任何模块的正式统计结论，也不冒充 x86_64 Linux 实测。
+
+### 7.3 无 vendor 的干净 clone（2026-10-16 记录，保留）
+
 在 `/tmp` 下的干净 clone（`git clone` 自本仓库，HEAD 见日志）里跑
 `sh scripts/reproduce_all.sh quick --samples 1000 --runs 3`：
 
@@ -123,3 +172,5 @@ quick 档不写任何 sysfs 节点、不调用 sudo、不绑核；核与频率�
   [r12-innovation-20261016/REPRODUCE-QUICK-LOG.md](evidence/r12-innovation-20261016/REPRODUCE-QUICK-LOG.md)。
 - 干净 clone 里缺 `vendor/liboqs-0.10.0/`、`vendor/kyber-kyberslash-*/`、`third_party/`，
   因此 M2 臂不参与演练（脚本打印跳过原因），M1 历史阳性对照不在 quick 档内。
+- 2026-10-20 起上述缺件不再需要手工分步处理：`tools/fetch_all_vendors.sh` 一条命令取齐，
+  `--fetch` 可在复现脚本里一并完成；本节保留为「未取件时的行为」记录。

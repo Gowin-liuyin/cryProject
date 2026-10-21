@@ -1,0 +1,6 @@
+scenario=direct attempt=1 measure_exit=0 controller_exit=0
+scenario=loopback attempt=1 delay=none jitter=none client_exit=0 controller_exit=0
+scenario=low attempt=1 delay=100us jitter=20us client_exit=0 controller_exit=0
+scenario=mid attempt=1 delay=1ms jitter=200us client_exit=1 controller_exit=1
+scenario=mid attempt=2 delay=1ms jitter=200us client_exit=0 controller_exit=0
+scenario=high attempt=1 delay=10ms jitter=2ms client_exit=0 controller_exit=0

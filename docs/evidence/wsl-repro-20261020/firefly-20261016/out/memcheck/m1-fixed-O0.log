@@ -1,0 +1,16 @@
+==53467== Memcheck, a memory error detector
+==53467== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==53467== Using Valgrind-3.26.0 and LibVEX; rerun with -h for copyright info
+==53467== Command: /home/firefly/cry-wsl/build/poison-m1-fixed-O0
+==53467== 
+class=message-zero status=0
+class=message-ones status=0
+==53467== 
+==53467== HEAP SUMMARY:
+==53467==     in use at exit: 0 bytes in 0 blocks
+==53467==   total heap usage: 63 allocs, 63 frees, 17,984 bytes allocated
+==53467== 
+==53467== All heap blocks were freed -- no leaks are possible
+==53467== 
+==53467== For lists of detected and suppressed errors, rerun with: -s
+==53467== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

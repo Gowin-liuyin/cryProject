@@ -1,0 +1,10 @@
+[  0%] Built target build_identity
+[ 50%] Building C object CMakeFiles/mlkem_reference.dir/src/kernel.c.o
+[ 50%] Building C object CMakeFiles/mlkem_reference.dir/src/mlkem.c.o
+[ 50%] Building C object CMakeFiles/mlkem_reference.dir/src/random.c.o
+[ 75%] Building C object CMakeFiles/mlkem_reference.dir/src/inputs.c.o
+[ 75%] Linking C static library reference/libmlkem.a
+[ 75%] Built target mlkem_reference
+[100%] Building C object CMakeFiles/reference_measure.dir/src/measure.c.o
+[100%] Linking C executable reference/measure
+[100%] Built target reference_measure

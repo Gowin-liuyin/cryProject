@@ -1,0 +1,35 @@
+["CT report"."Insecurity models".0x8049047.public]
+ebx = ["0x1a1a87fa"]
+esi = ["0x0d2edbc1"]
+m4_public_input = ["0x00000000000000000000000000000000"]
+m4_public_length = ["0x00000010"]
+["CT report"."Insecurity models".0x8049047.secret1]
+m4_secret_input = ["0x000000000000000000000000000000ff"]
+["CT report"."Insecurity models".0x8049047.secret2]
+m4_secret_input = ["0x00000000000000000000000000000000"]
+["CT report"."Instructions status"]
+insecure = ["0x8049047"]
+unknown = []
+[Exploration]
+instructions = 335
+max_depth = 134
+time = 0.224164009094
+unique_insts = 32
+[Exploration.paths]
+pending = 0
+total = 32
+[Exploration.paths.completed]
+assertion_failure = 0
+cut = 0
+halt = 32
+unsatisfiable_assumption = 0
+[Exploration.paths.discontinued]
+enumeration_limit = 0
+error = 0
+max_depth = 0
+non_executable_code = 0
+unresolved_formula = 0
+[Exploration.topology]
+assertions = 0
+branches = 33
+jumps = 32

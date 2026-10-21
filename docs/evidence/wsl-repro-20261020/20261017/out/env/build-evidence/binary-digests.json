@@ -1,0 +1,428 @@
+[
+  {
+    "path": "build/hdudect-fixed",
+    "bytes": 325456,
+    "sha256": "d87bfb176ad68cb9cf67c379c5a7b8348d4c58b5374f1f2aa445a9d78c737794",
+    "sha3_256": "f417212099f336c39f190cb51fae637ea26e71f8a5623ba49d9b74e430af46c8"
+  },
+  {
+    "path": "build/hdudect-unfixed",
+    "bytes": 324832,
+    "sha256": "da308a2d3143edc7e140d8db28bde2eb2aebb269b600cdd679f5a9a86aeff2d7",
+    "sha3_256": "0991ac572642f1f6e4fe2b6b03422f0461845c7ad38e25d85bc0eeda08c7b112"
+  },
+  {
+    "path": "build/m1-fixed-O0/deployable/measure",
+    "bytes": 253088,
+    "sha256": "04a3f17d09a2ea5f1d374515d020e547b0ec77c57eff382ef0efece292d530db",
+    "sha3_256": "8a99530c03cb5335d78c3488a28d7846c5747597880af2a7e08e6bdf770aea31"
+  },
+  {
+    "path": "build/m1-fixed-O0/hardened/measure",
+    "bytes": 252504,
+    "sha256": "678d5f2a9e5790ef29ef87c539d0e76b357a8e278ae405803b3ed348c12d6443",
+    "sha3_256": "915b513a9ee5cedbe1c62475e18547bff376acc652e31858d838c452a63d4b57"
+  },
+  {
+    "path": "build/m1-fixed-O0/historical/measure",
+    "bytes": 401136,
+    "sha256": "9c5cf200d56d3874f208b767b9299aad853d30b78c2175ded6d57943ed3c2880",
+    "sha3_256": "6cbf9a7073fedd933e63ced24845183943e9892ac54a994a3d6a7713b3c1efbb"
+  },
+  {
+    "path": "build/m1-fixed-O0/reference/measure",
+    "bytes": 254104,
+    "sha256": "75087c22b10d0375c5d4a0365d2f93fdd0a5343819941f76c13de7a207b2bb01",
+    "sha3_256": "761f291d3686e082b732fe8834c49224a58c7c1179fbd4ab36491c0a9de1e1fe"
+  },
+  {
+    "path": "build/m1-fixed-O0/vulnerable/measure",
+    "bytes": 252440,
+    "sha256": "0d6a6adaa1c76ebcc8ce533b9e5917734bd896a1ba5b33e65c590f4e45359cd2",
+    "sha3_256": "8e0480790c90af5b24a54d8ef98e2e16fa8e940d440aab1f90b9ebe1c167db40"
+  },
+  {
+    "path": "build/m1-fixed-O2/deployable/measure",
+    "bytes": 253088,
+    "sha256": "8aa365f32bc215e523c696b15e0bd04aa15c700df1d7318808c770298f4f5da2",
+    "sha3_256": "faf68f269bca5880f2dad6e18f2e26bf0a2af5f77525d58c06ee3556b8cc302a"
+  },
+  {
+    "path": "build/m1-fixed-O2/hardened/measure",
+    "bytes": 252504,
+    "sha256": "2551a9aabae02f94399285236ee5adf94bb43e7d896f9183d317c3a34394c7c9",
+    "sha3_256": "ccbde1cfdfec104c0fd2354363e43e7d4420d0a773b747391348e6af04dd9800"
+  },
+  {
+    "path": "build/m1-fixed-O2/historical/measure",
+    "bytes": 379544,
+    "sha256": "133dc9a6f272e27e1fb386951de887f33e3dcbdbf3c8e7e59bd71d35e7ebbb44",
+    "sha3_256": "62231afe5ff32171513d96bebe37fe4bf8e6d37c7a68d878a0d513584b086161"
+  },
+  {
+    "path": "build/m1-fixed-O2/reference/measure",
+    "bytes": 254104,
+    "sha256": "d68abe83d805beb9fbb05a39da43363286a28082c059959b4108cb7e1ebc188e",
+    "sha3_256": "7b1ca1816e7be9dcc0c95d21e9c37216d8e1788e2054bcffe15429e7c2c8af35"
+  },
+  {
+    "path": "build/m1-fixed-O2/vulnerable/measure",
+    "bytes": 252440,
+    "sha256": "d3a32c3adb0b02432d15b518431af16f0f208c9a14b74fe2c722e89722e013da",
+    "sha3_256": "90970c5a1085636761a7197132060658132b8b83253d01f663cb3a0e48694748"
+  },
+  {
+    "path": "build/m1-fixed-O3/deployable/measure",
+    "bytes": 253088,
+    "sha256": "d50dab988af87465abee04a3b55559f871010afc14a4e264ea8d82784b0c0441",
+    "sha3_256": "f347e758393958ae27991e4c4ef2919e435a71f88f18fecdefeb072c03132417"
+  },
+  {
+    "path": "build/m1-fixed-O3/hardened/measure",
+    "bytes": 252504,
+    "sha256": "952740ad399d8e86face0d680b9b024cbaf1b0851818fcbb4fe99f507f01aa1e",
+    "sha3_256": "5b173cd49f58928297975575664f141634f3fa8295c88bfff7150715c754256a"
+  },
+  {
+    "path": "build/m1-fixed-O3/historical/measure",
+    "bytes": 391648,
+    "sha256": "540775f80e035f657d235b68fab533860faa787c5eb3c462ac883747bf840fa4",
+    "sha3_256": "ec32b3cfc4d52812427281492b5687f15dbb256c4211a0ebbfbe771fd104e375"
+  },
+  {
+    "path": "build/m1-fixed-O3/reference/measure",
+    "bytes": 254104,
+    "sha256": "5139619b1a436032fe3653be6788351b2a95a4da11762bd77ef6c9674467f302",
+    "sha3_256": "0f61e92fc39d01238ffd407240b0acbeb1a9b544b7a8ecd32ab5e4e85d3b8377"
+  },
+  {
+    "path": "build/m1-fixed-O3/vulnerable/measure",
+    "bytes": 252440,
+    "sha256": "5e8d887c4b0646fc8dc3290449997590cba7f5c9592d33549a6611ea19d11c11",
+    "sha3_256": "80c2d686a0e82ce79c7d0d1949db562eb6e41e38dd1789e496d863fbf315e369"
+  },
+  {
+    "path": "build/m1-fixed-Os/deployable/measure",
+    "bytes": 253088,
+    "sha256": "5cdf7ca23bfdadccfcb56f8006174b52ebb0429dbf6562b4f6d5889ea30cd6b2",
+    "sha3_256": "b2756832c754c6c567480bb69864fa9094010fa32c07920ee6b5f747dfc1f36d"
+  },
+  {
+    "path": "build/m1-fixed-Os/hardened/measure",
+    "bytes": 252504,
+    "sha256": "cbfb11788bf3d4defe3e8181644bbc55772a622f5abca82bcda567505360aedf",
+    "sha3_256": "956731c0b2d9baaef15e483b62a7c7a49a7b37bba93cdf2394147298ecaa7851"
+  },
+  {
+    "path": "build/m1-fixed-Os/historical/measure",
+    "bytes": 367944,
+    "sha256": "e5ca7b8459d773d018a9aa7209bd9b2b2131aad0695d2e45639a2bd1f069b408",
+    "sha3_256": "2732c69ec820f22c0d75171776df98b01f83e8480b612824178816635fdf595e"
+  },
+  {
+    "path": "build/m1-fixed-Os/reference/measure",
+    "bytes": 254104,
+    "sha256": "b1d7c49e7ef99b201d2e90502f8afdf2f3ed6ed406f3a4db75925ffe337648fc",
+    "sha3_256": "98693a7712a9c1790db1d255c750c5c29f16e0d6ae5dd02a5d23f32f99717b4e"
+  },
+  {
+    "path": "build/m1-fixed-Os/vulnerable/measure",
+    "bytes": 252440,
+    "sha256": "f4d2d9f32ddde1b8032ec7e030873d16e477ae1590a700b26a5561700153b2af",
+    "sha3_256": "fb057dc7bfa6a0ffbcd08d03fede51c3a49bebdc8b63effc2037e8ed32ce5d85"
+  },
+  {
+    "path": "build/m1-unfixed-O0/deployable/measure",
+    "bytes": 253104,
+    "sha256": "3cc854369a07624eee4ee1685e2a265371560aabda4960b8bf6546ee68fdf960",
+    "sha3_256": "959d4660589a7a6fcdb9ce86e25133ca65a095d6c0b3c59b7c33a189bfe14668"
+  },
+  {
+    "path": "build/m1-unfixed-O0/hardened/measure",
+    "bytes": 252528,
+    "sha256": "bc7be0eb0f24959f52044f2031ff581bd8d5d034c60a5ff529b8d3ab9e3e452d",
+    "sha3_256": "51f2df6753f5b081684168390000ccb036ffd4ca839b45963354a33a647789c8"
+  },
+  {
+    "path": "build/m1-unfixed-O0/historical/measure",
+    "bytes": 400608,
+    "sha256": "9eb8a510c97b6b43629828b643e7cb11d6fa7d4930ef865b85bd72fbdfc0b377",
+    "sha3_256": "6f6d7676a999b96a9e6be2db55af58c6b680ced46d3f3e7578e00f16ebeb8e90"
+  },
+  {
+    "path": "build/m1-unfixed-O0/reference/measure",
+    "bytes": 254120,
+    "sha256": "a1d313f7135d5582dc1567807f952a2c3cce60d7fff9aa9f33b0d7da5e3820ea",
+    "sha3_256": "bf333428e1c0fed38a574993f86252fe1e524e6e46760b838b0d3996171d3143"
+  },
+  {
+    "path": "build/m1-unfixed-O0/vulnerable/measure",
+    "bytes": 252456,
+    "sha256": "8ab2055e15edb3f80f0eb895dc16382aed1e3edb2500968f8b770d2a640488cf",
+    "sha3_256": "7020f4b50b78d7b3b1c989b8bd378b913fd39776129ef94491065f86b25671d4"
+  },
+  {
+    "path": "build/m1-unfixed-O2/deployable/measure",
+    "bytes": 253104,
+    "sha256": "ad623b29430b0167da185dca62d8cd69bf000d26675aef15819898c030e8e1a4",
+    "sha3_256": "059df12940729065d3e85ed9f252b77a994b0871c70b8589b617a6d67139c15d"
+  },
+  {
+    "path": "build/m1-unfixed-O2/hardened/measure",
+    "bytes": 252528,
+    "sha256": "d0542211464d2969e9a1f2b3197030ee9430c3990b295c16197f7ed05f282dc5",
+    "sha3_256": "daab64b3e8c529dea54ea3ac9e27536c38a24e1dd6e4183311a4ee0f88323a1b"
+  },
+  {
+    "path": "build/m1-unfixed-O2/historical/measure",
+    "bytes": 378784,
+    "sha256": "4fececc5f332b631d5b7cfb4a4390118b02d2ae4cdd3d922a34da3cbe163018a",
+    "sha3_256": "f229ebf6c1709e4923b3d84d46256660be04e92615fb73746d78b2c6fb2526bf"
+  },
+  {
+    "path": "build/m1-unfixed-O2/reference/measure",
+    "bytes": 254120,
+    "sha256": "0bbd7d84544d318470a236f4adea9c33bbdb65cfda45691822896f2766dd7fe1",
+    "sha3_256": "1181dad6c06cdddb5bcf27e480b50341b0faffb4896492a5dd6e18d41f84ae30"
+  },
+  {
+    "path": "build/m1-unfixed-O2/vulnerable/measure",
+    "bytes": 252456,
+    "sha256": "03602fc5c5f98eed3cf61db3d3ee8fd16fba48c2cbcfa2cf407a102209b3ec83",
+    "sha3_256": "6e1fd0ea9bbb27ea900af8476e10fe862c3f67b5e1887ba435a106e5f604d4da"
+  },
+  {
+    "path": "build/m1-unfixed-O3/deployable/measure",
+    "bytes": 253104,
+    "sha256": "83973ef0fe2abb6ea33f5e5f333c76dc3f4960382a3fb7293dce09dfae52adfb",
+    "sha3_256": "4394a59e658b52b25d97e25d8048ea7dadbfd0f7bc02f3d44ce3008d6bfd3339"
+  },
+  {
+    "path": "build/m1-unfixed-O3/hardened/measure",
+    "bytes": 252528,
+    "sha256": "09aa14fa19cc7f632bad58330b710f80a841ede0648e2a1cb612538438f3d4f1",
+    "sha3_256": "835288fb3ab7574049a3280b0b260b715ad8290a832725e99621fe730accc528"
+  },
+  {
+    "path": "build/m1-unfixed-O3/historical/measure",
+    "bytes": 391008,
+    "sha256": "53b539b799535a1402b1d9b420a1bd24d903a4f244c1986c86c556300da45e57",
+    "sha3_256": "ae820d971a4e08b4293b6175785b8adeb53db33e26e2779ef777d311e77dc533"
+  },
+  {
+    "path": "build/m1-unfixed-O3/reference/measure",
+    "bytes": 254120,
+    "sha256": "e5369ff8e3d0a0aa06c9eda827e8dae37b9e996c98e3ed6218c38b8966f8965c",
+    "sha3_256": "b7a1f53ab68b9aeb9474f0ad2631dc89cf46e2f7e7715ddd7347fb29ffaa5cb8"
+  },
+  {
+    "path": "build/m1-unfixed-O3/vulnerable/measure",
+    "bytes": 252456,
+    "sha256": "12863a4f562f2f9fbfb4228ef02afc1f5197c0d88f8d6739fb8b9b678ba121b4",
+    "sha3_256": "45a3fdb8c7731f659f4418601c718910fffe3cf92991094022ac16c1ef032523"
+  },
+  {
+    "path": "build/m1-unfixed-Os/deployable/measure",
+    "bytes": 253104,
+    "sha256": "f15c20438813ed800c5449a6697349fbded41b5f38be935b44c3e137696f1d44",
+    "sha3_256": "8401c1b482c95b712bd7d618fc52aba04d6de86fb75e2f20ba158fb28da00425"
+  },
+  {
+    "path": "build/m1-unfixed-Os/hardened/measure",
+    "bytes": 252528,
+    "sha256": "18e4482168e257531bfdb490eebda791930c199c50f116258655faf33c754b2f",
+    "sha3_256": "92e8b7ceb6c528522b849513d19a5fbe5a67cd791d9932afa44a0d36f273363c"
+  },
+  {
+    "path": "build/m1-unfixed-Os/historical/measure",
+    "bytes": 367336,
+    "sha256": "e314494f733793a195df8c9aaecd03636285486699abb6daf2e9a3effcc17bf8",
+    "sha3_256": "1d84ded8ee734850da99d93d9d37d0d69a72490acb676e165a430b7a47f68b97"
+  },
+  {
+    "path": "build/m1-unfixed-Os/reference/measure",
+    "bytes": 254120,
+    "sha256": "725b48e099a583b61bc9b5df0313d728bdeec53513939c2d811667a8b67a0786",
+    "sha3_256": "7d72312250d8518284ef29c49a5d76199fa64bc40e900e0e99e55720c18ebfb3"
+  },
+  {
+    "path": "build/m1-unfixed-Os/vulnerable/measure",
+    "bytes": 252456,
+    "sha256": "dc5cfc47e1dfe37e8783c2eed3617314eac8f64cc1a8c170af18a3dcb9c3feb6",
+    "sha3_256": "6424050036314457887a7f56b231f1a91ed14fc8ac2de8c2efe81a7bf0832c81"
+  },
+  {
+    "path": "build/m5-O0/reference/measure",
+    "bytes": 157280,
+    "sha256": "bc7033c7a1b45d507ca9fec9086b3e846bb01948503e7a2a0bef40a3523393a2",
+    "sha3_256": "441a2fdc2db984721717c74dc3d8038a65f579428472b9f78d14bef5e7ae96de"
+  },
+  {
+    "path": "build/m5-O2/reference/measure",
+    "bytes": 254120,
+    "sha256": "1d57d75d443f3563c3910e4fac18f15dda52ebe1b512cce2b05479392293d04d",
+    "sha3_256": "7c6969ecb7053c16a7b82bf3ab49c0e1e92677fb9d6518ad85d4535835e80c75"
+  },
+  {
+    "path": "build/m5-O3/reference/measure",
+    "bytes": 294200,
+    "sha256": "4f070fd1222f9fb4ae690be0877d240bf56291f95f28a5c5b64ec8c12dde82e2",
+    "sha3_256": "577f2cceadc38875478f578c90ea4bc9667ed9aeb1aabfcce149a2a0ea9b5c49"
+  },
+  {
+    "path": "build/m5-Os/reference/measure",
+    "bytes": 162696,
+    "sha256": "8e506a01ac00fffbbadf2b9c07adc935e6ccf1aebc13527169fb10cbe479aa0c",
+    "sha3_256": "84e9db313b692cf83438a48b36d9515535b23892866dc98ab51778af9395560f"
+  },
+  {
+    "path": "build/perf-m1fixed",
+    "bytes": 343296,
+    "sha256": "cd9d0da03efa35140ad20c5938dfb1938e5190afd74f24d4e45b873395d9bd27",
+    "sha3_256": "4f4fc0c44fb0c239770eee33f35d8f2ff5971faa2c39aa7bb4fbf13a59bd549e"
+  },
+  {
+    "path": "build/perf-m1unfixed",
+    "bytes": 342680,
+    "sha256": "95436edcee5e391a799bea5f895050607568e1db062d2102627b74d3bc3e4ca0",
+    "sha3_256": "d2f0baebfd7193d3c3fc061f5390b9866b94d4d3a63c9ff508fd5f0d62126f0d"
+  },
+  {
+    "path": "build/perf-m5ref",
+    "bytes": 229336,
+    "sha256": "475e21b7b23598523b44c367cb1373e0497b402d979001b9cb679abde8ea99f8",
+    "sha3_256": "2b7c9ef8d6fcc60a6b01c05ade5b9e6bd6cdf6c2d2b6274bba831f19e4ff1ffa"
+  },
+  {
+    "path": "build/platform/deployable/measure",
+    "bytes": 253072,
+    "sha256": "dfc40d6dd364079728c19907d8cfcf79d9c7f4d906d6f62a3138f95ac648fbc8",
+    "sha3_256": "7b863d34c98cbc7906ab44c5f08c19e8172c38c39232c125ee01bd7d83a85924"
+  },
+  {
+    "path": "build/platform/hardened/measure",
+    "bytes": 252496,
+    "sha256": "032fbd272ffb95a2dd2a4d085690fa5d2f9fcebc4be1c8495f16d07950a69fd6",
+    "sha3_256": "4a3fd6672b800a670bf1b1e5cd018c7daaa64df1a2347dc75017b1f3a8e15f40"
+  },
+  {
+    "path": "build/platform/platform-m2/fixed/measure",
+    "bytes": 150736,
+    "sha256": "e15116c6dd23c0155541590aefbdffb85756197eae8f77fb8a47d22ce8d6f014",
+    "sha3_256": "d16c0e1a7474a4791503700168c9203ba5c248fdbb6ac278da831a6febcccb7d"
+  },
+  {
+    "path": "build/platform/platform-m2/unfixed/measure",
+    "bytes": 150704,
+    "sha256": "a40ddf1718383a2063841e3a92965870351489669ecf5672d191fb02ccc84a54",
+    "sha3_256": "2f94ebaca9fefb86095b5ce3c39d04ed23d653be0afe952772d9f71f809660cc"
+  },
+  {
+    "path": "build/platform/platform-m3/off/measure",
+    "bytes": 253216,
+    "sha256": "1b007a58c5a2030f3c7ea22439a3ade1430f50b2f59c2d82ab7c9c6bac5a08a1",
+    "sha3_256": "e7ee37fb509f5ad4ef36a48753330ded5a850760bf60bd53e4d61276b087f948"
+  },
+  {
+    "path": "build/platform/platform-m3/on/measure",
+    "bytes": 252840,
+    "sha256": "b4df781cadea62533c62d3b35cecb11a6eb27d7c88ab668472a99f3bf08a17b2",
+    "sha3_256": "2310969544d89b13d3e1f97b4ac5dbbb0f19ce7a90547c322fb2677f2f8abbd4"
+  },
+  {
+    "path": "build/platform/platform_m4_dudect_ct",
+    "bytes": 39816,
+    "sha256": "a3508ae1b3b48f0cbedd5f0bea531be56d7a15adb473488ad43a83c24e0c1516",
+    "sha3_256": "540acd260c690a8b60c1f8b92475f5e46de2fe41a59b5de152250b1d66d52c0c"
+  },
+  {
+    "path": "build/platform/platform_m4_dudect_vulnerable",
+    "bytes": 39736,
+    "sha256": "5ec0535917e94575160fdfd6c073d8fe7ab6363a4aed5a8beec6a7b413aa531b",
+    "sha3_256": "584d2b414e0cd764fbb5b3dd95ddda9b080951381aeb9adefa550478d06cbeed"
+  },
+  {
+    "path": "build/platform/platform_m4_measure_ct",
+    "bytes": 30456,
+    "sha256": "e6803b78cc22b113dd71e764ac14991aa9cf0c3813fdb4c729a6559f12515764",
+    "sha3_256": "7087927d8c2b092466d2a3a314db4cf63a85c3183827faa4b8b51a65e765a568"
+  },
+  {
+    "path": "build/platform/platform_m4_measure_vulnerable",
+    "bytes": 30384,
+    "sha256": "f55075b3aa389738a7095f0084b7eda23b29b4116462ed3b97e690f4f60d0a1f",
+    "sha3_256": "06a2aeca79733e3df95718910ab8431d7955a533c465d39f39340341f22c2b9f"
+  },
+  {
+    "path": "build/platform/platform_m5_dudect",
+    "bytes": 216736,
+    "sha256": "a861d775e85da68b48bbb4e8e7f022502afd0724b797f2b948b735e94b137c73",
+    "sha3_256": "df02c04795493fb1a10b6c755f2e96b74e7fcc76a1b60448c9d719a4c3bb7e7d"
+  },
+  {
+    "path": "build/platform/platform_stats",
+    "bytes": 222240,
+    "sha256": "42d67d73c15907a274cd04fee242258f08c685752986ef065575709fdf09ab15",
+    "sha3_256": "898b307d7d29af7206e658a25bf1d5fc090f81e14f95e46b0726f939526bbf7c"
+  },
+  {
+    "path": "build/platform/reference/measure",
+    "bytes": 254104,
+    "sha256": "5fb4e1d7b6874fc544df4a57d1e74e3c9cae426265d71f9bf21e2603e329e376",
+    "sha3_256": "6a06e12330ec10098d7a83075f441120d1ac4541cfecef1c1e679e91c6671147"
+  },
+  {
+    "path": "build/platform/vulnerable/measure",
+    "bytes": 252424,
+    "sha256": "0672969556c563fb9f863f1a5ff91efc0aab70845387972ddd131c6d8dee6c12",
+    "sha3_256": "3649c08092a0b1d624a0a43d06917f6f9cbf82eeb92dc181ec188a4e20a997fb"
+  },
+  {
+    "path": "build/poison-m1-fixed-O0",
+    "bytes": 342176,
+    "sha256": "8e5f4f922a5d34e893e107f734a96fb6811bed898621e50e2c93829cf24c7661",
+    "sha3_256": "8f9fa8be01c3a3471f47cdcd5101de9f01c5c6ea76925f1524004b703b530dbb"
+  },
+  {
+    "path": "build/poison-m1-fixed-O2",
+    "bytes": 324696,
+    "sha256": "8714099ee3e7bdb15abd315ab9223f539dda4e1ba92f1824dea924ef273cbeed",
+    "sha3_256": "b5c83e9fc61b3fd5de6cb91f46cf0031e5725298d389fb89ab52796bde30c17c"
+  },
+  {
+    "path": "build/poison-m1-fixed-O3",
+    "bytes": 336792,
+    "sha256": "a7d22d59f5ccbf13130c7c9dee46a6b03cf3c311175b6b7f7fb627ccfd788d94",
+    "sha3_256": "000dbac9a8c6a4f979ac9c8f500123eb99700969cbd37a86758149106d69e557"
+  },
+  {
+    "path": "build/poison-m1-fixed-Os",
+    "bytes": 308984,
+    "sha256": "bb2877119ceab5b2ccb6c7041dbe75002d2caaa492b5b27257e41a2fe0738818",
+    "sha3_256": "0e2a9f584fe49bbfe7111662361dc8678ed31545114ed308cc2f9c58f4bf0ea5"
+  },
+  {
+    "path": "build/poison-m1-unfixed-O0",
+    "bytes": 341632,
+    "sha256": "3f0ab1a1ead695267795bf6cd3fd9e0b8c4bfe3a743ca4230505cdeaee90c39d",
+    "sha3_256": "daffc08beaf1ce7dbb592ee07d6f8be52134225b7385482af1d7dcbe682b92b7"
+  },
+  {
+    "path": "build/poison-m1-unfixed-O2",
+    "bytes": 319816,
+    "sha256": "69ac7851473d0e801fdf3be22162dace8cee03d79869d849c7457f48054d7cd9",
+    "sha3_256": "57c89bad26d8a725719adbf8aaffd6c30ab32dcace9d92fed8e8c6d8f7181d62"
+  },
+  {
+    "path": "build/poison-m1-unfixed-O3",
+    "bytes": 336136,
+    "sha256": "31d819564603a9545b25c3fbf622a84815e7c367d899979719b0b36b683cc223",
+    "sha3_256": "a49c98fba7a44f679fcb55b20c7695245a1a4a4dc0fd2179e767db699a91d1bb"
+  },
+  {
+    "path": "build/poison-m1-unfixed-Os",
+    "bytes": 308368,
+    "sha256": "d2a2000b8f1bd40253b7c9b5febd092d589a2a29a8e9f141082bfc7f9139a32d",
+    "sha3_256": "d838f9a6a52aa65df6b4cc0a6ee4a60fce3b61de44a4851a778fac6da4ba5cb4"
+  }
+]

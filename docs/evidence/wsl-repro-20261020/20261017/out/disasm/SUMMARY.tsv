@@ -1,0 +1,12 @@
+m1-unfixed-Os	bt=1	jae=1	setb=0	cmov_call=0	cond_jumps=3
+m1-fixed-Os	bt=1	jae=0	setb=1	cmov_call=1	cond_jumps=2
+m1-unfixed-O0	bt=0	jae=2	setb=0	cmov_call=0	cond_jumps=2
+m1-fixed-O0	bt=0	jae=2	setb=0	cmov_call=1	cond_jumps=2
+m5-O0	cond_jumps=2
+m1-unfixed-O2	bt=0	jae=0	setb=0	cmov_call=0	cond_jumps=9
+m1-fixed-O2	bt=0	jae=0	setb=0	cmov_call=8	cond_jumps=1
+m5-O2	cond_jumps=1
+m1-unfixed-O3	bt=0	jae=0	setb=0	cmov_call=0	cond_jumps=16
+m1-fixed-O3	bt=0	jae=0	setb=0	cmov_call=8	cond_jumps=1
+m5-O3	cond_jumps=1
+m5-Os	cond_jumps=2
