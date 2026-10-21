@@ -1,5 +1,7 @@
 # 完整作品进度
 
+2026-10-21按用户要求把正文改为严格使用楷体_GB2312（四号），一级标题华文楷体、二级标题黑体、页眉与基本信息表宋体、封面作品题目华文中宋也一律使用模板字体，缺任一字体直接编译报错，不再回退近似字体。楷体_GB2312 已按用户下载的文件装入当前用户字体目录（长城 1994 年版本，Version 2.00）；三页样例编译通过，PDF 嵌入字体核对为 KaiTi_GB2312、STKaiti、SimHei、SimSun、STZhongsong、Times New Roman。仅排版变更，软件实现、实验执行、假设与竞赛验收均无变更，R02、R04 仍部分。
+
 2026-10-21按官方 Word 模板（附件二）在 [report](../report/README.md) 建立作品设计报告 LaTeX 模板。A4、四边 2 cm；页眉“全国密码技术竞赛作品设计报告”9 pt 居中并带 0.75 pt 下框线，封面不显示页眉和页码，从基本信息表页起显示且页码重新从 1 开始；一级标题华文楷体小三、二级标题黑体四号，最多二级标题，误用 `\subsubsection` 直接报错。本机 MiKTeX 26.2 + XeLaTeX 编译三页样例通过，嵌入字体为 KaiTi、STKaiti、SimHei、SimSun、STZhongsong、Times New Roman。仅新增排版文件，软件实现、实验执行、假设与竞赛验收均无变更，R02、R04 仍部分。
 
 2026-10-15把 RTLF、dudect 和 Valgrind 接到 liboqs 0.10.0 的锁频类对上。RTLF α=0.01 未修两次检出、已修两次不检出。dudect 在同一 boost 0、CPU2 4300000 kHz 请求下，未修 max t +26.41，已修跑满预算后 max t 约 +1.15。只标记 indcpa 私钥时，未修的秘密条件跳转在 `poly_frommsg`，已修没有这一上下文。ctgrind 补丁对不上 Valgrind 3.22，Microwalk 因没有 Pin 跳过。没有密钥恢复。记录见 [tooling-strengthen-20261015](evidence/tooling-strengthen-20261015/RESULT.md)。R02、R04 不因此关闭。

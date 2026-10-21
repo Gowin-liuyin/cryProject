@@ -18,28 +18,48 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[hidelinks,hypertexnames=false]{hyperref}
 
-% 正文按模板用楷体_GB2312 四号、固定 24pt 行距；缺字体时退回楷体。
+% 正文严格使用楷体_GB2312 四号，缺字体时中止编译，不自动替换。
+% 字体未安装但手头有字体文件时，可在导言区用
+% \reportbodyfont{assets/KaiTi_GB2312.ttf} 指定。
 \setmainfont{Times New Roman}
+\newif\ifaiv@bodyfontset
+\newcommand{\reportbodyfont}[1]{%
+  \setCJKmainfont[AutoFakeBold=2]{#1}%
+  \aiv@bodyfontsettrue
+}
 \IfFontExistsTF{KaiTi_GB2312}{%
   \setCJKmainfont[AutoFakeBold=2]{KaiTi_GB2312}%
+  \aiv@bodyfontsettrue
 }{%
-  \setCJKmainfont[AutoFakeBold=2]{KaiTi}%
+  \AtBeginDocument{%
+    \ifaiv@bodyfontset\else
+      \PackageError{a113_report}{未找到楷体_GB2312 字体，正文要求严格使用该字体}%
+        {请安装楷体_GB2312（字体名 KaiTi_GB2312），或在导言区用 \string\reportbodyfont 指向字体文件，例如 \string\reportbodyfont{assets/KaiTi_GB2312.ttf}}%
+    \fi
+  }%
 }
 
-% 标题与特殊段落字体：华文楷体、黑体、宋体、华文中宋。
+% 标题与特殊段落字体严格照模板：华文楷体、黑体、宋体、华文中宋，缺字即报错。
 \IfFontExistsTF{STKaiti}{%
   \setCJKfamilyfont{zhhwkt}[AutoFakeBold=2]{STKaiti}%
   \newfontfamily\headingonefont{STKaiti}[AutoFakeBold=2]%
 }{%
-  \setCJKfamilyfont{zhhwkt}[AutoFakeBold=2]{KaiTi}%
-  \newfontfamily\headingonefont{KaiTi}[AutoFakeBold=2]%
+  \PackageError{a113_report}{未找到华文楷体（STKaiti），一级标题要求严格使用该字体}{请安装华文楷体后重新编译}%
 }
-\setCJKfamilyfont{zhhei}[AutoFakeBold=2]{SimHei}
-\setCJKfamilyfont{zhsong}{SimSun}
+\IfFontExistsTF{SimHei}{%
+  \setCJKfamilyfont{zhhei}[AutoFakeBold=2]{SimHei}%
+}{%
+  \PackageError{a113_report}{未找到黑体（SimHei），二级标题要求严格使用该字体}{请安装黑体后重新编译}%
+}
+\IfFontExistsTF{SimSun}{%
+  \setCJKfamilyfont{zhsong}{SimSun}%
+}{%
+  \PackageError{a113_report}{未找到宋体（SimSun），页眉和基本信息表要求严格使用该字体}{请安装宋体后重新编译}%
+}
 \IfFontExistsTF{STZhongsong}{%
   \setCJKfamilyfont{zhhwzs}{STZhongsong}%
 }{%
-  \setCJKfamilyfont{zhhwzs}{SimSun}%
+  \PackageError{a113_report}{未找到华文中宋（STZhongsong），封面作品题目要求严格使用该字体}{请安装华文中宋后重新编译}%
 }
 
 \newcommand{\reportfontkai}{\CJKfamily{zhhwkt}}
