@@ -3,10 +3,10 @@
 \usepackage{xeCJK}
 \setCJKmainfont{KaiTi_GB2312}
 \setCJKsansfont{SimHei}
-\newcommand{\symP}{\tikz[baseline=-0.6ex]{\fill[red!75!black] (0,0) circle (2.3pt);}}
-\newcommand{\symN}{\tikz[baseline=-0.6ex]{\draw[blue!65!black,thick] (0,0) circle (2.0pt);}}
-\newcommand{\symT}{\tikz[baseline=-0.6ex]{\draw[orange!85!black,thick] (0,0.15) -- (-0.18,-0.11) -- (0.18,-0.11) -- cycle;}}
-\newcommand{\symD}{\tikz[baseline=-0.6ex]{\draw[gray!65,thick] (-0.16,0) -- (0.16,0);}}
+\newcommand{\symP}{\tikz[baseline=-0.6ex]{\fill[red!75!black] (0,0) circle (2.6pt);}}
+\newcommand{\symN}{\tikz[baseline=-0.6ex]{\draw[blue!65!black,thick] (0,0) circle (2.3pt);}}
+\newcommand{\symT}{\tikz[baseline=-0.6ex]{\fill[orange!85!black] (0,0.18) -- (-0.20,-0.13) -- (0.20,-0.13) -- cycle;}}
+\newcommand{\symD}{\tikz[baseline=-0.6ex]{\draw[gray!60,thick,line cap=round] (-0.17,-0.17) -- (0.17,0.17) (-0.17,0.17) -- (0.17,-0.17);}}
 \begin{document}
 \begin{tikzpicture}[font=\footnotesize]
 \tikzset{
@@ -87,9 +87,16 @@
 \node[cell] at (13.125,-5.990) {\symN};
 
 \draw[very thick,blue!55!black] (0.0,-3.200) -- (14.05,-3.200);
+\node[anchor=west,font=\scriptsize\bfseries,color=blue!60!black] at (0.1,-3.04) {统计检测（黑盒）};
+\node[anchor=west,font=\scriptsize\bfseries,color=blue!60!black] at (0.1,-3.40) {定位分析（白盒 / 形式化）};
 
-\node[anchor=north west,font=\scriptsize,align=left] at (0,-6.480) {\symP\ 阳性（定位命中或计时可区分）\hspace{3em}\symN\ 阴性（未命中或未检出）};
-\node[anchor=north west,font=\scriptsize,align=left] at (0,-6.830) {\symT\ 已运行但与主检验或修复方向不一致\hspace{2.2em}\symD\ 未运行（不作阴性计）};
-\node[anchor=north west,font=\scriptsize,align=left] at (0,-7.180) {合计 45 格：31 格有真实运行产物，14 格未运行。M5 阴性对照上已运行的 7 种工具误报为 0。};
+\node[draw,gray!55,fill=white,rounded corners=2pt,inner sep=5pt,anchor=north west] at (0,-6.55) {
+\begin{tabular}{@{}l@{}}
+{\scriptsize\symP\ 阳性（定位命中或计时可区分）}\\[2pt]
+{\scriptsize\symN\ 阴性（未命中或未检出）}\\[2pt]
+{\scriptsize\symT\ 已运行但与主检验或修复方向不一致}\\[2pt]
+{\scriptsize\symD\ 未运行（不作阴性计）}
+\end{tabular}};
+\node[anchor=north west,font=\scriptsize,align=left] at (0,-7.55) {合计 45 格：31 格有真实运行产物，14 格未运行。M5 阴性对照上已运行的 7 种工具误报为 0（限定本次对象与输入）。};
 \end{tikzpicture}
 \end{document}

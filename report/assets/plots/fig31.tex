@@ -1,0 +1,33 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+\tikzset{
+  stepbox/.style={draw, rectangle, rounded corners=2pt, text width=2.1cm, align=center, minimum height=1.7cm},
+  note/.style={font=\scriptsize, align=center, text width=2.8cm, gray!60!black}
+}
+\node[stepbox, fill=gray!5] (in) {密文 $c$（1088 B）\\ 解封装密钥 $dk$};
+\node[stepbox, right=0.55cm of in] (s1) {(1) 解密\\ 得到 $m'$};
+\node[stepbox, right=0.55cm of s1] (s2) {(2) 派生\\ $G(m' \parallel h)$\\ $K'$、$r'$};
+\node[stepbox, right=0.55cm of s2] (s3) {(3) 重加密\\ 得到 $c'$};
+\node[stepbox, right=0.55cm of s3] (s4) {(4) 常数时间\\ 比较 $c'$ 与 $c$\\ （无分支）};
+\node[stepbox, right=0.55cm of s4, fill=green!7] (s5) {(5) 掩码选择\\ 输出共享密钥 $K$};
+\draw[->, thick] (in) -- (s1);
+\draw[->, thick] (s1) -- (s2);
+\draw[->, thick] (s2) -- (s3);
+\draw[->, thick] (s3) -- (s4);
+\draw[->, thick] (s4) -- (s5);
+\node[note, below=0.32cm of s1] {接触秘密：私钥与 $m'$；\\ M2 除法在此（可变时延）};
+\node[note, below=0.32cm of s2] {接触秘密：$m'$ 经哈希派生};
+\node[note, below=0.32cm of s3] {接触秘密：$m'$；\\ M1 分支、M3 查表在此};
+\node[note, below=0.32cm of s4] {比较结果接触秘密；\\ 必须无分支实现};
+\node[note, below=0.32cm of s5] {同时计算真密钥与\\ 拒绝密钥，掩码决定\\ 输出，不出现分支};
+\node[draw, gray!60!black, rounded corners=2pt, dashed, below=1.5cm of s3, text width=13.2cm, align=center, font=\scriptsize] (note) {(4)(5) 必须无秘密相关分支、访存与可变时延指令：图中的“选择”由常数时间比较与掩码完成，实际实现不出现依赖比较结果的条件分支；\\ M4 的提前返回夹具即 (4) 内部“发现首个不同字节即返回”的非常数时间写法。M5 作为整条链的阴性对照，不挂在单独一步上。};
+\draw[->, gray!55!black, dashed] (s4.south) |- (note.east);
+\draw[->, gray!55!black, dashed] (s5.south) |- (note.west);
+\end{tikzpicture}
+\end{document}

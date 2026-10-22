@@ -9,7 +9,7 @@
   \draw[gray!22] (\x,0.55) -- (\x,5.75);
   \node[below,font=\scriptsize] at (\x,0.55) {\val};
 }
-\draw[gray!70,dashed,thick] (2.1,2.55) -- (13.6,2.55);
+\draw[gray!55!black,dashed,very thick] (2.1,2.55) -- (13.6,2.55);
 \node[anchor=east,font=\scriptsize,color=gray!75!black] at (13.55,2.78) {上方：完整解封装（基线 29--57 $\mu$s）};
 \node[anchor=east,font=\scriptsize,color=gray!75!black] at (13.55,2.32) {下方：32 B 比较夹具（基线 23--29 ns）};
 
@@ -49,9 +49,15 @@
 \node[anchor=east,font=\footnotesize] at (5.35,1.000) {M4 常数时间版（末字节失配）};
 \fill[orange!65] (6.400,0.730) rectangle (7.770,1.270);
 \node[anchor=west,font=\scriptsize] at (7.88,1.000) {$+6.85\%$（绝对差 $+1.9$ ns）};
+
+% legend
 \fill[blue!55] (5.5,-0.72) rectangle (5.78,-0.52);
 \node[anchor=west,font=\scriptsize] at (5.9,-0.62) {完整解封装};
 \fill[orange!65] (8.0,-0.72) rectangle (8.28,-0.52);
 \node[anchor=west,font=\scriptsize] at (8.4,-0.62) {32 B 比较夹具};
+\fill[blue!55] (11.45,-0.72) rectangle (11.73,-0.52);
+\draw[thick] (11.45,-0.80) -- (11.45,-0.44);
+\draw[thick] (11.73,-0.80) -- (11.73,-0.44);
+\node[anchor=west,font=\scriptsize] at (11.88,-0.62) {95\% bootstrap 区间（成对分块测量）};
 \end{tikzpicture}
 \end{document}

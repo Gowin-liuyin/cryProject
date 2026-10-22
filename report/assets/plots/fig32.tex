@@ -1,0 +1,24 @@
+\documentclass[border=6pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}[font=\small]
+\tikzset{
+  mbox/.style={draw, rectangle, rounded corners=2pt, text width=2.8cm, align=center, minimum height=2.0cm}
+}
+\node[mbox, fill=blue!5] (attacker) {攻击者\\[3pt] 选择 $C_0$ / $C_1$\\ 重复 $n$ 次};
+\node[mbox, right=1.5cm of attacker] (oracle) {解封装预言机\\[3pt] 固定 $dk$ 的\\ 完整解封装};
+\node[mbox, right=1.5cm of oracle] (samples) {耗时样本\\[3pt] $t_{0,i}$ / $t_{1,i}$};
+\node[mbox, right=1.5cm of samples] (stat) {统计判定\\[3pt] $\Delta$、95\% CI、\\ MDE};
+\node[mbox, right=1.5cm of stat, fill=green!7] (concl) {结论\\[3pt] 可区分 / 未检出};
+\draw[->, thick] (attacker) -- node[above, font=\scriptsize]{选择合法等长密文} (oracle);
+\draw[->, thick] (oracle) -- node[above, font=\scriptsize]{每次返回完整耗时} (samples);
+\draw[->, thick] (samples) -- node[above, font=\scriptsize]{按类比较} (stat);
+\draw[->, thick] (stat) -- (concl);
+\node[draw, gray!60!black, rounded corners=2pt, dashed, below=1.6cm of oracle, text width=12.8cm, align=center, font=\scriptsize] (bound) {攻击者不可见：私钥、共享密钥、内部验证标志（威胁模型见 1.2 节）；未检出结论必须附 MDE 预算（3.6 节）。};
+\draw[->, gray!55!black, dashed] (oracle.south) -- (bound.north);
+\end{tikzpicture}
+\end{document}

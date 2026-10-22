@@ -15,7 +15,7 @@
   ytick={1,...,7},
   yticklabels={{M1 未修复版},{M1 已修复版},{M2（秘密除法）},{M3（秘密查表）},{M5（阴性对照）},{M4 脆弱实现},{M4 常数时间实现}},
   y tick label style={font=\footnotesize},
-  xlabel={主类对均值差 $\Delta$（ns）},
+  xlabel={主类对均值差 $\Delta=\overline{t}_{\mathrm{message-zero}}-\overline{t}_{\mathrm{message-ones}}$（ns）},
   xlabel style={font=\footnotesize},
   tick label style={font=\footnotesize},
   grid=major, grid style={gray!18},
@@ -24,9 +24,14 @@
   legend cell align=left,
 ]
 \draw[gray,dashed,thick] (axis cs:0,0.4) -- (axis cs:0,7.6);
-\draw[gray!75!black,dashed,thick] (axis cs:-30,5.5) -- (axis cs:56,5.5);
+\draw[gray!55!black,dashed,very thick] (axis cs:-30,5.5) -- (axis cs:56,5.5);
 \node[anchor=east,font=\scriptsize,color=gray!80!black,fill=white,inner sep=1.5pt] at (axis cs:55,5.15) {上方：完整解封装（基线 29--57 $\mu$s）};
 \node[anchor=east,font=\scriptsize,color=gray!80!black,fill=white,inner sep=1.5pt] at (axis cs:55,5.85) {下方：32 B 比较夹具（基线 23--29 ns）};
+
+\coordinate (zoomSW) at (axis cs:-4.7,5.20);
+\coordinate (zoomNE) at (axis cs:1.2,7.45);
+\draw[dashed,gray!60!black] (zoomSW) rectangle (zoomNE);
+\node[anchor=south west,font=\tiny,color=gray!60!black] at (zoomSW) {M4 放大区};
 
 \addplot[only marks, mark=*, mark size=2.3pt, color=red!75!black,
   error bars/.cd, x dir=both, x explicit, error bar style={thick}]
@@ -34,7 +39,7 @@
   (32.311,1) += (12.028,0) -= (12.029,0)
   (-4.089,6) += (0.126,0) -= (0.126,0)
   };
-\addlegendentry{95\% 区间不含 0（检出可区分差异）}
+\addlegendentry{95\% 区间不含 0（检出，统计显著）}
 
 \addplot[only marks, mark=o, mark size=2.3pt, color=blue!65!black,
   error bars/.cd, x dir=both, x explicit, error bar style={thick}]
@@ -57,6 +62,7 @@
 \end{axis}
 
 \begin{axis}[
+  name=inset,
   at={(main.north east)}, anchor=north east,
   xshift=-4mm, yshift=-13mm,
   width=5.6cm, height=2.45cm,
@@ -82,5 +88,6 @@
   error bars/.cd, x dir=both, x explicit, error bar style={thick}]
   coordinates {(0.055,2) += (0.418,0) -= (0.418,0)};
 \end{axis}
+\draw[dashed,gray!60!black] (zoomNE) -- (inset.south west);
 \end{tikzpicture}
 \end{document}

@@ -13,17 +13,19 @@
 
 ML-KEM（模格密钥封装机制，Module-Lattice Key Encapsulation Mechanism）是 FIPS 203 标准化的格基密钥封装算法，由 CRYSTALS-Kyber 演化而来。密钥封装机制（KEM）解决的是两个通信方在不预先共享密钥的情况下协商出会话密钥的问题：一方用对方公钥把随机密钥封装进密文，另一方用私钥解封装得到同一个密钥。ML-KEM-768 是其中参数集为 768 的实例，FIPS 203 给出了它的密钥生成、封装与解封装三个算法。
 
-本作品关心的是解封装。解封装在 Fujisaki-Okamoto（FO）变换下依次执行四步：用私钥解密得到消息，把消息重新加密，与收到的密文比较，根据比较结果返回真密钥或假密钥（隐式拒绝）。四步都接触私钥或解密消息，任何一步的实现若让耗时依赖这些秘密值，就打开了时间侧信道。隐式拒绝的设计目的，是让失败路径与成功路径在外部不可区分。比较与拒绝这一步一旦依赖秘密，攻击者不需要私钥，只凭每次解封装的耗时就能判断内部走到了哪一步。
+关注点是解封装。解封装在 Fujisaki-Okamoto（FO）变换下依次执行四步：用私钥解密得到消息，把消息重新加密，与收到的密文比较，根据比较结果返回真密钥或假密钥（隐式拒绝）。四步都接触私钥或解密消息，任何一步的实现若让耗时依赖这些秘密值，就打开了时间侧信道。隐式拒绝的设计目的，是让失败路径与成功路径在外部不可区分。比较与拒绝这一步一旦依赖秘密，攻击者不需要私钥，只凭每次解封装的耗时就能判断内部走到了哪一步。
 
 解封装之所以是侧信道的重点，是因为它同时接触私钥、解密消息与比较结果，而且运行在每次密钥交换都会执行的热路径上。本作品的检测、定位、防护与复测都围绕这一步展开。整个密钥协商的结构见图~\ref{fig:kem}：封装在发送方完成，解封装在接收方完成，信道上只传输密文。
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[font=\small]
-\tikzset{bgbox/.style={draw, rectangle, rounded corners=2pt, text width=3.4cm, align=center, minimum height=1.8cm}}
-\node[bgbox] (sender) {发送方\\[3pt] 封装：公钥 $pk$\\ 与随机数\\ 输出密文 $c$\\ 与密钥 $K$};
-\node[bgbox, right=3.8cm of sender] (receiver) {接收方\\[3pt] 解封装：解封装密钥 $dk$（$sk$）\\ 与密文 $c$\\ 输出密钥 $K$};
+\tikzset{bgbox/.style={draw, rectangle, rounded corners=2pt, text width=3.8cm, align=center, minimum height=2.2cm}}
+\node[bgbox] (sender) {发送方（封装）\\[2pt] 输入：随机数与公钥 $pk$\\ 输出：密文 $c$、密钥 $K$};
+\node[bgbox, right=3.4cm of sender] (receiver) {接收方（解封装）\\[2pt] 输入：密文 $c$ 与\\ 私钥 $dk$（$sk$）\\ 输出：密钥 $K$};
 \draw[->, thick] (sender.east) -- node[above,font=\footnotesize]{信道：密文 $c$} (receiver.west);
+\node[draw, gray!60!black, rounded corners=2pt, dashed, below=1.7cm of receiver, text width=9.4cm, align=center, font=\footnotesize] (note) {解封装在 FO 变换下依次执行解密、重加密、比较与隐式拒绝，四步均接触秘密；\\本作品的观测点即接收方单次完整解封装的耗时};
+\draw[->, gray!55!black, dashed] (receiver.south) -- (note.north);
 \end{tikzpicture}
 \caption{KEM 密钥协商：封装与解封装}
 \label{fig:kem}
@@ -33,7 +35,9 @@ ML-KEM（模格密钥封装机制，Module-Lattice Key Encapsulation Mechanism�
 
 时间侧信道利用的是执行耗时对秘密值的依赖。程序的分支条件、访存地址、循环次数或可变时延指令（如除法）如果由秘密决定，处理不同秘密值的耗时就会不同，秘密信息就进入攻击者可以观测的时间通道。
 
-常数时间实现的目标，是让执行路径与耗时独立于秘密：比较用掩码选择而不是分支，查表用不依赖下标的访问方式，除法等可变时延指令避开秘密操作数。写代码时做到这些还不够。编译器优化可能改变产物形态，同一份源码在不同优化级别、不同架构上会得到不同的二进制，其中一些可能重新引入依赖秘密的分支。这就是源码级常数时间不等于产物级常数时间：判定必须对着具体的编译产物做，不能拿源码当承诺。
+常数时间实现的目标，是让程序的执行路径与运行耗时严格独立于秘密信息：敏感数据的比较采用无分支掩码选择，查表操作采用与秘密下标无关的常数时间算法，除法等硬件可变时延指令则坚决避开秘密操作数。
+
+C 语言源码中没有写 if-else 分支，不代表编译出的机器码中也没有分支。以 M1（liboqs 0.10.0）为例，开发者在源码中特意使用算术掩码来替代条件分支；但在 x86\_64 平台下使用 Clang 18 的 \texttt{-Os} 优化编译时，编译器又将这段无分支掩码优化回了依赖秘密消息比特的条件跳转指令（该漏洞已被收录为 CVE-2024-36405\cite{ghsa-f2v9}）。而在 ARM64（aarch64）架构下，同一份源码则被编译为无分支的位域提取与条件选择指令，不会产生该侧信道。因此，常数时间检验必须直接针对最终编译生成的二进制程序，而不能仅凭 C 源码判断。
 
 时间侧信道的观察需要把效应从噪声里分出来。本机计时的最小步进、调度、频率、缓存与后台进程都会叠加进单次耗时，几十纳秒的差异单次调用看不见，要靠重复采样与统计检验。锁频把工作点固定下来，减少噪声里可控制的一项，但压不住秘密相关差异本身。图~\ref{fig:source} 给出源码与产物分离的示意：源码写成了无分支，编译器可能在产物里重新引入依赖秘密的分支。
 
@@ -45,9 +49,11 @@ ML-KEM（模格密钥封装机制，Module-Lattice Key Encapsulation Mechanism�
 \node[bgbox, right=1.2cm of src] (comp) {clang 18\\ 不同优化级别与目标架构};
 \node[bgbox, fill=red!8, right=1.2cm of comp, yshift=0.9cm] (os) {x86\_64（\texttt{-Os}）\\ 秘密相关条件跳转};
 \node[bgbox, fill=green!8, right=1.2cm of comp, yshift=-0.9cm] (o0arm) {x86\_64（\texttt{-O0}）/ aarch64\\ 无秘密相关分支};
-\draw[->, thick] (src) -- (comp);
-\draw[->, thick] (comp.east) -- (os.west);
-\draw[->, thick] (comp.east) -- (o0arm.west);
+\draw[->, thick] (src) -- node[above,font=\footnotesize]{编译} (comp);
+\draw[->, thick] (comp.east) -- node[above,font=\footnotesize]{产物形态 1} (os.west);
+\draw[->, thick] (comp.east) -- node[below,font=\footnotesize]{产物形态 2} (o0arm.west);
+\node[draw, gray!60!black, rounded corners=2pt, dashed, below=1.3cm of comp, text width=9.6cm, align=center, font=\footnotesize] (bind) {判定绑定产物：计时与定位只对同一份编译产物做，换优化级别或架构即换被测对象};
+\draw[->, gray!55!black, dashed] (comp.south) -- (bind.north);
 \end{tikzpicture}
 \caption{同一份源码经过编译器得到不同的产物形态}
 \label{fig:source}
@@ -55,18 +61,21 @@ ML-KEM（模格密钥封装机制，Module-Lattice Key Encapsulation Mechanism�
 
 \subsection{侧信道检测与定位工具}
 
-检测工具按回答的问题分三类。统计检测把程序当黑盒，比较不同输入类下的耗时分布：dudect 用 Welch 检验比较两类样本，R-Time-Leak-Finder（RTLF）用重采样把第一类错误控制在给定界内。这类工具回答两类样本能不能分开，不回答差异来自哪条指令。动态分析在程序内部找秘密依赖：Memcheck（Valgrind 的内存检查器）报告秘密进入分支条件或访存下标的时刻，Microwalk 用执行轨迹与互信息找与秘密关联最强的指令，Valgrind 的可变时延补丁 varlat 另行标记操作数含秘密的除法等指令。这类工具能给出函数级甚至指令级的落点，但只覆盖实际执行过的输入。形式化验证在给定模型内证明控制流与访存不依赖秘密：Binsec 在二进制层做有界检查，能给出反例路径，但通常不建模指令时延、缓存与流水线。
+检测工具按回答的问题分三类。统计检测把程序当黑盒，比较不同输入类下的耗时分布：dudect 用 Welch 检验比较两类样本，R-Time-Leak-Finder（RTLF）用重采样把第一类错误控制在给定界内。这类工具回答两类样本能不能分开；差异来自哪条指令由定位工具回答。动态分析通过在程序运行时跟踪敏感数据流来定位泄漏机理。本文利用 ctgrind\cite{ctgrind} 的经典思路，在调用解封装接口前，故意将私钥及内部敏感数据所在的内存区域标记为“未初始化（uninitialized）”。一旦程序后续将这些受污点污染的秘密数据用于 if 条件跳转分支、或作为数组访问的下标，Valgrind Memcheck 就会精确捕获“依赖未初始化值分支/跳转”或“使用未初始化值作为内存地址”告警，并打印出函数名与具体源码行号。此外，Microwalk\cite{microwalk} 利用指令执行轨迹计算访存地址与秘密值之间的互信息；Valgrind 的可变时延补丁 varlat\cite{kyberslash} 则专门监控除法指令（\texttt{div}）的操作数是否携带秘密标记。这类工具能给出函数级甚至指令级的落点，但只覆盖实际执行过的输入。形式化验证在给定模型内证明控制流与访存不依赖秘密：Binsec 在二进制层做关系符号执行式的有界检查（在同一程序的两条执行路径之间建立符号关系，检查是否存在秘密相关的分支或访存），能给出反例路径，但通常不建模指令时延、缓存与流水线。
 
-三类工具回答的问题不同，不能互相替代。定位阳性（工具在源码或产物里找到秘密依赖）与计时阳性（本机实测两类耗时可区分）是两件事，一个工具给出的单一读法不足以当判定，多个工具同向才有意义。三类工具的分工见图~\ref{fig:toolbg}。
+三类工具回答的问题不同，需要组合使用。定位阳性（工具在源码或产物里找到秘密依赖）与计时阳性（本机实测两类耗时可区分）分属两类证据，单一工具只提供一种读法，多个工具同向构成完整判定。三类工具的分工见图~\ref{fig:toolbg}。
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[font=\small]
-\tikzset{bgcat/.style={draw, rectangle, rounded corners=2pt, text width=3.2cm, align=center, minimum height=3.6cm}}
-\node[bgcat,fill=blue!5] (stat) {统计检测\\[3pt] dudect、RTLF\\[8pt] 回答：\\ 两类耗时能否分开};
-\node[bgcat, fill=orange!7, right=1.3cm of stat] (dyn) {动态分析\\[3pt] Memcheck、varlat\\ Microwalk\\[8pt] 回答：\\ 哪里依赖秘密};
-\node[bgcat, fill=green!7, right=1.3cm of dyn] (form) {形式化验证\\[3pt] Binsec\\[8pt] 回答：\\ 给定边界内\\ 是否常数时间};
-\node[draw,fill=gray!5,rounded corners=2pt,below=0.9cm of dyn,text width=8cm,align=center] (bind) {多工具交叉核对，绑定同一编译产物};
+\tikzset{bgcat/.style={draw, rectangle, rounded corners=2pt, text width=3.2cm, align=center, minimum height=3.4cm}}
+\node[bgcat,fill=blue!5] (stat) {黑盒：统计检测\\[4pt] dudect、RTLF\\[6pt] 回答：\\ 两类耗时能否分开};
+\node[bgcat, fill=orange!7, right=1.15cm of stat] (dyn) {白盒：动态分析\\[4pt] Memcheck、varlat\\ Microwalk\\[6pt] 回答：\\ 哪里依赖秘密};
+\node[bgcat, fill=green!7, right=1.15cm of dyn] (form) {形式化证明\\[4pt] Binsec（有界）\\[6pt] 回答：\\ 给定边界内\\ 是否常数时间};
+\draw[->, thick] (stat.east) -- (dyn.west);
+\draw[->, thick] (dyn.east) -- (form.west);
+\node[above=0.22cm of stat, font=\footnotesize, align=center, text width=10.6cm] (prog) {黑盒 {\small→} 白盒 {\small→} 形式化证明：内部可见度递增，各回答一个问题，组合使用};
+\node[draw,fill=gray!5,rounded corners=2pt,below=1.15cm of dyn,text width=8.4cm,align=center] (bind) {多工具交叉核对，绑定同一编译产物};
 \draw[->] (stat.south) |- (bind.west);
 \draw[->] (dyn.south) -- (bind.north);
 \draw[->] (form.south) |- (bind.east);
@@ -79,7 +88,7 @@ ML-KEM（模格密钥封装机制，Module-Lattice Key Encapsulation Mechanism�
 
 统计检验把重复采样的耗时变成可判定的结论。本作品的统计层用 Welch 检验比较两类耗时的均值，用 Holm 校正控制一组多重比较的总体误报率，用逆方差固定效应合并多次独立运行的区间，并以预注册在采集前冻结检验计划。异质性指数 $I^2$ 描述独立运行间结果的不一致程度；异质性较高时，合并值只作描述。
 
-统计检验的结论有预算边界。最小可检测效应（MDE）可以类比为精密天平在当前环境噪声下的最小分辨量程：若当前分辨下限为 25 ns，而实际指令差异只有 5 ns，检出这种差异的概率可能较低，未检出不能说明效应为零。预注册与 Holm 校正像一把防作弊锁：采样前固定输入类别、样本量、停止条件与检验家族，既防止事后挑选数据，也控制多重检验偶然产生假阳性的风险。异质性指数 $I^2$ 则像多次称量间的环境基线漂移度；例如 M2 的 $I^2=58.3\%$，表示六次运行的估计结果一致性较弱，此时合并均值只作参考，判定严格依据单次预注册 Holm 结果。未检出必须附带 MDE 预算，才能交代当前“天平”的检出能力。图~\ref{fig:mde} 画出统计检验面对的情形：两类耗时的分布部分重叠，检验要把均值差 $\delta$ 从噪声里分出来。
+统计检验的结论有预算边界。最小可检测效应（MDE）可以类比为精密天平在当前环境噪声下的最小分辨量程：若当前分辨下限为 25 ns，而实际指令差异只有 5 ns，检出这种差异的概率可能较低，未检出说明效应低于该预算。在统计设计上，预注册（Pre-registration）与 Holm 多重检验校正用于保证结论的客观性：在实验采样开始前，先行锁定输入类别、样本规模、停止规则及待检验集合，既避免“看数据不显著就无限追加样本”的事后挑选偏差，又将多组对比下的总体假阳性率严格控制在 $\alpha=0.05$ 以内。异质性指数 $I^2$ 则用于衡量多轮独立实验之间环境基线的波动程度；例如当 $I^2$ 较高（如 M2 的 $58.3\%$）时，说明不同轮次间存在明显的环境漂移，此时多轮合并均值仅作参考，正式结论严格以单轮预注册的 Holm 检验为准。未检出结论必须同时给出 MDE 预算，以客观交代当前实验条件下的检出能力边界。图~\ref{fig:mde} 画出统计检验面对的情形：两类耗时的分布部分重叠，检验要把均值差 $\delta$ 从噪声里分出来。
 
 \begin{figure}[htbp]
 \centering

@@ -1,0 +1,38 @@
+\documentclass[border=3pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,calc}
+\usepackage{xeCJK}
+\setCJKmainfont{KaiTi_GB2312}
+\setCJKsansfont{SimHei}
+\begin{document}
+\begin{tikzpicture}[font=\small,
+  stp/.style={draw,thick,rounded corners=2pt,align=center,minimum height=1.15cm,text width=8.4cm,fill=blue!5},
+  io/.style={draw,rounded corners=2pt,align=center,minimum height=0.9cm,text width=6.2cm,fill=gray!10},
+  leak/.style={draw,rounded corners=1pt,align=left,font=\footnotesize,text width=4.6cm,fill=red!8},
+  note/.style={draw,dashed,rounded corners=1pt,align=left,font=\footnotesize,text width=4.6cm,fill=yellow!10},
+  ar/.style={-{Stealth[length=2mm]},thick}]
+  \node[io] (in) {密文 $c$（1088 B）与解封装密钥 $dk$};
+  \node[stp,below=0.32cm of in] (s1) {\textbf{(1) 解密}：用私钥解出消息 $m'$，秘密为私钥与 $m'$};
+  \node[stp,below=0.32cm of s1] (s2) {\textbf{(2) 派生}：$G(m'\parallel h)$ 给出候选密钥 $K'$ 与重加密随机数 $r'$};
+  \node[stp,below=0.32cm of s2] (s3) {\textbf{(3) 重加密}：用 $m'$、$r'$ 重新生成密文 $c'$，秘密进入编码、变换、压缩与序列化};
+  \node[stp,below=0.32cm of s3] (s4) {\textbf{(4) 比较}：判定 $c'$ 与 $c$ 是否一致，同时接触真密钥与假密钥};
+  \node[stp,below=0.32cm of s4] (s5) {\textbf{(5) 隐式拒绝与选择}：常数时间比较后按掩码选出 $K'$ 或 $\bar K$};
+  \node[io,below=0.32cm of s5] (out) {共享密钥 $K$（32 B）};
+
+  \node[leak,right=0.55cm of s1] (l1) {\textbf{M2}：消息解码中的秘密除法（三处除法之一）};
+  \node[leak,right=0.55cm of s2] (l2) {哈希步骤不接触新的秘密来源。本作品在此不设阳性模块};
+  \node[leak,right=0.55cm of s3] (l3) {\textbf{M1}：消息编码被编译成分支\\\textbf{M2}：压缩中的两处秘密除法\\\textbf{M3}：人工插入的秘密下标查表};
+  \node[leak,right=0.55cm of s4] (l4) {\textbf{M4}：提前返回比较（独立夹具）};
+  \node[note,right=0.55cm of s5] (l5) {选择必须由掩码或条件传送完成。任何依赖比较结果的分支都会使隐式拒绝失效};
+
+  \draw[ar] (in) -- (s1); \draw[ar] (s1) -- (s2); \draw[ar] (s2) -- (s3);
+  \draw[ar] (s3) -- (s4); \draw[ar] (s4) -- (s5); \draw[ar] (s5) -- (out);
+  \foreach \a/\b in {s1/l1,s2/l2,s3/l3,s4/l4,s5/l5} \draw[gray,densely dotted] (\a.east) -- (\b.west);
+
+  \begin{scope}[on background layer]
+    \node[draw,dashed,rounded corners=3pt,inner sep=8pt,fit=(s1)(s5)] (chain) {};
+  \end{scope}
+  \node[draw,dashed,rounded corners=1pt,font=\footnotesize,fill=yellow!10,rotate=90,anchor=south,inner sep=2pt]
+    at ([xshift=-0.4cm]chain.west) {整条链：\textbf{M5} 阴性对照（设计为常数时间）};
+\end{tikzpicture}
+\end{document}
