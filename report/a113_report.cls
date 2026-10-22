@@ -3,7 +3,7 @@
 % A4 纸、四边 2 cm；正文楷体_GB2312 四号、固定行距 24 pt；
 % 页眉“全国密码技术竞赛作品设计报告”宋体 9 pt 居中，下加 0.75 pt 线；
 % 封面无页眉和页码，基本信息表页起页码为 1；
-% 一级标题华文楷体 15 pt 左对齐，二级标题黑体 14 pt 左对齐，最多只用到二级标题。
+% 一级标题华文楷体 15 pt 居中，二级标题黑体 14 pt 居中，最多只用到二级标题。
 % 类选项只有小四的尺寸文件，四号在其后用 \normalsize 覆盖。
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{a113_report}[2026/10/22 A1-13 competition report template]
@@ -85,7 +85,7 @@
 
 \ctexset{
   section = {
-    format = {\reportfontkai\headingonefont\bfseries\fontsize{15pt}{22.5pt}\selectfont},
+    format = {\centering\reportfontkai\headingonefont\bfseries\fontsize{15pt}{22.5pt}\selectfont},
     name = {,},
     number = 第\chinese{section}章,
     aftername = {\quad},
@@ -94,7 +94,7 @@
     afterskip = 12pt,
   },
   subsection = {
-    format = {\reportfonthei\bfseries\fontsize{14pt}{21pt}\selectfont},
+    format = {\centering\reportfonthei\bfseries\fontsize{14pt}{21pt}\selectfont},
     name = {,},
     number = \arabic{section}.\arabic{subsection},
     aftername = {\ },
