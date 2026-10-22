@@ -70,7 +70,6 @@
 \newcommand{\reportfontzhongsong}{\CJKfamily{zhhwzs}}
 
 % 正文四号、固定行距 24 pt。不用 \linespread：它会把标题和题注的行距一起放大。
-\makeatletter
 \renewcommand\normalsize{%
   \@setfontsize\normalsize{14pt}{24pt}%
   \abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
@@ -81,7 +80,6 @@
 }
 \normalsize
 \setlength{\parindent}{2em}
-\makeatother
 
 \ctexset{
   section = {
