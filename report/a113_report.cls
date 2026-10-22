@@ -1,15 +1,17 @@
 % a113_report.cls — 2026年第十一届全国密码技术竞赛作品设计报告模板
 % 版式照官方 Word 模板（附件二）复刻：
-% A4 纸、四边 2cm 页边距；页眉“全国密码技术竞赛作品设计报告”9pt 居中，下加 0.75pt 线；
+% A4 纸、四边 2 cm；正文楷体_GB2312 四号、固定行距 24 pt；
+% 页眉“全国密码技术竞赛作品设计报告”宋体 9 pt 居中，下加 0.75 pt 线；
 % 封面无页眉和页码，基本信息表页起页码为 1；
-% 一级标题华文楷体小三，二级标题黑体四号，最多只用到二级标题。
+% 一级标题华文楷体 15 pt 左对齐，二级标题黑体 14 pt 左对齐，最多只用到二级标题。
+% 类选项只有小四的尺寸文件，四号在其后用 \normalsize 覆盖。
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{a113_report}[2026/10/21 A1-13 competition report template]
+\ProvidesClass{a113_report}[2026/10/22 A1-13 competition report template]
 
 \LoadClass[a4paper,zihao=-4,fontset=none]{ctexart}
 
 \RequirePackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,
-  headheight=12pt,headsep=3pt,footskip=0.6cm]{geometry}
+  headheight=12pt,headsep=3pt,footskip=12pt]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{array}
 \RequirePackage{tabularx}
@@ -67,15 +69,27 @@
 \newcommand{\reportfontsong}{\CJKfamily{zhsong}}
 \newcommand{\reportfontzhongsong}{\CJKfamily{zhhwzs}}
 
-% 楷体四号按模板固定 24pt 行距（14pt × 1.2 × 1.42857 ≈ 24pt）。
-\linespread{1.42857}
+% 正文四号、固定行距 24 pt。不用 \linespread：它会把标题和题注的行距一起放大。
+\makeatletter
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{14pt}{24pt}%
+  \abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
+  \abovedisplayshortskip \z@ \@plus3\p@
+  \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
+  \belowdisplayskip \abovedisplayskip
+  \let\@listi\@listI
+}
+\normalsize
+\setlength{\parindent}{2em}
+\makeatother
 
 \ctexset{
   section = {
-    format = {\centering\reportfontkai\headingonefont\bfseries\fontsize{15pt}{22.5pt}\selectfont},
+    format = {\reportfontkai\headingonefont\bfseries\fontsize{15pt}{22.5pt}\selectfont},
     name = {,},
     number = 第\chinese{section}章,
     aftername = {\quad},
+    indent = 0pt,
     beforeskip = 12pt,
     afterskip = 12pt,
   },
@@ -84,6 +98,7 @@
     name = {,},
     number = \arabic{section}.\arabic{subsection},
     aftername = {\ },
+    indent = 0pt,
     beforeskip = 12pt,
     afterskip = 12pt,
   },
@@ -147,34 +162,37 @@
   \begin{titlepage}%
     \thispagestyle{empty}%
     \setlength{\parindent}{0pt}%
+    % 编号与类别在徽标左侧，徽标高 32.3 mm，与模板浮动图同一位置。
     \noindent
-    \begin{minipage}[t]{0.60\textwidth}
+    \begin{minipage}[t]{\dimexpr\textwidth-4.6cm\relax}
       \vspace{0pt}%
       {\bfseries\fontsize{14pt}{24pt}\selectfont
        作品编号：\aiv@reportid\par}
+      \vspace{24pt}%
+      {\fontsize{14pt}{24pt}\selectfont
+       作品类别：□软件设计\quad □硬件制作\quad ■工程实践\par
+       \hspace*{7em}□密码应用技术\quad □其它\par}
     \end{minipage}\hfill
     \begin{minipage}[t]{4.26cm}
       \vspace{0pt}%
       \includegraphics[width=4.26cm]{\aiv@logopath}%
     \end{minipage}\par
-    \vspace{0.5cm}
-    {\reportfontsong\fontsize{14pt}{24pt}\selectfont
-     作品类别：□软件设计\quad □硬件制作\quad ■工程实践\par
-     \hspace*{7em}□密码应用技术\quad □其它\par}
-    \vspace{2.8cm}
+    \vspace{4.2cm}
     {\centering
      \bfseries\fontsize{18pt}{24pt}\selectfont
      2026年第十一届全国密码技术竞赛作品设计报告\par}
     \vspace{0.55cm}
     \noindent\hspace*{1.5cm}\rule{13.6cm}{3pt}\par
-    \vspace{1.9cm}
-    {\reportfontzhongsong\fontsize{14pt}{24pt}\selectfont
-     \hspace*{6em}作品题目：\parbox[t]{10.4cm}{\raggedright\aiv@reportcovertitle}\par}
-    \vspace{1.5cm}
+    \vspace{1.7cm}
+    {\fontsize{14pt}{35pt}\selectfont
+     \hspace*{6em}作品题目：%
+     \parbox[t]{10.4cm}{\reportfontzhongsong\raggedright\aiv@reportcovertitle}\par}
+    \vfill
     {\centering
      \fontsize{14pt}{30pt}\selectfont
      \aiv@reportdate\par
      中国密码学会\par}
+    \vspace{1.2cm}
   \end{titlepage}%
 }
 
@@ -182,31 +200,36 @@
   \pagenumbering{arabic}%
   \thispagestyle{a113report}%
   \begin{center}
+    \setlength{\fboxrule}{1.5pt}%
+    \setlength{\fboxsep}{0pt}%
+    \setlength{\arrayrulewidth}{0.5pt}%
     \renewcommand{\arraystretch}{1.0}%
-    \begin{tabularx}{15.72cm}{|X|}
-      \hline
-      \centering{\reportfontsong\fontsize{15pt}{20pt}\selectfont 基本信息表}\arraybackslash\\
-      \hline
-      \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont 编号：\aiv@reportid}\\
-      \hline
-      \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont
-        作品题目：\parbox[t]{11.7cm}{\aiv@reportcovertitle}}\\
-      \hline
-      \rule{0pt}{0.9cm}{\reportfontsong\fontsize{12pt}{18pt}\selectfont
-        作品类别：□软件设计\quad □硬件制作\quad ■工程实践\quad □密码应用技术\quad □其它}\\
-      \hline
-      {\reportfontsong\fontsize{15pt}{22pt}\selectfont 作品内容摘要：}
-      \par\vspace{0.1cm}
-      % 定稿摘要约 23 行，留一行余量后固定高度取 13.2cm。
-      \parbox[t][13.2cm][t]{\linewidth}{%
-        \reportfontsong\fontsize{12pt}{15pt}\selectfont
-        \setlength{\parindent}{2em}%
-        \aiv@abstract}\\
-      \hline
-      \rule{0pt}{1.0cm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont
-        关键词（五个）：\aiv@keywords}\\
-      \hline
-    \end{tabularx}
+    % 外框 1.5 pt、内线 0.5 pt；总宽含外框为 15.72 cm。
+    \fbox{%
+      \begin{tabularx}{\dimexpr15.72cm-3pt\relax}{X}
+        \centering\rule{0pt}{11mm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont 基本信息表}\arraybackslash\\
+        \hline
+        \rule{0pt}{11mm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont 编号：\aiv@reportid}\\
+        \hline
+        \rule{0pt}{11mm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont
+          作品题目：\parbox[t]{11.5cm}{\aiv@reportcovertitle}}\\
+        \hline
+        {\reportfontsong\fontsize{15pt}{22pt}\selectfont
+          \hangindent=5em\hangafter=1
+          作品类别：□软件设计\quad □硬件制作\quad ■工程实践\quad □密码应用技术\quad □其它}\\
+        \hline
+        {\reportfontsong\fontsize{15pt}{22pt}\selectfont 作品内容摘要：}
+        \par\vspace{0.15cm}
+        % 摘要正文用宋体小四、15 pt 行距，使定稿摘要留在信息表一页内。
+        \parbox[t][12.4cm][t]{\linewidth}{%
+          \reportfontsong\fontsize{12pt}{15pt}\selectfont
+          \setlength{\parindent}{2em}%
+          \aiv@abstract}\\
+        \hline
+        \rule{0pt}{11mm}{\reportfontsong\fontsize{15pt}{22pt}\selectfont
+          关键词（五个）：\aiv@keywords}\\
+      \end{tabularx}%
+    }
   \end{center}
   \newpage
 }
