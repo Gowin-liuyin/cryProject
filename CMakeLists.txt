@@ -933,6 +933,12 @@ if(BUILD_TESTING)
         COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_pipeline_replay.sh"
                 "${CMAKE_CURRENT_SOURCE_DIR}"
     )
+    # P4 MCP server 冒烟：三条 JSON-RPC 只读调用，断言响应数与工具数。
+    add_test(
+        NAME test_mcp_smoke
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_mcp_smoke.sh"
+                "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
     set(test_temp_directory "${CMAKE_CURRENT_BINARY_DIR}/test-tmp")
     if(IS_SYMLINK "${test_temp_directory}")
         message(FATAL_ERROR "The test temporary directory must not be a symlink")

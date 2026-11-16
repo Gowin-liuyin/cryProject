@@ -1181,3 +1181,5 @@ Cry 下」「本任务未写 /tmp」），本轮无法再做实时核对——`S
 2026-11-16 完成 R0a 修复臂验证与复测计划冻结：临时应用 asm 主候选后 KAT 100/100、语义等价 160 例、额外 500 随机 + 500 逐字节篡改全部隐式拒绝、两臂 transcript diff 全空；vendor/kyber-kyberslash-fixed 树摘要恢复为 8503134f。复测 PLAN 见 docs/research/r0a-recap-20261116/PLAN.md（三臂×主类对×3 种子×每类 10000+预热 100，家族 m2_branchfix_end_to_end_v1 m=9，定位层 Memcheck 1/1/0）；未执行采集，R0a 裸金属复测采集留待主控。
 
 2026-11-16 完成 P3 编排器 MVP 软件部分：tools/pipeline/ 新增 manifest/findings schema 与 pipeline.py（freeze/verify/run-local/report，只编排并复算 SHA-256，统计量调用既有 C 件）；m1-r0204-replay 与 m5-reference 两个真实 manifest 跑通并生成 report.md（m1 16 条族外 exploratory findings、m5 2 条 deferred_hardware），篡改 artifact 后 verify 退出 4；tests/test_pipeline_replay.sh 接入 CTest（58/58）。运行产物只写 build/pipeline-runs/；本轮无取件、无采集、无联网。
+
+2026-11-16 完成 P4 修复模式库与 MCP 软件部分：tools/pipeline/repair_patterns/ 四条目 + repair_propose.py 三分支自检（R0a 未修 bt/jae 命中 secret_branch_to_mask、compare_early 命中 early_exit_compare_to_or、M5 poly_frommsg 四模式零命中；补充 div 命中与表查找正例）；mcp_server.py 八工具（stdio JSON-RPC 2.0）与 tests/test_mcp_smoke.sh 接入 CTest（59/59）。写操作仅 build/pipeline-runs/；无取件、无联网、无采集。
