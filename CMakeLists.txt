@@ -1018,6 +1018,36 @@ if(BUILD_TESTING)
                      $<TARGET_FILE:adaptive_bit_hypothesis_tester>
     )
     add_test(NAME adaptive_craft_inputs COMMAND test_adaptive_craft_inputs)
+    # P6 引擎：M4 两臂（人工校准臂）本地 L2 自攻击演示；不并入固定 CTest。
+    add_executable(
+        adaptive_engine_vulnerable
+        tools/adaptive/adaptive_engine.c tools/platform_m4/craft_inputs.c
+        fixtures/early_reject_memcmp/compare_early.c
+        fixtures/early_reject_memcmp/compare_checked.c
+    )
+    target_compile_definitions(
+        adaptive_engine_vulnerable PRIVATE ADAPTIVE_ENGINE_EMBEDS_CRAFT_INPUTS
+                                         ADAPTIVE_ARM_VULNERABLE=1
+    )
+    target_include_directories(
+        adaptive_engine_vulnerable
+        PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/fixtures/early_reject_memcmp"
+    )
+    add_executable(
+        adaptive_engine_ct
+        tools/adaptive/adaptive_engine.c tools/platform_m4/craft_inputs.c
+        fixtures/early_reject_memcmp/compare_ct.c fixtures/early_reject_memcmp/compare_checked.c
+    )
+    target_compile_definitions(adaptive_engine_ct PRIVATE ADAPTIVE_ENGINE_EMBEDS_CRAFT_INPUTS)
+    target_include_directories(
+        adaptive_engine_ct PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/fixtures/early_reject_memcmp"
+    )
+    foreach(engine_target IN ITEMS adaptive_engine_vulnerable adaptive_engine_ct)
+        target_compile_options(
+            ${engine_target} PRIVATE -Wall -Wextra -Wpedantic -Wshadow -Wconversion
+                                     -Wstrict-prototypes -Werror -UNDEBUG
+        )
+    endforeach()
     set(test_temp_directory "${CMAKE_CURRENT_BINARY_DIR}/test-tmp")
     if(IS_SYMLINK "${test_temp_directory}")
         message(FATAL_ERROR "The test temporary directory must not be a symlink")

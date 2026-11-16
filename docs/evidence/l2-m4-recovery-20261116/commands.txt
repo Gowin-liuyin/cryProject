@@ -1,0 +1,61 @@
+# L2 M4 失配位置恢复演示：命令与产物
+
+日期：2026-11-16（Asia/Shanghai）；环境见 environment.txt（WSL2、本地未锁频）。
+
+## 1. 构建（主树，gcc conda 14.3.0，RelWithDebInfo）
+
+```sh
+cmake --preset baseline-wsl
+cmake --build build/cmake --target adaptive_engine_vulnerable adaptive_engine_ct --parallel 8
+# 平台树（clang 18.1.8）构建 M4 两臂 measure（P5 §2 约定，缓存已在 build/ 内）：
+cmake --build build/cmake-platform --target platform_m4_measure_vulnerable \
+    platform_m4_measure_ct --parallel 8
+```
+
+## 2. 快速 sanity（100 样本/位置，确认信号方向）
+
+```sh
+build/cmake/adaptive_engine_vulnerable --sanity 0
+build/cmake/adaptive_engine_vulnerable --sanity 15
+build/cmake/adaptive_engine_vulnerable --sanity 31
+build/cmake/adaptive_engine_ct --sanity 0
+build/cmake/adaptive_engine_ct --sanity 31
+```
+
+## 3. 全量恢复演示（两臂，冻结参数）
+
+```sh
+build/cmake/adaptive_engine_vulnerable \
+    --output build/p6-demo/vulnerable/recovery.csv \
+    --meta build/p6-demo/vulnerable/recovery.meta.txt --run-id l2-m4-vulnerable --cpu 0
+build/cmake/adaptive_engine_ct \
+    --output build/p6-demo/ct/recovery.csv \
+    --meta build/p6-demo/ct/recovery.meta.txt --run-id l2-m4-ct --cpu 0
+```
+
+## 4. M4 measure 两臂 sanity（既有 measure 入口，固定 first/last 类）
+
+```sh
+build/cmake-platform/platform_m4_measure_vulnerable --describe
+build/cmake-platform/platform_m4_measure_ct --describe
+build/cmake-platform/platform_m4_measure_vulnerable \
+    --collect build/p6-demo/measure/vulnerable.csv 500 20261116 m4-vuln-sanity
+build/cmake-platform/platform_m4_measure_ct \
+    --collect build/p6-demo/measure/ct.csv 500 20261116 m4-ct-sanity
+python3 build/p6-probe/class_medians.py \
+    docs/evidence/l2-m4-recovery-20261116/measure/measure-vulnerable.csv \
+    docs/evidence/l2-m4-recovery-20261116/measure/measure-ct.csv
+```
+
+## 5. 未达标时的预算估计（pilot 预研，build 内探针，不参与判定）
+
+```sh
+gcc -O2 -g -std=c11 -Wall -Wextra -Wpedantic -Werror -Ifixtures/early_reject_memcmp \
+    -DADAPTIVE_ENGINE_EMBEDS_CRAFT_INPUTS build/p6-probe/collect_pilot.c \
+    fixtures/early_reject_memcmp/compare_early.c \
+    fixtures/early_reject_memcmp/compare_checked.c \
+    tools/platform_m4/craft_inputs.c -o build/p6-probe/collect_pilot
+taskset -c 0 build/p6-probe/collect_pilot build/p6-demo/pilot-adjacent.csv
+python3 scripts/platform_stats/mde_budget.py \
+    --input build/p6-demo/pilot-adjacent.csv --delta-nanoseconds 0.49
+```

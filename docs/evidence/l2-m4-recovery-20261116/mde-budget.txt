@@ -1,0 +1,7 @@
+mde_budget: alpha=0.05 (two-sided) power=0.8 factor=15.6977594686982
+input_path=build/p6-demo/pilot-adjacent.csv
+rows_class_zero=1000 rows_class_ones=1000 degrees_of_freedom=1998
+pooled_standard_deviation_nanoseconds=3.92286201674188
+delta_nanoseconds=0.49
+required_samples_per_class=1007
+boundary=pilot 预研估算，不作正式统计出口；正式统计仍由 C 件（platform_holm / platform_shape_stats）承担。
