@@ -992,6 +992,32 @@ if(BUILD_TESTING)
         )
         set_tests_properties(platform_observer_sync_flag PROPERTIES TIMEOUT 60)
     endif()
+    # P6 自适应 L1/L2：逐位检验器与 M4 位置构造器；引擎演示不并入固定 CTest。
+    add_executable(adaptive_bit_hypothesis_tester tools/adaptive/bit_hypothesis_tester.c)
+    add_executable(test_adaptive_bit_hypothesis_tester
+                   tools/adaptive/tests/test_bit_hypothesis_tester.c
+    )
+    add_executable(platform_m4_craft_inputs tools/platform_m4/craft_inputs.c)
+    add_executable(test_adaptive_craft_inputs tools/adaptive/tests/test_craft_inputs.c
+                                             tools/platform_m4/craft_inputs.c
+    )
+    target_compile_definitions(
+        test_adaptive_craft_inputs PRIVATE ADAPTIVE_ENGINE_EMBEDS_CRAFT_INPUTS
+    )
+    foreach(adaptive_target IN ITEMS adaptive_bit_hypothesis_tester
+            test_adaptive_bit_hypothesis_tester platform_m4_craft_inputs
+            test_adaptive_craft_inputs
+    )
+        target_compile_options(
+            ${adaptive_target} PRIVATE -Wall -Wextra -Wpedantic -Wshadow -Wconversion
+                                       -Wstrict-prototypes -Werror -UNDEBUG
+        )
+    endforeach()
+    add_test(NAME adaptive_bit_hypothesis_tester
+             COMMAND test_adaptive_bit_hypothesis_tester
+                     $<TARGET_FILE:adaptive_bit_hypothesis_tester>
+    )
+    add_test(NAME adaptive_craft_inputs COMMAND test_adaptive_craft_inputs)
     set(test_temp_directory "${CMAKE_CURRENT_BINARY_DIR}/test-tmp")
     if(IS_SYMLINK "${test_temp_directory}")
         message(FATAL_ERROR "The test temporary directory must not be a symlink")
