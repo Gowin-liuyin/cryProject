@@ -1185,3 +1185,5 @@ Cry 下」「本任务未写 /tmp」），本轮无法再做实时核对——`S
 2026-11-16 完成 P4 修复模式库与 MCP 软件部分：tools/pipeline/repair_patterns/ 四条目 + repair_propose.py 三分支自检（R0a 未修 bt/jae 命中 secret_branch_to_mask、compare_early 命中 early_exit_compare_to_or、M5 poly_frommsg 四模式零命中；补充 div 命中与表查找正例）；mcp_server.py 八工具（stdio JSON-RPC 2.0）与 tests/test_mcp_smoke.sh 接入 CTest（59/59）。写操作仅 build/pipeline-runs/；无取件、无联网、无采集。
 
 2026-11-16 完成 P5 观测者族软件部分：sync_flag 同步库（fork 1000 turn 双模式）与 SMT/cache/BTB 三个 POSIX 观测者 + 自模拟 CTest（64/64，新增 5 例）；M3 shared-on 臂（m3-lut-shared-page.patch + PlatformM3 第三模式）在平台 clang 树可构建；mde_budget.py 与 R18/R19 两份 pilot 冻结 PLAN 落盘（含 MDE 公式/预算/同步机制/停止条件）。未执行任何采集，pilot 与正式采集留待主控。
+
+2026-11-16 完成 P6 自适应 L1/L2 软件与本地演示：bit_hypothesis_tester（20/20、完全相同 p=1）与 craft_inputs（32 位置构造）；adaptive_engine 在 M4 人工校准臂上恢复演示 vulnerable 15/20（未达 20/20，按冻结口径如实登记，mde_budget 估 1007/类≈预算边界，主因两相位漂移，不调参重跑）、ct 1/20 未检出；平台树 M4 两臂 measure 构建与 first/last sanity（50/80、60/60 ns）；证据 docs/evidence/l2-m4-recovery-20261116/；L2(M3×R19) 判据与 L3 提纲 PLAN 冻结。ctest 66/66；未执行真实臂采集。
