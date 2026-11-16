@@ -939,6 +939,33 @@ if(BUILD_TESTING)
         COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_mcp_smoke.sh"
                 "${CMAKE_CURRENT_SOURCE_DIR}"
     )
+    # P5 观测者族：POSIX 本地件（仅 Linux）；计时窗口纪律与自模拟单测见各源文件头。
+    if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+        add_executable(
+            platform_observer_smt_contention
+            tools/platform_observers/smt_contention_observer.c
+            tools/platform_observers/sync_flag.c
+            tools/platform_observers/observer_common.c
+        )
+        add_executable(
+            test_platform_observer_sync_flag
+            tools/platform_observers/tests/test_sync_flag.c
+            tools/platform_observers/sync_flag.c
+        )
+        foreach(observer_target IN ITEMS platform_observer_smt_contention
+                test_platform_observer_sync_flag
+        )
+            target_compile_options(
+                ${observer_target} PRIVATE -Wall -Wextra -Wpedantic -Wshadow -Wconversion
+                                           -Wstrict-prototypes -Werror -UNDEBUG
+            )
+        endforeach()
+        add_test(NAME platform_observer_sync_flag COMMAND test_platform_observer_sync_flag)
+        add_test(NAME platform_observer_smt_selfcheck
+                 COMMAND platform_observer_smt_contention --self-check
+        )
+        set_tests_properties(platform_observer_sync_flag PROPERTIES TIMEOUT 60)
+    endif()
     set(test_temp_directory "${CMAKE_CURRENT_BINARY_DIR}/test-tmp")
     if(IS_SYMLINK "${test_temp_directory}")
         message(FATAL_ERROR "The test temporary directory must not be a symlink")
