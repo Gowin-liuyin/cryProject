@@ -1,0 +1,11 @@
+--- a/ref/poly.c
++++ b/ref/poly.c
+@@ -175,6 +175,8 @@
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+       mask = -(int16_t)((msg[i] >> j)&1);
++      /* 值屏障：让编译器无法把 mask 再识别成 0/-1 的位选择分支。 */
++      __asm__("" : "+r"(mask));
+       r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
+     }
+   }

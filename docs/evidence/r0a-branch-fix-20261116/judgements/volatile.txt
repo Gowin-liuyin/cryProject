@@ -1,0 +1,5 @@
+platform_m2_poly_frommsg_branchless: elf=/home/ubuntu/cryProject-work/build/m2-branchfix-work/volatile-driver
+  symbol=pqcrystals_kyber768_ref_poly_frommsg found=1 bt_count=1 test_count=0 conditional_jumps=2
+  secret_conditional_jumps=0
+verdict=branchless
+exit_code=0

@@ -1,0 +1,24 @@
+--- a/ref/poly.c
++++ b/ref/poly.c
+@@ -155,6 +155,12 @@
+   }
+ }
+ 
++/* 常量时间选择：noinline 阻止把掩码折回位选择分支。 */
++static __attribute__((noinline)) int16_t mask_select_int16(int16_t mask, int16_t value)
++{
++  return mask & value;
++}
++
+ /*************************************************
+ * Name:        poly_frommsg
+ *
+@@ -175,7 +181,7 @@
+   for(i=0;i<KYBER_N/8;i++) {
+     for(j=0;j<8;j++) {
+       mask = -(int16_t)((msg[i] >> j)&1);
+-      r->coeffs[8*i+j] = mask & ((KYBER_Q+1)/2);
++      r->coeffs[8*i+j] = mask_select_int16(mask, (KYBER_Q+1)/2);
+     }
+   }
+ }
