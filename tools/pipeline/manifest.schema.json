@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "manifest.schema.json",
+  "title": "A1-13 编排器 manifest（T3.1）",
+  "description": "manifest 的固定字段。preregistration_sha256 在输入 manifest 中允许为空字符串，由 freeze 计算规则段 SHA-256 后写入；冻结后必须是 64 位小写十六进制。规则段 = 除 preregistration_sha256 外的整个 manifest 对象，按 sort_keys 的紧凑 JSON 规范化后取 SHA-256。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "target_id",
+    "module",
+    "source_commit",
+    "build_preset",
+    "elf_sha256",
+    "arms",
+    "class_pairs",
+    "stages",
+    "preregistration_sha256"
+  ],
+  "properties": {
+    "manifest_version": { "type": "integer", "const": 1 },
+    "target_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$" },
+    "module": { "type": "string", "enum": ["M1", "M2", "M3", "M4", "M5", "R17"] },
+    "source_commit": { "type": "string", "minLength": 1 },
+    "build_preset": { "type": "string", "minLength": 1 },
+    "elf_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "arms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "build_cmd", "digest"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "build_cmd": { "type": "string", "minLength": 1 },
+          "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "class_pairs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "class_zero", "class_one"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "class_zero": { "type": "string", "minLength": 1 },
+          "class_one": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "tool", "args", "artifact_glob"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "tool": { "type": "string", "enum": ["platform_shape_stats", "external_evidence"] },
+          "args": {
+            "type": "object",
+            "description": "platform_shape_stats: {format: wide|long, inputs: [path]} 或 {inputs_glob: pattern}；external_evidence: {artifacts: [path], reason: str, layer?: str, mechanism?: str}。",
+            "properties": {
+              "format": { "type": "string", "enum": ["wide", "long"] },
+              "inputs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+              "inputs_glob": { "type": "string", "minLength": 1 },
+              "artifacts": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+              "reason": { "type": "string", "minLength": 1 },
+              "layer": { "type": "string", "enum": ["localize", "microbench", "end_to_end"] },
+              "mechanism": { "type": "string" }
+            }
+          },
+          "artifact_glob": { "type": "string" }
+        }
+      }
+    },
+    "preregistration_sha256": { "type": "string", "pattern": "^(|[0-9a-f]{64})$" }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "findings.schema.json",
+  "title": "A1-13 findings 文档（T3.1）",
+  "description": "run-local 产出的 findings 文档。每个 finding 的 layer/mechanism/verdict 都有固定枚举；mechanism 的前七项是 R05 六类泄漏来源加 variable_latency_instruction，exploratory_shape_replay 只用于 P1 形状检验的族外回放，not_assessed 只允许与 verdict=not_run 同时出现。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "manifest_sha256", "findings"],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "manifest_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_id",
+          "module",
+          "arm",
+          "layer",
+          "mechanism",
+          "verdict",
+          "evidence_path",
+          "evidence_sha256",
+          "notes"
+        ],
+        "properties": {
+          "finding_id": { "type": "string", "pattern": "^f-[0-9]{4}$" },
+          "module": { "type": "string", "enum": ["M1", "M2", "M3", "M4", "M5", "R17"] },
+          "arm": { "type": "string", "minLength": 1 },
+          "layer": { "type": "string", "enum": ["localize", "microbench", "end_to_end"] },
+          "mechanism": {
+            "type": "string",
+            "enum": [
+              "early_return",
+              "variable_time_compare",
+              "data_dependent_loop",
+              "data_dependent_memory",
+              "failure_path",
+              "exception_path",
+              "variable_latency_instruction",
+              "exploratory_shape_replay",
+              "not_assessed"
+            ]
+          },
+          "verdict": {
+            "type": "string",
+            "enum": ["positive", "negative", "not_run", "budget_insufficient"]
+          },
+          "evidence_path": { "type": "string", "minLength": 1 },
+          "evidence_sha256": { "type": "string", "pattern": "^(|[0-9a-f]{64})$" },
+          "notes": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

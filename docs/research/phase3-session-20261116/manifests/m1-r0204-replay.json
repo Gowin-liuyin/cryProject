@@ -1,0 +1,39 @@
+{
+  "manifest_version": 1,
+  "target_id": "m1-r0204-replay",
+  "module": "M1",
+  "source_commit": "liboqs 0.10.0 tag 0.10.0 / commit 36be5744 (vendor/liboqs-0.10.0) + 官方补丁提交 982c762c242ef549c914891b47bf6e0ed6321f91 (vendor/liboqs-0.10.0-982c762)",
+  "build_preset": "historical-clangover (docs/R05 §0): Clang 18.1.3, -Os -fno-vectorize, AVX2 dispatch off; 已修臂用 -DLIBOQS010_SOURCE_DIR=vendor/liboqs-0.10.0-982c762 重链",
+  "elf_sha256": "bd84ee9c2a44993fb5c6b43c4fb37027a168d265b4ca027eba3c3026798a0f78",
+  "arms": [
+    {
+      "name": "m1-unfixed-liboqs-0.10.0",
+      "build_cmd": "docs/R05 §0: historical/measure, Clang 18.1.3, -Os -fno-vectorize, AVX2 dispatch off",
+      "digest": "bd84ee9c2a44993fb5c6b43c4fb37027a168d265b4ca027eba3c3026798a0f78"
+    },
+    {
+      "name": "m1-fixed-982c762",
+      "build_cmd": "docs/R05 §0: 同左选项，整份 982c762 补丁打副本后用 -DLIBOQS010_SOURCE_DIR=vendor/liboqs-0.10.0-982c762 重链",
+      "digest": "1849821eca3039872cf5f103e3928141978b8846792a8da4e7c790ce96c2b5e9"
+    }
+  ],
+  "class_pairs": [
+    {
+      "name": "m1-history-main",
+      "class_zero": "message-zero",
+      "class_one": "message-ones"
+    }
+  ],
+  "stages": [
+    {
+      "name": "m1-r0204-shape-replay",
+      "tool": "platform_shape_stats",
+      "args": {
+        "format": "wide",
+        "inputs_glob": "docs/evidence/r02-r04-close-20261016/raw/*/csv/*.csv"
+      },
+      "artifact_glob": "shape/*.csv"
+    }
+  ],
+  "preregistration_sha256": ""
+}
