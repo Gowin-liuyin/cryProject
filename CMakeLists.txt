@@ -926,6 +926,13 @@ if(BUILD_TESTING)
         DEPENDS reference_baseline reference_test_mlkem reference_test_random_failure
         USES_TERMINAL VERBATIM
     )
+    # P3 编排器端到端回放：合成 fixture 只验证 freeze/verify/run-local/report 流程，
+    # 统计量不由编排器实现（fixture 用临时 mock 工具，真实 manifest 调 C 件）。
+    add_test(
+        NAME test_pipeline_replay
+        COMMAND "${SH_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_pipeline_replay.sh"
+                "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
     set(test_temp_directory "${CMAKE_CURRENT_BINARY_DIR}/test-tmp")
     if(IS_SYMLINK "${test_temp_directory}")
         message(FATAL_ERROR "The test temporary directory must not be a symlink")
