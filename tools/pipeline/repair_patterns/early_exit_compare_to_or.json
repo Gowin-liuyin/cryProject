@@ -1,0 +1,9 @@
+{
+  "id": "early_exit_compare_to_or",
+  "disasm_pattern": "(?:^|\\n)[^\\n]*\\bcmp[bwlq]?\\s+\\([^)\\n]*\\),\\s*%[a-z0-9]+\\n[^\\n]*\\bj(?:e|ne|z|nz|a|ae|b|be|g|ge|l|le)\\s",
+  "mechanism": "early_return",
+  "patch_template": "--- a/fixtures/early_reject_memcmp/compare_early.c\n+++ b/fixtures/early_reject_memcmp/compare_early.c\n@@\n-    for (size_t byte_index = 0; byte_index < compare_length_bytes; byte_index++) {\n-        if (secret_bytes[byte_index] != candidate_bytes[byte_index]) {\n-            return 0;\n-        }\n-    }\n-    return 1;\n+    unsigned int difference_bits = 0;\n+    for (size_t byte_index = 0; byte_index < compare_length_bytes; byte_index++) {\n+        difference_bits |= (unsigned int)(secret_bytes[byte_index] ^ candidate_bytes[byte_index]);\n+    }\n+    return difference_bits == 0;\n",
+  "known_example": "fixtures/early_reject_memcmp/compare_ct.c（OR 累积、无秘密相关早退）",
+  "known_counterexample": "fixtures/early_reject_memcmp/compare_early.c（循环内秘密相关早退比较）",
+  "risk_note": "内存操作数 cmp+jcc 的循环也可能承担公开边界检查；命中后要确认比较双方与返回值是否含秘密，人工审阅后再改。"
+}
