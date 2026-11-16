@@ -1183,3 +1183,5 @@ Cry 下」「本任务未写 /tmp」），本轮无法再做实时核对——`S
 2026-11-16 完成 P3 编排器 MVP 软件部分：tools/pipeline/ 新增 manifest/findings schema 与 pipeline.py（freeze/verify/run-local/report，只编排并复算 SHA-256，统计量调用既有 C 件）；m1-r0204-replay 与 m5-reference 两个真实 manifest 跑通并生成 report.md（m1 16 条族外 exploratory findings、m5 2 条 deferred_hardware），篡改 artifact 后 verify 退出 4；tests/test_pipeline_replay.sh 接入 CTest（58/58）。运行产物只写 build/pipeline-runs/；本轮无取件、无采集、无联网。
 
 2026-11-16 完成 P4 修复模式库与 MCP 软件部分：tools/pipeline/repair_patterns/ 四条目 + repair_propose.py 三分支自检（R0a 未修 bt/jae 命中 secret_branch_to_mask、compare_early 命中 early_exit_compare_to_or、M5 poly_frommsg 四模式零命中；补充 div 命中与表查找正例）；mcp_server.py 八工具（stdio JSON-RPC 2.0）与 tests/test_mcp_smoke.sh 接入 CTest（59/59）。写操作仅 build/pipeline-runs/；无取件、无联网、无采集。
+
+2026-11-16 完成 P5 观测者族软件部分：sync_flag 同步库（fork 1000 turn 双模式）与 SMT/cache/BTB 三个 POSIX 观测者 + 自模拟 CTest（64/64，新增 5 例）；M3 shared-on 臂（m3-lut-shared-page.patch + PlatformM3 第三模式）在平台 clang 树可构建；mde_budget.py 与 R18/R19 两份 pilot 冻结 PLAN 落盘（含 MDE 公式/预算/同步机制/停止条件）。未执行任何采集，pilot 与正式采集留待主控。

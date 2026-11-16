@@ -958,8 +958,15 @@ if(BUILD_TESTING)
             tools/platform_observers/sync_flag.c
             tools/platform_observers/observer_common.c
         )
+        add_executable(
+            platform_observer_btb
+            tools/platform_observers/btb_observer.c
+            tools/platform_observers/sync_flag.c
+            tools/platform_observers/observer_common.c
+        )
         foreach(observer_target IN ITEMS platform_observer_smt_contention
                 test_platform_observer_sync_flag platform_observer_cache_flush_reload
+                platform_observer_btb
         )
             target_compile_options(
                 ${observer_target} PRIVATE -Wall -Wextra -Wpedantic -Wshadow -Wconversion
@@ -972,6 +979,16 @@ if(BUILD_TESTING)
         )
         add_test(NAME platform_observer_cache_selfcheck
                  COMMAND platform_observer_cache_flush_reload --self-check
+        )
+        add_test(NAME platform_observer_btb_selfcheck COMMAND platform_observer_btb --self-check)
+        add_test(
+            NAME platform_observer_invalid_arguments
+            COMMAND
+                ${CMAKE_COMMAND}
+                "-DSMT_PROGRAM=$<TARGET_FILE:platform_observer_smt_contention>"
+                "-DCACHE_PROGRAM=$<TARGET_FILE:platform_observer_cache_flush_reload>"
+                "-DBTB_PROGRAM=$<TARGET_FILE:platform_observer_btb>"
+                -P "${CMAKE_CURRENT_SOURCE_DIR}/tools/platform_observers/tests/test_observer_arguments.cmake"
         )
         set_tests_properties(platform_observer_sync_flag PROPERTIES TIMEOUT 60)
     endif()
