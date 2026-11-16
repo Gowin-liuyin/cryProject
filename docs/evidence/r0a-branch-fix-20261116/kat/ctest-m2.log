@@ -1,0 +1,78 @@
+UpdateCTestConfiguration  from :/home/ubuntu/cryProject-work/build/cmake-platform/DartConfiguration.tcl
+Parse Config file:/home/ubuntu/cryProject-work/build/cmake-platform/DartConfiguration.tcl
+Test project /home/ubuntu/cryProject-work/build/cmake-platform
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 62
+    Start 62: platform_m2_unfixed_functional
+
+62: Test command: /home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_unfixed_test
+62: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+62: Test timeout computed to be: 1500
+62: M2: random roundtrip, boundary guards, chosen messages and 64 implicit rejections passed
+1/7 Test #62: platform_m2_unfixed_functional .......   Passed    0.06 sec
+test 63
+    Start 63: platform_m2_unfixed_random_failure
+
+63: Test command: /home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_unfixed_rng_failure
+63: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+63: Test timeout computed to be: 1500
+63: M2: failing random provider returns an error and clears full output buffers
+2/7 Test #63: platform_m2_unfixed_random_failure ...   Passed    0.00 sec
+test 64
+    Start 64: platform_m2_fixed_functional
+
+64: Test command: /home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_fixed_test
+64: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+64: Test timeout computed to be: 1500
+64: M2: random roundtrip, boundary guards, chosen messages and 64 implicit rejections passed
+3/7 Test #64: platform_m2_fixed_functional .........   Passed    0.05 sec
+test 65
+    Start 65: platform_m2_fixed_random_failure
+
+65: Test command: /home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_fixed_rng_failure
+65: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+65: Test timeout computed to be: 1500
+65: M2: failing random provider returns an error and clears full output buffers
+4/7 Test #65: platform_m2_fixed_random_failure .....   Passed    0.00 sec
+test 66
+    Start 66: platform_m2_semantic_equivalence
+
+66: Test command: /home/ubuntu/miniconda3/bin/cmake "-DM2_unfixed_TEST=/home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_unfixed_test" "-DM2_fixed_TEST=/home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_fixed_test" "-P" "/home/ubuntu/cryProject-work/tests/test_platform_m2_equivalence.cmake"
+66: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+66: Test timeout computed to be: 1500
+66: -- Both M2 versions agree on key bytes and 160 ciphertext/decapsulation cases
+5/7 Test #66: platform_m2_semantic_equivalence .....   Passed    0.12 sec
+test 67
+    Start 67: platform_m2_unfixed_public_kat
+
+67: Test command: /home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_unfixed_kat "/home/ubuntu/cryProject-work/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp"
+67: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+67: Test timeout computed to be: 1500
+67: m2-kyber768-round3-unfixed: 100 independent official round3 KAT keygen/encap/decap cases passed
+6/7 Test #67: platform_m2_unfixed_public_kat .......   Passed    0.06 sec
+test 68
+    Start 68: platform_m2_fixed_public_kat
+
+68: Test command: /home/ubuntu/cryProject-work/build/cmake-platform/platform_m2_fixed_kat "/home/ubuntu/cryProject-work/tests/vectors/kyber768_round3/PQCkemKAT_2400.rsp"
+68: Working Directory: /home/ubuntu/cryProject-work/build/cmake-platform
+68: Test timeout computed to be: 1500
+68: m2-kyber768-round3-fixed: 100 independent official round3 KAT keygen/encap/decap cases passed
+7/7 Test #68: platform_m2_fixed_public_kat .........   Passed    0.06 sec
+
+The following tests passed:
+	platform_m2_unfixed_functional
+	platform_m2_unfixed_random_failure
+	platform_m2_fixed_functional
+	platform_m2_fixed_random_failure
+	platform_m2_semantic_equivalence
+	platform_m2_unfixed_public_kat
+	platform_m2_fixed_public_kat
+
+100% tests passed, 0 tests failed out of 7
+
+Total Test time (real) =   0.36 sec

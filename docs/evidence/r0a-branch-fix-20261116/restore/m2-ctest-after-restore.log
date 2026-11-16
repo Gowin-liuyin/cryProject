@@ -1,0 +1,19 @@
+Test project /home/ubuntu/cryProject-work/build/cmake-platform
+    Start 62: platform_m2_unfixed_functional
+1/7 Test #62: platform_m2_unfixed_functional .......   Passed    0.06 sec
+    Start 63: platform_m2_unfixed_random_failure
+2/7 Test #63: platform_m2_unfixed_random_failure ...   Passed    0.00 sec
+    Start 64: platform_m2_fixed_functional
+3/7 Test #64: platform_m2_fixed_functional .........   Passed    0.05 sec
+    Start 65: platform_m2_fixed_random_failure
+4/7 Test #65: platform_m2_fixed_random_failure .....   Passed    0.00 sec
+    Start 66: platform_m2_semantic_equivalence
+5/7 Test #66: platform_m2_semantic_equivalence .....   Passed    0.12 sec
+    Start 67: platform_m2_unfixed_public_kat
+6/7 Test #67: platform_m2_unfixed_public_kat .......   Passed    0.06 sec
+    Start 68: platform_m2_fixed_public_kat
+7/7 Test #68: platform_m2_fixed_public_kat .........   Passed    0.06 sec
+
+100% tests passed, 0 tests failed out of 7
+
+Total Test time (real) =   0.36 sec

@@ -1,0 +1,5 @@
+platform_m2_poly_frommsg_branchless: elf=build/cmake-platform/platform_m2_fixed_test
+  symbol=pqcrystals_kyber768_ref_poly_frommsg found=1 bt_count=1 test_count=0 conditional_jumps=3
+  secret_conditional_jumps=1
+verdict=secret_branch_present
+exit_code=1

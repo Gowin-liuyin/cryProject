@@ -1,0 +1,38 @@
+一键取件：仓库 /home/ubuntu/cryProject-work
+校验口径：上游归档 SHA-256 + 树内逐文件 SHA-256 的整体摘要。
+
+=== 第 1 步：liboqs 0.10.0 未修阳性对照 ===
+已存在且摘要一致，跳过下载。
+  [一致] liboqs 0.10.0（tag 0.10.0，commit 36be5744）
+         目录 /home/ubuntu/cryProject-work/vendor/liboqs-0.10.0
+         树摘要 d3322945483983b45c60406127790107865706523c4e83a15e27c7211c776cdd
+
+=== 第 2 步：liboqs 0.10.0 + 官方补丁 982c762 已修臂 ===
+补丁文件 /home/ubuntu/cryProject-work/docs/patches/liboqs-982c762.patch
+补丁摘要 d1879ac6aa52cfbd8fbe91a282e2f2696115fdec807d7f2f79543181edbe6376（与记录一致）
+已存在且摘要一致，跳过打补丁。
+补丁效果标记三处齐备（poly.c 掩码选择、verify.c 常量时间实现、verify.h 声明）。
+  [一致] liboqs 0.10.0-982c762（官方补丁已修）
+         目录 /home/ubuntu/cryProject-work/vendor/liboqs-0.10.0-982c762
+         树摘要 e27e55e5bdb59e89bfe26c8f82ddf8b162346537333c8b18b9e61c9d91093f14
+
+=== 第 3 步：M2 KyberSlash 未修 / 已修两臂 ===
+残留 fetch 目录已挪到 /home/ubuntu/cryProject-work/build/fetch-stale-20261116T080053Z（未删除任何内容）。
+Cloning into bare repository '/home/ubuntu/cryProject-work/build/platform-s4/fetch-fixed-commits/upstream.git'...
+unfixed a621b8dde405cc507cbcfc5f794570a4f98d69cc 509548a1741473cab69fe403eb685282419bc2a42554d358f16b9e991c88ac08
+fixed 272125f6acc8e8b6850fd68ceb901a660ff48196 e3d020a78c59fc7248f64a4ca774db5ca8c6bc537e8c682a9fd0049a09180803
+  [一致] M2 未修 a621b8d
+         目录 /home/ubuntu/cryProject-work/vendor/kyber-kyberslash-unfixed
+         树摘要 1898b727ed24e014cb731442b9a83cd4d82fc49e06899f9ab2d9364ecd60397f
+  [一致] M2 已修 272125f
+         目录 /home/ubuntu/cryProject-work/vendor/kyber-kyberslash-fixed
+         树摘要 8503134f538461c03820e13a0936024a46fff5d85ba334fb0a365f6378a49976
+
+=== 取件完成：四棵 vendor 树的 SHA-256 全部一致 ===
+  vendor/liboqs-0.10.0             d3322945483983b45c60406127790107865706523c4e83a15e27c7211c776cdd
+  vendor/liboqs-0.10.0-982c762     e27e55e5bdb59e89bfe26c8f82ddf8b162346537333c8b18b9e61c9d91093f14
+  vendor/kyber-kyberslash-unfixed  1898b727ed24e014cb731442b9a83cd4d82fc49e06899f9ab2d9364ecd60397f
+  vendor/kyber-kyberslash-fixed    8503134f538461c03820e13a0936024a46fff5d85ba334fb0a365f6378a49976
+
+下一步：sh scripts/reproduce_all.sh quick
+已修臂需要在配置时把 -DLIBOQS010_SOURCE_DIR 指向 /home/ubuntu/cryProject-work/vendor/liboqs-0.10.0-982c762。
