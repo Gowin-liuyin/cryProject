@@ -55,6 +55,36 @@ if(BASELINE_SANITIZERS)
     target_link_options(platform_holm PRIVATE -fsanitize=address,undefined)
 endif()
 
+# 形状/方差三检验同样只读取已有 CSV；输出标 exploratory，不进任何 Holm 家族。
+add_executable(platform_shape_stats tools/platform_stats/shape_stats.c)
+if(MATH_LIBRARY)
+    target_link_libraries(platform_shape_stats PRIVATE "${MATH_LIBRARY}")
+endif()
+set_target_properties(
+    platform_shape_stats
+    PROPERTIES C_STANDARD 11
+               C_STANDARD_REQUIRED ON
+               C_EXTENSIONS OFF
+               INTERPROCEDURAL_OPTIMIZATION FALSE
+               RUNTIME_OUTPUT_DIRECTORY "${output_root}"
+)
+target_compile_options(
+    platform_shape_stats
+    PRIVATE -Wall
+            -Wextra
+            -Wpedantic
+            -Wshadow
+            -Wconversion
+            -Wstrict-prototypes
+            -Werror
+)
+if(BASELINE_SANITIZERS)
+    target_compile_options(platform_shape_stats PRIVATE -O1 -g -fsanitize=address,undefined
+                                                         -fno-omit-frame-pointer
+    )
+    target_link_options(platform_shape_stats PRIVATE -fsanitize=address,undefined)
+endif()
+
 if(BUILD_TESTING)
     add_test(
         NAME platform_stats_battery
@@ -91,5 +121,32 @@ if(BUILD_TESTING)
     set_tests_properties(
         platform_holm PROPERTIES LABELS "platform;stats;software_only" ENVIRONMENT
                                    "A113_TEST_TMPDIR=${CMAKE_CURRENT_BINARY_DIR}/test-tmp"
+    )
+
+    add_executable(test_shape_stats tests/test_shape_stats.c)
+    target_compile_options(
+        test_shape_stats
+        PRIVATE -Wall
+                -Wextra
+                -Wpedantic
+                -Wshadow
+                -Wconversion
+                -Wstrict-prototypes
+                -Werror
+                -UNDEBUG
+    )
+    if(BASELINE_SANITIZERS)
+        target_compile_options(test_shape_stats PRIVATE -O1 -g -fsanitize=address,undefined
+                                                          -fno-omit-frame-pointer
+        )
+        target_link_options(test_shape_stats PRIVATE -fsanitize=address,undefined)
+    endif()
+    add_test(
+        NAME platform_shape_stats
+        COMMAND test_shape_stats "$<TARGET_FILE:platform_shape_stats>"
+    )
+    set_tests_properties(
+        platform_shape_stats PROPERTIES LABELS "platform;stats;software_only" ENVIRONMENT
+                                        "A113_TEST_TMPDIR=${CMAKE_CURRENT_BINARY_DIR}/test-tmp"
     )
 endif()
