@@ -1,0 +1,41 @@
+{
+  "scan_id": "r0b-vendor-surface-20261116",
+  "description": "R0b vendor 防护链泄露面固定清单：只扫配置列出的文件，不扫全树；正则逐行命中后交人工复核，不自动定性。",
+  "rule_regex": "abort\\s*\\(|assert\\s*\\(|fprintf\\s*\\(|printf\\s*\\(|perror\\s*\\(|errno|exit\\s*\\(",
+  "rule_tokens": [
+    { "name": "abort", "regex": "abort\\s*\\(" },
+    { "name": "assert", "regex": "assert\\s*\\(" },
+    { "name": "fprintf", "regex": "fprintf\\s*\\(" },
+    { "name": "printf", "regex": "printf\\s*\\(" },
+    { "name": "perror", "regex": "perror\\s*\\(" },
+    { "name": "errno", "regex": "errno" },
+    { "name": "exit", "regex": "exit\\s*\\(" }
+  ],
+  "targets": [
+    {
+      "tree": "vendor/liboqs-0.10.0",
+      "directory": "src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref",
+      "files": ["poly.c", "indcpa.c", "kem.c", "verify.c"]
+    },
+    {
+      "tree": "vendor/liboqs-0.10.0-982c762",
+      "directory": "src/kem/ml_kem/pqcrystals-kyber-standard_ml-kem-768-ipd_ref",
+      "files": ["poly.c", "indcpa.c", "kem.c", "verify.c"]
+    },
+    {
+      "tree": "vendor/kyber-kyberslash-unfixed",
+      "directory": "ref",
+      "files": ["poly.c", "indcpa.c", "kem.c", "verify.c", "fips202.c"]
+    },
+    {
+      "tree": "vendor/kyber-kyberslash-fixed",
+      "directory": "ref",
+      "files": ["poly.c", "indcpa.c", "kem.c", "verify.c", "fips202.c"]
+    },
+    {
+      "tree": "vendor/mlkem-native",
+      "directory": "mlkem/src",
+      "files": ["verify.h", "verify.c", "kem.c", "fips202/fips202.c"]
+    }
+  ]
+}
