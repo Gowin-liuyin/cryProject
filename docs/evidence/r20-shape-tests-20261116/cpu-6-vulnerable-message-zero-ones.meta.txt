@@ -1,0 +1,9 @@
+label=docs/evidence/r02-r04-close-20261016/raw/cpu-6/csv/vulnerable-message-zero-ones.csv
+input_path=docs/evidence/r02-r04-close-20261016/raw/cpu-6/csv/vulnerable-message-zero-ones.csv
+format=wide
+rows_class_zero=10000
+rows_class_ones=10000
+alpha=0.05
+family=none_exploratory_only
+note=exploratory replay only; not in any Holm family
+input_sha256=5bc83463e372404fb51136a419669166a41afd0c30309b7880e28535b8109f38

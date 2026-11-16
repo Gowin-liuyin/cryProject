@@ -1,0 +1,5 @@
+test_name,statistic,p_value,n0,n1,verdict_exploratory
+brown_forsythe,0.324913022196945,0.568669950575159,10000,10000,clear
+ks_two_sample,0.1179,8.55689895749391e-61,10000,10000,flag
+within_class_second_order_zero,-1.6822167949606,0.0925268085399121,5000,5000,clear
+within_class_second_order_ones,-1.91865803815756,0.055027625309015,5000,5000,clear

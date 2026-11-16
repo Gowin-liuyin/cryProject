@@ -1,0 +1,9 @@
+label=docs/evidence/r02-r04-close-20261016/raw/cpu-6/csv/fixed-message-zero-ones.csv
+input_path=docs/evidence/r02-r04-close-20261016/raw/cpu-6/csv/fixed-message-zero-ones.csv
+format=wide
+rows_class_zero=10000
+rows_class_ones=10000
+alpha=0.05
+family=none_exploratory_only
+note=exploratory replay only; not in any Holm family
+input_sha256=7e97be0952c631500ab6901a7595da6d9c7fe489eb37c9da00c56b2007540e4b

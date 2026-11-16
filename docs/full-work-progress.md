@@ -1173,3 +1173,5 @@ Cry 下」「本任务未写 /tmp」），本轮无法再做实时核对——`S
 - 实验执行：本轮仅核对已有原始记录和编译文档，没有新增采集或改写封存证据。
 - 假设与统计：修正 MDE 被写成效应上限、M2 描述性合并与 Holm 正式判定混用、工具数量和异常输入路径的文字错误。
 - 竞赛验收：维护当前报告与附录 A 的对齐，未以此次文字修改追加新的实验签收。LaTeX、引用、匿名文本与版面检查已完成；C format-check 因本机无 cmake 未执行，此次未修改 C/CMake。
+
+2026-11-16 完成 P0 环境基线复核（WSL Ubuntu-22.04、gcc 14.3.0、CMake 4.3.1；baseline-wsl 57/57；format-check 经 clang-format 21.1.8 通过）与 P1 R20 形状统计软件部分：新增 platform_shape_stats 的 Brown–Forsythe/KS/类内二阶三族四行探索性检验与合成数据 CTest，回放既有 M1 四份宽表并落盘 docs/evidence/r20-shape-tests-20261116/；结果一律族外 exploratory，不进 Holm、不改既有判定。R0a 复测采集留待主控。
