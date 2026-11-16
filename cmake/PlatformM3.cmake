@@ -99,6 +99,79 @@ foreach(fixture_mode IN ITEMS on off)
     endif()
 endforeach()
 
+# 第三模式 shared-on：在 m3-mem-lut-toggle.patch 基础上把 LUT 表改为文件映射共享只读段，
+# 供 cache F+R 观测者与受害臂映射同一文件；不改既有 on/off 封存臂的构建。
+set(platform_m3_shared_patch
+    "${CMAKE_CURRENT_SOURCE_DIR}/docs/patches/m3-lut-shared-page.patch"
+)
+set(platform_m3_shared_overlay "${CMAKE_CURRENT_BINARY_DIR}/platform-m3-shared-on-source")
+set(platform_m3_shared_kernel "${CMAKE_CURRENT_BINARY_DIR}/platform_m3_shared_on_kernel.c")
+configure_file(src/kernel.c "${platform_m3_shared_kernel}" COPYONLY)
+add_custom_command(
+    OUTPUT "${platform_m3_shared_overlay}/patched.stamp"
+    COMMAND
+        "${CMAKE_COMMAND}" "-DSOURCE_ROOT=${CMAKE_CURRENT_SOURCE_DIR}"
+        "-DOVERLAY_ROOT=${platform_m3_shared_overlay}" "-DPATCH_FILE=${platform_m3_patch}"
+        "-DPATCH_EXECUTABLE=${PATCH_EXECUTABLE}" -P
+        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/PrepareVariant.cmake"
+    COMMAND "${PATCH_EXECUTABLE}" -p1 -d "${platform_m3_shared_overlay}" -i
+            "${platform_m3_shared_patch}"
+    DEPENDS ${vendor_files} "${platform_m3_patch}" "${platform_m3_shared_patch}"
+            cmake/PrepareVariant.cmake
+    VERBATIM
+)
+add_custom_target(
+    platform_m3_shared_on_prepare DEPENDS "${platform_m3_shared_overlay}/patched.stamp"
+)
+set_source_files_properties(
+    "${platform_m3_shared_kernel}" PROPERTIES OBJECT_DEPENDS
+                                            "${platform_m3_shared_overlay}/patched.stamp"
+)
+add_library(
+    platform_m3_shared_on_kernel STATIC "${platform_m3_shared_kernel}" src/mlkem.c src/random.c
+                                         src/inputs.c
+)
+target_link_libraries(platform_m3_shared_on_kernel PUBLIC baseline_options)
+target_include_directories(
+    platform_m3_shared_on_kernel BEFORE PRIVATE "${platform_m3_shared_overlay}/mlkem"
+)
+target_compile_definitions(
+    platform_m3_shared_on_kernel
+    PRIVATE PLATFORM_M3_LUT_LEAK=1 PLATFORM_M3_SHARED_LUT=1
+            PLATFORM_IMPLEMENTATION_NAME="platform-m3-lut-shared-on"
+)
+add_dependencies(platform_m3_shared_on_kernel platform_m3_shared_on_prepare)
+set_target_properties(
+    platform_m3_shared_on_kernel
+    PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+               ARCHIVE_OUTPUT_DIRECTORY "${output_root}/platform-m3/shared-on"
+               OUTPUT_NAME mlkem
+)
+foreach(program IN ITEMS baseline measure)
+    if(program STREQUAL "baseline")
+        set(program_source src/main.c)
+    else()
+        set(program_source src/measure.c)
+    endif()
+    add_executable(platform_m3_shared_on_${program} "${program_source}")
+    target_link_libraries(
+        platform_m3_shared_on_${program} PRIVATE platform_m3_shared_on_kernel
+    )
+    target_include_directories(
+        platform_m3_shared_on_${program} PRIVATE "${identity_directory}"
+    )
+    add_dependencies(platform_m3_shared_on_${program} build_identity)
+    set_target_properties(
+        platform_m3_shared_on_${program}
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/platform-m3/shared-on"
+                   OUTPUT_NAME "${program}"
+    )
+endforeach()
+add_custom_target(
+    platform_m3_shared_on DEPENDS platform_m3_shared_on_baseline platform_m3_shared_on_measure
+)
+
 add_custom_target(
     platform_m3 DEPENDS platform_m3_on_baseline platform_m3_off_baseline platform_m3_on_measure
                         platform_m3_off_measure

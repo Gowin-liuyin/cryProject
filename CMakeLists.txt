@@ -952,8 +952,14 @@ if(BUILD_TESTING)
             tools/platform_observers/tests/test_sync_flag.c
             tools/platform_observers/sync_flag.c
         )
+        add_executable(
+            platform_observer_cache_flush_reload
+            tools/platform_observers/cache_flush_reload_observer.c
+            tools/platform_observers/sync_flag.c
+            tools/platform_observers/observer_common.c
+        )
         foreach(observer_target IN ITEMS platform_observer_smt_contention
-                test_platform_observer_sync_flag
+                test_platform_observer_sync_flag platform_observer_cache_flush_reload
         )
             target_compile_options(
                 ${observer_target} PRIVATE -Wall -Wextra -Wpedantic -Wshadow -Wconversion
@@ -963,6 +969,9 @@ if(BUILD_TESTING)
         add_test(NAME platform_observer_sync_flag COMMAND test_platform_observer_sync_flag)
         add_test(NAME platform_observer_smt_selfcheck
                  COMMAND platform_observer_smt_contention --self-check
+        )
+        add_test(NAME platform_observer_cache_selfcheck
+                 COMMAND platform_observer_cache_flush_reload --self-check
         )
         set_tests_properties(platform_observer_sync_flag PROPERTIES TIMEOUT 60)
     endif()

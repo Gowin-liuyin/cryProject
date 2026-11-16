@@ -1,0 +1,66 @@
+--- a/mlkem/src/compress.c
++++ b/mlkem/src/compress.c
+@@ -26,6 +26,39 @@
+ #include "debug.h"
+ #include "verify.h"
+ 
++#if PLATFORM_M3_SHARED_LUT
++#include <fcntl.h>
++#include <stdlib.h>
++#include <sys/mman.h>
++#include <unistd.h>
++#define PLATFORM_M3_SHARED_LUT_BYTES 4096u
++static const volatile int16_t *platform_m3_shared_message_bit_table;
++static void platform_m3_shared_lut_initialize(void)
++{
++    const char *shared_lut_path = getenv("PLATFORM_M3_SHARED_LUT_PATH");
++    int shared_lut_descriptor;
++    void *mapped_region;
++    if (shared_lut_path == NULL) {
++        abort();
++    }
++    shared_lut_descriptor = open(shared_lut_path, O_RDONLY);
++    if (shared_lut_descriptor < 0) {
++        abort();
++    }
++    mapped_region = mmap(NULL, PLATFORM_M3_SHARED_LUT_BYTES, PROT_READ, MAP_SHARED,
++        shared_lut_descriptor, 0);
++    (void)close(shared_lut_descriptor);
++    if (mapped_region == MAP_FAILED) {
++        abort();
++    }
++    platform_m3_shared_message_bit_table = (const volatile int16_t *)mapped_region;
++}
++__attribute__((constructor)) static void platform_m3_shared_lut_constructor(void)
++{
++    platform_m3_shared_lut_initialize();
++}
++#endif
++
+ #if (!defined(MLK_CONFIG_NO_ENCAPS_API) ||                         \
+      !defined(MLK_CONFIG_NO_DECAPS_API)) &&                        \
+     (defined(MLK_CONFIG_MULTILEVEL_WITH_SHARED) || MLKEM_K == 2 || \
+@@ -693,7 +726,7 @@
+  *              The reference implementation contains the expression
+  *              `(msg[i] >> j) & 1` which the compiler can reason must
+  *              be either 0 or 1. */
+-#if PLATFORM_M3_LUT_LEAK
++#if PLATFORM_M3_LUT_LEAK && !PLATFORM_M3_SHARED_LUT
+ /* 人工校准：两种解压系数跨缓存行，查得的值直接成为重加密系数。 */
+ _Alignas(64) static const volatile int16_t platform_m3_message_bit_table[2][32] = {
+     {0},
+@@ -710,8 +743,14 @@
+         uint8_t message_byte = message_bytes[coefficient_index / 8u];
+ #if PLATFORM_M3_LUT_LEAK
+         unsigned message_bit = ((unsigned)message_byte >> message_bit_index) & 1u;
++#if PLATFORM_M3_SHARED_LUT
++        /* 共享页臂：两行 LUT 各占一个 64 B 缓存行（行号 * 32 个 int16）。 */
++        message_polynomial->coeffs[coefficient_index] =
++            platform_m3_shared_message_bit_table[message_bit * 32u];
++#else
+         message_polynomial->coeffs[coefficient_index] =
+             platform_m3_message_bit_table[message_bit][0];
++#endif
+ #else
+         uint8_t message_mask = mlk_value_barrier_u8((uint8_t)(1u << message_bit_index));
+         message_polynomial->coeffs[coefficient_index] =
