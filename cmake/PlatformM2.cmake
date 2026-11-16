@@ -107,6 +107,28 @@ function(configure_platform_m2)
                      COMMAND platform_m2_${variant}_rng_failure
             )
         endif()
+        # R18 观测者 pilot 的受害者侧 wrapper（与冻结 PLAN §2 的 turn 协议逐拍咬合）。
+        add_executable(
+            platform_m2_${variant}_observer_victim
+            tools/platform_observers/victim_wrapper.c
+            tools/platform_observers/victim_backend_m2.c
+            tools/platform_observers/sync_flag.c
+            tools/platform_observers/observer_common.c
+        )
+        target_link_libraries(
+            platform_m2_${variant}_observer_victim PRIVATE platform_m2_${variant}
+        )
+        target_compile_options(
+            platform_m2_${variant}_observer_victim PRIVATE -Wall -Wextra -Wpedantic -Wshadow
+                                                          -Wconversion -Wstrict-prototypes
+                                                          -Werror
+        )
+        set_target_properties(
+            platform_m2_${variant}_observer_victim
+            PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                       RUNTIME_OUTPUT_DIRECTORY "${output_root}/platform-m2/${variant}"
+                       OUTPUT_NAME observer_victim
+        )
     endforeach()
 
     if(BUILD_TESTING)

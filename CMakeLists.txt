@@ -964,6 +964,19 @@ if(BUILD_TESTING)
             tools/platform_observers/sync_flag.c
             tools/platform_observers/observer_common.c
         )
+
+        add_executable(
+            platform_observer_victim_mock
+            tools/platform_observers/victim_wrapper.c
+            tools/platform_observers/victim_backend_mock.c
+            tools/platform_observers/sync_flag.c
+            tools/platform_observers/observer_common.c
+        )
+        target_compile_options(
+            platform_observer_victim_mock PRIVATE -Wall -Wextra -Wpedantic -Wshadow
+                                                  -Wconversion -Wstrict-prototypes -Werror
+                                                  -UNDEBUG
+        )
         foreach(observer_target IN ITEMS platform_observer_smt_contention
                 test_platform_observer_sync_flag platform_observer_cache_flush_reload
                 platform_observer_btb
@@ -991,6 +1004,18 @@ if(BUILD_TESTING)
                 -P "${CMAKE_CURRENT_SOURCE_DIR}/tools/platform_observers/tests/test_observer_arguments.cmake"
         )
         set_tests_properties(platform_observer_sync_flag PROPERTIES TIMEOUT 60)
+
+        add_test(
+            NAME test_observer_pair_mock
+            COMMAND
+                "${SH_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_observer_pair_mock.sh"
+                "${CMAKE_CURRENT_SOURCE_DIR}"
+                "$<TARGET_FILE:platform_observer_smt_contention>"
+                "$<TARGET_FILE:platform_observer_cache_flush_reload>"
+                "$<TARGET_FILE:platform_observer_victim_mock>"
+        )
+        set_tests_properties(test_observer_pair_mock PROPERTIES TIMEOUT 180)
     endif()
     # P6 自适应 L1/L2：逐位检验器与 M4 位置构造器；引擎演示不并入固定 CTest。
     add_executable(adaptive_bit_hypothesis_tester tools/adaptive/bit_hypothesis_tester.c)

@@ -15,6 +15,8 @@
 #include "observer_common.h"
 #include "sync_flag.h"
 
+#include <immintrin.h>
+
 #include <fcntl.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -475,6 +477,8 @@ static int run_observer(const struct cache_options *options)
             return 2;
         }
     }
+    uint64_t wait_target_sequence =
+        sync_flag != NULL ? sync_flag_current_sequence(sync_flag) + 1u : 0u;
     unsigned row_capacity = options->sample_count * layout.line_count;
     size_t text_capacity = 128u * ((size_t)row_capacity + 1u) + 64u;
     char *csv_text = malloc(text_capacity);
@@ -492,23 +496,30 @@ static int run_observer(const struct cache_options *options)
         for (unsigned line_index = 0u; status == 0 && line_index < layout.line_count;
             ++line_index) {
             const volatile uint8_t *line_address = mapped_region + layout.line_offsets[line_index];
-            if (sync_flag != NULL && sync_flag_wait_turn(sync_flag) != 0) {
+            if (sync_flag != NULL
+                && observer_wait_sequence(sync_flag, wait_target_sequence) != 0) {
                 fprintf(stderr, "error: sync flag closed before victim window\n");
                 status = 1;
                 break;
             }
             flush_cache_line(line_address);
-            if (sync_flag != NULL && sync_flag_wait_turn(sync_flag) != 0) {
+            if (sync_flag != NULL
+                && observer_wait_sequence(sync_flag, wait_target_sequence + 1u) != 0) {
                 fprintf(stderr, "error: sync flag closed after victim window\n");
                 status = 1;
                 break;
             }
-            uint64_t reload_start = read_time_stamp_counter();
+            unsigned timing_auxiliary = 0u;
+            uint64_t reload_start = (uint64_t)__rdtscp(&timing_auxiliary);
+            __builtin_ia32_lfence();
             uint8_t reload_value = *line_address;
-            uint64_t reload_end = read_time_stamp_counter();
+            __builtin_ia32_lfence();
+            uint64_t reload_end = (uint64_t)__rdtscp(&timing_auxiliary);
             (void)reload_value;
+            (void)timing_auxiliary;
             if (sync_flag != NULL) {
                 sync_flag_signal_turn(sync_flag);
+                wait_target_sequence += 3u;
             }
             status = append_csv_row(csv_text,
                 text_capacity,

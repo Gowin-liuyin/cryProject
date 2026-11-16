@@ -3,6 +3,8 @@
 
 #include "observer_common.h"
 
+#include "sync_flag.h"
+
 #include <errno.h>
 #include <sched.h>
 #include <stdarg.h>
@@ -200,4 +202,16 @@ int observer_validate_csv(const char *path, const char *expected_header, unsigne
         status = 1;
     }
     return status;
+}
+
+int observer_wait_sequence(struct sync_flag *flag, uint64_t target_sequence)
+{
+    for (;;) {
+        if (sync_flag_current_sequence(flag) >= target_sequence) {
+            return 0;
+        }
+        if (sync_flag_wait_turn(flag) != 0) {
+            return -1;
+        }
+    }
 }

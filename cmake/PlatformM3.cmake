@@ -67,7 +67,28 @@ foreach(fixture_mode IN ITEMS on off)
                        OUTPUT_NAME "${program}"
         )
     endforeach()
+    add_executable(
+        platform_m3_${fixture_mode}_observer_victim
+        tools/platform_observers/victim_wrapper.c
+        tools/platform_observers/victim_backend_m3.c
+        tools/platform_observers/sync_flag.c
+        tools/platform_observers/observer_common.c
+    )
+    target_link_libraries(
+        platform_m3_${fixture_mode}_observer_victim PRIVATE platform_m3_${fixture_mode}_kernel
+    )
+    target_compile_options(
+        platform_m3_${fixture_mode}_observer_victim PRIVATE -Wall -Wextra -Wpedantic -Wshadow
+                                                  -Wconversion -Wstrict-prototypes -Werror
+    )
+    set_target_properties(
+        platform_m3_${fixture_mode}_observer_victim
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/platform-m3/${fixture_mode}"
+                   OUTPUT_NAME observer_victim
+    )
     if(PLATFORM_M3_CTGRIND)
+
         add_executable(platform_m3_${fixture_mode}_probe tools/platform_m3/ctgrind_probe.c)
         target_link_libraries(
             platform_m3_${fixture_mode}_probe PRIVATE platform_m3_${fixture_mode}_kernel
@@ -168,6 +189,27 @@ foreach(program IN ITEMS baseline measure)
                    OUTPUT_NAME "${program}"
     )
 endforeach()
+    add_executable(
+        platform_m3_shared_on_observer_victim
+        tools/platform_observers/victim_wrapper.c
+        tools/platform_observers/victim_backend_m3.c
+        tools/platform_observers/sync_flag.c
+        tools/platform_observers/observer_common.c
+    )
+    target_link_libraries(
+        platform_m3_shared_on_observer_victim PRIVATE platform_m3_shared_on_kernel
+    )
+    target_compile_options(
+        platform_m3_shared_on_observer_victim PRIVATE -Wall -Wextra -Wpedantic -Wshadow
+                                                  -Wconversion -Wstrict-prototypes -Werror
+    )
+    set_target_properties(
+        platform_m3_shared_on_observer_victim
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION FALSE
+                   RUNTIME_OUTPUT_DIRECTORY "${output_root}/platform-m3/shared-on"
+                   OUTPUT_NAME observer_victim
+    )
+
 add_custom_target(
     platform_m3_shared_on DEPENDS platform_m3_shared_on_baseline platform_m3_shared_on_measure
 )

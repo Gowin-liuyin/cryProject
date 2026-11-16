@@ -291,6 +291,8 @@ static int run_observer(const struct smt_options *options)
             return 2;
         }
     }
+    uint64_t wait_target_sequence =
+        sync_flag != NULL ? sync_flag_current_sequence(sync_flag) + 1u : 0u;
     uint64_t *dividends = malloc((size_t)options->div_batch * sizeof(uint64_t));
     uint32_t *divisors = malloc((size_t)options->div_batch * sizeof(uint32_t));
     uint64_t *batch_elapsed = malloc((size_t)options->batch_count * sizeof(uint64_t));
@@ -306,7 +308,8 @@ static int run_observer(const struct smt_options *options)
     unsigned accumulator = 0u;
     int status = 0;
     for (unsigned batch_index = 0u; batch_index < options->batch_count; ++batch_index) {
-        if (sync_flag != NULL && sync_flag_wait_turn(sync_flag) != 0) {
+        if (sync_flag != NULL
+            && observer_wait_sequence(sync_flag, wait_target_sequence) != 0) {
             fprintf(stderr, "error: sync flag closed while waiting for victim turn\n");
             status = 1;
             break;
@@ -322,6 +325,7 @@ static int run_observer(const struct smt_options *options)
         batch_elapsed[batch_index] = end_nanoseconds - start_nanoseconds;
         if (sync_flag != NULL) {
             sync_flag_signal_turn(sync_flag);
+            wait_target_sequence += 2u;
         }
     }
     if (status == 0) {
