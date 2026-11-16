@@ -1191,3 +1191,5 @@ Cry 下」「本任务未写 /tmp」），本轮无法再做实时核对——`S
 2026-11-16 完成 P7 对象扩展与威胁模型 v2：R17 三向量化对象（liboqs AVX2 分发/kyber round3 avx2 两臂/mlkem-native native）构建与反汇编六类审计完成，Memcheck/KAT 复核因本机 valgrind 缺失汇入 A_LINE_BUNDLE；R23 本地 24 格（gcc 4×M1、clang-18 3×M1、clang-18 4×M2）产物判定完成并写裸金属 Memcheck/计时 PLAN；R24 两 harness+cfg+执行 PLAN；R25 docs/evidence/r25-threat-v2-20261116/THREAT_MODEL_V2.md（七维树 + L0–L4 分级 + P0–P6 证据索引）。ctest 66/66（P0–P6 套件；工作区另有并行任务未提交改动，未触碰）；R17/R23/R24 动态执行留待主控。
 
 - 2026-11-16 P8 观测者执行层（主控直写）：victim_wrapper 四后端（mock/M2 两臂/M3 三模式）+ run_pair + 类别 join；修复 P5 观测者两处协议级缺陷（wait_turn 吞自身 signal 导致观测者自由空转→绝对序号咬合；裸 rdtsc 乱序提前加载使 cache miss 不可见→rdtscp+lfence）；真实臂本地冒烟 M2-unfixed×SMT 40 窗口、M3-shared-on×F+R 30/30 类别命中；R18/R19 pilot 的 wrapper 变体（sync_mode=wrapper_hook）就绪，裸金属执行按各 PLAN/RUNBOOK 留待主控。
+
+- 2026-11-16 P8 附：R0a RUNBOOK（裸金属执行手册，含 R18/R19 同趟打包说明）与 prepare_r0a_bundle.sh 可复现上传包生成脚本。
