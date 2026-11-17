@@ -1193,3 +1193,5 @@ Cry 下」「本任务未写 /tmp」），本轮无法再做实时核对——`S
 - 2026-11-16 P8 观测者执行层（主控直写）：victim_wrapper 四后端（mock/M2 两臂/M3 三模式）+ run_pair + 类别 join；修复 P5 观测者两处协议级缺陷（wait_turn 吞自身 signal 导致观测者自由空转→绝对序号咬合；裸 rdtsc 乱序提前加载使 cache miss 不可见→rdtscp+lfence）；真实臂本地冒烟 M2-unfixed×SMT 40 窗口、M3-shared-on×F+R 30/30 类别命中；R18/R19 pilot 的 wrapper 变体（sync_mode=wrapper_hook）就绪，裸金属执行按各 PLAN/RUNBOOK 留待主控。
 
 - 2026-11-16 P8 附：R0a RUNBOOK（裸金属执行手册，含 R18/R19 同趟打包说明）与 prepare_r0a_bundle.sh 可复现上传包生成脚本。
+
+- 2026-11-17 A 线本机采集包验收（主控）：bf6d97a2 结果包（Apple M5/Rosetta x86_64、未锁频、时钟刻度 1000ns）按补充观察归档——产物层 1/1/0（封存 ELF+补丁目标文件）、hostlocal 家族 m=9 Holm 拒绝 1（A1 r02）、A0 3/3 CI 不含 0、A1 2/3 正向、A2 3/3 CI 含 0（未检出）＝修复预期指纹但不签收；冻结家族 m2_branchfix_end_to_end_v1 维持 not_run；定位层/Memcheck/R18/R19/Binsec/锁频矩阵仍待 nss-m（两台机器均无法路由至 10.144.x，需实验室 VPN 或到场）；题面 6/7 状态不变。
