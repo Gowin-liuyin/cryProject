@@ -1,0 +1,5 @@
+chapters/ch1.tex:196:\par\smallskip{\footnotesize 表注：计时层与防护后两列单位均为 ns，数值按原始统计精度保留，区间为 95\% 置信区间；三次运行逐次值见附录 C（表 C1--C5）。}
+chapters/ch1.tex:242:\par\smallskip{\footnotesize 表注：本表概要汇总赛题 12 项技术要求的完成情况，逐项数据与章节映射详见附录 A 表 A1。所有结论均有正文实验数据支撑。}
+chapters/ch4.tex:410:\par\smallskip{\footnotesize \textbf{表注：}计时层数值单位均为 ns；定位层按各自计数（上下文 / bits）标注。族外检验与定位层结论不参与 Holm 校正，只作交叉印证。}
+chapters/ch4.tex:470:\par\smallskip{\footnotesize \textbf{表注：}两列口径的区别：左列按单次检验 $\alpha=0.05$ 计算；右列按家族内 Holm 校正后的门槛计算（M1 家族 $m=6$，最小 $p$ 的门槛为 $0.05/6\approx0.00833$）。判定依据：观测值超出对应口径 MDE 才可能被检出，未超出的阴性附预算；正式判定由预注册的 Holm 检验给出（4.3 节）。}
+chapters/ch4.tex:555:{\footnotesize \textbf{表注：}M1、M2、M3、M5 为完整解封装；M4 为人工构造的 32 B 单次比较窗口，使用 \texttt{CLOCK\_MONOTONIC\_RAW}，分隔线以下各行只在该窗口内比较。相对开销列为成对分块测量（4.7 节与图~\ref{fig:overhead}）：M3 为消除查表版相对开启查表版，M4 为常数时间实现相对脆弱实现，核心对比看加粗列。SD 按完整原始调用值计算；95\% CI 为合并调用级 bootstrap 描述区间，未建模块内相关性，正式稳健性以第 4.7 节分块复核和附录 C 逐次区间为准。}
